@@ -1,40 +1,13 @@
-# Gradle
-.gradle/
-build/
-**/build/
-
-# Android local configuration
-local.properties
-
-# Android Studio / IntelliJ
-.idea/
-*.iml
-
-# VS Code local settings
-.vscode/
-
-# OS files
+# Shared local files
 .DS_Store
 Thumbs.db
 
-# Signing material
-*.jks
-*.keystore
-*.p12
-*.pem
-*.key
+# JavaScript dependencies and build artefacts
+**/node_modules/
+**/.next/
+**/.vinext/
+**/.wrangler/
+**/dist/
 
-# Android packages / proprietary test inputs
-*.apk
-*.aab
-*.apks
-*.xapk
-
-# Temporary analysis / extracted files
-work/
-tmp/
-extracted/
-decoded/
-
-# Logs
-*.log
+# Local Git repositories created for deployment
+**/.git/

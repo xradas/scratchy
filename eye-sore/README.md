@@ -1,7 +1,15 @@
 # Eye Sore
 
-A new project in the Scratchy workspace.
+An original, browser-based isometric neon arena shooter.
 
-## Status
+## Run locally
 
-Initial scaffold. Product goals and platform are to be defined.
+Use Node 22 or newer, then run `npm install` followed by `npm run dev`.
+
+## Controls
+
+- WASD or arrow keys — move
+- Pointer — aim
+- Click or Space — fire
+
+Eye Sore is its own project within the Scratchy workspace and does not use Doom artwork, code, levels, audio, or other assets.
