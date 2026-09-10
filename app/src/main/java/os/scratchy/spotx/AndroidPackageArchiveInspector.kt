@@ -16,6 +16,17 @@ class AndroidPackageArchiveInspector(
     private val cacheDirectory: File,
     private val policy: TargetPolicy,
 ) {
+    fun inspectInstalled(packageName: String): InspectionResult = try {
+        val info = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0))
+        } else {
+            @Suppress("DEPRECATION") packageManager.getPackageInfo(packageName, 0)
+        }
+        policy.evaluate(identityFor(info))
+    } catch (_: PackageManager.NameNotFoundException) {
+        InspectionResult.Rejected(Diagnostic("target-not-installed", "Spotify is not installed on this phone."))
+    }
+
     fun inspect(uri: android.net.Uri): InspectionResult {
         val archive = File.createTempFile("scratchy-inspect-", ".apk", cacheDirectory)
         return try {
@@ -26,11 +37,17 @@ class AndroidPackageArchiveInspector(
             } else {
                 @Suppress("DEPRECATION") packageManager.getPackageArchiveInfo(archive.path, 0)
             } ?: return InspectionResult.Rejected(Diagnostic("invalid-apk", "The selected file is not a readable APK."))
-            policy.evaluate(TargetIdentity(info.packageName, info.versionName ?: "unknown", if (Build.VERSION.SDK_INT >= 28) info.longVersionCode else info.versionCode.toLong()))
+            policy.evaluate(identityFor(info))
         } catch (error: Exception) {
             InspectionResult.Rejected(Diagnostic("inspection-failed", error.message ?: "APK inspection failed."))
         } finally {
             archive.delete()
         }
     }
+
+    private fun identityFor(info: android.content.pm.PackageInfo) = TargetIdentity(
+        info.packageName,
+        info.versionName ?: "unknown",
+        if (Build.VERSION.SDK_INT >= 28) info.longVersionCode else info.versionCode.toLong(),
+    )
 }
