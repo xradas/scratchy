@@ -11,7 +11,7 @@ This document will track the reproducible Scratchy development environment.
 - Gradle wrapper committed to the repository
 - Jetpack Compose
 
-Exact Android Gradle Plugin, Gradle, Kotlin, compile SDK, target SDK and minimum SDK versions should be recorded here when the Android project skeleton is generated and successfully built.
+Current skeleton: Android Gradle Plugin 8.7.3, Gradle 8.10.2, Kotlin 2.0.21, compile/target SDK 35, and minimum SDK 26. The project builds successfully with JDK 17.
 
 ## Initial setup checklist
 
@@ -25,7 +25,7 @@ Exact Android Gradle Plugin, Gradle, Kotlin, compile SDK, target SDK and minimum
 
 ## Validation commands
 
-Once the Gradle wrapper exists, this page should contain the exact commands used by both developers and CI.
+Use `./gradlew test assembleDebug`. CI should use the same wrapper command so local and hosted builds run against Gradle 8.10.2.
 
 ## VS Code / Codex
 

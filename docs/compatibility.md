@@ -13,4 +13,4 @@ Compatibility data will be added only after a target version has been analysed a
 
 | Target | Version | Inspection | Benign POC patch | Notes |
 |---|---|---:|---:|---|
-| Android target application | TBD | Planned | Planned | Initial proof of concept |
+| `com.spotify.music` | Any | Package/version metadata only | Not enabled | Unknown versions fail closed; no transformation is currently available |
