@@ -40,8 +40,7 @@ private fun ScratchyApp() {
     val scope = rememberCoroutineScope()
     var result by remember { mutableStateOf<InspectionResult?>(null) }
     var inspecting by remember { mutableStateOf(false) }
-    val picker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
-        if (uri == null) return@rememberLauncherForActivityResult
+    fun inspect(action: AndroidPackageArchiveInspector.() -> InspectionResult) {
         inspecting = true
         scope.launch {
             result = withContext(Dispatchers.IO) {
@@ -50,10 +49,14 @@ private fun ScratchyApp() {
                     context.packageManager,
                     context.cacheDir,
                     TargetPolicy(setOf("com.spotify.music")),
-                ).inspect(uri)
+                ).action()
             }
             inspecting = false
         }
+    }
+    val picker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        if (uri == null) return@rememberLauncherForActivityResult
+        inspect { inspect(uri) }
     }
     MaterialTheme(colorScheme = darkColorScheme(primary = Lime, surface = Panel, background = Ink)) {
         Scaffold(containerColor = Ink) { inset ->
@@ -68,7 +71,12 @@ private fun ScratchyApp() {
                         when (val current = result) {
                             is InspectionResult.Identified -> Text("Found ${current.target.packageName} ${current.target.versionName} (${current.target.versionCode}). No patches are enabled yet.", color = Lime)
                             is InspectionResult.Rejected -> Text(current.diagnostic.message, color = Color(0xFFFFB4AB))
-                            null -> Text("Choose an APK to inspect its package name and version.", color = Color.LightGray)
+                            null -> Text("Check the Spotify app already on your phone, or choose an APK file.", color = Color.LightGray)
+                        }
+                        Button(enabled = !inspecting, onClick = { inspect { inspectInstalled("com.spotify.music") } }) {
+                            Icon(Icons.Default.Security, null)
+                            Spacer(Modifier.width(8.dp))
+                            Text("Check installed Spotify")
                         }
                         Button(enabled = !inspecting, onClick = { picker.launch(arrayOf("application/vnd.android.package-archive")) }) {
                             Icon(Icons.Default.FolderOpen, null)
