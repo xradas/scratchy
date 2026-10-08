@@ -15,9 +15,9 @@ $(OUT): src/main.c
 run: $(OUT)
 	./$(OUT)
 
-$(OUT3D): src/engine3d.cpp
+$(OUT3D): src/engine3d.cpp src/combat_world.cpp src/combat_world.h
 	mkdir -p build
-	$(CPP) $(CPPFLAGS) $< -o $@ $(GL_LDLIBS)
+	$(CPP) $(CPPFLAGS) src/engine3d.cpp src/combat_world.cpp -o $@ $(GL_LDLIBS)
 
 run-3d: $(OUT3D)
 	./$(OUT3D)
