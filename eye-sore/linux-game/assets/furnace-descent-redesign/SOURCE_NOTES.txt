@@ -1,0 +1,34 @@
+EYE SORE — FURNACE DESCENT REDESIGN
+4 October 2026. Original replacement candidates for user review, not claimed approved or integrated.
+
+METHOD / PROVENANCE
+Inspected actual existing assets/infernal-wall.bmp, infernal-floor.bmp and infernal-ceiling.bmp via PNG review conversion; those assets are untouched. Generated six independent new material rasters with built-in image_gen. Wall/floor used existing material images as color/construction references; none used another game's texture or screenshot. Prompts preserved verbatim in GENERATION_PROMPTS.txt. Generated 1254 square source masters in source/ retained. All prior material sets, including Starling and White Hunger, preserved.
+Masters exported to 1024 square RGB PNG by nearest resizing. Runtime files 256 square opaque 24-bit BMP3. Edge-phase crops for four seamfit exports use small boundary removals (at most23 source pixels on any edge) to align image boundaries with natural periodic construction phases; exact crop recorded in export-crop-inspection.json. Initial exports retained alongside seamfit exports.
+
+CANDIDATE CLASSES / FILES
+Wall: wall-basalt-seamfit.bmp — battered ash-highlighted basalt blocks, rusty iron bracing, sparse ember fissures. Use wall-basalt-seamfit.png master.
+Floor, principal walkable support: floor-ash-seamfit.bmp — broad gray basalt pavers with compacted pale volcanic ash, quiet plane faces; no metal/rivet/glow pattern. Use floor-ash-seamfit.png.
+Floor, catwalk/industrial support: floor-iron-runtimefit.bmp — broad walked forged plates, grouped corner rivets, rust deposits, isolated heat glimpses. Use floor-iron-runtimefit.png. A final crop was chosen against the actual two-stage nearest256 export: top/bottom mean RGB difference2.94/255. Earlier seamfit BMP sampled a different edge row and is superseded, retained only as export history.
+Ceiling: ceiling-exhaust-seamfit.bmp — soot-dark iron exhaust panels, broad structural straps, restrained vent heat. Use ceiling-exhaust-seamfit.png.
+Elevation tread/riser/cover cap: elevation-tread.bmp — horizontal raised cast-iron ribs with lighter worn tread noses, muted rust valleys; no glow. Use elevation-tread.png.
+Floor, explicit hazard candidate: floor-lava.bmp — broad charcoal crust islands and orange molten channels. Use floor-lava.png. Texture itself does not cause damage or supply collision/hazard state.
+
+PALETTE / CONSTRUCTION
+Shared muted charcoal basalt/iron, ash gray, rust umber, red/orange ember, sparse yellow-orange molten core. Wall is large irregular rock planes and selective braces; ash floor has quiet support faces; industrial floor has plate assembly; ceiling uses repeated exhaust structure; elevation uses clear transverse rib rhythm; lava omits mechanical grid entirely.
+Requested palette anchors: charcoal #343230, ash #60594f/#777064, rust #77472c, ember #d94b12, rare core #f29935/#ffc154. Generated colors are approximate, not exact indexed palette values. Measured means in candidate-surface-inspection.json; no claim of enforced32-color palette.
+Primary floor ash is lighter/quieter than wall and industrial floor, improving role separation in the artwork; in-game readability remains unassessed.
+
+TILING INSPECTION
+Viewed every 2x2 tiled preview before/after export correction. Source ceiling and iron top/bottom frame phases initially mismatched. Small periodic-boundary crops reduced measured edge discontinuities while preserving panel content; final wall/iron/ceiling repeats visually follow their construction. Tread and lava require no crop. Ash floor has some top/bottom stone-contour discontinuity and short repeated motif recognition; this remains a candidate caveat rather than a claim of mathematically perfect tile.
+Contact sheet: previews/contact-sheet-candidate.png. Final repeats: previews/*-seamfit-repeat.png and previews/elevation-tread-repeat.png, floor-lava-repeat.png.
+Mean opposite-edge RGB differences are diagnostics only. They do not prove contour continuity, game lighting quality or seam invisibility. Final iron runtime2x2 preview: previews/floor-iron-runtimefit-repeat.png; final crop data runtimefit-export.json. Final runtime contact/repeat previews below use the actual256BMP pixels, not only1024 master art.
+
+REPEAT / GEOMETRY GUIDANCE
+Current native renderer: linear minification, nearest magnification, repeat wrap, no mip levels. Standard room floor maps one tile per2world units; outer walls have horizontal2unit repeat but vertical1.25unit repeat, internal walls horizontal1unit, vertical1.25unit. Current pillar1.14width/4.55height maps1x4, different from floors. These inconsistent densities will still distort material regardless of source quality.
+Recommended uniform physical repeat: wall tile2x2world units (four courses -> .5unit high); ash and iron floor tile2x2units; ceiling tile2x2units. Preserve common texel density128source pixels perworld unit for256runtime.
+Elevation texture: map entire tile over four real treads or .8–1.2units depth so each .2–.3unit rise/landing pattern reads at roughly intended scale; rotate ribs transverse to travel. Riser should receive assigned construction material, never texture stairs painted on a flat collider.
+Lava repeat2–3world units and apply only to explicit nonwalkable/damaging regions; worn iron ember accents remain nonhazardous decoration.
+Real elevation/stairs require actual geometry/collision support; current camera height is fixed in standard mode. Textures do not add vertical gameplay.
+Sampler may shimmer on slanting floor; no moving renderer/game test by this specialist. Use restrained mip/filter work after candidate choice.
+Wall/floor still intentionally resemble the current infernal construction family; the expanded differences are material roles, ash floor, clearer tread and lava, quieter ceiling and coarser wall arrangement. No new setting inferred.
+No engine/source/build scripts modified. No current files overwritten. Review these replacements before runtime integration.

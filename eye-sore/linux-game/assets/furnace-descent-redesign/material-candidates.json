@@ -1,0 +1,88 @@
+{
+  "status": "original replacement candidates; not integrated or approved",
+  "method": "built-in image_gen and deterministic RGB export/crop",
+  "runtime": {
+    "dimensions": [
+      256,
+      256
+    ],
+    "format": "BMP3",
+    "bits": 24,
+    "alpha": false
+  },
+  "master": {
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "format": "PNG"
+  },
+  "materials": [
+    {
+      "id": "wall.basalt",
+      "role": "wall",
+      "file": "wall-basalt-seamfit.bmp",
+      "master": "wall-basalt-seamfit.png",
+      "world_tile": [
+        2,
+        2
+      ],
+      "hazard": false
+    },
+    {
+      "id": "floor.ash",
+      "role": "floor_walkable",
+      "file": "floor-ash-seamfit.bmp",
+      "master": "floor-ash-seamfit.png",
+      "world_tile": [
+        2,
+        2
+      ],
+      "hazard": false
+    },
+    {
+      "id": "floor.iron",
+      "role": "floor_walkable",
+      "file": "floor-iron-runtimefit.bmp",
+      "master": "floor-iron-runtimefit.png",
+      "world_tile": [
+        2,
+        2
+      ],
+      "hazard": false
+    },
+    {
+      "id": "ceiling.exhaust",
+      "role": "ceiling",
+      "file": "ceiling-exhaust-seamfit.bmp",
+      "master": "ceiling-exhaust-seamfit.png",
+      "world_tile": [
+        2,
+        2
+      ],
+      "hazard": false
+    },
+    {
+      "id": "elevation.tread",
+      "role": "elevation_tread_riser",
+      "file": "elevation-tread.bmp",
+      "master": "elevation-tread.png",
+      "world_tile": [
+        1,
+        1
+      ],
+      "hazard": false
+    },
+    {
+      "id": "floor.lava",
+      "role": "floor_hazard_candidate",
+      "file": "floor-lava.bmp",
+      "master": "floor-lava.png",
+      "world_tile": [
+        2,
+        2
+      ],
+      "hazard": "Requires separately authored gameplay hazard state"
+    }
+  ]
+}

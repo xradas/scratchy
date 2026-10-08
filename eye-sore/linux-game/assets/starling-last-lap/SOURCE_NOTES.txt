@@ -1,0 +1,24 @@
+STARLING'S LAST LAP — Surface asset production, 3 October 2026
+Production method: OpenAI built-in image_gen, four new generated images and one targeted wall-edge edit. Independent original game material prompts; no ripped game material/reference asset used. Full prompts in GENERATION_PROMPTS.txt. Generated source masters retained under source/. Export by ImageMagick nearest resize, RGB 24-bit uncompressed BMP3 (SDL-compatible).
+Do not integrate assets/white-hunger; its drafts remain isolated per user's change of direction.
+
+RENDERER FILES
+rink-floor.bmp: 256x256 opaque RGB. Midnight grip-rubber panels, continuous teal lane, worn cream chevron and sparing coral repair wear.
+rink-wall.bmp: 256x256 opaque RGB. Cream enamel crash wall, teal foam band, coral trim. Export source wall-crash-final.png.
+rink-ceiling.bmp: 256x256 opaque RGB. Quiet cool slate acoustic panel with violet joint trim and sparse small pale teal lamp inserts.
+concourse-floor.bmp: 256x256 opaque RGB. Optional lighter recovery/entry terrazzo with restrained palette chips.
+1024x1024 PNG masters: floor-grip.png, wall-crash-final.png, ceiling-acoustic.png, floor-terrazzo.png.
+Additional 1024 and 256 named PNG/BMP exports are retained as alternatives; use rink-* compatibility names by default.
+
+SEAM INSPECTION
+Inspected each 2x2 tiled preview visually, including bands, wrap joins, value discontinuities and corners. Floor lane keeps continuity and width; floor chevrons are original circuit-lane decoration, not hazard art. Terrazzo and ceiling have no conspicuous light gradient at wraps. Initial wall had mismatching left/right joints. Built-in targeted repair gave matching edge rails; final export crops 8 source pixels at each edge from 1254 to 1238 square to reduce doubled edge rails. Preview is wall-crash-final-repeat-preview.png, which was inspected after crop. Remaining mild upper/lower joint-width variation is present; do not claim mathematically exact seamlessness. It is visually serviceable for horizontal repeating full-height wall use; vertical repetition would visibly stack bumper bands and is discouraged.
+runtime-surface-inspection.json records dimensions, BMP bits and mean wrap RGB difference; those are diagnostics, not playtest/beauty approval.
+
+VALUE AND SCALE
+Floor is dark cool navy, wall is broad cream mid/high value, overhead is cooler muted slate/violet. No texture is a functional light or emission surface. Keep realtime lighting broad, neutral/cool; inherited orange lighting will spoil these colors.
+Recommended wall world mapping: one entire image vertically over each wall height, four world units per repeat horizontally. Legacy wall repeat_v=4 would create four stacked foam bumpers and distort panel proportions.
+Recommended floor/ceiling: one tile per ~3–4 world units; current 2-unit floor repeats make lanes ~0.3 world unit across. At 4 units the central inlay is ~0.6 units across.
+256 runtime files reduce minification detail and memory relative to 1024 masters; no mipmaps are supplied. Current nearest-magnification / linear-minification sampler still needs moving in-game assessment for shimmer.
+Floor arrows must be rotated with intended race route in future mapping; a single uniform tiled arrow field does not define actual route progression. Terrazzo is decorative support surface; no implied hazard.
+No renderer/source/Makefile edits, no game playtest or final user aesthetic approval by this specialist. Art previews are new actual assets, not integrated screenshot claims.
+

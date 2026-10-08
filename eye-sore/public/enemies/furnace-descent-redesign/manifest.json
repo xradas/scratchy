@@ -1,0 +1,2916 @@
+{
+  "title": "Eye Sore \u2014 Furnace Descent redesign",
+  "production": "original authored sprite keys, built-in image_gen",
+  "canvas_pixels": [
+    384,
+    256
+  ],
+  "render_canvas_aspect": 1.5,
+  "pivot_engine_bottom_origin": [
+    0.5,
+    0.0
+  ],
+  "ground_pixel": 255,
+  "direction_order": [
+    "front",
+    "front-right",
+    "right",
+    "back-right",
+    "back",
+    "back-left",
+    "left",
+    "front-left"
+  ],
+  "pose_order": [
+    "approach-a",
+    "approach-b",
+    "tell",
+    "release",
+    "recovery",
+    "corpse"
+  ],
+  "filter": "nearest",
+  "alpha": "binary cutout from source alpha threshold 128; never RGB black-key",
+  "frames": [
+    {
+      "family": "hookrunner",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "hookrunner/hookrunner-dir-0-approach-a.png",
+      "bmp": "hookrunner/hookrunner-dir-0-approach-a.bmp",
+      "source_cell": [
+        0,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10915.0,
+      "render_y_offset_pixels": -9,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 21841,
+      "opaque_mean_rgb": 70.236,
+      "bbox": [
+        87,
+        35,
+        302,
+        256
+      ],
+      "opaque_near_black_pixels": 70
+    },
+    {
+      "family": "hookrunner",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "hookrunner/hookrunner-dir-1-approach-a.png",
+      "bmp": "hookrunner/hookrunner-dir-1-approach-a.bmp",
+      "source_cell": [
+        1,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 11370.0,
+      "render_y_offset_pixels": -10,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 22704,
+      "opaque_mean_rgb": 71.641,
+      "bbox": [
+        80,
+        37,
+        296,
+        256
+      ],
+      "opaque_near_black_pixels": 92
+    },
+    {
+      "family": "hookrunner",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "hookrunner/hookrunner-dir-2-approach-a.png",
+      "bmp": "hookrunner/hookrunner-dir-2-approach-a.bmp",
+      "source_cell": [
+        2,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10152.0,
+      "render_y_offset_pixels": -14,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20302,
+      "opaque_mean_rgb": 74.145,
+      "bbox": [
+        80,
+        36,
+        262,
+        256
+      ],
+      "opaque_near_black_pixels": 42
+    },
+    {
+      "family": "hookrunner",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "hookrunner/hookrunner-dir-3-approach-a.png",
+      "bmp": "hookrunner/hookrunner-dir-3-approach-a.bmp",
+      "source_cell": [
+        3,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 11664.0,
+      "render_y_offset_pixels": -13,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 23303,
+      "opaque_mean_rgb": 68.5,
+      "bbox": [
+        80,
+        34,
+        292,
+        256
+      ],
+      "opaque_near_black_pixels": 70
+    },
+    {
+      "family": "hookrunner",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "hookrunner/hookrunner-dir-4-approach-a.png",
+      "bmp": "hookrunner/hookrunner-dir-4-approach-a.bmp",
+      "source_cell": [
+        4,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 11384.0,
+      "render_y_offset_pixels": -13,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 22778,
+      "opaque_mean_rgb": 67.761,
+      "bbox": [
+        81,
+        34,
+        306,
+        256
+      ],
+      "opaque_near_black_pixels": 39
+    },
+    {
+      "family": "hookrunner",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "hookrunner/hookrunner-dir-5-approach-a.png",
+      "bmp": "hookrunner/hookrunner-dir-5-approach-a.bmp",
+      "source_cell": [
+        5,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 11437.0,
+      "render_y_offset_pixels": -14,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 22873,
+      "opaque_mean_rgb": 68.392,
+      "bbox": [
+        101,
+        34,
+        306,
+        256
+      ],
+      "opaque_near_black_pixels": 87
+    },
+    {
+      "family": "hookrunner",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "hookrunner/hookrunner-dir-6-approach-a.png",
+      "bmp": "hookrunner/hookrunner-dir-6-approach-a.bmp",
+      "source_cell": [
+        6,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10255.0,
+      "render_y_offset_pixels": -14,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20517,
+      "opaque_mean_rgb": 73.042,
+      "bbox": [
+        123,
+        36,
+        307,
+        256
+      ],
+      "opaque_near_black_pixels": 95
+    },
+    {
+      "family": "hookrunner",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "hookrunner/hookrunner-dir-7-approach-a.png",
+      "bmp": "hookrunner/hookrunner-dir-7-approach-a.bmp",
+      "source_cell": [
+        7,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10913.0,
+      "render_y_offset_pixels": -11,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 21805,
+      "opaque_mean_rgb": 75.058,
+      "bbox": [
+        71,
+        33,
+        283,
+        256
+      ],
+      "opaque_near_black_pixels": 37
+    },
+    {
+      "family": "hookrunner",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "hookrunner/hookrunner-dir-0-approach-b.png",
+      "bmp": "hookrunner/hookrunner-dir-0-approach-b.bmp",
+      "source_cell": [
+        0,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 10738.0,
+      "render_y_offset_pixels": -7,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 21476,
+      "opaque_mean_rgb": 70.841,
+      "bbox": [
+        87,
+        37,
+        300,
+        256
+      ],
+      "opaque_near_black_pixels": 76
+    },
+    {
+      "family": "hookrunner",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "hookrunner/hookrunner-dir-1-approach-b.png",
+      "bmp": "hookrunner/hookrunner-dir-1-approach-b.bmp",
+      "source_cell": [
+        1,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 10546.0,
+      "render_y_offset_pixels": -7,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 21100,
+      "opaque_mean_rgb": 73.641,
+      "bbox": [
+        81,
+        40,
+        299,
+        256
+      ],
+      "opaque_near_black_pixels": 88
+    },
+    {
+      "family": "hookrunner",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "hookrunner/hookrunner-dir-2-approach-b.png",
+      "bmp": "hookrunner/hookrunner-dir-2-approach-b.bmp",
+      "source_cell": [
+        2,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9358.0,
+      "render_y_offset_pixels": -3,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 18743,
+      "opaque_mean_rgb": 71.627,
+      "bbox": [
+        71,
+        45,
+        265,
+        256
+      ],
+      "opaque_near_black_pixels": 98
+    },
+    {
+      "family": "hookrunner",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "hookrunner/hookrunner-dir-3-approach-b.png",
+      "bmp": "hookrunner/hookrunner-dir-3-approach-b.bmp",
+      "source_cell": [
+        3,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 10806.0,
+      "render_y_offset_pixels": -11,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 21622,
+      "opaque_mean_rgb": 69.061,
+      "bbox": [
+        80,
+        37,
+        295,
+        256
+      ],
+      "opaque_near_black_pixels": 82
+    },
+    {
+      "family": "hookrunner",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "hookrunner/hookrunner-dir-4-approach-b.png",
+      "bmp": "hookrunner/hookrunner-dir-4-approach-b.bmp",
+      "source_cell": [
+        4,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 10957.0,
+      "render_y_offset_pixels": -11,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 21909,
+      "opaque_mean_rgb": 67.715,
+      "bbox": [
+        78,
+        36,
+        310,
+        256
+      ],
+      "opaque_near_black_pixels": 3
+    },
+    {
+      "family": "hookrunner",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "hookrunner/hookrunner-dir-5-approach-b.png",
+      "bmp": "hookrunner/hookrunner-dir-5-approach-b.bmp",
+      "source_cell": [
+        5,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 10773.0,
+      "render_y_offset_pixels": -11,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 21531,
+      "opaque_mean_rgb": 69.328,
+      "bbox": [
+        95,
+        37,
+        307,
+        256
+      ],
+      "opaque_near_black_pixels": 39
+    },
+    {
+      "family": "hookrunner",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "hookrunner/hookrunner-dir-6-approach-b.png",
+      "bmp": "hookrunner/hookrunner-dir-6-approach-b.bmp",
+      "source_cell": [
+        6,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9499.0,
+      "render_y_offset_pixels": -3,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19017,
+      "opaque_mean_rgb": 69.844,
+      "bbox": [
+        122,
+        45,
+        316,
+        256
+      ],
+      "opaque_near_black_pixels": 63
+    },
+    {
+      "family": "hookrunner",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "hookrunner/hookrunner-dir-7-approach-b.png",
+      "bmp": "hookrunner/hookrunner-dir-7-approach-b.bmp",
+      "source_cell": [
+        7,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 10594.0,
+      "render_y_offset_pixels": -9,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 21205,
+      "opaque_mean_rgb": 76.009,
+      "bbox": [
+        71,
+        36,
+        287,
+        256
+      ],
+      "opaque_near_black_pixels": 86
+    },
+    {
+      "family": "hookrunner",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "hookrunner/hookrunner-dir-0-tell.png",
+      "bmp": "hookrunner/hookrunner-dir-0-tell.bmp",
+      "source_cell": [
+        0,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9360.0,
+      "render_y_offset_pixels": -18,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 18713,
+      "opaque_mean_rgb": 80.178,
+      "bbox": [
+        85,
+        9,
+        297,
+        256
+      ],
+      "opaque_near_black_pixels": 32
+    },
+    {
+      "family": "hookrunner",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "hookrunner/hookrunner-dir-1-tell.png",
+      "bmp": "hookrunner/hookrunner-dir-1-tell.bmp",
+      "source_cell": [
+        1,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9791.0,
+      "render_y_offset_pixels": -17,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19601,
+      "opaque_mean_rgb": 73.42,
+      "bbox": [
+        88,
+        10,
+        302,
+        256
+      ],
+      "opaque_near_black_pixels": 84
+    },
+    {
+      "family": "hookrunner",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "hookrunner/hookrunner-dir-2-tell.png",
+      "bmp": "hookrunner/hookrunner-dir-2-tell.bmp",
+      "source_cell": [
+        2,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9901.0,
+      "render_y_offset_pixels": -24,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19835,
+      "opaque_mean_rgb": 68.921,
+      "bbox": [
+        89,
+        9,
+        303,
+        256
+      ],
+      "opaque_near_black_pixels": 53
+    },
+    {
+      "family": "hookrunner",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "hookrunner/hookrunner-dir-3-tell.png",
+      "bmp": "hookrunner/hookrunner-dir-3-tell.bmp",
+      "source_cell": [
+        3,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 10589.0,
+      "render_y_offset_pixels": -30,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 21168,
+      "opaque_mean_rgb": 70.899,
+      "bbox": [
+        82,
+        0,
+        304,
+        256
+      ],
+      "opaque_near_black_pixels": 18
+    },
+    {
+      "family": "hookrunner",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "hookrunner/hookrunner-dir-4-tell.png",
+      "bmp": "hookrunner/hookrunner-dir-4-tell.bmp",
+      "source_cell": [
+        4,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9894.0,
+      "render_y_offset_pixels": -24,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19791,
+      "opaque_mean_rgb": 68.941,
+      "bbox": [
+        85,
+        6,
+        302,
+        256
+      ],
+      "opaque_near_black_pixels": 1
+    },
+    {
+      "family": "hookrunner",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "hookrunner/hookrunner-dir-5-tell.png",
+      "bmp": "hookrunner/hookrunner-dir-5-tell.bmp",
+      "source_cell": [
+        5,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 10306.0,
+      "render_y_offset_pixels": -30,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20614,
+      "opaque_mean_rgb": 70.38,
+      "bbox": [
+        85,
+        1,
+        302,
+        256
+      ],
+      "opaque_near_black_pixels": 50
+    },
+    {
+      "family": "hookrunner",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "hookrunner/hookrunner-dir-6-tell.png",
+      "bmp": "hookrunner/hookrunner-dir-6-tell.bmp",
+      "source_cell": [
+        6,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 10140.0,
+      "render_y_offset_pixels": -24,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20260,
+      "opaque_mean_rgb": 68.568,
+      "bbox": [
+        84,
+        9,
+        299,
+        256
+      ],
+      "opaque_near_black_pixels": 2
+    },
+    {
+      "family": "hookrunner",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "hookrunner/hookrunner-dir-7-tell.png",
+      "bmp": "hookrunner/hookrunner-dir-7-tell.bmp",
+      "source_cell": [
+        7,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 10157.0,
+      "render_y_offset_pixels": -18,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20319,
+      "opaque_mean_rgb": 78.929,
+      "bbox": [
+        88,
+        9,
+        297,
+        256
+      ],
+      "opaque_near_black_pixels": 19
+    },
+    {
+      "family": "hookrunner",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "hookrunner/hookrunner-dir-0-release.png",
+      "bmp": "hookrunner/hookrunner-dir-0-release.bmp",
+      "source_cell": [
+        0,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9538.0,
+      "render_y_offset_pixels": -6,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19087,
+      "opaque_mean_rgb": 79.998,
+      "bbox": [
+        82,
+        48,
+        310,
+        256
+      ],
+      "opaque_near_black_pixels": 37
+    },
+    {
+      "family": "hookrunner",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "hookrunner/hookrunner-dir-1-release.png",
+      "bmp": "hookrunner/hookrunner-dir-1-release.bmp",
+      "source_cell": [
+        1,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 10327.0,
+      "render_y_offset_pixels": -3,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20644,
+      "opaque_mean_rgb": 72.567,
+      "bbox": [
+        74,
+        54,
+        320,
+        256
+      ],
+      "opaque_near_black_pixels": 39
+    },
+    {
+      "family": "hookrunner",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "hookrunner/hookrunner-dir-2-release.png",
+      "bmp": "hookrunner/hookrunner-dir-2-release.bmp",
+      "source_cell": [
+        2,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 9429.0,
+      "render_y_offset_pixels": -7,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 18858,
+      "opaque_mean_rgb": 64.603,
+      "bbox": [
+        72,
+        47,
+        312,
+        256
+      ],
+      "opaque_near_black_pixels": 32
+    },
+    {
+      "family": "hookrunner",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "hookrunner/hookrunner-dir-3-release.png",
+      "bmp": "hookrunner/hookrunner-dir-3-release.bmp",
+      "source_cell": [
+        3,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 9351.0,
+      "render_y_offset_pixels": -7,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 18706,
+      "opaque_mean_rgb": 61.156,
+      "bbox": [
+        67,
+        58,
+        295,
+        256
+      ],
+      "opaque_near_black_pixels": 42
+    },
+    {
+      "family": "hookrunner",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "hookrunner/hookrunner-dir-4-release.png",
+      "bmp": "hookrunner/hookrunner-dir-4-release.bmp",
+      "source_cell": [
+        4,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 9924.0,
+      "render_y_offset_pixels": -14,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19834,
+      "opaque_mean_rgb": 62.273,
+      "bbox": [
+        88,
+        38,
+        300,
+        256
+      ],
+      "opaque_near_black_pixels": 6
+    },
+    {
+      "family": "hookrunner",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "hookrunner/hookrunner-dir-5-release.png",
+      "bmp": "hookrunner/hookrunner-dir-5-release.bmp",
+      "source_cell": [
+        5,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 9109.0,
+      "render_y_offset_pixels": -7,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 18251,
+      "opaque_mean_rgb": 59.742,
+      "bbox": [
+        92,
+        59,
+        319,
+        256
+      ],
+      "opaque_near_black_pixels": 97
+    },
+    {
+      "family": "hookrunner",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "hookrunner/hookrunner-dir-6-release.png",
+      "bmp": "hookrunner/hookrunner-dir-6-release.bmp",
+      "source_cell": [
+        6,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 9527.0,
+      "render_y_offset_pixels": -7,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19078,
+      "opaque_mean_rgb": 63.111,
+      "bbox": [
+        74,
+        47,
+        314,
+        256
+      ],
+      "opaque_near_black_pixels": 82
+    },
+    {
+      "family": "hookrunner",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "hookrunner/hookrunner-dir-7-release.png",
+      "bmp": "hookrunner/hookrunner-dir-7-release.bmp",
+      "source_cell": [
+        7,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 9873.0,
+      "render_y_offset_pixels": -6,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19793,
+      "opaque_mean_rgb": 78.816,
+      "bbox": [
+        64,
+        46,
+        299,
+        256
+      ],
+      "opaque_near_black_pixels": 113
+    },
+    {
+      "family": "hookrunner",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "hookrunner/hookrunner-dir-0-recovery.png",
+      "bmp": "hookrunner/hookrunner-dir-0-recovery.bmp",
+      "source_cell": [
+        0,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9755.0,
+      "render_y_offset_pixels": 23,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19489,
+      "opaque_mean_rgb": 73.619,
+      "bbox": [
+        78,
+        97,
+        309,
+        256
+      ],
+      "opaque_near_black_pixels": 93
+    },
+    {
+      "family": "hookrunner",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "hookrunner/hookrunner-dir-1-recovery.png",
+      "bmp": "hookrunner/hookrunner-dir-1-recovery.bmp",
+      "source_cell": [
+        1,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9754.0,
+      "render_y_offset_pixels": 21,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19514,
+      "opaque_mean_rgb": 74.111,
+      "bbox": [
+        70,
+        92,
+        299,
+        256
+      ],
+      "opaque_near_black_pixels": 67
+    },
+    {
+      "family": "hookrunner",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "hookrunner/hookrunner-dir-2-recovery.png",
+      "bmp": "hookrunner/hookrunner-dir-2-recovery.bmp",
+      "source_cell": [
+        2,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9084.0,
+      "render_y_offset_pixels": 25,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 18186,
+      "opaque_mean_rgb": 75.443,
+      "bbox": [
+        84,
+        99,
+        282,
+        256
+      ],
+      "opaque_near_black_pixels": 106
+    },
+    {
+      "family": "hookrunner",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "hookrunner/hookrunner-dir-3-recovery.png",
+      "bmp": "hookrunner/hookrunner-dir-3-recovery.bmp",
+      "source_cell": [
+        3,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9724.0,
+      "render_y_offset_pixels": 8,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19466,
+      "opaque_mean_rgb": 65.146,
+      "bbox": [
+        71,
+        73,
+        275,
+        256
+      ],
+      "opaque_near_black_pixels": 31
+    },
+    {
+      "family": "hookrunner",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "hookrunner/hookrunner-dir-4-recovery.png",
+      "bmp": "hookrunner/hookrunner-dir-4-recovery.bmp",
+      "source_cell": [
+        4,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 9349.0,
+      "render_y_offset_pixels": 23,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 18702,
+      "opaque_mean_rgb": 65.974,
+      "bbox": [
+        82,
+        84,
+        303,
+        256
+      ],
+      "opaque_near_black_pixels": 30
+    },
+    {
+      "family": "hookrunner",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "hookrunner/hookrunner-dir-5-recovery.png",
+      "bmp": "hookrunner/hookrunner-dir-5-recovery.bmp",
+      "source_cell": [
+        5,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9595.0,
+      "render_y_offset_pixels": 8,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19184,
+      "opaque_mean_rgb": 63.975,
+      "bbox": [
+        112,
+        74,
+        314,
+        256
+      ],
+      "opaque_near_black_pixels": 69
+    },
+    {
+      "family": "hookrunner",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "hookrunner/hookrunner-dir-6-recovery.png",
+      "bmp": "hookrunner/hookrunner-dir-6-recovery.bmp",
+      "source_cell": [
+        6,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 9212.0,
+      "render_y_offset_pixels": 25,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 18436,
+      "opaque_mean_rgb": 76.25,
+      "bbox": [
+        104,
+        99,
+        303,
+        256
+      ],
+      "opaque_near_black_pixels": 85
+    },
+    {
+      "family": "hookrunner",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "hookrunner/hookrunner-dir-7-recovery.png",
+      "bmp": "hookrunner/hookrunner-dir-7-recovery.bmp",
+      "source_cell": [
+        7,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 10065.0,
+      "render_y_offset_pixels": 11,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20123,
+      "opaque_mean_rgb": 77.203,
+      "bbox": [
+        81,
+        82,
+        290,
+        256
+      ],
+      "opaque_near_black_pixels": 74
+    },
+    {
+      "family": "hookrunner",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "hookrunner/hookrunner-dir-0-corpse.png",
+      "bmp": "hookrunner/hookrunner-dir-0-corpse.bmp",
+      "source_cell": [
+        0,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 8167.0,
+      "render_y_offset_pixels": 54,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 16356,
+      "opaque_mean_rgb": 72.508,
+      "bbox": [
+        80,
+        135,
+        310,
+        256
+      ],
+      "opaque_near_black_pixels": 173
+    },
+    {
+      "family": "hookrunner",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "hookrunner/hookrunner-dir-1-corpse.png",
+      "bmp": "hookrunner/hookrunner-dir-1-corpse.bmp",
+      "source_cell": [
+        1,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 8584.0,
+      "render_y_offset_pixels": 58,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 17177,
+      "opaque_mean_rgb": 69.132,
+      "bbox": [
+        75,
+        143,
+        312,
+        256
+      ],
+      "opaque_near_black_pixels": 88
+    },
+    {
+      "family": "hookrunner",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "hookrunner/hookrunner-dir-2-corpse.png",
+      "bmp": "hookrunner/hookrunner-dir-2-corpse.bmp",
+      "source_cell": [
+        2,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 7700.0,
+      "render_y_offset_pixels": 68,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 15421,
+      "opaque_mean_rgb": 61.396,
+      "bbox": [
+        77,
+        156,
+        310,
+        256
+      ],
+      "opaque_near_black_pixels": 167
+    },
+    {
+      "family": "hookrunner",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "hookrunner/hookrunner-dir-3-corpse.png",
+      "bmp": "hookrunner/hookrunner-dir-3-corpse.bmp",
+      "source_cell": [
+        3,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 7025.0,
+      "render_y_offset_pixels": 83,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 14063,
+      "opaque_mean_rgb": 60.342,
+      "bbox": [
+        74,
+        166,
+        309,
+        256
+      ],
+      "opaque_near_black_pixels": 61
+    },
+    {
+      "family": "hookrunner",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "hookrunner/hookrunner-dir-4-corpse.png",
+      "bmp": "hookrunner/hookrunner-dir-4-corpse.bmp",
+      "source_cell": [
+        4,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 7541.0,
+      "render_y_offset_pixels": 75,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 15078,
+      "opaque_mean_rgb": 64.106,
+      "bbox": [
+        77,
+        158,
+        310,
+        256
+      ],
+      "opaque_near_black_pixels": 42
+    },
+    {
+      "family": "hookrunner",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "hookrunner/hookrunner-dir-5-corpse.png",
+      "bmp": "hookrunner/hookrunner-dir-5-corpse.bmp",
+      "source_cell": [
+        5,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 6965.0,
+      "render_y_offset_pixels": 83,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 13960,
+      "opaque_mean_rgb": 60.636,
+      "bbox": [
+        80,
+        166,
+        313,
+        256
+      ],
+      "opaque_near_black_pixels": 63
+    },
+    {
+      "family": "hookrunner",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "hookrunner/hookrunner-dir-6-corpse.png",
+      "bmp": "hookrunner/hookrunner-dir-6-corpse.bmp",
+      "source_cell": [
+        6,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 7630.0,
+      "render_y_offset_pixels": 66,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 15271,
+      "opaque_mean_rgb": 61.537,
+      "bbox": [
+        75,
+        154,
+        312,
+        256
+      ],
+      "opaque_near_black_pixels": 102
+    },
+    {
+      "family": "hookrunner",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "hookrunner/hookrunner-dir-7-corpse.png",
+      "bmp": "hookrunner/hookrunner-dir-7-corpse.bmp",
+      "source_cell": [
+        7,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 8311.0,
+      "render_y_offset_pixels": 57,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 16601,
+      "opaque_mean_rgb": 74.876,
+      "bbox": [
+        78,
+        138,
+        310,
+        256
+      ],
+      "opaque_near_black_pixels": 109
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "soot-bellower/soot-bellower-dir-0-approach-a.png",
+      "bmp": "soot-bellower/soot-bellower-dir-0-approach-a.bmp",
+      "source_cell": [
+        0,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 14197.0,
+      "render_y_offset_pixels": 0,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 28404,
+      "opaque_mean_rgb": 77.536,
+      "bbox": [
+        99,
+        44,
+        312,
+        256
+      ],
+      "opaque_near_black_pixels": 43
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "soot-bellower/soot-bellower-dir-1-approach-a.png",
+      "bmp": "soot-bellower/soot-bellower-dir-1-approach-a.bmp",
+      "source_cell": [
+        1,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 12968.0,
+      "render_y_offset_pixels": 0,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 25910,
+      "opaque_mean_rgb": 75.829,
+      "bbox": [
+        111,
+        45,
+        303,
+        256
+      ],
+      "opaque_near_black_pixels": 169
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "soot-bellower/soot-bellower-dir-2-approach-a.png",
+      "bmp": "soot-bellower/soot-bellower-dir-2-approach-a.bmp",
+      "source_cell": [
+        2,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10304.0,
+      "render_y_offset_pixels": -3,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20620,
+      "opaque_mean_rgb": 85.207,
+      "bbox": [
+        116,
+        42,
+        266,
+        256
+      ],
+      "opaque_near_black_pixels": 158
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "soot-bellower/soot-bellower-dir-3-approach-a.png",
+      "bmp": "soot-bellower/soot-bellower-dir-3-approach-a.bmp",
+      "source_cell": [
+        3,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13345.0,
+      "render_y_offset_pixels": 0,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 26697,
+      "opaque_mean_rgb": 62.957,
+      "bbox": [
+        92,
+        47,
+        292,
+        256
+      ],
+      "opaque_near_black_pixels": 243
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "soot-bellower/soot-bellower-dir-4-approach-a.png",
+      "bmp": "soot-bellower/soot-bellower-dir-4-approach-a.bmp",
+      "source_cell": [
+        4,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 14438.0,
+      "render_y_offset_pixels": -1,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 28895,
+      "opaque_mean_rgb": 59.315,
+      "bbox": [
+        91,
+        44,
+        287,
+        256
+      ],
+      "opaque_near_black_pixels": 240
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "soot-bellower/soot-bellower-dir-5-approach-a.png",
+      "bmp": "soot-bellower/soot-bellower-dir-5-approach-a.bmp",
+      "source_cell": [
+        5,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13225.0,
+      "render_y_offset_pixels": 1,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 26452,
+      "opaque_mean_rgb": 61.84,
+      "bbox": [
+        87,
+        48,
+        285,
+        256
+      ],
+      "opaque_near_black_pixels": 157
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "soot-bellower/soot-bellower-dir-6-approach-a.png",
+      "bmp": "soot-bellower/soot-bellower-dir-6-approach-a.bmp",
+      "source_cell": [
+        6,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10265.0,
+      "render_y_offset_pixels": -3,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20547,
+      "opaque_mean_rgb": 85.666,
+      "bbox": [
+        112,
+        42,
+        263,
+        256
+      ],
+      "opaque_near_black_pixels": 103
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "approach-a",
+      "pose_index": 0,
+      "png": "soot-bellower/soot-bellower-dir-7-approach-a.png",
+      "bmp": "soot-bellower/soot-bellower-dir-7-approach-a.bmp",
+      "source_cell": [
+        7,
+        0
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13696.0,
+      "render_y_offset_pixels": -1,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 27398,
+      "opaque_mean_rgb": 77.931,
+      "bbox": [
+        72,
+        44,
+        268,
+        256
+      ],
+      "opaque_near_black_pixels": 196
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "soot-bellower/soot-bellower-dir-0-approach-b.png",
+      "bmp": "soot-bellower/soot-bellower-dir-0-approach-b.bmp",
+      "source_cell": [
+        0,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 14122.0,
+      "render_y_offset_pixels": 3,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 28229,
+      "opaque_mean_rgb": 80.821,
+      "bbox": [
+        104,
+        44,
+        309,
+        256
+      ],
+      "opaque_near_black_pixels": 211
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "soot-bellower/soot-bellower-dir-1-approach-b.png",
+      "bmp": "soot-bellower/soot-bellower-dir-1-approach-b.bmp",
+      "source_cell": [
+        1,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13040.0,
+      "render_y_offset_pixels": 6,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 26090,
+      "opaque_mean_rgb": 78.984,
+      "bbox": [
+        106,
+        47,
+        303,
+        256
+      ],
+      "opaque_near_black_pixels": 260
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "soot-bellower/soot-bellower-dir-2-approach-b.png",
+      "bmp": "soot-bellower/soot-bellower-dir-2-approach-b.bmp",
+      "source_cell": [
+        2,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 10469.0,
+      "render_y_offset_pixels": 3,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20937,
+      "opaque_mean_rgb": 81.496,
+      "bbox": [
+        116,
+        44,
+        276,
+        256
+      ],
+      "opaque_near_black_pixels": 79
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "soot-bellower/soot-bellower-dir-3-approach-b.png",
+      "bmp": "soot-bellower/soot-bellower-dir-3-approach-b.bmp",
+      "source_cell": [
+        3,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13252.0,
+      "render_y_offset_pixels": -3,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 26499,
+      "opaque_mean_rgb": 62.232,
+      "bbox": [
+        94,
+        39,
+        285,
+        256
+      ],
+      "opaque_near_black_pixels": 211
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "soot-bellower/soot-bellower-dir-4-approach-b.png",
+      "bmp": "soot-bellower/soot-bellower-dir-4-approach-b.bmp",
+      "source_cell": [
+        4,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 14759.0,
+      "render_y_offset_pixels": -4,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 29543,
+      "opaque_mean_rgb": 59.881,
+      "bbox": [
+        87,
+        38,
+        292,
+        256
+      ],
+      "opaque_near_black_pixels": 281
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "soot-bellower/soot-bellower-dir-5-approach-b.png",
+      "bmp": "soot-bellower/soot-bellower-dir-5-approach-b.bmp",
+      "source_cell": [
+        5,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13216.0,
+      "render_y_offset_pixels": -3,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 26421,
+      "opaque_mean_rgb": 62.445,
+      "bbox": [
+        95,
+        39,
+        285,
+        256
+      ],
+      "opaque_near_black_pixels": 288
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "soot-bellower/soot-bellower-dir-6-approach-b.png",
+      "bmp": "soot-bellower/soot-bellower-dir-6-approach-b.bmp",
+      "source_cell": [
+        6,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 3,
+      "source_body_area": 10382.0,
+      "render_y_offset_pixels": 1,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20794,
+      "opaque_mean_rgb": 80.832,
+      "bbox": [
+        104,
+        42,
+        262,
+        256
+      ],
+      "opaque_near_black_pixels": 98
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "approach-b",
+      "pose_index": 1,
+      "png": "soot-bellower/soot-bellower-dir-7-approach-b.png",
+      "bmp": "soot-bellower/soot-bellower-dir-7-approach-b.bmp",
+      "source_cell": [
+        7,
+        1
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 13538.0,
+      "render_y_offset_pixels": 10,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 27090,
+      "opaque_mean_rgb": 78.125,
+      "bbox": [
+        72,
+        50,
+        269,
+        256
+      ],
+      "opaque_near_black_pixels": 245
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "soot-bellower/soot-bellower-dir-0-tell.png",
+      "bmp": "soot-bellower/soot-bellower-dir-0-tell.bmp",
+      "source_cell": [
+        0,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 14426.0,
+      "render_y_offset_pixels": 23,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 28874,
+      "opaque_mean_rgb": 84.437,
+      "bbox": [
+        82,
+        82,
+        320,
+        256
+      ],
+      "opaque_near_black_pixels": 260
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "soot-bellower/soot-bellower-dir-1-tell.png",
+      "bmp": "soot-bellower/soot-bellower-dir-1-tell.bmp",
+      "source_cell": [
+        1,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13583.0,
+      "render_y_offset_pixels": 23,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 27175,
+      "opaque_mean_rgb": 84.89,
+      "bbox": [
+        92,
+        82,
+        320,
+        256
+      ],
+      "opaque_near_black_pixels": 253
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "soot-bellower/soot-bellower-dir-2-tell.png",
+      "bmp": "soot-bellower/soot-bellower-dir-2-tell.bmp",
+      "source_cell": [
+        2,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 11934.0,
+      "render_y_offset_pixels": 21,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 23859,
+      "opaque_mean_rgb": 89.665,
+      "bbox": [
+        74,
+        79,
+        303,
+        256
+      ],
+      "opaque_near_black_pixels": 156
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "soot-bellower/soot-bellower-dir-3-tell.png",
+      "bmp": "soot-bellower/soot-bellower-dir-3-tell.bmp",
+      "source_cell": [
+        3,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 13709.0,
+      "render_y_offset_pixels": 20,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 27461,
+      "opaque_mean_rgb": 80.728,
+      "bbox": [
+        65,
+        79,
+        302,
+        256
+      ],
+      "opaque_near_black_pixels": 38
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "soot-bellower/soot-bellower-dir-4-tell.png",
+      "bmp": "soot-bellower/soot-bellower-dir-4-tell.bmp",
+      "source_cell": [
+        4,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 14831.0,
+      "render_y_offset_pixels": 16,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 29680,
+      "opaque_mean_rgb": 75.32,
+      "bbox": [
+        64,
+        71,
+        320,
+        256
+      ],
+      "opaque_near_black_pixels": 184
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "soot-bellower/soot-bellower-dir-5-tell.png",
+      "bmp": "soot-bellower/soot-bellower-dir-5-tell.bmp",
+      "source_cell": [
+        5,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 13632.0,
+      "render_y_offset_pixels": 21,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 27276,
+      "opaque_mean_rgb": 81.593,
+      "bbox": [
+        78,
+        82,
+        317,
+        256
+      ],
+      "opaque_near_black_pixels": 106
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "soot-bellower/soot-bellower-dir-6-tell.png",
+      "bmp": "soot-bellower/soot-bellower-dir-6-tell.bmp",
+      "source_cell": [
+        6,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 12000.0,
+      "render_y_offset_pixels": 21,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 24006,
+      "opaque_mean_rgb": 89.425,
+      "bbox": [
+        78,
+        80,
+        307,
+        256
+      ],
+      "opaque_near_black_pixels": 143
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "tell",
+      "pose_index": 2,
+      "png": "soot-bellower/soot-bellower-dir-7-tell.png",
+      "bmp": "soot-bellower/soot-bellower-dir-7-tell.bmp",
+      "source_cell": [
+        7,
+        2
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 14119.0,
+      "render_y_offset_pixels": 23,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 28240,
+      "opaque_mean_rgb": 83.414,
+      "bbox": [
+        64,
+        82,
+        299,
+        256
+      ],
+      "opaque_near_black_pixels": 240
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "soot-bellower/soot-bellower-dir-0-release.png",
+      "bmp": "soot-bellower/soot-bellower-dir-0-release.bmp",
+      "source_cell": [
+        0,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 14251.0,
+      "render_y_offset_pixels": 10,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 28528,
+      "opaque_mean_rgb": 77.506,
+      "bbox": [
+        98,
+        45,
+        316,
+        256
+      ],
+      "opaque_near_black_pixels": 192
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "soot-bellower/soot-bellower-dir-1-release.png",
+      "bmp": "soot-bellower/soot-bellower-dir-1-release.bmp",
+      "source_cell": [
+        1,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 12910.0,
+      "render_y_offset_pixels": 8,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 25844,
+      "opaque_mean_rgb": 75.2,
+      "bbox": [
+        111,
+        45,
+        312,
+        256
+      ],
+      "opaque_near_black_pixels": 170
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "soot-bellower/soot-bellower-dir-2-release.png",
+      "bmp": "soot-bellower/soot-bellower-dir-2-release.bmp",
+      "source_cell": [
+        2,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10820.0,
+      "render_y_offset_pixels": 8,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 21629,
+      "opaque_mean_rgb": 80.739,
+      "bbox": [
+        112,
+        48,
+        286,
+        256
+      ],
+      "opaque_near_black_pixels": 143
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "soot-bellower/soot-bellower-dir-3-release.png",
+      "bmp": "soot-bellower/soot-bellower-dir-3-release.bmp",
+      "source_cell": [
+        3,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13046.0,
+      "render_y_offset_pixels": 6,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 26095,
+      "opaque_mean_rgb": 56.326,
+      "bbox": [
+        97,
+        47,
+        297,
+        256
+      ],
+      "opaque_near_black_pixels": 182
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "soot-bellower/soot-bellower-dir-4-release.png",
+      "bmp": "soot-bellower/soot-bellower-dir-4-release.bmp",
+      "source_cell": [
+        4,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13746.0,
+      "render_y_offset_pixels": 4,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 27483,
+      "opaque_mean_rgb": 64.545,
+      "bbox": [
+        87,
+        44,
+        292,
+        256
+      ],
+      "opaque_near_black_pixels": 214
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "soot-bellower/soot-bellower-dir-5-release.png",
+      "bmp": "soot-bellower/soot-bellower-dir-5-release.bmp",
+      "source_cell": [
+        5,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13108.0,
+      "render_y_offset_pixels": 6,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 26235,
+      "opaque_mean_rgb": 55.666,
+      "bbox": [
+        82,
+        47,
+        282,
+        256
+      ],
+      "opaque_near_black_pixels": 157
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "soot-bellower/soot-bellower-dir-6-release.png",
+      "bmp": "soot-bellower/soot-bellower-dir-6-release.bmp",
+      "source_cell": [
+        6,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10839.0,
+      "render_y_offset_pixels": 8,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 21692,
+      "opaque_mean_rgb": 78.32,
+      "bbox": [
+        95,
+        49,
+        268,
+        256
+      ],
+      "opaque_near_black_pixels": 285
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "release",
+      "pose_index": 3,
+      "png": "soot-bellower/soot-bellower-dir-7-release.png",
+      "bmp": "soot-bellower/soot-bellower-dir-7-release.bmp",
+      "source_cell": [
+        7,
+        3
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13187.0,
+      "render_y_offset_pixels": 7,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 26398,
+      "opaque_mean_rgb": 74.482,
+      "bbox": [
+        67,
+        44,
+        272,
+        256
+      ],
+      "opaque_near_black_pixels": 180
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "soot-bellower/soot-bellower-dir-0-recovery.png",
+      "bmp": "soot-bellower/soot-bellower-dir-0-recovery.bmp",
+      "source_cell": [
+        0,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 14036.0,
+      "render_y_offset_pixels": 6,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 28073,
+      "opaque_mean_rgb": 81.661,
+      "bbox": [
+        97,
+        53,
+        307,
+        256
+      ],
+      "opaque_near_black_pixels": 101
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "soot-bellower/soot-bellower-dir-1-recovery.png",
+      "bmp": "soot-bellower/soot-bellower-dir-1-recovery.bmp",
+      "source_cell": [
+        1,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 12601.0,
+      "render_y_offset_pixels": 3,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 25203,
+      "opaque_mean_rgb": 78.518,
+      "bbox": [
+        111,
+        51,
+        306,
+        256
+      ],
+      "opaque_near_black_pixels": 241
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "soot-bellower/soot-bellower-dir-2-recovery.png",
+      "bmp": "soot-bellower/soot-bellower-dir-2-recovery.bmp",
+      "source_cell": [
+        2,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10012.0,
+      "render_y_offset_pixels": 1,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20029,
+      "opaque_mean_rgb": 80.859,
+      "bbox": [
+        118,
+        49,
+        276,
+        256
+      ],
+      "opaque_near_black_pixels": 54
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "soot-bellower/soot-bellower-dir-3-recovery.png",
+      "bmp": "soot-bellower/soot-bellower-dir-3-recovery.bmp",
+      "source_cell": [
+        3,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 12879.0,
+      "render_y_offset_pixels": 1,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 25783,
+      "opaque_mean_rgb": 64.184,
+      "bbox": [
+        92,
+        49,
+        282,
+        256
+      ],
+      "opaque_near_black_pixels": 121
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "soot-bellower/soot-bellower-dir-4-recovery.png",
+      "bmp": "soot-bellower/soot-bellower-dir-4-recovery.bmp",
+      "source_cell": [
+        4,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13946.0,
+      "render_y_offset_pixels": -1,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 27900,
+      "opaque_mean_rgb": 61.108,
+      "bbox": [
+        92,
+        46,
+        286,
+        256
+      ],
+      "opaque_near_black_pixels": 289
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "soot-bellower/soot-bellower-dir-5-recovery.png",
+      "bmp": "soot-bellower/soot-bellower-dir-5-recovery.bmp",
+      "source_cell": [
+        5,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 12807.0,
+      "render_y_offset_pixels": 3,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 25621,
+      "opaque_mean_rgb": 62.942,
+      "bbox": [
+        97,
+        50,
+        286,
+        256
+      ],
+      "opaque_near_black_pixels": 417
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "soot-bellower/soot-bellower-dir-6-recovery.png",
+      "bmp": "soot-bellower/soot-bellower-dir-6-recovery.bmp",
+      "source_cell": [
+        6,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10047.0,
+      "render_y_offset_pixels": 1,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20110,
+      "opaque_mean_rgb": 79.558,
+      "bbox": [
+        101,
+        49,
+        262,
+        256
+      ],
+      "opaque_near_black_pixels": 115
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "recovery",
+      "pose_index": 4,
+      "png": "soot-bellower/soot-bellower-dir-7-recovery.png",
+      "bmp": "soot-bellower/soot-bellower-dir-7-recovery.bmp",
+      "source_cell": [
+        7,
+        4
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 13153.0,
+      "render_y_offset_pixels": 4,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 26317,
+      "opaque_mean_rgb": 79.475,
+      "bbox": [
+        74,
+        52,
+        276,
+        256
+      ],
+      "opaque_near_black_pixels": 230
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 0,
+      "direction_name": "front",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "soot-bellower/soot-bellower-dir-0-corpse.png",
+      "bmp": "soot-bellower/soot-bellower-dir-0-corpse.bmp",
+      "source_cell": [
+        0,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10214.0,
+      "render_y_offset_pixels": 52,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20428,
+      "opaque_mean_rgb": 74.582,
+      "bbox": [
+        82,
+        131,
+        320,
+        256
+      ],
+      "opaque_near_black_pixels": 146
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 1,
+      "direction_name": "front-right",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "soot-bellower/soot-bellower-dir-1-corpse.png",
+      "bmp": "soot-bellower/soot-bellower-dir-1-corpse.bmp",
+      "source_cell": [
+        1,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 9692.0,
+      "render_y_offset_pixels": 42,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 19423,
+      "opaque_mean_rgb": 74.086,
+      "bbox": [
+        88,
+        120,
+        320,
+        256
+      ],
+      "opaque_near_black_pixels": 188
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 2,
+      "direction_name": "right",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "soot-bellower/soot-bellower-dir-2-corpse.png",
+      "bmp": "soot-bellower/soot-bellower-dir-2-corpse.bmp",
+      "source_cell": [
+        2,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 8413.0,
+      "render_y_offset_pixels": 45,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 16826,
+      "opaque_mean_rgb": 83.211,
+      "bbox": [
+        92,
+        138,
+        304,
+        256
+      ],
+      "opaque_near_black_pixels": 86
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 3,
+      "direction_name": "back-right",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "soot-bellower/soot-bellower-dir-3-corpse.png",
+      "bmp": "soot-bellower/soot-bellower-dir-3-corpse.bmp",
+      "source_cell": [
+        3,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 8879.0,
+      "render_y_offset_pixels": 52,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 17746,
+      "opaque_mean_rgb": 61.896,
+      "bbox": [
+        70,
+        133,
+        309,
+        256
+      ],
+      "opaque_near_black_pixels": 130
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 4,
+      "direction_name": "back",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "soot-bellower/soot-bellower-dir-4-corpse.png",
+      "bmp": "soot-bellower/soot-bellower-dir-4-corpse.bmp",
+      "source_cell": [
+        4,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 2,
+      "source_body_area": 10345.0,
+      "render_y_offset_pixels": 54,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20703,
+      "opaque_mean_rgb": 62.842,
+      "bbox": [
+        72,
+        130,
+        309,
+        256
+      ],
+      "opaque_near_black_pixels": 299
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 5,
+      "direction_name": "back-left",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "soot-bellower/soot-bellower-dir-5-corpse.png",
+      "bmp": "soot-bellower/soot-bellower-dir-5-corpse.bmp",
+      "source_cell": [
+        5,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 8997.0,
+      "render_y_offset_pixels": 52,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 18002,
+      "opaque_mean_rgb": 60.892,
+      "bbox": [
+        72,
+        133,
+        310,
+        256
+      ],
+      "opaque_near_black_pixels": 134
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 6,
+      "direction_name": "left",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "soot-bellower/soot-bellower-dir-6-corpse.png",
+      "bmp": "soot-bellower/soot-bellower-dir-6-corpse.bmp",
+      "source_cell": [
+        6,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 8281.0,
+      "render_y_offset_pixels": 45,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 16554,
+      "opaque_mean_rgb": 80.94,
+      "bbox": [
+        77,
+        138,
+        287,
+        256
+      ],
+      "opaque_near_black_pixels": 109
+    },
+    {
+      "family": "soot-bellower",
+      "direction": 7,
+      "direction_name": "front-left",
+      "pose": "corpse",
+      "pose_index": 5,
+      "png": "soot-bellower/soot-bellower-dir-7-corpse.png",
+      "bmp": "soot-bellower/soot-bellower-dir-7-corpse.bmp",
+      "source_cell": [
+        7,
+        5
+      ],
+      "vertical_overscan": 12,
+      "kept_body_component": 1,
+      "source_body_area": 10019.0,
+      "render_y_offset_pixels": 38,
+      "width": 384,
+      "height": 256,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "opaque_pixels": 20055,
+      "opaque_mean_rgb": 74.838,
+      "bbox": [
+        64,
+        114,
+        293,
+        256
+      ],
+      "opaque_near_black_pixels": 231
+    }
+  ]
+}

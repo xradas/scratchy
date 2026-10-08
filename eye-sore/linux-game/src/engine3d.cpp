@@ -1,5 +1,10 @@
 #include <SDL2/SDL.h>
+#include "audio_mixer.h"
 #include <GL/gl.h>
+#include "audio_mixer.h"
+#include "calibration_hud.h"
+#include "calibration_scene.h"
+#include "combat_world.h"
 #include <algorithm>
 #include <cmath>
 #include <cstring>
@@ -12,7 +17,7 @@ static constexpr int ENEMY_COUNT = 14;
 struct Vec3 { float x, y, z; };
 enum EnemyState { EnemyWalk, EnemyPain, EnemyAttack, EnemyDeath, EnemyGib, EnemyCorpse };
 enum EnemyDirection { EnemyFront, EnemyFrontRight, EnemyRight, EnemyBackRight, EnemyBack, EnemyBackLeft, EnemyLeft, EnemyFrontLeft, EnemyDirectionCount };
-enum EnemyAtlas { DirectionalAtlas, CombatAtlas };
+enum EnemyAtlas { DirectionalAtlas, CombatAtlas, StarlingAtlas, FurnaceAtlas };
 enum ProjectileSprite { PlayerPistolSprite, PlayerShotgunSprite, PlayerArcSprite, CultistFireSprite, WraithPlasmaSprite, ProjectileSpriteCount };
 enum ProjectileDirection { ProjectileToward, ProjectileTowardRight, ProjectileRight, ProjectileAwayRight, ProjectileAway, ProjectileAwayLeft, ProjectileLeft, ProjectileTowardLeft, ProjectileDirectionCount };
 struct EnemyDefinition {
@@ -31,17 +36,45 @@ static constexpr EnemyDefinition ENEMY_DEFS[] = {
   {1.44f,2.05f,0.28f,1.24f,1.94f,.60f},
   {1.60f,2.55f,0.00f,1.40f,2.46f,.68f}
 };
+static constexpr EnemyDefinition STARLING_DEFS[] = {
+  {1.85f,1.35f,0.0f,1.52f,1.12f,1.35f}, // Bumper Hound: broad wheel base, low body
+  {1.75f,2.30f,0.0f,1.05f,2.20f,.78f}, // Lap Counter: tall fork, narrow support footprint
+  {1.44f,2.05f,0.28f,1.24f,1.94f,.60f},
+  {1.60f,2.55f,0.00f,1.40f,2.46f,.68f}
+};
+static constexpr EnemyDefinition FURNACE_DEFS[] = {
+  {1.78f,2.20f,0.0f,1.34f,2.08f,.82f}, // Hookrunner: tall forelimb reach
+  {2.05f,1.82f,0.0f,1.68f,1.68f,1.32f} // Soot Bellower: broad, low tripod
+};
+static bool starling_mode = false;
+static const EnemyDefinition &enemy_definition(int type) { if(type>=4)return FURNACE_DEFS[type-4];return starling_mode?STARLING_DEFS[type]:ENEMY_DEFS[type]; }
 static constexpr float ARENA_HALF_WIDTH=36.0f,ARENA_HALF_DEPTH=30.0f,ARENA_CEILING=5.0f;
 // Three paced encounters for the first playable descent. The first room teaches
 // the basic caster and a weak melee foe before a weapon cache opens the deeper halls.
-static constexpr Vec3 ENEMY_SPAWNS[ENEMY_COUNT]={{0,0,16},{-4,0,18},{4,0,18},{-24,0,17},{22,0,19},{-8,0,26},{12,0,25},{0,0,-17},{-24,0,-17},{22,0,-19},{-8,0,-26},{12,0,-25},{-27,0,0},{27,0,0}};
-static constexpr float ENEMY_HEALTH[ENEMY_COUNT]={4,4,4,7,8,8,10,9,10,12,10,12,12,14};
-static constexpr int ENEMY_TYPES[ENEMY_COUNT]={1,0,0,1,2,1,2,2,1,2,3,3,1,2};
+static constexpr Vec3 ENEMY_SPAWNS[ENEMY_COUNT]={{0,0,16},{-4,0,18},{4,0,18},{-9,0,1},{9,0,-2},{-7,0,-7},{7,0,6},{0,0,-17},{-10,0,-17},{10,0,-19},{-7,0,-25},{7,0,-25},{-4,0,-13},{4,0,-15}};
+static constexpr float ENEMY_HEALTH[ENEMY_COUNT]={4,4,4,7,8,8,10,9,10,12,10,12,18,28};
+static constexpr int ENEMY_TYPES[ENEMY_COUNT]={1,0,0,1,2,1,2,2,1,2,3,3,4,5};
 static constexpr float PILLARS[][2]={{-18,-19},{18,-19},{-18,19},{18,19},{0,18},{0,-18},{-26,0},{26,0}};
 struct WallBlock { float x0,z0,x1,z1; };
 // The outer shell is one connected arena; these blocks divide it into the
 // start hall, north/south wings and side rooms, with deliberate door gaps.
 static constexpr WallBlock ROOM_WALLS[]={{-36,9,-7,10},{7,9,36,10},{-36,-10,-7,-9},{7,-10,36,-9},{-15,10,-14,21},{-15,25,-14,30},{14,10,15,21},{14,25,15,30},{-15,-30,-14,-21},{-15,-25,-14,-9},{14,-30,15,-21},{14,-25,15,-9}};
+
+static combat_world::World active_world = combat_world::descent_world();
+static bool calibration_mode = false;
+static constexpr bool SHOW_ENEMY_HEALTH_BARS = false;
+
+static combat_world::World make_calibration_world() {
+  const auto &scene=eyesore::kCalibrationScene;
+  combat_world::World world;
+  world.room={{-scene.half_width,0,-scene.half_depth},{scene.half_width,scene.ceiling_height,scene.half_depth}};
+  world.solids.reserve(scene.solid_box_count);
+  for(int i=0;i<scene.solid_box_count;i++) {
+    const auto &b=scene.solid_boxes[i];
+    world.solids.push_back({{{b.min_x,b.min_y,b.min_z},{b.max_x,b.max_y,b.max_z}},combat_world::Surface::wall});
+  }
+  return world;
+}
 
 static constexpr EnemyFrame WALK_FRAMES[]={{DirectionalAtlas,0,0,.14f,.5f,0.0f,false},{DirectionalAtlas,0,1,.14f,.5f,0.0f,false},{DirectionalAtlas,0,2,.14f,.5f,0.0f,false},{DirectionalAtlas,0,3,.14f,.5f,0.0f,false}};
 static constexpr EnemyFrame PAIN_FRAMES[]={{CombatAtlas,0,0,.06f,.5f,0.0f,false},{CombatAtlas,1,0,.07f,.5f,0.0f,false},{CombatAtlas,2,0,.07f,.5f,0.0f,false},{CombatAtlas,3,0,.08f,.5f,0.0f,false}};
@@ -51,33 +84,22 @@ static constexpr EnemyFrame GIB_FRAMES[]={{CombatAtlas,0,3,.10f,.5f,0.0f,false},
 static constexpr EnemyFrame DEATH_CORPSE_FRAMES[]={{CombatAtlas,3,2,9999.0f,.5f,0.0f,false}};
 static constexpr EnemyFrame GIB_CORPSE_FRAMES[]={{CombatAtlas,3,3,9999.0f,.5f,0.0f,false}};
 static constexpr EnemyClip WALK_CLIP={WALK_FRAMES,4,true,-1},PAIN_CLIP={PAIN_FRAMES,4,false,-1},ATTACK_CLIP={ATTACK_FRAMES,4,false,2},DEATH_CLIP={DEATH_FRAMES,4,false,-1},GIB_CLIP={GIB_FRAMES,4,false,-1},DEATH_CORPSE_CLIP={DEATH_CORPSE_FRAMES,1,false,-1},GIB_CORPSE_CLIP={GIB_CORPSE_FRAMES,1,false,-1};
+static constexpr EnemyFrame STARLING_WALK_FRAMES[]={{StarlingAtlas,0,0,.20f,.5f,0.0f,false},{StarlingAtlas,0,1,.20f,.5f,0.0f,false}};
+static constexpr EnemyFrame STARLING_PAIN_FRAMES[]={{StarlingAtlas,0,4,.20f,.5f,0.0f,false}};
+static constexpr EnemyFrame STARLING_ATTACK_FRAMES[]={{StarlingAtlas,0,2,.72f,.5f,0.0f,false},{StarlingAtlas,0,3,.10f,.5f,0.0f,false},{StarlingAtlas,0,4,.42f,.5f,0.0f,false}};
+static constexpr EnemyFrame STARLING_DEATH_FRAMES[]={{StarlingAtlas,0,5,.40f,.5f,0.0f,false}};
+static constexpr EnemyClip STARLING_WALK_CLIP={STARLING_WALK_FRAMES,2,true,-1},STARLING_PAIN_CLIP={STARLING_PAIN_FRAMES,1,false,-1},STARLING_ATTACK_CLIP={STARLING_ATTACK_FRAMES,3,false,1},STARLING_DEATH_CLIP={STARLING_DEATH_FRAMES,1,false,-1},STARLING_GIB_CLIP={STARLING_DEATH_FRAMES,1,false,-1},STARLING_CORPSE_CLIP={STARLING_DEATH_FRAMES,1,false,-1};
+static constexpr EnemyFrame FURNACE_WALK_FRAMES[]={{FurnaceAtlas,0,0,.22f,.5f,0.0f,false},{FurnaceAtlas,0,1,.22f,.5f,0.0f,false}};
+static constexpr EnemyFrame FURNACE_PAIN_FRAMES[]={{FurnaceAtlas,0,4,.16f,.5f,0.0f,false}};
+static constexpr EnemyFrame FURNACE_ATTACK_FRAMES[]={{FurnaceAtlas,0,2,.24f,.5f,0.0f,false},{FurnaceAtlas,0,3,.12f,.5f,0.0f,false},{FurnaceAtlas,0,4,.22f,.5f,0.0f,false}};
+static constexpr EnemyFrame FURNACE_DEATH_FRAMES[]={{FurnaceAtlas,0,5,.42f,.5f,0.0f,false}};
+static constexpr EnemyClip FURNACE_WALK_CLIP={FURNACE_WALK_FRAMES,2,true,-1},FURNACE_PAIN_CLIP={FURNACE_PAIN_FRAMES,1,false,-1},FURNACE_ATTACK_CLIP={FURNACE_ATTACK_FRAMES,3,false,1},FURNACE_DEATH_CLIP={FURNACE_DEATH_FRAMES,1,false,-1},FURNACE_GIB_CLIP={FURNACE_DEATH_FRAMES,1,false,-1},FURNACE_CORPSE_CLIP={FURNACE_DEATH_FRAMES,1,false,-1};
 struct Projectile { Vec3 pos, vel; float damage, radius, travelled; int sprite; bool active; };
 struct VisualProjectile { Vec3 pos, vel; float damage, radius; int sprite; bool active; };
 struct EnemyProjectile { Vec3 pos, vel; float life, radius, damage; int style, sprite, owner; bool active; };
 struct Impact { Vec3 pos; float life; int weapon; };
 struct FirstPersonLaunch { float life, duration; int weapon; bool active; };
 struct Sound { Uint8 *data; Uint32 length; };
-enum AudioClass { AudioWeapon, AudioCombat, AudioInterface, AudioClassCount };
-struct AudioVoice { const Sint16 *samples; Uint32 frames, cursor; float gain, left, right; int priority, category; Uint64 age; };
-struct AudioMixer { AudioVoice voices[24]{}; Uint64 next_age=0; };
-static void audio_mix(void *userdata, Uint8 *stream, int length) {
-  AudioMixer *mixer=static_cast<AudioMixer*>(userdata); Sint16 *out=reinterpret_cast<Sint16*>(stream); int frames=length/(2*(int)sizeof(Sint16));
-  for(int frame=0;frame<frames;frame++) { float left=0,right=0;
-    for(auto &voice:mixer->voices) if(voice.samples&&voice.cursor<voice.frames) { float sample=voice.samples[voice.cursor++]/32768.0f; left+=sample*voice.gain*voice.left; right+=sample*voice.gain*voice.right; if(voice.cursor>=voice.frames)voice.samples=nullptr; }
-    out[frame*2]=(Sint16)std::lrint(std::fmax(-1.0f,std::fmin(1.0f,left))*32767.0f); out[frame*2+1]=(Sint16)std::lrint(std::fmax(-1.0f,std::fmin(1.0f,right))*32767.0f);
-  }
-}
-static void play_sound(SDL_AudioDeviceID device, AudioMixer &mixer, const Sound &sound, AudioClass category, int priority, float gain, float pan=0.0f, float distance=0.0f) {
-  if(!device||!sound.data||sound.length<2)return;
-  pan=std::fmax(-1.0f,std::fmin(1.0f,pan)); float attenuation=1.0f/(1.0f+0.075f*std::fmax(0.0f,distance));
-  SDL_LockAudioDevice(device); int category_count=0; AudioVoice *slot=nullptr,*victim=nullptr;
-  for(auto &voice:mixer.voices) { if(voice.samples&&voice.category==(int)category)category_count++; if(!voice.samples&&!slot)slot=&voice; if(voice.samples&&(!victim||voice.priority<victim->priority||(voice.priority==victim->priority&&voice.age<victim->age)))victim=&voice; }
-  static constexpr int category_limits[AudioClassCount]={6,14,4};
-  if(category_count>=category_limits[category]) { victim=nullptr; for(auto &voice:mixer.voices)if(voice.samples&&voice.category==(int)category&&(!victim||voice.priority<victim->priority||(voice.priority==victim->priority&&voice.age<victim->age)))victim=&voice; slot=victim; }
-  if(!slot)slot=victim;
-  if(slot&&(!slot->samples||priority>=slot->priority)) { float angle=(pan+1.0f)*0.785398163f; *slot={reinterpret_cast<const Sint16*>(sound.data),(Uint32)(sound.length/sizeof(Sint16)),0,gain*attenuation,std::cos(angle),std::sin(angle),priority,(int)category,++mixer.next_age}; }
-  SDL_UnlockAudioDevice(device);
-}
 struct EnemyCollision { float width, height, depth, bottom; };
 static constexpr int MAX_ENEMY_PROJECTILES=16;
 static constexpr int MAX_VISUAL_PROJECTILES=12;
@@ -102,7 +124,7 @@ static float turn_toward(float current, float target, float maximum_step) {
 static bool enemies_can_infight(const Enemy &attacker,const Enemy &victim){return attacker.type!=victim.type;}
 
 static EnemyCollision enemy_collision(const Enemy &enemy) {
-  const EnemyDefinition &def=ENEMY_DEFS[enemy.type];const EnemyClip &clip=enemy_clip(enemy);int frame_index=0;clip_frame(clip,enemy.state==EnemyWalk?enemy.walk_time:enemy.state_time,&frame_index);
+  const EnemyDefinition &def=enemy_definition(enemy.type);const EnemyClip &clip=enemy_clip(enemy);int frame_index=0;clip_frame(clip,enemy.state==EnemyWalk?enemy.walk_time:enemy.state_time,&frame_index);
   // Each visible pose gets its own body profile. Arms and spell effects may
   // extend outside it, but crouch, recoil, attack lunge, and fallen bodies no
   // longer use the standing walk cylinder.
@@ -207,6 +229,8 @@ static EnemyDirection enemy_direction(const Enemy &enemy, Vec3 player) {
   return (EnemyDirection)(((int)std::floor((relative+step*.5f)/step))&7);
 }
 static const EnemyClip &enemy_clip(const Enemy &enemy) {
+  if(enemy.type>=4){if(enemy.state==EnemyPain)return FURNACE_PAIN_CLIP;if(enemy.state==EnemyAttack)return FURNACE_ATTACK_CLIP;if(enemy.state==EnemyDeath)return FURNACE_DEATH_CLIP;if(enemy.state==EnemyGib)return FURNACE_GIB_CLIP;if(enemy.state==EnemyCorpse)return FURNACE_CORPSE_CLIP;return FURNACE_WALK_CLIP;}
+  if(starling_mode){if(enemy.state==EnemyPain)return STARLING_PAIN_CLIP;if(enemy.state==EnemyAttack)return STARLING_ATTACK_CLIP;if(enemy.state==EnemyDeath)return STARLING_DEATH_CLIP;if(enemy.state==EnemyGib)return STARLING_GIB_CLIP;if(enemy.state==EnemyCorpse)return STARLING_CORPSE_CLIP;return STARLING_WALK_CLIP;}
   if(enemy.state==EnemyPain)return PAIN_CLIP;
   if(enemy.state==EnemyAttack)return ATTACK_CLIP;
   if(enemy.state==EnemyDeath)return DEATH_CLIP;
@@ -214,18 +238,20 @@ static const EnemyClip &enemy_clip(const Enemy &enemy) {
   if(enemy.state==EnemyCorpse)return enemy.gibbed?GIB_CORPSE_CLIP:DEATH_CORPSE_CLIP;
   return WALK_CLIP;
 }
-static void enemy_model(const GLuint directional_frames[4][EnemyDirectionCount][4], const GLuint combat_frames[4][4][4], const Enemy &enemy, int variant, Vec3 player) {
-  const EnemyDefinition &def=ENEMY_DEFS[variant]; const EnemyClip &clip=enemy_clip(enemy); const EnemyFrame &frame=clip_frame(clip,enemy.state==EnemyWalk?enemy.walk_time:enemy.state_time);
-  EnemyDirection direction=enemy_direction(enemy,player);GLuint tex=frame.atlas==DirectionalAtlas?directional_frames[variant][direction][frame.row]:combat_frames[variant][frame.row][frame.column];if(!tex)return;
+static void enemy_model(const GLuint directional_frames[4][EnemyDirectionCount][4], const GLuint combat_frames[4][4][4], const GLuint starling_frames[2][EnemyDirectionCount][6], const GLuint furnace_frames[2][EnemyDirectionCount][6], const Enemy &enemy, int variant, Vec3 player) {
+  const EnemyDefinition &def=enemy_definition(variant); const EnemyClip &clip=enemy_clip(enemy); const EnemyFrame &frame=clip_frame(clip,enemy.state==EnemyWalk?enemy.walk_time:enemy.state_time);
+  EnemyDirection direction=enemy_direction(enemy,player);GLuint tex=frame.atlas==StarlingAtlas?starling_frames[variant][direction][frame.row]:frame.atlas==FurnaceAtlas?furnace_frames[variant-4][direction][frame.row]:frame.atlas==DirectionalAtlas?directional_frames[variant][direction][frame.row]:combat_frames[variant][frame.row][frame.column];if(!tex)return;
   float u0=0,u1=1,v0=0,v1=1;if(frame.mirror)std::swap(u0,u1);
   float player_angle=std::atan2(player.x-enemy.pos.x,player.z-enemy.pos.z),right_x=std::cos(player_angle),right_z=-std::sin(player_angle);
   float canvas_width=def.world_height*1.5f,cx=enemy.pos.x+right_x*(.5f-frame.pivot_x)*canvas_width,cz=enemy.pos.z+right_z*(.5f-frame.pivot_x)*canvas_width,bottom=enemy.pos.y+def.baseline-frame.pivot_y*def.world_height,hw=canvas_width*.5f;
-  glEnable(GL_TEXTURE_2D);glBindTexture(GL_TEXTURE_2D,tex);glEnable(GL_BLEND);glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);glEnable(GL_ALPHA_TEST);glAlphaFunc(GL_GREATER,.08f);glDisable(GL_LIGHTING);glColor4f(1,1,1,1);
+  float sprite_light=1.0f;if(calibration_mode){const auto &scene=eyesore::kCalibrationScene;for(int i=0;i<scene.light_region_count;i++){const auto &region=scene.light_regions[i];if(enemy.pos.x>=region.min_x&&enemy.pos.x<=region.max_x&&enemy.pos.z>=region.min_z&&enemy.pos.z<=region.max_z)sprite_light=std::max(.55f,region.brightness);}}
+  glEnable(GL_TEXTURE_2D);glBindTexture(GL_TEXTURE_2D,tex);glEnable(GL_BLEND);glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);glEnable(GL_ALPHA_TEST);glAlphaFunc(GL_GREATER,.08f);glDisable(GL_LIGHTING);glColor4f(sprite_light,sprite_light,sprite_light,1);
   sprite_plane(u0,u1,v0,v1,cx,cz,bottom,def.world_height,hw,right_x,right_z,1);
-  if(enemy.alive){float bar_y=enemy.pos.y+def.baseline+def.world_height+.08f,bar_hw=def.world_width*.5f;glDisable(GL_TEXTURE_2D);glColor4f(.08f,.01f,.005f,1);glBegin(GL_QUADS);glVertex3f(cx-bar_hw,bar_y,cz);glVertex3f(cx+bar_hw,bar_y,cz);glVertex3f(cx+bar_hw,bar_y+.07f,cz);glVertex3f(cx-bar_hw,bar_y+.07f,cz);glColor4f(1,.22f,.04f,1);float fill=def.world_width*std::fmax(0.0f,enemy.hp/enemy.max_hp);glVertex3f(cx-bar_hw,bar_y+.001f,cz);glVertex3f(cx-bar_hw+fill,bar_y+.001f,cz);glVertex3f(cx-bar_hw+fill,bar_y+.069f,cz);glVertex3f(cx-bar_hw,bar_y+.069f,cz);glEnd();}
+  if(enemy.alive&&SHOW_ENEMY_HEALTH_BARS){float bar_y=enemy.pos.y+def.baseline+def.world_height+.08f,bar_hw=def.world_width*.5f;glDisable(GL_TEXTURE_2D);glColor4f(.08f,.01f,.005f,1);glBegin(GL_QUADS);glVertex3f(cx-bar_hw,bar_y,cz);glVertex3f(cx+bar_hw,bar_y,cz);glVertex3f(cx+bar_hw,bar_y+.07f,cz);glVertex3f(cx-bar_hw,bar_y+.07f,cz);glColor4f(1,.22f,.04f,1);float fill=def.world_width*std::fmax(0.0f,enemy.hp/enemy.max_hp);glVertex3f(cx-bar_hw,bar_y+.001f,cz);glVertex3f(cx-bar_hw+fill,bar_y+.001f,cz);glVertex3f(cx-bar_hw+fill,bar_y+.069f,cz);glVertex3f(cx-bar_hw,bar_y+.069f,cz);glEnd();}
   glColor4f(1,1,1,1);glDisable(GL_ALPHA_TEST);glEnable(GL_LIGHTING);glDisable(GL_BLEND);
 }
 static void draw_weapon_model(const GLuint weapon_frames[3][4], int weapon, float anim, bool hit) {
+  if(starling_mode){draw_weapon(weapon,anim>0,hit);return;}
   int animation_frame=0;if(anim>0){float progress=1.0f-anim/WEAPON_ANIM_DURATIONS[weapon];animation_frame=std::min(WEAPON_FRAME_COUNTS[weapon]-1,std::max(0,(int)(progress*WEAPON_FRAME_COUNTS[weapon])));}int frame=WEAPON_SOURCE_FRAMES[weapon][animation_frame];GLuint tex=weapon_frames[weapon][frame];if(!tex){draw_weapon(weapon,anim>0,hit);return;}
   glMatrixMode(GL_PROJECTION); glPushMatrix(); glLoadIdentity(); glOrtho(-1,1,-1,1,-1,1); glMatrixMode(GL_MODELVIEW); glPushMatrix(); glLoadIdentity(); glDisable(GL_DEPTH_TEST); glDisable(GL_LIGHTING); glEnable(GL_BLEND); glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA); glEnable(GL_TEXTURE_2D); glBindTexture(GL_TEXTURE_2D,tex);const float widths[]={.54f,.72f,.9f},heights[]={.58f,.7f,.82f};float half=widths[weapon]*.5f,y_bottom=WEAPON_SCREEN_BOTTOM,y_top=y_bottom+heights[weapon];glColor4f(1,1,1,1);glBegin(GL_QUADS);glTexCoord2f(0,1);glVertex2f(-half,y_bottom);glTexCoord2f(1,1);glVertex2f(half,y_bottom);glTexCoord2f(1,0);glVertex2f(half,y_top);glTexCoord2f(0,0);glVertex2f(-half,y_top);glEnd();
   glDisable(GL_BLEND); glEnable(GL_TEXTURE_2D); if(hit)glColor3f(.3f,1,.35f);else glColor3f(1,.78f,.45f); glBegin(GL_LINES);glVertex2f(-.035f,0);glVertex2f(.035f,0);glVertex2f(0,-.035f);glVertex2f(0,.035f);glEnd(); glEnable(GL_LIGHTING); glEnable(GL_DEPTH_TEST); glPopMatrix(); glMatrixMode(GL_PROJECTION); glPopMatrix(); glMatrixMode(GL_MODELVIEW);
@@ -260,35 +286,28 @@ static void quad(GLuint tex, Vec3 a, Vec3 b, Vec3 c, Vec3 d, float repeat_u, flo
 }
 
 static bool blocked(float x, float z) {
-  if (x < -ARENA_HALF_WIDTH+.65f || x > ARENA_HALF_WIDTH-.65f || z < -ARENA_HALF_DEPTH+.65f || z > ARENA_HALF_DEPTH-.65f) return true;
-  for (const auto &p : PILLARS) if (std::hypot(x-p[0],z-p[1]) < .75f) return true;
-  for(const auto &wall:ROOM_WALLS)if(x>wall.x0-.42f&&x<wall.x1+.42f&&z>wall.z0-.42f&&z<wall.z1+.42f)return true;
-  return false;
+  return combat_world::blocks_actor(active_world,{x,0,z},.42f,2.35f);
 }
 
 static float room_hit_distance(Vec3 p, Vec3 ray) {
-  float nearest=100.0f;
-  if(ray.x>0) nearest=std::fmin(nearest,(ARENA_HALF_WIDTH-p.x)/ray.x); else if(ray.x<0) nearest=std::fmin(nearest,(-ARENA_HALF_WIDTH-p.x)/ray.x);
-  if(ray.z>0) nearest=std::fmin(nearest,(ARENA_HALF_DEPTH-p.z)/ray.z); else if(ray.z<0) nearest=std::fmin(nearest,(-ARENA_HALF_DEPTH-p.z)/ray.z);
-  if(ray.y>0) nearest=std::fmin(nearest,(ARENA_CEILING-p.y)/ray.y); else if(ray.y<0) nearest=std::fmin(nearest,(0.0f-p.y)/ray.y);
-  return nearest>0?nearest:100.0f;
+  Vec3 end=p+ray*100.0f;
+  auto hit=combat_world::trace_segment(active_world,{p.x,p.y,p.z},{end.x,end.y,end.z});
+  return hit.blocked?hit.fraction*100.0f:100.0f;
 }
 
 static Vec3 enemy_fire_origin(const Enemy &enemy) {
-  const EnemyDefinition &def=ENEMY_DEFS[enemy.type];
+  const EnemyDefinition &def=enemy_definition(enemy.type);
   return {enemy.pos.x,enemy.pos.y+def.baseline+def.world_height*(enemy.type==1?.62f:.56f),enemy.pos.z};
 }
 static bool ray_hits_pillar(Vec3 origin, Vec3 ray, float maximum_distance) {
-  float horizontal_length=std::hypot(ray.x,ray.z);if(horizontal_length<.0001f)return false;
-  for(const auto &pillar_pos:PILLARS){float dx=pillar_pos[0]-origin.x,dz=pillar_pos[1]-origin.z,t=(dx*ray.x+dz*ray.z)/(horizontal_length*horizontal_length);if(t<=0||t>=maximum_distance)continue;float near_x=origin.x+ray.x*t,near_z=origin.z+ray.z*t;if(std::hypot(near_x-pillar_pos[0],near_z-pillar_pos[1])<.63f&&origin.y+ray.y*t>=0&&origin.y+ray.y*t<=ARENA_CEILING-.45f)return true;}
-  return false;
+  Vec3 end=origin+ray*maximum_distance;
+  auto hit=combat_world::trace_segment(active_world,{origin.x,origin.y,origin.z},{end.x,end.y,end.z});
+  return hit.blocked&&hit.fraction<1.0f;
 }
 static bool ray_hits_arena_geometry(Vec3 origin, Vec3 ray, float maximum_distance) {
-  // Sampling is deliberate: projectile and sight paths use the same collision
-  // volumes as player movement, including every interior room divider.
-  for(float distance=.12f;distance<maximum_distance;distance+=.12f)
-    if(blocked(origin.x+ray.x*distance,origin.z+ray.z*distance))return true;
-  return false;
+  Vec3 end=origin+ray*maximum_distance;
+  auto hit=combat_world::trace_segment(active_world,{origin.x,origin.y,origin.z},{end.x,end.y,end.z});
+  return hit.blocked&&hit.fraction<1.0f;
 }
 static bool enemy_has_clear_player_shot(const Enemy enemies[], int count, int shooter, Vec3 player) {
   if(shooter<0||shooter>=count||!enemies[shooter].alive)return false;
@@ -298,22 +317,67 @@ static bool enemy_has_clear_player_shot(const Enemy enemies[], int count, int sh
   return true;
 }
 
-static void pillar(GLuint wall, float x, float z) {
-  const float r=.57f, y0=0, y1=ARENA_CEILING-.45f; quad(wall,{x-r,y0,z-r},{x+r,y0,z-r},{x+r,y1,z-r},{x-r,y1,z-r},1,4,{0,0,-1},.8f); quad(wall,{x+r,y0,z-r},{x+r,y0,z+r},{x+r,y1,z+r},{x+r,y1,z-r},1,4,{1,0,0},.9f); quad(wall,{x+r,y0,z+r},{x-r,y0,z+r},{x-r,y1,z+r},{x+r,y1,z+r},1,4,{0,0,1},.7f); quad(wall,{x-r,y0,z+r},{x-r,y0,z-r},{x-r,y1,z-r},{x-r,y1,z+r},1,4,{-1,0,0},.65f);
+static void rink_box(GLuint wall,const combat_world::Box &b) {
+  const float x0=b.min.x,x1=b.max.x,y0=b.min.y,y1=b.max.y,z0=b.min.z,z1=b.max.z;
+  quad(wall,{x0,y0,z0},{x1,y0,z0},{x1,y1,z0},{x0,y1,z0},x1-x0,y1-y0,{0,0,1},.96f);
+  quad(wall,{x1,y0,z1},{x0,y0,z1},{x0,y1,z1},{x1,y1,z1},x1-x0,y1-y0,{0,0,-1},.94f);
+  quad(wall,{x0,y0,z1},{x0,y0,z0},{x0,y1,z0},{x0,y1,z1},z1-z0,y1-y0,{1,0,0},.90f);
+  quad(wall,{x1,y0,z0},{x1,y0,z1},{x1,y1,z1},{x1,y1,z0},z1-z0,y1-y0,{-1,0,0},.90f);
+  if(y1-y0>.2f)quad(wall,{x0,y1,z0},{x1,y1,z0},{x1,y1,z1},{x0,y1,z1},x1-x0,z1-z0,{0,1,0},1.0f);
 }
-static void wall_block(GLuint wall, const WallBlock &block) {
-  float x0=block.x0,x1=block.x1,z0=block.z0,z1=block.z1,y=ARENA_CEILING;
-  float width=x1-x0,depth=z1-z0;
-  quad(wall,{x0,0,z0},{x1,0,z0},{x1,y,z0},{x0,y,z0},width,4,{0,0,1},.78f);
-  quad(wall,{x1,0,z1},{x0,0,z1},{x0,y,z1},{x1,y,z1},width,4,{0,0,-1},.72f);
-  quad(wall,{x0,0,z1},{x0,0,z0},{x0,y,z0},{x0,y,z1},depth,4,{1,0,0},.68f);
-  quad(wall,{x1,0,z0},{x1,0,z1},{x1,y,z1},{x1,y,z0},depth,4,{-1,0,0},.86f);
-  quad(wall,{x0,y,z0},{x1,y,z0},{x1,y,z1},{x0,y,z1},width,depth,{0,-1,0},.55f);
+
+static void furnace_box(GLuint wall,GLuint tread,const combat_world::Box &b) {
+  const float x0=b.min.x,x1=b.max.x,y0=b.min.y,y1=b.max.y,z0=b.min.z,z1=b.max.z;
+  quad(wall,{x0,y0,z0},{x1,y0,z0},{x1,y1,z0},{x0,y1,z0},x1-x0,y1-y0,{0,0,1},.92f);
+  quad(wall,{x1,y0,z1},{x0,y0,z1},{x0,y1,z1},{x1,y1,z1},x1-x0,y1-y0,{0,0,-1},.90f);
+  quad(wall,{x0,y0,z1},{x0,y0,z0},{x0,y1,z0},{x0,y1,z1},z1-z0,y1-y0,{1,0,0},.84f);
+  quad(wall,{x1,y0,z0},{x1,y0,z1},{x1,y1,z1},{x1,y1,z0},z1-z0,y1-y0,{-1,0,0},.94f);
+  GLuint top=(y1<2.0f&&tread)?tread:wall;
+  if(y1-y0>.2f)quad(top,{x0,y1,z0},{x1,y1,z0},{x1,y1,z1},{x0,y1,z1},x1-x0,z1-z0,{0,1,0},1.0f);
+}
+
+static void starling_room(GLuint wall,GLuint floor,GLuint ceiling,GLuint concourse) {
+  constexpr float x=14.0f,z0=-22.0f,z1=16.0f,y=5.0f;
+  glEnable(GL_TEXTURE_2D);glEnable(GL_LIGHTING);glEnable(GL_LIGHT0);glEnable(GL_COLOR_MATERIAL);glColorMaterial(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE);
+  quad(floor,{-x,.002f,z0},{x,.002f,z0},{x,.002f,9},{-x,.002f,9},7,7.75f,{0,1,0},1.0f);
+  quad(concourse,{-x,.004f,9},{x,.004f,9},{x,.004f,z1},{-x,.004f,z1},7,1.75f,{0,1,0},1.0f);
+  quad(ceiling,{-x,y,z0},{-x,y,z1},{x,y,z1},{x,y,z0},7,9.5f,{0,-1,0},.95f);
+  quad(wall,{-x,0,z1},{x,0,z1},{x,y,z1},{-x,y,z1},7,1,{0,0,-1},.95f);
+  quad(wall,{x,0,z1},{x,0,z0},{x,y,z0},{x,y,z1},9.5f,1,{-1,0,0},.93f);
+  quad(wall,{x,0,z0},{-x,0,z0},{-x,y,z0},{x,y,z0},7,1,{0,0,1},1.0f);
+  quad(wall,{-x,0,z0},{-x,0,z1},{-x,y,z1},{-x,y,z0},9.5f,1,{1,0,0},.91f);
+  for(const auto &solid:active_world.solids)rink_box(wall,solid.box);
+
+  // Track marks are broad, floor-bound graphic strokes, not luminous navigation rails.
+  glDisable(GL_TEXTURE_2D);glDisable(GL_LIGHTING);glColor3f(.06f,.40f,.43f);glBegin(GL_QUADS);
+  glVertex3f(-10,.012f,-18);glVertex3f(-9.72f,.012f,-18);glVertex3f(-9.72f,.012f,8);glVertex3f(-10,.012f,8);
+  glVertex3f(9.72f,.012f,-18);glVertex3f(10,.012f,-18);glVertex3f(10,.012f,8);glVertex3f(9.72f,.012f,8);
+  glEnd();
+  for(int i=0;i<5;i++){float zz=6.7f-i*4.7f;glColor3f(i%2?.86f:.95f,.68f,.55f);glBegin(GL_TRIANGLES);glVertex3f(-.5f,.016f,zz);glVertex3f(.5f,.016f,zz);glVertex3f(0,.016f,zz-1.05f);glEnd();}
+
+  // A physical split-flap race board makes the finish readable from the rink.
+  glColor3f(.055f,.045f,.13f);glBegin(GL_QUADS);glVertex3f(-5.2f,2.0f,-21.91f);glVertex3f(5.2f,2.0f,-21.91f);glVertex3f(5.2f,4.35f,-21.91f);glVertex3f(-5.2f,4.35f,-21.91f);glEnd();
+  for(int i=0;i<6;i++){float bx=-4.25f+i*1.7f;glColor3f(i<3?.89f:.19f,i<3?.72f:.82f,i<3?.49f:.76f);glBegin(GL_QUADS);glVertex3f(bx,2.55f,-21.89f);glVertex3f(bx+1.05f,2.55f,-21.89f);glVertex3f(bx+1.05f,3.8f,-21.89f);glVertex3f(bx,3.8f,-21.89f);glEnd();}
+  glColor3f(.96f,.22f,.25f);glBegin(GL_QUADS);glVertex3f(-5.5f,4.45f,-21.9f);glVertex3f(5.5f,4.45f,-21.9f);glVertex3f(5.5f,4.56f,-21.9f);glVertex3f(-5.5f,4.56f,-21.9f);glEnd();
+  glColor4f(1,1,1,1);glEnable(GL_LIGHTING);glEnable(GL_TEXTURE_2D);
 }
 
 static void draw_weapon(int weapon, bool muzzle, bool hit) {
   glMatrixMode(GL_PROJECTION); glPushMatrix(); glLoadIdentity(); glOrtho(-1,1,-1,1,-1,1); glMatrixMode(GL_MODELVIEW); glPushMatrix(); glLoadIdentity(); glDisable(GL_DEPTH_TEST); glDisable(GL_LIGHTING); glDisable(GL_TEXTURE_2D);
-  float kick=muzzle?(weapon==1?.09f:weapon==2?.06f:.045f):0; glTranslatef(0,-kick,0); float tint[3] = {weapon==0?.9f:weapon==1?.35f:.08f, weapon==2?.55f:.12f, weapon==2?.95f:.04f}; glColor3f(tint[0],tint[1],tint[2]);
+  float kick=muzzle?(weapon==1?.09f:weapon==2?.06f:.045f):0; glTranslatef(0,-kick,0);
+  if(starling_mode){
+    // First-person pit-lane weapons: a numbered lap-stamp carbine and a twin
+    // drum deck-banger. Hard enamel panels keep the silhouette legible.
+    glTranslatef(.26f,-.18f,0);glScalef(.62f,.62f,1);
+    glColor3f(.075f,.095f,.16f);glBegin(GL_QUADS);glVertex2f(-.42f,-1);glVertex2f(.38f,-1);glVertex2f(.31f,-.28f);glVertex2f(-.34f,-.2f);glEnd();
+    glColor3f(.76f,.83f,.72f);glBegin(GL_QUADS);glVertex2f(-.36f,-.45f);glVertex2f(.36f,-.42f);glVertex2f(.31f,-.19f);glVertex2f(-.32f,-.16f);glEnd();
+    if(weapon==1){glColor3f(.13f,.16f,.25f);glBegin(GL_QUADS);glVertex2f(-.48f,-.18f);glVertex2f(.48f,-.18f);glVertex2f(.35f,.34f);glVertex2f(-.35f,.34f);glEnd();glColor3f(.96f,.31f,.27f);glBegin(GL_QUADS);glVertex2f(-.28f,.13f);glVertex2f(-.08f,.13f);glVertex2f(-.1f,.56f);glVertex2f(-.26f,.56f);glVertex2f(.08f,.13f);glVertex2f(.28f,.13f);glVertex2f(.26f,.56f);glVertex2f(.1f,.56f);glEnd();glColor3f(.78f,.86f,.76f);glBegin(GL_QUADS);glVertex2f(-.14f,.24f);glVertex2f(.14f,.24f);glVertex2f(.11f,.63f);glVertex2f(-.11f,.63f);glEnd();}
+    else {glColor3f(.09f,.14f,.22f);glBegin(GL_QUADS);glVertex2f(-.26f,-.16f);glVertex2f(.3f,-.16f);glVertex2f(.21f,.53f);glVertex2f(-.17f,.53f);glEnd();glColor3f(.11f,.68f,.66f);glBegin(GL_QUADS);glVertex2f(-.14f,.2f);glVertex2f(.16f,.2f);glVertex2f(.13f,.76f);glVertex2f(-.1f,.76f);glEnd();glColor3f(.95f,.66f,.34f);glBegin(GL_QUADS);glVertex2f(-.12f,.45f);glVertex2f(.13f,.45f);glVertex2f(.12f,.54f);glVertex2f(-.11f,.54f);glEnd();}
+    if(hit){glColor3f(.43f,1,.82f);glBegin(GL_QUADS);glVertex2f(-.12f,-.06f);glVertex2f(.12f,-.06f);glVertex2f(.12f,-.025f);glVertex2f(-.12f,-.025f);glEnd();}
+    if(muzzle){glColor3f(1,.73f,.26f);glBegin(GL_TRIANGLES);glVertex2f(-.18f,.55f);glVertex2f(.18f,.55f);glVertex2f(0,.92f);glEnd();glColor3f(1,.95f,.74f);glBegin(GL_TRIANGLES);glVertex2f(-.06f,.58f);glVertex2f(.06f,.58f);glVertex2f(0,.79f);glEnd();}
+    glEnable(GL_TEXTURE_2D);glEnable(GL_LIGHTING);glEnable(GL_DEPTH_TEST);glPopMatrix();glMatrixMode(GL_PROJECTION);glPopMatrix();glMatrixMode(GL_MODELVIEW);return;
+  }
+  float tint[3] = {weapon==0?.9f:weapon==1?.35f:.08f, weapon==2?.55f:.12f, weapon==2?.95f:.04f}; glColor3f(tint[0],tint[1],tint[2]);
   if(weapon==0){glBegin(GL_QUADS);glVertex2f(-.16f,-1);glVertex2f(.16f,-1);glVertex2f(.12f,-.3f);glVertex2f(-.12f,-.3f);glEnd();glColor3f(.08f,.06f,.05f);glBegin(GL_QUADS);glVertex2f(-.24f,-.35f);glVertex2f(.24f,-.35f);glVertex2f(.16f,.02f);glVertex2f(-.16f,.02f);glEnd();}
   else if(weapon==1){glBegin(GL_QUADS);glVertex2f(-.34f,-1);glVertex2f(.34f,-1);glVertex2f(.27f,-.2f);glVertex2f(-.27f,-.2f);glEnd();glColor3f(.12f,.1f,.09f);glBegin(GL_QUADS);glVertex2f(-.42f,-.24f);glVertex2f(.42f,-.24f);glVertex2f(.28f,.08f);glVertex2f(-.28f,.08f);glEnd();}
   else {glBegin(GL_QUADS);glVertex2f(-.22f,-1);glVertex2f(.22f,-1);glVertex2f(.16f,-.15f);glVertex2f(-.16f,-.15f);glEnd();glColor3f(.04f,.14f,.18f);glBegin(GL_QUADS);glVertex2f(-.3f,-.2f);glVertex2f(.3f,-.2f);glVertex2f(.2f,.28f);glVertex2f(-.2f,.28f);glEnd();}
@@ -321,16 +385,50 @@ static void draw_weapon(int weapon, bool muzzle, bool hit) {
   if(hit) glColor3f(.3f,1,.35f); else glColor3f(1,.78f,.45f); glBegin(GL_LINES); glVertex2f(-.035f,0); glVertex2f(.035f,0); glVertex2f(0,-.035f); glVertex2f(0,.035f); glEnd(); glEnable(GL_TEXTURE_2D); glEnable(GL_LIGHTING); glEnable(GL_DEPTH_TEST); glPopMatrix(); glMatrixMode(GL_PROJECTION); glPopMatrix(); glMatrixMode(GL_MODELVIEW);
 }
 
-static void room(GLuint wall, GLuint floor, GLuint ceiling) {
+static void room(GLuint wall, GLuint floor, GLuint ceiling, GLuint iron_floor, GLuint tread) {
   glEnable(GL_TEXTURE_2D); glEnable(GL_LIGHTING); glEnable(GL_LIGHT0); glEnable(GL_COLOR_MATERIAL); glColorMaterial(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE);
   quad(floor,{-ARENA_HALF_WIDTH,0,-ARENA_HALF_DEPTH},{ARENA_HALF_WIDTH,0,-ARENA_HALF_DEPTH},{ARENA_HALF_WIDTH,0,ARENA_HALF_DEPTH},{-ARENA_HALF_WIDTH,0,ARENA_HALF_DEPTH},36,30,{0,1,0},1.0f);
+  // Steel service lanes frame the broad ash court and wrap the side approaches.
+  if(iron_floor){
+    quad(iron_floor,{-34,.003f,-8},{-20,.003f,-8},{-20,.003f,8},{-34,.003f,8},7,8,{0,1,0},1.0f);
+    quad(iron_floor,{20,.003f,-8},{34,.003f,-8},{34,.003f,8},{20,.003f,8},7,8,{0,1,0},1.0f);
+    quad(iron_floor,{-13,.003f,-10},{13,.003f,-10},{13,.003f,-8},{-13,.003f,-8},13,1,{0,1,0},1.0f);
+    quad(iron_floor,{-13,.003f,8},{13,.003f,8},{13,.003f,10},{-13,.003f,10},13,1,{0,1,0},1.0f);
+  }
   quad(ceiling,{-ARENA_HALF_WIDTH,ARENA_CEILING,-ARENA_HALF_DEPTH},{-ARENA_HALF_WIDTH,ARENA_CEILING,ARENA_HALF_DEPTH},{ARENA_HALF_WIDTH,ARENA_CEILING,ARENA_HALF_DEPTH},{ARENA_HALF_WIDTH,ARENA_CEILING,-ARENA_HALF_DEPTH},36,30,{0,-1,0},.55f);
   quad(wall,{-ARENA_HALF_WIDTH,0,ARENA_HALF_DEPTH},{ARENA_HALF_WIDTH,0,ARENA_HALF_DEPTH},{ARENA_HALF_WIDTH,ARENA_CEILING,ARENA_HALF_DEPTH},{-ARENA_HALF_WIDTH,ARENA_CEILING,ARENA_HALF_DEPTH},36,4,{0,0,-1},.75f);
   quad(wall,{ARENA_HALF_WIDTH,0,ARENA_HALF_DEPTH},{ARENA_HALF_WIDTH,0,-ARENA_HALF_DEPTH},{ARENA_HALF_WIDTH,ARENA_CEILING,-ARENA_HALF_DEPTH},{ARENA_HALF_WIDTH,ARENA_CEILING,ARENA_HALF_DEPTH},30,4,{-1,0,0},.85f);
   quad(wall,{ARENA_HALF_WIDTH,0,-ARENA_HALF_DEPTH},{-ARENA_HALF_WIDTH,0,-ARENA_HALF_DEPTH},{-ARENA_HALF_WIDTH,ARENA_CEILING,-ARENA_HALF_DEPTH},{ARENA_HALF_WIDTH,ARENA_CEILING,-ARENA_HALF_DEPTH},36,4,{0,0,1},.92f);
   quad(wall,{-ARENA_HALF_WIDTH,0,-ARENA_HALF_DEPTH},{-ARENA_HALF_WIDTH,0,ARENA_HALF_DEPTH},{-ARENA_HALF_WIDTH,ARENA_CEILING,ARENA_HALF_DEPTH},{-ARENA_HALF_WIDTH,ARENA_CEILING,-ARENA_HALF_DEPTH},30,4,{1,0,0},.62f);
-  for(const auto &pillar_pos:PILLARS)pillar(wall,pillar_pos[0],pillar_pos[1]);
-  for(const auto &wall_block_data:ROOM_WALLS)wall_block(wall,wall_block_data);
+  // Collision boxes own the rendered floor-to-top extents. This keeps cover
+  // and any later authored baffle in the same place for movement and shots.
+  for(const auto &solid:active_world.solids)furnace_box(wall,tread,solid.box);
+}
+
+static void calibration_box(GLuint wall,const combat_world::Box &b) {
+  float x0=b.min.x,x1=b.max.x,y0=b.min.y,y1=b.max.y,z0=b.min.z,z1=b.max.z;
+  quad(wall,{x0,y0,z0},{x1,y0,z0},{x1,y1,z0},{x0,y1,z0},x1-x0,y1-y0,{0,0,1},.76f);
+  quad(wall,{x1,y0,z1},{x0,y0,z1},{x0,y1,z1},{x1,y1,z1},x1-x0,y1-y0,{0,0,-1},.72f);
+  quad(wall,{x0,y0,z1},{x0,y0,z0},{x0,y1,z0},{x0,y1,z1},z1-z0,y1-y0,{1,0,0},.68f);
+  quad(wall,{x1,y0,z0},{x1,y0,z1},{x1,y1,z1},{x1,y1,z0},z1-z0,y1-y0,{-1,0,0},.86f);
+  if(y1-y0>.2f){
+    quad(wall,{x0,y1,z0},{x1,y1,z0},{x1,y1,z1},{x0,y1,z1},x1-x0,z1-z0,{0,1,0},.78f);
+    quad(wall,{x0,y0,z1},{x1,y0,z1},{x1,y0,z0},{x0,y0,z0},x1-x0,z1-z0,{0,-1,0},.54f);
+  }
+}
+
+static void calibration_floor_patch(GLuint floor,float x0,float z0,float x1,float z1,float brightness) {
+  quad(floor,{x0,.002f,z0},{x1,.002f,z0},{x1,.002f,z1},{x0,.002f,z1},x1-x0,z1-z0,{0,1,0},brightness);
+}
+
+static void draw_calibration_room(GLuint wall,GLuint floor,GLuint ceiling) {
+  const auto &scene=eyesore::kCalibrationScene;float x=scene.half_width,z=scene.half_depth,y=scene.ceiling_height;
+  glEnable(GL_TEXTURE_2D);glDisable(GL_LIGHTING);glDisable(GL_LIGHT0);glEnable(GL_COLOR_MATERIAL);glColorMaterial(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE);
+  // Floor patches read the exact brightness rectangles from the scene data.
+  for(int i=0;i<scene.light_region_count;i++){const auto &region=scene.light_regions[i];calibration_floor_patch(floor,region.min_x,region.min_z,region.max_x,region.max_z,region.brightness);}
+  quad(ceiling,{-x,y,-z},{-x,y,z},{x,y,z},{x,y,-z},2*x,2*z,{0,-1,0},.55f);
+  for(const auto &solid:active_world.solids)calibration_box(wall,solid.box);
+  glEnable(GL_LIGHTING);glEnable(GL_LIGHT0);
 }
 
 static void draw_weapon_cache(Vec3 position, float time) {
@@ -345,16 +443,17 @@ static void draw_weapon_cache(Vec3 position, float time) {
   glColor4f(1,.78f,.28f,.95f);glBegin(GL_LINES);glVertex3f(-.16f,.56f,0);glVertex3f(.16f,.56f,0);glVertex3f(0,.56f,-.16f);glVertex3f(0,.56f,.16f);glEnd();glPopMatrix();glDisable(GL_BLEND);glEnable(GL_LIGHTING);
 }
 
-static bool enemy_is_ranged(const Enemy &enemy) { return enemy.type==1||enemy.type==2; }
+static bool enemy_is_ranged(const Enemy &enemy) { return enemy.type==1||enemy.type==2||enemy.type==5; }
 static float enemy_notice_distance(const Enemy &enemy) { return enemy_is_ranged(enemy)?RANGED_NOTICE_DISTANCE:MELEE_NOTICE_DISTANCE; }
 static float enemy_attack_distance(const Enemy &enemy) { return enemy_is_ranged(enemy)?RANGED_ATTACK_DISTANCE:MELEE_ATTACK_DISTANCE; }
 static bool enemy_notices_player(const Enemy &enemy, Vec3 player) { return std::hypot(player.x-enemy.pos.x,player.z-enemy.pos.z)<=enemy_notice_distance(enemy); }
 static Enemy make_enemy(Vec3 pos, float hp, int type) { return {pos,hp,hp,type*1.31f,0,0,0,.75f+type*.23f,type*1.31f,true,false,false,EnemyWalk,type,-1}; }
 static void damage_enemy(Enemy &enemy, float damage, bool force_gib, int attacker=-1) {
   if(!enemy.alive)return;
-  enemy.hp-=damage;enemy.state_time=0;enemy.event_fired=false;enemy.target_enemy=attacker;
+  EnemyState previous=enemy.state;enemy.hp-=damage;enemy.target_enemy=attacker;
+  if(previous!=EnemyAttack){enemy.state_time=0;enemy.event_fired=false;}
   if(enemy.hp<=0){enemy.hp=0;enemy.alive=false;enemy.gibbed=force_gib;enemy.state=force_gib?EnemyGib:EnemyDeath;}
-  else enemy.state=EnemyPain;
+  else if(previous!=EnemyAttack)enemy.state=EnemyPain;
 }
 static bool damage_enemy_from_enemy(Enemy enemies[],int count,int attacker,int victim,float damage){if(attacker<0||attacker>=count||victim<0||victim>=count||!enemies[victim].alive||!enemies_can_infight(enemies[attacker],enemies[victim]))return false;damage_enemy(enemies[victim],damage,false,attacker);return true;}
 
@@ -382,50 +481,116 @@ static int self_test() {
 
 int main(int argc,char **argv) {
   if(argc>1&&!std::strcmp(argv[1],"--self-test"))return self_test();
+  calibration_mode=argc>1&&!std::strcmp(argv[1],"--calibration");
   bool recording=argc>1&&!std::strcmp(argv[1],"--record");
+  starling_mode=!calibration_mode&&(argc>1&&!std::strcmp(argv[1],"--starling"));
+  active_world=calibration_mode?make_calibration_world():(starling_mode?combat_world::starling_rink_world():combat_world::descent_world());
   if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) != 0) return std::fprintf(stderr,"SDL: %s\n",SDL_GetError()),1;
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION,2); SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION,1); SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER,1);
-  SDL_Window *window=SDL_CreateWindow("Eye Sore — 3D Engine Test Room",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,W,H,SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
+  SDL_Window *window=SDL_CreateWindow(starling_mode?"Eye Sore — STARLING'S LAST LAP | NIGHT RACECOURSE":"Eye Sore — FURNACE DESCENT",SDL_WINDOWPOS_CENTERED_DISPLAY(0),SDL_WINDOWPOS_CENTERED_DISPLAY(0),W,H,SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
   if (!window) return std::fprintf(stderr,"Window: %s\n",SDL_GetError()),1;
   SDL_GLContext context=SDL_GL_CreateContext(window); SDL_GL_SetSwapInterval(1); SDL_SetWindowGrab(window,SDL_TRUE); SDL_SetRelativeMouseMode(SDL_TRUE);
-  glEnable(GL_DEPTH_TEST); glDisable(GL_CULL_FACE); glShadeModel(GL_SMOOTH); glClearColor(.015f,.003f,.006f,1);
-  GLuint wall=texture_from_bmp("assets/infernal-wall.bmp"),floor=texture_from_bmp("assets/infernal-floor.bmp"),ceiling=texture_from_bmp("assets/infernal-ceiling.bmp"),enemy_directions[4][EnemyDirectionCount][4]={},enemy_combat[4][4][4]={},weapon_frames[3][4]={},projectile_sprites[ProjectileSpriteCount][ProjectileDirectionCount]={},first_person_launches[3]={},arc_muzzle_flash=0;
+  glEnable(GL_DEPTH_TEST); glDisable(GL_CULL_FACE); glShadeModel(GL_SMOOTH); if(starling_mode)glClearColor(.045f,.025f,.13f,1);else glClearColor(.015f,.003f,.006f,1);
+  GLuint wall=texture_from_bmp(starling_mode?"assets/starling-last-lap/rink-wall.bmp":"assets/furnace-descent-redesign/wall-basalt-seamfit.bmp"),floor=texture_from_bmp(starling_mode?"assets/starling-last-lap/rink-floor.bmp":"assets/furnace-descent-redesign/floor-ash-seamfit.bmp"),ceiling=texture_from_bmp(starling_mode?"assets/starling-last-lap/rink-ceiling.bmp":"assets/furnace-descent-redesign/ceiling-exhaust-seamfit.bmp"),concourse_floor=starling_mode?texture_from_bmp("assets/starling-last-lap/concourse-floor.bmp"):0,iron_floor=starling_mode?0:texture_from_bmp("assets/furnace-descent-redesign/floor-iron-runtimefit.bmp"),elevation_tread=starling_mode?0:texture_from_bmp("assets/furnace-descent-redesign/elevation-tread.bmp"),enemy_directions[4][EnemyDirectionCount][4]={},enemy_combat[4][4][4]={},starling_frames[2][EnemyDirectionCount][6]={},furnace_frames[2][EnemyDirectionCount][6]={},weapon_frames[3][4]={},projectile_sprites[ProjectileSpriteCount][ProjectileDirectionCount]={},first_person_launches[3]={},arc_muzzle_flash=0;
   char enemy_path[160];for(int type=0;type<4;type++)for(int direction=0;direction<EnemyDirectionCount;direction++)for(int pose=0;pose<4;pose++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/enemies/directional/enemy-%d-dir-%d-walk-%d.bmp",type,direction,pose);enemy_directions[type][direction][pose]=texture_from_bmp(enemy_path,true);}
   const char *combat_states[]={"pain","attack","death","gib"};for(int type=0;type<4;type++)for(int state=0;state<4;state++)for(int frame=0;frame<4;frame++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/enemies/combat/enemy-%d-%s-%d.bmp",type,combat_states[state],frame);enemy_combat[type][state][frame]=texture_from_bmp(enemy_path,true);}
+  if(starling_mode){const char *families[]={"bumper-hound","lap-counter"},*poses[]={"approach-a","approach-b","tell","release","recovery","corpse"};for(int type=0;type<2;type++)for(int direction=0;direction<EnemyDirectionCount;direction++)for(int pose=0;pose<6;pose++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/enemies/starling-last-lap/%s/%s-dir-%d-%s.bmp",families[type],families[type],direction,poses[pose]);starling_frames[type][direction][pose]=texture_from_bmp(enemy_path,false);}}
+  if(!starling_mode){const char *families[]={"hookrunner","soot-bellower"},*poses[]={"approach-a","approach-b","tell","release","recovery","corpse"};for(int type=0;type<2;type++)for(int direction=0;direction<EnemyDirectionCount;direction++)for(int pose=0;pose<6;pose++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/enemies/furnace-descent-redesign/%s/%s-dir-%d-%s.bmp",families[type],families[type],direction,poses[pose]);furnace_frames[type][direction][pose]=texture_from_bmp(enemy_path,false);}}
   for(int weapon_index=0;weapon_index<3;weapon_index++)for(int frame=0;frame<4;frame++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/weapons/weapon-%d-frame-%d.bmp",weapon_index,frame);weapon_frames[weapon_index][frame]=texture_from_bmp(enemy_path);}
   const char *projectile_names[]={"player-pistol","player-shotgun","player-arc","cultist-fire","wraith-plasma"},*projectile_directions[]={"toward","toward-right","right","away-right","away","away-left","left","toward-left"};for(int sprite=0;sprite<ProjectileSpriteCount;sprite++)for(int direction=0;direction<ProjectileDirectionCount;direction++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/projectiles/%s-dir-%s.bmp",projectile_names[sprite],projectile_directions[direction]);projectile_sprites[sprite][direction]=texture_from_bmp(enemy_path);}
   const char *launch_names[]={"player-pistol","player-shotgun","player-arc-perspective-bolt-v2"};for(int weapon_index=0;weapon_index<3;weapon_index++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/projectiles/first-person-%s.bmp",launch_names[weapon_index]);first_person_launches[weapon_index]=texture_from_bmp(enemy_path);}arc_muzzle_flash=texture_from_bmp("assets/projectiles/first-person-player-arc-muzzle-flash.bmp");
-  SDL_AudioSpec sound_spec={},music_spec={};Sound weapon_sounds[3][WEAPON_SOUND_VARIANTS]={};for(int weapon_index=0;weapon_index<3;weapon_index++)for(int variant=0;variant<WEAPON_SOUND_VARIANTS;variant++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/%s-%d.wav",WEAPON_SOUND_NAMES[weapon_index],variant);weapon_sounds[weapon_index][variant]=load_sound(enemy_path,&sound_spec);}Sound impact_sound=load_sound("assets/sounds/projectile-impact.wav",&sound_spec),enemy_hit_sounds[4];for(int type=0;type<4;type++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/enemy-hit-%d.wav",type);enemy_hit_sounds[type]=load_sound(enemy_path,&sound_spec);}Sound enemy_cast_sound=load_sound("assets/sounds/enemy-cast.wav",&sound_spec),player_damage_sound=load_sound("assets/sounds/player-damage.wav",&sound_spec),weapon_pickup_sound=load_sound("assets/sounds/weapon-pickup.wav",&sound_spec),music=load_sound("assets/music/furnace-descent-loop.wav",&music_spec);AudioMixer audio_mixer{};SDL_AudioSpec mix_spec={},mix_obtained={};mix_spec.freq=44100;mix_spec.format=AUDIO_S16SYS;mix_spec.channels=2;mix_spec.samples=1024;mix_spec.callback=audio_mix;mix_spec.userdata=&audio_mixer;SDL_AudioDeviceID audio_device=weapon_sounds[0][0].data&&sound_spec.freq==44100&&sound_spec.channels==1&&sound_spec.format==AUDIO_S16SYS?SDL_OpenAudioDevice(nullptr,0,&mix_spec,&mix_obtained,0):0,music_device=music.data?SDL_OpenAudioDevice(nullptr,0,&music_spec,nullptr,0):0;if(audio_device)SDL_PauseAudioDevice(audio_device,0);else std::fprintf(stderr,"Effects mixer needs mono 44.1kHz signed-16 WAVs and stereo 44.1kHz output: %s\n",SDL_GetError());if(music_device){SDL_QueueAudio(music_device,music.data,music.length);SDL_PauseAudioDevice(music_device,0);}else std::fprintf(stderr,"Music audio device: %s\n",SDL_GetError());
+  AudioClip weapon_sounds[3][WEAPON_SOUND_VARIANTS],weapon_returns[3][WEAPON_SOUND_VARIANTS],starling_enemy_cues[2][3][3],starling_contacts[2][3],furnace_enemy_cues[6][4][2];
+  for(int w=0;w<3;w++)for(int v=0;v<WEAPON_SOUND_VARIANTS;v++){
+    if(starling_mode&&w<2)std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/starling-last-lap/%s_%d.wav",w==0?"carbine_complete_fire":"deck_shotgun_complete_fire",v+1);
+    else if(!starling_mode)std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/furnace-descent-redesign/%s_release_%d.wav",w==0?"ember_pistol":w==1?"rivet_shotgun":"arc_cannon",v+1);
+    else std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/%s-%d.wav",WEAPON_SOUND_NAMES[w],v);
+    weapon_sounds[w][v].load(enemy_path);
+    if(!starling_mode){std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/furnace-descent-redesign/%s_return_%d.wav",w==0?"ember_pistol":w==1?"rivet_shotgun":"arc_cannon",v+1);weapon_returns[w][v].load(enemy_path);}
+  }
+  if(!starling_mode){
+    static const char *recorded_weapons[3][3]={{
+      "assets/sounds/recorded-cc0/pistol-1911-le-mudcrab-hq.wav",
+      "assets/sounds/recorded-cc0/pistol-9mm-acidsnowflake-hq.wav",
+      "assets/sounds/recorded-cc0/pistol-1911-le-mudcrab-hq.wav"}, {
+      "assets/sounds/recorded-cc0/shotgun-le-mudcrab-hq.wav",
+      "assets/sounds/recorded-cc0/shotgun-recording-marregheriti-hq.wav",
+      "assets/sounds/recorded-cc0/shotgun-unrelenting-kodack-hq.wav"}, {
+      "assets/sounds/recorded-cc0/arc-jacobs-ladder-jensfelger-segment-0.wav",
+      "assets/sounds/recorded-cc0/arc-jacobs-ladder-jensfelger-segment-1.wav",
+      "assets/sounds/recorded-cc0/arc-jacobs-ladder-jensfelger-segment-2.wav"}};
+    for(int w=0;w<3;w++)for(int v=0;v<WEAPON_SOUND_VARIANTS;v++)weapon_sounds[w][v].load(recorded_weapons[w][v]);
+  }
+  if(starling_mode){const char *families[]={"bumper_hound","lap_counter"},*events[2][3]={{"tell","rush","collapse"},{"tell","release","collapse"}};for(int type=0;type<2;type++)for(int cue=0;cue<3;cue++)for(int variant=0;variant<3;variant++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/starling-last-lap/%s_%s_%d.wav",families[type],events[type][cue],variant+1);starling_enemy_cues[type][cue][variant].load(enemy_path);}for(int type=0;type<2;type++)for(int variant=0;variant<3;variant++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/starling-last-lap/%s_contact_%d.wav",families[type],variant+1);starling_contacts[type][variant].load(enemy_path);}}
+  if(!starling_mode)for(int type=0;type<6;type++)for(int event=0;event<4;event++)for(int variant=0;variant<2;variant++){const char *names[]={"tell","attack","hit","death"};std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/furnace-descent-redesign/enemy_%d_%s_%d.wav",type,names[event],variant+1);furnace_enemy_cues[type][event][variant].load(enemy_path);}
+  if(!starling_mode)for(int type=0;type<2;type++)for(int event=0;event<4;event++)for(int variant=0;variant<2;variant++){
+    int recording=type*8+event*2+variant+1;
+    std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/recorded-cc0/creatures/monster-%02d.wav",recording);
+    furnace_enemy_cues[type][event][variant].load(enemy_path);
+  }
+  AudioClip impact_sound,enemy_hit_sounds[4],enemy_cast_sound,player_damage_sound,weapon_pickup_sound,music;
+  if(!starling_mode)impact_sound.load("assets/sounds/recorded-cc0/general/dull_explosion-runtime.wav");
+  for(int type=0;type<4;type++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/enemy-hit-%d.wav",type);enemy_hit_sounds[type].load(enemy_path);}
+  if(!starling_mode)enemy_cast_sound.load("assets/sounds/enemy-cast.wav");
+  player_damage_sound.load(starling_mode?"assets/sounds/player-damage.wav":"assets/sounds/recorded-cc0/general/player_hit-runtime.wav");weapon_pickup_sound.load(starling_mode?"assets/sounds/weapon-pickup.wav":"assets/sounds/recorded-cc0/general/get_important_item-runtime.wav");music.load(starling_mode?"assets/music/starling-last-lap-score.wav":"assets/music/recorded-cc0/silver_bullet.wav");
+  AudioMixer audio_mixer;audio_mixer.open();audio_mixer.set_background(&music);bool audio_muted=false;
   FILE *record_pipe=nullptr;std::vector<unsigned char> record_pixels;float record_accumulator=0;if(recording){record_pipe=popen("ffmpeg -y -loglevel error -f rawvideo -pixel_format rgb24 -video_size 1280x720 -framerate 15 -i - -vf vflip -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p build/eye-sore-playtest.mp4","w");if(record_pipe)record_pixels.resize(W*H*3);else std::fprintf(stderr,"Could not start playtest recorder\n");}
-  Vec3 player={0,PLAYER_HEIGHT,24}; float health=100, yaw=0, pitch=0, fire_timer=0, flash=0, fire_anim=0, hit_feedback=0, arc_flash=0,level_time=0; int weapon=0, score=0,weapon_sound_cursor[3]={},level_wave=0; bool shotgun_unlocked=false,arc_unlocked=false,weapon_cache=true,arc_cache=false,running=true,trigger_held=false; Enemy enemies[ENEMY_COUNT]; Projectile projectile={{0,0,0},{0,0,0},0,0,0,PlayerArcSprite,false}; VisualProjectile visual_projectiles[MAX_VISUAL_PROJECTILES]={}; EnemyProjectile enemy_projectiles[MAX_ENEMY_PROJECTILES]={}; Impact impact={{0,0,0},0,0}; FirstPersonLaunch launch={0,0,0,false}; Uint64 last=SDL_GetPerformanceCounter();
-  auto setup_first_level = [&](){for(int i=0;i<ENEMY_COUNT;i++){enemies[i]=make_enemy(ENEMY_SPAWNS[i],ENEMY_HEALTH[i],ENEMY_TYPES[i]);if(i>=3){enemies[i].type=-1;enemies[i].alive=false;}}level_wave=0;level_time=0;shotgun_unlocked=false;arc_unlocked=false;weapon_cache=false;arc_cache=false;};
+  const auto &calibration_scene=eyesore::kCalibrationScene;
+  Vec3 player=calibration_mode?Vec3{calibration_scene.player_start.x,calibration_scene.player_start.y,calibration_scene.player_start.z}:(starling_mode?Vec3{0,PLAYER_HEIGHT,13.2f}:Vec3{0,PLAYER_HEIGHT,24}); float health=100, yaw=calibration_mode?calibration_scene.player_yaw_radians:0, pitch=0, fire_timer=0, flash=0, fire_anim=0, hit_feedback=0, arc_flash=0,level_time=0; int weapon=0, score=0,weapon_sound_cursor[3]={},furnace_enemy_sound_cursor[6]={},weapon_return_weapon=0,weapon_return_variant=0,level_wave=0;float weapon_return_timer=0;bool weapon_return_pending=false,shotgun_unlocked=false,arc_unlocked=false,weapon_cache=true,arc_cache=false,running=true,trigger_held=false,caster_activated=false,calibration_complete=false,starling_complete=false,paused=false,help_open=false; Enemy enemies[ENEMY_COUNT]; Projectile projectile={{0,0,0},{0,0,0},0,0,0,PlayerArcSprite,false}; VisualProjectile visual_projectiles[MAX_VISUAL_PROJECTILES]={}; EnemyProjectile enemy_projectiles[MAX_ENEMY_PROJECTILES]={}; Impact impact={{0,0,0},0,0}; FirstPersonLaunch launch={0,0,0,false}; Uint64 last=SDL_GetPerformanceCounter();
+  auto setup_first_level = [&](){
+    for(int i=0;i<ENEMY_COUNT;i++){enemies[i].type=-1;enemies[i].alive=false;}
+    if(calibration_mode){const auto &scene=eyesore::kCalibrationScene;enemies[0]=make_enemy({scene.caster_spawn.x,scene.caster_spawn.y,scene.caster_spawn.z},12.0f,1);caster_activated=false;calibration_complete=false;level_wave=0;level_time=0;shotgun_unlocked=false;arc_unlocked=false;weapon_cache=true;arc_cache=false;return;}
+    if(starling_mode){enemies[0]=make_enemy({0,0,-7.5f},24.0f,1);enemies[1]=make_enemy({-3.8f,0,1.8f},18.0f,0);enemies[2]=make_enemy({4.4f,0,-4.2f},20.0f,0);enemies[3].type=-1;level_wave=0;level_time=0;shotgun_unlocked=true;arc_unlocked=false;weapon_cache=false;arc_cache=false;starling_complete=false;return;}
+    for(int i=0;i<ENEMY_COUNT;i++){enemies[i]=make_enemy(ENEMY_SPAWNS[i],ENEMY_HEALTH[i],ENEMY_TYPES[i]);if(i>=3){enemies[i].type=-1;enemies[i].alive=false;}}
+    level_wave=0;level_time=0;shotgun_unlocked=false;arc_unlocked=false;weapon_cache=false;arc_cache=false;
+  };
   setup_first_level();
-  auto reset_combat = [&](){ player={0,PLAYER_HEIGHT,24};health=100;yaw=0;pitch=0;fire_timer=0;flash=0;fire_anim=0;hit_feedback=0;arc_flash=0;weapon=0;score=0;weapon_sound_cursor[0]=weapon_sound_cursor[1]=weapon_sound_cursor[2]=0;trigger_held=false;projectile.active=false;launch.active=false;for(auto &shot:visual_projectiles)shot.active=false;for(auto &shot:enemy_projectiles)shot.active=false;impact.life=0;setup_first_level(); };
-  auto play_positioned = [&](const Sound &sound,AudioClass category,int priority,float gain,Vec3 source){float dx=source.x-player.x,dz=source.z-player.z,distance=std::hypot(dx,dz),pan=(dx*std::cos(yaw)-dz*std::sin(yaw))/8.0f;play_sound(audio_device,audio_mixer,sound,category,priority,gain,pan,distance);};
-  auto play_projectile_impact = [&](Vec3 pos){play_positioned(impact_sound,AudioCombat,2,.68f,pos);};
-  auto play_enemy_hit = [&](int type,Vec3 pos){if(type>=0&&type<4)play_positioned(enemy_hit_sounds[type],AudioCombat,3,.82f,pos);};
-  auto play_player_damage = [&](){play_sound(audio_device,audio_mixer,player_damage_sound,AudioInterface,8,.92f);};
+  auto reset_combat = [&](){if(calibration_mode){const auto &scene=eyesore::kCalibrationScene;player={scene.player_start.x,scene.player_start.y,scene.player_start.z};yaw=scene.player_yaw_radians;}else if(starling_mode){player={0,PLAYER_HEIGHT,13.2f};yaw=0;}else{player={0,PLAYER_HEIGHT,24};yaw=0;}health=100;pitch=0;fire_timer=0;flash=0;fire_anim=0;hit_feedback=0;arc_flash=0;weapon=0;score=0;weapon_sound_cursor[0]=weapon_sound_cursor[1]=weapon_sound_cursor[2]=0;weapon_return_pending=false;weapon_return_timer=0;trigger_held=false;paused=false;help_open=false;SDL_SetRelativeMouseMode(SDL_TRUE);SDL_SetWindowGrab(window,SDL_TRUE);projectile.active=false;launch.active=false;for(auto &shot:visual_projectiles)shot.active=false;for(auto &shot:enemy_projectiles)shot.active=false;impact.life=0;setup_first_level();audio_mixer.reset();audio_mixer.set_muted(audio_muted); };
+  auto play_positioned = [&](const AudioClip &sound,AudioClass category,int priority,float gain,Vec3 source){audio_mixer.play(sound,category,priority,gain,true,source.x,source.z);};
+  int starling_contact_cursor[2]={};
+  auto play_furnace_enemy_cue = [&](int type,int event,int variant,Vec3 source){if(type>=0&&type<6&&!starling_mode)play_positioned(furnace_enemy_cues[type][event][variant%2],AudioCombat,event==3?5:4,event==3?.88f:.70f,source);};
+  auto play_projectile_impact = [&](Vec3 pos){if(!starling_mode)play_positioned(impact_sound,AudioCombat,2,.68f,pos);};
+  auto play_enemy_hit = [&](int type,Vec3 pos,bool killed=false){if(starling_mode){int family=type==1?1:0;int variant=starling_contact_cursor[family]++%3;play_positioned(killed?starling_enemy_cues[family][2][variant]:starling_contacts[family][variant],AudioCombat,killed?5:3,killed?.94f:.82f,pos);}else if(type>=0&&type<6){int variant=furnace_enemy_sound_cursor[type]++%2;play_positioned(furnace_enemy_cues[type][killed?3:2][variant],AudioCombat,killed?5:3,killed?.88f:.72f,pos);}};
+  auto play_player_damage = [&](){if(!starling_mode)audio_mixer.play(player_damage_sound,AudioInterface,8,.92f);};
   auto launch_enemy_projectile = [&](const Enemy &enemy,int owner){
     EnemyProjectile *shot=nullptr;for(auto &candidate:enemy_projectiles)if(!candidate.active){shot=&candidate;break;}if(!shot)return;
-    int type=enemy.type;Vec3 origin=enemy_fire_origin(enemy),target={player.x,player.y-.32f,player.z};if(enemy.target_enemy>=0&&enemy.target_enemy<ENEMY_COUNT&&enemies[enemy.target_enemy].alive){const Enemy &victim=enemies[enemy.target_enemy];const EnemyDefinition &victim_def=ENEMY_DEFS[victim.type];target={victim.pos.x,victim.pos.y+victim_def.baseline+victim_def.hitbox_height*.55f,victim.pos.z};}Vec3 delta={target.x-origin.x,target.y-origin.y,target.z-origin.z};float length=std::sqrt(delta.x*delta.x+delta.y*delta.y+delta.z*delta.z);if(length<.001f)return;float speed=type==1?4.2f:5.0f;
-    *shot={origin,delta*(speed/length),3.0f,type==1?.12f:.15f,type==1?9.0f:13.0f,type==1?1:2,type==1?CultistFireSprite:WraithPlasmaSprite,owner,true};if(type==1)play_positioned(enemy_cast_sound,AudioCombat,4,.78f,enemy.pos);
+    int type=enemy.type;Vec3 origin=enemy_fire_origin(enemy),target={player.x,player.y-.32f,player.z};if(enemy.target_enemy>=0&&enemy.target_enemy<ENEMY_COUNT&&enemies[enemy.target_enemy].alive){const Enemy &victim=enemies[enemy.target_enemy];const EnemyDefinition &victim_def=enemy_definition(victim.type);target={victim.pos.x,victim.pos.y+victim_def.baseline+victim_def.hitbox_height*.55f,victim.pos.z};}Vec3 delta={target.x-origin.x,target.y-origin.y,target.z-origin.z};float length=std::sqrt(delta.x*delta.x+delta.y*delta.y+delta.z*delta.z);if(length<.001f)return;float speed=type==1?4.2f:5.0f;
+    *shot={origin,delta*(speed/length),3.0f,type==1?.12f:.15f,type==1?9.0f:13.0f,type==1?1:2,type==1?CultistFireSprite:WraithPlasmaSprite,owner,true};if(type==1||type==2||type==5){if(starling_mode&&type==1)play_positioned(starling_enemy_cues[1][1][owner%3],AudioCombat,4,.86f,enemy.pos);else if(!starling_mode)play_furnace_enemy_cue(type,1,furnace_enemy_sound_cursor[type]++,enemy.pos);}
   };
   auto launch_visual_projectile = [&](int sprite,Vec3 origin,Vec3 direction,float speed,float damage,float radius){for(auto &shot:visual_projectiles)if(!shot.active){shot={origin,direction*speed,damage,radius,sprite,true};return;}};
+  unsigned int spread_state=0x91e10da5u;
+  auto next_spread = [&](){spread_state^=spread_state<<13;spread_state^=spread_state>>17;spread_state^=spread_state<<5;return float(spread_state&0x00ffffffu)/float(0x01000000u)-.5f;};
+  auto fire_hitscan = [&](Vec3 origin,Vec3 aim){
+    float accumulated[ENEMY_COUNT]={};Vec3 right={std::cos(yaw),0,-std::sin(yaw)},up={std::sin(pitch)*std::sin(yaw),std::cos(pitch),std::sin(pitch)*std::cos(yaw)};
+    int pellets=weapon==1?7:1;float pellet_damage=weapon==1?1.25f:3.0f,spread=weapon==1?.105f:.002f;Vec3 last_surface{};bool surface_hit=false;
+    for(int pellet=0;pellet<pellets;pellet++){
+      float sx=pellets==1?0:next_spread()*spread,sy=pellets==1?0:next_spread()*spread;
+      Vec3 ray={aim.x+right.x*sx+up.x*sy,aim.y+right.y*sx+up.y*sy,aim.z+right.z*sx+up.z*sy};float norm=std::sqrt(ray.x*ray.x+ray.y*ray.y+ray.z*ray.z);ray=ray*(1.0f/norm);
+      Vec3 end=origin+ray*36.0f;auto obstruction=combat_world::trace_segment(active_world,{origin.x,origin.y,origin.z},{end.x,end.y,end.z});float limit=obstruction.blocked?36.0f*obstruction.fraction:36.0f;if(obstruction.blocked){last_surface={obstruction.position.x,obstruction.position.y,obstruction.position.z};surface_hit=true;}
+      int closest=-1;float nearest=limit;
+      for(int i=0;i<ENEMY_COUNT;i++)if(enemies[i].type>=0&&enemies[i].alive){float distance=0;if(ray_enemy_hit(origin,ray,enemies[i],distance)&&distance<nearest){nearest=distance;closest=i;}}
+      if(closest>=0)accumulated[closest]+=pellet_damage;
+    }
+    bool hit_any=false;
+    for(int i=0;i<ENEMY_COUNT;i++)if(accumulated[i]>0){Enemy &target=enemies[i];bool was_alive=target.alive;bool gib=weapon==1&&target.hp<=accumulated[i];damage_enemy(target,accumulated[i],gib,-1);play_enemy_hit(target.type,target.pos,was_alive&&!target.alive);impact={target.pos,.20f,weapon};hit_feedback=.12f;hit_any=true;if(was_alive&&!target.alive)score+=100;}
+    if(!hit_any&&surface_hit)impact={last_surface,.12f,weapon};
+  };
   auto fire_player_weapon = [&](){
     if(fire_timer>0||health<=0)return;
     Vec3 aim={-std::sin(yaw)*std::cos(pitch),-std::sin(pitch),-std::cos(yaw)*std::cos(pitch)},origin={player.x+aim.x*.55f,player.y+aim.y*.55f,player.z+aim.z*.55f};
     if(weapon==2){projectile={origin,aim*20.0f,4.0f,.13f,0,PlayerArcSprite,true};arc_flash=.08f;}
+    else if(calibration_mode)fire_hitscan(origin,aim);
     else launch_visual_projectile(weapon==0?PlayerPistolSprite:PlayerShotgunSprite,origin,aim,weapon==0?18.0f:14.0f,weapon==0?1.0f:2.5f,weapon==0?.09f:.18f);
     launch={weapon==0?.17f:weapon==1?.22f:.15f,weapon==0?.17f:weapon==1?.22f:.15f,weapon,true};
-    fire_timer+=WEAPON_COOLDOWNS[weapon];flash=.12f;fire_anim=WEAPON_ANIM_DURATIONS[weapon];int variant=weapon_sound_cursor[weapon]++%WEAPON_SOUND_VARIANTS;Sound &sound=weapon_sounds[weapon][variant];static constexpr float weapon_gains[]={.68f,.82f,.78f};play_sound(audio_device,audio_mixer,sound,AudioWeapon,5,weapon_gains[weapon]);
+    fire_timer+=WEAPON_COOLDOWNS[weapon];flash=.12f;fire_anim=WEAPON_ANIM_DURATIONS[weapon];int variants=(!starling_mode&&weapon==0)?2:WEAPON_SOUND_VARIANTS;int variant=weapon_sound_cursor[weapon]++%variants;AudioClip &sound=weapon_sounds[weapon][variant];static constexpr float weapon_gains[]={.86f,.92f,.90f};audio_mixer.play(sound,AudioWeapon,5,weapon_gains[weapon]);if(!starling_mode)weapon_return_pending=false;
   };
   while(running){ Uint64 now=SDL_GetPerformanceCounter(); float dt=(float)((now-last)/(double)SDL_GetPerformanceFrequency()); last=now; if(dt>.05f)dt=.05f; SDL_Event event;
-    while(SDL_PollEvent(&event)){if(event.type==SDL_QUIT)running=false;if(event.type==SDL_KEYDOWN&&event.key.keysym.sym==SDLK_ESCAPE)running=false;if(event.type==SDL_KEYDOWN&&event.key.keysym.sym==SDLK_r&&health<=0)reset_combat();if(event.type==SDL_KEYDOWN&&event.key.keysym.sym>=SDLK_1&&event.key.keysym.sym<=SDLK_3){int selected=event.key.keysym.sym-SDLK_1;if(selected==0||(selected==1&&shotgun_unlocked)||(selected==2&&arc_unlocked))weapon=selected;}if(event.type==SDL_MOUSEBUTTONDOWN&&event.button.button==SDL_BUTTON_LEFT)trigger_held=true;if(event.type==SDL_MOUSEBUTTONUP&&event.button.button==SDL_BUTTON_LEFT)trigger_held=false;if(event.type==SDL_MOUSEMOTION){yaw-=event.motion.xrel*.0026f;pitch+=event.motion.yrel*.0026f;if(pitch>1.2f)pitch=1.2f;if(pitch< -1.2f)pitch=-1.2f;}}
-    if(music_device&&music.data&&SDL_GetQueuedAudioSize(music_device)<music.length/2)SDL_QueueAudio(music_device,music.data,music.length);
-    const Uint8 *keys=SDL_GetKeyboardState(nullptr);if(trigger_held||keys[SDL_SCANCODE_SPACE])fire_player_weapon();
-    fire_timer=std::fmax(0.0f,fire_timer-dt);flash-=dt;fire_anim-=dt;hit_feedback-=dt;arc_flash-=dt;impact.life-=dt;if(launch.active){launch.life-=dt;if(launch.life<=0)launch.active=false;}
-    if(projectile.active){float step_length=std::sqrt(projectile.vel.x*projectile.vel.x+projectile.vel.y*projectile.vel.y+projectile.vel.z*projectile.vel.z)*dt;projectile.pos=projectile.pos+projectile.vel*dt;projectile.travelled+=step_length;if(blocked(projectile.pos.x,projectile.pos.z)||projectile.pos.y<=.08f||projectile.pos.y>=ARENA_CEILING-.08f){impact={projectile.pos,.28f,3};projectile.active=false;play_projectile_impact(projectile.pos);}for(int i=0;i<ENEMY_COUNT;i++)if(projectile.active&&enemies[i].alive&&projectile_enemy_hit(projectile.pos,projectile.radius,enemies[i])){bool was_alive=enemies[i].alive;damage_enemy(enemies[i],projectile.damage,true,-1);play_enemy_hit(enemies[i].type,enemies[i].pos);impact={projectile.pos,.28f,2};projectile.active=false;play_projectile_impact(projectile.pos);hit_feedback=.12f;if(was_alive&&!enemies[i].alive)score+=100;}}
-    for(auto &shot:visual_projectiles)if(shot.active){shot.pos=shot.pos+shot.vel*dt;if(blocked(shot.pos.x,shot.pos.z)||shot.pos.y<=.08f||shot.pos.y>=ARENA_CEILING-.08f){impact={shot.pos,.28f,3};shot.active=false;play_projectile_impact(shot.pos);continue;}for(int i=0;i<ENEMY_COUNT&&shot.active;i++)if(enemies[i].alive&&projectile_enemy_hit(shot.pos,shot.radius,enemies[i])){bool was_alive=enemies[i].alive;bool gib=shot.sprite==PlayerShotgunSprite&&enemies[i].hp<=shot.damage*.5f;damage_enemy(enemies[i],shot.damage,gib,-1);play_enemy_hit(enemies[i].type,enemies[i].pos);impact={shot.pos,.28f,shot.sprite==PlayerShotgunSprite?1:0};shot.active=false;play_projectile_impact(shot.pos);hit_feedback=.12f;if(was_alive&&!enemies[i].alive)score+=100;}}
+    while(SDL_PollEvent(&event)){if(event.type==SDL_QUIT)running=false;if(event.type==SDL_KEYDOWN&&!event.key.repeat&&event.key.keysym.sym==SDLK_m){audio_muted=!audio_muted;audio_mixer.set_muted(audio_muted||paused);}if(event.type==SDL_KEYDOWN&&event.key.keysym.sym==SDLK_ESCAPE)running=false;if(event.type==SDL_KEYDOWN&&event.key.keysym.sym==SDLK_r)reset_combat();if(event.type==SDL_KEYDOWN&&!event.key.repeat&&event.key.keysym.sym==SDLK_F1){paused=!paused;help_open=paused;if(paused)trigger_held=false;SDL_SetRelativeMouseMode(paused?SDL_FALSE:SDL_TRUE);SDL_SetWindowGrab(window,paused?SDL_FALSE:SDL_TRUE);audio_mixer.set_muted(audio_muted||paused);}if(event.type==SDL_KEYDOWN&&!event.key.repeat&&event.key.keysym.sym==SDLK_SPACE&&paused){paused=false;help_open=false;SDL_SetRelativeMouseMode(SDL_TRUE);SDL_SetWindowGrab(window,SDL_TRUE);audio_mixer.set_muted(audio_muted);}if(event.type==SDL_KEYDOWN&&event.key.keysym.sym>=SDLK_1&&event.key.keysym.sym<=SDLK_3){int selected=event.key.keysym.sym-SDLK_1;if(selected==0||(selected==1&&shotgun_unlocked)||(selected==2&&arc_unlocked))weapon=selected;}if(event.type==SDL_MOUSEBUTTONDOWN&&event.button.button==SDL_BUTTON_LEFT&&!paused)trigger_held=true;if(event.type==SDL_MOUSEBUTTONUP&&event.button.button==SDL_BUTTON_LEFT)trigger_held=false;if(event.type==SDL_MOUSEMOTION&&!paused){yaw-=event.motion.xrel*.0026f;pitch+=event.motion.yrel*.0026f;if(pitch>1.2f)pitch=1.2f;if(pitch< -1.2f)pitch=-1.2f;}}
+    if(paused)dt=0.0f;
+    audio_mixer.set_listener(player.x,player.z,yaw);
+    const Uint8 *keys=SDL_GetKeyboardState(nullptr);if(!paused&&(trigger_held||keys[SDL_SCANCODE_SPACE]))fire_player_weapon();
+    fire_timer=std::fmax(0.0f,fire_timer-dt);if(weapon_return_pending){weapon_return_timer-=dt;if(weapon_return_timer<=0){if(!starling_mode)audio_mixer.play(weapon_returns[weapon_return_weapon][weapon_return_variant],AudioWeapon,3,.56f);weapon_return_pending=false;}}flash-=dt;fire_anim-=dt;hit_feedback-=dt;arc_flash-=dt;impact.life-=dt;if(launch.active){launch.life-=dt;if(launch.life<=0)launch.active=false;}
+    if(projectile.active){Vec3 previous=projectile.pos,next=projectile.pos+projectile.vel*dt;float step_length=std::sqrt(projectile.vel.x*projectile.vel.x+projectile.vel.y*projectile.vel.y+projectile.vel.z*projectile.vel.z)*dt;auto wall_hit=combat_world::trace_segment(active_world,{previous.x,previous.y,previous.z},{next.x,next.y,next.z},projectile.radius);projectile.travelled+=step_length;if(wall_hit.blocked){projectile.pos={wall_hit.position.x,wall_hit.position.y,wall_hit.position.z};impact={projectile.pos,.28f,3};projectile.active=false;play_projectile_impact(projectile.pos);}else{int steps=std::max(1,(int)std::ceil(step_length/.10f));for(int step=1;step<=steps&&projectile.active;step++){float t=float(step)/steps;projectile.pos=previous+(next+previous*-1.0f)*t;for(int i=0;i<ENEMY_COUNT;i++)if(enemies[i].type>=0&&enemies[i].alive&&projectile_enemy_hit(projectile.pos,projectile.radius,enemies[i])){bool was_alive=enemies[i].alive;damage_enemy(enemies[i],projectile.damage,true,-1);play_enemy_hit(enemies[i].type,enemies[i].pos,was_alive&&!enemies[i].alive);impact={projectile.pos,.28f,2};projectile.active=false;hit_feedback=.12f;if(was_alive&&!enemies[i].alive)score+=100;}}if(projectile.active)projectile.pos=next;}}
+    for(auto &shot:visual_projectiles)if(shot.active){shot.pos=shot.pos+shot.vel*dt;if(blocked(shot.pos.x,shot.pos.z)||shot.pos.y<=.08f||shot.pos.y>=ARENA_CEILING-.08f){impact={shot.pos,.28f,3};shot.active=false;play_projectile_impact(shot.pos);continue;}for(int i=0;i<ENEMY_COUNT&&shot.active;i++)if(enemies[i].alive&&projectile_enemy_hit(shot.pos,shot.radius,enemies[i])){bool was_alive=enemies[i].alive;bool gib=shot.sprite==PlayerShotgunSprite&&enemies[i].hp<=shot.damage*.5f;damage_enemy(enemies[i],shot.damage,gib,-1);play_enemy_hit(enemies[i].type,enemies[i].pos,was_alive&&!enemies[i].alive);impact={shot.pos,.28f,shot.sprite==PlayerShotgunSprite?1:0};shot.active=false;hit_feedback=.12f;if(was_alive&&!enemies[i].alive)score+=100;}}
     for(auto &shot:enemy_projectiles)if(shot.active){
       shot.pos=shot.pos+shot.vel*dt;shot.life-=dt;
       if(shot.life<=0||blocked(shot.pos.x,shot.pos.z)||shot.pos.y<=.08f||shot.pos.y>=ARENA_CEILING-.08f){impact={shot.pos,.28f,shot.style==1?1:0};shot.active=false;continue;}
@@ -433,43 +598,61 @@ int main(int argc,char **argv) {
       float dx=shot.pos.x-player.x,dz=shot.pos.z-player.z,torso_y=player.y-.32f;if(shot.active&&std::hypot(dx,dz)<=.3f+shot.radius&&std::fabs(shot.pos.y-torso_y)<=.58f+shot.radius){health-=shot.damage;impact={shot.pos,.28f,shot.style==1?1:0};shot.active=false;flash=.08f;play_player_damage();}
     }
     float keyboard_turn=(keys[SDL_SCANCODE_RIGHT]?1.0f:0.0f)-(keys[SDL_SCANCODE_LEFT]?1.0f:0.0f);yaw-=keyboard_turn*1.8f*dt;Vec3 forward={-std::sin(yaw),0,-std::cos(yaw)},right={std::cos(yaw),0,-std::sin(yaw)},movement={0,0,0};if(keys[SDL_SCANCODE_W])movement=movement+forward;if(keys[SDL_SCANCODE_S])movement=movement+forward*-1;if(keys[SDL_SCANCODE_D])movement=movement+right;if(keys[SDL_SCANCODE_A])movement=movement+right*-1;float length=std::hypot(movement.x,movement.z);if(length>.01f&&health>0){bool sprinting=keys[SDL_SCANCODE_LSHIFT]||keys[SDL_SCANCODE_RSHIFT];movement=movement*(player_move_speed(sprinting)*dt/length);if(!blocked(player.x+movement.x,player.z))player.x+=movement.x;if(!blocked(player.x,player.z+movement.z))player.z+=movement.z;}
-    for(int enemy_index=0;enemy_index<ENEMY_COUNT;enemy_index++){Enemy &enemy=enemies[enemy_index];if(enemy.type<0)continue;bool ranged=enemy_is_ranged(enemy);if(enemy.target_enemy<0||enemy.target_enemy>=ENEMY_COUNT||!enemies[enemy.target_enemy].alive||enemies[enemy.target_enemy].type==enemy.type)enemy.target_enemy=-1;bool targets_enemy=enemy.target_enemy>=0,notices_player=health>0&&enemy_notices_player(enemy,player);Vec3 target=targets_enemy?enemies[enemy.target_enemy].pos:player;bool player_shot_clear=!ranged||targets_enemy||enemy_has_clear_player_shot(enemies,ENEMY_COUNT,enemy_index,player);
+    for(int enemy_index=0;enemy_index<ENEMY_COUNT;enemy_index++){Enemy &enemy=enemies[enemy_index];if(enemy.type<0)continue;bool ranged=enemy_is_ranged(enemy);if(enemy.target_enemy<0||enemy.target_enemy>=ENEMY_COUNT||!enemies[enemy.target_enemy].alive||enemies[enemy.target_enemy].type==enemy.type)enemy.target_enemy=-1;bool targets_enemy=enemy.target_enemy>=0,notices_player=health>0&&enemy_notices_player(enemy,player);if(calibration_mode&&enemy_index==0&&!caster_activated){if(notices_player&&enemy_has_clear_player_shot(enemies,ENEMY_COUNT,enemy_index,player))caster_activated=true;else continue;}Vec3 target=targets_enemy?enemies[enemy.target_enemy].pos:player;bool player_shot_clear=!ranged||targets_enemy||enemy_has_clear_player_shot(enemies,ENEMY_COUNT,enemy_index,player);
       enemy.attack_cooldown=std::fmax(0.0f,enemy.attack_cooldown-dt);
-      if(enemy.state==EnemyDeath||enemy.state==EnemyGib){enemy.state_time+=dt;const EnemyClip &clip=enemy.state==EnemyGib?GIB_CLIP:DEATH_CLIP;if(enemy.state_time>=clip_duration(clip)){enemy.state=EnemyCorpse;enemy.state_time=0;}}
+      if(enemy.state==EnemyDeath||enemy.state==EnemyGib){enemy.state_time+=dt;const EnemyClip &clip=enemy_clip(enemy);if(enemy.state_time>=clip_duration(clip)){enemy.state=EnemyCorpse;enemy.state_time=0;}}
       else if(enemy.state==EnemyCorpse)continue;
-      else if(enemy.state==EnemyPain){enemy.state_time+=dt;if(enemy.state_time>=clip_duration(PAIN_CLIP)){enemy.state=EnemyWalk;enemy.state_time=0;}}
-      else if(enemy.state==EnemyAttack){enemy.state_time+=dt;int frame_index=0;clip_frame(ATTACK_CLIP,enemy.state_time,&frame_index);if(!enemy.event_fired&&frame_index>=ATTACK_CLIP.event_frame){if(ranged&&(targets_enemy||(health>0&&enemy_notices_player(enemy,player)&&enemy_has_clear_player_shot(enemies,ENEMY_COUNT,enemy_index,player))) )launch_enemy_projectile(enemy,enemy_index);else if(targets_enemy&&std::hypot(target.x-enemy.pos.x,target.z-enemy.pos.z)<=1.40f)damage_enemy_from_enemy(enemies,ENEMY_COUNT,enemy_index,enemy.target_enemy,12);else if(!targets_enemy&&std::hypot(player.x-enemy.pos.x,player.z-enemy.pos.z)<=1.40f&&health>0){health-=12;play_player_damage();}enemy.event_fired=true;}if(enemy.state_time>=clip_duration(ATTACK_CLIP)){enemy.state=EnemyWalk;enemy.state_time=0;enemy.attack_cooldown=ranged?1.15f:.65f;}}
-      else if(enemy.alive&&(targets_enemy||notices_player)){Vec3 delta={target.x-enemy.pos.x,0,target.z-enemy.pos.z};float dist=std::hypot(delta.x,delta.z),engage_distance=enemy_attack_distance(enemy);if(dist>engage_distance||(!targets_enemy&&ranged&&!player_shot_clear)){float target_facing=std::atan2(delta.x,delta.z);enemy.facing=turn_toward(enemy.facing,target_facing,2.6f*dt);Vec3 step;if(dist>engage_distance)step={std::sin(enemy.facing)*ENEMY_SPEED*dt,0,std::cos(enemy.facing)*ENEMY_SPEED*dt};else{float sign=(enemy_index&1)?1.0f:-1.0f;step={std::cos(enemy.facing)*ENEMY_SPEED*dt*sign,0,-std::sin(enemy.facing)*ENEMY_SPEED*dt*sign};}enemy.walk_time+=dt;if(!blocked(enemy.pos.x+step.x,enemy.pos.z))enemy.pos.x+=step.x;if(!blocked(enemy.pos.x,enemy.pos.z+step.z))enemy.pos.z+=step.z;}else if(enemy.attack_cooldown<=0){enemy.facing=std::atan2(delta.x,delta.z);enemy.state=EnemyAttack;enemy.state_time=0;enemy.event_fired=false;}}
+      else if(enemy.state==EnemyPain){enemy.state_time+=dt;if(enemy.state_time>=clip_duration(enemy_clip(enemy))){enemy.state=EnemyWalk;enemy.state_time=0;}}
+      else if(enemy.state==EnemyAttack){
+        enemy.state_time+=dt;const EnemyClip &clip=enemy_clip(enemy);int frame_index=0;clip_frame(clip,enemy.state_time,&frame_index);
+        if(!enemy.event_fired&&frame_index>=clip.event_frame){
+          bool launches=(ranged&&(targets_enemy||(health>0&&enemy_notices_player(enemy,player)&&enemy_has_clear_player_shot(enemies,ENEMY_COUNT,enemy_index,player))));
+          if(launches)launch_enemy_projectile(enemy,enemy_index);
+          else {
+            if(starling_mode){int family=enemy.type==1?1:0;int variant=(enemy_index+int(level_time*5))%3;play_positioned(starling_enemy_cues[family][1][variant],AudioCombat,4,.86f,enemy.pos);}
+            else play_furnace_enemy_cue(enemy.type,1,furnace_enemy_sound_cursor[enemy.type]++,enemy.pos);
+            if(targets_enemy&&std::hypot(target.x-enemy.pos.x,target.z-enemy.pos.z)<=1.40f)damage_enemy_from_enemy(enemies,ENEMY_COUNT,enemy_index,enemy.target_enemy,12);
+            else if(!targets_enemy&&std::hypot(player.x-enemy.pos.x,player.z-enemy.pos.z)<=1.40f&&health>0){health-=12;play_player_damage();}
+          }
+          enemy.event_fired=true;
+        }
+        if(enemy.state_time>=clip_duration(clip)){enemy.state=EnemyWalk;enemy.state_time=0;enemy.attack_cooldown=ranged?1.15f:.65f;}
+      }
+      else if(enemy.alive&&(targets_enemy||notices_player)){Vec3 delta={target.x-enemy.pos.x,0,target.z-enemy.pos.z};float dist=std::hypot(delta.x,delta.z),engage_distance=enemy_attack_distance(enemy);if(dist>engage_distance||(!targets_enemy&&ranged&&!player_shot_clear)){float target_facing=std::atan2(delta.x,delta.z);enemy.facing=turn_toward(enemy.facing,target_facing,2.6f*dt);Vec3 step;if(dist>engage_distance)step={std::sin(enemy.facing)*ENEMY_SPEED*dt,0,std::cos(enemy.facing)*ENEMY_SPEED*dt};else{float sign=(enemy_index&1)?1.0f:-1.0f;step={std::cos(enemy.facing)*ENEMY_SPEED*dt*sign,0,-std::sin(enemy.facing)*ENEMY_SPEED*dt*sign};}enemy.walk_time+=dt;if(!blocked(enemy.pos.x+step.x,enemy.pos.z))enemy.pos.x+=step.x;if(!blocked(enemy.pos.x,enemy.pos.z+step.z))enemy.pos.z+=step.z;}else if(enemy.attack_cooldown<=0){enemy.facing=std::atan2(delta.x,delta.z);enemy.state=EnemyAttack;enemy.state_time=0;enemy.event_fired=false;if(starling_mode){int family=enemy.type==1?1:0;int variant=(enemy_index+int(level_time*7))%3;play_positioned(starling_enemy_cues[family][0][variant],AudioCombat,4,.84f,enemy.pos);}else play_furnace_enemy_cue(enemy.type,0,furnace_enemy_sound_cursor[enemy.type]++,enemy.pos);}}
       else if(enemy.alive){enemy.roam_timer-=dt;if(enemy.roam_timer<=0){enemy.roam_timer=1.25f+.35f*(enemy_index%3);enemy.roam_heading+=.95f+(enemy_index%2)*.62f;}enemy.facing=turn_toward(enemy.facing,enemy.roam_heading,1.8f*dt);Vec3 step={std::sin(enemy.facing)*ENEMY_SPEED*.55f*dt,0,std::cos(enemy.facing)*ENEMY_SPEED*.55f*dt};enemy.walk_time+=dt;if(blocked(enemy.pos.x+step.x,enemy.pos.z+step.z)){enemy.roam_heading+=1.5707963f;enemy.roam_timer=.1f;}else{enemy.pos.x+=step.x;enemy.pos.z+=step.z;}}
     }
     level_time+=dt;
-    if(level_wave==0||level_wave==2||level_wave==4){int first=level_wave==0?0:level_wave==2?3:7,last_enemy=level_wave==0?3:level_wave==2?7:ENEMY_COUNT;bool any_alive=false;for(int i=first;i<last_enemy;i++)if(enemies[i].alive)any_alive=true;if(!any_alive){level_wave=level_wave==0?1:level_wave==2?3:5;if(level_wave==1)weapon_cache=true;else if(level_wave==3)arc_cache=true;}}
-    if(weapon_cache&&std::hypot(player.x,player.z-12.0f)<1.45f){weapon_cache=false;shotgun_unlocked=true;weapon=1;level_wave=2;for(int i=3;i<7;i++)enemies[i]=make_enemy(ENEMY_SPAWNS[i],ENEMY_HEALTH[i],ENEMY_TYPES[i]);play_sound(audio_device,audio_mixer,weapon_pickup_sound,AudioInterface,7,.88f);}
-    if(arc_cache&&std::hypot(player.x,player.z+12.0f)<1.45f){arc_cache=false;arc_unlocked=true;weapon=2;level_wave=4;for(int i=7;i<ENEMY_COUNT;i++)enemies[i]=make_enemy(ENEMY_SPAWNS[i],ENEMY_HEALTH[i],ENEMY_TYPES[i]);play_sound(audio_device,audio_mixer,weapon_pickup_sound,AudioInterface,7,.88f);}
+    if(calibration_mode){if(!enemies[0].alive)calibration_complete=true;}
+    else if(starling_mode){bool any_alive=false;for(const auto &enemy:enemies)if(enemy.type>=0&&enemy.alive)any_alive=true;if(!any_alive)starling_complete=true;}
+    else {
+      if(level_wave==0||level_wave==2||level_wave==4){int first=level_wave==0?0:level_wave==2?3:7,last_enemy=level_wave==0?3:level_wave==2?7:ENEMY_COUNT;bool any_alive=false;for(int i=first;i<last_enemy;i++)if(enemies[i].alive)any_alive=true;if(!any_alive){level_wave=level_wave==0?1:level_wave==2?3:5;if(level_wave==1)weapon_cache=true;else if(level_wave==3)arc_cache=true;}}
+      if(!starling_mode&&weapon_cache&&std::hypot(player.x,player.z-12.0f)<1.45f){weapon_cache=false;shotgun_unlocked=true;weapon=1;level_wave=2;for(int i=3;i<7;i++)enemies[i]=make_enemy(ENEMY_SPAWNS[i],ENEMY_HEALTH[i],ENEMY_TYPES[i]);audio_mixer.play(weapon_pickup_sound,AudioInterface,7,.88f);}
+      if(!starling_mode&&arc_cache&&std::hypot(player.x,player.z+12.0f)<1.45f){arc_cache=false;arc_unlocked=true;weapon=2;level_wave=4;for(int i=7;i<ENEMY_COUNT;i++)enemies[i]=make_enemy(ENEMY_SPAWNS[i],ENEMY_HEALTH[i],ENEMY_TYPES[i]);audio_mixer.play(weapon_pickup_sound,AudioInterface,7,.88f);}
+    }
+    Vec3 pickup_position=calibration_mode?Vec3{calibration_scene.weapon_pickup.x,calibration_scene.weapon_pickup.y,calibration_scene.weapon_pickup.z}:Vec3{0,0,12};
+    if(calibration_mode&&weapon_cache&&std::hypot(player.x-pickup_position.x,player.z-pickup_position.z)<1.35f){weapon_cache=false;shotgun_unlocked=true;weapon=1;audio_mixer.play(weapon_pickup_sound,AudioInterface,7,.88f);}
     if(health<0)health=0;
-    glViewport(0,0,W,H); glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT); glMatrixMode(GL_PROJECTION); glLoadIdentity(); float near=.05f, far=130, top=near*std::tan(60.0f*3.14159265f/360.0f), right_plane=top*(float)W/H; glFrustum(-right_plane,right_plane,-top,top,near,far); glMatrixMode(GL_MODELVIEW); glLoadIdentity(); float lightpos[]={0,3.3f,0,1}; glLightfv(GL_LIGHT0,GL_POSITION,lightpos); glRotatef(pitch*57.2958f,1,0,0); glRotatef(-yaw*57.2958f,0,1,0); glTranslatef(-player.x,-player.y,-player.z);
-    float diffuse[]={1.0f,.28f,.08f,1}; if(flash>0){diffuse[1]=.75f;diffuse[2]=.35f;} glLightfv(GL_LIGHT0,GL_DIFFUSE,diffuse); float ambient[]={.09f,.025f,.02f,1}; glLightModelfv(GL_LIGHT_MODEL_AMBIENT,ambient); room(wall,floor,ceiling); if(weapon_cache)draw_weapon_cache({0,0,12},level_time);if(arc_cache)draw_weapon_cache({0,0,-12},level_time);for(int i=0;i<ENEMY_COUNT;i++)if(enemies[i].type>=0)enemy_model(enemy_directions,enemy_combat,enemies[i],enemies[i].type,player); if(projectile.active&&projectile.travelled>2.9f)draw_arc_world_trail(projectile.pos,projectile.vel,projectile.travelled);for(const auto &shot:visual_projectiles)if(shot.active)draw_projectile_sprite(projectile_sprites[shot.sprite][projectile_direction(shot.pos,shot.vel,player)],shot.pos,shot.vel,player,shot.sprite==PlayerPistolSprite?.52f:.76f,shot.sprite==PlayerPistolSprite?.24f:.34f);for(const auto &shot:enemy_projectiles)if(shot.active)draw_projectile_sprite(projectile_sprites[shot.sprite][projectile_direction(shot.pos,shot.vel,player)],shot.pos,shot.vel,player,shot.sprite==CultistFireSprite?.68f:.74f,shot.sprite==CultistFireSprite?.42f:.58f); draw_impact(impact); draw_first_person_launch(first_person_launches[launch.weapon],launch); draw_weapon_model(weapon_frames,weapon,fire_anim,hit_feedback>0); draw_arc_muzzle_flash(arc_muzzle_flash,arc_flash); if(health<=0) SDL_SetWindowTitle(window,"Eye Sore — fallen | R to restart descent"); else {char title[160];int alive=0;for(const auto &enemy:enemies)if(enemy.type>=0&&enemy.alive)alive++;const char *status=level_wave==1?"clear room, find shotgun cache":level_wave==3?"clear halls, find arc cache":level_wave==5?"descent clear":"combat active";std::snprintf(title,sizeof(title),"Eye Sore — %s | %d targets | hp %.0f | score %d | %s",status,alive,health,score,weapon==0?"ember pistol":weapon==1?"rivet shotgun":"arc cannon");SDL_SetWindowTitle(window,title);}
+    audio_mixer.set_listener(player.x,player.z,yaw);
+    glViewport(0,0,W,H); glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT); glMatrixMode(GL_PROJECTION); glLoadIdentity(); float near=.05f, far=130, top=near*std::tan(60.0f*3.14159265f/360.0f), right_plane=top*(float)W/H; glFrustum(-right_plane,right_plane,-top,top,near,far); glMatrixMode(GL_MODELVIEW); glLoadIdentity(); glRotatef(pitch*57.2958f,1,0,0); glRotatef(-yaw*57.2958f,0,1,0); glTranslatef(-player.x,-player.y,-player.z);
+    float diffuse[]={starling_mode?.78f:.92f,starling_mode?.88f:.70f,starling_mode?1.0f:.48f,1}; glLightfv(GL_LIGHT0,GL_DIFFUSE,diffuse); float ambient[]={starling_mode?.25f:.25f,starling_mode?.25f:.19f,starling_mode?.38f:.14f,1}; glLightModelfv(GL_LIGHT_MODEL_AMBIENT,ambient);float lightpos[]={0,4.35f,0,1};glLightfv(GL_LIGHT0,GL_POSITION,lightpos); if(calibration_mode)draw_calibration_room(wall,floor,ceiling);else if(starling_mode)starling_room(wall,floor,ceiling,concourse_floor);else room(wall,floor,ceiling,iron_floor,elevation_tread); if(weapon_cache)draw_weapon_cache(pickup_position,level_time);if(arc_cache)draw_weapon_cache({0,0,-12},level_time);for(int i=0;i<ENEMY_COUNT;i++)if(enemies[i].type>=0)enemy_model(enemy_directions,enemy_combat,starling_frames,furnace_frames,enemies[i],enemies[i].type,player); if(projectile.active&&projectile.travelled>2.9f)draw_arc_world_trail(projectile.pos,projectile.vel,projectile.travelled);for(const auto &shot:visual_projectiles)if(shot.active)draw_projectile_sprite(projectile_sprites[shot.sprite][projectile_direction(shot.pos,shot.vel,player)],shot.pos,shot.vel,player,shot.sprite==PlayerPistolSprite?.52f:.76f,shot.sprite==PlayerPistolSprite?.24f:.34f);for(const auto &shot:enemy_projectiles)if(shot.active)draw_projectile_sprite(projectile_sprites[shot.sprite][projectile_direction(shot.pos,shot.vel,player)],shot.pos,shot.vel,player,shot.sprite==CultistFireSprite?.68f:.74f,shot.sprite==CultistFireSprite?.42f:.58f); draw_impact(impact); draw_first_person_launch(first_person_launches[launch.weapon],launch); draw_weapon_model(weapon_frames,weapon,fire_anim,hit_feedback>0); draw_arc_muzzle_flash(arc_muzzle_flash,arc_flash); {eyesore::HudState hud;hud.health=(int)std::lround(health);hud.selectedWeapon=weapon==1?eyesore::HudWeapon::Shotgun:weapon==2?eyesore::HudWeapon::Arc:eyesore::HudWeapon::Pistol;hud.shotgunUnlocked=shotgun_unlocked;hud.encounter=calibration_mode?(calibration_complete?"AREA CLEAR":caster_activated?"CASTER ACTIVE":"FIND THE ENTRY"):starling_mode?(starling_complete?"FINISH LINE":"NIGHT RACE"):(level_wave==0?"FURNACE DESCENT":level_wave==1?"SHOTGUN CACHE AHEAD":level_wave==2?"LOWER FOUNDRY":level_wave==3?"ARC CACHE NORTH":level_wave==4?"ASHEN CROSSING":"DESCENT CLEAR");hud.paused=paused;hud.help=help_open;hud.dead=health<=0;hud.complete=calibration_mode?calibration_complete:starling_mode?starling_complete:level_wave==5;int drawable_width=0,drawable_height=0;SDL_GL_GetDrawableSize(window,&drawable_width,&drawable_height);eyesore::drawCalibrationHud(hud,drawable_width,drawable_height);} if(health<=0) SDL_SetWindowTitle(window,"Eye Sore — fallen | R to restart"); else if(calibration_mode) SDL_SetWindowTitle(window,calibration_complete?"Eye Sore — calibration clear | R restart":"Eye Sore — calibration | WASD move, F1 help, R restart"); else if(starling_mode){char title[160];int alive=0;for(const auto &enemy:enemies)if(enemy.type>=0&&enemy.alive)alive++;std::snprintf(title,sizeof(title),"STARLING'S LAST LAP — %s | %d threats | %d points | %s",starling_complete?"FINISH LINE! R TO RUN AGAIN":"NIGHT RACE: clear the rink",alive,score,weapon==0?"LAP STAMP CARBINE":"DECK BANGER");SDL_SetWindowTitle(window,title);} else {char title[160];int alive=0;for(const auto &enemy:enemies)if(enemy.type>=0&&enemy.alive)alive++;const char *status=level_wave==1?"clear room, find shotgun cache":level_wave==3?"clear halls, find arc cache":level_wave==5?"descent clear":"combat active";std::snprintf(title,sizeof(title),"Eye Sore — %s | %d targets | hp %.0f | score %d | %s",status,alive,health,score,weapon==0?"ember pistol":weapon==1?"rivet shotgun":"arc cannon");SDL_SetWindowTitle(window,title);}
     if(record_pipe){record_accumulator+=dt;if(record_accumulator>=1.0f/15.0f){record_accumulator-=1.0f/15.0f;glPixelStorei(GL_PACK_ALIGNMENT,1);glReadPixels(0,0,W,H,GL_RGB,GL_UNSIGNED_BYTE,record_pixels.data());std::fwrite(record_pixels.data(),1,record_pixels.size(),record_pipe);}}
     SDL_GL_SwapWindow(window);
   }
   if(wall) glDeleteTextures(1,&wall);
   if(floor) glDeleteTextures(1,&floor);
-  if(ceiling) glDeleteTextures(1,&ceiling);
+  if(ceiling)glDeleteTextures(1,&ceiling);
+  if(iron_floor)glDeleteTextures(1,&iron_floor);
+  if(elevation_tread)glDeleteTextures(1,&elevation_tread);
+  if(concourse_floor)glDeleteTextures(1,&concourse_floor);
   for(int type=0;type<4;type++)for(int direction=0;direction<EnemyDirectionCount;direction++)for(int pose=0;pose<4;pose++)if(enemy_directions[type][direction][pose])glDeleteTextures(1,&enemy_directions[type][direction][pose]);
   for(int type=0;type<4;type++)for(int state=0;state<4;state++)for(int frame=0;frame<4;frame++)if(enemy_combat[type][state][frame])glDeleteTextures(1,&enemy_combat[type][state][frame]);
   for(auto &weapon_set:weapon_frames)for(GLuint frame:weapon_set)if(frame)glDeleteTextures(1,&frame);
   for(auto &direction_set:projectile_sprites)for(GLuint sprite:direction_set)if(sprite)glDeleteTextures(1,&sprite);
   for(GLuint texture:first_person_launches)if(texture)glDeleteTextures(1,&texture);
   if(arc_muzzle_flash)glDeleteTextures(1,&arc_muzzle_flash);
-  if(audio_device)SDL_CloseAudioDevice(audio_device);
-  if(music_device)SDL_CloseAudioDevice(music_device);
-  for(auto &weapon_bank:weapon_sounds)for(auto &sound:weapon_bank)if(sound.data)SDL_FreeWAV(sound.data);
-  if(impact_sound.data)SDL_FreeWAV(impact_sound.data);
-  for(auto &sound:enemy_hit_sounds)if(sound.data)SDL_FreeWAV(sound.data);
-  if(enemy_cast_sound.data)SDL_FreeWAV(enemy_cast_sound.data);
-  if(player_damage_sound.data)SDL_FreeWAV(player_damage_sound.data);
-  if(weapon_pickup_sound.data)SDL_FreeWAV(weapon_pickup_sound.data);
-  if(music.data)SDL_FreeWAV(music.data);
+  AudioStats audio_stats=audio_mixer.stats();
+  audio_mixer.close();
+  std::fprintf(stderr,"Audio mix: pre-ceiling peak %.3f, limited frames %llu/%llu, stolen voices %llu, dropped voices %llu\n",audio_stats.pre_ceiling_peak,(unsigned long long)audio_stats.limited_frames,(unsigned long long)audio_stats.output_frames,(unsigned long long)audio_stats.stolen_voices,(unsigned long long)audio_stats.dropped_voices);
   if(record_pipe)pclose(record_pipe);
   SDL_SetRelativeMouseMode(SDL_FALSE); SDL_GL_DeleteContext(context); SDL_DestroyWindow(window); SDL_Quit(); return 0;
 }

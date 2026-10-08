@@ -15,15 +15,18 @@ $(OUT): src/main.c
 run: $(OUT)
 	./$(OUT)
 
-$(OUT3D): src/engine3d.cpp
+$(OUT3D): src/engine3d.cpp src/audio_mixer.cpp src/audio_mixer.h src/combat_world.cpp src/combat_world.h src/calibration_scene.cpp src/calibration_scene.h src/calibration_hud.cpp src/calibration_hud.h
 	mkdir -p build
-	$(CPP) $(CPPFLAGS) $< -o $@ $(GL_LDLIBS)
+	$(CPP) $(CPPFLAGS) src/engine3d.cpp src/audio_mixer.cpp src/combat_world.cpp src/calibration_scene.cpp src/calibration_hud.cpp -o $@ $(GL_LDLIBS)
 
 run-3d: $(OUT3D)
 	./$(OUT3D)
 
 run-3d-record: $(OUT3D)
 	./$(OUT3D) --record
+
+run-calibration: $(OUT3D)
+	./$(OUT3D) --calibration
 
 enemy-directional-assets:
 	./tools/build_enemy_directional_frames.sh
@@ -66,4 +69,4 @@ package: $(OUT)
 clean:
 	rm -rf build
 
-.PHONY: run run-3d run-3d-record package clean enemy-directional-assets enemy-combat-assets weapon-assets weapon-sounds music projectile-assets verify-enemy-assets verify-weapon-assets verify-projectile-assets verify-audio-assets
+.PHONY: run run-3d run-3d-record run-calibration package clean enemy-directional-assets enemy-combat-assets weapon-assets weapon-sounds music projectile-assets verify-enemy-assets verify-weapon-assets verify-projectile-assets verify-audio-assets
