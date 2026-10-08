@@ -1,0 +1,299 @@
+{
+  "project": "Eyesore \u2014 rebuilt visual directions",
+  "stage": "Identity selection; no identity selected",
+  "revision": "visual-v2",
+  "art_provenance": {
+    "method": "Built-in image_gen.imagegen generated 3D-volume concept studies. Prompt-directed original designs; no old concept or Doom asset image inputs.",
+    "hand_authored_pixel_art": false,
+    "production_pixel_art_animation": "Pending identity selection; none created in this revision.",
+    "tool": "image_gen.imagegen",
+    "input_image_count": 0,
+    "prompt_source": "Each concept directory/prompt.txt",
+    "export_source": "export_review.py",
+    "export_transform": "Documented board crop; nearest resample to 640x360. Separate 320x180 nearest then 2x preview. Original board retained byte-for-byte. No recoloring or repainting.",
+    "structural_reference": "https://store.steampowered.com/app/2280/DOOM__DOOM_II/",
+    "structural_reference_use": "Room depth, riser faces, digitized sprite volume and threat mass; no copied assets.",
+    "audio": "Unchanged; this directory contains no audio edits."
+  },
+  "concepts": [
+    {
+      "slug": "corrupted-biotech",
+      "title": "01 / THE PALE WARD",
+      "subtitle": "Corrupted biotech facility",
+      "tag": "Sterile geometry. Flesh without permission.",
+      "read": "The Unsealed has a substantial pursuing body, long gripping forearms and a reaching stride. The Vessel has a much broader grounded mass and an exposed spore sac/nozzle that identifies ranged pressure. Raised central stairs and a side branch establish distinct depth planes.",
+      "cost": "High. Sculpted anatomy and containment hardware would need original models or deeply shaded hand-painted sprites, followed by deliberate animation and game-scale cleanup. Modular ceramic/steel architecture can share a restrained texture set.",
+      "limitation": "This board leans toward detailed contemporary rendered horror more than the classic digitized finish. The 16:9 scene crop preserves both threats and forward gun but shifts the original crosshair slightly left. The scene creature representation and close-up study are approximate rather than locked model geometry.",
+      "palette": [
+        {
+          "name": "Ceramic bone",
+          "hex": "#8A7E72",
+          "sampling_point": [
+            1190,
+            933
+          ]
+        },
+        {
+          "name": "Dark steel",
+          "hex": "#545555",
+          "sampling_point": [
+            1234,
+            933
+          ]
+        },
+        {
+          "name": "Steel gray",
+          "hex": "#616569",
+          "sampling_point": [
+            1278,
+            933
+          ]
+        },
+        {
+          "name": "Deep teal",
+          "hex": "#263037",
+          "sampling_point": [
+            1322,
+            933
+          ]
+        },
+        {
+          "name": "Bruised red",
+          "hex": "#4D2424",
+          "sampling_point": [
+            1366,
+            933
+          ]
+        },
+        {
+          "name": "Culture shadow",
+          "hex": "#3A4134",
+          "sampling_point": [
+            1410,
+            933
+          ]
+        },
+        {
+          "name": "Culture yellow",
+          "hex": "#5A5834",
+          "sampling_point": [
+            1454,
+            933
+          ]
+        },
+        {
+          "name": "Clotted brown",
+          "hex": "#352A27",
+          "sampling_point": [
+            1498,
+            933
+          ]
+        }
+      ],
+      "board": "corrupted-biotech/board.png",
+      "scene": "corrupted-biotech/scene.png",
+      "scene_pixel_preview": "corrupted-biotech/scene_pixel_preview.png",
+      "scene_native": "corrupted-biotech/scene_preview_native.png",
+      "scene_crop_rectangle": [
+        320,
+        40,
+        1280,
+        580
+      ],
+      "prompt": "corrupted-biotech/prompt.txt",
+      "threats": {
+        "melee": "Unsealed",
+        "ranged": "Vessel"
+      },
+      "production_sprites": false,
+      "tileable_materials": false,
+      "palette_is_reference_not_ink_limit": true
+    },
+    {
+      "slug": "occult-fortress",
+      "title": "02 / THE ASH CITADEL",
+      "subtitle": "War-torn occult fortress",
+      "tag": "A siege that became a sacrament.",
+      "read": "Ironbound is tall, heavily armored and carries a clearly readable cleaver for close-range pressure. Censer spreads a low four-legged mass under an ossuary shell, with an ember mouth identifying ranged fire. Stair fronts, parapets and the descending side gate make the room three-dimensional.",
+      "cost": "Medium-high. Armor and masonry can be modular, but the large cleaver attack and four-legged creature need planned weight transfer and consistent shaded poses. A modeled render-to-sprite pipeline would need careful low-resolution cleanup.",
+      "limitation": "The generator added a few static alternate-view creature studies rather than only one pose; these are not a complete animation or rotation set. Small details and exact limb geometry vary between the scene and studies. Material samples are illustrative and not proven seamless.",
+      "palette": [
+        {
+          "name": "Coal",
+          "hex": "#131212",
+          "sampling_point": [
+            1270,
+            951
+          ]
+        },
+        {
+          "name": "Slate purple",
+          "hex": "#332531",
+          "sampling_point": [
+            1308,
+            951
+          ]
+        },
+        {
+          "name": "Stone gray",
+          "hex": "#605756",
+          "sampling_point": [
+            1341,
+            951
+          ]
+        },
+        {
+          "name": "Dust mortar",
+          "hex": "#8F7260",
+          "sampling_point": [
+            1374,
+            951
+          ]
+        },
+        {
+          "name": "Chalk bone",
+          "hex": "#A3836A",
+          "sampling_point": [
+            1406,
+            951
+          ]
+        },
+        {
+          "name": "Oxblood",
+          "hex": "#461312",
+          "sampling_point": [
+            1438,
+            951
+          ]
+        },
+        {
+          "name": "Ember",
+          "hex": "#BF5422",
+          "sampling_point": [
+            1470,
+            951
+          ]
+        },
+        {
+          "name": "Ritual gold",
+          "hex": "#694520",
+          "sampling_point": [
+            1502,
+            951
+          ]
+        }
+      ],
+      "board": "occult-fortress/board.png",
+      "scene": "occult-fortress/scene.png",
+      "scene_pixel_preview": "occult-fortress/scene_pixel_preview.png",
+      "scene_native": "occult-fortress/scene_preview_native.png",
+      "scene_crop_rectangle": [
+        208,
+        56,
+        1328,
+        686
+      ],
+      "prompt": "occult-fortress/prompt.txt",
+      "threats": {
+        "melee": "Ironbound",
+        "ranged": "Censer"
+      },
+      "production_sprites": false,
+      "tileable_materials": false,
+      "palette_is_reference_not_ink_limit": true
+    },
+    {
+      "slug": "civic-invasion",
+      "title": "03 / THE OCCUPIED LINE",
+      "subtitle": "Invaded civic megastructure",
+      "tag": "Public space. Private extinction.",
+      "read": "Reaver uses powerful legs, low skull and a fused cutting arm for close pursuit. Surveyor raises a sensor crown above a weighted three-point stance; cyan organs convey ranged aiming. Thick concrete members, ticket gates and level changes establish the public-space scale.",
+      "cost": "Medium-high. Concrete and transit materials are reusable. Reaver attack articulation and Surveyor\u2019s tripod locomotion require deliberate original production assets and shaded animation studies.",
+      "limitation": "This generated concept is not an importable sprite set or a runtime scene. Creature anatomy and gun construction must be locked in a later model/paint pass. Surface swatches have not been tested for tiling. The central16:9 export omits the left-positioned HUD and crops the near blade at the left boundary; the untouched board preserves both. The original crosshair shifts slightly left in this export.",
+      "palette": [
+        {
+          "name": "Transit night",
+          "hex": "#1B2133",
+          "sampling_point": [
+            1197,
+            950
+          ]
+        },
+        {
+          "name": "Service blue",
+          "hex": "#233A5C",
+          "sampling_point": [
+            1240,
+            950
+          ]
+        },
+        {
+          "name": "Concrete shadow",
+          "hex": "#282726",
+          "sampling_point": [
+            1283,
+            950
+          ]
+        },
+        {
+          "name": "Weathered concrete",
+          "hex": "#807F7E",
+          "sampling_point": [
+            1327,
+            950
+          ]
+        },
+        {
+          "name": "Wayfinding ivory",
+          "hex": "#C4B39D",
+          "sampling_point": [
+            1372,
+            950
+          ]
+        },
+        {
+          "name": "Alien violet",
+          "hex": "#614A62",
+          "sampling_point": [
+            1416,
+            950
+          ]
+        },
+        {
+          "name": "Caution orange",
+          "hex": "#B75E29",
+          "sampling_point": [
+            1458,
+            950
+          ]
+        },
+        {
+          "name": "Scanner cyan",
+          "hex": "#5BEAF1",
+          "sampling_point": [
+            1500,
+            950
+          ]
+        }
+      ],
+      "board": "civic-invasion/board.png",
+      "scene": "civic-invasion/scene.png",
+      "scene_pixel_preview": "civic-invasion/scene_pixel_preview.png",
+      "scene_native": "civic-invasion/scene_preview_native.png",
+      "scene_crop_rectangle": [
+        316,
+        76,
+        1276,
+        616
+      ],
+      "prompt": "civic-invasion/prompt.txt",
+      "threats": {
+        "melee": "Reaver",
+        "ranged": "Surveyor"
+      },
+      "production_sprites": false,
+      "tileable_materials": false,
+      "palette_is_reference_not_ink_limit": true
+    }
+  ]
+}

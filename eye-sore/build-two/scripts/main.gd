@@ -28,6 +28,8 @@ func _ready() -> void:
 	var world := preload("res://scenes/calibration.tscn").instantiate()
 	world_view.add_child(world)
 	player = world.get_node("Player")
+	if "--view=annex" in OS.get_cmdline_user_args():
+		player.transform = world.get_node("AnnexPreviewPose").transform
 	player.sensitivity = sensitivity
 	player.get_node("Camera3D").fov = field_of_view
 	world_image = TextureRect.new()

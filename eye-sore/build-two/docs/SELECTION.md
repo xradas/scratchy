@@ -1,6 +1,6 @@
 # Identity selection and visual revision
 
-Status: identity selection pending; visual packet v1 rejected by the user.
+Status: revised visual packet v2 ready for review; identity selection pending. Visual packet v1 was rejected by the user.
 
 User feedback, 8 October 2026: artwork needs to feel more 3D; character designs are inadequate; the visuals do not meaningfully use classic Doom as their template. Music was described as really good.
 
@@ -11,3 +11,5 @@ The revision must demonstrate textured spatial depth, strongly shaded solid weap
 Three identities remain equally scoped: corrupted biotech facility, war-torn occult fortress, and invaded civic megastructure. Review revised packets before recording a chosen identity. Complete animation sets and the complete combat exchange remain dependent on selection; level expansion follows combat exchange review.
 
 When selected, record identity, requested changes, accepted creature/gun direction, palette/material hierarchy and music candidate here.
+
+Revision v2 delivers three generated dimensional design boards, documented 640×360 crops and 320×180 scale tests. The separate real Godot room has connected spaces, doorway depth, stairs and raised walkway, machinery and cast shadows. These respond to the feedback; they do not record acceptance. Music bytes remain unchanged.

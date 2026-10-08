@@ -1,35 +1,36 @@
-# Eyesore build two — visual revision in progress
+# Eyesore build two — revised identity review
 
-This is a new isolated Godot project for a standalone Linux Doom-inspired game. **Visual packet v1 was rejected; a substantial 3D and creature-design revision is in progress. Identity selection remains pending.** The complete combat exchange and 5–8 minute level follow the user's chosen direction.
+This is a new isolated Godot project for a standalone Linux Doom-inspired game. The rejected flat art is preserved. Three revised directions now show textured spatial depth, shaded weapon forms and stronger creature anatomy. **Identity selection remains pending.** Music candidates are unchanged following your positive feedback.
 
-## Review the three packets
+## Review the revised packets
 
-Open [concepts/index.html](concepts/index.html) in a browser. It works directly from disk, without a server or network. Each packet has a static first-person combat composition, eight-color palette, four material samples, two representative enemy frames, pistol/shotgun designs, HUD thumbnail, music and physical gun/SFX auditions. Browse the detailed art board and compare dry/designed gun sounds. Browsing does not record an identity selection; reply with the chosen identity or revisions.
+Open [concepts/index.html](concepts/index.html) in a browser, or run `python3 concepts/serve_review.py` and visit `http://127.0.0.1:8764/`. The page works from disk; the optional local server supports audio seeking. Each equally scoped packet includes a combat composition, palette/material studies, two enemy roles, pistol/shotgun studies, HUD thumbnail and sourced audio/music auditions. The primary image is a 320×180 scale test enlarged to 640×360; expand the original board for design detail. Separate captures show the actual Godot room.
 
 - **The Pale Ward** — corrupted biotech facility.
 - **The Ash Citadel** — war-torn occult fortress.
 - **The Occupied Line** — invaded civic megastructure.
 
-The review page plays the lossless WAV references, preserving complete clip durations in Chromium. OGG alternatives are also retained. Audio provenance and original source files are in `concepts/audio/`; editable coordinate-authored pixel sources and pivot metadata are in `concepts/visual/`. Music listening appeal remains awaiting the user's review. The compositions are artwork, not captured gameplay.
+[Visual source and exact prompts](concepts/visual-v2/README.md) identify these as built-in imagegen concept studies. They are not hand-authored production sprites, models or animation sets. The [classic Doom visual audit](docs/DOOM_VISUAL_AUDIT.md) records spatial, silhouette, shading and weapon framing criteria. Original Doom assets are not used. The rejected coordinate packet remains under `concepts/rejected/coordinate-v1/`.
 
-## Run the foundation
+The review plays lossless WAV references. OGG alternatives, selected unmodified originals, licenses and [audio credits](concepts/audio/README.md) are retained. You praised the music; sound effect and final gameplay mix approval remain pending. Browsing does not record an identity choice: reply with a chosen direction or revisions.
 
-The identity-neutral movement/display preview has an authored 3D calibration room, fast grounded WASD movement, mouse free look, a small crosshair, persisted sensitivity/FOV/mute settings, native-resolution HUD/menu text and a 640×360 nearest-scaled world. Escape pauses and opens settings. There are no production enemies, guns or level encounters yet.
+## Run the real 3D room preview
 
-Use **Godot 4.7.2 stable**, GDScript and the Compatibility renderer. The matching editor and Linux templates have been verified locally. [Toolchain instructions](docs/FOUNDATION.md) and [download evidence](verification/download_manifest.json) retain the exact versions, original URLs and hashes.
+The authored room has connected spaces, thick door reveals, raised walkable service access, machinery, original pixel materials and cast shadows. WASD moves; the mouse looks; Escape pauses and opens settings. Sensitivity, FOV and mute persist. The world renders at 640×360 with nearest scaling, while HUD/menu text uses window resolution. There are no production guns, enemies, encounters or in-game soundtrack yet.
+
+Use **Godot 4.7.2 stable**, GDScript and the Compatibility renderer, with matching Linux export templates. [Setup and foundation details](docs/FOUNDATION.md) and [download evidence](verification/download_manifest.json) pin the toolchain.
 
 ```sh
 tools/godot.sh --editor
 tools/godot.sh --headless -- --smoke-test
-tools/godot.sh --headless --export-release "Linux Portable" build/eyesore-calibration.x86_64
+tools/godot.sh --headless --script res://tools/check_geometry.gd
+tools/godot.sh --headless --export-release "Linux Portable" build/eyesore-room-preview.x86_64
 ```
 
-The exported executable embeds its PCK and runs without the project or editor. The current package is a **foundation preview**, not the complete combat calibration or finished game.
+The Linux executable embeds its PCK and launches without the source project/editor. This is a movement/display preview, not the complete combat calibration or finished game.
 
 ## Production and preservation
 
-The [production plan](docs/PRODUCTION_PLAN.md), [selection record](docs/SELECTION.md), [single-event contracts](docs/contracts-and-gates.md) and thirteen [specialist briefs](docs/specialists/README.md) carry the remaining work. Rendering FPS consistency, combat release/collision/animation agreement, audible audio lifecycle, complete route/reset, and sustained release playtesting remain pending after selection.
+The [production plan](docs/PRODUCTION_PLAN.md), [selection record](docs/SELECTION.md), [event contracts](docs/contracts-and-gates.md) and thirteen [specialist briefs](docs/specialists/README.md) carry the remaining work. Selection precedes complete animation and combat production; combat review precedes the 5–8 minute level. The [verification report](verification/INTEGRATION.json) separates completed preview checks from pending gameplay acceptance.
 
-All six previous worktrees were preserved separately, including uncommitted source/assets/research. Exact local snapshots retain compiled outputs; dated archive branches were pushed to `xradas/scratchy` and their exact remote commit IDs verified. See [preservation manifest](docs/PRESERVATION.json). This project is on `codex/eyesore-build-two` in its own worktree.
-
-[Audio credits and modification notices](concepts/audio/README.md) must accompany distributed audio. [Current verification](verification/INTEGRATION.json) separates completed foundation/packet checks from later production acceptance.
+All six prior worktrees, including uncommitted source/assets/research and local build outputs, were preserved separately. Dated archive branches were pushed to `xradas/scratchy` and exact remote commit IDs verified. See the [preservation manifest](docs/PRESERVATION.json). This project is on `codex/eyesore-build-two` in its own worktree.

@@ -1,0 +1,56 @@
+{
+  "verified_utc": "2026-10-08T22:51:00.589247+00:00",
+  "scope": "Actual authored Godot 3D concept room, not generated concept-board art or a complete game",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "Compatibility/OpenGL 3.3 NVIDIA RTX 3060 Ti",
+  "checks": {
+    "import.log": "exit 0; no engine/script errors",
+    "smoke-headless.log": "exit 0; no engine/script errors",
+    "smoke-native.log": "exit 0; no engine/script errors",
+    "smoke-native-annex.log": "exit 0; no engine/script errors",
+    "export.log": "exit 0; no engine/script errors",
+    "export-outside.log": "exit 0; no engine/script errors",
+    "export-outside-native.log": "exit 0; no engine/script errors",
+    "geometry-check.log": "exit 0; 52 paired visual/collision dimensions, portal/floor bounds and physical no-jump walkway ascent"
+  },
+  "world_resolution": [
+    640,
+    360
+  ],
+  "native_capture_resolution": [
+    1280,
+    720
+  ],
+  "static_bodies": 53,
+  "geometry_shapes": "BoxShape3D, CylinderShape3D, ConvexPolygonShape3D stair slope",
+  "original_materials": {
+    "concrete.png": "c762888e30727a658101257a15075feed6d2a467bc06c1d7269b8e6f39718622",
+    "steel.png": "3e885b678da420a3b735a41c71f8255cd06ded7aa5c6791684e024f92b380dc1",
+    "floor.png": "35c9fcd2cf1c861180e651c4a28667280103c39d0f80f32b30c9347dd6e11c33",
+    "grate.png": "f16d8c7a93d1abe5d4dbfa10fd315a3951d56deaf1c040e2b48ef3605bb3e4de"
+  },
+  "material_provenance": "Original deterministic standard-library PNG raster code, seed 472, tools/author_environment.py. No downloaded/game assets or image-generated textures.",
+  "release": {
+    "path": "/home/rikki/Projects/eyesore-build-two-staging/foundation-v2/build/eyesore-concept-room.x86_64",
+    "bytes": 73599544,
+    "sha256": "029f6e471823facabd96208d86728cf7bd2d2964190d4eb64775a87c6a503986"
+  },
+  "preserved_contracts": [
+    "docs/contracts-and-gates.md",
+    "scripts/weapon_definition.gd",
+    "scripts/enemy_definition.gd"
+  ],
+  "pending": [
+    "User identity selection",
+    "Human movement and collision playtest",
+    "Full combat/weapon/enemy/animation work",
+    "Production level design and asset validation",
+    "Audible gameplay stream pause/resume testing"
+  ],
+  "music": "untouched",
+  "geometry_traversal_final_player": [
+    -5.8,
+    1.750868,
+    6.435756
+  ]
+}
