@@ -20,3 +20,7 @@ textures/canvas_textures/default_texture_filter=0
 
 [audio]
 buses/default_bus_layout="res://resources/default_bus_layout.tres"
+
+[editor]
+; Avoid the observed 4.7.2 threaded audio reimport crash.
+import/use_multiple_threads=false

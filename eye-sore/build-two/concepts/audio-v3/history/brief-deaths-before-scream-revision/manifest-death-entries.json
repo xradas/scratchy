@@ -1,0 +1,106 @@
+{
+  "unsealed_death": {
+    "file": "cues/unsealed_death.wav",
+    "ogg_file": "cues/unsealed_death.ogg",
+    "bus": "Creatures",
+    "gain_db": 0,
+    "description": "Brief dry human terminal grunt, separate take from hurt.",
+    "edits": [
+      {
+        "original": "originals/haelDB/3grunt5.wav",
+        "original_sha256": "32705e7835d0cdce3eb6e9d3a512ef128ee6c50564bd53bb0723b4474be85181",
+        "start_seconds": 0.15385416666666665,
+        "duration_seconds": 0.42,
+        "pitch_playback_ratio": 0.96,
+        "filters": "highpass=f=95,lowpass=f=6800",
+        "layer_gain": 1,
+        "delay_seconds": 0,
+        "fade_in_seconds": 0.002,
+        "fade_out_seconds": 0.035,
+        "source_id": "dry-3grunt5"
+      }
+    ],
+    "export_peak_target_dbfs": -12,
+    "sha256": "46edabdd2cac63b4cbcbf364e558562f9820f2aac50911986569e3496701a297",
+    "ogg_sha256": "dd42e751668f1b2d46b8a5e7bf0a7a699d1108a3e2b2d1907d9fc8fa3761fae1",
+    "dry_file": "dry/unsealed_death.wav",
+    "dry_sha256": "d13ea8e6c900f80261b5d7135e0db684beffbacd0ed245b43c46198bac993f75",
+    "dry_edits": "Same source excerpts and gain/placement only; no pitch or EQ. Composite dry reference is not a source original.",
+    "audition_file": "auditions/unsealed_death-dry-then-designed.wav",
+    "audition_sha256": "485f43cf7af68d989b73af60f8a4df9bc81919413538b0ee7351e754c3a53cc2",
+    "technical": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "sample_rate": "48000",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "0.360583"
+      }
+    },
+    "source_ids": [
+      "dry-3grunt5"
+    ],
+    "levels": {
+      "integrated_lufs": null,
+      "true_peak_dbtp": -11.95,
+      "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+    }
+  },
+  "vessel_death": {
+    "file": "cues/vessel_death.wav",
+    "ogg_file": "cues/vessel_death.ogg",
+    "bus": "Creatures",
+    "gain_db": 0,
+    "description": "Lower brief human effort/death grunt, no long groan.",
+    "edits": [
+      {
+        "original": "originals/haelDB/3grunt6.wav",
+        "original_sha256": "c334b34e7a64d67f226cd0a54fb237b8fbcc09e5ac6258a32fafcecc2c2e0857",
+        "start_seconds": 0.428125,
+        "duration_seconds": 0.42,
+        "pitch_playback_ratio": 0.86,
+        "filters": "highpass=f=95,lowpass=f=6800",
+        "layer_gain": 1,
+        "delay_seconds": 0,
+        "fade_in_seconds": 0.002,
+        "fade_out_seconds": 0.035,
+        "source_id": "dry-3grunt6"
+      }
+    ],
+    "export_peak_target_dbfs": -11,
+    "sha256": "6d60a01417af7b57c7d9014edb222b616738223fe865dc430da1d7053d416be9",
+    "ogg_sha256": "6bcd4c1c8f1a1dd896d445e63974347809223ed1ba3053261cc859f2bd46497d",
+    "dry_file": "dry/vessel_death.wav",
+    "dry_sha256": "9d6d52007ed8946f43c2e9c7eec0dc7a5b85bbc278eeba1f85cb509c8954bfbd",
+    "dry_edits": "Same source excerpts and gain/placement only; no pitch or EQ. Composite dry reference is not a source original.",
+    "audition_file": "auditions/vessel_death-dry-then-designed.wav",
+    "audition_sha256": "3917fa9dd700b0702876482d303835ca853ce452912668e21b7f5dd7901b1fb1",
+    "technical": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "sample_rate": "48000",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "0.488375"
+      }
+    },
+    "source_ids": [
+      "dry-3grunt6"
+    ],
+    "levels": {
+      "integrated_lufs": -25.85,
+      "true_peak_dbtp": -11.0,
+      "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+    }
+  }
+}

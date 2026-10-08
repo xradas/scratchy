@@ -1,0 +1,28 @@
+Input #0, wav, from '/home/rikki/Projects/eyesore-build-two-staging/combat-audio/cues/melee_armor.wav':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Duration: 00:00:00.60, bitrate: 1153 kb/s
+  Stream #0:0: Audio: pcm_s24le ([1][0][0][0] / 0x0001), 48000 Hz, mono, s32 (24 bit), 1152 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s24le (native) -> pcm_s16le (native))
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Audio: pcm_s16le, 192000 Hz, mono, s16, 3072 kb/s
+    Metadata:
+      encoder         : Lavc63.1.102 pcm_s16le
+[Parsed_loudnorm_0 @ 0x7ff30c0034c0] 
+{
+	"input_i" : "-30.38",
+	"input_tp" : "-9.00",
+	"input_lra" : "0.00",
+	"input_thresh" : "-42.14",
+	"output_i" : "-24.38",
+	"output_tp" : "-3.00",
+	"output_lra" : "0.00",
+	"output_thresh" : "-36.14",
+	"normalization_type" : "linear",
+	"target_offset" : "5.38"
+}
+[out#0/null @ 0x559416c16400] video:0KiB audio:225KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:00.60 bitrate=N/A speed= 105x elapsed=0:00:00.00    

@@ -1,0 +1,678 @@
+{
+  "errors": [],
+  "runtime_cues_checked": 26,
+  "original_sources_checked": 27,
+  "checks": "Decode every runtime WAV/OGG and AB sample; manifest hashes, original hashes and license presence; spatial mono; new dry cue durations <=0.51s except revised death screams <=2.02s; sample headroom; unchanged attacks/music byte comparison.",
+  "records": [
+    {
+      "key": "pistol_fire",
+      "file": "cues/pistol_fire.wav",
+      "sha256": "866c8c424adad46e576af3326540cdb4b3008b0b2845771ed85c54d57a92efee",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "1.150000"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -29.05,
+        "true_peak_dbtp": -6.04,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 7.46,
+      "sample_peak_dbfs": -6.04
+    },
+    {
+      "key": "shotgun_fire",
+      "file": "cues/shotgun_fire.wav",
+      "sha256": "44dc7ae6ac14fe4394c684bddfb1d90498606965d3060e342e529c86daa0466f",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "1.666667"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -28.45,
+        "true_peak_dbtp": -5.92,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 7.71,
+      "sample_peak_dbfs": -6.0
+    },
+    {
+      "key": "melee_swing",
+      "file": "cues/melee_swing.wav",
+      "sha256": "0bcbc823ec3134b63fb224dbe626ffb9366a715db94bb38acb4360cac894e418",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.467396"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -28.65,
+        "true_peak_dbtp": -14.04,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 28.6,
+      "sample_peak_dbfs": -14.04
+    },
+    {
+      "key": "empty",
+      "file": "cues/empty.wav",
+      "sha256": "b715f9115bb01f0b1cd50837424de505b107e8660491d23f3bb2b3ef7b5ff1fa",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.150000"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -15.99,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 2.5,
+      "sample_peak_dbfs": -16.03
+    },
+    {
+      "key": "pistol_flesh",
+      "file": "cues/pistol_flesh.wav",
+      "sha256": "1ce924588a22ed1224e94d39fdeb01e54d5fb479c3917c129733a9d073480a78",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.187500"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -8.98,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 5.75,
+      "sample_peak_dbfs": -8.98
+    },
+    {
+      "key": "shotgun_flesh",
+      "file": "cues/shotgun_flesh.wav",
+      "sha256": "5084607e515509a34c044af0a959a1506f4ac2bbf6ba3795d56b19705cdb5ef4",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.322229"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -7.0,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 3.6,
+      "sample_peak_dbfs": -7.0
+    },
+    {
+      "key": "melee_flesh",
+      "file": "cues/melee_flesh.wav",
+      "sha256": "52115b8ae06f70455b657772c49168dfa749282474d473251b08393adfea31eb",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.244917"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -7.98,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 3.06,
+      "sample_peak_dbfs": -8.01
+    },
+    {
+      "key": "pistol_armor",
+      "file": "cues/pistol_armor.wav",
+      "sha256": "9e1d7102db339895359a2c12a16a97597c5a627ea1c38f20f3d46de326606904",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.166667"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -10.01,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 17.85,
+      "sample_peak_dbfs": -10.01
+    },
+    {
+      "key": "shotgun_armor",
+      "file": "cues/shotgun_armor.wav",
+      "sha256": "1f80de4a3c9c693f80da91a3607fff6b7d7435599c4c344d52fc6a0928b8f719",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.300000"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -7.93,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 13.96,
+      "sample_peak_dbfs": -8.01
+    },
+    {
+      "key": "melee_armor",
+      "file": "cues/melee_armor.wav",
+      "sha256": "837b7523131480a34374c2a0d375e4ff2ca51e949e2231e4be9faa58f9510bff",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.265313"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -8.92,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 19.17,
+      "sample_peak_dbfs": -9.01
+    },
+    {
+      "key": "pistol_hard",
+      "file": "cues/pistol_hard.wav",
+      "sha256": "8e895fbc455085a1986ae1141db8183d4efe08f43a5da0ece719741b33896529",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.154563"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -13.87,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 10.08,
+      "sample_peak_dbfs": -13.99
+    },
+    {
+      "key": "shotgun_hard",
+      "file": "cues/shotgun_hard.wav",
+      "sha256": "da2aa67259bba403d35f0565aec42b8f68cf621cc386b25cc8c532f5ac358489",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.250000"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -11.95,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 9.85,
+      "sample_peak_dbfs": -11.95
+    },
+    {
+      "key": "melee_hard",
+      "file": "cues/melee_hard.wav",
+      "sha256": "b9b4abcdd4643cf83017cef126b891bb674a3d46160c3367426d0b888772f50b",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.234708"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -13.0,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 9.42,
+      "sample_peak_dbfs": -13.0
+    },
+    {
+      "key": "projectile_impact",
+      "file": "cues/projectile_impact.wav",
+      "sha256": "b8a2aaa5f5c5612d3230db85628dd7fa8fc2869b1836a492038ad788545ada85",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.229167"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -11.0,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 1.9,
+      "sample_peak_dbfs": -11.0
+    },
+    {
+      "key": "projectile_hard",
+      "file": "cues/projectile_hard.wav",
+      "sha256": "5010235ec05e9e8e8376acbde5de7bdfcc80e63431e4114ba0034d3a07015648",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.202146"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -13.89,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 11.81,
+      "sample_peak_dbfs": -14.01
+    },
+    {
+      "key": "projectile_release",
+      "file": "cues/projectile_release.wav",
+      "sha256": "ea27217e1c7a217fa5fb6f5705ead7b0716105172c6a20d3bceb8bc8fa65d9b6",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.208708"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -13.94,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 22.9,
+      "sample_peak_dbfs": -13.96
+    },
+    {
+      "key": "unsealed_hurt",
+      "file": "cues/unsealed_hurt.wav",
+      "sha256": "9500658b626c0087acd82e0ac17c83eeadaaa26cdb3a7b08c9f5ac2972a727da",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.354167"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -12.0,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 5.94,
+      "sample_peak_dbfs": -12.04
+    },
+    {
+      "key": "vessel_hurt",
+      "file": "cues/vessel_hurt.wav",
+      "sha256": "cdc3b7b2e3f411feeac3aa17f3ac8038355268ab35f959e1dd461dd6ab8d118e",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.411771"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -20.65,
+        "true_peak_dbtp": -10.97,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 7.08,
+      "sample_peak_dbfs": -10.97
+    },
+    {
+      "key": "unsealed_death",
+      "file": "cues/unsealed_death.wav",
+      "sha256": "c5d98595898a6bc0f006784f3a1c5adc410f80869c5cb68b84acd8aabc762a52",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "1.553417"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -18.39,
+        "true_peak_dbtp": -9.96,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 5.81,
+      "sample_peak_dbfs": -9.98
+    },
+    {
+      "key": "vessel_death",
+      "file": "cues/vessel_death.wav",
+      "sha256": "17f010e66e60d316acd3411c3dab9c91a647ef1471e2e91725f93a1390e2812c",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "1.888896"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -18.14,
+        "true_peak_dbtp": -9.95,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 6.69,
+      "sample_peak_dbfs": -9.98
+    },
+    {
+      "key": "unsealed_attack_warning",
+      "file": "cues/unsealed_attack_warning.wav",
+      "sha256": "ff06cab26a15d25beb761e815bc93b440cf1ef0745219592917c29ff1d6a5419",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.306125"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -11.94,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 4.38,
+      "sample_peak_dbfs": -11.99
+    },
+    {
+      "key": "vessel_attack_warning",
+      "file": "cues/vessel_attack_warning.wav",
+      "sha256": "b3fccbb03ff5f5106366b51c881f229eb25c6d566038956b854d536474b3b0bf",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.372104"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -11.01,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 7.02,
+      "sample_peak_dbfs": -11.01
+    },
+    {
+      "key": "player_hurt",
+      "file": "cues/player_hurt.wav",
+      "sha256": "d4cfe5c192c3152aa11d749987915374158da638c041fc2831a557bb4bf24b02",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.290000"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -12.01,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      },
+      "onset_20db_below_peak_ms": 5.96,
+      "sample_peak_dbfs": -12.02
+    },
+    {
+      "key": "menu_music",
+      "file": "music/menu_abelian.ogg",
+      "sha256": "dd00153a6886d9facf5d7c9a8e37baa241fc83ac37c9a6bb3028f59e7e099e85",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vorbis",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "122.926833"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -19.15,
+        "true_peak_dbtp": -8.95,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      }
+    },
+    {
+      "key": "level_music_biotech_candidate",
+      "file": "music/level_music_biotech_candidate.ogg",
+      "sha256": "88cc828e5fea3f6ac9888020a642bc8ad353f56cdc6635b0fe39bbd518820384",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vorbis",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "264.666667"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -19.13,
+        "true_peak_dbtp": -9.56,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      }
+    },
+    {
+      "key": "level_music_fortress_candidate",
+      "file": "music/level_music_fortress_candidate.ogg",
+      "sha256": "5e43b700362434e609aeb8cfbc58d6133eb6ab153ee794b053d215a9ecfddeaa",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vorbis",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "240.296500"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -19.07,
+        "true_peak_dbtp": -11.28,
+        "measurement": "FFmpeg loudnorm input analysis; short-event integrated LUFS may be unavailable or unrepresentative."
+      }
+    }
+  ]
+}

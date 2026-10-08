@@ -1,8 +1,12 @@
 class_name WeaponDefinition
 extends Resource
-## Schema only. No weapon content or firing behavior before identity selection.
 @export var identifier: StringName
 @export var display_name: String
 @export var damage: float = 0.0
-@export var cooldown_seconds: float = 0.1
+@export var cooldown_seconds: float = 0.35
+@export var fire_seconds: float = 0.09
+@export var pellets: int = 1
+@export var spread_degrees: float = 0.0
+@export var range_units: float = 60.0
+@export var ammo_key: StringName = &"ammo_pistol"
 @export var audio_bus: StringName = &"Weapons"

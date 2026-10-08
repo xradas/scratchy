@@ -1,0 +1,2169 @@
+{
+  "schema_version": 2,
+  "stage": "Stage 2 weapon and material contacts with separate voices",
+  "setting": "Pale Ward provisional voice labels; material system remains generic",
+  "created_date": "2026-10-09",
+  "approval_status": "REJECTED: user rejected damage sounds on9October2026 and explicitly requested no wet audio; Doom/Quake dry impact/pain direction replaces this pack.",
+  "cues": {
+    "pistol_fire": {
+      "file": "cues/pistol_fire.wav",
+      "bus": "Weapons",
+      "gain_db": 0,
+      "source_ids": [
+        "pistol"
+      ],
+      "description": "Tight recorded .45 crack with restrained body; no long room echo.",
+      "edits": [
+        {
+          "source_id": "pistol",
+          "excerpt_start_seconds": 0.934,
+          "excerpt_duration_seconds": 1.15,
+          "pitch_playback_ratio": 1,
+          "filter_chain": "asetrate=48000*1,aresample=48000,highpass=f=60,equalizer=f=150:t=q:w=0.8:g=2,equalizer=f=3500:t=q:w=1:g=-2",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -6,
+      "sha256": "866c8c424adad46e576af3326540cdb4b3008b0b2845771ed85c54d57a92efee",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "1.150000"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -29.05,
+        "true_peak_dbtp": -6.04,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/pistol_fire.wav",
+      "dry_sha256": "0d6e501e5b1bca60f7e61c7b8a81517bd0c0c350c55cc04a5eebc19db4e92844",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/pistol_fire-dry-then-designed.wav",
+      "audition_sha256": "10606e0cc8b11d29cef54fe5dfda8d3cd7f42b3e6fb0e3cdd78c7850c1ab0d41",
+      "ogg_file": "cues/pistol_fire.ogg",
+      "ogg_sha256": "628a1dfc571d4ec1082ba12c70d5c8eda0037ecc1f4a3da40b4264ced90ac80f"
+    },
+    "shotgun_fire": {
+      "file": "cues/shotgun_fire.wav",
+      "bus": "Weapons",
+      "gain_db": 0,
+      "source_ids": [
+        "shotgun"
+      ],
+      "description": "Broader lower recorded 12-gauge discharge; one fire per shot.",
+      "edits": [
+        {
+          "source_id": "shotgun",
+          "excerpt_start_seconds": 0.835,
+          "excerpt_duration_seconds": 1.55,
+          "pitch_playback_ratio": 0.93,
+          "filter_chain": "asetrate=48000*0.93,aresample=48000,highpass=f=45,equalizer=f=120:t=q:w=0.8:g=4,equalizer=f=3000:t=q:w=1:g=-1",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -6,
+      "sha256": "44dc7ae6ac14fe4394c684bddfb1d90498606965d3060e342e529c86daa0466f",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "1.666667"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -28.45,
+        "true_peak_dbtp": -5.92,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/shotgun_fire.wav",
+      "dry_sha256": "bdb1d192f89186c2e43d4d39a62d7703d15864516734017c081b1407a1192ecd",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/shotgun_fire-dry-then-designed.wav",
+      "audition_sha256": "e17645de3a4c4533631bbc812feb0aa27c7884024e0d1fcc874c072bc74b52be",
+      "ogg_file": "cues/shotgun_fire.ogg",
+      "ogg_sha256": "7ad0715c00860b2aab32bc7c7f18e00129468a6a5577ed4ae8612047eb2a7a64"
+    },
+    "melee_swing": {
+      "file": "cues/melee_swing.wav",
+      "bus": "Weapons",
+      "gain_db": 0,
+      "source_ids": [
+        "swish13"
+      ],
+      "description": "Recorded bamboo swing; attack motion without a contact sound.",
+      "edits": [
+        {
+          "source_id": "swish13",
+          "excerpt_start_seconds": 0.045,
+          "excerpt_duration_seconds": 0.43,
+          "pitch_playback_ratio": 0.92,
+          "filter_chain": "asetrate=48000*0.92,aresample=48000,highpass=f=100,lowpass=f=7500",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -14,
+      "sha256": "0bcbc823ec3134b63fb224dbe626ffb9366a715db94bb38acb4360cac894e418",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.467396"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -28.65,
+        "true_peak_dbtp": -14.04,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/melee_swing.wav",
+      "dry_sha256": "cf867ae12ac22b41c9f9cb62cdde453c101bace09856e62569f2380f3cd5e851",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/melee_swing-dry-then-designed.wav",
+      "audition_sha256": "28b2795572144f1da043aba3a5630358b736d13cf7a0c34ccbafd59395acfea2",
+      "ogg_file": "cues/melee_swing.ogg",
+      "ogg_sha256": "d8607ede2d82d6f63bbc6361532296ccb55448953839af644eb5c6df5790c635"
+    },
+    "empty": {
+      "file": "cues/empty.wav",
+      "bus": "Weapons",
+      "gain_db": 0,
+      "source_ids": [
+        "click"
+      ],
+      "description": "Short recorded metal-object click adapted to empty trigger feedback.",
+      "edits": [
+        {
+          "source_id": "click",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.15,
+          "pitch_playback_ratio": 1,
+          "filter_chain": "asetrate=48000*1,aresample=48000,highpass=f=180,lowpass=f=6000",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -16,
+      "sha256": "b715f9115bb01f0b1cd50837424de505b107e8660491d23f3bb2b3ef7b5ff1fa",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.150000"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -15.99,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/empty.wav",
+      "dry_sha256": "df950f5c746719d3d937e467281d64537e4ea005cf592639a5d1d447d068217d",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/empty-dry-then-designed.wav",
+      "audition_sha256": "1ccb450b56ab2ae2cee4eed2f81dc4c8477310f2568169c81e032ff778103d51",
+      "ogg_file": "cues/empty.ogg",
+      "ogg_sha256": "f916a38c87a9951978cfa82d5cd0665bd72e6f3282f44308894460f73d1bbe57"
+    },
+    "pistol_flesh": {
+      "file": "cues/pistol_flesh.wav",
+      "bus": "World",
+      "gain_db": 0,
+      "source_ids": [
+        "body07",
+        "meat01"
+      ],
+      "description": "Focused body slap and short organic texture; no hurt vocal embedded.",
+      "edits": [
+        {
+          "source_id": "body07",
+          "excerpt_start_seconds": 0.012,
+          "excerpt_duration_seconds": 0.42,
+          "pitch_playback_ratio": 1.05,
+          "filter_chain": "asetrate=48000*1.05,aresample=48000,highpass=f=65,equalizer=f=150:t=q:w=0.8:g=4,lowpass=f=7500",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        },
+        {
+          "source_id": "meat01",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.3,
+          "pitch_playback_ratio": 1.05,
+          "filter_chain": "asetrate=48000*1.05,aresample=48000,highpass=f=180,lowpass=f=5500",
+          "layer_gain": 0.4,
+          "layer_delay_seconds": 0.008,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -9,
+      "sha256": "0a437877e5ed4ed6966b8e6eaab02cdc4f69a5783ea10c93859a8438c6184ede",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.400000"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -27.25,
+        "true_peak_dbtp": -8.92,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/pistol_flesh.wav",
+      "dry_sha256": "55311102cfdf994ec31a96359d05b5e532d89df4c130347faf8411eb82bae00a",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/pistol_flesh-dry-then-designed.wav",
+      "audition_sha256": "45077a9a166b4a6a712ce2207ca09de23c00094420e1a62c8f1b9552f9c544be",
+      "ogg_file": "cues/pistol_flesh.ogg",
+      "ogg_sha256": "0e76715b4c2207dfa1de12c35f0320bf80e280813b794d00df4b277834adf442"
+    },
+    "shotgun_flesh": {
+      "file": "cues/shotgun_flesh.wav",
+      "bus": "World",
+      "gain_db": 0,
+      "source_ids": [
+        "body01",
+        "meat02"
+      ],
+      "description": "One broad aggregate body strike per target per shotgun shot, regardless of pellet count.",
+      "edits": [
+        {
+          "source_id": "body01",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.47,
+          "pitch_playback_ratio": 0.78,
+          "filter_chain": "asetrate=48000*0.78,aresample=48000,highpass=f=65,equalizer=f=150:t=q:w=0.8:g=4,lowpass=f=7500",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        },
+        {
+          "source_id": "meat02",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.42,
+          "pitch_playback_ratio": 0.72,
+          "filter_chain": "asetrate=48000*0.72,aresample=48000,highpass=f=55,equalizer=f=100:t=q:w=1:g=3,lowpass=f=4500",
+          "layer_gain": 0.65,
+          "layer_delay_seconds": 0.01,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -7,
+      "sha256": "402db83c72034ee0a3441473f8177fa849a91980c5f96d7436731e99c7aa32c7",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.602583"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -29.67,
+        "true_peak_dbtp": -6.95,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/shotgun_flesh.wav",
+      "dry_sha256": "f4a292d71b5d0ed4d60a12a685dc0277c68d3155cf442d179943f173d574d6ff",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/shotgun_flesh-dry-then-designed.wav",
+      "audition_sha256": "3936435bcfc97726cdde7de9577c688e133b78c78f930eff9ba34454e38cf38f",
+      "ogg_file": "cues/shotgun_flesh.ogg",
+      "ogg_sha256": "581d31bf87f04f884c3ecf72850cee26f0a5435e0a45996acb23cee435ca75a1"
+    },
+    "melee_flesh": {
+      "file": "cues/melee_flesh.wav",
+      "bus": "World",
+      "gain_db": 0,
+      "source_ids": [
+        "body14",
+        "meat02"
+      ],
+      "description": "Heavy hand/club body strike with a slower wet tail; not a firearm hit.",
+      "edits": [
+        {
+          "source_id": "body14",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.33,
+          "pitch_playback_ratio": 0.86,
+          "filter_chain": "asetrate=48000*0.86,aresample=48000,highpass=f=65,equalizer=f=150:t=q:w=0.8:g=4,lowpass=f=7500",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        },
+        {
+          "source_id": "meat02",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.34,
+          "pitch_playback_ratio": 1.12,
+          "filter_chain": "asetrate=48000*1.12,aresample=48000,highpass=f=130,lowpass=f=5200",
+          "layer_gain": 0.32,
+          "layer_delay_seconds": 0.025,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -8,
+      "sha256": "e9ff6fff7f3ed8a3e9038ab78a10c15a5dd6ac52cddfae9c41397ec5cd30ce6d",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.383729"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -7.96,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/melee_flesh.wav",
+      "dry_sha256": "37f2921431c2f222a0c28453dd0a51ec8a54be2ba6c33ca2b121d05ed3a45448",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/melee_flesh-dry-then-designed.wav",
+      "audition_sha256": "1a0244ffebaf7fe83704bac4d823b4e53151eefe95953a96afda26d8cff929bd",
+      "ogg_file": "cues/melee_flesh.ogg",
+      "ogg_sha256": "eec730b5b8876ed7ab060c2f9c83107367175db4071c74362f1b9d6cc883df2e"
+    },
+    "pistol_armor": {
+      "file": "cues/pistol_armor.wav",
+      "bus": "World",
+      "gain_db": 0,
+      "source_ids": [
+        "metal02"
+      ],
+      "description": "Short high metal tick; distinct original from the shotgun and melee main layers.",
+      "edits": [
+        {
+          "source_id": "metal02",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.35,
+          "pitch_playback_ratio": 1.2,
+          "filter_chain": "asetrate=48000*1.2,aresample=48000,highpass=f=160,equalizer=f=2100:t=q:w=1:g=2,lowpass=f=9000",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -10,
+      "sha256": "6c1491f94f907e3e3db73e6111cb5dd937b696dfb771101926de5b974714dc20",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.291667"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -9.96,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/pistol_armor.wav",
+      "dry_sha256": "29cd6285197eaf7ce483d52caaefc6e9acce247367e430b9c06a31482bd46b3a",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/pistol_armor-dry-then-designed.wav",
+      "audition_sha256": "058ffae27598a3d58a2510163106bd17c1c28c5c2e30dee65d3b5d616fdf87d7",
+      "ogg_file": "cues/pistol_armor.ogg",
+      "ogg_sha256": "6c9cdd3acd4a402062447711a2df01e0d2464a2b81ff8b4b5cb6d53308a73230"
+    },
+    "shotgun_armor": {
+      "file": "cues/shotgun_armor.wav",
+      "bus": "World",
+      "gain_db": 0,
+      "source_ids": [
+        "metal01",
+        "metalimpact"
+      ],
+      "description": "Broad heavy plate rattle and ring; one aggregate strike per target per shot.",
+      "edits": [
+        {
+          "source_id": "metal01",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.48,
+          "pitch_playback_ratio": 0.78,
+          "filter_chain": "asetrate=48000*0.78,aresample=48000,highpass=f=160,equalizer=f=2100:t=q:w=1:g=2,lowpass=f=9000",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        },
+        {
+          "source_id": "metalimpact",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.46,
+          "pitch_playback_ratio": 0.82,
+          "filter_chain": "asetrate=48000*0.82,aresample=48000,highpass=f=100,lowpass=f=7000",
+          "layer_gain": 0.65,
+          "layer_delay_seconds": 0.012,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -8,
+      "sha256": "33c6d019aab13e33c81b85ef408d9b6abe6cea3c4f2baf8446747850b19c23a5",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.615396"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -27.49,
+        "true_peak_dbtp": -8.02,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/shotgun_armor.wav",
+      "dry_sha256": "50a9b6b3c6dffcbdbfa9dff908cfe91288cdd0580ef6fd24bf0b8a02d54acff7",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/shotgun_armor-dry-then-designed.wav",
+      "audition_sha256": "1f56cb67b8c81ce9b62ca26c3ec4bcef9783053fb2609e424ee2b6cb6ec7222b",
+      "ogg_file": "cues/shotgun_armor.ogg",
+      "ogg_sha256": "b878d3150f6c123af3dd536dd888ef88a7d9bfae434277b160b237de5e99c107"
+    },
+    "melee_armor": {
+      "file": "cues/melee_armor.wav",
+      "bus": "World",
+      "gain_db": 0,
+      "source_ids": [
+        "metalswing",
+        "metalimpact"
+      ],
+      "description": "Dense metallic clonk with a separate scrape tail, not the pistol ricochet.",
+      "edits": [
+        {
+          "source_id": "metalswing",
+          "excerpt_start_seconds": 0.07,
+          "excerpt_duration_seconds": 0.57,
+          "pitch_playback_ratio": 0.95,
+          "filter_chain": "asetrate=48000*0.95,aresample=48000,highpass=f=160,equalizer=f=2100:t=q:w=1:g=2,lowpass=f=9000",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        },
+        {
+          "source_id": "metalimpact",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.36,
+          "pitch_playback_ratio": 1.1,
+          "filter_chain": "asetrate=48000*1.1,aresample=48000,highpass=f=250,lowpass=f=8500",
+          "layer_gain": 0.4,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -9,
+      "sha256": "6fb9e044f9980186366bb4d7b12893568faae03f7298e5971d6f2560848da5e7",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.600000"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -30.38,
+        "true_peak_dbtp": -9.0,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/melee_armor.wav",
+      "dry_sha256": "47441854a841bdff9d183bfb2af5c2353e9da5950c7ff552f8e29facd6406128",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/melee_armor-dry-then-designed.wav",
+      "audition_sha256": "ed014a94381234a8fd84cfed7a4e76250dccb2e48738f70a4460630f6e4fa96b",
+      "ogg_file": "cues/melee_armor.ogg",
+      "ogg_sha256": "c80e1a50b231ceecf99d585be554b61857ed79e31cfb9173857aeaebab04acd8"
+    },
+    "pistol_hard": {
+      "file": "cues/pistol_hard.wav",
+      "bus": "World",
+      "gain_db": 0,
+      "source_ids": [
+        "stone"
+      ],
+      "description": "Low-priority short hard-surface tick fallback.",
+      "edits": [
+        {
+          "source_id": "stone",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.25,
+          "pitch_playback_ratio": 1.25,
+          "filter_chain": "asetrate=48000*1.25,aresample=48000,highpass=f=300,lowpass=f=6000",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -17,
+      "sha256": "996c36233523d6494e92bd694a735859fc77a043377a49dd7c352ee5917be8d8",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.200000"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -17.0,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/pistol_hard.wav",
+      "dry_sha256": "8f8227ab8a7a61e762daf1c841fe9cee6ec0afed6a97985ae092da5276a1d5b1",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/pistol_hard-dry-then-designed.wav",
+      "audition_sha256": "cffacb86aa7c33be0f130fe73bf14e218d96051d8f6040f823f76d4f0a3d81a4",
+      "ogg_file": "cues/pistol_hard.ogg",
+      "ogg_sha256": "e1ecfa037892a62c42a920deaad68720a0a7d7445c37630f9f95a90943f7236f"
+    },
+    "shotgun_hard": {
+      "file": "cues/shotgun_hard.wav",
+      "bus": "World",
+      "gain_db": 0,
+      "source_ids": [
+        "stone"
+      ],
+      "description": "Low-priority broader hard-surface strike fallback; one per shot group.",
+      "edits": [
+        {
+          "source_id": "stone",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.45,
+          "pitch_playback_ratio": 0.8,
+          "filter_chain": "asetrate=48000*0.8,aresample=48000,highpass=f=150,lowpass=f=6000",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -15,
+      "sha256": "e2d89cde50407cb83173eb448eb50f5bcc6c927518a3bfe604db89e067ca9efb",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.562500"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -36.15,
+        "true_peak_dbtp": -14.97,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/shotgun_hard.wav",
+      "dry_sha256": "709005638630836f06b5353ebb87c5ceb43230e7d2e198a48de88fdd6b7381cd",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/shotgun_hard-dry-then-designed.wav",
+      "audition_sha256": "53b85d56ce026c5423fb903f816f2f355f4191782e1c729673f3e8ce58ebbf0f",
+      "ogg_file": "cues/shotgun_hard.ogg",
+      "ogg_sha256": "b69e6378111da16c344e9eb65f7813f65f03b82308e2f1585cd2110780642f0e"
+    },
+    "melee_hard": {
+      "file": "cues/melee_hard.wav",
+      "bus": "World",
+      "gain_db": 0,
+      "source_ids": [
+        "stone"
+      ],
+      "description": "Low-priority hard-surface clunk fallback.",
+      "edits": [
+        {
+          "source_id": "stone",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.35,
+          "pitch_playback_ratio": 0.95,
+          "filter_chain": "asetrate=48000*0.95,aresample=48000,highpass=f=170,lowpass=f=4500",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -16,
+      "sha256": "36360289f5de22d4d183bedce41d2e7a9489679b1556768399d4cb2057394622",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.368438"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -15.99,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/melee_hard.wav",
+      "dry_sha256": "7133862c16a284063ab9680ef52e39d625d4c8e578d76fc656a327036d84ab64",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/melee_hard-dry-then-designed.wav",
+      "audition_sha256": "f71bc29baf853edc6ee3dd94c354f03f183b07c502c014a7f72b389b4c621749",
+      "ogg_file": "cues/melee_hard.ogg",
+      "ogg_sha256": "2eef90ad76fd45b1538921e12de6706f0131263a201e9f110fa516e86010aba0"
+    },
+    "unsealed_hurt": {
+      "file": "cues/unsealed_hurt.wav",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_ids": [
+        "human"
+      ],
+      "description": "Brief strained human-origin pain gesture; separate from weapon/material contact.",
+      "edits": [
+        {
+          "source_id": "human",
+          "excerpt_start_seconds": 3.7,
+          "excerpt_duration_seconds": 0.52,
+          "pitch_playback_ratio": 0.82,
+          "filter_chain": "asetrate=48000*0.82,aresample=48000,highpass=f=110,lowpass=f=6500,acompressor=threshold=0.08:ratio=2:attack=5:release=90",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -12,
+      "sha256": "ad8d6868550e9935a2f7ebb323b0b26cbcf10024faaf3f577d5cacfb1a91fa81",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.634167"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -24.18,
+        "true_peak_dbtp": -12.02,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/unsealed_hurt.wav",
+      "dry_sha256": "977603eb523368646fbe965cdebfbbfeadb94d9f279bcabd4f19945f1dd617ff",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/unsealed_hurt-dry-then-designed.wav",
+      "audition_sha256": "8046b843c323a8ff299ac2f1933f1afdf57db45dabb76ca886c20f9b161ed348",
+      "ogg_file": "cues/unsealed_hurt.ogg",
+      "ogg_sha256": "ce268392f829122f49fe970f46330e95d56550422ab1f5aab06258696dab4e94"
+    },
+    "unsealed_death": {
+      "file": "cues/unsealed_death.wav",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_ids": [
+        "human"
+      ],
+      "description": "Longer falling human-origin groan; exclusive terminal voice.",
+      "edits": [
+        {
+          "source_id": "human",
+          "excerpt_start_seconds": 4.88,
+          "excerpt_duration_seconds": 1.35,
+          "pitch_playback_ratio": 0.69,
+          "filter_chain": "asetrate=48000*0.69,aresample=48000,highpass=f=110,lowpass=f=6500,acompressor=threshold=0.08:ratio=2:attack=5:release=90",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -12,
+      "sha256": "074eebdbeca9cbfb76382a1f1a1fcbbefb054fc6a68501cac26212bdf34e97a5",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "1.956542"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -24.49,
+        "true_peak_dbtp": -12.04,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/unsealed_death.wav",
+      "dry_sha256": "ba06ffec5b7c2ca9390bffb626d556a1a6324db1bb35d4c7a52e02a659402dac",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/unsealed_death-dry-then-designed.wav",
+      "audition_sha256": "fd884a5a45b9e2f3c05e2b3d5cab18c7f741ea5aaaf5ca52efc25a8b14cd380a",
+      "ogg_file": "cues/unsealed_death.ogg",
+      "ogg_sha256": "c94efa9fcf972696d67c429824e4db62c28c491a4b82cfac0c1544d14556d39a"
+    },
+    "unsealed_attack_warning": {
+      "file": "cues/unsealed_attack_warning.wav",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_ids": [
+        "human"
+      ],
+      "description": "Sharper human-origin strain before the strike; threat identity distinct from Vessel.",
+      "edits": [
+        {
+          "source_id": "human",
+          "excerpt_start_seconds": 9.39,
+          "excerpt_duration_seconds": 0.92,
+          "pitch_playback_ratio": 0.88,
+          "filter_chain": "asetrate=48000*0.88,aresample=48000,highpass=f=120,equalizer=f=1800:t=q:w=1:g=3,lowpass=f=7000,acompressor=threshold=0.015:ratio=4:attack=1:release=80:makeup=2",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -10,
+      "sha256": "9e5150624ec13dab951f23d6d27d1dde5711d2cec47258ad0a0e5c76c6d9435b",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "1.046229"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -21.64,
+        "true_peak_dbtp": -10.01,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/unsealed_attack_warning.wav",
+      "dry_sha256": "177ab954fe82f082feb876b549ce6e041eabfa19655b486af0a7977f7fb9b264",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/unsealed_attack_warning-dry-then-designed.wav",
+      "audition_sha256": "b69b5395e3a06f9ddd2e6c48cfcda2202c37ec853a5276d6e7b6a7e39aadfa5f",
+      "ogg_file": "cues/unsealed_attack_warning.ogg",
+      "ogg_sha256": "0e85f58b8d2e015bc2f155a11bf1bfd956fd36e9d87e5d7f4523f1aab878488d"
+    },
+    "vessel_hurt": {
+      "file": "cues/vessel_hurt.wav",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_ids": [
+        "camel01"
+      ],
+      "description": "Short guttural animal-origin response; not a repitched Unsealed voice.",
+      "edits": [
+        {
+          "source_id": "camel01",
+          "excerpt_start_seconds": 0.1,
+          "excerpt_duration_seconds": 0.8,
+          "pitch_playback_ratio": 0.82,
+          "filter_chain": "asetrate=48000*0.82,aresample=48000,highpass=f=80,equalizer=f=240:t=q:w=1:g=3,lowpass=f=5000",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -12,
+      "sha256": "ca9e73bbf020933b339d4eb05a8e80eb1a106c684906517a601e269675c507a8",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.975625"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -20.31,
+        "true_peak_dbtp": -12.03,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/vessel_hurt.wav",
+      "dry_sha256": "fca018e3d60b8b3bb70bacc12d2207febe9a4d564e3b776f8e2dee3abeebf9f1",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/vessel_hurt-dry-then-designed.wav",
+      "audition_sha256": "00946926a44ef5a9810db5ea4941f34b6a1cbf091274edf460cfe2851fcc7f33",
+      "ogg_file": "cues/vessel_hurt.ogg",
+      "ogg_sha256": "7ff780a50e6573c731a7d4279e95234ff1a772784ab4fc54ca03c78199af5390"
+    },
+    "vessel_death": {
+      "file": "cues/vessel_death.wav",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_ids": [
+        "camel02"
+      ],
+      "description": "Longer animal-origin collapse groan; no impact embedded.",
+      "edits": [
+        {
+          "source_id": "camel02",
+          "excerpt_start_seconds": 2.6,
+          "excerpt_duration_seconds": 2.1,
+          "pitch_playback_ratio": 0.66,
+          "filter_chain": "asetrate=48000*0.66,aresample=48000,highpass=f=65,equalizer=f=180:t=q:w=1:g=3,lowpass=f=4500",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -12,
+      "sha256": "e3ee5a9e753650dcdb2400f4579498730c0f1b381b0ecb834240c658a339fcfc",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "3.181833"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -21.25,
+        "true_peak_dbtp": -11.98,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/vessel_death.wav",
+      "dry_sha256": "0089169402114963a861e79d6bbc7df94d14aa5559e9f557d19204494458a944",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/vessel_death-dry-then-designed.wav",
+      "audition_sha256": "03e611088833d5eb7071b901edb62b58766645a508e5611e9e83270100925cd0",
+      "ogg_file": "cues/vessel_death.ogg",
+      "ogg_sha256": "45d5b0dac15535ca11c1e1e626f5a2fc2fd102a3ec2687010988849a573e0352"
+    },
+    "vessel_attack_warning": {
+      "file": "cues/vessel_attack_warning.wav",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_ids": [
+        "camel01"
+      ],
+      "description": "Higher rasping animal-origin pre-release warning.",
+      "edits": [
+        {
+          "source_id": "camel01",
+          "excerpt_start_seconds": 1.78,
+          "excerpt_duration_seconds": 1.12,
+          "pitch_playback_ratio": 1.03,
+          "filter_chain": "asetrate=48000*1.03,aresample=48000,highpass=f=180,equalizer=f=1200:t=q:w=1:g=4,lowpass=f=6000",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -10,
+      "sha256": "70cc15ac6aac945b7d1ba5651b9253ecbb6323c10336f454ed5a99eca2158958",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "1.087396"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -19.06,
+        "true_peak_dbtp": -10.01,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/vessel_attack_warning.wav",
+      "dry_sha256": "fba20977def57456f06cb435206cfd765755bba3d0d7adfec7c332f00dade7ec",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/vessel_attack_warning-dry-then-designed.wav",
+      "audition_sha256": "36a5d9926fd50376b00b275927f95f116a220e6a02a8ce469938092cc28d8db3",
+      "ogg_file": "cues/vessel_attack_warning.ogg",
+      "ogg_sha256": "d0243ebd4a31d4dfdf03792ebef337d52028e72fa6eee1dbb1f0c06b31adc201"
+    },
+    "projectile_release": {
+      "file": "cues/projectile_release.wav",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_ids": [
+        "swish06",
+        "meat01"
+      ],
+      "description": "Brief air/organic launch motion from recordings; distinct from warning voice.",
+      "edits": [
+        {
+          "source_id": "swish06",
+          "excerpt_start_seconds": 0.045,
+          "excerpt_duration_seconds": 0.23,
+          "pitch_playback_ratio": 1.18,
+          "filter_chain": "asetrate=48000*1.18,aresample=48000,highpass=f=220,lowpass=f=7000",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        },
+        {
+          "source_id": "meat01",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.24,
+          "pitch_playback_ratio": 1.25,
+          "filter_chain": "asetrate=48000*1.25,aresample=48000,highpass=f=200,lowpass=f=5000",
+          "layer_gain": 0.45,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -13,
+      "sha256": "cc487854c3e8f7f79cf8c69f269383f3924b656eab633775abeddc76a3d668d8",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.194917"
+        }
+      },
+      "levels": {
+        "integrated_lufs": null,
+        "true_peak_dbtp": -13.01,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/projectile_release.wav",
+      "dry_sha256": "245c0933372d02b656d8e14d0e52e1289c1ad3077f561a645b566b3e63616258",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/projectile_release-dry-then-designed.wav",
+      "audition_sha256": "607d7cb6aae9083526a2aba569b8ed6d82bff0266202d21cb4155b3bc1f1decc",
+      "ogg_file": "cues/projectile_release.ogg",
+      "ogg_sha256": "b6c46a8ab3bc8b3da95a0bf9843fd3089b63b2bbd343db2d88123533a964e792"
+    },
+    "projectile_impact": {
+      "file": "cues/projectile_impact.wav",
+      "bus": "World",
+      "gain_db": 0,
+      "source_ids": [
+        "meat01",
+        "body01"
+      ],
+      "description": "Organic projectile body/player contact; use projectile_hard for a hard material.",
+      "edits": [
+        {
+          "source_id": "meat01",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.4,
+          "pitch_playback_ratio": 0.75,
+          "filter_chain": "asetrate=48000*0.75,aresample=48000,highpass=f=100,lowpass=f=4200",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        },
+        {
+          "source_id": "body01",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.4,
+          "pitch_playback_ratio": 0.85,
+          "filter_chain": "asetrate=48000*0.85,aresample=48000,highpass=f=160,lowpass=f=5200",
+          "layer_gain": 0.4,
+          "layer_delay_seconds": 0.01,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -13,
+      "sha256": "f45c3ab392834a70f70ea0bd82cb2a694ad216a158349e04ff5eca2f18b2a227",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.533333"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -31.92,
+        "true_peak_dbtp": -12.99,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/projectile_impact.wav",
+      "dry_sha256": "dd5a84f6f7260e3c62402901ebf66dc5c0ea0b32d37b03fb4ce6f006118cd42e",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/projectile_impact-dry-then-designed.wav",
+      "audition_sha256": "50b664f51fad92120a55824a2290f43c9cd5a56d2743c8b92a59fd0da27dd892",
+      "ogg_file": "cues/projectile_impact.ogg",
+      "ogg_sha256": "27555a90a76ddf9b07dda452de0ba1bb234536aad712bb43ae2492655d0b4e4b"
+    },
+    "projectile_hard": {
+      "file": "cues/projectile_hard.wav",
+      "bus": "World",
+      "gain_db": 0,
+      "source_ids": [
+        "stone",
+        "meat01"
+      ],
+      "description": "Quiet hard-material projectile fallback; separate from body/player contact.",
+      "edits": [
+        {
+          "source_id": "stone",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.36,
+          "pitch_playback_ratio": 0.7,
+          "filter_chain": "asetrate=48000*0.7,aresample=48000,highpass=f=200,lowpass=f=4000",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        },
+        {
+          "source_id": "meat01",
+          "excerpt_start_seconds": 0,
+          "excerpt_duration_seconds": 0.24,
+          "pitch_playback_ratio": 0.8,
+          "filter_chain": "asetrate=48000*0.8,aresample=48000,highpass=f=300,lowpass=f=3000",
+          "layer_gain": 0.3,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -17,
+      "sha256": "0a496d17fa4687c714efb54b8fc49ac27d86cce037a24f37ec3f1b62ec3f1081",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.514292"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -39.01,
+        "true_peak_dbtp": -16.99,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/projectile_hard.wav",
+      "dry_sha256": "3aebdd8f984b7a2d136db09288e3c03701abd2d1d4a00be7d52b1f9b2fd793c4",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/projectile_hard-dry-then-designed.wav",
+      "audition_sha256": "2ad9373fb89e79fbf81efdc79a4a39f27244f5766b8c64424e37fbc18538867d",
+      "ogg_file": "cues/projectile_hard.ogg",
+      "ogg_sha256": "96213731ff5b7cecc270534301a47e081c074ac5486c2781f8d0aecdab01eb8d"
+    },
+    "player_hurt": {
+      "file": "cues/player_hurt.wav",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_ids": [
+        "human"
+      ],
+      "description": "Unpitched separate human performance excerpt for player feedback.",
+      "edits": [
+        {
+          "source_id": "human",
+          "excerpt_start_seconds": 2.08,
+          "excerpt_duration_seconds": 0.67,
+          "pitch_playback_ratio": 1,
+          "filter_chain": "asetrate=48000*1,aresample=48000,highpass=f=90,lowpass=f=7500",
+          "layer_gain": 1,
+          "layer_delay_seconds": 0,
+          "layer_pre_mix_peak_dbfs": -12,
+          "edge_fades_seconds": {
+            "in": 0.003,
+            "out": 0.06
+          }
+        }
+      ],
+      "export_peak_target_dbfs": -13,
+      "sha256": "1b4c0507a2d6f18187ae5bca840d1e07d10077db29bd939edc14f3a126ba6f56",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.670000"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -27.09,
+        "true_peak_dbtp": -12.98,
+        "measurement": "FFmpeg input loudnorm measurements; no subjective validation"
+      },
+      "dry_file": "dry/player_hurt.wav",
+      "dry_sha256": "0ae9c5a97b02ad5b6ef549bbd51e5091e60c3b9f0412a042ecfb8de104ae82e7",
+      "dry_edits": "same selected original excerpts, mono downmix/resample, per-layer gain match and relative placement only; no pitch/EQ. Composite cue dry is a layer mix, not a new source original.",
+      "audition_file": "auditions/player_hurt-dry-then-designed.wav",
+      "audition_sha256": "f11c396810588374d0c41f86d9d9124d77b476ff45dafd79e2f2be90ace9bbcc",
+      "ogg_file": "cues/player_hurt.ogg",
+      "ogg_sha256": "d44a151eb01847cf84b1d13c9d71cbdf184535f7802adde34884ebbbd71f3937"
+    },
+    "menu_music": {
+      "file": "music/menu_abelian.ogg",
+      "bus": "Music",
+      "gain_db": 0,
+      "source_ids": [
+        "abelian-menu"
+      ],
+      "sha256": "dd00153a6886d9facf5d7c9a8e37baa241fc83ac37c9a6bb3028f59e7e099e85",
+      "reference_wav_file": "music/menu_abelian.wav",
+      "reference_wav_sha256": "498ee9d7b6255301433788411556278bfc0f329943161f14fab8b1c3d68915b3",
+      "original_unchanged_file": "music/menu_music.wav",
+      "original_unchanged_sha256": "00a4089998c34fa1f5405c8ad652dd41107216e8bded92d28cb48805fb87c877",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vorbis",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "122.926833"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -19.0,
+        "true_peak_dbtp": -8.81,
+        "measured_reference": "music/menu_abelian.wav"
+      },
+      "edits": "Playback derivative: full approved original normalized to -19LUFS with -3dBTP ceiling, resampled48kHz stereo and encoded OGG. No excerpt, rearrangement or composition changes. Original music/menu_music.wav retained byte-identical with original stereo/sample rate/hash.",
+      "role": "MAIN MENU ONLY. Separate always-process menu music player; stop when entering level.",
+      "loop": "Full-song repeat at runtime; no seamless loop edit or combat use."
+    },
+    "level_music_biotech_candidate": {
+      "file": "music/level_music_biotech_candidate.wav",
+      "ogg_file": "music/level_music_biotech_candidate.ogg",
+      "bus": "Music",
+      "gain_db": 0,
+      "source_ids": [
+        "bestial-paragon-interface"
+      ],
+      "sha256": "a5e2a39d95fa80aa4adb8b59328dda8ca7e377596e6a8c5371f439fe4e7dd00f",
+      "ogg_sha256": "88cc828e5fea3f6ac9888020a642bc8ad353f56cdc6635b0fe39bbd518820384",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "264.666667"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -18.99,
+        "true_peak_dbtp": -9.45
+      },
+      "edits": "Full original song retained in originals/music; playback copy normalized to -19 LUFS with -3 dBTP ceiling, resampled to48kHz stereo. No composition, beat splice or rearrangement.",
+      "role": "Candidate level music; one selected per level setting, pausable world LevelMusic player. Not main menu.",
+      "loop": "Full-track repeat; seamless transition not established. Fade/crossfade at runtime or audition musical boundary before asserting seamless looping.",
+      "audition_file": "auditions/level_music_biotech_candidate-25s.wav",
+      "audition_sha256": "08b32659212128cca77cd9d63fccd6273dbc43073376267c3e1bd089e777f112",
+      "audition_edits": {
+        "start_seconds": 36,
+        "duration_seconds": 25,
+        "fade_in_seconds": 0.12,
+        "fade_out_seconds": 1,
+        "loudness_target_lufs": -19
+      },
+      "appeal_to_test": "Slower monstrous/cold heavy riffs suit bodily mass and compromised clinical spaces; strongest provisional biotech choice based on creator description. User listening decides."
+    },
+    "level_music_fortress_candidate": {
+      "file": "music/level_music_fortress_candidate.wav",
+      "ogg_file": "music/level_music_fortress_candidate.ogg",
+      "bus": "Music",
+      "gain_db": 0,
+      "source_ids": [
+        "dragged-through-hellfire-abomination"
+      ],
+      "sha256": "e3cf3c49f4f92991b75d40c45d5bcec94bf050c4044ca733b499f4f5c89e3d82",
+      "ogg_sha256": "5e43b700362434e609aeb8cfbc58d6133eb6ab153ee794b053d215a9ecfddeaa",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "240.296500"
+        }
+      },
+      "levels": {
+        "integrated_lufs": -19.0,
+        "true_peak_dbtp": -11.81
+      },
+      "edits": "Full original song retained in originals/music; playback copy normalized to -19 LUFS with -3 dBTP ceiling, resampled to48kHz stereo. No composition, beat splice or rearrangement.",
+      "role": "Candidate level music; one selected per level setting, pausable world LevelMusic player. Not main menu.",
+      "loop": "Full-track repeat; seamless transition not established. Fade/crossfade at runtime or audition musical boundary before asserting seamless looping.",
+      "audition_file": "auditions/level_music_fortress_candidate-25s.wav",
+      "audition_sha256": "360c1a6b39abe938536db0c92e335fdec51180d98b7389662dc2cfc3bf83dd26",
+      "audition_edits": {
+        "start_seconds": 35,
+        "duration_seconds": 25,
+        "fade_in_seconds": 0.12,
+        "fade_out_seconds": 1,
+        "loudness_target_lufs": -19
+      },
+      "appeal_to_test": "Brutal death-metal direction with the creator's newer mix and real recorded bass suits siege force and occult hostility; separate fortress candidate, not the earlier Stage 1 cue."
+    }
+  },
+  "sources": [
+    {
+      "id": "pistol",
+      "title": "The Free Firearm Sound Library",
+      "creator": "Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney",
+      "source_url": "https://opengameart.org/content/the-free-firearm-sound-library",
+      "download_url": "https://opengameart.org/sites/default/files/Prepared%20SFX%20Library.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/the-free-firearm-sound-library.html"
+      ],
+      "original": "originals/firearms/Prepared SFX Library/1911/A_42P.wav",
+      "original_sha256": "8e84438e771c157155a6a1ff47a6a7a7d81b6f39b185d41e426c57337a82254a",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "96000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "9.522854"
+        }
+      },
+      "recording_description": "Recorded firearms; downloaded prepared-library originals, not raw microphone takes."
+    },
+    {
+      "id": "shotgun",
+      "title": "The Free Firearm Sound Library",
+      "creator": "Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney",
+      "source_url": "https://opengameart.org/content/the-free-firearm-sound-library",
+      "download_url": "https://opengameart.org/sites/default/files/Prepared%20SFX%20Library.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/the-free-firearm-sound-library.html"
+      ],
+      "original": "originals/firearms/Prepared SFX Library/Model 12/K_22P.wav",
+      "original_sha256": "ea19e9a0be4686054847a58b0a43f6be82fbe65345489f41aa02dbcf166d34d0",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "96000",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "10.655292"
+        }
+      },
+      "recording_description": "Recorded firearms; downloaded prepared-library originals, not raw microphone takes."
+    },
+    {
+      "id": "body01",
+      "title": "40 wet towel club/pound/hit/attack sounds",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/40-wet-towel-clubpoundhitattack-sounds",
+      "download_url": "https://opengameart.org/sites/default/files/wet_towel_on_body.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/40-wet-towel-clubpoundhitattack-sounds.html"
+      ],
+      "original": "originals/wet_towel_on_body/wet_towel_on_body-01.flac",
+      "original_sha256": "6fc86a761d01d5f459d7d9d659c2d41cb80753068e7f4403c0eab3d3a13fc255",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "flac",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "0.517188"
+        }
+      },
+      "recording_description": "Recorded wet towel on human back. Source page explicitly supersedes older archive info license with CC0."
+    },
+    {
+      "id": "body07",
+      "title": "40 wet towel club/pound/hit/attack sounds",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/40-wet-towel-clubpoundhitattack-sounds",
+      "download_url": "https://opengameart.org/sites/default/files/wet_towel_on_body.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/40-wet-towel-clubpoundhitattack-sounds.html"
+      ],
+      "original": "originals/wet_towel_on_body/wet_towel_on_body-07.flac",
+      "original_sha256": "c375f96e6fd7a400ac2206f172947e7f237d170f9d53579a4155178e5f2f9353",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "flac",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "0.586984"
+        }
+      },
+      "recording_description": "Recorded wet towel on human back. Source page explicitly supersedes older archive info license with CC0."
+    },
+    {
+      "id": "body14",
+      "title": "40 wet towel club/pound/hit/attack sounds",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/40-wet-towel-clubpoundhitattack-sounds",
+      "download_url": "https://opengameart.org/sites/default/files/wet_towel_on_body.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/40-wet-towel-clubpoundhitattack-sounds.html"
+      ],
+      "original": "originals/wet_towel_on_body/wet_towel_on_body-14.flac",
+      "original_sha256": "718b227bb30ed2a3367857ebab45d411e1affbd24d949ab4a69d2dd8f7b6b8b8",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "flac",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "0.350658"
+        }
+      },
+      "recording_description": "Recorded wet towel on human back. Source page explicitly supersedes older archive info license with CC0."
+    },
+    {
+      "id": "meat01",
+      "title": "Impact",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/impact",
+      "download_url": "https://opengameart.org/sites/default/files/qubodupImpact.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/impact.html"
+      ],
+      "original": "originals/qubodupImpact/qubodupImpactMeat01.flac",
+      "original_sha256": "366c9a37e90a19980ef8f2dec02bbf964ed02d0b683ee6f5472b354a50e7ee0e",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "flac",
+            "sample_rate": "44100",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.500000"
+        }
+      },
+      "recording_description": "Downloaded library treatments of creator's recorded physical source sounds."
+    },
+    {
+      "id": "meat02",
+      "title": "Impact",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/impact",
+      "download_url": "https://opengameart.org/sites/default/files/qubodupImpact.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/impact.html"
+      ],
+      "original": "originals/qubodupImpact/qubodupImpactMeat02.flac",
+      "original_sha256": "c97ec34ab509cff9c43d8a5a43306e500ba235d9cc3d6be021cbc7b25218b3fe",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "flac",
+            "sample_rate": "44100",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.500000"
+        }
+      },
+      "recording_description": "Downloaded library treatments of creator's recorded physical source sounds."
+    },
+    {
+      "id": "metalimpact",
+      "title": "Impact",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/impact",
+      "download_url": "https://opengameart.org/sites/default/files/qubodupImpact.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/impact.html"
+      ],
+      "original": "originals/qubodupImpact/qubodupImpactMetal.flac",
+      "original_sha256": "ec8711b7779df95b127091cb74142a82d196a398afd7bd6ac68d7dafc8867c03",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "flac",
+            "sample_rate": "44100",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.500000"
+        }
+      },
+      "recording_description": "Downloaded library treatments of creator's recorded physical source sounds."
+    },
+    {
+      "id": "stone",
+      "title": "Impact",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/impact",
+      "download_url": "https://opengameart.org/sites/default/files/qubodupImpact.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/impact.html"
+      ],
+      "original": "originals/qubodupImpact/qubodupImpactStone.flac",
+      "original_sha256": "c882a6cff88a297099928a0c46e7146b311342d14319a17eca9c19719d5b237d",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "flac",
+            "sample_rate": "44100",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.500000"
+        }
+      },
+      "recording_description": "Downloaded library treatments of creator's recorded physical source sounds."
+    },
+    {
+      "id": "metal01",
+      "title": "Metal Interactions",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/metal-interactions",
+      "download_url": "https://opengameart.org/sites/default/files/metal_interactions.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/metal-interactions.html"
+      ],
+      "original": "originals/metal_interactions/metal_interaction1.wav",
+      "original_sha256": "3a377d30dc270d63e4663261e86ab24fcd178138f561455fae026ab2314fa46f",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "44100",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.577937"
+        }
+      },
+      "recording_description": "Metal object interaction library; adapted as armor/trigger foley, not an authentic gun dry-fire claim."
+    },
+    {
+      "id": "metal02",
+      "title": "Metal Interactions",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/metal-interactions",
+      "download_url": "https://opengameart.org/sites/default/files/metal_interactions.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/metal-interactions.html"
+      ],
+      "original": "originals/metal_interactions/metal_interaction2.wav",
+      "original_sha256": "f133cafa39a058f8741b53c66b15af505c0c67344e05af4ef9ed4a28f0b9688f",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "44100",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.499819"
+        }
+      },
+      "recording_description": "Metal object interaction library; adapted as armor/trigger foley, not an authentic gun dry-fire claim."
+    },
+    {
+      "id": "metalswing",
+      "title": "Metal Interactions",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/metal-interactions",
+      "download_url": "https://opengameart.org/sites/default/files/metal_interactions.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/metal-interactions.html"
+      ],
+      "original": "originals/metal_interactions/metal_swing1.wav",
+      "original_sha256": "abc0c5545d8a65d14b47a9a51d313957d7fcd684fa49a3192aa64b43b2d9914d",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "44100",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.875329"
+        }
+      },
+      "recording_description": "Metal object interaction library; adapted as armor/trigger foley, not an authentic gun dry-fire claim."
+    },
+    {
+      "id": "click",
+      "title": "Metal Interactions",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/metal-interactions",
+      "download_url": "https://opengameart.org/sites/default/files/metal_interactions.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/metal-interactions.html"
+      ],
+      "original": "originals/metal_interactions/metal_button_press2.wav",
+      "original_sha256": "7f38488f0cbdf022627b2b57fd05aeb99d68eecf64e2af749ba9257b67ec3a81",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "44100",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "0.789569"
+        }
+      },
+      "recording_description": "Metal object interaction library; adapted as armor/trigger foley, not an authentic gun dry-fire claim."
+    },
+    {
+      "id": "swish06",
+      "title": "Swish bamboo stick weapon swishes",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+      "download_url": "https://opengameart.org/sites/default/files/swoshes.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/swish-bamboo-stick-weapon-swhoshes.html"
+      ],
+      "original": "originals/swosh-06.flac",
+      "original_sha256": "9d21a424c5ff4b8b11974e80f5f051ea3526cc97e41f3dd7494b7037c09ec454",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "flac",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "0.276825"
+        }
+      },
+      "recording_description": "Creator-recorded bamboo stick swung in front of microphone."
+    },
+    {
+      "id": "swish13",
+      "title": "Swish bamboo stick weapon swishes",
+      "creator": "Iwan 'qubodup' Gabovitch",
+      "source_url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+      "download_url": "https://opengameart.org/sites/default/files/swoshes.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/swish-bamboo-stick-weapon-swhoshes.html"
+      ],
+      "original": "originals/swosh-13.flac",
+      "original_sha256": "a22c0da4eff26f4b6171721c830f291a0ad9fe5383f23d5f4530020e995dc4de",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "flac",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "0.522177"
+        }
+      },
+      "recording_description": "Creator-recorded bamboo stick swung in front of microphone."
+    },
+    {
+      "id": "human",
+      "title": "Female Hurt Grunts and Groans",
+      "creator": "AuraVoice / Nocturnal_Vanguard",
+      "source_url": "https://opengameart.org/content/female-hurt-grunts-groans",
+      "download_url": "https://opengameart.org/sites/default/files/female_hurt_grunts_groans_1.ogg",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/female-hurt-grunts-groans.html"
+      ],
+      "original": "originals/female_hurt_grunts_groans_1.ogg",
+      "original_sha256": "80a9fb09203bb8feb065ba15197609b118cbe167c9a2264670a31ee22c384adb",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vorbis",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "12.953375"
+        }
+      },
+      "recording_description": "Recorded human voice-over performance, seven separate vocal gestures in one downloaded OGG."
+    },
+    {
+      "id": "camel01",
+      "title": "Camel Groan",
+      "creator": "AntumDeluge (extraction), craigsmith (source digitization)",
+      "source_url": "https://opengameart.org/content/camel-groan",
+      "download_url": "https://opengameart.org/sites/default/files/camel.zip",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/camel-groan.html",
+        "originals/camel/README.txt",
+        "provenance/craigsmith-camel-437937.html"
+      ],
+      "original": "originals/camel/flac/camel_01.flac",
+      "original_sha256": "48e27b7104678e9a15617de31aa6ba62d8a2310ed194310629b5f54514b10e39",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "flac",
+            "sample_rate": "44100",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "3.340045"
+        }
+      },
+      "recording_description": "Recorded animal vocalization excerpt. Upstream vintage recording: https://freesound.org/people/craigsmith/sounds/437937/; CC0 verified on both pages."
+    },
+    {
+      "id": "camel02",
+      "title": "Camel Groan",
+      "creator": "AntumDeluge (extraction), craigsmith (source digitization)",
+      "source_url": "https://opengameart.org/content/camel-groan",
+      "download_url": "https://opengameart.org/sites/default/files/camel.zip",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": [
+        "provenance/camel-groan.html",
+        "originals/camel/README.txt",
+        "provenance/craigsmith-camel-437937.html"
+      ],
+      "original": "originals/camel/flac/camel_02.flac",
+      "original_sha256": "3722f0712ea8946967dde2d298b0b9e8fb1fa8a3b1f2f11676999ce9a1719c94",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "flac",
+            "sample_rate": "44100",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "8.035760"
+        }
+      },
+      "recording_description": "Recorded animal vocalization excerpt. Upstream vintage recording: https://freesound.org/people/craigsmith/sounds/437937/; CC0 verified on both pages."
+    },
+    {
+      "id": "abelian-menu",
+      "title": "Abelian",
+      "creator": "Zander Noriega",
+      "creator_url": "https://soundcloud.com/zander-noriega",
+      "source_url": "https://opengameart.org/content/abelian",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_evidence": [
+        "provenance/abelian.html"
+      ],
+      "original": "music/menu_music.wav",
+      "original_sha256": "00a4089998c34fa1f5405c8ad652dd41107216e8bded92d28cb48805fb87c877",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s24le",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "122.926825"
+        }
+      }
+    },
+    {
+      "id": "bestial-paragon-interface",
+      "title": "Bestial Paragon Interface",
+      "creator": "Zander Noriega",
+      "creator_url": "https://zandernoriega.com/",
+      "source_url": "https://opengameart.org/content/bestial-paragon-interface",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_evidence": [
+        "provenance/bestial-paragon-interface.html"
+      ],
+      "original": "originals/music/Zander Noriega - Bestial Paragon Interface.wav",
+      "original_sha256": "87960f11b7c131bd30e0843c0058b0f3cc1fc7622f1f5466acd702637e90b6f1",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "264.666667"
+        }
+      },
+      "download_url": "https://opengameart.org/sites/default/files/Zander%20Noriega%20-%20Bestial%20Paragon%20Interface.zip"
+    },
+    {
+      "id": "dragged-through-hellfire-abomination",
+      "title": "Dragged Through Hellfire (Abomination)",
+      "creator": "Zander Noriega",
+      "creator_url": "https://zandernoriega.com/",
+      "source_url": "https://opengameart.org/content/dragged-through-hellfire-abomination",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_evidence": [
+        "provenance/dragged-through-hellfire-abomination.html"
+      ],
+      "original": "originals/music/zander_noriega_-_dragged_through_hellfire_abomination_0.wav",
+      "original_sha256": "09ae17bca9b6d6563be53c9304be336cad4424bbc4bb6c24de8736532a45a75d",
+      "technical": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "240.296485"
+        }
+      },
+      "download_url": "https://opengameart.org/sites/default/files/zander_noriega_-_dragged_through_hellfire_abomination_0.wav"
+    }
+  ],
+  "routing_rules": {
+    "weapon_material_contacts": "select pistol_flesh/shotgun_flesh/melee_flesh or corresponding armor by weapon AND target material",
+    "shotgun_aggregation": "7 pellet ray hits -> aggregate damage per unique target; play exactly ONE shotgun material contact per target per shot, then at most one hurt/death voice for that target",
+    "vocal_separation": "Material contact contains no hurt voice. Enemy actor plays identity-specific hurt after actual damage; lethal damage replaces hurt with death, not both.",
+    "attack_warning": "Play distinct identity warning before committed attack; projectile_release only when projectile actually spawns.",
+    "environment": "pistol_hard/shotgun_hard/melee_hard are low-level fallback cues only; no expanded architecture sound pack.",
+    "music": "Abelian menu_music plays only on menu. Separate level candidate plays on pausable world LevelMusic. Same existing Music bus; stop/crossfade menu on scene transition. Each level selects matching licensed track; no automatic Abelian combat loop.",
+    "projectile_contact": "projectile_impact is organic player/flesh contact; use projectile_hard for hard materials. No hurt voice embedded; emit player_hurt separately after damage."
+  },
+  "auditions": [
+    {
+      "file": "auditions/weapon-material-matrix.wav",
+      "sha256": "72c7683999aa6c025da51a4f95f9aecbeae882513dae1779eba244c02aab3214",
+      "timeline": "Every 4 seconds starting 0.4: pistol flesh, pistol armor, shotgun flesh, shotgun armor, melee flesh, melee armor. Contact +0.2s, separate hurt +0.26s."
+    },
+    {
+      "file": "auditions/warnings-with-level-music.wav",
+      "sha256": "5ba2ad98c5ec677397ffe6382eac41716cf577cad0b65060ebef951ef86b0fe6",
+      "timeline": "Biotech level candidate at0.6gain; Unsealed warning4s/hurt8s; Vessel warning12s/release13.3s/hurt17s. No ducking."
+    }
+  ],
+  "listening_status": "Technical FFmpeg decode/duration/channel/hash/loudness verification only. No agent or human subjective listening validation completed.",
+  "archives": [
+    {
+      "file": "archives/Zander Noriega - Bestial Paragon Interface.zip",
+      "sha256": "1e35132634ee1266750bc0c03b83a2d3f7b7dc7b6117b640e6d0ae15a59c6611",
+      "local_retained_path": "/home/rikki/Projects/eyesore-build-two-staging/combat-audio/archives/Zander Noriega - Bestial Paragon Interface.zip",
+      "distribution": "Full archive retained locally outside project; selected unchanged originals, exported cues and license evidence included with source."
+    },
+    {
+      "file": "archives/camel.zip",
+      "sha256": "216df76e88b5e1e9ceccb62d9543ff9ffb6028a183de9dd2ceeffbafdaa84131",
+      "local_retained_path": "/home/rikki/Projects/eyesore-build-two-staging/combat-audio/archives/camel.zip",
+      "distribution": "Full archive retained locally outside project; selected unchanged originals, exported cues and license evidence included with source."
+    },
+    {
+      "file": "archives/female_hurt_grunts_groans_1.ogg",
+      "sha256": "80a9fb09203bb8feb065ba15197609b118cbe167c9a2264670a31ee22c384adb",
+      "local_retained_path": "/home/rikki/Projects/eyesore-build-two-staging/combat-audio/archives/female_hurt_grunts_groans_1.ogg",
+      "distribution": "Full archive retained locally outside project; selected unchanged originals, exported cues and license evidence included with source."
+    },
+    {
+      "file": "archives/metal_interactions.7z",
+      "sha256": "f9443ead6d1346d89c899e7916494ebc88f050073e1604f1e2f27851dba35a34",
+      "local_retained_path": "/home/rikki/Projects/eyesore-build-two-staging/combat-audio/archives/metal_interactions.7z",
+      "distribution": "Full archive retained locally outside project; selected unchanged originals, exported cues and license evidence included with source."
+    },
+    {
+      "file": "archives/qubodupImpact.7z",
+      "sha256": "98d72b55d6f78a32072439ed4d052fc43fdd80b8b409d18a9bb3150fc2ccd97b",
+      "local_retained_path": "/home/rikki/Projects/eyesore-build-two-staging/combat-audio/archives/qubodupImpact.7z",
+      "distribution": "Full archive retained locally outside project; selected unchanged originals, exported cues and license evidence included with source."
+    },
+    {
+      "file": "archives/swoshes.7z",
+      "sha256": "2d55b26f918a4d8042e2c97a4db81392757195f5aaac9039f5ec2c557b6f11f2",
+      "local_retained_path": "/home/rikki/Projects/eyesore-build-two-staging/combat-audio/archives/swoshes.7z",
+      "distribution": "Full archive retained locally outside project; selected unchanged originals, exported cues and license evidence included with source."
+    },
+    {
+      "file": "archives/wet_towel_on_body.7z",
+      "sha256": "bbb7041df68d5ae19358457d5ffa7f562ea143c85af40e999d719478f388ae7a",
+      "local_retained_path": "/home/rikki/Projects/eyesore-build-two-staging/combat-audio/archives/wet_towel_on_body.7z",
+      "distribution": "Full archive retained locally outside project; selected unchanged originals, exported cues and license evidence included with source."
+    },
+    {
+      "file": "archives/zander_noriega_-_dragged_through_hellfire_abomination_0.wav",
+      "sha256": "09ae17bca9b6d6563be53c9304be336cad4424bbc4bb6c24de8736532a45a75d",
+      "local_retained_path": "/home/rikki/Projects/eyesore-build-two-staging/combat-audio/archives/zander_noriega_-_dragged_through_hellfire_abomination_0.wav",
+      "distribution": "Full archive retained locally outside project; selected unchanged originals, exported cues and license evidence included with source."
+    }
+  ],
+  "level_music_candidates": [
+    {
+      "cue_key": "level_music_biotech_candidate",
+      "file": "auditions/level_music_biotech_candidate-25s.wav",
+      "ogg_file": "auditions/level_music_biotech_candidate-25s.ogg",
+      "sha256": "08b32659212128cca77cd9d63fccd6273dbc43073376267c3e1bd089e777f112",
+      "fit": "Slower monstrous/cold heavy riffs suit bodily mass and compromised clinical spaces; strongest provisional biotech choice based on creator description. User listening decides."
+    },
+    {
+      "cue_key": "level_music_fortress_candidate",
+      "file": "auditions/level_music_fortress_candidate-25s.wav",
+      "ogg_file": "auditions/level_music_fortress_candidate-25s.ogg",
+      "sha256": "360c1a6b39abe938536db0c92e335fdec51180d98b7389662dc2cfc3bf83dd26",
+      "fit": "Brutal death-metal direction with the creator's newer mix and real recorded bass suits siege force and occult hostility; separate fortress candidate, not the earlier Stage 1 cue."
+    }
+  ]
+}

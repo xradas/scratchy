@@ -11,3 +11,5 @@ Deliverables: Event timeline, implementation and repeated-fire calibration evide
 Acceptance constraints: No reloads or extra weapons. Rays use physics world geometry. Dry trigger consumes no ammo and causes no damage.
 
 Gate: follow `../PRODUCTION_PLAN.md`; identity selection precedes full asset production, combat exchange review precedes level expansion. Keep changes in your assigned project paths, report evidence and limitations, and hand off reviewable files. Do not overwrite earlier source assets or checkpoint another specialist’s work.
+
+User requirements, 9 October 2026: Resolve the actual contact from the authoritative ray/melee result and emit weapon/material/target/position. Aggregate shotgun feedback per target without dropping pellet damage; misses produce no contact cue.

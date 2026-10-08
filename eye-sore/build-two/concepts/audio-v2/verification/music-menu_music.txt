@@ -1,0 +1,53 @@
+[aist#0:0/pcm_s24le @ 0x55cfc1b7b380] Guessed Channel Layout: stereo
+Input #0, wav, from '/home/rikki/Projects/eyesore-build-two-staging/combat-audio/music/menu_music.wav':
+  Metadata:
+    encoded_by      : Logic Pro
+    date            : 2014-05-19
+    creation_time   : 20:15:31
+    time_reference  : 158808403
+    umid            : 0x000157415645666D7420000000000000000000000000089AFFBF8910A202649AFFBF50000000500000003230316D9CA1FFBF45564157008C617E887E96A00000
+    coding_history  : 
+  Duration: 00:02:02.93, bitrate: 2119 kb/s
+  Chapters:
+    Chapter #0:0: start 0.000000, end 122.926825
+      Metadata:
+        title           : Tempo: 164.0
+  Stream #0:0: Audio: pcm_s24le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s32 (24 bit), 2116 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s24le (native) -> pcm_s16le (native))
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoded_by      : Logic Pro
+    date            : 2014-05-19
+    coding_history  : 
+    time_reference  : 158808403
+    umid            : 0x000157415645666D7420000000000000000000000000089AFFBF8910A202649AFFBF50000000500000003230316D9CA1FFBF45564157008C617E887E96A00000
+    encoder         : Lavf63.1.102
+  Chapters:
+    Chapter #0:0: start 0.000000, end 122.926825
+      Metadata:
+        title           : Tempo: 164.0
+  Stream #0:0: Audio: pcm_s16le, 192000 Hz, stereo, s16, 6144 kb/s
+    Metadata:
+      encoder         : Lavc63.1.102 pcm_s16le
+size=N/A time=00:00:17.60 bitrate=N/A speed=35.2x elapsed=0:00:00.50    
+size=N/A time=00:00:36.00 bitrate=N/A speed=  36x elapsed=0:00:01.00    
+size=N/A time=00:00:54.50 bitrate=N/A speed=36.3x elapsed=0:00:01.50    
+size=N/A time=00:01:13.00 bitrate=N/A speed=36.5x elapsed=0:00:02.00    
+size=N/A time=00:01:31.50 bitrate=N/A speed=36.6x elapsed=0:00:02.50    
+size=N/A time=00:01:49.90 bitrate=N/A speed=36.6x elapsed=0:00:03.00    
+[Parsed_loudnorm_0 @ 0x7f69480034c0] 
+{
+	"input_i" : "-9.31",
+	"input_tp" : "0.89",
+	"input_lra" : "3.20",
+	"input_thresh" : "-19.38",
+	"output_i" : "-18.53",
+	"output_tp" : "-8.01",
+	"output_lra" : "3.40",
+	"output_thresh" : "-28.59",
+	"normalization_type" : "dynamic",
+	"target_offset" : "-0.47"
+}
+[out#0/null @ 0x55cfc1c981c0] video:0KiB audio:92195KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:02:03.00 bitrate=N/A speed=37.1x elapsed=0:00:03.31    

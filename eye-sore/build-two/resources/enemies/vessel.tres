@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/enemy_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+identifier = &"vessel"
+display_name = "Vessel (neutral encounter fixture)"
+health = 100.0
+speed = 1.4
+ranged = true
+attack_range = 14.0
+windup_seconds = 0.95
+recovery_seconds = 1.25
+hit_material = &"armor"

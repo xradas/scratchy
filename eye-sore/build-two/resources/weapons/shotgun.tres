@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/weapon_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+identifier = &"shotgun"
+display_name = "Shotgun"
+damage = 10.0
+cooldown_seconds = 0.85
+fire_seconds = 0.09
+pellets = 7
+spread_degrees = 3.4
+range_units = 45.0
+ammo_key = &"ammo_shotgun"

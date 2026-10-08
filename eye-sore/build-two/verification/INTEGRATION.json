@@ -1,6 +1,6 @@
 {
-  "checked_utc": "2026-10-08T22:59:29.220723+00:00",
-  "stage": "Revised stage-one visuals and actual 3D room ready; identity selection pending",
+  "checked_utc": "2026-10-08T23:47:26.294852+00:00",
+  "stage": "Combat/audio review prototype; identity and listening approval pending",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
   "renderer": "Compatibility",
@@ -10,16 +10,13 @@
     "preservation": "6 exact local snapshots hashed/file-compared; 6 separate archive commits pushed and exact remote IDs verified; original statuses unchanged.",
     "visual_packets": "3 generated dimensional boards with exact prompts/provenance; unchanged source hashes; 640x360 scene crops and 320x180 scale previews verified. Concept art only, not production sprites.",
     "audio_packets": "11 selected original sources, 10 WAV references, 10 OGG copies; all31 audio hashes unchanged. User praised music; SFX and final game mix acceptance pending.",
-    "review": "3 browser packet switches; exact 25/10/25 second durations; warning seek/play section verified; 12 second shared comparison; one active player; no page/resource errors; mobile no horizontal overflow.",
+    "review": "Current dry page: 50 audio controls decode; death comparison seek/play, one-player policy, mobile layout and HTTP resources passed. Native isolated game output captured nonzero stereo; user listening approval pending.",
     "foundation": "Rebuilt connected real3D room;52 shared mesh/shape dimensions verified; no-jump walkway traversal passed; clean import and standard-template export; outside-source headless/native launch and pause/settings/display/bus smoke passed without warnings or errors.",
-    "doom_reference": "Publisher reference audit records spatial depth, shading, threat mass, weapon framing and game-scale readability criteria; no copied Doom assets."
-  },
-  "executable": {
-    "path": "/home/rikki/Builds/eyesore-build-two-stage-one-2026-10-08/eyesore-room-preview-v2.x86_64",
-    "bytes": 73599544,
-    "sha256": "8c19444385745669bb0ed5eac94ab6100a0bb897739e92964d51dc8126f7463d",
-    "pck": "embedded",
-    "scope": "Movement/display room preview; no combat, full level or ingame soundtrack."
+    "doom_reference": "Publisher reference audit records spatial depth, shading, threat mass, weapon framing and game-scale readability criteria; no copied Doom assets.",
+    "combat": "Pistol/7-pellet shotgun/melee; finite ammo, physics contacts, projectile sweeps, interruption, death and reset assertions passed. Native 30/60/120 caps produced identical fixed-physics cadence and grounded movement.",
+    "audio": "23 runtime SFX plus three stereo music files. Weapon/material contacts, distinct short pain, two longer death screams, title-only Abelian, paused level mix, mute and reset ownership verified. Original sources/edits/licenses retained; wet pack rejected.",
+    "weapon_prototypes": "Original authored Godot meshes rendered into transparent idle/fire/recover/switch poses and muzzle flash; complete animation and creature sprites remain pending.",
+    "export": "Embedded-PCK Linux prototype exported with standard templates and launched from /tmp. Native viewport/settings/pause/bus smoke passed; no sustained full-level playtest claimed."
   },
   "evidence": [
     "revised-assets.json",
@@ -28,22 +25,54 @@
     "room-v2/integrated-geometry.log",
     "room-v2/integrated-export.log",
     "room-v2/integrated-export-outside-headless.log",
-    "room-v2/integrated-export-outside-windowed.log"
+    "room-v2/integrated-export-outside-windowed.log",
+    "combat/integrated-combat-check.log",
+    "combat/timing-check.log",
+    "combat/audio-contract.log",
+    "combat/sound-scene.log",
+    "combat/audio-browser-check.json",
+    "combat/driver-mix-levels.txt",
+    "combat/integrated-export.log",
+    "combat/export-outside-windowed.log"
   ],
   "pending": [
-    "User identity selection or revisions.",
-    "Complete combat exchange and actual in-game stereo audio listening/capture.",
-    "Full hand-authored directional and weapon animation sets.",
-    "One 5\u20138 minute authored level, interactions and full session UI.",
-    "30/60/120 FPS, shared collision, attack interruption/death, route balance and reset acceptance.",
-    "Sustained outside-development-directory complete-level playtest."
+    "Final first-level setting selection after praise for biotech and Ash Citadel.",
+    "User listening review of dry contacts, hurt/death and actual stereo mix.",
+    "Complete directional creature and weapon animation sets and integrated combat review.",
+    "One 5\u20138 minute authored level, doors/lift/key-return route, automap and full session UI.",
+    "Route balance and sustained outside-source complete-level Linux playtest."
   ],
   "known_issues": [
-    "Preview contains no combat or full level.",
-    "Generated boards vary anatomy and machine details; complete authored sprite frames/pivots/rotations remain pending.",
-    "Biotech finish is contemporary; civic crop omits left HUD and clips near blade. Fullboards preserve uncropped designs.",
-    "Visible stair risers use a shared smooth traversal slope; precise shot correspondence needs combat-stage acceptance.",
-    "Music received positive user feedback; sound effects and actual stereo game mixing/listening/capture remain pending.",
-    "Raw download archives retained locally; selected originals and provenance travel with source."
-  ]
+    "Enemies are neutral collision proxies, not approved character designs.",
+    "Weapon poses are mesh-rendered prototypes, not complete authored animation.",
+    "No complete level; navigation uses direct pursuit only.",
+    "Music looping seams and setting-specific choice remain pending.",
+    "Visible stair risers use a smooth traversal collider; precise combat correspondence remains a later gate.",
+    "Godot threaded audio import instability mitigated with serial editor imports.",
+    "Selected originals/licenses included in source; large download archives retained locally."
+  ],
+  "preserved_room_executable": {
+    "path": "/home/rikki/Builds/eyesore-build-two-stage-one-2026-10-08/eyesore-room-preview-v2.x86_64",
+    "bytes": 73599544,
+    "sha256": "8c19444385745669bb0ed5eac94ab6100a0bb897739e92964d51dc8126f7463d",
+    "pck": "embedded",
+    "scope": "Movement/display room preview; no combat, full level or ingame soundtrack."
+  },
+  "executable": {
+    "path": "/home/rikki/Builds/eyesore-build-two-stage-one-2026-10-08/eyesore-audio-combat-prototype.x86_64",
+    "bytes": 88504720,
+    "sha256": "ea9683c50d18125853fb1449c98bbe40b2ddaedf50c4a322718ed314153ae0a5",
+    "pck": "embedded",
+    "scope": "Combat/audio calibration prototype; enemy capsule proxies; no full level."
+  },
+  "audio_capture": {
+    "file": "combat/actual-driver-mix.wav",
+    "sha256": "3aac297f79650307a2d4a1d37771ab2c0117b18bac5e580ff3ee335a924e67e2",
+    "duration": 17.944,
+    "channels": 2,
+    "sample_rate": 48000,
+    "lufs": -24.65,
+    "true_peak_dbtp": -6.62,
+    "source": "Native isolated PulseAudio game output; no desktop/microphone capture."
+  }
 }

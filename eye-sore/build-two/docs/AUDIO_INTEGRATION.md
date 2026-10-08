@@ -1,0 +1,11 @@
+# Combat audio integration
+
+One resolved gameplay event owns firing/ammunition, contact damage and presentation. Shotgun pellets aggregate to one contact and one hurt or death voice per target. Each weapon has separate body, armor and hard-surface contacts. Dry body impacts use punching-bag recordings; the `flesh` material name does not imply wet audio. Pain/death cancels the actor’s prior warning/hurt voice; lethal damage emits death only.
+
+Weapons, Creatures, World, Music, UI and Master buses separate playback. Master has -3 dB headroom. Weapons stay near the listener; World and Creatures are positional. Stereo music remains stereo. Abelian runs on the title only. Level music freezes with gameplay, mute changes audibility while playback advances, and retry frees the old audio owner before creating a new one. Quit stops and clears streams and allows the mixer thread 250 ms to retire playback.
+
+Two revised death calls last 1.55 and 1.89 seconds; short hurt grunts remain unchanged. No wet/animal layers or added reverb. Sources and edit provenance: `concepts/audio-v3/manifest.json`; licenses and credits: `assets/audio/CREDITS.md`. Rejected audio-v2 contacts are preserved research, not runtime assets. Audio-v2 music originals remain valid references.
+
+`tools/check_sound_scene.gd` exercises real physics contacts, separate pain/death, title/level routing, pause, mute, death/retry and title reset. The latest native run passed without warnings. The isolated PulseAudio sink capture `verification/combat/actual-driver-mix.wav` contains only the game output after bus gains: 48 kHz stereo, 17.944 seconds, -24.65 LUFS and -6.62 dBTP measured input. No normalization applied to capture. Its controlled fixtures disable pursuit so the contact matrix is repeatable; this is not a complete-level playtest or subjective mix approval. The master-bus capture is separate and may precede bus fader gains.
+
+Editor audio reimport intermittently crashed with threaded imports on this Godot build. `editor/import/use_multiple_threads=false` made the final import pass. An early headless output capture was silent and replaced with verified nonzero native output. Final playback and shutdown checks passed after giving the audio mixer time to retire streams.

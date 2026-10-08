@@ -1,0 +1,46 @@
+{
+  "verified_utc": "2026-10-08T23:16:03.560726+00:00",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "scope": "Neutral combat logic and two encounter fixtures; final creature/weapon art and setting are coordinator-owned/pending",
+  "tests": {
+    "combat-check.log": "exit0 and no engine/script errors",
+    "timing-check.log": "exit0 and no engine/script errors",
+    "combat-room-smoke.log": "exit0 and no engine/script errors"
+  },
+  "native_timing": {
+    "caps": [
+      30,
+      60,
+      120
+    ],
+    "physics_frames_each": 120,
+    "rendered_frames": [
+      60,
+      120,
+      240
+    ],
+    "shots_each": 6,
+    "remaining_ammo_each": 30,
+    "grounded_displacement_each": 15.1699914932251,
+    "phase_each": "recover",
+    "cooldown_each": 0.00333333333333
+  },
+  "files": {
+    "scripts/combat.gd": "e92663e7bd074713faa8ac9b30af7f21dc53babfd1dda6621ad4f509d09d4a00",
+    "scripts/combat_enemy.gd": "bcae4fe5bd96d4e65e54f327edf29ea8cc51f49e591891e71e9861565d2131b2",
+    "scripts/combat_projectile.gd": "cdab6e1dc12a324f8cc452f380188f15514869f28083d7859c43bd6ca470fd44",
+    "scripts/weapon_definition.gd": "cea76084308b673e00823953af8c8c66937c5c6d37f60a593954dbaf447c9843",
+    "scripts/enemy_definition.gd": "afa3fbc860fc4ec133a215040a24024f051b485cd1724644731c6875f053cd8e",
+    "scenes/combat_enemy.tscn": "49f542d1b0d754dbeb007134d2f2bb82d1f46b9156d4cf435bf77346d7564d7a",
+    "scenes/combat_projectile.tscn": "60482a87d46b52f670a792dbb42d2911e8b044acf858e95449bee1583123367d",
+    "tools/check_combat.gd": "b15dc15e43ada227155418974a289dcdc67af70ed46a92482537b8d3fe6883af",
+    "tools/check_timing.gd": "6ffb794e06fc024a39f342054d74c7642aa0d8b34f716785212fbb84033f3e59"
+  },
+  "not_edited": [
+    "main.gd",
+    "player.gd",
+    "music",
+    "existing project geometry",
+    "Git"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "cues": {
+    "pistol_flesh": {
+      "file": "preview/pistol_flesh.wav",
+      "sha256": "0253d594b9dbf9bca57606a0c2adf9535948d28d4e75f636d1a104b56df74472",
+      "edits": [
+        {
+          "original": "originals/qubodupPunch/qubodupPunch02.flac",
+          "original_sha256": "26358dd4ddf515a427e493bd9d7e56ac1b98f42c18909f5d48a8af87c0a8f5bb",
+          "start_seconds": 0,
+          "duration_seconds": 0.21,
+          "pitch_playback_ratio": 1.12,
+          "filters": "highpass=f=85,equalizer=f=190:t=q:w=1:g=2,lowpass=f=6000",
+          "layer_gain": 1,
+          "delay_seconds": 0,
+          "fade_in_seconds": 0.002,
+          "fade_out_seconds": 0.035
+        }
+      ]
+    },
+    "shotgun_flesh": {
+      "file": "preview/shotgun_flesh.wav",
+      "sha256": "1a287c5d926109619d862ea03a4f725a814f22d630f914cbdce7794acb449731",
+      "edits": [
+        {
+          "original": "originals/qubodupPunch/qubodupPunch01.flac",
+          "original_sha256": "7504bc5cf7c605ea4a9158142956d17e4f544998e7c2cf272414c72334e6941a",
+          "start_seconds": 0,
+          "duration_seconds": 0.29,
+          "pitch_playback_ratio": 0.9,
+          "filters": "highpass=f=65,equalizer=f=160:t=q:w=1:g=3,lowpass=f=6500",
+          "layer_gain": 1,
+          "delay_seconds": 0,
+          "fade_in_seconds": 0.002,
+          "fade_out_seconds": 0.035
+        },
+        {
+          "original": "originals/rubberduck/wood_cracking_01.ogg",
+          "original_sha256": "ee00fa26ec72a2bd05adc71a4edf6627db2adedc6f0416ef6788c4790c1d2724",
+          "start_seconds": 0,
+          "duration_seconds": 0.16,
+          "pitch_playback_ratio": 0.95,
+          "filters": "highpass=f=160,lowpass=f=5200",
+          "layer_gain": 0.22,
+          "delay_seconds": 0.005,
+          "fade_in_seconds": 0.002,
+          "fade_out_seconds": 0.035
+        }
+      ]
+    },
+    "melee_flesh": {
+      "file": "preview/melee_flesh.wav",
+      "sha256": "aff0d7344081190f1edcb187d21b2cad8415867050279907b4b14b227e459277",
+      "edits": [
+        {
+          "original": "originals/qubodupPunch/qubodupPunch03.flac",
+          "original_sha256": "bd4dbe17d82280a98e6c32f0ffa9a9693b7252d20d0982fba729eca5eb3c84aa",
+          "start_seconds": 0,
+          "duration_seconds": 0.24,
+          "pitch_playback_ratio": 0.98,
+          "filters": "highpass=f=75,equalizer=f=210:t=q:w=1:g=2,lowpass=f=5500",
+          "layer_gain": 1,
+          "delay_seconds": 0,
+          "fade_in_seconds": 0.002,
+          "fade_out_seconds": 0.035
+        }
+      ]
+    },
+    "unsealed_hurt": {
+      "file": "preview/unsealed_hurt.wav",
+      "sha256": "d5c9c0ab16405a7abc3f2696de2ff69be3b021ede99a63e8fe1b234d4d96586e",
+      "edits": [
+        {
+          "original": "originals/haelDB/3grunt3.wav",
+          "original_sha256": "6006516ae7979896a4053cfc88f26ef575a67133fa0c51de5d9a893498960cc9",
+          "start_seconds": 0.0145,
+          "duration_seconds": 0.34,
+          "pitch_playback_ratio": 0.96,
+          "filters": "highpass=f=100,lowpass=f=6800",
+          "layer_gain": 1,
+          "delay_seconds": 0,
+          "fade_in_seconds": 0.002,
+          "fade_out_seconds": 0.035
+        }
+      ]
+    }
+  },
+  "preview_file": "preview/dry_direction_10s.wav",
+  "sha256": "596875a79f69f2deb8b385714f367359a09720cf721e915842d16ac40930d1b7",
+  "reference_file": "preview/human_reference_unpitched.wav",
+  "sources": "CC0 qubodup Punch (recorded punching bag), rubberduck wood cracking, HaelDB human male grunt. No wet source or animal layer.",
+  "status": "Technical rendering only; coordinator listening review pending."
+}

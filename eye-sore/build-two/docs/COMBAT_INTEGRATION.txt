@@ -1,0 +1,40 @@
+COMBAT INTEGRATION — NEUTRAL STAGE 2
+
+Create Node3D from scripts/combat.gd, name it Combat, add under the pausable world.
+Connect combat_event(Dictionary) and player_died BEFORE setup(world, player).
+setup spawns unsealed at (0,.87,10), vessel at (2,.87,2.5). No main/player files were edited.
+Restart: replace world, or reset() removes old actors/projectiles, collision and pending timelines and restores state.
+
+HUD dictionary keys: health, armor, ammo_pistol, ammo_shotgun, weapon_id, weapon_phase,
+phase_progress (0..1), kills, total_enemies, dead, weapon_visual_path.
+weapon_phase: idle/fire/recover/switch. Combat owns camera recoil; do not apply a second kick.
+Input: held left mouse (captured), 1 pistol, 2 shotgun, 3 melee. No reload/jump/dash.
+Resources: pistol 18 damage/.32s, shotgun 7 x 10 damage/.85s (one shell), melee 24 damage/.5s/2.2u, no ammo.
+
+Events all carry type:StringName, weapon_id, shot_id, position:Vector3, target_id, material.
+shot adds seed, direction, pellets, physics_tick and time_seconds. Downstream HUD/audio read this authoritative event.
+impact exists only for actual physics contacts and aggregates all pellets per collider/shot.
+material: collider hit_material metadata; fallback hard. Enemy definitions supply flesh or armor.
+Nonlethal enemy damage emits enemy_hurt; lethal emits enemy_death alone, avoiding overlapping vocal reactions.
+Hurt/death add enemy_kind. Attack warning/projectile_release add enemy_kind and attack_id.
+Additional events: empty (rate limited), weapon_switch, player_hurt/player_death,
+encounter_started/encounter_complete, enemy_melee_release, projectile_impact.
+projectile_impact is distinct from weapon impact: do not invent a pistol/shotgun sound for it.
+
+Visual hook:
+combat.configure_weapon_visuals({weapon_id:{idle:path,fire:path,recover:path,switch:path}})
+HUD owns native-window weapon overlay drawing.
+enemy.configure_sprite_sheet(path, columns, directions, clips, pixel_size=.015, foot_pivot=Vector2(-1,-1))
+Each direction is one atlas row. Row0 is front (-Z); clockwise row numbering.
+clips maps chase/windup/recovery/pain/dead to Vector2i(first_column,count).
+Fixed-Y billboard preserves upright actors; chase loops, attack/pain/recovery normalize and clamp against actual committed timing; death clamps.
+foot_pivot is image-space pixels within one frame. Default is bottom-center.
+Sprite is offset so the foot pixel lands on capsule floor (-.85 localY); optional noncentral x pivot adjusts sprite offset.
+Current capsule meshes are explicitly temporary encounter proxies; final setting/art selection remains pending.
+
+Commands (Godot4.7.2 executable path /home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64):
+--headless --path <combat-foundation> --script res://tools/check_combat.gd
+--path <combat-foundation> --script res://tools/check_timing.gd
+--headless --path <combat-foundation> res://scenes/combat_preview.tscn -- --combat-smoke
+Standalone combat_preview is an AI diagnostic harness. Coordinator main scene retains the fixed640x360 world/nativeHUD shell.
+Timing test uses actual engine processing/rendering at caps30/60/120 and60Hz physics, injects buffered physicalW, and verifies firing/movement invariance.

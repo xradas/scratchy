@@ -9,7 +9,7 @@ Target: a new standalone Linux game in Godot 4.7.2, GDScript, Compatibility rend
 3. **Level and complete assets.** Produce eight-direction creature movement and attacks, pain and death with persistent corpses; idle/fire/recovery/switch weapon animations; pickups, effects, HUD and interfaces. Build connected rooms with retreat routes, a key-return loop, shortcut, optional secret, height changes, working doors/lift and clear exit.
 4. **Release review.** Complete route without secret supplies; verify retry restores all state; capture gameplay with actual stereo game mix; export and play outside the development directory. Deliver Linux package, source, credits and known issues. Push accepted milestones and verify remote IDs.
 
-The foundation preview proves boot/export, rendering, movement and settings only. It is not the combat calibration acceptance or finished game. Concept compositions are static artwork, not captured gameplay. Concept audio masking mixes are auditions, not the game mix. Human listening and identity approval remain pending.
+The foundation preview proves boot/export, rendering, movement and settings only. It is not the combat calibration acceptance or finished game. Concept compositions are static artwork, not captured gameplay. Concept audio masking mixes are auditions, not the game mix. The revised visual screenshots were positively reviewed. First-level identity remains being resolved between praised biotech/fortress directions. Abelian is menu music; level scores are separate. Wet damage cues were rejected and dry Doom/Quake-inspired replacements are in review. Complete calibration listening and gameplay approval remain pending.
 
 ## Fixed scope
 
