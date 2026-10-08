@@ -144,4 +144,3 @@ func stop_all() -> void:
 
 func _exit_tree() -> void:
 	stop_all()
-

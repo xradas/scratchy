@@ -6,4 +6,3 @@ extends Resource
 @export var variations: Array[AudioStream] = []
 @export var gain_db: float = 0.0
 @export var spatial: bool = true
-
