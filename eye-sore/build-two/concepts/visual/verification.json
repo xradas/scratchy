@@ -1,0 +1,458 @@
+[
+  {
+    "slug": "corrupted-biotech",
+    "assets": {
+      "board.png": {
+        "size": [
+          1280,
+          900
+        ],
+        "mode": "RGB"
+      },
+      "enemy_melee.png": {
+        "size": [
+          96,
+          128
+        ],
+        "mode": "RGBA"
+      },
+      "enemy_ranged.png": {
+        "size": [
+          96,
+          128
+        ],
+        "mode": "RGBA"
+      },
+      "hud.png": {
+        "size": [
+          320,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_1.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_2.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_3.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_4.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "pistol.png": {
+        "size": [
+          160,
+          112
+        ],
+        "mode": "RGBA"
+      },
+      "scene.png": {
+        "size": [
+          640,
+          360
+        ],
+        "mode": "RGB"
+      },
+      "scene_native.png": {
+        "size": [
+          320,
+          180
+        ],
+        "mode": "RGB"
+      },
+      "shotgun.png": {
+        "size": [
+          160,
+          112
+        ],
+        "mode": "RGBA"
+      }
+    },
+    "rgba_checks": [
+      {
+        "path": "corrupted-biotech/enemy_melee.png",
+        "alpha_bounds": [
+          16,
+          16,
+          87,
+          125
+        ],
+        "opaque_inks": 6,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": [
+          48,
+          124
+        ]
+      },
+      {
+        "path": "corrupted-biotech/enemy_ranged.png",
+        "alpha_bounds": [
+          5,
+          18,
+          93,
+          125
+        ],
+        "opaque_inks": 8,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": [
+          48,
+          124
+        ]
+      },
+      {
+        "path": "corrupted-biotech/pistol.png",
+        "alpha_bounds": [
+          54,
+          17,
+          135,
+          112
+        ],
+        "opaque_inks": 8,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": null
+      },
+      {
+        "path": "corrupted-biotech/shotgun.png",
+        "alpha_bounds": [
+          40,
+          13,
+          135,
+          112
+        ],
+        "opaque_inks": 7,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": null
+      }
+    ],
+    "transparency": "Both enemy and held weapon frames contain fully clear and fully opaque pixels. All four outer-corner pixels are clear; the held hand intentionally reaches the gun frame\u2019s lower edge away from the corners.",
+    "feet_pivot": "All enemy coordinate designs terminate at y=124 and share anchor (48,124). The actual contact span differs per anatomy.",
+    "source": "Re-rendered from draw_concepts.py with no external art input."
+  },
+  {
+    "slug": "occult-fortress",
+    "assets": {
+      "board.png": {
+        "size": [
+          1280,
+          900
+        ],
+        "mode": "RGB"
+      },
+      "enemy_melee.png": {
+        "size": [
+          96,
+          128
+        ],
+        "mode": "RGBA"
+      },
+      "enemy_ranged.png": {
+        "size": [
+          96,
+          128
+        ],
+        "mode": "RGBA"
+      },
+      "hud.png": {
+        "size": [
+          320,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_1.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_2.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_3.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_4.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "pistol.png": {
+        "size": [
+          160,
+          112
+        ],
+        "mode": "RGBA"
+      },
+      "scene.png": {
+        "size": [
+          640,
+          360
+        ],
+        "mode": "RGB"
+      },
+      "scene_native.png": {
+        "size": [
+          320,
+          180
+        ],
+        "mode": "RGB"
+      },
+      "shotgun.png": {
+        "size": [
+          160,
+          112
+        ],
+        "mode": "RGBA"
+      }
+    },
+    "rgba_checks": [
+      {
+        "path": "occult-fortress/enemy_melee.png",
+        "alpha_bounds": [
+          17,
+          8,
+          85,
+          125
+        ],
+        "opaque_inks": 7,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": [
+          48,
+          124
+        ]
+      },
+      {
+        "path": "occult-fortress/enemy_ranged.png",
+        "alpha_bounds": [
+          9,
+          4,
+          92,
+          125
+        ],
+        "opaque_inks": 7,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": [
+          48,
+          124
+        ]
+      },
+      {
+        "path": "occult-fortress/pistol.png",
+        "alpha_bounds": [
+          49,
+          19,
+          135,
+          112
+        ],
+        "opaque_inks": 7,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": null
+      },
+      {
+        "path": "occult-fortress/shotgun.png",
+        "alpha_bounds": [
+          32,
+          11,
+          135,
+          112
+        ],
+        "opaque_inks": 7,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": null
+      }
+    ],
+    "transparency": "Both enemy and held weapon frames contain fully clear and fully opaque pixels. All four outer-corner pixels are clear; the held hand intentionally reaches the gun frame\u2019s lower edge away from the corners.",
+    "feet_pivot": "All enemy coordinate designs terminate at y=124 and share anchor (48,124). The actual contact span differs per anatomy.",
+    "source": "Re-rendered from draw_concepts.py with no external art input."
+  },
+  {
+    "slug": "civic-invasion",
+    "assets": {
+      "board.png": {
+        "size": [
+          1280,
+          900
+        ],
+        "mode": "RGB"
+      },
+      "enemy_melee.png": {
+        "size": [
+          96,
+          128
+        ],
+        "mode": "RGBA"
+      },
+      "enemy_ranged.png": {
+        "size": [
+          96,
+          128
+        ],
+        "mode": "RGBA"
+      },
+      "hud.png": {
+        "size": [
+          320,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_1.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_2.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_3.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "material_4.png": {
+        "size": [
+          32,
+          32
+        ],
+        "mode": "RGB"
+      },
+      "pistol.png": {
+        "size": [
+          160,
+          112
+        ],
+        "mode": "RGBA"
+      },
+      "scene.png": {
+        "size": [
+          640,
+          360
+        ],
+        "mode": "RGB"
+      },
+      "scene_native.png": {
+        "size": [
+          320,
+          180
+        ],
+        "mode": "RGB"
+      },
+      "shotgun.png": {
+        "size": [
+          160,
+          112
+        ],
+        "mode": "RGBA"
+      }
+    },
+    "rgba_checks": [
+      {
+        "path": "civic-invasion/enemy_melee.png",
+        "alpha_bounds": [
+          8,
+          17,
+          92,
+          125
+        ],
+        "opaque_inks": 8,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": [
+          48,
+          124
+        ]
+      },
+      {
+        "path": "civic-invasion/enemy_ranged.png",
+        "alpha_bounds": [
+          7,
+          3,
+          95,
+          125
+        ],
+        "opaque_inks": 8,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": [
+          48,
+          124
+        ]
+      },
+      {
+        "path": "civic-invasion/pistol.png",
+        "alpha_bounds": [
+          48,
+          16,
+          135,
+          112
+        ],
+        "opaque_inks": 7,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": null
+      },
+      {
+        "path": "civic-invasion/shotgun.png",
+        "alpha_bounds": [
+          33,
+          12,
+          135,
+          112
+        ],
+        "opaque_inks": 7,
+        "outside_palette_inks": 0,
+        "top_left_transparent": true,
+        "feet_pivot": null
+      }
+    ],
+    "transparency": "Both enemy and held weapon frames contain fully clear and fully opaque pixels. All four outer-corner pixels are clear; the held hand intentionally reaches the gun frame\u2019s lower edge away from the corners.",
+    "feet_pivot": "All enemy coordinate designs terminate at y=124 and share anchor (48,124). The actual contact span differs per anatomy.",
+    "source": "Re-rendered from draw_concepts.py with no external art input."
+  }
+]

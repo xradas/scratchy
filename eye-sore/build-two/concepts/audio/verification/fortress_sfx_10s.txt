@@ -1,0 +1,31 @@
+[aist#0:0/pcm_s16le @ 0x5562e6707380] Guessed Channel Layout: stereo
+Input #0, wav, from '/home/rikki/Projects/eyesore-build-two-staging/audio/cues/fortress_sfx_10s.wav':
+  Metadata:
+    comment         : Winchester, Model 12, shotgun, pump action, 12 gauge, gunshot, near distance, front of shooter, left, right, stereo
+    encoder         : Lavf63.1.102
+  Duration: 00:00:10.00, bitrate: 1536 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Output #0, null, to 'pipe:':
+  Metadata:
+    comment         : Winchester, Model 12, shotgun, pump action, 12 gauge, gunshot, near distance, front of shooter, left, right, stereo
+    encoder         : Lavf63.1.102
+  Stream #0:0: Audio: pcm_s16le, 192000 Hz, stereo, s16, 6144 kb/s
+    Metadata:
+      encoder         : Lavc63.1.102 pcm_s16le
+[Parsed_loudnorm_0 @ 0x7f31c00034c0] 
+{
+	"input_i" : "-29.92",
+	"input_tp" : "-8.97",
+	"input_lra" : "3.20",
+	"input_thresh" : "-42.11",
+	"output_i" : "-20.30",
+	"output_tp" : "-3.00",
+	"output_lra" : "6.20",
+	"output_thresh" : "-34.01",
+	"normalization_type" : "dynamic",
+	"target_offset" : "1.30"
+}
+[out#0/null @ 0x5562e6738580] video:0KiB audio:7500KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:10.00 bitrate=N/A speed=39.6x elapsed=0:00:00.25    

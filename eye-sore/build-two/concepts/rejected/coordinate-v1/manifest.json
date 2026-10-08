@@ -1,0 +1,458 @@
+{
+  "project": "Eyesore \u2014 fresh identity review",
+  "stage": "Concept selection; representative frames only",
+  "art_provenance": {
+    "method": "Original hand-authored coordinates and pixel clusters rendered by Pillow",
+    "generated_image_models": false,
+    "old_project_assets": false,
+    "source": "draw_concepts.py",
+    "sampling": "Nearest-neighbor only",
+    "authoring_grid": "320x180 scene; 96x128 enemies; 160x112 held guns; 32x32 materials"
+  },
+  "concepts": [
+    {
+      "slug": "corrupted-biotech",
+      "title": "01 / THE PALE WARD",
+      "subtitle": "Corrupted biotech facility",
+      "tag": "Sterile geometry. Flesh without permission.",
+      "read": "Pale stretched humanoid versus a low, broad containment organism. Bone-value silhouettes separate from the cool room; small green culture lights signal the ranged threat.",
+      "cost": "Medium-high. Organic silhouettes need careful frame-to-frame anatomy; clinical tiles can be reused widely. Translucency is represented with opaque pixel clusters.",
+      "limitation": "The vial glow and tissue lattice are painted cues, not dynamic effects. Two single enemy poses cannot yet prove motion or attack readability.",
+      "palette": [
+        {
+          "name": "Void",
+          "hex": "#121C24"
+        },
+        {
+          "name": "Deep teal",
+          "hex": "#2B4147"
+        },
+        {
+          "name": "Oxidized steel",
+          "hex": "#526B69"
+        },
+        {
+          "name": "Surgical gray",
+          "hex": "#91A397"
+        },
+        {
+          "name": "Bone ceramic",
+          "hex": "#DFE3C8"
+        },
+        {
+          "name": "Clotted violet",
+          "hex": "#65404B"
+        },
+        {
+          "name": "Raw tissue",
+          "hex": "#B66D79"
+        },
+        {
+          "name": "Culture light",
+          "hex": "#BDE48E"
+        }
+      ],
+      "directory": "corrupted-biotech",
+      "board": "corrupted-biotech/board.png",
+      "scene": "corrupted-biotech/scene.png",
+      "scene_native": "corrupted-biotech/scene_native.png",
+      "hud": "corrupted-biotech/hud.png",
+      "enemies": [
+        {
+          "role": "melee",
+          "name": "The Unsealed",
+          "path": "corrupted-biotech/enemy_melee.png",
+          "size": [
+            96,
+            128
+          ],
+          "feet_pivot": [
+            48,
+            124
+          ],
+          "transparent": true,
+          "frames": 1
+        },
+        {
+          "role": "ranged",
+          "name": "Containment Choir",
+          "path": "corrupted-biotech/enemy_ranged.png",
+          "size": [
+            96,
+            128
+          ],
+          "feet_pivot": [
+            48,
+            124
+          ],
+          "transparent": true,
+          "frames": 1
+        }
+      ],
+      "weapons": [
+        {
+          "name": "pistol",
+          "path": "corrupted-biotech/pistol.png",
+          "size": [
+            160,
+            112
+          ],
+          "transparent": true,
+          "held_view_anchor": [
+            80,
+            112
+          ],
+          "frames": 1
+        },
+        {
+          "name": "shotgun",
+          "path": "corrupted-biotech/shotgun.png",
+          "size": [
+            160,
+            112
+          ],
+          "transparent": true,
+          "held_view_anchor": [
+            80,
+            112
+          ],
+          "frames": 1
+        }
+      ],
+      "materials": [
+        {
+          "name": "Cracked ceramic",
+          "path": "corrupted-biotech/material_1.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        },
+        {
+          "name": "Tissue lattice",
+          "path": "corrupted-biotech/material_2.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        },
+        {
+          "name": "Ribbed steel",
+          "path": "corrupted-biotech/material_3.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        },
+        {
+          "name": "Culture glass",
+          "path": "corrupted-biotech/material_4.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        }
+      ]
+    },
+    {
+      "slug": "occult-fortress",
+      "title": "02 / THE ASH CITADEL",
+      "subtitle": "War-torn occult fortress",
+      "tag": "A siege that became a sacrament.",
+      "read": "Tall cleaver and cage crown identify the melee unit; a floating red core inside a walking shrine identifies the ranged unit. Warm embers direct attention through gray masonry.",
+      "cost": "Medium. Armor plates and masonry support modular production; cleaver timing and the shrine\u2019s four-foot gait are the expensive animation work.",
+      "limitation": "A ritual motif is established, but symbols are original visual marks without a developed written language. Siege debris does not yet have collision.",
+      "palette": [
+        {
+          "name": "Coal",
+          "hex": "#1D1922"
+        },
+        {
+          "name": "Iron dusk",
+          "hex": "#39313E"
+        },
+        {
+          "name": "Weathered slate",
+          "hex": "#625666"
+        },
+        {
+          "name": "Dust mortar",
+          "hex": "#947769"
+        },
+        {
+          "name": "Chalk bone",
+          "hex": "#D4B69A"
+        },
+        {
+          "name": "Oxblood",
+          "hex": "#573B3A"
+        },
+        {
+          "name": "Ember",
+          "hex": "#C86848"
+        },
+        {
+          "name": "Ritual gold",
+          "hex": "#EABB65"
+        }
+      ],
+      "directory": "occult-fortress",
+      "board": "occult-fortress/board.png",
+      "scene": "occult-fortress/scene.png",
+      "scene_native": "occult-fortress/scene_native.png",
+      "hud": "occult-fortress/hud.png",
+      "enemies": [
+        {
+          "role": "melee",
+          "name": "The Iron Penitent",
+          "path": "occult-fortress/enemy_melee.png",
+          "size": [
+            96,
+            128
+          ],
+          "feet_pivot": [
+            48,
+            124
+          ],
+          "transparent": true,
+          "frames": 1
+        },
+        {
+          "role": "ranged",
+          "name": "Walking Reliquary",
+          "path": "occult-fortress/enemy_ranged.png",
+          "size": [
+            96,
+            128
+          ],
+          "feet_pivot": [
+            48,
+            124
+          ],
+          "transparent": true,
+          "frames": 1
+        }
+      ],
+      "weapons": [
+        {
+          "name": "pistol",
+          "path": "occult-fortress/pistol.png",
+          "size": [
+            160,
+            112
+          ],
+          "transparent": true,
+          "held_view_anchor": [
+            80,
+            112
+          ],
+          "frames": 1
+        },
+        {
+          "name": "shotgun",
+          "path": "occult-fortress/shotgun.png",
+          "size": [
+            160,
+            112
+          ],
+          "transparent": true,
+          "held_view_anchor": [
+            80,
+            112
+          ],
+          "frames": 1
+        }
+      ],
+      "materials": [
+        {
+          "name": "Siege masonry",
+          "path": "occult-fortress/material_1.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        },
+        {
+          "name": "Scored iron",
+          "path": "occult-fortress/material_2.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        },
+        {
+          "name": "Ritual inlay",
+          "path": "occult-fortress/material_3.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        },
+        {
+          "name": "Burned timber",
+          "path": "occult-fortress/material_4.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        }
+      ]
+    },
+    {
+      "slug": "civic-invasion",
+      "title": "03 / THE OCCUPIED LINE",
+      "subtitle": "Invaded civic megastructure",
+      "tag": "Public space. Private extinction.",
+      "read": "An orange-backed, low-headed occupier contrasts with a high camera crown on three narrow legs. Public wayfinding stripes frame routes and cyan scanner optics identify ranged fire.",
+      "cost": "Medium-low for architecture, medium for creatures. Repeatable concrete and signs are economical; the surveyor\u2019s tripod motion and reaver\u2019s offset head need dedicated poses.",
+      "limitation": "Signs are spatial markers rather than lore text. The fixed screenshot has no moving scanner beam or interactive route system.",
+      "palette": [
+        {
+          "name": "Transit night",
+          "hex": "#151D27"
+        },
+        {
+          "name": "Service blue",
+          "hex": "#2F4054"
+        },
+        {
+          "name": "Concrete shadow",
+          "hex": "#566779"
+        },
+        {
+          "name": "Weathered concrete",
+          "hex": "#899997"
+        },
+        {
+          "name": "Wayfinding ivory",
+          "hex": "#CCD4BE"
+        },
+        {
+          "name": "Alien plum",
+          "hex": "#5A415D"
+        },
+        {
+          "name": "Caution orange",
+          "hex": "#CA744F"
+        },
+        {
+          "name": "Scanner cyan",
+          "hex": "#A5CECD"
+        }
+      ],
+      "directory": "civic-invasion",
+      "board": "civic-invasion/board.png",
+      "scene": "civic-invasion/scene.png",
+      "scene_native": "civic-invasion/scene_native.png",
+      "hud": "civic-invasion/hud.png",
+      "enemies": [
+        {
+          "role": "melee",
+          "name": "The Platform Reaver",
+          "path": "civic-invasion/enemy_melee.png",
+          "size": [
+            96,
+            128
+          ],
+          "feet_pivot": [
+            48,
+            124
+          ],
+          "transparent": true,
+          "frames": 1
+        },
+        {
+          "role": "ranged",
+          "name": "The Surveyor",
+          "path": "civic-invasion/enemy_ranged.png",
+          "size": [
+            96,
+            128
+          ],
+          "feet_pivot": [
+            48,
+            124
+          ],
+          "transparent": true,
+          "frames": 1
+        }
+      ],
+      "weapons": [
+        {
+          "name": "pistol",
+          "path": "civic-invasion/pistol.png",
+          "size": [
+            160,
+            112
+          ],
+          "transparent": true,
+          "held_view_anchor": [
+            80,
+            112
+          ],
+          "frames": 1
+        },
+        {
+          "name": "shotgun",
+          "path": "civic-invasion/shotgun.png",
+          "size": [
+            160,
+            112
+          ],
+          "transparent": true,
+          "held_view_anchor": [
+            80,
+            112
+          ],
+          "frames": 1
+        }
+      ],
+      "materials": [
+        {
+          "name": "Poured concrete",
+          "path": "civic-invasion/material_1.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        },
+        {
+          "name": "Transit tread",
+          "path": "civic-invasion/material_2.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        },
+        {
+          "name": "Hazard enamel",
+          "path": "civic-invasion/material_3.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        },
+        {
+          "name": "Alien cable",
+          "path": "civic-invasion/material_4.png",
+          "size": [
+            32,
+            32
+          ],
+          "tileable": true
+        }
+      ]
+    }
+  ]
+}
