@@ -1,0 +1,399 @@
+{
+  "title": "Shotgun sound A/B/C prototype pack",
+  "status": "audition candidates; none approved as production audio",
+  "neutral_variant_labels": {
+    "A": "Dry immediate: source transient and natural recorded decay, with only level matching.",
+    "B": "Blast plus mechanical recovery: dry source plus quiet steel/metal foley accents. Foley is a placeholder, not a finished weapon mechanism.",
+    "C": "Compact abrasive industrial: mild saturation, softened low-pass body, restrained filtered metal grit. Treatment candidate, not a final mix."
+  },
+  "processing": {
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "format": "PCM signed 16-bit little-endian",
+    "clip_duration_seconds": 0.8,
+    "target_rms_dbfs": -20.0,
+    "sample_peak_ceiling_dbfs": -1.0,
+    "level_matching": "A/B/C have identical measured RMS within each source take; common target is constrained by the cleanest headroom candidate, and may fall below target_rms_dbfs.",
+    "downmix": "ffmpeg pan filter c0=0.5*c0+0.5*c1 stereo average to mono, followed by linear resampling to 48 kHz",
+    "source_region_policy": "First measured onset region shared across A/B/C for each of three source takes; no variant changes the shot start."
+  },
+  "sources": [
+    {
+      "file": "public/audio-sources/free-firearm-library/mossberg-shotgun.wav",
+      "sha256": "311a5b016bebc21e7d812ef0756174fbdc77454229512bd5a64101ec055e8807",
+      "license": "CC0/public domain per bundled source README",
+      "reference": "https://opengameart.org/content/the-free-firearm-sound-library; https://github.com/petroulacl/fps-asset-kit"
+    },
+    {
+      "file": "public/audio-sources/free-firearm-library/mossberg-shotgun-b.wav",
+      "sha256": "b5a28243e16f8cb10adfc5225d96e90f108d24393fcfffcaa6dcf203af03634a",
+      "license": "CC0/public domain per bundled source README",
+      "reference": "https://opengameart.org/content/the-free-firearm-sound-library; https://github.com/petroulacl/fps-asset-kit"
+    },
+    {
+      "file": "public/audio-sources/free-firearm-library/mossberg-shotgun-c.wav",
+      "sha256": "5661d0625e4634f19e6e316c13693b80c8e28cd9f716cf9c75c465153ae40815",
+      "license": "CC0/public domain per bundled source README",
+      "reference": "https://opengameart.org/content/the-free-firearm-sound-library; https://github.com/petroulacl/fps-asset-kit"
+    },
+    {
+      "file": "public/audio-sources/cc0/steel1.wav",
+      "sha256": "98fb5887400b1405176f171d9c8f796f5425c1c0e7979c13ac3b947bca61aa5b",
+      "license": "CC0/Unlicense; see public/audio-sources/cc0/LICENSE",
+      "reference": "https://github.com/code4fukui/sound-cc0"
+    },
+    {
+      "file": "public/audio-sources/cc0/metal1.wav",
+      "sha256": "3d1f75a723cb43f34906f9d88cbe804e0ac1f9e02ac4c79a08efa080f6fcda0c",
+      "license": "CC0/Unlicense; see public/audio-sources/cc0/LICENSE",
+      "reference": "https://github.com/code4fukui/sound-cc0"
+    }
+  ],
+  "take_regions": {
+    "1": {
+      "source": "mossberg-shotgun.wav",
+      "measured_attack_start_seconds": 0.785,
+      "source_region_seconds": [
+        0.785,
+        1.585
+      ]
+    },
+    "2": {
+      "source": "mossberg-shotgun-b.wav",
+      "measured_attack_start_seconds": 1.695,
+      "source_region_seconds": [
+        1.695,
+        2.495
+      ]
+    },
+    "3": {
+      "source": "mossberg-shotgun-c.wav",
+      "measured_attack_start_seconds": 0.426,
+      "source_region_seconds": [
+        0.426,
+        1.226
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "id": "A",
+      "take": "1",
+      "file": "shotgun_a_take1.wav",
+      "duration_seconds": 0.8,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "format": "PCM signed 16-bit little-endian",
+      "rms_dbfs": -26.103,
+      "sample_peak_dbfs": -1.0,
+      "sha256": "c9539611a1dc7308c2697db7f6feced96a52c5fa893e662eca5ad9e513f7daf4"
+    },
+    {
+      "id": "B",
+      "take": "1",
+      "file": "shotgun_b_take1.wav",
+      "duration_seconds": 0.8,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "format": "PCM signed 16-bit little-endian",
+      "rms_dbfs": -26.103,
+      "sample_peak_dbfs": -1.013,
+      "sha256": "09aae67be4c5cd493c39ed2f686dd9edfdc71ecdb237003da2d578ce99c71873"
+    },
+    {
+      "id": "C",
+      "take": "1",
+      "file": "shotgun_c_take1.wav",
+      "duration_seconds": 0.8,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "format": "PCM signed 16-bit little-endian",
+      "rms_dbfs": -26.103,
+      "sample_peak_dbfs": -3.882,
+      "sha256": "215385467f45f2cdf26bea6ed939fa6e97fbe5d498a8f6a4deb2cd764ae950e4"
+    },
+    {
+      "id": "A",
+      "take": "2",
+      "file": "shotgun_a_take2.wav",
+      "duration_seconds": 0.8,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "format": "PCM signed 16-bit little-endian",
+      "rms_dbfs": -27.69,
+      "sample_peak_dbfs": -1.0,
+      "sha256": "2a328fc15710f903af6f83230db1b8924c5039d2f741f4528ed7eaced1d1c504"
+    },
+    {
+      "id": "B",
+      "take": "2",
+      "file": "shotgun_b_take2.wav",
+      "duration_seconds": 0.8,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "format": "PCM signed 16-bit little-endian",
+      "rms_dbfs": -27.689,
+      "sample_peak_dbfs": -1.025,
+      "sha256": "6b217b6c2995dcee491f1f86e3ad4ee951203d9f3f8773130d2ce2f77398ffe6"
+    },
+    {
+      "id": "C",
+      "take": "2",
+      "file": "shotgun_c_take2.wav",
+      "duration_seconds": 0.8,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "format": "PCM signed 16-bit little-endian",
+      "rms_dbfs": -27.69,
+      "sample_peak_dbfs": -3.645,
+      "sha256": "cb2c9483496bd7a5fbbab4db5902ca028e33202de45ee2035a30b90a1d4dec20"
+    },
+    {
+      "id": "A",
+      "take": "3",
+      "file": "shotgun_a_take3.wav",
+      "duration_seconds": 0.8,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "format": "PCM signed 16-bit little-endian",
+      "rms_dbfs": -27.532,
+      "sample_peak_dbfs": -1.0,
+      "sha256": "3518c20c8c4368b6822faaa1d277f3e6c2f180d35eb6b2cf049a592e16328673"
+    },
+    {
+      "id": "B",
+      "take": "3",
+      "file": "shotgun_b_take3.wav",
+      "duration_seconds": 0.8,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "format": "PCM signed 16-bit little-endian",
+      "rms_dbfs": -27.532,
+      "sample_peak_dbfs": -1.027,
+      "sha256": "a2f307a60960ab2cac4618a5eb83fd8e3f97b0f4e92b8d1a5ed288633f990dea"
+    },
+    {
+      "id": "C",
+      "take": "3",
+      "file": "shotgun_c_take3.wav",
+      "duration_seconds": 0.8,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "format": "PCM signed 16-bit little-endian",
+      "rms_dbfs": -27.532,
+      "sample_peak_dbfs": -3.44,
+      "sha256": "f52eb97fa5396fcde29fac973682988d0f593a32a6b836acd60e4a1d87ba4716"
+    }
+  ],
+  "six_shot_sequences": {
+    "description": "Each clip has six trigger events spaced exactly 1.5 seconds apart (the current shotgun cadence), with source takes rotating 1,2,3 twice. Shot gain is the current engine shotgun gain 0.82 in both ambience conditions. Ambience-on uses the exact current checked-in 24-second room bed at unity gain, beginning at its first sample; ambience-off contains silence under shots. No enemies, impacts, or synthesized replacement cues are added. IEEE float32 preserves additive peaks without clipping.",
+    "cadence_seconds": 1.5,
+    "shots_per_clip": 6,
+    "sequence_duration_seconds": 8.3,
+    "ambience_source": {
+      "file": "linux-game/assets/music/furnace-descent-loop.wav",
+      "sha256": "1874f10bb792ded004264d2984cb8692bf096569e932a6035b232285a6aa6a85",
+      "format": "44.1 kHz mono PCM16, 24 s",
+      "generation_script": "linux-game/tools/build_furnace_music.sh",
+      "playback_gain": 1.0
+    },
+    "blind_listening_order_seed": 8315,
+    "blind_listening_order": [
+      {
+        "order": 1,
+        "file": "sequence_01.wav",
+        "sha256": "7270dee2f17066ccf218251ee40630038bf0d89ba7c4b65bd76f53a7789aba23",
+        "description": "Six shots at 1.5-second intervals; candidate and ambience condition withheld from filename."
+      },
+      {
+        "order": 2,
+        "file": "sequence_02.wav",
+        "sha256": "3bdf812f41b7f4d02a75fe6731ca5fabd87aeb8ec805183c66a2920436968fdc",
+        "description": "Six shots at 1.5-second intervals; candidate and ambience condition withheld from filename."
+      },
+      {
+        "order": 3,
+        "file": "sequence_03.wav",
+        "sha256": "82ec8f1b88f0d2df56cbfe4381f085c7f2bc93e019f5063de01caa6be2a42deb",
+        "description": "Six shots at 1.5-second intervals; candidate and ambience condition withheld from filename."
+      },
+      {
+        "order": 4,
+        "file": "sequence_04.wav",
+        "sha256": "c51eead59aefa375ec7ee7a79f92dc63eb09b26c35f9684394853b322725734b",
+        "description": "Six shots at 1.5-second intervals; candidate and ambience condition withheld from filename."
+      },
+      {
+        "order": 5,
+        "file": "sequence_05.wav",
+        "sha256": "527a2948ec93699b1bd176e385b86766800b540d3c7414fde5a00ad3fef9de3a",
+        "description": "Six shots at 1.5-second intervals; candidate and ambience condition withheld from filename."
+      },
+      {
+        "order": 6,
+        "file": "sequence_06.wav",
+        "sha256": "76aa904f46cddce35bc676cfba8dfa9e9ad63240e6d8c2e504e83afd2c965aa9",
+        "description": "Six shots at 1.5-second intervals; candidate and ambience condition withheld from filename."
+      }
+    ],
+    "key": {
+      "sequence_01.wav": {
+        "candidate": "A",
+        "ambience": "exact current game room bed on at unity gain"
+      },
+      "sequence_02.wav": {
+        "candidate": "C",
+        "ambience": "off (silence; no replacement ambience)"
+      },
+      "sequence_03.wav": {
+        "candidate": "C",
+        "ambience": "exact current game room bed on at unity gain"
+      },
+      "sequence_04.wav": {
+        "candidate": "B",
+        "ambience": "exact current game room bed on at unity gain"
+      },
+      "sequence_05.wav": {
+        "candidate": "B",
+        "ambience": "off (silence; no replacement ambience)"
+      },
+      "sequence_06.wav": {
+        "candidate": "A",
+        "ambience": "off (silence; no replacement ambience)"
+      }
+    },
+    "files": [
+      {
+        "file": "sequence_01.wav",
+        "candidate": "A",
+        "ambience": "on",
+        "shots": 6,
+        "cadence_seconds": 1.5,
+        "take_rotation": [
+          "1",
+          "2",
+          "3",
+          "1",
+          "2",
+          "3"
+        ],
+        "duration_seconds": 8.3,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "format": "IEEE float32 mono WAV",
+        "sha256": "7270dee2f17066ccf218251ee40630038bf0d89ba7c4b65bd76f53a7789aba23"
+      },
+      {
+        "file": "sequence_02.wav",
+        "candidate": "C",
+        "ambience": "off",
+        "shots": 6,
+        "cadence_seconds": 1.5,
+        "take_rotation": [
+          "1",
+          "2",
+          "3",
+          "1",
+          "2",
+          "3"
+        ],
+        "duration_seconds": 8.3,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "format": "IEEE float32 mono WAV",
+        "sha256": "3bdf812f41b7f4d02a75fe6731ca5fabd87aeb8ec805183c66a2920436968fdc"
+      },
+      {
+        "file": "sequence_03.wav",
+        "candidate": "C",
+        "ambience": "on",
+        "shots": 6,
+        "cadence_seconds": 1.5,
+        "take_rotation": [
+          "1",
+          "2",
+          "3",
+          "1",
+          "2",
+          "3"
+        ],
+        "duration_seconds": 8.3,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "format": "IEEE float32 mono WAV",
+        "sha256": "82ec8f1b88f0d2df56cbfe4381f085c7f2bc93e019f5063de01caa6be2a42deb"
+      },
+      {
+        "file": "sequence_04.wav",
+        "candidate": "B",
+        "ambience": "on",
+        "shots": 6,
+        "cadence_seconds": 1.5,
+        "take_rotation": [
+          "1",
+          "2",
+          "3",
+          "1",
+          "2",
+          "3"
+        ],
+        "duration_seconds": 8.3,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "format": "IEEE float32 mono WAV",
+        "sha256": "c51eead59aefa375ec7ee7a79f92dc63eb09b26c35f9684394853b322725734b"
+      },
+      {
+        "file": "sequence_05.wav",
+        "candidate": "B",
+        "ambience": "off",
+        "shots": 6,
+        "cadence_seconds": 1.5,
+        "take_rotation": [
+          "1",
+          "2",
+          "3",
+          "1",
+          "2",
+          "3"
+        ],
+        "duration_seconds": 8.3,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "format": "IEEE float32 mono WAV",
+        "sha256": "527a2948ec93699b1bd176e385b86766800b540d3c7414fde5a00ad3fef9de3a"
+      },
+      {
+        "file": "sequence_06.wav",
+        "candidate": "A",
+        "ambience": "off",
+        "shots": 6,
+        "cadence_seconds": 1.5,
+        "take_rotation": [
+          "1",
+          "2",
+          "3",
+          "1",
+          "2",
+          "3"
+        ],
+        "duration_seconds": 8.3,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "format": "IEEE float32 mono WAV",
+        "sha256": "76aa904f46cddce35bc676cfba8dfa9e9ad63240e6d8c2e504e83afd2c965aa9"
+      }
+    ],
+    "combined_file": {
+      "file": "six_shot_listening_order.wav",
+      "sha256": "7b8eab55743c2fa35f92891cde7ea94fbfa35364f42c44911e2e0c65da043e85",
+      "layout": "The six files in blind_listening_order, separated by 800 ms silence."
+    }
+  },
+  "comparison_reel": {
+    "file": "comparison_take1_A-B-C.wav",
+    "sha256": "4ff81cb84f3579a789bd4d1f902f94158db458f629ae048a5212ffed7b73452f",
+    "layout": "Take 1; A then B then C, separated by 420 ms silence."
+  },
+  "reproducibility": "Run python3 eye-sore/tools/build_shotgun_auditions.py with ffmpeg available. Output WAV hashes are recorded here."
+}
