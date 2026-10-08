@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include "audio_mixer.h"
 #include <GL/gl.h>
 #include <algorithm>
 #include <cmath>
@@ -57,27 +58,6 @@ struct EnemyProjectile { Vec3 pos, vel; float life, radius, damage; int style, s
 struct Impact { Vec3 pos; float life; int weapon; };
 struct FirstPersonLaunch { float life, duration; int weapon; bool active; };
 struct Sound { Uint8 *data; Uint32 length; };
-enum AudioClass { AudioWeapon, AudioCombat, AudioInterface, AudioClassCount };
-struct AudioVoice { const Sint16 *samples; Uint32 frames, cursor; float gain, left, right; int priority, category; Uint64 age; };
-struct AudioMixer { AudioVoice voices[24]{}; Uint64 next_age=0; };
-static void audio_mix(void *userdata, Uint8 *stream, int length) {
-  AudioMixer *mixer=static_cast<AudioMixer*>(userdata); Sint16 *out=reinterpret_cast<Sint16*>(stream); int frames=length/(2*(int)sizeof(Sint16));
-  for(int frame=0;frame<frames;frame++) { float left=0,right=0;
-    for(auto &voice:mixer->voices) if(voice.samples&&voice.cursor<voice.frames) { float sample=voice.samples[voice.cursor++]/32768.0f; left+=sample*voice.gain*voice.left; right+=sample*voice.gain*voice.right; if(voice.cursor>=voice.frames)voice.samples=nullptr; }
-    out[frame*2]=(Sint16)std::lrint(std::fmax(-1.0f,std::fmin(1.0f,left))*32767.0f); out[frame*2+1]=(Sint16)std::lrint(std::fmax(-1.0f,std::fmin(1.0f,right))*32767.0f);
-  }
-}
-static void play_sound(SDL_AudioDeviceID device, AudioMixer &mixer, const Sound &sound, AudioClass category, int priority, float gain, float pan=0.0f, float distance=0.0f) {
-  if(!device||!sound.data||sound.length<2)return;
-  pan=std::fmax(-1.0f,std::fmin(1.0f,pan)); float attenuation=1.0f/(1.0f+0.075f*std::fmax(0.0f,distance));
-  SDL_LockAudioDevice(device); int category_count=0; AudioVoice *slot=nullptr,*victim=nullptr;
-  for(auto &voice:mixer.voices) { if(voice.samples&&voice.category==(int)category)category_count++; if(!voice.samples&&!slot)slot=&voice; if(voice.samples&&(!victim||voice.priority<victim->priority||(voice.priority==victim->priority&&voice.age<victim->age)))victim=&voice; }
-  static constexpr int category_limits[AudioClassCount]={6,14,4};
-  if(category_count>=category_limits[category]) { victim=nullptr; for(auto &voice:mixer.voices)if(voice.samples&&voice.category==(int)category&&(!victim||voice.priority<victim->priority||(voice.priority==victim->priority&&voice.age<victim->age)))victim=&voice; slot=victim; }
-  if(!slot)slot=victim;
-  if(slot&&(!slot->samples||priority>=slot->priority)) { float angle=(pan+1.0f)*0.785398163f; *slot={reinterpret_cast<const Sint16*>(sound.data),(Uint32)(sound.length/sizeof(Sint16)),0,gain*attenuation,std::cos(angle),std::sin(angle),priority,(int)category,++mixer.next_age}; }
-  SDL_UnlockAudioDevice(device);
-}
 struct EnemyCollision { float width, height, depth, bottom; };
 static constexpr int MAX_ENEMY_PROJECTILES=16;
 static constexpr int MAX_VISUAL_PROJECTILES=12;
@@ -395,16 +375,22 @@ int main(int argc,char **argv) {
   for(int weapon_index=0;weapon_index<3;weapon_index++)for(int frame=0;frame<4;frame++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/weapons/weapon-%d-frame-%d.bmp",weapon_index,frame);weapon_frames[weapon_index][frame]=texture_from_bmp(enemy_path);}
   const char *projectile_names[]={"player-pistol","player-shotgun","player-arc","cultist-fire","wraith-plasma"},*projectile_directions[]={"toward","toward-right","right","away-right","away","away-left","left","toward-left"};for(int sprite=0;sprite<ProjectileSpriteCount;sprite++)for(int direction=0;direction<ProjectileDirectionCount;direction++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/projectiles/%s-dir-%s.bmp",projectile_names[sprite],projectile_directions[direction]);projectile_sprites[sprite][direction]=texture_from_bmp(enemy_path);}
   const char *launch_names[]={"player-pistol","player-shotgun","player-arc-perspective-bolt-v2"};for(int weapon_index=0;weapon_index<3;weapon_index++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/projectiles/first-person-%s.bmp",launch_names[weapon_index]);first_person_launches[weapon_index]=texture_from_bmp(enemy_path);}arc_muzzle_flash=texture_from_bmp("assets/projectiles/first-person-player-arc-muzzle-flash.bmp");
-  SDL_AudioSpec sound_spec={},music_spec={};Sound weapon_sounds[3][WEAPON_SOUND_VARIANTS]={};for(int weapon_index=0;weapon_index<3;weapon_index++)for(int variant=0;variant<WEAPON_SOUND_VARIANTS;variant++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/%s-%d.wav",WEAPON_SOUND_NAMES[weapon_index],variant);weapon_sounds[weapon_index][variant]=load_sound(enemy_path,&sound_spec);}Sound impact_sound=load_sound("assets/sounds/projectile-impact.wav",&sound_spec),enemy_hit_sounds[4];for(int type=0;type<4;type++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/enemy-hit-%d.wav",type);enemy_hit_sounds[type]=load_sound(enemy_path,&sound_spec);}Sound enemy_cast_sound=load_sound("assets/sounds/enemy-cast.wav",&sound_spec),player_damage_sound=load_sound("assets/sounds/player-damage.wav",&sound_spec),weapon_pickup_sound=load_sound("assets/sounds/weapon-pickup.wav",&sound_spec),music=load_sound("assets/music/furnace-descent-loop.wav",&music_spec);AudioMixer audio_mixer{};SDL_AudioSpec mix_spec={},mix_obtained={};mix_spec.freq=44100;mix_spec.format=AUDIO_S16SYS;mix_spec.channels=2;mix_spec.samples=1024;mix_spec.callback=audio_mix;mix_spec.userdata=&audio_mixer;SDL_AudioDeviceID audio_device=weapon_sounds[0][0].data&&sound_spec.freq==44100&&sound_spec.channels==1&&sound_spec.format==AUDIO_S16SYS?SDL_OpenAudioDevice(nullptr,0,&mix_spec,&mix_obtained,0):0,music_device=music.data?SDL_OpenAudioDevice(nullptr,0,&music_spec,nullptr,0):0;if(audio_device)SDL_PauseAudioDevice(audio_device,0);else std::fprintf(stderr,"Effects mixer needs mono 44.1kHz signed-16 WAVs and stereo 44.1kHz output: %s\n",SDL_GetError());if(music_device){SDL_QueueAudio(music_device,music.data,music.length);SDL_PauseAudioDevice(music_device,0);}else std::fprintf(stderr,"Music audio device: %s\n",SDL_GetError());
+  AudioClip weapon_sounds[3][WEAPON_SOUND_VARIANTS];
+  for(int w=0;w<3;w++)for(int v=0;v<WEAPON_SOUND_VARIANTS;v++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/%s-%d.wav",WEAPON_SOUND_NAMES[w],v);weapon_sounds[w][v].load(enemy_path);}
+  AudioClip impact_sound,enemy_hit_sounds[4],enemy_cast_sound,player_damage_sound,weapon_pickup_sound,music;
+  impact_sound.load("assets/sounds/projectile-impact.wav");
+  for(int type=0;type<4;type++){std::snprintf(enemy_path,sizeof(enemy_path),"assets/sounds/enemy-hit-%d.wav",type);enemy_hit_sounds[type].load(enemy_path);}
+  enemy_cast_sound.load("assets/sounds/enemy-cast.wav");player_damage_sound.load("assets/sounds/player-damage.wav");weapon_pickup_sound.load("assets/sounds/weapon-pickup.wav");music.load("assets/music/furnace-descent-loop.wav");
+  AudioMixer audio_mixer;audio_mixer.open();audio_mixer.set_background(&music);bool audio_muted=false;
   FILE *record_pipe=nullptr;std::vector<unsigned char> record_pixels;float record_accumulator=0;if(recording){record_pipe=popen("ffmpeg -y -loglevel error -f rawvideo -pixel_format rgb24 -video_size 1280x720 -framerate 15 -i - -vf vflip -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p build/eye-sore-playtest.mp4","w");if(record_pipe)record_pixels.resize(W*H*3);else std::fprintf(stderr,"Could not start playtest recorder\n");}
   Vec3 player={0,PLAYER_HEIGHT,24}; float health=100, yaw=0, pitch=0, fire_timer=0, flash=0, fire_anim=0, hit_feedback=0, arc_flash=0,level_time=0; int weapon=0, score=0,weapon_sound_cursor[3]={},level_wave=0; bool shotgun_unlocked=false,arc_unlocked=false,weapon_cache=true,arc_cache=false,running=true,trigger_held=false; Enemy enemies[ENEMY_COUNT]; Projectile projectile={{0,0,0},{0,0,0},0,0,0,PlayerArcSprite,false}; VisualProjectile visual_projectiles[MAX_VISUAL_PROJECTILES]={}; EnemyProjectile enemy_projectiles[MAX_ENEMY_PROJECTILES]={}; Impact impact={{0,0,0},0,0}; FirstPersonLaunch launch={0,0,0,false}; Uint64 last=SDL_GetPerformanceCounter();
   auto setup_first_level = [&](){for(int i=0;i<ENEMY_COUNT;i++){enemies[i]=make_enemy(ENEMY_SPAWNS[i],ENEMY_HEALTH[i],ENEMY_TYPES[i]);if(i>=3){enemies[i].type=-1;enemies[i].alive=false;}}level_wave=0;level_time=0;shotgun_unlocked=false;arc_unlocked=false;weapon_cache=false;arc_cache=false;};
   setup_first_level();
-  auto reset_combat = [&](){ player={0,PLAYER_HEIGHT,24};health=100;yaw=0;pitch=0;fire_timer=0;flash=0;fire_anim=0;hit_feedback=0;arc_flash=0;weapon=0;score=0;weapon_sound_cursor[0]=weapon_sound_cursor[1]=weapon_sound_cursor[2]=0;trigger_held=false;projectile.active=false;launch.active=false;for(auto &shot:visual_projectiles)shot.active=false;for(auto &shot:enemy_projectiles)shot.active=false;impact.life=0;setup_first_level(); };
-  auto play_positioned = [&](const Sound &sound,AudioClass category,int priority,float gain,Vec3 source){float dx=source.x-player.x,dz=source.z-player.z,distance=std::hypot(dx,dz),pan=(dx*std::cos(yaw)-dz*std::sin(yaw))/8.0f;play_sound(audio_device,audio_mixer,sound,category,priority,gain,pan,distance);};
+  auto reset_combat = [&](){ player={0,PLAYER_HEIGHT,24};health=100;yaw=0;pitch=0;fire_timer=0;flash=0;fire_anim=0;hit_feedback=0;arc_flash=0;weapon=0;score=0;weapon_sound_cursor[0]=weapon_sound_cursor[1]=weapon_sound_cursor[2]=0;trigger_held=false;projectile.active=false;launch.active=false;for(auto &shot:visual_projectiles)shot.active=false;for(auto &shot:enemy_projectiles)shot.active=false;impact.life=0;setup_first_level();audio_mixer.reset(); };
+  auto play_positioned = [&](const AudioClip &sound,AudioClass category,int priority,float gain,Vec3 source){audio_mixer.play(sound,category,priority,gain,true,source.x,source.z);};
   auto play_projectile_impact = [&](Vec3 pos){play_positioned(impact_sound,AudioCombat,2,.68f,pos);};
   auto play_enemy_hit = [&](int type,Vec3 pos){if(type>=0&&type<4)play_positioned(enemy_hit_sounds[type],AudioCombat,3,.82f,pos);};
-  auto play_player_damage = [&](){play_sound(audio_device,audio_mixer,player_damage_sound,AudioInterface,8,.92f);};
+  auto play_player_damage = [&](){audio_mixer.play(player_damage_sound,AudioInterface,8,.92f);};
   auto launch_enemy_projectile = [&](const Enemy &enemy,int owner){
     EnemyProjectile *shot=nullptr;for(auto &candidate:enemy_projectiles)if(!candidate.active){shot=&candidate;break;}if(!shot)return;
     int type=enemy.type;Vec3 origin=enemy_fire_origin(enemy),target={player.x,player.y-.32f,player.z};if(enemy.target_enemy>=0&&enemy.target_enemy<ENEMY_COUNT&&enemies[enemy.target_enemy].alive){const Enemy &victim=enemies[enemy.target_enemy];const EnemyDefinition &victim_def=ENEMY_DEFS[victim.type];target={victim.pos.x,victim.pos.y+victim_def.baseline+victim_def.hitbox_height*.55f,victim.pos.z};}Vec3 delta={target.x-origin.x,target.y-origin.y,target.z-origin.z};float length=std::sqrt(delta.x*delta.x+delta.y*delta.y+delta.z*delta.z);if(length<.001f)return;float speed=type==1?4.2f:5.0f;
@@ -417,11 +403,11 @@ int main(int argc,char **argv) {
     if(weapon==2){projectile={origin,aim*20.0f,4.0f,.13f,0,PlayerArcSprite,true};arc_flash=.08f;}
     else launch_visual_projectile(weapon==0?PlayerPistolSprite:PlayerShotgunSprite,origin,aim,weapon==0?18.0f:14.0f,weapon==0?1.0f:2.5f,weapon==0?.09f:.18f);
     launch={weapon==0?.17f:weapon==1?.22f:.15f,weapon==0?.17f:weapon==1?.22f:.15f,weapon,true};
-    fire_timer+=WEAPON_COOLDOWNS[weapon];flash=.12f;fire_anim=WEAPON_ANIM_DURATIONS[weapon];int variant=weapon_sound_cursor[weapon]++%WEAPON_SOUND_VARIANTS;Sound &sound=weapon_sounds[weapon][variant];static constexpr float weapon_gains[]={.68f,.82f,.78f};play_sound(audio_device,audio_mixer,sound,AudioWeapon,5,weapon_gains[weapon]);
+    fire_timer+=WEAPON_COOLDOWNS[weapon];flash=.12f;fire_anim=WEAPON_ANIM_DURATIONS[weapon];int variant=weapon_sound_cursor[weapon]++%WEAPON_SOUND_VARIANTS;AudioClip &sound=weapon_sounds[weapon][variant];static constexpr float weapon_gains[]={.68f,.82f,.78f};audio_mixer.play(sound,AudioWeapon,5,weapon_gains[weapon]);
   };
   while(running){ Uint64 now=SDL_GetPerformanceCounter(); float dt=(float)((now-last)/(double)SDL_GetPerformanceFrequency()); last=now; if(dt>.05f)dt=.05f; SDL_Event event;
-    while(SDL_PollEvent(&event)){if(event.type==SDL_QUIT)running=false;if(event.type==SDL_KEYDOWN&&event.key.keysym.sym==SDLK_ESCAPE)running=false;if(event.type==SDL_KEYDOWN&&event.key.keysym.sym==SDLK_r&&health<=0)reset_combat();if(event.type==SDL_KEYDOWN&&event.key.keysym.sym>=SDLK_1&&event.key.keysym.sym<=SDLK_3){int selected=event.key.keysym.sym-SDLK_1;if(selected==0||(selected==1&&shotgun_unlocked)||(selected==2&&arc_unlocked))weapon=selected;}if(event.type==SDL_MOUSEBUTTONDOWN&&event.button.button==SDL_BUTTON_LEFT)trigger_held=true;if(event.type==SDL_MOUSEBUTTONUP&&event.button.button==SDL_BUTTON_LEFT)trigger_held=false;if(event.type==SDL_MOUSEMOTION){yaw-=event.motion.xrel*.0026f;pitch+=event.motion.yrel*.0026f;if(pitch>1.2f)pitch=1.2f;if(pitch< -1.2f)pitch=-1.2f;}}
-    if(music_device&&music.data&&SDL_GetQueuedAudioSize(music_device)<music.length/2)SDL_QueueAudio(music_device,music.data,music.length);
+    while(SDL_PollEvent(&event)){if(event.type==SDL_QUIT)running=false;if(event.type==SDL_KEYDOWN&&!event.key.repeat&&event.key.keysym.sym==SDLK_m){audio_muted=!audio_muted;audio_mixer.set_muted(audio_muted);}if(event.type==SDL_KEYDOWN&&event.key.keysym.sym==SDLK_ESCAPE)running=false;if(event.type==SDL_KEYDOWN&&event.key.keysym.sym==SDLK_r&&health<=0)reset_combat();if(event.type==SDL_KEYDOWN&&event.key.keysym.sym>=SDLK_1&&event.key.keysym.sym<=SDLK_3){int selected=event.key.keysym.sym-SDLK_1;if(selected==0||(selected==1&&shotgun_unlocked)||(selected==2&&arc_unlocked))weapon=selected;}if(event.type==SDL_MOUSEBUTTONDOWN&&event.button.button==SDL_BUTTON_LEFT)trigger_held=true;if(event.type==SDL_MOUSEBUTTONUP&&event.button.button==SDL_BUTTON_LEFT)trigger_held=false;if(event.type==SDL_MOUSEMOTION){yaw-=event.motion.xrel*.0026f;pitch+=event.motion.yrel*.0026f;if(pitch>1.2f)pitch=1.2f;if(pitch< -1.2f)pitch=-1.2f;}}
+    audio_mixer.set_listener(player.x,player.z,yaw);
     const Uint8 *keys=SDL_GetKeyboardState(nullptr);if(trigger_held||keys[SDL_SCANCODE_SPACE])fire_player_weapon();
     fire_timer=std::fmax(0.0f,fire_timer-dt);flash-=dt;fire_anim-=dt;hit_feedback-=dt;arc_flash-=dt;impact.life-=dt;if(launch.active){launch.life-=dt;if(launch.life<=0)launch.active=false;}
     if(projectile.active){float step_length=std::sqrt(projectile.vel.x*projectile.vel.x+projectile.vel.y*projectile.vel.y+projectile.vel.z*projectile.vel.z)*dt;projectile.pos=projectile.pos+projectile.vel*dt;projectile.travelled+=step_length;if(blocked(projectile.pos.x,projectile.pos.z)||projectile.pos.y<=.08f||projectile.pos.y>=ARENA_CEILING-.08f){impact={projectile.pos,.28f,3};projectile.active=false;play_projectile_impact(projectile.pos);}for(int i=0;i<ENEMY_COUNT;i++)if(projectile.active&&enemies[i].alive&&projectile_enemy_hit(projectile.pos,projectile.radius,enemies[i])){bool was_alive=enemies[i].alive;damage_enemy(enemies[i],projectile.damage,true,-1);play_enemy_hit(enemies[i].type,enemies[i].pos);impact={projectile.pos,.28f,2};projectile.active=false;play_projectile_impact(projectile.pos);hit_feedback=.12f;if(was_alive&&!enemies[i].alive)score+=100;}}
@@ -444,9 +430,10 @@ int main(int argc,char **argv) {
     }
     level_time+=dt;
     if(level_wave==0||level_wave==2||level_wave==4){int first=level_wave==0?0:level_wave==2?3:7,last_enemy=level_wave==0?3:level_wave==2?7:ENEMY_COUNT;bool any_alive=false;for(int i=first;i<last_enemy;i++)if(enemies[i].alive)any_alive=true;if(!any_alive){level_wave=level_wave==0?1:level_wave==2?3:5;if(level_wave==1)weapon_cache=true;else if(level_wave==3)arc_cache=true;}}
-    if(weapon_cache&&std::hypot(player.x,player.z-12.0f)<1.45f){weapon_cache=false;shotgun_unlocked=true;weapon=1;level_wave=2;for(int i=3;i<7;i++)enemies[i]=make_enemy(ENEMY_SPAWNS[i],ENEMY_HEALTH[i],ENEMY_TYPES[i]);play_sound(audio_device,audio_mixer,weapon_pickup_sound,AudioInterface,7,.88f);}
-    if(arc_cache&&std::hypot(player.x,player.z+12.0f)<1.45f){arc_cache=false;arc_unlocked=true;weapon=2;level_wave=4;for(int i=7;i<ENEMY_COUNT;i++)enemies[i]=make_enemy(ENEMY_SPAWNS[i],ENEMY_HEALTH[i],ENEMY_TYPES[i]);play_sound(audio_device,audio_mixer,weapon_pickup_sound,AudioInterface,7,.88f);}
+    if(weapon_cache&&std::hypot(player.x,player.z-12.0f)<1.45f){weapon_cache=false;shotgun_unlocked=true;weapon=1;level_wave=2;for(int i=3;i<7;i++)enemies[i]=make_enemy(ENEMY_SPAWNS[i],ENEMY_HEALTH[i],ENEMY_TYPES[i]);audio_mixer.play(weapon_pickup_sound,AudioInterface,7,.88f);}
+    if(arc_cache&&std::hypot(player.x,player.z+12.0f)<1.45f){arc_cache=false;arc_unlocked=true;weapon=2;level_wave=4;for(int i=7;i<ENEMY_COUNT;i++)enemies[i]=make_enemy(ENEMY_SPAWNS[i],ENEMY_HEALTH[i],ENEMY_TYPES[i]);audio_mixer.play(weapon_pickup_sound,AudioInterface,7,.88f);}
     if(health<0)health=0;
+    audio_mixer.set_listener(player.x,player.z,yaw);
     glViewport(0,0,W,H); glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT); glMatrixMode(GL_PROJECTION); glLoadIdentity(); float near=.05f, far=130, top=near*std::tan(60.0f*3.14159265f/360.0f), right_plane=top*(float)W/H; glFrustum(-right_plane,right_plane,-top,top,near,far); glMatrixMode(GL_MODELVIEW); glLoadIdentity(); float lightpos[]={0,3.3f,0,1}; glLightfv(GL_LIGHT0,GL_POSITION,lightpos); glRotatef(pitch*57.2958f,1,0,0); glRotatef(-yaw*57.2958f,0,1,0); glTranslatef(-player.x,-player.y,-player.z);
     float diffuse[]={1.0f,.28f,.08f,1}; if(flash>0){diffuse[1]=.75f;diffuse[2]=.35f;} glLightfv(GL_LIGHT0,GL_DIFFUSE,diffuse); float ambient[]={.09f,.025f,.02f,1}; glLightModelfv(GL_LIGHT_MODEL_AMBIENT,ambient); room(wall,floor,ceiling); if(weapon_cache)draw_weapon_cache({0,0,12},level_time);if(arc_cache)draw_weapon_cache({0,0,-12},level_time);for(int i=0;i<ENEMY_COUNT;i++)if(enemies[i].type>=0)enemy_model(enemy_directions,enemy_combat,enemies[i],enemies[i].type,player); if(projectile.active&&projectile.travelled>2.9f)draw_arc_world_trail(projectile.pos,projectile.vel,projectile.travelled);for(const auto &shot:visual_projectiles)if(shot.active)draw_projectile_sprite(projectile_sprites[shot.sprite][projectile_direction(shot.pos,shot.vel,player)],shot.pos,shot.vel,player,shot.sprite==PlayerPistolSprite?.52f:.76f,shot.sprite==PlayerPistolSprite?.24f:.34f);for(const auto &shot:enemy_projectiles)if(shot.active)draw_projectile_sprite(projectile_sprites[shot.sprite][projectile_direction(shot.pos,shot.vel,player)],shot.pos,shot.vel,player,shot.sprite==CultistFireSprite?.68f:.74f,shot.sprite==CultistFireSprite?.42f:.58f); draw_impact(impact); draw_first_person_launch(first_person_launches[launch.weapon],launch); draw_weapon_model(weapon_frames,weapon,fire_anim,hit_feedback>0); draw_arc_muzzle_flash(arc_muzzle_flash,arc_flash); if(health<=0) SDL_SetWindowTitle(window,"Eye Sore — fallen | R to restart descent"); else {char title[160];int alive=0;for(const auto &enemy:enemies)if(enemy.type>=0&&enemy.alive)alive++;const char *status=level_wave==1?"clear room, find shotgun cache":level_wave==3?"clear halls, find arc cache":level_wave==5?"descent clear":"combat active";std::snprintf(title,sizeof(title),"Eye Sore — %s | %d targets | hp %.0f | score %d | %s",status,alive,health,score,weapon==0?"ember pistol":weapon==1?"rivet shotgun":"arc cannon");SDL_SetWindowTitle(window,title);}
     if(record_pipe){record_accumulator+=dt;if(record_accumulator>=1.0f/15.0f){record_accumulator-=1.0f/15.0f;glPixelStorei(GL_PACK_ALIGNMENT,1);glReadPixels(0,0,W,H,GL_RGB,GL_UNSIGNED_BYTE,record_pixels.data());std::fwrite(record_pixels.data(),1,record_pixels.size(),record_pipe);}}
@@ -461,15 +448,9 @@ int main(int argc,char **argv) {
   for(auto &direction_set:projectile_sprites)for(GLuint sprite:direction_set)if(sprite)glDeleteTextures(1,&sprite);
   for(GLuint texture:first_person_launches)if(texture)glDeleteTextures(1,&texture);
   if(arc_muzzle_flash)glDeleteTextures(1,&arc_muzzle_flash);
-  if(audio_device)SDL_CloseAudioDevice(audio_device);
-  if(music_device)SDL_CloseAudioDevice(music_device);
-  for(auto &weapon_bank:weapon_sounds)for(auto &sound:weapon_bank)if(sound.data)SDL_FreeWAV(sound.data);
-  if(impact_sound.data)SDL_FreeWAV(impact_sound.data);
-  for(auto &sound:enemy_hit_sounds)if(sound.data)SDL_FreeWAV(sound.data);
-  if(enemy_cast_sound.data)SDL_FreeWAV(enemy_cast_sound.data);
-  if(player_damage_sound.data)SDL_FreeWAV(player_damage_sound.data);
-  if(weapon_pickup_sound.data)SDL_FreeWAV(weapon_pickup_sound.data);
-  if(music.data)SDL_FreeWAV(music.data);
+  AudioStats audio_stats=audio_mixer.stats();
+  audio_mixer.close();
+  std::fprintf(stderr,"Audio mix: pre-ceiling peak %.3f, limited frames %llu/%llu, stolen voices %llu, dropped voices %llu\n",audio_stats.pre_ceiling_peak,(unsigned long long)audio_stats.limited_frames,(unsigned long long)audio_stats.output_frames,(unsigned long long)audio_stats.stolen_voices,(unsigned long long)audio_stats.dropped_voices);
   if(record_pipe)pclose(record_pipe);
   SDL_SetRelativeMouseMode(SDL_FALSE); SDL_GL_DeleteContext(context); SDL_DestroyWindow(window); SDL_Quit(); return 0;
 }

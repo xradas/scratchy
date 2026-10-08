@@ -47,3 +47,13 @@ All enemy types are taller and broader than the 1.42-unit player viewpoint. Play
 This is the first concept-level pass. The next playtest should focus on whether the route between rooms reads clearly, whether the two caches feel rewarding, and whether enemy pressure rises at a fair pace.
 
 All gameplay, art direction, and sound direction are original. This is not a Doom build or port.
+
+## 3D audio playback
+
+Press `M` to mute or unmute all sound. Effects and the looping background now share one stereo 44.1 kHz device. Each WAV is independently validated and converted at load time to mono signed 16-bit 44.1 kHz; unsupported or missing clips print an error and remain silent. The mixer never loads files or allocates memory in its callback.
+
+`src/audio_mixer.h` exposes separate effect/background gains, listener updates, mute, background selection, and a device-locked reset. Clips must remain alive and unmodified until mixer shutdown. Positioned effects retain their emission location; their panning and attenuation follow the listener as you move and turn. Moving emitters are not followed after emission.
+
+Defaults reserve headroom (0.45 master, 0.8 effects, 0.22 background). Short attack/release ramps and 5 ms stolen-voice tails reduce clicks. Voice limits are 6 weapon, 14 combat, and 4 interface effects; replacement chooses the lowest priority, then the oldest voice, and rejects lower-priority arrivals. A safety ceiling controls exceptional overlap. On exit, stderr reports the peak before this ceiling, limited frames/total output frames, and stolen/dropped voices. Frequent limiting means clip or bus levels need reducing; the ceiling is not an asset loudness treatment. Reset clears effects and restarts the room bed under the audio device lock.
+
+This repairs playback; it does not change the existing provisional sound recordings or establish their artistic quality.
