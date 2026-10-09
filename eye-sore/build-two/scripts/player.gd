@@ -3,6 +3,7 @@ extends CharacterBody3D
 const SPEED: float = 8.0
 const ACCELERATION: float = 42.0
 const GRAVITY: float = 24.0
+const STEP_HEIGHT: float = 0.18
 var sensitivity: float = 0.002
 @onready var camera: Camera3D = $Camera3D
 
@@ -22,4 +23,10 @@ func _physics_process(delta: float) -> void:
 	velocity.z = move_toward(velocity.z, direction.z * SPEED, ACCELERATION * delta)
 	if not is_on_floor(): velocity.y -= GRAVITY * delta
 	else: velocity.y = 0.0
+	step_up(Vector3(velocity.x, 0, velocity.z) * delta)
 	move_and_slide()
+	apply_floor_snap()
+
+func step_up(motion: Vector3) -> void:
+	# A grounded step is a short clearance test, never a jump or an airborne boost.
+	preload("res://scripts/grounded_step.gd").climb(self, motion, STEP_HEIGHT)

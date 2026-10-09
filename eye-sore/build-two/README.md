@@ -1,48 +1,13 @@
-# Eyesore / The Pale Ward — playable combat/art review
+# Eyesore / The Pale Ward — connected playable level
 
-This is a new isolated Godot project for a standalone Linux Doom-inspired game. The rejected flat art is preserved. Three revised directions now show textured spatial depth, shaded weapon forms and stronger creature anatomy. **The Pale Ward / corrupted biotech is selected for the first level (9 October 2026).** Abelian is assigned to the main menu following your feedback. Separate level music candidates match the biotech and fortress settings.
+The selected corrupted-biotech concept is now an actual walkable 3D level. Containment tanks, dirty pale panels, infestation, a grated aisle, twelve broad physical stairs and the raised rear door follow the approved screenshot. The Bio Wing branches to an Operating Room key, a return shortcut, an elevated Rear Lab, a passenger lift and the discharge exit. A west service alcove is optional. Earlier projects, concepts and packages remain preserved.
 
-## Review the revised packets
+Run the new standalone Linux package from `/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/eyesore-pale-ward-level.x86_64`. Controls: WASD, mouse, left click, 1 pistol / 2 shotgun / 3 melee, E use, Tab visited-area map, Escape pause. Settings persist. Retry recreates the entire level and audio owner. Abelian plays on the title; Bestial Paragon Interface plays in the level.
 
-Open [concepts/index.html](concepts/index.html) in a browser, or run `python3 concepts/serve_review.py` and visit `http://127.0.0.1:8764/`. The page works from disk; the optional local server supports audio seeking. Each equally scoped packet includes a combat composition, palette/material studies, two enemy roles, pistol/shotgun studies, HUD thumbnail and sourced audio/music auditions. The primary image is a 320×180 scale test enlarged to 640×360; expand the original board for design detail. Separate captures show the actual Godot room.
+Source uses Godot **4.7.2 stable**, GDScript, Compatibility rendering and matching Linux export templates. `tools/godot.sh` verifies the pinned editor. The world renders at 640×360 with nearest scaling; HUD/menu text uses window resolution. See [setup](docs/FOUNDATION.md), [layout and interaction contracts](docs/PALE_WARD_LAYOUT.md), [current checkpoint](docs/NEXT_SESSION.md) and [verification](verification/INTEGRATION.json).
 
-- **The Pale Ward** — corrupted biotech facility.
-- **The Ash Citadel** — war-torn occult fortress.
-- **The Occupied Line** — invaded civic megastructure.
+The approved original board is under `concepts/visual-v2/corrupted-biotech`; faithful transparent creature and weapon adaptations are under `concepts/sprite-art-v1`. Environment generation prompts and byte-original raster provenance are under `concepts/environment-art-v1`. Generated art is explicitly credited, not described as hand-authored animation. Doom/Quake graphics or audio are not redistributed. [Visual credits](assets/VISUAL_CREDITS.md) and [audio credits](assets/audio/CREDITS.md) accompany the portable package.
 
-[Visual source and exact prompts](concepts/visual-v2/README.md) identify these as built-in imagegen concept studies. They are not hand-authored production sprites, models or animation sets. The [classic Doom visual audit](docs/DOOM_VISUAL_AUDIT.md) records spatial, silhouette, shading and weapon framing criteria. Original Doom assets are not used. The rejected coordinate packet remains under `concepts/rejected/coordinate-v1/`.
+Checks cover the full physical route, actual combat completion without secret supplies, title/pause/retry/map ownership, door ray/capsule blocking, actual lift transport, exact stair mesh/collision agreement, native fixed-tick stair and weapon cadence at 30/60/120 rendering FPS, and an actual stereo gameplay mix. These are automated checks and controlled actual game captures, not human approval or a five-to-eight-minute duration claim.
 
-The review plays lossless WAV references. OGG alternatives, selected unmodified originals, licenses and [audio credits](concepts/audio/README.md) are retained. You praised the music; sound effect and final gameplay mix approval remain pending. The selection record captures the explicit Pale Ward choice; the other packets remain reference studies.
-
-## Run the real 3D room preview
-
-The authored room has connected spaces, thick door reveals, raised walkable service access, machinery, original pixel materials and cast shadows. WASD moves; the mouse looks; Escape pauses and opens settings. Sensitivity, FOV and mute persist. The world renders at 640×360 with nearest scaling, while HUD/menu text uses window resolution. The source now contains combat logic, faithful transparent 2D creature/weapon adaptations of the approved board. Unsealed/Vessel now show representative walk, attack, pain and persistent corpse poses. Shared camera-facing alpha-query geometry follows their visible silhouettes; authored cage hardware routes armor contacts. This is a playable art review; its single-direction sprite poses still require full production animation and gameplay review. The previously exported room preview remains the movement-only build.
-
-Use **Godot 4.7.2 stable**, GDScript and the Compatibility renderer, with matching Linux export templates. [Setup and foundation details](docs/FOUNDATION.md) and [download evidence](verification/download_manifest.json) pin the toolchain.
-
-```sh
-tools/godot.sh --editor
-tools/godot.sh --headless -- --smoke-test
-tools/godot.sh --headless --script res://tools/check_geometry.gd
-tools/godot.sh --headless --export-release "Linux Portable" build/eyesore-pale-ward-sprite-review.x86_64
-```
-
-The Linux executable embeds its PCK and launches without the source project/editor. The preserved room-only export is a movement/display preview. New combat prototypes have separate dated filenames; none is a completed level.
-
-## Production and preservation
-
-The [production plan](docs/PRODUCTION_PLAN.md), [selection record](docs/SELECTION.md), [event contracts](docs/contracts-and-gates.md) and thirteen [specialist briefs](docs/specialists/README.md) carry the remaining work. Identity selection is recorded; integrated combat review precedes the 5–8 minute level. The [verification report](verification/INTEGRATION.json) separates completed preview checks from pending gameplay acceptance.
-
-All six prior worktrees, including uncommitted source/assets/research and local build outputs, were preserved separately. Dated archive branches were pushed to `xradas/scratchy` and exact remote commit IDs verified. See the [preservation manifest](docs/PRESERVATION.json). This project is on `codex/eyesore-build-two` in its own worktree.
-
-## Current audio correction
-
-The wet-impact audition was rejected. The replacement uses dry Doom/Quake-inspired contact and short pain grunts, still routed by weapon × actual hit material. See the [current listening page](concepts/audio-v3/index.html), with the longer death screams first and an actual isolated stereo game-output recording. The old wet pack remains labeled rejected research. New sounds require listening review; technical checks alone do not establish quality.
-
-Combat definitions and authoritative events now handle one-shell seven-pellet aggregation, finite ammo, attack interruption, deaths and reset. Native render-cap checks at30/60/120FPS produced identical fixed60Hz firing and movement. UI/audio integration separates menu, paused world and restart ownership. The full directional creature and weapon animation sets, selected level, route design and release playtest remain later gates.
-
-The 9 October Linux combat-art prototype includes pistol, shotgun, melee, approved-board weapon sprites and creature poses and the dry cue bank. Aiming uses an exact screen-center crosshair and horizontal FOV; recoil moves the weapon only. The portal floor gap is closed and the raised service ramp now uses the exact same visible/physical triangles. Creature-art integration is separate from the preserved room-only preview; a complete authored level is still pending.
-
-## Approved artwork reuse
-
-Following the user’s feedback, the current build uses direct transparent sprite adaptations of the approved Pale Ward board and that original composition on the title. [Sprite provenance, exact prompts and registration](concepts/sprite-art-v1/README.md) records built-in imagegen edits. Full8direction production remains pending; earlier meshes and Linux review binaries are preserved.
+This is a playable reference-based layout pass. Full eight-direction enemy art, richer animation, longer human-paced encounters, polished effects and final release review remain production work. The [original plan](docs/PRODUCTION_PLAN.md), [specialist briefs](docs/specialists/README.md) and [six-worktree preservation manifest](docs/PRESERVATION.json) retain the wider scope.

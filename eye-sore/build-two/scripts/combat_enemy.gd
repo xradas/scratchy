@@ -6,6 +6,7 @@ var definition: EnemyDefinition
 var target_id: String
 var health: float = 1.0
 var dead: bool = false
+var awake: bool = true
 var state: StringName = &"chase"
 var state_time: float = 0.0
 var attack_id: int = 0
@@ -43,6 +44,16 @@ func _physics_process(delta: float) -> void:
 	var offset := player.global_position - global_position
 	var distance := Vector2(offset.x, offset.z).length()
 	var visible := can_see_player()
+	if not awake:
+		if visible or (combat.weapon_phase == &"fire" and distance < 13.0):
+			awake = true
+		else:
+			velocity.x = 0; velocity.z = 0
+			if not is_on_floor(): velocity.y -= 24.0 * delta
+			else: velocity.y = 0.0
+			move_and_slide()
+			update_presentation()
+			return
 	if state == &"pain":
 		velocity.x = 0; velocity.z = 0
 		if state_time >= definition.pain_seconds: change_state(&"chase")
@@ -62,12 +73,24 @@ func _physics_process(delta: float) -> void:
 			combat.emit_event({"type": &"enemy_attack_warning", "enemy_kind": definition.identifier, "target_id": target_id, "attack_id": attack_id, "position": global_position})
 			velocity.x = 0; velocity.z = 0
 		else:
-			var direction := Vector3(offset.x, 0, offset.z).normalized()
+			var destination := player.global_position
+			if not visible and combat.world.has_method("get_chase_target"):
+				destination = combat.world.get_chase_target(global_position, destination)
+			var direction := Vector3(destination.x - global_position.x, 0, destination.z - global_position.z).normalized()
+			# Keep pursuit around containment machinery without pushing through solids.
+			if combat.world.has_method("get_chase_target") and direction.length_squared() > 0.01 and test_move(global_transform, direction * 0.65):
+				for angle in [55.0, -55.0, 85.0, -85.0]:
+					var alternative := direction.rotated(Vector3.UP, deg_to_rad(angle))
+					if not test_move(global_transform, alternative * 0.65):
+						direction = alternative
+						break
 			velocity.x = direction.x * definition.speed; velocity.z = direction.z * definition.speed
 			if direction.length_squared() > 0.01: rotation.y = atan2(-direction.x, -direction.z)
 	if not is_on_floor(): velocity.y -= 24.0 * delta
 	else: velocity.y = 0.0
+	preload("res://scripts/grounded_step.gd").climb(self, Vector3(velocity.x, 0, velocity.z) * delta)
 	move_and_slide()
+	apply_floor_snap()
 	# Physical proxy pose makes warning/pain/recovery readable before directional art is installed.
 	$Visual.rotation.z = 0.13 if state == &"windup" else (-0.12 if state == &"pain" else 0.0)
 	update_presentation()
@@ -99,6 +122,7 @@ func release_attack() -> void:
 
 func apply_damage(amount: float, shot_id: int, weapon_id: StringName, hit_position: Vector3, impact_material: StringName = &"") -> Dictionary:
 	if dead or amount <= 0.0 or seen_shots.has(shot_id): return {}
+	awake = true
 	seen_shots[shot_id] = true
 	health = maxf(0.0, health - amount)
 	var struck_material := definition.hit_material if impact_material == &"" else impact_material

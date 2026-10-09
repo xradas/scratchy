@@ -47,8 +47,14 @@ func reset() -> void:
 	cooldown = 0.0; empty_cooldown = 0.0; shot_counter = 0; kills = 0; dead = false
 	recoil_remaining = 0.0
 	if not is_instance_valid(world) or not is_instance_valid(player): return
-	spawn_enemy(&"unsealed", Vector3(0, 0.87, 10))
-	spawn_enemy(&"vessel", Vector3(2.0, 0.87, 2.5))
+	var authored := world.get_node_or_null("EnemySpawns")
+	if authored:
+		for marker in authored.get_children():
+			var enemy := spawn_enemy(StringName(marker.get_meta("kind", "unsealed")), marker.position)
+			enemy.awake = false
+	else:
+		spawn_enemy(&"unsealed", Vector3(0, 0.87, 10))
+		spawn_enemy(&"vessel", Vector3(2.0, 0.87, 2.5))
 	total_enemies = enemies.size()
 	emit_event({"type": &"encounter_started", "total_enemies": total_enemies})
 

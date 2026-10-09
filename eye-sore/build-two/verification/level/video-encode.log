@@ -1,0 +1,26 @@
+[aist#0:1/pcm_s16le @ 0x55778daa7b40] Guessed Channel Layout: stereo
+Input #0, avi, from '/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/pale-ward-gameplay.avi':
+  Duration: 00:00:35.73, start: 0.000000, bitrate: 28638 kb/s
+  Stream #0:0: Video: mjpeg (Baseline) (MJPG / 0x47504A4D), yuvj420p(pc, bt470bg/unknown/unknown), 1280x720 [SAR 1:1 DAR 16:9], 27116 kb/s, 30 fps, 30 tbr, 30 tbn
+  Stream #0:1: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (mjpeg (native) -> h264 (libx264))
+  Stream #0:1 -> #0:1 (pcm_s16le (native) -> aac (native))
+Press [q] to stop, [?] for help
+[swscaler @ 0x7fe1dc015a80] deprecated pixel format used, make sure you did set range correctly
+[libx264 @ 0x55778dab5980] using SAR=1/1
+[libx264 @ 0x55778dab5980] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2 AVX512
+[libx264 @ 0x55778dab5980] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 0x55778dab5980] 264 - core 165 r3222 b35605a - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=18 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/pale-ward-gameplay.mp4':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.102 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 192 kb/s
+    Metadata:
+      encoder         : Lavc63.1.102 aac
+frame=   55 fps=0.0 q=26.0 size=     768KiB time=00:00:04.22 bitrate=1489.5kbits/s speed=8.45x elapsed=0:00:00.50    frame=  163 fps=163 q=26.0 size=    2048KiB time=00:00:07.91 bitrate=2119.8kbits/s speed=7.91x elapsed=0:00:01.00    frame=  221 fps=147 q=26.0 size=    3584KiB time=00:00:09.74 bitrate=3011.5kbits/s speed= 6.5x elapsed=0:00:01.50    

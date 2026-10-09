@@ -77,13 +77,11 @@
     "Route balance and sustained outside-source complete-level Linux playtest."
   ],
   "known_issues": [
-    "One frontal monster direction only; full eight-direction walk/attack/pain/death production remains pending.",
-    "Generated pose, claw, vent and gun perspective/detail drift; four weapon poses/eight enemy poses remain representative.",
-    "Bounded128\u00d7192 alpha queries approximate source sub-cell details; conservative manually traced hardware polygons cover only clearly authored regions.",
-    "Enemy movement capsule remains narrower than extended sprite arms.",
-    "No finished level; direct-pursuit AI only.",
-    "Full level music choice/loop seams and sustained release playtest remain pending.",
-    "Godot audio import is serial to avoid observed threaded-import crashes."
+    "Playable reference-based art/layout pass; original5\u20138minute human duration and full polish not accepted.",
+    "Eight frontal enemy poses only; full eight-direction animation still pending; generated detail/perspective drift.",
+    "Three brief floor-flag transitions across12 stairs, identical at30/60/120 caps; nofall/jump/doorwaygap inroute checks.",
+    "Room graph pursuit/local obstacle steering are representative; sustained human encounter/release review remains pending.",
+    "Interaction world/UI audio remains limited; level music remains candidate assigned to biotech."
   ],
   "preserved_room_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-stage-one-2026-10-08/eyesore-room-preview-v2.x86_64",
@@ -93,21 +91,21 @@
     "scope": "Movement/display room preview; no combat, full level or ingame soundtrack."
   },
   "executable": {
-    "path": "/home/rikki/Builds/eyesore-pale-ward-sprites-2026-10-09/eyesore-pale-ward-sprite-review.x86_64",
-    "bytes": 95439912,
-    "sha256": "0d901d85eeabc0e1fd06f98fd5a97cb88cf8e6bf9ec4f89b771346356e17c1a3",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/eyesore-pale-ward-level.x86_64",
+    "bytes": 109081208,
+    "sha256": "da3d9871d41e8721b94c0bf0c70a6c052a1a25583d23e89e92c15e417ad6a4d5",
     "pck": "embedded",
-    "scope": "Approved-board2D sprite combat/art review; eight frontal enemy poses/four weapon poses; no finished level."
+    "scope": "Reference-based connected Pale Ward playable level art pass; eleven enemies; physical stairs, key-return, shortcut/secret, doors/lift, exit and visited automap. Native export smoke from /tmp; source live AI normal-ammo completion. Not a polished5\u20138minute final release."
   },
   "audio_capture": {
-    "file": "combat/board-sprite-driver-mix.wav",
-    "sha256": "119b51e91c1b8cdfd3663942b7815a56e3b124cdbb772e798ba02ce1cf01f702",
-    "duration": 17.979770833333333,
+    "file": "level/integrated-game-mix.wav",
+    "sha256": "5aaf2cb5fd3c9a863ad57b9e6e160e813d5567f4f0d6fb3feb6370dbdf7e0b3d",
+    "duration": 36.350839,
     "channels": 2,
-    "sample_rate": 48000,
-    "lufs": -24.77,
-    "true_peak_dbtp": -6.65,
-    "source": "Unnormalized native isolated PulseAudio game-only output after bus gains; actual contact/lifecycle fixture. No other desktop/microphone audio or subjective approval claimed."
+    "sample_rate": 44100,
+    "lufs": -22.25,
+    "true_peak_dbtp": -4.24,
+    "source": "Actual Master bus capture during native integrated normal AI combat/key/shortcut/stair/lift/exit playthrough, through isolated PulseAudio output. Unnormalized stereo, no desktop/microphone capture. Subjective listening approval not claimed."
   },
   "preserved_audio_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-stage-one-2026-10-08/eyesore-audio-combat-prototype.x86_64",
@@ -127,10 +125,7 @@
     "source": "Native isolated PulseAudio game output; no desktop/microphone capture."
   },
   "portable_archive": {
-    "path": "/home/rikki/Builds/eyesore-pale-ward-sprites-2026-10-09/eyesore-pale-ward-sprite-review-linux.tar.gz",
-    "bytes": 49766224,
-    "sha256": "fa620a1a391bd2861f456bfac01c98360e5470d2dec0108609bad619000f9d73",
-    "contents": "Embedded-assets executable, build record, README, visual/audio credits and engine/component notices; archived executable hash verified."
+    "status": "Packaging follows source checkpoint; prior sprite archive preserved separately."
   },
   "preserved_mesh_study_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-2026-10-09/eyesore-combat-art-review.x86_64",
@@ -148,5 +143,43 @@
     "lufs": -24.95,
     "true_peak_dbtp": -6.66,
     "source": "Native isolated PulseAudio game output after bus gains; no other desktop/microphone audio. Unnormalized controlled contact/lifecycle test, not subjective listening approval."
+  },
+  "preserved_sprite_executable": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-sprites-2026-10-09/eyesore-pale-ward-sprite-review.x86_64",
+    "bytes": 95439912,
+    "sha256": "0d901d85eeabc0e1fd06f98fd5a97cb88cf8e6bf9ec4f89b771346356e17c1a3",
+    "pck": "embedded",
+    "scope": "Approved-board2D sprite combat/art review; eight frontal enemy poses/four weapon poses; no finished level."
+  },
+  "preserved_sprite_portable_archive": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-sprites-2026-10-09/eyesore-pale-ward-sprite-review-linux.tar.gz",
+    "bytes": 49766224,
+    "sha256": "fa620a1a391bd2861f456bfac01c98360e5470d2dec0108609bad619000f9d73",
+    "contents": "Embedded-assets executable, build record, README, visual/audio credits and engine/component notices; archived executable hash verified."
+  },
+  "preserved_sprite_audio_capture": {
+    "file": "combat/board-sprite-driver-mix.wav",
+    "sha256": "119b51e91c1b8cdfd3663942b7815a56e3b124cdbb772e798ba02ce1cf01f702",
+    "duration": 17.979770833333333,
+    "channels": 2,
+    "sample_rate": 48000,
+    "lufs": -24.77,
+    "true_peak_dbtp": -6.65,
+    "source": "Unnormalized native isolated PulseAudio game-only output after bus gains; actual contact/lifecycle fixture. No other desktop/microphone audio or subjective approval claimed."
+  },
+  "level_verification": {
+    "physical_route": "combat/pale-ward-route.json",
+    "integrated_combat": "level/integrated-playtest.json",
+    "stair_cadence": "level/stair-cadence.json",
+    "weapon_cadence": "combat/pale-ward-timing.json",
+    "session": "level/session.log",
+    "native_export_smoke": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/smoke.log",
+    "actual_screenshots": "level/*.png",
+    "result": "All final checks pass. Live bot completed10/11 kills,health90.4,fiveshells; optionalsecretnotused. Source cadence30/60/120: identical stair endpoint and sixpistolshots120physicsticks; cache16poses/twoimages."
+  },
+  "gameplay_video": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/pale-ward-gameplay.mp4",
+    "original_recording": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/pale-ward-gameplay.avi",
+    "capture": "Godot Movie Maker actual main scene/render and actual stereo Master game audio, offlinefixed30FPS with normal60Hzphysics/AI, nosecret/cheats. 1072frames;36seconds. Automatedcamera/aim; sourceworld same runtime as export. MP4encoding only,no audio normalization."
   }
 }

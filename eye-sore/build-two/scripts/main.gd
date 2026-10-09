@@ -32,6 +32,9 @@ var closing: bool = false
 var title_art: TextureRect
 var weapon_layer: Control
 var muzzle_pending: bool = false
+var automap: Control
+var level_message: String = ""
+var level_complete: bool = false
 
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
@@ -107,6 +110,10 @@ func _ready() -> void:
 	hud_frame.content_margin_top = 8
 	hud.add_theme_stylebox_override("normal", hud_frame)
 	add_child(hud)
+	automap = preload("res://scripts/ward_automap.gd").new()
+	automap.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	automap.visible = false
+	add_child(automap)
 	build_menu()
 	setup_menu_music()
 	resized.connect(layout_view)
@@ -156,6 +163,9 @@ func layout_view() -> void:
 	hud.size = Vector2(world_image.size.x - 24, 58)
 	crosshair.size = Vector2(24, 24)
 	crosshair.position = world_image.position + world_image.size * 0.5 - crosshair.size * 0.5
+	if is_instance_valid(automap):
+		automap.position = world_image.position
+		automap.size = world_image.size
 	menu.position = (size - menu.size) * 0.5
 
 func build_menu() -> void:
@@ -194,6 +204,10 @@ func build_menu() -> void:
 	title_screen.text = "Return to title"
 	title_screen.pressed.connect(return_to_title)
 	column.add_child(title_screen)
+	var credits_button := Button.new()
+	credits_button.text = "Credits"
+	credits_button.pressed.connect(show_credits)
+	column.add_child(credits_button)
 	add_slider(column, "Mouse sensitivity", 0.0005, 0.006, 0.0001, sensitivity, func(value: float): sensitivity = value; player.sensitivity = value; save_settings())
 	add_slider(column, "Horizontal field of view", 60, 110, 1, field_of_view, func(value: float): field_of_view = value; player.get_node("Camera3D").fov = value; save_settings())
 	var mute := CheckButton.new()
@@ -207,8 +221,20 @@ func build_menu() -> void:
 	column.add_child(quit)
 	menu.reset_size()
 
+func show_credits() -> void:
+	var credits := AcceptDialog.new()
+	credits.title = "The Pale Ward / credits"
+	credits.dialog_text = "Eyesore — The Pale Ward\nOriginal environment geometry and gameplay: Eyesore project\nVisual assets adapted from approved Pale Ward concept art with OpenAI imagegen\n\nMusic: Zander Noriega\nAbelian — menu (CC BY 3.0)\nBestial Paragon Interface — level (CC BY 3.0)\n\nFirearms: Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney\nOther sound sources: qubodup, rubberduck, HaelDB (CC0)\nGodot Engine 4.7.2 — MIT\n\nFull source links, licenses and edits accompany the portable package."
+	credits.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(credits)
+	credits.confirmed.connect(credits.queue_free)
+	credits.canceled.connect(credits.queue_free)
+	credits.popup_centered(Vector2i(660, 470))
+
 func create_world() -> void:
-	world = preload("res://scenes/calibration.tscn").instantiate()
+	var scene_path := "res://scenes/calibration.tscn" if "--calibration" in OS.get_cmdline_user_args() else "res://scenes/pale_ward.tscn"
+	world = (load(scene_path) as PackedScene).instantiate()
+	world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	world_view.add_child(world)
 	player = world.get_node("Player")
 	player.collision_layer = 2
@@ -230,6 +256,10 @@ func create_world() -> void:
 			world.add_child(combat_audio)
 			combat_audio.setup(load("res://resources/combat_audio.tres"), false)
 		configure_combat_art()
+		if world.has_method("setup"):
+			world.setup(combat, player)
+			world.completed.connect(on_level_completed)
+			world.message_changed.connect(func(text: String): level_message = text)
 
 func configure_combat_art() -> void:
 	var manifest_path := "res://assets/combat_art.json"
@@ -282,7 +312,7 @@ func setup_menu_music() -> void:
 	menu_music.play()
 
 func enter_combat() -> void:
-	if is_instance_valid(combat) and combat.dead:
+	if level_complete or (is_instance_valid(combat) and combat.dead):
 		restart_combat()
 		return
 	started = true
@@ -292,6 +322,8 @@ func enter_combat() -> void:
 
 func restart_combat() -> void:
 	set_paused(true)
+	level_complete = false
+	level_message = ""
 	if is_instance_valid(combat_audio): combat_audio.stop_all()
 	combat_audio = null
 	combat = null
@@ -304,6 +336,8 @@ func restart_combat() -> void:
 
 func return_to_title() -> void:
 	set_paused(true)
+	level_complete = false
+	level_message = ""
 	if is_instance_valid(combat_audio): combat_audio.stop_all()
 	combat_audio = null
 	combat = null
@@ -328,6 +362,10 @@ func on_combat_event(event: Dictionary) -> void:
 func on_player_died() -> void:
 	call_deferred("set_paused", true)
 
+func on_level_completed() -> void:
+	level_complete = true
+	call_deferred("set_paused", true)
+
 func _process(delta: float) -> void:
 	if not is_instance_valid(hud): return
 	if not is_instance_valid(combat):
@@ -337,6 +375,12 @@ func _process(delta: float) -> void:
 	if is_instance_valid(title_art): title_art.visible = not started
 	hud.visible = started
 	status.visible = started and not get_tree().paused
+	if world.has_method("get_level_state"):
+		var level_state: Dictionary = world.get_level_state()
+		status.text = String(level_state.get("objective", "")) + "\n" + String(level_state.get("prompt", ""))
+		if not level_message.is_empty(): status.text += "\n" + level_message
+		if automap.visible:
+			automap.update_map(level_state, player.global_position, player.rotation.y)
 	hud.text = "HEALTH %d    ARMOR %d    PISTOL %d    SHELLS %d\n%s    KILLS %d/%d" % [state.health, state.armor, state.ammo_pistol, state.ammo_shotgun, String(state.weapon_id).to_upper(), state.kills, state.total_enemies]
 	var path: String = state.get("weapon_visual_path", "")
 	var atlas_definition: Dictionary = art_data.get("weapon_atlases", {}).get(String(state.weapon_id), {})
@@ -411,19 +455,27 @@ func _input(event: InputEvent) -> void:
 			set_paused(true)
 		elif started: set_paused(not get_tree().paused)
 		get_viewport().set_input_as_handled()
+	elif event is InputEventKey and event.pressed and not event.echo and started and not get_tree().paused:
+		if event.keycode == KEY_E and world.has_method("interact"):
+			world.interact()
+			get_viewport().set_input_as_handled()
+		elif event.keycode == KEY_TAB:
+			automap.visible = not automap.visible
+			get_viewport().set_input_as_handled()
 	elif not get_tree().paused and event is InputEventMouseMotion:
 		player._unhandled_input(event)
 		get_viewport().set_input_as_handled()
 
 func set_paused(value: bool) -> void:
 	get_tree().paused = value
+	if value and is_instance_valid(automap): automap.visible = false
 	menu.visible = value
 	crosshair.visible = not value
 	if is_instance_valid(menu_title):
 		var dead: bool = is_instance_valid(combat) and combat.dead
-		menu_title.text = "YOU DIED" if dead else ("PAUSED" if started else "EYESORE / THE PALE WARD")
-		resume_button.text = "Retry" if dead else ("Resume" if started else "Play")
-		menu_note.text = "Retry from the start." if dead else "WASD move · mouse look · left click fire\n1 pistol · 2 shotgun · 3 melee"
+		menu_title.text = "WARD ESCAPED" if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / THE PALE WARD"))
+		resume_button.text = "Play again" if level_complete else ("Retry" if dead else ("Resume" if started else "Play"))
+		menu_note.text = ("You reached the quarantine exit.\nKills %d/%d" % [combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1 pistol · 2 shotgun · 3 melee · E use · Tab map")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value else Input.MOUSE_MODE_CAPTURED
 
 func load_settings() -> void:
