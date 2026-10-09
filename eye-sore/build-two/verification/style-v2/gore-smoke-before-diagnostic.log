@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.71.09 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3060 Ti
+
+GORE_SMOKE_DIAGNOSTICS: {"accepted":true,"configured_pellets":7,"distance":4.0,"events":[{"direction":"(0.0, -0.092107, -0.995749)","material":"","pellets":7,"physics_tick":3,"position":"(0.0, 1.52, 11.0)","seed":8391,"shot_id":1,"target_id":"","time_seconds":0.05,"type":"shot","weapon_id":"shotgun"},{"material":"flesh","pellets":5,"position":"(-0.0, 1.15, 7.0)","shot_id":1,"target_id":"enemy_unsealed_0","type":"impact","weapon_id":"shotgun"},{"contact_position":"(-0.0, 1.15, 7.0)","damage":80.0,"direction":"(0.0, -0.092107, -0.995749)","enemy_kind":"unsealed","gibbed":false,"material":"flesh","overkill":0.0,"position":"(0.0, 0.87, 7.0)","shot_id":1,"target_id":"enemy_unsealed_0","type":"enemy_death","weapon_id":"shotgun"},{"material":"hard","pellets":2,"position":"(-0.987319, 0.0, -5.65073)","shot_id":1,"target_id":"41724937701","type":"impact","weapon_id":"shotgun"}],"victim_dead":true,"victim_gibbed":false,"victim_health_after":0.0,"victim_health_before":80.0}
+ERROR: SMOKE_FAILED: Actual shotgun shot did not gib victim
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] smoke_require (res://scripts/main.gd:200)
+       [1] run_smoke (res://scripts/main.gd:169)

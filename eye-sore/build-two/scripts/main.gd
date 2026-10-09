@@ -149,15 +149,44 @@ func run_smoke() -> void:
 		for enemy in combat.enemies:
 			enemy.set_physics_process(false); enemy.position.x = 80
 		var victim: CharacterBody3D = combat.enemies[0]
-		victim.position = Vector3(0,.87,7); victim.health = 80
-		player.camera.look_at(victim.global_position + Vector3(0,.28,0))
+		victim.position = Vector3(0,.87,9.5); victim.health = 80
+		# Fixed approved idle torso pixel, registered through the real native sprite.
+		# Close-range fixture keeps the authored seven-pellet spread within torso tissue.
+		victim.update_presentation()
+		var torso_pixel := Vector2(192,235)
+		var torso_alpha: float = victim.sprite.texture.get_image().get_pixelv(Vector2i(torso_pixel)).a
+		if not smoke_require(victim.sprite.frame == 0 and torso_alpha >= .5, "Gore fixture aim is not opaque idle torso"): return
+		var torso_world: Vector3 = victim.sprite_pivot.to_global(Vector3((torso_pixel.x-victim.sprite_foot.x)*victim.sprite.pixel_size,(victim.sprite_foot.y-torso_pixel.y)*victim.sprite.pixel_size,0))
+		player.camera.look_at(torso_world)
 		combat.currentweapon = &"shotgun"
 		await get_tree().physics_frame; await get_tree().physics_frame
+		var gore_events: Array[Dictionary] = []
+		combat.combat_event.connect(func(event: Dictionary) -> void: gore_events.append(event.duplicate(true)))
+		var health_before: float = victim.health
 		var accepted: bool = combat.try_fire()
+		var contact_pellets := 0
+		var resolved_damage := 0.0
+		var actual_overkill := 0.0
+		for event in gore_events:
+			if event.get("target_id", "") != victim.target_id: continue
+			if event.type == &"impact": contact_pellets += int(event.pellets)
+			if event.type in [&"enemy_hurt", &"enemy_death"]:
+				resolved_damage += float(event.damage)
+				actual_overkill = float(event.get("overkill", 0.0))
+		var diagnostics := {"accepted": accepted, "configured_pellets": combat.weapons[&"shotgun"].pellets, "victim_contact_pellets": contact_pellets, "resolved_damage": resolved_damage, "overkill": actual_overkill, "victim_health_before": health_before, "victim_health_after": victim.health, "victim_dead": victim.dead, "victim_gibbed": victim.gibbed, "distance": player.position.distance_to(victim.position), "torso_pixel": [torso_pixel.x,torso_pixel.y], "torso_alpha": torso_alpha, "torso_world": torso_world, "events": gore_events}
+		print("GORE_SMOKE_DIAGNOSTICS: ", JSON.stringify(diagnostics))
+		for argument in OS.get_cmdline_user_args():
+			if argument.begins_with("--capture-prefix="):
+				var diagnostic_path := argument.trim_prefix("--capture-prefix=") + "-diagnostic.json"
+				var diagnostic_file := FileAccess.open(diagnostic_path, FileAccess.WRITE)
+				if not smoke_require(diagnostic_file != null, "Cannot write gore diagnostic: " + diagnostic_path): return
+				diagnostic_file.store_string(JSON.stringify(diagnostics, "  ") + "\n")
+				diagnostic_file.close()
 		if not smoke_require(accepted and victim.dead and victim.gibbed,"Actual shotgun shot did not gib victim"): return
+		if not smoke_require(health_before == 80 and combat.weapons[&"shotgun"].pellets == 7 and contact_pellets == 7 and actual_overkill >= 16,"Close torso fixture did not resolve seven real pellets with required overkill"): return
 		await get_tree().create_timer(2.7).timeout
 		if not smoke_require(combat.gore.remains.size() == 9 and combat.gore.particles.is_empty(),"Gore did not settle into nine pieces"): return
-		player.camera.look_at(Vector3(0,.2,7))
+		player.camera.look_at(Vector3(0,.2,9.5))
 		if not await capture_smoke_frame("gore"): return
 		restart_combat()
 		if not smoke_require(Input.mouse_mode == Input.MOUSE_MODE_VISIBLE, "Automated retry attempted pointer capture"): return

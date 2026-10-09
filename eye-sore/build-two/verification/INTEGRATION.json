@@ -347,6 +347,18 @@
     "shot_cadence": "style-v2/shot-cadence-native.json",
     "first_run_hitch_ms": 155.14,
     "integrated_route": "style-v2/final-integration/20261009T182939Z-7cbc0780/summary.json",
-    "art_observations": "Shared visible pixel size and reduced world glare implemented. Native capture reviewed; weapon still has broad shiny highlights and creature/source detail drift. Full approved style and directional production remain pending."
+    "art_observations": "Shared visible pixel size and reduced world glare implemented. Native capture reviewed; weapon still has broad shiny highlights and creature/source detail drift. Full approved style and directional production remain pending.",
+    "native_smoke_fixture": {
+      "original_failure": "style-v2/gore-smoke-before-diagnostic-diagnostic.json",
+      "explanation": "4m spread emitted7 pellets,5 contacted the narrower visible body:80damage,0overkill,dead but not gibbed; gameplay worked correctly.",
+      "corrected_close_source": "style-v2/gore-smoke-close-diagnostic.json",
+      "distance_m": 1.5,
+      "health": 80,
+      "actual_pellet_contacts": 7,
+      "resolved_damage": 112,
+      "overkill": 32,
+      "gibbed": true,
+      "scope": "Smoke fixture only; gameplay health/damage/masks unchanged."
+    }
   }
 }

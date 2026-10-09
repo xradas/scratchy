@@ -7,6 +7,8 @@ from __future__ import annotations
 
 import argparse
 import configparser
+from contextlib import contextmanager
+from datetime import datetime, timezone
 import gzip
 import hashlib
 import json
@@ -118,6 +120,32 @@ def source_snapshot(extra: list[Path]) -> dict[str, str]:
 
 def write_json(path: Path, data: dict) -> None:
     path.write_text(json.dumps(data, indent=2, sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+
+@contextmanager
+def package_stage(destination: Path, plan: dict):
+    """Retain complete staging evidence on failure outside accepted package paths."""
+    with tempfile.TemporaryDirectory(prefix=".pale-ward-package-", dir=destination.parent) as temporary:
+        stage = Path(temporary)
+        try:
+            yield stage
+        except BaseException as error:
+            evidence_root = destination / "failure-evidence"
+            evidence_root.mkdir(parents=True, exist_ok=True)
+            stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%SZ")
+            evidence = Path(tempfile.mkdtemp(prefix=stamp + "-", dir=evidence_root))
+            shutil.copytree(stage, evidence / "staging")
+            retained = {path.relative_to(stage).as_posix(): file_record(path)
+                        for path in sorted(stage.rglob("*")) if path.is_file()}
+            write_json(evidence / "FAILURE.json", {
+                "passed": False, "status": "packaging_failed",
+                "error_type": type(error).__name__, "error": str(error),
+                "plan": plan, "retained_staging_files": retained,
+                "scope": "Unaccepted diagnostic staging files only; no successful package is established by this evidence.",
+            })
+            print(f"Failed packaging evidence retained: {evidence}", file=sys.stderr)
+            raise
 
 
 def create_archive(stage: Path, archive: Path, epoch: int) -> None:
@@ -241,8 +269,7 @@ def package(args: argparse.Namespace) -> dict:
     if args.dry_run:
         return plan
     destination.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix=".pale-ward-package-", dir=destination.parent) as temporary:
-        stage = Path(temporary)
+    with package_stage(destination, plan) as stage:
         wrapper = str(PROJECT / "tools/godot.sh")
         if checked([wrapper, "--version"], cwd=PROJECT) != version:
             raise PackagingError("Pinned wrapper engine changed after validation")
