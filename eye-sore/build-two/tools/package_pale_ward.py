@@ -252,7 +252,7 @@ def package(args: argparse.Namespace) -> dict:
         with tempfile.TemporaryDirectory(prefix="pale-ward-smoke-", dir="/tmp") as smoke_home:
             smoke_env = os.environ.copy()
             smoke_env.update(XDG_CONFIG_HOME=str(Path(smoke_home) / "config"), XDG_DATA_HOME=str(Path(smoke_home) / "data"))
-            smoke_output = checked([str(executable), "--path", "/tmp", "--", "--smoke-test", "--gore-smoke",
+            smoke_output = checked([str(executable), "--", "--smoke-test", "--gore-smoke",
                      "--automated-input", "--force-offscreen-draw",
                      f"--capture-prefix={stage / 'export'}"], cwd=Path("/tmp"), env=smoke_env,
                     timeout=args.smoke_timeout, log=stage / "smoke.log", markers=MARKERS)
