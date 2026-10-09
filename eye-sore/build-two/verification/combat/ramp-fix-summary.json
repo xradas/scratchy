@@ -1,0 +1,84 @@
+{
+  "verified_utc": "2026-10-09T11:17:06.156812+00:00",
+  "before": {
+    "visible_riser_z": 10.7,
+    "actual_ray_ramp_z": 10.4866666793823,
+    "mismatch_units": 0.2133333206177
+  },
+  "after": {
+    "mesh": "resources/service_ramp_mesh.tres",
+    "visible_unique_vertices": 6,
+    "collision_unique_vertices": 6,
+    "triangles": 8,
+    "ray_intersection_error_units": 0.0,
+    "descending_gameplay_speed": 8,
+    "descending_unsupported_physics_frames": 0,
+    "ascending_no_jump": "passed",
+    "solid_geometry_pairs": 53,
+    "offline_reproduction": "verified in temporary directory; ramp and portal fix preserved",
+    "native_visual": "geometry-only native actual-engine screenshot inspected; not final gameplay presentation"
+  },
+  "additional_review": {
+    "shotgun_contact_counts": [
+      {
+        "damage": 112.0,
+        "distance": 4.0,
+        "pellets": 7
+      },
+      {
+        "damage": 80.0,
+        "distance": 8.0,
+        "pellets": 5
+      },
+      {
+        "damage": 80.0,
+        "distance": 12.0,
+        "pellets": 5
+      },
+      {
+        "damage": 16.0,
+        "distance": 20.0,
+        "pellets": 1
+      },
+      {
+        "damage": 16.0,
+        "distance": 35.0,
+        "pellets": 1
+      }
+    ],
+    "moving_wall_rays_blocked": 60,
+    "moving_player_wall_stop_z": -17.69969,
+    "extra_crosshair_layout_cases": [
+      {
+        "camera_forward_matches": true,
+        "window": "(641.0, 361.0)",
+        "world_ray_pixel": "(320.0, 180.0)"
+      },
+      {
+        "camera_forward_matches": true,
+        "window": "(639.0, 359.0)",
+        "world_ray_pixel": "(320.0, 180.0)"
+      },
+      {
+        "camera_forward_matches": true,
+        "window": "(1920.0, 1080.0)",
+        "world_ray_pixel": "(320.0, 180.0)"
+      },
+      {
+        "camera_forward_matches": true,
+        "window": "(3440.0, 1440.0)",
+        "world_ray_pixel": "(320.0, 180.0)"
+      }
+    ],
+    "subjective_aim_balance_or_art_approval": "not claimed"
+  },
+  "changed_geometry_files": {
+    "scenes/calibration.tscn": "11680d506c10d16930ad8bfd7a4cf24c370d260b8c023ad415e118cb28256d3c",
+    "resources/service_ramp_mesh.tres": "b07186458a735a596f74eb2515c9cdd0acdb00703e357278338eb883de81615f",
+    "tools/build_service_ramp.gd": "0c65cebed7d7dc8a82c2bf806ac6e611e5df7b3bc9c55e79477b4eaad8e33c22",
+    "tools/author_environment.py": "0842a0f4bab5d1128fb9e098af613633ad3b712813311c786737ee052c824737",
+    "tools/check_geometry.gd": "31586af0381a6b62274e6046fe53d6b8a21b4271c31300efb0f864c843a8499b",
+    "tools/check_review_geometry.gd": "269bc68fcdb4f7e2c13972fc313874c8f2e4aa595949181203e063da77632ec7"
+  },
+  "scope": "Concrete rendered-stair/physics-shot mismatch bugfix only. No main/combat/player/music/Git/export or full level production."
+}

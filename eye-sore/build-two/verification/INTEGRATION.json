@@ -1,6 +1,6 @@
 {
-  "checked_utc": "2026-10-08T23:47:26.294852+00:00",
-  "stage": "Combat/audio review prototype; identity and listening approval pending",
+  "checked_utc": "2026-10-09T11:51:12.029842+00:00",
+  "stage": "9 October playable Pale Ward combat/art review; integrated combat and visual acceptance pending",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
   "renderer": "Compatibility",
@@ -11,12 +11,14 @@
     "visual_packets": "3 generated dimensional boards with exact prompts/provenance; unchanged source hashes; 640x360 scene crops and 320x180 scale previews verified. Concept art only, not production sprites.",
     "audio_packets": "11 selected original sources, 10 WAV references, 10 OGG copies; all31 audio hashes unchanged. User praised music; SFX and final game mix acceptance pending.",
     "review": "Current dry page: 50 audio controls decode; death comparison seek/play, one-player policy, mobile layout and HTTP resources passed. Native isolated game output captured nonzero stereo; user listening approval pending.",
-    "foundation": "Rebuilt connected real3D room;52 shared mesh/shape dimensions verified; no-jump walkway traversal passed; clean import and standard-template export; outside-source headless/native launch and pause/settings/display/bus smoke passed without warnings or errors.",
+    "foundation": "Doorway floor gap closed; visible and physical service ramp use exact same triangles. Shared room geometry and bidirectional grounded portal/walkway tests pass. Native standard-template export launched from /tmp without warnings/errors.",
     "doom_reference": "Publisher reference audit records spatial depth, shading, threat mass, weapon framing and game-scale readability criteria; no copied Doom assets.",
-    "combat": "Pistol/7-pellet shotgun/melee; finite ammo, physics contacts, projectile sweeps, interruption, death and reset assertions passed. Native 30/60/120 caps produced identical fixed-physics cadence and grounded movement.",
+    "combat": "Fixed camera aim/unscaled mouse; exact screen-center crosshair; horizontal FOV. Pistol20/shotgun16\u00d77/melee30, HP80/160. Actual live-rig close-range kill counts4/8,1/2,3/6 respectively. Native30/60/120 repeated firing with live AI/posed meshes retains6 shots/30 ammo over120 fixed physics ticks.",
     "audio": "23 runtime SFX plus three stereo music files. Weapon/material contacts, distinct short pain, two longer death screams, title-only Abelian, paused level mix, mute and reset ownership verified. Original sources/edits/licenses retained; wet pack rejected.",
-    "weapon_prototypes": "Original authored Godot meshes rendered into transparent idle/fire/recover/switch poses and muzzle flash; complete animation and creature sprites remain pending.",
-    "export": "Embedded-PCK Linux prototype exported with standard templates and launched from /tmp. Native viewport/settings/pause/bus smoke passed; no sustained full-level playtest claimed."
+    "weapon_prototypes": "Original mesh-rendered v2 dark weapon studies:12 binary-alpha320\u00d7180 poses with stable anchors and freshly projected muzzle markers. Raw renders, authoring/pixel-finish source and Pillow pin retained. Four poses per weapon, not completed animation.",
+    "export": "New embedded-PCK Linux combat/art review exported and launched from /tmp; real viewport/settings/pause/bus smoke passed without warnings/errors. Separate dated package contains credits and pinned-engine licenses. Earlier binaries preserved. No sustained complete-level playtest claimed.",
+    "creature_prototypes": "Original authored continuous3D mesh rigs integrated as representative Unsealed/Vessel studies with chase, committed attack, recovery, pain and persistent corpses; art has no damage/audio ownership. Exact posed triangle contacts distinguish actual flesh/armor, visible limbs and silhouette gaps; movement capsules excluded from hitscan. Player blocks on actor capsules; death disables hurt geometry.",
+    "identity_selection": "User explicitly selected Corrupted biotech \u2014 The Pale Ward on9October2026 for the first playable art pass/first level. Concept quality target remains separate from acceptance of simplified runtime studies."
   },
   "evidence": [
     "revised-assets.json",
@@ -33,21 +35,35 @@
     "combat/audio-browser-check.json",
     "combat/driver-mix-levels.txt",
     "combat/integrated-export.log",
-    "combat/export-outside-windowed.log"
+    "combat/export-outside-windowed.log",
+    "combat/creature-aim-balance.log",
+    "combat/creature-contacts.json",
+    "combat/live-room-timing.json",
+    "combat/final-combat.log",
+    "combat/final-art-geometry.log",
+    "combat/remaining-physics-audit.json",
+    "combat/art-review-sound-scene.log",
+    "combat/art-review-driver-mix.wav",
+    "combat/art-review-driver-levels.txt",
+    "combat/art-review-final-import.log",
+    "combat/art-review-export.log",
+    "combat/art-review-export-outside.log",
+    "combat/art-shotgun.png",
+    "combat/art-corpses.png",
+    "combat/art-review-provenance.json"
   ],
   "pending": [
-    "Final first-level setting selection after praise for biotech and Ash Citadel.",
     "User listening review of dry contacts, hurt/death and actual stereo mix.",
     "Complete directional creature and weapon animation sets and integrated combat review.",
     "One 5\u20138 minute authored level, doors/lift/key-return route, automap and full session UI.",
     "Route balance and sustained outside-source complete-level Linux playtest."
   ],
   "known_issues": [
-    "Enemies are neutral collision proxies, not approved character designs.",
-    "Weapon poses are mesh-rendered prototypes, not complete authored animation.",
+    "Simplified creature/weapon studies remain below approved concept detail and require actual gameplay art review.",
+    "Four weapon poses and procedural creature poses are representative studies, not complete authored animation sets.",
+    "Enemy movement capsule is narrower than its outstretched visual arms.",
     "No complete level; navigation uses direct pursuit only.",
-    "Music looping seams and setting-specific choice remain pending.",
-    "Visible stair risers use a smooth traversal collider; precise combat correspondence remains a later gate.",
+    "Music loop seams and final level-music choice remain pending.",
     "Godot threaded audio import instability mitigated with serial editor imports.",
     "Selected originals/licenses included in source; large download archives retained locally."
   ],
@@ -59,13 +75,30 @@
     "scope": "Movement/display room preview; no combat, full level or ingame soundtrack."
   },
   "executable": {
+    "path": "/home/rikki/Builds/eyesore-build-two-2026-10-09/eyesore-combat-art-review.x86_64",
+    "bytes": 88517408,
+    "sha256": "9c2284c075c603ec2d954079967064376a315b515c9374fcf347e2b143c0a785",
+    "pck": "embedded",
+    "scope": "Playable combat/art room review with aim/balance/floor/ramp fixes and live creature studies; no completed level."
+  },
+  "audio_capture": {
+    "file": "combat/art-review-driver-mix.wav",
+    "sha256": "b95ec4f35500696db1b1bceaeed6aa655bb60edb89168238c09bb78357ca0f45",
+    "duration": 17.943916666666667,
+    "channels": 2,
+    "sample_rate": 48000,
+    "lufs": -24.95,
+    "true_peak_dbtp": -6.66,
+    "source": "Native isolated PulseAudio game output after bus gains; no other desktop/microphone audio. Unnormalized controlled contact/lifecycle test, not subjective listening approval."
+  },
+  "preserved_audio_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-stage-one-2026-10-08/eyesore-audio-combat-prototype.x86_64",
     "bytes": 88504720,
     "sha256": "ea9683c50d18125853fb1449c98bbe40b2ddaedf50c4a322718ed314153ae0a5",
     "pck": "embedded",
     "scope": "Combat/audio calibration prototype; enemy capsule proxies; no full level."
   },
-  "audio_capture": {
+  "previous_audio_capture": {
     "file": "combat/actual-driver-mix.wav",
     "sha256": "3aac297f79650307a2d4a1d37771ab2c0117b18bac5e580ff3ee335a924e67e2",
     "duration": 17.944,
@@ -74,5 +107,11 @@
     "lufs": -24.65,
     "true_peak_dbtp": -6.62,
     "source": "Native isolated PulseAudio game output; no desktop/microphone capture."
+  },
+  "portable_archive": {
+    "path": "/home/rikki/Builds/eyesore-build-two-2026-10-09/eyesore-combat-art-review-linux.tar.gz",
+    "sha256": "69343f4fb392376b7c21d1cf8ebae169b89a83d85ae8b35e0adb664d330393cb",
+    "bytes": 42915066,
+    "contents": "Executable with embedded PCK, README, build record, audio credits and engine/component licenses; executable hash verified inside archive."
   }
 }

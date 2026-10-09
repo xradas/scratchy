@@ -14,6 +14,8 @@ var seen_shots: Dictionary = {}
 var sprite_clips: Dictionary = {}
 var sprite_directions: int = 1
 var sprite: Sprite3D
+var visual_rig: Node3D
+var hurt_shapes: Array[StaticBody3D] = []
 
 func setup(controller: Node3D, actor: CharacterBody3D, data: EnemyDefinition, id: String) -> void:
 	combat = controller; player = actor; definition = data; target_id = id; health = definition.health
@@ -27,11 +29,10 @@ func make_proxy_material(color: Color) -> StandardMaterial3D:
 func _physics_process(delta: float) -> void:
 	if dead:
 		state_time += delta
-		update_sprite()
+		update_presentation()
 		return
 	if not is_instance_valid(player) or combat.dead: return
 	state_time += delta
-	update_sprite()
 	var offset := player.global_position - global_position
 	var distance := Vector2(offset.x, offset.z).length()
 	var visible := can_see_player()
@@ -49,6 +50,7 @@ func _physics_process(delta: float) -> void:
 		if state_time >= definition.recovery_seconds: change_state(&"chase")
 	else:
 		if visible and distance <= definition.attack_range:
+			rotation.y = atan2(-offset.x, -offset.z)
 			attack_id += 1; released = false; change_state(&"windup")
 			combat.emit_event({"type": &"enemy_attack_warning", "enemy_kind": definition.identifier, "target_id": target_id, "attack_id": attack_id, "position": global_position})
 			velocity.x = 0; velocity.z = 0
@@ -61,9 +63,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	# Physical proxy pose makes warning/pain/recovery readable before directional art is installed.
 	$Visual.rotation.z = 0.13 if state == &"windup" else (-0.12 if state == &"pain" else 0.0)
+	update_presentation()
 
 func change_state(next: StringName) -> void:
 	state = next; state_time = 0.0
+	update_presentation()
 
 func can_see_player() -> bool:
 	if dead or not is_instance_valid(player): return false
@@ -75,31 +79,72 @@ func release_attack() -> void:
 	released = true
 	if definition.ranged:
 		var origin := global_position + Vector3(0, 0.4, 0)
+		if is_instance_valid(visual_rig) and visual_rig.has_method("get_projectile_origin"):
+			origin = visual_rig.get_projectile_origin()
 		var direction := (player.global_position + Vector3(0, 0.3, 0) - origin).normalized()
-		combat.launch_projectile(self, origin + direction * 0.5, direction)
+		combat.launch_projectile(self, origin + direction * 0.12, direction)
 		combat.emit_event({"type": &"projectile_release", "enemy_kind": definition.identifier, "target_id": target_id, "attack_id": attack_id, "position": origin})
 	else:
 		combat.receive_player_damage(definition.damage, target_id, player.global_position)
 		combat.emit_event({"type": &"enemy_melee_release", "enemy_kind": definition.identifier, "target_id": target_id, "attack_id": attack_id, "position": global_position})
 
-func apply_damage(amount: float, shot_id: int, weapon_id: StringName, hit_position: Vector3) -> Dictionary:
+func apply_damage(amount: float, shot_id: int, weapon_id: StringName, hit_position: Vector3, impact_material: StringName = &"") -> Dictionary:
 	if dead or amount <= 0.0 or seen_shots.has(shot_id): return {}
 	seen_shots[shot_id] = true
 	health = maxf(0.0, health - amount)
-	var event := {"type": &"enemy_hurt", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": definition.hit_material, "position": hit_position, "damage": amount}
+	var struck_material := definition.hit_material if impact_material == &"" else impact_material
+	var event := {"type": &"enemy_hurt", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": struck_material, "position": hit_position, "damage": amount}
 	# Pain always cancels a pending unreleased strike; a fresh windup is needed after pain.
 	released = true
 	if health <= 0.0:
 		dead = true; change_state(&"dead"); collision_layer = 0; collision_mask = 0; velocity = Vector3.ZERO
+		for hurt_shape in hurt_shapes: hurt_shape.collision_layer = 0
 		$Visual.rotation.z = PI / 2; $Visual.position.y = -0.5
 		if is_instance_valid(sprite): update_sprite()
-		event = {"type": &"enemy_death", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": definition.hit_material, "position": global_position}
+		event = {"type": &"enemy_death", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": struck_material, "position": global_position}
 		combat.emit_event(event)
 		combat.enemy_killed(self)
 	else:
 		combat.emit_event(event)
 		change_state(&"pain")
 	return event
+
+func configure_live_visual(scene_path: String) -> void:
+	if is_instance_valid(visual_rig): visual_rig.queue_free()
+	hurt_shapes.clear()
+	visual_rig = (load(scene_path) as PackedScene).instantiate()
+	add_child(visual_rig)
+	visual_rig.configure(definition.identifier)
+	$Visual.visible = false
+	if is_instance_valid(sprite): sprite.visible = false
+	attach_hurt_geometry(visual_rig)
+	update_presentation()
+
+func attach_hurt_geometry(node: Node3D) -> void:
+	# Exact triangle surfaces follow the authored joints, preserving mouth/rib gaps.
+	# These query-only bodies never push actors; the movement capsule is separate.
+	for child in node.get_children():
+		if child is MeshInstance3D and child.mesh:
+			var hurt_body := StaticBody3D.new()
+			hurt_body.name = "HurtSurface"
+			hurt_body.collision_layer = 4
+			hurt_body.collision_mask = 0
+			hurt_body.set_meta("combat_target", self)
+			hurt_body.set_meta("hit_material", child.get_meta("hit_material", definition.hit_material))
+			var shape := CollisionShape3D.new()
+			shape.name = "HitSurface"
+			shape.shape = child.mesh.create_trimesh_shape()
+			shape.shape.backface_collision = true
+			hurt_body.add_child(shape)
+			child.add_child(hurt_body)
+			hurt_shapes.append(hurt_body)
+		elif child is Node3D:
+			attach_hurt_geometry(child)
+
+func update_presentation() -> void:
+	if is_instance_valid(visual_rig):
+		visual_rig.present(state, state_time, definition.windup_seconds, definition.recovery_seconds, definition.pain_seconds)
+	update_sprite()
 
 ## Sheet convention: each direction is one row, animation frames occupy columns.
 ## clips maps chase/windup/recovery/pain/dead to Vector2i(first_column, frame_count).

@@ -109,6 +109,9 @@ func resolve_shot(definition: WeaponDefinition, origin: Vector3, forward: Vector
 	var rng := RandomNumberGenerator.new(); rng.seed = seed_value
 	var pattern_rotation := rng.randf_range(-0.12, 0.12)
 	var hits: Dictionary = {}
+	var exclusions: Array = [player.get_rid()]
+	for enemy in enemies:
+		if is_instance_valid(enemy) and not enemy.hurt_shapes.is_empty(): exclusions.append(enemy.get_rid())
 	for pellet in range(definition.pellets):
 		# One exact-center pellet plus an even ring avoids random empty-center volleys.
 		var yaw := 0.0
@@ -118,24 +121,33 @@ func resolve_shot(definition: WeaponDefinition, origin: Vector3, forward: Vector
 			yaw = deg_to_rad(cos(angle) * definition.spread_degrees)
 			pitch = deg_to_rad(sin(angle) * definition.vertical_spread_degrees)
 		var direction := forward.rotated(Vector3.UP, yaw).rotated(camera.global_basis.x, pitch).normalized()
-		var hit := ray(origin, origin + direction * definition.range_units, [player.get_rid()])
+		var hit := ray(origin, origin + direction * definition.range_units, exclusions, true)
 		if hit.is_empty(): continue
 		var collider: Object = hit.collider
+		var contact_material := material_for(collider)
+		if collider.has_meta("combat_target"):
+			collider = collider.get_meta("combat_target")
 		var key := collider.get_instance_id()
-		if not hits.has(key): hits[key] = {"collider": collider, "position": hit.position, "damage": 0.0, "pellets": 0}
+		if not hits.has(key): hits[key] = {"collider": collider, "position": hit.position, "damage": 0.0, "pellets": 0, "materials": {}}
 		hits[key].damage += definition.damage; hits[key].pellets += 1
+		hits[key].materials[contact_material] = hits[key].materials.get(contact_material, 0) + 1
 	for value in hits.values():
 		var collider: Object = value.collider
 		var target_id: String = collider.target_id if collider.has_method("apply_damage") else str(collider.get_instance_id())
 		var material := material_for(collider)
+		var most_contacts := 0
+		for struck_material in value.materials:
+			if value.materials[struck_material] > most_contacts:
+				material = struck_material
+				most_contacts = value.materials[struck_material]
 		emit_event({"type": &"impact", "weapon_id": definition.identifier, "shot_id": shot_id, "target_id": target_id, "material": material, "position": value.position, "pellets": value.pellets})
 		if collider.has_method("apply_damage"):
-			collider.apply_damage(value.damage, shot_id, definition.identifier, value.position)
+			collider.apply_damage(value.damage, shot_id, definition.identifier, value.position, material)
 
-func ray(from: Vector3, to: Vector3, exclude: Array = []) -> Dictionary:
+func ray(from: Vector3, to: Vector3, exclude: Array = [], anatomical_hits: bool = false) -> Dictionary:
 	var typed_exclude: Array[RID] = []
 	typed_exclude.assign(exclude)
-	var query := PhysicsRayQueryParameters3D.create(from, to, 3, typed_exclude)
+	var query := PhysicsRayQueryParameters3D.create(from, to, 7 if anatomical_hits else 3, typed_exclude)
 	return get_world_3d().direct_space_state.intersect_ray(query)
 
 func material_for(collider: Object) -> StringName:

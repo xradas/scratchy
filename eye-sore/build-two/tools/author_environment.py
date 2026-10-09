@@ -57,13 +57,14 @@ for name,base in [('concrete',(78,83,79)),('steel',(73,81,77)),('floor',(48,53,5
  im.save(p/'assets/materials'/f'{name}.png')
 subs=[]; nodes=[]; ext=[]; idx=0
 ext.append('[ext_resource type="Script" path="res://scripts/player.gd" id="player"]')
+ext.append('[ext_resource type="ArrayMesh" path="res://resources/service_ramp_mesh.tres" id="service_ramp_mesh"]')
 for name in ['concrete','steel','floor','grate']:
  ext.append(f'[ext_resource type="Texture2D" path="res://assets/materials/{name}.png" id="tex_{name}"]')
  subs.append(f'''[sub_resource type="StandardMaterial3D" id="{name}"]
 albedo_texture = ExtResource("tex_{name}")
 texture_filter = 0
 roughness = 0.88
-uv1_scale = Vector3({", ".join(map(str,{"concrete":(8,4,1),"floor":(8,11,1),"steel":(2,2,1),"grate":(3,8,1)}[name]))})
+uv1_scale = Vector3({", ".join(map(str,{"concrete":(8,4,1),"floor":(8,11,1),"steel":(2,2,1),"grate":(.75,2,1)}[name]))})
 ''')
 for name,color in [('dark',(0.13,.16,.14)),('trim',(.3,.34,.29)),('rust',(.32,.19,.10)),('cyan',(.28,.75,.52)),('amber',(.95,.47,.13))]:
  subs.append(f'''[sub_resource type="StandardMaterial3D" id="{name}"]
@@ -120,14 +121,13 @@ for j,z in enumerate([3,9,15]):
  for side,x in [('L',-5.5),('R',5.5)]:
   box(f'LampHousing{j}{side}',(x,5.24,z),(1.7,.22,.6),'dark',False)
   box(f'LampFace{j}{side}',(x,5.10,z),(1.4,.06,.4),'amber' if j==2 else 'cyan',False)
-# Raised service walkway left, with actual six-step silhouettes and an invisible sloped collision.
+# Raised service walkway with an exact shared visible/collision wedge ramp.
 box('ServiceWalkway',(-5.8,.45,4.65),(3,.9,7.3),'grate')
-for j in range(6):
- h=(j+1)*.15
- box(f'Step{j}',(-5.8,h/2,10.5-j*.4),(3,h,.4),'steel',False)
+# Retain stable subsequent resource IDs without decorative step meshes.
+idx += 6
 idx+=1; ramp=f'ramp_{idx}'
 subs.append(f'[sub_resource type="ConvexPolygonShape3D" id="{ramp}"]\npoints = PackedVector3Array(-1.5, 0, -1.2, 1.5, 0, -1.2, -1.5, 0, 1.2, 1.5, 0, 1.2, -1.5, 0.9, -1.2, 1.5, 0.9, -1.2)\n')
-nodes.append(f'[node name="StairRampCollision" type="StaticBody3D" parent="."]\nposition = Vector3(-5.8, 0, 9.5)\n[node name="Collision" type="CollisionShape3D" parent="StairRampCollision"]\nshape = SubResource("{ramp}")\n')
+nodes.append(f'[node name="StairRampCollision" type="StaticBody3D" parent="."]\nposition = Vector3(-5.8, 0, 9.5)\n[node name="Visual" type="MeshInstance3D" parent="StairRampCollision"]\nmesh = ExtResource("service_ramp_mesh")\nmaterial_override = SubResource("grate")\n[node name="Collision" type="CollisionShape3D" parent="StairRampCollision"]\nshape = SubResource("{ramp}")\n')
 for j,z in enumerate([1.2,3.5,5.8,8.4]):
  box(f'RailPost{j}',(-4.25,1.45,z),(.09,1.1,.09),'trim')
 box('RailTop',(-4.25,2.0,4.8),(.1,.1,7.4),'trim')

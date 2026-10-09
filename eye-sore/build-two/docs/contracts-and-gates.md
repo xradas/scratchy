@@ -1,12 +1,12 @@
-# Pending production contracts and acceptance gates
+# Production contracts and acceptance gates
 
-These describe future implementation requirements. They are not claims that combat or production levels exist.
+Combat event ownership, fixed-physics cadence, finite ammunition, damage/death/reset and audio lifecycle now have passing source checks. Complete combat presentation and a production level still require review.
 
 ## Identity selection — required first
 
-The selected identity must establish the visual language, premise, mood, combat vocabulary and asset direction. User selection is pending. Do not use neutral calibration geometry as approval of any creative identity.
+The selected identity must establish the visual language, premise, mood, combat vocabulary and asset direction. The user explicitly selected The Pale Ward / corrupted biotech on 9 October; see SELECTION.md. Do not use neutral calibration geometry as approval of any creative identity.
 
-## Single-event contracts — pending implementation
+## Single-event contracts
 
 - One accepted fire input creates one authoritative shot event carrying a unique shot ID, weapon ID, origin/direction, timestamp and relevant deterministic seed. Muzzle flash, recoil, weapon sound and damage resolution subscribe to that event; they do not independently create a second shot.
 - One shotgun firing event releases exactly seven pellets. Each pellet has a stable index in that shot; one shell is consumed for the whole event.
@@ -19,7 +19,7 @@ The selected identity must establish the visual language, premise, mood, combat 
 - One authoritative encounter transition creates one state event. HUD, music and spawning subscribe to that state rather than deriving incompatible states separately.
 - Pause controls processing and stream time; mute controls audibility only. Do not let audio callbacks generate gameplay events.
 
-## Later acceptance — all pending
+## Review acceptance
 
 1. User selects identity before combat, level or full asset production.
 2. Assets and room/level composition express that selection consistently at the 640×360 world resolution while native HUD remains legible.
@@ -30,4 +30,6 @@ The selected identity must establish the visual language, premise, mood, combat 
 7. Settings persistence is manually verified across restarts and invalid settings values clamp safely.
 8. Linux portable release runs from outside the project on a target machine without the editor; graphics, input, window resize and native HUD are manually assessed there.
 
-The current smoke verifies scene construction, fixed world viewport, applied settings, six named buses, stable player position across paused frames, and that Master mute permits an unpaused tree. It does not replace playtesting, inspect future assets, test combat, or validate audible pause/resume of sound that does not yet exist.
+The smoke verifies scene construction, fixed world viewport, settings, six buses and pause/mute. Separate physics, aim/balance, timing and native sound-scene checks cover implemented combat and audio behavior. These technical checks do not establish art quality, listening approval or complete-level playability.
+
+After the first user playtest, aim uses screen-relative mouse deltas and an exact geometric crosshair, with cosmetic recoil isolated from the aiming camera. The FOV control explicitly measures horizontal view. Body/limb hurt geometry follows the live creature art joints; player hitscan ignores its hidden movement capsule. Shared room geometry remains responsible for shots, movement and visibility.

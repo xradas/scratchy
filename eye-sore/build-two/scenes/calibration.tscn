@@ -1,6 +1,7 @@
-[gd_scene load_steps=172 format=3]
+[gd_scene load_steps=167 format=3]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="player"]
+[ext_resource type="ArrayMesh" path="res://resources/service_ramp_mesh.tres" id="service_ramp_mesh"]
 [ext_resource type="Texture2D" path="res://assets/materials/concrete.png" id="tex_concrete"]
 [ext_resource type="Texture2D" path="res://assets/materials/steel.png" id="tex_steel"]
 [ext_resource type="Texture2D" path="res://assets/materials/floor.png" id="tex_floor"]
@@ -28,7 +29,7 @@ uv1_scale = Vector3(8, 11, 1)
 albedo_texture = ExtResource("tex_grate")
 texture_filter = 0
 roughness = 0.88
-uv1_scale = Vector3(3, 8, 1)
+uv1_scale = Vector3(0.75, 2, 1)
 
 [sub_resource type="StandardMaterial3D" id="dark"]
 albedo_color = Color(0.13, 0.16, 0.14, 1)
@@ -346,30 +347,6 @@ material = SubResource("grate")
 
 [sub_resource type="BoxShape3D" id="shape_45"]
 size = Vector3(3, 0.9, 7.3)
-
-[sub_resource type="BoxMesh" id="mesh_46"]
-size = Vector3(3, 0.15, 0.4)
-material = SubResource("steel")
-
-[sub_resource type="BoxMesh" id="mesh_47"]
-size = Vector3(3, 0.3, 0.4)
-material = SubResource("steel")
-
-[sub_resource type="BoxMesh" id="mesh_48"]
-size = Vector3(3, 0.44999999999999996, 0.4)
-material = SubResource("steel")
-
-[sub_resource type="BoxMesh" id="mesh_49"]
-size = Vector3(3, 0.6, 0.4)
-material = SubResource("steel")
-
-[sub_resource type="BoxMesh" id="mesh_50"]
-size = Vector3(3, 0.75, 0.4)
-material = SubResource("steel")
-
-[sub_resource type="BoxMesh" id="mesh_51"]
-size = Vector3(3, 0.8999999999999999, 0.4)
-material = SubResource("steel")
 
 [sub_resource type="ConvexPolygonShape3D" id="ramp_52"]
 points = PackedVector3Array(-1.5, 0, -1.2, 1.5, 0, -1.2, -1.5, 0, 1.2, 1.5, 0, 1.2, -1.5, 0.9, -1.2, 1.5, 0.9, -1.2)
@@ -1135,44 +1112,11 @@ mesh = SubResource("mesh_45")
 [node name="Collision" type="CollisionShape3D" parent="ServiceWalkway"]
 shape = SubResource("shape_45")
 
-[node name="Step0" type="Node3D" parent="."]
-position = Vector3(-5.8, 0.075, 10.5)
-
-[node name="Visual" type="MeshInstance3D" parent="Step0"]
-mesh = SubResource("mesh_46")
-
-[node name="Step1" type="Node3D" parent="."]
-position = Vector3(-5.8, 0.15, 10.1)
-
-[node name="Visual" type="MeshInstance3D" parent="Step1"]
-mesh = SubResource("mesh_47")
-
-[node name="Step2" type="Node3D" parent="."]
-position = Vector3(-5.8, 0.22499999999999998, 9.7)
-
-[node name="Visual" type="MeshInstance3D" parent="Step2"]
-mesh = SubResource("mesh_48")
-
-[node name="Step3" type="Node3D" parent="."]
-position = Vector3(-5.8, 0.3, 9.3)
-
-[node name="Visual" type="MeshInstance3D" parent="Step3"]
-mesh = SubResource("mesh_49")
-
-[node name="Step4" type="Node3D" parent="."]
-position = Vector3(-5.8, 0.375, 8.9)
-
-[node name="Visual" type="MeshInstance3D" parent="Step4"]
-mesh = SubResource("mesh_50")
-
-[node name="Step5" type="Node3D" parent="."]
-position = Vector3(-5.8, 0.44999999999999996, 8.5)
-
-[node name="Visual" type="MeshInstance3D" parent="Step5"]
-mesh = SubResource("mesh_51")
-
 [node name="StairRampCollision" type="StaticBody3D" parent="."]
 position = Vector3(-5.8, 0, 9.5)
+[node name="Visual" type="MeshInstance3D" parent="StairRampCollision"]
+mesh = ExtResource("service_ramp_mesh")
+material_override = SubResource("grate")
 [node name="Collision" type="CollisionShape3D" parent="StairRampCollision"]
 shape = SubResource("ramp_52")
 

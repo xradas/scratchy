@@ -19,8 +19,17 @@
       "switch": "res://assets/weapons/melee/switch.png"
     }
   },
-  "enemies": {},
-  "status": "Weapons representative prototypes pending gameplay review; enemy art awaits first-setting selection.",
+  "enemies": {
+    "unsealed": {
+      "rig_scene": "res://scenes/creature_rig.tscn",
+      "presentation": "Original loft-mesh representative biotech study, not full production acceptance"
+    },
+    "vessel": {
+      "rig_scene": "res://scenes/creature_rig.tscn",
+      "presentation": "Original loft-mesh representative biotech study, not full production acceptance"
+    }
+  },
+  "status": "Original live biotech creature studies and darker weapon meshes integrated; user art/aim/combat review pending. The Pale Ward selected for first level9October2026.",
   "flash": {
     "file": "res://assets/weapons/flash.png",
     "lifetime": 0.045,
@@ -28,37 +37,37 @@
       "pistol": {
         "idle": [
           160,
-          106
+          104
         ],
         "fire": [
           161,
-          96
+          95
         ],
         "recover": [
           160,
-          104
+          102
         ],
         "switch": [
           163,
-          127
+          122
         ]
       },
       "shotgun": {
         "idle": [
           160,
-          86
+          87
         ],
         "fire": [
           161,
-          67
+          71
         ],
         "recover": [
           160,
-          81
+          82
         ],
         "switch": [
-          142,
-          79
+          144,
+          81
         ]
       },
       "melee": {
@@ -68,5 +77,6 @@
         "switch": null
       }
     }
-  }
+  },
+  "selected_identity": "corrupted-biotech/the-pale-ward"
 }

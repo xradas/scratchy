@@ -61,6 +61,8 @@ func run() -> void:
 			app.combat.enemies[1 - index].position = Vector3(9, 0.87, 3)
 			target.position = Vector3(0, 0.87, 12.5 if weapon == &"melee" else 10)
 			target.definition.hit_material = material
+			# Controlled material fixture on real posed mesh geometry.
+			for surface in target.hurt_shapes: surface.set_meta("hit_material", material)
 			await physics_frame
 			await physics_frame
 			app.player.get_node("Camera3D").rotation = Vector3.ZERO

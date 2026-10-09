@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "status": "representative-study-awaiting-gameplay-art-review",
+  "identity_selected": false,
+  "title": "Live biotech creature mesh studies",
+  "provenance": {
+    "authoring": "Original deterministic code-authored continuous loft meshes, joint hierarchy, poses and spatial shader. No imported meshes, stock Doom characters, or generated runtime pixels.",
+    "visual_reference": "Approved generated corrupted-biotech board used only as design reference.",
+    "reference_path": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/concepts/visual-v2/corrupted-biotech/board.png",
+    "render_engine": "Godot 4.7.2 Compatibility on RTX3060Ti",
+    "pixel_output": "Native640x360 Godot review SubViewport captures"
+  },
+  "runtime": {
+    "scene": "source/creature_rig.tscn",
+    "script": "source/creature_rig.gd",
+    "scene_path_rewrite_required": true,
+    "api": [
+      "configure(kind)",
+      "present(state,time,windup_duration=0.45,recovery_duration=0.60,pain_duration=0.18)",
+      "get_projectile_origin()->Vector3 world",
+      "bounds_now()->AABB rig-local diagnostic"
+    ],
+    "forward": [
+      0,
+      0,
+      -1
+    ],
+    "floor_y": -0.85,
+    "origin": "actor movement capsule center",
+    "states": [
+      "chase",
+      "windup",
+      "recovery",
+      "pain",
+      "dead"
+    ],
+    "corpse_settle_seconds": 0.65,
+    "hit_metadata": "hit_material: flesh|armor on merged MeshInstance3D",
+    "projectile_marker": "Body/Head/ProjectileLip",
+    "vessel_nozzle_marker_head_local": [
+      0.012,
+      0.121,
+      -0.428
+    ],
+    "gameplay_owned_by": "authority/controller outside art package"
+  },
+  "kinds": {
+    "unsealed": {
+      "title": "Unsealed",
+      "role": "close pursuit",
+      "geometry": {
+        "armor": 0,
+        "flesh": 28,
+        "meshes": 28,
+        "triangles": 16824,
+        "vertices": 8616
+      },
+      "capture_bounds": {
+        "chase": {
+          "max": [
+            0.607850313186646,
+            0.792736649513245,
+            0.241606295108795
+          ],
+          "min": [
+            -0.583555817604065,
+            -0.850000023841858,
+            -0.621407032012939
+          ]
+        },
+        "dead": {
+          "max": [
+            0.456326246261597,
+            -0.116858005523682,
+            0.77590548992157
+          ],
+          "min": [
+            -0.506247639656067,
+            -0.850000023841858,
+            -0.861694931983948
+          ]
+        },
+        "pain": {
+          "max": [
+            0.574081242084503,
+            0.84145450592041,
+            0.175868630409241
+          ],
+          "min": [
+            -0.676922738552094,
+            -0.850000023841858,
+            -0.511905610561371
+          ]
+        },
+        "recovery": {
+          "max": [
+            0.596833050251007,
+            0.778019189834595,
+            0.204379439353943
+          ],
+          "min": [
+            -0.596056640148163,
+            -0.850000023841858,
+            -1.08099937438965
+          ]
+        },
+        "windup": {
+          "max": [
+            0.538429141044617,
+            0.764692723751068,
+            0.215172529220581
+          ],
+          "min": [
+            -0.53527820110321,
+            -0.849999964237213,
+            -1.0153021812439
+          ]
+        }
+      },
+      "captures": {
+        "angle_0": "renders/unsealed_angle_0.png",
+        "angle_135": "renders/unsealed_angle_135.png",
+        "angle_180": "renders/unsealed_angle_180.png",
+        "angle_45": "renders/unsealed_angle_45.png",
+        "angle_90": "renders/unsealed_angle_90.png",
+        "chase": "renders/unsealed_chase.png",
+        "closeup": "renders/unsealed_closeup.png",
+        "dead": "renders/unsealed_dead.png",
+        "game_scale_6m": "renders/unsealed_game_scale_6m.png",
+        "pain": "renders/unsealed_pain.png",
+        "recovery": "renders/unsealed_recovery.png",
+        "windup": "renders/unsealed_windup.png"
+      }
+    },
+    "vessel": {
+      "title": "Vessel",
+      "role": "ranged containment",
+      "geometry": {
+        "armor": 6,
+        "flesh": 23,
+        "meshes": 29,
+        "triangles": 21084,
+        "vertices": 11876
+      },
+      "capture_bounds": {
+        "chase": {
+          "max": [
+            0.731726586818695,
+            0.68438458442688,
+            0.443932831287384
+          ],
+          "min": [
+            -0.723370134830475,
+            -0.850000023841858,
+            -0.583000004291534
+          ]
+        },
+        "dead": {
+          "max": [
+            0.604470312595367,
+            0.226478040218353,
+            0.689761877059937
+          ],
+          "min": [
+            -0.611336052417755,
+            -0.849999964237213,
+            -0.890286684036255
+          ]
+        },
+        "pain": {
+          "max": [
+            0.7025026679039,
+            0.776879668235779,
+            0.434170722961426
+          ],
+          "min": [
+            -0.748780786991119,
+            -0.850000023841858,
+            -0.650656461715698
+          ]
+        },
+        "recovery": {
+          "max": [
+            0.729787170886993,
+            0.724783301353455,
+            0.454949855804443
+          ],
+          "min": [
+            -0.725636899471283,
+            -0.849999904632568,
+            -0.69474720954895
+          ]
+        },
+        "windup": {
+          "max": [
+            0.681741416454315,
+            0.692853093147278,
+            0.451998591423035
+          ],
+          "min": [
+            -0.677585780620575,
+            -0.850000023841858,
+            -0.551883220672607
+          ]
+        }
+      },
+      "captures": {
+        "angle_0": "renders/vessel_angle_0.png",
+        "angle_135": "renders/vessel_angle_135.png",
+        "angle_180": "renders/vessel_angle_180.png",
+        "angle_45": "renders/vessel_angle_45.png",
+        "angle_90": "renders/vessel_angle_90.png",
+        "chase": "renders/vessel_chase.png",
+        "closeup": "renders/vessel_closeup.png",
+        "dead": "renders/vessel_dead.png",
+        "game_scale_6m": "renders/vessel_game_scale_6m.png",
+        "pain": "renders/vessel_pain.png",
+        "recovery": "renders/vessel_recovery.png",
+        "windup": "renders/vessel_windup.png"
+      }
+    }
+  },
+  "review": {
+    "poses": "review/poses.png",
+    "angles": "review/angles.png",
+    "distance": "review/distance.png"
+  },
+  "verification": "verification.json",
+  "bounds": "bounds.json",
+  "reproduce": [
+    "source/verify_art.gd",
+    "source/review.gd",
+    "make_review.py"
+  ],
+  "limits": [
+    "Simplified stylized sculpt visibly below approved concept detail; no visual acceptance claimed.",
+    "Representative pose motion and procedural skin breakup need production polish.",
+    "Crowd render cost and exact triangle hurt queries require profiling in actual game.",
+    "No level identity selected and no full enemy production set delivered."
+  ],
+  "source_sha256": {
+    "source/creature_rig.gd": "d25669df2b4fae694c53846a6dca61d0323a53bbef37b3fac67cfe4a7c253662",
+    "source/creature_rig.tscn": "2eaf817d79598860c27b7dbf8dc8e148c36285dd4a2bb97a66cf9dcebbfd68c1"
+  }
+}

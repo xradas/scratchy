@@ -157,7 +157,7 @@ func build_menu() -> void:
 	title_screen.pressed.connect(return_to_title)
 	column.add_child(title_screen)
 	add_slider(column, "Mouse sensitivity", 0.0005, 0.006, 0.0001, sensitivity, func(value: float): sensitivity = value; player.sensitivity = value; save_settings())
-	add_slider(column, "Field of view", 60, 110, 1, field_of_view, func(value: float): field_of_view = value; player.get_node("Camera3D").fov = value; save_settings())
+	add_slider(column, "Horizontal field of view", 60, 110, 1, field_of_view, func(value: float): field_of_view = value; player.get_node("Camera3D").fov = value; save_settings())
 	var mute := CheckButton.new()
 	mute.text = "Mute all audio"
 	mute.button_pressed = muted
@@ -173,9 +173,12 @@ func create_world() -> void:
 	world = preload("res://scenes/calibration.tscn").instantiate()
 	world_view.add_child(world)
 	player = world.get_node("Player")
+	player.collision_layer = 2
+	player.collision_mask = 3
 	if "--view=annex" in OS.get_cmdline_user_args():
 		player.transform = world.get_node("AnnexPreviewPose").transform
 	player.sensitivity = sensitivity
+	player.get_node("Camera3D").keep_aspect = Camera3D.KEEP_WIDTH
 	player.get_node("Camera3D").fov = field_of_view
 	if ResourceLoader.exists("res://scripts/combat.gd"):
 		combat = load("res://scripts/combat.gd").new()
@@ -200,6 +203,9 @@ func configure_combat_art() -> void:
 		var kind := String(enemy.definition.identifier)
 		if not art.get("enemies", {}).has(kind): continue
 		var data: Dictionary = art.enemies[kind]
+		if data.has("rig_scene"):
+			enemy.configure_live_visual(data.rig_scene)
+			continue
 		var clips := {}
 		for clip in data.clips:
 			clips[clip] = Vector2i(data.clips[clip][0], data.clips[clip][1])
@@ -354,6 +360,7 @@ func save_settings() -> void:
 	var config := ConfigFile.new()
 	config.set_value("input", "sensitivity", sensitivity)
 	config.set_value("display", "fov", field_of_view)
+	config.set_value("display", "fov_axis", "horizontal")
 	config.set_value("audio", "muted", muted)
 	var error := config.save(SETTINGS_PATH)
 	if error != OK: push_warning("Could not save calibration settings: " + error_string(error))

@@ -7,6 +7,7 @@ func _initialize() -> void:
 
 func prepare(kind: StringName, distance: float) -> CharacterBody3D:
 	app.combat.reset()
+	app.configure_combat_art()
 	app.combat.set_physics_process(false)
 	for enemy in app.combat.enemies:
 		enemy.set_physics_process(false)
@@ -46,6 +47,9 @@ func run_check() -> void:
 		assert(center.is_equal_approx(Vector2(320,180)))
 		var direction: Vector3 = app.player.camera.project_ray_normal(center)
 		assert(direction.is_equal_approx(-app.player.camera.global_basis.z))
+		var left_ray: Vector3 = app.player.camera.project_ray_normal(Vector2(0,180))
+		var half_angle := rad_to_deg(atan2(absf(left_ray.dot(app.player.camera.global_basis.x)), left_ray.dot(-app.player.camera.global_basis.z)))
+		assert(is_equal_approx(half_angle, app.field_of_view * 0.5), "FOV must describe horizontal view")
 	for kind in [&"unsealed", &"vessel"]:
 		for weapon in [&"pistol", &"shotgun", &"melee"]:
 			var enemy := prepare(kind, 1.5 if weapon == &"melee" else 4.0)
