@@ -1,0 +1,29 @@
+[aist#0:0/pcm_s16le @ 0x55d7b4d11340] Guessed Channel Layout: stereo
+Input #0, wav, from 'verification/combat/board-sprite-driver-mix.wav':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Duration: 00:00:17.98, bitrate: 1536 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Audio: pcm_s16le, 192000 Hz, stereo, s16, 6144 kb/s
+    Metadata:
+      encoder         : Lavc63.1.102 pcm_s16le
+[Parsed_loudnorm_0 @ 0x7fc0d00034c0]
+{
+	"input_i" : "-24.77",
+	"input_tp" : "-6.65",
+	"input_lra" : "11.60",
+	"input_thresh" : "-35.92",
+	"output_i" : "-17.02",
+	"output_tp" : "-1.00",
+	"output_lra" : "7.40",
+	"output_thresh" : "-28.17",
+	"normalization_type" : "dynamic",
+	"target_offset" : "-0.98"
+}
+[out#0/null @ 0x55d7b4d427c0] video:0KiB audio:13485KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:18.00 bitrate=N/A speed=35.1x elapsed=0:00:00.51

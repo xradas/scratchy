@@ -11,3 +11,5 @@ Two revised death calls last 1.55 and 1.89 seconds; short hurt grunts remain unc
 Editor audio reimport intermittently crashed with threaded imports on this Godot build. `editor/import/use_multiple_threads=false` made the final import pass. An early headless output capture was silent and replaced with verified nonzero native output. Final playback and shutdown checks passed after giving the audio mixer time to retire streams.
 
 The 9 October integrated creature regression passed on the native PulseAudio driver. `verification/combat/art-review-driver-mix.wav` is a new isolated game-only stereo output capture (48 kHz, 17.944 s), measured input -24.95 LUFS / -6.66 dBTP. The file is unnormalized. This checks routing/lifecycle after the live art adapter; it does not claim subjective listening approval.
+
+The approved-board sprite pass repeats the actual six-contact/native audio lifecycle checks. Isolated stereo output is `verification/combat/board-sprite-driver-mix.wav`, measured input -24.77LUFS / -6.65dBTP. Sources/cues are unchanged; screenshot rendering changes do not approve subjective audio quality.

@@ -1,0 +1,17 @@
+Use case: identity-preserve.
+Asset type: game enemy transparent animation atlas, faithful edit of provided approved design board.
+Input image: the supplied Eyesore / The Pale Ward corrupted biotech board is the exact edit target and character identity reference. Extract ONLY its bottom-left creature labeled UNSEALED and faithfully extend THIS SAME character into eight frontal full-body representative poses. Preserve its anatomy, hunched forward shoulder hump, narrow skull sinking into neck, deep dark red split throat/maw, stretched pale scarred muscle and sinew, exceptionally long tapered forearms, hooked claw fingers, bent digitigrade-looking powerful legs, weathered pale skin with dark blood and vascular wounds. Same dimensional painted/digitized classic Doom sprite finish and directional shading as the board; no reinvention, no toy/cartoon, no new armor, no round grinning head, no simplified geometric doll.
+
+Output composition: exactly 1536×1024 pixels, transparent RGBA background. Invisible regular 4 columns × 2 rows grid, each cell exactly384×512. Eight sprites only, one fully contained in each cell in row-major order. Living standing sprite is about 380px high, centered at cell x=192 with grounded feet pivot at cell(192,471), all living sprites retain the exact same body proportions and scale, with ~15% horizontal clearance. Fixed frontal camera facing viewer with mild perspective depth, consistent upper-left lighting, no rotation into a side view. No floor, ground plane, shadows outside character, cast shadow, labels, text, gridlines, panel framing, props or backgrounds. Real alpha0 empty pixels. No clipped claws, fingers or corpse.
+
+Eight poses in exact row-major cell order:
+TOP ROW cell0 idle: faithful hunched threat posture from original design, both feet grounded;
+cell1 walking left foot stepping forward and opposite arm swinging, plausible same skeletal anatomy;
+cell2 walking right foot stepping forward, opposite phase;
+cell3 committed melee windup: hunched torso draws back slightly, both long claw arms visibly raised forward/outward to prepare a lunge, jaws opened threateningly.
+BOTTOM ROW cell4 released strike/recovery: both claw arms lash forward/down with weight over bent leading knee, still grounded in cell;
+cell5 pain recoil: torso twists/recoils visibly, one hand draws toward chest wound, same fixed scale;
+cell6 death folding: knees buckle and upper torso folds downward, hanging long arms, NOT an extra standing duplicate;
+cell7 persistent corpse: creature collapsed on its side in a compact curled broken pose along bottom portion of cell, face/claws recognizably the same monster, whole corpse contained in its own384×512 cell, body rests at y471.
+
+Primary invariant: these eight are the SAME approved UNSEALED creature rendered faithfully in poses, with the approved high-quality modeled/painterly texture and volume. Change only pose and remove board surroundings. This is first-frontal-direction representative sprite art, not a design presentation board.

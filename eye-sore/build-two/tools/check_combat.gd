@@ -40,7 +40,8 @@ func run_check() -> void:
 	player.position=enemy.position+Vector3(3,0,0); assert(enemy.sprite_direction_row()==6)
 	player.position=enemy.position+Vector3(0,0,-3); enemy.state=&"windup"; enemy.state_time=enemy.definition.windup_seconds*.5; enemy.update_sprite(); assert(enemy.sprite.frame==2)
 	enemy.state_time=enemy.definition.windup_seconds*2; enemy.update_sprite(); assert(enemy.sprite.frame==3)
-	assert(is_equal_approx(enemy.sprite.position.y+(8-15)*.01,-.85))
+	var foot_world: Vector3 = enemy.sprite.to_global(Vector3(0, (8-15)*.01, 0))
+	assert(is_equal_approx(foot_world.y, enemy.global_position.y - .85))
 	player.position=saved_position
 	enemy.state=&"windup"; enemy.released=false; events.clear(); var player_hp:float=combat.health
 	enemy.apply_damage(1,99,&"pistol",enemy.position); enemy.release_attack()

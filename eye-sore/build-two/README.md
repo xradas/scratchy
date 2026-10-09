@@ -16,7 +16,7 @@ The review plays lossless WAV references. OGG alternatives, selected unmodified 
 
 ## Run the real 3D room preview
 
-The authored room has connected spaces, thick door reveals, raised walkable service access, machinery, original pixel materials and cast shadows. WASD moves; the mouse looks; Escape pauses and opens settings. Sensitivity, FOV and mute persist. The world renders at 640×360 with nearest scaling, while HUD/menu text uses window resolution. The source now contains combat logic, revised darker mesh-rendered weapon poses and a live creature-art adapter. Representative live 3D Unsealed/Vessel studies are integrated, including attack, pain and persistent corpse poses. Their exact posed surfaces receive weapon contacts; the movement capsule remains separate. This is a playable art review; its simplified models still fall short of the approved concept detail. The previously exported room preview remains the movement-only build.
+The authored room has connected spaces, thick door reveals, raised walkable service access, machinery, original pixel materials and cast shadows. WASD moves; the mouse looks; Escape pauses and opens settings. Sensitivity, FOV and mute persist. The world renders at 640×360 with nearest scaling, while HUD/menu text uses window resolution. The source now contains combat logic, faithful transparent 2D creature/weapon adaptations of the approved board. Unsealed/Vessel now show representative walk, attack, pain and persistent corpse poses. Shared camera-facing alpha-query geometry follows their visible silhouettes; authored cage hardware routes armor contacts. This is a playable art review; its single-direction sprite poses still require full production animation and gameplay review. The previously exported room preview remains the movement-only build.
 
 Use **Godot 4.7.2 stable**, GDScript and the Compatibility renderer, with matching Linux export templates. [Setup and foundation details](docs/FOUNDATION.md) and [download evidence](verification/download_manifest.json) pin the toolchain.
 
@@ -24,7 +24,7 @@ Use **Godot 4.7.2 stable**, GDScript and the Compatibility renderer, with matchi
 tools/godot.sh --editor
 tools/godot.sh --headless -- --smoke-test
 tools/godot.sh --headless --script res://tools/check_geometry.gd
-tools/godot.sh --headless --export-release "Linux Portable" build/eyesore-combat-art-review.x86_64
+tools/godot.sh --headless --export-release "Linux Portable" build/eyesore-pale-ward-sprite-review.x86_64
 ```
 
 The Linux executable embeds its PCK and launches without the source project/editor. The preserved room-only export is a movement/display preview. New combat prototypes have separate dated filenames; none is a completed level.
@@ -41,4 +41,8 @@ The wet-impact audition was rejected. The replacement uses dry Doom/Quake-inspir
 
 Combat definitions and authoritative events now handle one-shell seven-pellet aggregation, finite ammo, attack interruption, deaths and reset. Native render-cap checks at30/60/120FPS produced identical fixed60Hz firing and movement. UI/audio integration separates menu, paused world and restart ownership. The full directional creature and weapon animation sets, selected level, route design and release playtest remain later gates.
 
-The 9 October Linux combat-art prototype includes pistol, shotgun, melee, revised weapon poses, live creature studies and the dry cue bank. Aiming uses an exact screen-center crosshair and horizontal FOV; recoil moves the weapon only. The portal floor gap is closed and the raised service ramp now uses the exact same visible/physical triangles. Creature-art integration is separate from the preserved room-only preview; a complete authored level is still pending.
+The 9 October Linux combat-art prototype includes pistol, shotgun, melee, approved-board weapon sprites and creature poses and the dry cue bank. Aiming uses an exact screen-center crosshair and horizontal FOV; recoil moves the weapon only. The portal floor gap is closed and the raised service ramp now uses the exact same visible/physical triangles. Creature-art integration is separate from the preserved room-only preview; a complete authored level is still pending.
+
+## Approved artwork reuse
+
+Following the user’s feedback, the current build uses direct transparent sprite adaptations of the approved Pale Ward board and that original composition on the title. [Sprite provenance, exact prompts and registration](concepts/sprite-art-v1/README.md) records built-in imagegen edits. Full8direction production remains pending; earlier meshes and Linux review binaries are preserved.

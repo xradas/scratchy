@@ -1,0 +1,17 @@
+{
+  "status": "manual-review-suggestions-not-production-mask",
+  "coordinate_space": "idle cell0 local pixels384x512",
+  "frame": 0,
+  "rule": "Only exposed cream hardware strips/fasteners are armor. Clip candidates to actual opaque hardware. Green sac, skin, throat vents and gaps remain flesh. Do not use convex whole-cage hull.",
+  "hardware_candidates": [
+    {"name":"left collar arc", "polyline":[[147,202],[135,220],[137,242],[157,268]], "suggested_half_width":5},
+    {"name":"right collar arc", "polyline":[[242,202],[255,220],[253,243],[231,268]], "suggested_half_width":5},
+    {"name":"left upper rib", "polyline":[[131,267],[143,279],[162,290]], "suggested_half_width":5},
+    {"name":"left middle rib", "polyline":[[126,287],[139,305],[160,315]], "suggested_half_width":5},
+    {"name":"left lower rib", "polyline":[[134,315],[148,331],[166,338]], "suggested_half_width":5},
+    {"name":"right upper rib", "polyline":[[261,266],[248,281],[229,291]], "suggested_half_width":5},
+    {"name":"right middle rib", "polyline":[[266,287],[253,305],[231,315]], "suggested_half_width":5},
+    {"name":"right lower rib", "polyline":[[258,316],[243,333],[225,340]], "suggested_half_width":5}
+  ],
+  "caveat":"Approximate source coordinates require visual mask authoring and validation. Other frames pose the hardware differently; these idle guides are not valid all-frame collision geometry."
+}

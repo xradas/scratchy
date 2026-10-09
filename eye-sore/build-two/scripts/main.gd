@@ -29,9 +29,13 @@ var muzzle_image: TextureRect
 var muzzle_time: float = 0.0
 var art_data: Dictionary = {}
 var closing: bool = false
+var title_art: TextureRect
+var weapon_layer: Control
+var muzzle_pending: bool = false
 
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
+	DisplayServer.window_set_title("Eyesore / The Pale Ward")
 	load_settings()
 	smoke = "--smoke-test" in OS.get_cmdline_user_args()
 	var background := ColorRect.new()
@@ -47,19 +51,39 @@ func _ready() -> void:
 	create_world()
 	world_image = TextureRect.new()
 	world_image.texture = world_view.get_texture()
+	world_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	world_image.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	world_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(world_image)
+	# Preserve the approved composition as the actual title artwork.
+	if ResourceLoader.exists("res://assets/ui/pale-ward-title.png"):
+		title_art = TextureRect.new()
+		var title_texture := AtlasTexture.new()
+		title_texture.atlas = load("res://assets/ui/pale-ward-title.png")
+		# The static concept HUD is outside the title image's displayed region.
+		title_texture.region = Rect2(0, 0, 640, 332)
+		title_art.texture = title_texture
+		title_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		title_art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		title_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		title_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		add_child(title_art)
+	weapon_layer = Control.new()
+	weapon_layer.clip_contents = true
+	weapon_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(weapon_layer)
 	weapon_image = TextureRect.new()
+	weapon_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	weapon_image.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	weapon_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	weapon_image.stretch_mode = TextureRect.STRETCH_SCALE
-	add_child(weapon_image)
+	weapon_layer.add_child(weapon_image)
 	muzzle_image = TextureRect.new()
+	muzzle_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	muzzle_image.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	muzzle_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	muzzle_image.visible = false
-	add_child(muzzle_image)
+	weapon_layer.add_child(muzzle_image)
 	damage_overlay = ColorRect.new()
 	damage_overlay.color = Color(0.7, 0.07, 0.025, 0)
 	damage_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -119,8 +143,13 @@ func layout_view() -> void:
 	if scale_factor >= 1.0: scale_factor = floorf(scale_factor)
 	world_image.size = Vector2(640, 360) * scale_factor
 	world_image.position = (size - world_image.size) * 0.5
+	if is_instance_valid(title_art):
+		title_art.size = world_image.size
+		title_art.position = world_image.position
 	weapon_image.size = world_image.size
-	weapon_image.position = world_image.position
+	weapon_layer.position = world_image.position
+	weapon_layer.size = world_image.size
+	weapon_image.position = Vector2.ZERO
 	damage_overlay.size = world_image.size
 	damage_overlay.position = world_image.position
 	hud.position = world_image.position + Vector2(12, world_image.size.y - 68)
@@ -132,12 +161,21 @@ func layout_view() -> void:
 func build_menu() -> void:
 	menu = PanelContainer.new()
 	menu.custom_minimum_size = Vector2(420, 0)
+	var menu_style := StyleBoxFlat.new()
+	menu_style.bg_color = Color(0.025, 0.035, 0.027, 0.95)
+	menu_style.border_color = Color(0.4, 0.42, 0.28)
+	menu_style.set_border_width_all(2)
+	menu_style.content_margin_left = 24
+	menu_style.content_margin_right = 24
+	menu_style.content_margin_top = 18
+	menu_style.content_margin_bottom = 18
+	menu.add_theme_stylebox_override("panel", menu_style)
 	add_child(menu)
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 12)
 	menu.add_child(column)
 	menu_title = Label.new()
-	menu_title.text = "EYESORE"
+	menu_title.text = "EYESORE / THE PALE WARD"
 	menu_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(menu_title)
 	menu_note = Label.new()
@@ -209,7 +247,8 @@ func configure_combat_art() -> void:
 		var clips := {}
 		for clip in data.clips:
 			clips[clip] = Vector2i(data.clips[clip][0], data.clips[clip][1])
-		enemy.configure_sprite_sheet(data.file, data.columns, data.directions, clips, data.get("pixel_size", 0.015))
+		var pivot_data: Array = data.get("foot_pivot", [-1, -1])
+		enemy.configure_sprite_sheet(data.file, data.columns, data.directions, clips, data.get("pixel_size", 0.015), Vector2(pivot_data[0], pivot_data[1]), data.get("sprite_options", {}))
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -260,6 +299,7 @@ func restart_combat() -> void:
 	create_world()
 	damage_flash = 0
 	muzzle_time = 0
+	muzzle_pending = false
 	enter_combat()
 
 func return_to_title() -> void:
@@ -272,6 +312,7 @@ func return_to_title() -> void:
 	started = false
 	damage_flash = 0
 	muzzle_time = 0
+	muzzle_pending = false
 	if is_instance_valid(menu_music): menu_music.play()
 	set_paused(true)
 
@@ -282,6 +323,7 @@ func on_combat_event(event: Dictionary) -> void:
 	if event.get("type") == &"player_hurt": damage_flash = 0.24
 	if event.get("type") == &"shot" and event.get("weapon_id") != &"melee":
 		muzzle_time = float(art_data.get("flash", {}).get("lifetime", 0.045))
+		muzzle_pending = true
 
 func on_player_died() -> void:
 	call_deferred("set_paused", true)
@@ -292,18 +334,52 @@ func _process(delta: float) -> void:
 		hud.text = "MOVEMENT PREVIEW"
 		return
 	var state: Dictionary = combat.get_hud_state()
+	if is_instance_valid(title_art): title_art.visible = not started
 	hud.visible = started
 	status.visible = started and not get_tree().paused
 	hud.text = "HEALTH %d    ARMOR %d    PISTOL %d    SHELLS %d\n%s    KILLS %d/%d" % [state.health, state.armor, state.ammo_pistol, state.ammo_shotgun, String(state.weapon_id).to_upper(), state.kills, state.total_enemies]
 	var path: String = state.get("weapon_visual_path", "")
+	var atlas_definition: Dictionary = art_data.get("weapon_atlases", {}).get(String(state.weapon_id), {})
 	if not path.is_empty():
-		if not texture_cache.has(path): texture_cache[path] = load(path)
-		weapon_image.texture = texture_cache[path]
+		var cache_key := path
+		if not atlas_definition.is_empty(): cache_key += "#" + String(state.weapon_phase)
+		if not texture_cache.has(cache_key):
+			var texture: Texture2D = load(path)
+			if not atlas_definition.is_empty():
+				var columns: int = atlas_definition.columns
+				var rows: int = atlas_definition.rows
+				var cell: int = atlas_definition.cells.get(String(state.weapon_phase), 0)
+				var cell_size := texture.get_size() / Vector2(columns, rows)
+				var region := AtlasTexture.new()
+				region.atlas = texture
+				region.region = Rect2(Vector2(cell % columns, cell / columns) * cell_size, cell_size)
+				if atlas_definition.has("regions"):
+					var coordinates: Array = atlas_definition.regions[String(state.weapon_phase)]
+					region.region = Rect2(coordinates[0], coordinates[1], coordinates[2], coordinates[3])
+				region.filter_clip = true
+				texture = region
+			texture_cache[cache_key] = texture
+		weapon_image.texture = texture_cache[cache_key]
 	weapon_image.visible = started and not state.dead
-	weapon_image.position = world_image.position + Vector2(0, combat.recoil_remaining) * (world_image.size.y / 180.0)
+	weapon_image.size = world_image.size
+	if not atlas_definition.is_empty() and weapon_image.texture:
+		var frame_size := weapon_image.texture.get_size()
+		weapon_image.size.x = minf(world_image.size.x, world_image.size.y * frame_size.x / frame_size.y)
+	weapon_image.position = Vector2((world_image.size.x - weapon_image.size.x) * 0.5, combat.recoil_remaining * world_image.size.y / 180.0)
+	if atlas_definition.has("placement"):
+		# Authored region/marker registration consumes the untouched generated atlas.
+		var pose: Dictionary = atlas_definition.placement[String(state.weapon_phase)]
+		var pixels := world_image.size.y / float(atlas_definition.get("source_canvas_height", 768)) * float(pose.get("scale", 1.0))
+		weapon_image.size = weapon_image.texture.get_size() * pixels
+		var marker: Array = pose.marker
+		var target: Array = pose.get("target", [0.5, 0.64])
+		weapon_image.position = world_image.size * Vector2(target[0], target[1]) - Vector2(marker[0], marker[1]) * pixels
+		weapon_image.position.y += combat.recoil_remaining * world_image.size.y / 180.0
 	if not get_tree().paused:
 		damage_flash = maxf(0.0, damage_flash - delta)
-		muzzle_time = maxf(0.0, muzzle_time - delta)
+		# An accepted shot must reach one render before its lifetime is decremented.
+		if muzzle_pending: muzzle_pending = false
+		else: muzzle_time = maxf(0.0, muzzle_time - delta)
 	damage_overlay.color.a = damage_flash * 0.9
 	muzzle_image.visible = muzzle_time > 0 and started and not state.dead and state.weapon_id != &"melee"
 	if muzzle_image.visible and art_data.has("flash"):
@@ -311,9 +387,11 @@ func _process(delta: float) -> void:
 		if muzzle_image.texture == null: muzzle_image.texture = load(flash.file)
 		var anchors: Dictionary = flash.anchors.get(String(state.weapon_id), {})
 		var anchor: Array = anchors.get(String(state.weapon_phase), anchors.get("fire", [160, 90]))
-		var scale_factor := world_image.size / Vector2(320, 180)
+		var scale_factor := weapon_image.size / Vector2(320, 180)
 		muzzle_image.size = Vector2(64, 64) * scale_factor
-		muzzle_image.position = weapon_image.position + (Vector2(anchor[0], anchor[1]) - Vector2(32, 32)) * scale_factor
+		if not atlas_definition.is_empty():
+			muzzle_image.size = Vector2.ONE * float(flash.get("world_size", 36)) * world_image.size.y / 360.0
+		muzzle_image.position = weapon_image.position + Vector2(anchor[0], anchor[1]) * scale_factor - muzzle_image.size * 0.5
 
 func add_slider(parent: VBoxContainer, title: String, minimum: float, maximum: float, step: float, value: float, changed: Callable) -> void:
 	var label := Label.new()
@@ -343,7 +421,7 @@ func set_paused(value: bool) -> void:
 	crosshair.visible = not value
 	if is_instance_valid(menu_title):
 		var dead: bool = is_instance_valid(combat) and combat.dead
-		menu_title.text = "YOU DIED" if dead else ("PAUSED" if started else "EYESORE")
+		menu_title.text = "YOU DIED" if dead else ("PAUSED" if started else "EYESORE / THE PALE WARD")
 		resume_button.text = "Retry" if dead else ("Resume" if started else "Play")
 		menu_note.text = "Retry from the start." if dead else "WASD move · mouse look · left click fire\n1 pistol · 2 shotgun · 3 melee"
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value else Input.MOUSE_MODE_CAPTURED

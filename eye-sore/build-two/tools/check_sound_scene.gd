@@ -3,8 +3,12 @@ extends SceneTree
 var app: Control
 var capture: AudioEffectCapture
 var stereo := PackedVector2Array()
+var capture_path := "res://verification/combat/actual-game-mix.wav"
 
 func _initialize() -> void:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--capture-prefix="):
+			capture_path = "res://verification/combat/" + argument.trim_prefix("--capture-prefix=") + "-bus-mix.wav"
 	if "--isolated-audio" in OS.get_cmdline_user_args():
 		assert("eyesore_review" in AudioServer.get_output_device_list())
 		AudioServer.output_device = "eyesore_review"
@@ -65,7 +69,7 @@ func run() -> void:
 			for surface in target.hurt_shapes: surface.set_meta("hit_material", material)
 			await physics_frame
 			await physics_frame
-			app.player.get_node("Camera3D").rotation = Vector3.ZERO
+			app.player.get_node("Camera3D").look_at(target.global_position + Vector3(0, 0.3, 0))
 			app.combat.recoil_remaining = 0
 			app.combat.currentweapon = weapon
 			app.combat.weapon_phase = &"idle"
@@ -84,7 +88,7 @@ func run() -> void:
 		target.health = 1
 		await physics_frame
 		await physics_frame
-		app.player.get_node("Camera3D").rotation = Vector3.ZERO
+		app.player.get_node("Camera3D").look_at(target.global_position + Vector3(0, 0.3, 0))
 		app.combat.recoil_remaining = 0
 		app.combat.currentweapon = &"pistol"
 		app.combat.weapon_phase = &"idle"
@@ -130,7 +134,7 @@ func run() -> void:
 	recording.stereo = true
 	recording.mix_rate = int(AudioServer.get_mix_rate())
 	recording.data = data
-	assert(recording.save_to_wav("res://verification/combat/actual-game-mix.wav") == OK)
+	assert(recording.save_to_wav(capture_path) == OK)
 	AudioServer.remove_bus_effect(0, effect_index)
 	print("SOUND_SCENE_OK: actual physics contacts dispatch six weapon/material cues; hurt separate; Abelian title only; level pause drift=", pause_drift, "; mute advances; retry replaces audio owner; title restarts menu; captured ", stereo.size(), " actual stereo bus frames. No subjective listening approval claimed.")
 	app.menu_music.stop()

@@ -1,0 +1,17 @@
+Use case: identity-preserve.
+Asset type: game enemy transparent animation atlas, faithful edit of provided approved design board.
+Input image: the supplied Eyesore / The Pale Ward corrupted biotech board is the exact edit target and character identity reference. Extract ONLY its bottom-middle creature labeled VESSEL and faithfully extend THIS SAME character into eight frontal full-body representative poses. Preserve the low very broad heavy anatomical mass, stooped thick short legs, huge knuckle/claw hands, sagging mottled gray-green corrupted flesh, irregular scarred containment ceramic/metal plates and broken curved cage ribs, looping rubber hoses over the shoulders, a swollen translucent sick yellow-green culture belly visible BEHIND the cage, and three protruding fleshy throat cannon tubes aimed toward viewer. It is a threatening grotesque containment monster, not a mechanical robot and not a fat round cartoon. All apparatus should be physically coherent. Preserve the original board's rendered/painterly shaded detail and classic digitized sprite texture.
+
+Output composition: exactly1536×1024 pixels, transparent RGBA background. Invisible regular4 columns ×2 rows grid, each cell exactly384×512. Eight sprites only, one fully contained in each cell in row-major order. Living standing sprite about350px high, centered at cellx192 with grounded feet/knuckle contact baseliney471; all living sprites exact same anatomy and scale, reserve15% horizontal cellpadding. Fixed frontal camera facing viewer with mild perspective depth, consistent upper-left lighting, not side-facing. No floor, ground plane, external cast shadow, labels, text, gridlines, panel framing or backgrounds. Real alpha0 empty pixels. No clipped tubes, hands, hoses or corpse.
+
+Eight poses in exact row-major cell order:
+TOP ROW cell0 idle: original approved squat menacing posture, cage belly glow subdued;
+cell1 walking left foot stepping forward with same weighty short gait and contrary arm motion;
+cell2 walking right foot stepping forward, contrary phase;
+cell3 committed ranged windup: throat tubes pressurized, visible neck strain, flesh vent openings bright sick yellow-green, culture belly brighter behind cage, body shoulders tighten without changing character anatomy.
+BOTTOM ROW cell4 released shot/recovery: tube neck and upper body recoil backward, green residue in tube mouths, restrained glow fading; no projectile or huge out-of-cell effect;
+cell5 pain recoil: broad body twists visibly, head/vent structure recoils and one arm jerks away, intact same apparatus;
+cell6 death folding: knees buckle and big body slumps forward/down, hoses sag and belly loses luminosity;
+cell7 persistent corpse: same creature collapsed on side in a compact heavy curled pose at bottom cell, cage, sac, nozzles and claw hands recognizable, every part contained within cell, corpse rests at y471, no new anatomy.
+
+Primary invariant: these eight are the SAME approved VESSEL creature, preserving silhouette, anatomical materials and containment hardware from the exact board. Change only pose and remove surroundings. Not a new concept board or character reinvention. First frontal direction representative sprite art only.

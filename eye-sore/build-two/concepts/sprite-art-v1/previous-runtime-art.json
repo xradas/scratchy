@@ -1,0 +1,82 @@
+{
+  "weapons": {
+    "pistol": {
+      "idle": "res://assets/weapons/pistol/idle.png",
+      "fire": "res://assets/weapons/pistol/fire.png",
+      "recover": "res://assets/weapons/pistol/recover.png",
+      "switch": "res://assets/weapons/pistol/switch.png"
+    },
+    "shotgun": {
+      "idle": "res://assets/weapons/shotgun/idle.png",
+      "fire": "res://assets/weapons/shotgun/fire.png",
+      "recover": "res://assets/weapons/shotgun/recover.png",
+      "switch": "res://assets/weapons/shotgun/switch.png"
+    },
+    "melee": {
+      "idle": "res://assets/weapons/melee/idle.png",
+      "fire": "res://assets/weapons/melee/fire.png",
+      "recover": "res://assets/weapons/melee/recover.png",
+      "switch": "res://assets/weapons/melee/switch.png"
+    }
+  },
+  "enemies": {
+    "unsealed": {
+      "rig_scene": "res://scenes/creature_rig.tscn",
+      "presentation": "Original loft-mesh representative biotech study, not full production acceptance"
+    },
+    "vessel": {
+      "rig_scene": "res://scenes/creature_rig.tscn",
+      "presentation": "Original loft-mesh representative biotech study, not full production acceptance"
+    }
+  },
+  "status": "Original live biotech creature studies and darker weapon meshes integrated; user art/aim/combat review pending. The Pale Ward selected for first level9October2026.",
+  "flash": {
+    "file": "res://assets/weapons/flash.png",
+    "lifetime": 0.045,
+    "anchors": {
+      "pistol": {
+        "idle": [
+          160,
+          104
+        ],
+        "fire": [
+          161,
+          95
+        ],
+        "recover": [
+          160,
+          102
+        ],
+        "switch": [
+          163,
+          122
+        ]
+      },
+      "shotgun": {
+        "idle": [
+          160,
+          87
+        ],
+        "fire": [
+          161,
+          71
+        ],
+        "recover": [
+          160,
+          82
+        ],
+        "switch": [
+          144,
+          81
+        ]
+      },
+      "melee": {
+        "idle": null,
+        "fire": null,
+        "recover": null,
+        "switch": null
+      }
+    }
+  },
+  "selected_identity": "corrupted-biotech/the-pale-ward"
+}

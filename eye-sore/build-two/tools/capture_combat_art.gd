@@ -1,20 +1,24 @@
 extends SceneTree
 ## Real integrated scene captures; controlled enemy placement for readable comparison.
 var app: Control
+var prefix := "art"
 
 func _initialize() -> void:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--capture-prefix="): prefix = argument.trim_prefix("--capture-prefix=")
 	call_deferred("run_capture")
 
 func photograph(label: String) -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
 	var image := root.get_texture().get_image()
-	assert(image.save_png("res://verification/combat/art-" + label + ".png") == OK)
+	assert(image.save_png("res://verification/combat/" + prefix + "-" + label + ".png") == OK)
 
 func run_capture() -> void:
 	root.set_flag(Window.FLAG_NO_FOCUS, true)
 	app = preload("res://scenes/main.tscn").instantiate()
 	root.add_child(app)
+	await photograph("title")
 	app.enter_combat()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	app.player.set_physics_process(false)
@@ -39,6 +43,16 @@ func run_capture() -> void:
 	await photograph("pistol")
 	app.combat.currentweapon = &"shotgun"
 	await photograph("shotgun")
+	app.combat.cooldown = 0
+	app.combat.weapon_phase = &"idle"
+	assert(app.combat.try_fire())
+	await photograph("shotgun-fire")
+	assert(app.muzzle_image.visible, "Accepted firing event did not reach a visible muzzle frame")
+	app.combat.weapon_phase = &"idle"
+	app.combat.recoil_remaining = 0
+	app.combat.currentweapon = &"melee"
+	await photograph("melee")
+	app.combat.currentweapon = &"shotgun"
 	left.change_state(&"windup")
 	left.state_time = left.definition.windup_seconds * 0.75
 	left.update_presentation()

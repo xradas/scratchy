@@ -35,3 +35,7 @@ The user liked the combat prototype but reported poor aim, weak weapon separatio
 The user chose **Corrupted biotech — The Pale Ward** in the first playable art-pass question. This is now the first-level identity. Use the approved dimensional biotech board as the quality target: scarred warm flesh, sick green cultures, dark metal/cage machinery, threatening coherent anatomy and strong weapon silhouettes. Ash Citadel remains a future direction.
 
 This selection authorizes biotech asset development. It does not accept the simplified live creature studies or complete combat calibration. Review the integrated aiming/balance/contact/art exchange before expanding the 5–8 minute route. Abelian remains menu-only; a specific level soundtrack is still pending.
+
+## Approved-art reuse correction
+
+The user said the earlier nice 2D concept artwork should be used and the rough 3D direction seemed a waste. The playable revision now directly adapts that exact board into transparent creature/weapon sprites, preserves scarred anatomy, containment cage/green sac and worn gun/black-glove appearance, and displays the original scene as title artwork. This is a generated representative sprite pass: eight frontal enemy poses and four weapon poses, with measured pivots and actual alpha/material contacts. It does not imply acceptance or complete directional production.

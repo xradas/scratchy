@@ -1,0 +1,642 @@
+{
+  "schema_version": 1,
+  "status": "faithful-first-direction-representative-generated-sprite-pass",
+  "identity_selected": false,
+  "approved_reference": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/concepts/visual-v2/corrupted-biotech/board.png",
+  "approved_reference_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+  "provenance": "Built-in imagegen edit of approved board; original generated RGBA retained; no raster transforms or hand-authored production claim.",
+  "tool_metadata": "generation-metadata.json",
+  "columns": 4,
+  "rows": 2,
+  "canvas": [
+    1536,
+    1024
+  ],
+  "cell": [
+    384,
+    512
+  ],
+  "state_order": [
+    "idle",
+    "walk_left",
+    "walk_right",
+    "windup",
+    "recovery",
+    "pain",
+    "death",
+    "corpse"
+  ],
+  "directions": 1,
+  "intended_foot_anchor": [
+    192,
+    471
+  ],
+  "pivot_policy": "use per-frame foot_pivot to maintain one stable renderer/world anchor",
+  "creatures": {
+    "unsealed": {
+      "atlas": "unsealed/atlas.png",
+      "sha256": "b1b2f05076266f7f3db95dcf4ac49c058d55c437719eb18b2b5ddd2b5b17f194",
+      "inspection": "unsealed/inspection-final.json",
+      "frames": [
+        {
+          "index": 0,
+          "state": "idle",
+          "region": [
+            0,
+            0,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            65,
+            124,
+            336,
+            459
+          ],
+          "alpha_bounds_threshold128": [
+            66,
+            124,
+            336,
+            459
+          ],
+          "foot_pivot": [
+            192,
+            458
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            13
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 1,
+          "state": "walk_left",
+          "region": [
+            384,
+            0,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            76,
+            123,
+            329,
+            460
+          ],
+          "alpha_bounds_threshold128": [
+            77,
+            123,
+            329,
+            460
+          ],
+          "foot_pivot": [
+            192,
+            459
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            12
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 2,
+          "state": "walk_right",
+          "region": [
+            768,
+            0,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            53,
+            121,
+            295,
+            459
+          ],
+          "alpha_bounds_threshold128": [
+            54,
+            122,
+            295,
+            458
+          ],
+          "foot_pivot": [
+            192,
+            457
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            14
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 3,
+          "state": "windup",
+          "region": [
+            1152,
+            0,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            39,
+            109,
+            334,
+            460
+          ],
+          "alpha_bounds_threshold128": [
+            40,
+            109,
+            333,
+            459
+          ],
+          "foot_pivot": [
+            192,
+            458
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            13
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 4,
+          "state": "recovery",
+          "region": [
+            0,
+            512,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            56,
+            93,
+            340,
+            413
+          ],
+          "alpha_bounds_threshold128": [
+            56,
+            94,
+            340,
+            413
+          ],
+          "foot_pivot": [
+            192,
+            412
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            59
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 5,
+          "state": "pain",
+          "region": [
+            384,
+            512,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            79,
+            71,
+            322,
+            415
+          ],
+          "alpha_bounds_threshold128": [
+            80,
+            72,
+            321,
+            415
+          ],
+          "foot_pivot": [
+            192,
+            414
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            57
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 6,
+          "state": "death",
+          "region": [
+            768,
+            512,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            56,
+            148,
+            290,
+            421
+          ],
+          "alpha_bounds_threshold128": [
+            57,
+            149,
+            289,
+            420
+          ],
+          "foot_pivot": [
+            192,
+            419
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            52
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 7,
+          "state": "corpse",
+          "region": [
+            1152,
+            512,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            21,
+            263,
+            336,
+            430
+          ],
+          "alpha_bounds_threshold128": [
+            21,
+            263,
+            335,
+            429
+          ],
+          "foot_pivot": [
+            192,
+            428
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            43
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "prompts": [
+        "unsealed/prompt-layout-v2.txt",
+        "unsealed/prompt.txt"
+      ]
+    },
+    "vessel": {
+      "atlas": "vessel/atlas.png",
+      "sha256": "ff821c5a7756b3d989e33f078b5b5cfc85564b69f8ed7c649e36a02104f59577",
+      "inspection": "vessel/inspection-final.json",
+      "frames": [
+        {
+          "index": 0,
+          "state": "idle",
+          "region": [
+            0,
+            0,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            41,
+            159,
+            351,
+            471
+          ],
+          "alpha_bounds_threshold128": [
+            42,
+            160,
+            350,
+            471
+          ],
+          "foot_pivot": [
+            192,
+            470
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            1
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 1,
+          "state": "walk_left",
+          "region": [
+            384,
+            0,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            49,
+            138,
+            348,
+            481
+          ],
+          "alpha_bounds_threshold128": [
+            50,
+            138,
+            347,
+            481
+          ],
+          "foot_pivot": [
+            192,
+            480
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            -9
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 2,
+          "state": "walk_right",
+          "region": [
+            768,
+            0,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            33,
+            153,
+            328,
+            482
+          ],
+          "alpha_bounds_threshold128": [
+            33,
+            153,
+            328,
+            481
+          ],
+          "foot_pivot": [
+            192,
+            480
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            -9
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 3,
+          "state": "windup",
+          "region": [
+            1152,
+            0,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            48,
+            131,
+            343,
+            470
+          ],
+          "alpha_bounds_threshold128": [
+            48,
+            132,
+            342,
+            470
+          ],
+          "foot_pivot": [
+            192,
+            469
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            2
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 4,
+          "state": "recovery",
+          "region": [
+            0,
+            512,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            53,
+            98,
+            356,
+            422
+          ],
+          "alpha_bounds_threshold128": [
+            54,
+            99,
+            356,
+            421
+          ],
+          "foot_pivot": [
+            192,
+            420
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            51
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 5,
+          "state": "pain",
+          "region": [
+            384,
+            512,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            62,
+            96,
+            358,
+            431
+          ],
+          "alpha_bounds_threshold128": [
+            62,
+            96,
+            357,
+            431
+          ],
+          "foot_pivot": [
+            192,
+            430
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            41
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 6,
+          "state": "death",
+          "region": [
+            768,
+            512,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            38,
+            171,
+            341,
+            436
+          ],
+          "alpha_bounds_threshold128": [
+            39,
+            172,
+            340,
+            435
+          ],
+          "foot_pivot": [
+            192,
+            434
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            37
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "index": 7,
+          "state": "corpse",
+          "region": [
+            1152,
+            512,
+            384,
+            512
+          ],
+          "alpha_bounds_threshold32": [
+            34,
+            257,
+            354,
+            435
+          ],
+          "alpha_bounds_threshold128": [
+            34,
+            258,
+            354,
+            434
+          ],
+          "foot_pivot": [
+            192,
+            433
+          ],
+          "offset_to_anchor_192_471": [
+            0,
+            38
+          ],
+          "edge_alpha_counts_lr_tb": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "prompts": [
+        "vessel/prompt-cell4-v3.txt",
+        "vessel/prompt-layout-v2.txt",
+        "vessel/prompt.txt"
+      ]
+    }
+  },
+  "review": [
+    "review/near-640.png",
+    "review/poses-640.png"
+  ],
+  "armor_guides": "vessel/armor-suggestions.json",
+  "readme": "README.md"
+}
