@@ -119,49 +119,52 @@ func _ready() -> void:
 	resized.connect(layout_view)
 	layout_view()
 	set_paused(true)
-	if smoke:
-		enter_combat()
-		if "--gore-smoke" in OS.get_cmdline_user_args():
-			# Exercise embedded art and actual resolved damage in the release template.
-			player.set_physics_process(false)
-			player.position = Vector3(0,.87,11)
-			for enemy in combat.enemies:
-				enemy.set_physics_process(false); enemy.position.x = 80
-			var victim: CharacterBody3D = combat.enemies[0]
-			victim.position = Vector3(0,.87,7); victim.health = 80
-			player.camera.look_at(victim.global_position + Vector3(0,.28,0))
-			combat.currentweapon = &"shotgun"
-			await get_tree().physics_frame; await get_tree().physics_frame
-			assert(combat.try_fire())
-			assert(victim.dead and victim.gibbed)
-			await get_tree().create_timer(2.7).timeout
-			assert(combat.gore.remains.size() == 9 and combat.gore.particles.is_empty())
-			player.camera.look_at(Vector3(0,.2,7))
-			await capture_smoke_frame("gore")
-			restart_combat()
-			assert(combat.gore.stains.is_empty() and combat.gore.remains.is_empty())
-			print("GORE_EXPORT_SMOKE_OK: actual shotgun kill, nine grounded parts, embedded textures and retry reset")
-		await get_tree().create_timer(0.5).timeout
-		await capture_smoke_frame("gameplay")
-		set_paused(true)
-		assert(get_tree().paused)
-		var paused_position := player.position
-		await get_tree().create_timer(0.2).timeout
-		assert(player.position == paused_position)
-		await capture_smoke_frame("menu")
-		AudioServer.set_bus_mute(0, true)
-		set_paused(false)
-		assert(not get_tree().paused)
-		assert(AudioServer.is_bus_mute(0))
-		AudioServer.set_bus_mute(0, muted)
-		set_paused(true)
-		assert(AudioServer.bus_count == 6)
-		assert(AudioServer.get_bus_name(1) == "Weapons")
-		assert(AudioServer.get_bus_name(5) == "UI")
-		assert(world_view.size == Vector2i(640, 360))
-		assert(player.get_node("Camera3D").fov == field_of_view)
-		print("FOUNDATION_SMOKE_OK: scene instantiated; fixed viewport; settings applied; pause active; buses=", AudioServer.bus_count)
-		await quit_game()
+	if smoke: call_deferred("run_smoke")
+
+func run_smoke() -> void:
+	get_tree().root.set_flag(Window.FLAG_NO_FOCUS,true)
+	enter_combat()
+	if "--gore-smoke" in OS.get_cmdline_user_args():
+		# Exercise embedded art and actual resolved damage in the release template.
+		player.set_physics_process(false)
+		player.position = Vector3(0,.87,11)
+		for enemy in combat.enemies:
+			enemy.set_physics_process(false); enemy.position.x = 80
+		var victim: CharacterBody3D = combat.enemies[0]
+		victim.position = Vector3(0,.87,7); victim.health = 80
+		player.camera.look_at(victim.global_position + Vector3(0,.28,0))
+		combat.currentweapon = &"shotgun"
+		await get_tree().physics_frame; await get_tree().physics_frame
+		assert(combat.try_fire())
+		assert(victim.dead and victim.gibbed)
+		await get_tree().create_timer(2.7).timeout
+		assert(combat.gore.remains.size() == 9 and combat.gore.particles.is_empty())
+		player.camera.look_at(Vector3(0,.2,7))
+		await capture_smoke_frame("gore")
+		restart_combat()
+		assert(combat.gore.stains.is_empty() and combat.gore.remains.is_empty())
+		print("GORE_EXPORT_SMOKE_OK: actual shotgun kill, nine grounded parts, embedded textures and retry reset")
+	await get_tree().create_timer(0.5).timeout
+	await capture_smoke_frame("gameplay")
+	set_paused(true)
+	assert(get_tree().paused)
+	var paused_position := player.position
+	await get_tree().create_timer(0.2).timeout
+	assert(player.position == paused_position)
+	await capture_smoke_frame("menu")
+	AudioServer.set_bus_mute(0, true)
+	set_paused(false)
+	assert(not get_tree().paused)
+	assert(AudioServer.is_bus_mute(0))
+	AudioServer.set_bus_mute(0, muted)
+	set_paused(true)
+	assert(AudioServer.bus_count == 6)
+	assert(AudioServer.get_bus_name(1) == "Weapons")
+	assert(AudioServer.get_bus_name(5) == "UI")
+	assert(world_view.size == Vector2i(640, 360))
+	assert(player.get_node("Camera3D").fov == field_of_view)
+	print("FOUNDATION_SMOKE_OK: scene instantiated; fixed viewport; settings applied; pause active; buses=", AudioServer.bus_count)
+	await quit_game()
 
 func layout_view() -> void:
 	if not is_instance_valid(world_image): return
