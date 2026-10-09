@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Pale Ward — art style review</title>
+  <link rel="stylesheet" href="grit-review.css">
+</head>
+<body>
+<main>
+  <header>
+    <p>EYESORE / BUILD TWO / ART STYLE COMPARISON</p>
+    <h1>The Pale Ward — art style review</h1>
+    <p>The latest requested treatment is the approved artwork's style: shared coarse pixels, painted grey-brown shading, dark metal, and restrained yellow-green light. The current HUD and music are retained.</p>
+    <p>The original concept preview and actual gameplay captures are paired for review of that treatment. The target concerns art style across the game; it does not prescribe the exact opening camera. These captures do not establish a match or acceptance.</p>
+    <p>Both comparison frames have equal displayed dimensions. Images keep their aspect ratio with no crop and use nearest-neighbour display scaling. Click either image for the full unchanged PNG.</p>
+    <p><a href="index.html">Original concept review</a> · <a href="grit-review.html">Preserved earlier comparison</a> · <a href="style-review-assets/manifest.json">Source SHA256 and byte checks</a></p>
+  </header>
+  <div class="comparison">
+    <section aria-labelledby="target-heading">
+      <h2 id="target-heading">Approved style reference — original concept preview</h2>
+      <label for="target-view">Original concept source</label>
+      <select id="target-view">
+        <option>Original scene_pixel_preview.png</option>
+      </select>
+      <figure>
+        <a class="image-frame" href="style-review-assets/scene_pixel_preview.png" aria-label="Open unchanged approved concept preview PNG"><img src="style-review-assets/scene_pixel_preview.png" alt="Original approved Pale Ward concept preview, preserved byte for byte"></a>
+        <figcaption>Approved concept artwork. This image is the style reference.</figcaption>
+      </figure>
+      <p><a href="visual-v2/corrupted-biotech/scene_pixel_preview.png">Original concept source PNG</a></p>
+    </section>
+    <section aria-labelledby="current-heading">
+      <h2 id="current-heading">Actual gameplay — current implementation</h2>
+      <label for="current-view">Actual gameplay capture</label>
+      <select id="current-view">
+        <option value="style-review-assets/containment-entry.png">Containment entry</option>
+        <option value="style-review-assets/containment-stairs.png">Containment stairs</option>
+        <option value="style-review-assets/bio-wing.png">Bio wing</option>
+        <option value="style-review-assets/operating-room.png">Operating room</option>
+        <option value="style-review-assets/rear-lab.png">Rear lab</option>
+        <option value="style-review-assets/exit-gallery.png">Exit gallery</option>
+      </select>
+      <figure>
+        <a id="current-link" class="image-frame" href="style-review-assets/containment-entry.png" aria-label="Open actual gameplay Containment entry unchanged PNG"><img id="current-image" src="style-review-assets/containment-entry.png" alt="Actual gameplay capture: Containment entry"></a>
+        <figcaption id="current-caption">Actual gameplay: Containment entry. Running-game capture copied byte for byte.</figcaption>
+      </figure>
+      <p>Review pending. No visual match or acceptance is claimed.</p>
+    </section>
+  </div>
+  <section>
+    <h2>Actual gameplay captures — full unchanged PNGs</h2>
+    <p>All current captures remain available here when JavaScript is disabled.</p>
+    <ul>
+      <li><a href="style-review-assets/containment-entry.png">Actual gameplay: Containment entry</a></li>
+      <li><a href="style-review-assets/containment-stairs.png">Actual gameplay: Containment stairs</a></li>
+      <li><a href="style-review-assets/bio-wing.png">Actual gameplay: Bio wing</a></li>
+      <li><a href="style-review-assets/operating-room.png">Actual gameplay: Operating room</a></li>
+      <li><a href="style-review-assets/rear-lab.png">Actual gameplay: Rear lab</a></li>
+      <li><a href="style-review-assets/exit-gallery.png">Actual gameplay: Exit gallery</a></li>
+    </ul>
+  </section>
+  <footer><p>PNG sources are preserved. Review assets are byte-for-byte copies from the original concept preview and verification/style-v2/captures. The provenance manifest records both paths, source dimensions, and SHA256. No image edits, filtering or compositing are applied to the files.</p></footer>
+  <p id="view-status" role="status" aria-live="polite" class="sr-only"></p>
+</main>
+<script>
+"use strict";
+document.getElementById("current-view").addEventListener("change", (event) => {
+  const option = event.target.selectedOptions[0];
+  const image = document.getElementById("current-image");
+  image.src = option.value;
+  image.alt = `Actual gameplay capture: ${option.textContent}`;
+  const link = document.getElementById("current-link");
+  link.href = option.value;
+  link.setAttribute("aria-label", `Open actual gameplay ${option.textContent} unchanged PNG`);
+  document.getElementById("current-caption").textContent = `Actual gameplay: ${option.textContent}. Running-game capture copied byte for byte.`;
+  document.getElementById("view-status").textContent = `Actual gameplay view changed to ${option.textContent}.`;
+});
+</script>
+</body>
+</html>

@@ -11,20 +11,52 @@
     "composition": "Asymmetric C3 and Bio Wing containment piers, left infestation and advancing melee silhouette, broad rear stair and gate, right yellow-green specimen tanks and ranged threat, overhead services, scuffed reflective metal and dark grates.",
     "hud": "Preserve the current HUD; user says it looks alright.",
     "audio": "Preserve praised music; Abelian menu only. Dry weapon/material impacts, pain sounds and bloodcurdling death vocals; no wet damage audio.",
-    "review": "Display original concept and actual gameplay with honest labels. User visual approval is still pending."
+    "review": "Display original concept and actual gameplay with honest labels. User visual approval is still pending.",
+    "latest_clarification": "User clarified on2026-10-09 that the requested match concerns the art style. Prioritize chunky pixel treatment, painted shading, dark worn metal, restrained yellow-green lighting, and the approved creature/weapon design language; layout remains a stage basis.",
+    "style_pass": "Combined world/enemy/weapon/muzzle320×180 visible grid from640×360 camera rendering. Original sampled textures preserved; reduced metal/specular/relief. Current readable HUD and praised music retained. Native visual acceptance remains pending."
   },
   "story_draft": {
     "status": "Coordinator draft for later revision; no campaign is implemented by this document.",
     "premise": "A municipal recovery worker enters a sealed research district to restore the evacuation line. The Pale Ward's treatment network is carrying an organism through the city's machinery. Every apparent containment system is keeping something alive.",
     "player_objective": "Recover the ward's suppression core and reopen the route out; discover why the signal continues below the facility.",
     "chapter_order": [
-      {"id": "arrival", "title": "Last Service", "setting": "Abandoned maintenance approach", "role": "Future chapter before the approved compositions; establish city and worker."},
-      {"id": "occupied_line", "title": "The Occupied Line", "reference": "concepts/visual-v2/civic-invasion/board.png", "role": "Future civic checkpoint and broken evacuation route; use its approved composition as a stage anchor."},
-      {"id": "pale_ward", "title": "The Pale Ward", "reference": "concepts/visual-v2/corrupted-biotech/board.png", "role": "Current implementation focus: containment hall, key-return loop, laboratory and discharge exit."},
-      {"id": "ash_citadel", "title": "The Ash Citadel", "reference": "concepts/visual-v2/occult-fortress/board.png", "role": "Future burned fortress beneath the district; use its approved composition as a stage anchor."},
-      {"id": "source", "title": "The Pressure Below", "setting": "Buried supply and suppression machinery", "role": "Future chapter after the approved compositions; resolve the network's source."}
+      {
+        "id": "arrival",
+        "title": "Last Service",
+        "setting": "Abandoned maintenance approach",
+        "role": "Future chapter before the approved compositions; establish city and worker."
+      },
+      {
+        "id": "occupied_line",
+        "title": "The Occupied Line",
+        "reference": "concepts/visual-v2/civic-invasion/board.png",
+        "role": "Future civic checkpoint and broken evacuation route; use its approved composition as a stage anchor."
+      },
+      {
+        "id": "pale_ward",
+        "title": "The Pale Ward",
+        "reference": "concepts/visual-v2/corrupted-biotech/board.png",
+        "role": "Current implementation focus: containment hall, key-return loop, laboratory and discharge exit."
+      },
+      {
+        "id": "ash_citadel",
+        "title": "The Ash Citadel",
+        "reference": "concepts/visual-v2/occult-fortress/board.png",
+        "role": "Future burned fortress beneath the district; use its approved composition as a stage anchor."
+      },
+      {
+        "id": "source",
+        "title": "The Pressure Below",
+        "setting": "Buried supply and suppression machinery",
+        "role": "Future chapter after the approved compositions; resolve the network's source."
+      }
     ],
-    "future_production": ["Additional enemies must follow each chapter's approved creature language.", "Additional weapons require distinct damage, dry physical sound and complete animation.", "Lighting should reveal silhouettes and materials while preserving the approved grit.", "Complete eight-direction creature animation remains required."]
+    "future_production": [
+      "Additional enemies must follow each chapter's approved creature language.",
+      "Additional weapons require distinct damage, dry physical sound and complete animation.",
+      "Lighting should reveal silhouettes and materials while preserving the approved grit.",
+      "Complete eight-direction creature animation remains required."
+    ]
   },
   "team": {
     "specialist_count": 21,
@@ -32,28 +64,96 @@
     "coordinator": "Research, reference selection, story, visual direction, shared contracts, integration, provenance and Git.",
     "specialists": "Programming and implementation verification only; no browsing or research.",
     "tasks": [
-      ["p01", "Original-versus-game review page"],
-      ["p02", "Authoritative shot lighting component"],
-      ["p03", "Portable export and archive tooling"],
-      ["p04", "Original-board material atlas shader"],
-      ["p05", "Shot lighting integration and owner checks"],
-      ["p06", "Isolated evidence output arguments"],
-      ["p07", "Approved material provenance and binding validator"],
-      ["p08", "Registered sprite resource and pivot audit"],
-      ["p09", "Native approved-material preview capture"],
-      ["p10", "Static reflection and dynamic render ownership"],
-      ["p11", "Weapon and contact event integration checks"],
-      ["p12", "Enemy interruption and death release checks"],
-      ["p13", "New containment machinery collision checks"],
-      ["p14", "Repeated shot lighting render cadence"],
-      ["p15", "Original concept signage sampling"],
-      ["p16", "Review source-integrity and asset-link audit"],
-      ["p17", "Aim and persisted camera settings regression"],
-      ["p18", "Independent portable archive verifier"],
-      ["p19", "Integrated encounter route and restart verification"],
-      ["p20", "Actual stereo recording verification"],
-      ["p21", "Independent source and release integration review"]
+      [
+        "p01",
+        "Original-versus-game review page"
+      ],
+      [
+        "p02",
+        "Authoritative shot lighting component"
+      ],
+      [
+        "p03",
+        "Portable export and archive tooling"
+      ],
+      [
+        "p04",
+        "Original-board material atlas shader"
+      ],
+      [
+        "p05",
+        "Shot lighting integration and owner checks"
+      ],
+      [
+        "p06",
+        "Isolated evidence output arguments"
+      ],
+      [
+        "p07",
+        "Approved material provenance and binding validator"
+      ],
+      [
+        "p08",
+        "Registered sprite resource and pivot audit"
+      ],
+      [
+        "p09",
+        "Native approved-material preview capture"
+      ],
+      [
+        "p10",
+        "Static reflection and dynamic render ownership"
+      ],
+      [
+        "p11",
+        "Weapon and contact event integration checks"
+      ],
+      [
+        "p12",
+        "Enemy interruption and death release checks"
+      ],
+      [
+        "p13",
+        "New containment machinery collision checks"
+      ],
+      [
+        "p14",
+        "Repeated shot lighting render cadence"
+      ],
+      [
+        "p15",
+        "Original concept signage sampling"
+      ],
+      [
+        "p16",
+        "Review source-integrity and asset-link audit"
+      ],
+      [
+        "p17",
+        "Aim and persisted camera settings regression"
+      ],
+      [
+        "p18",
+        "Independent portable archive verifier"
+      ],
+      [
+        "p19",
+        "Integrated encounter route and restart verification"
+      ],
+      [
+        "p20",
+        "Actual stereo recording verification"
+      ],
+      [
+        "p21",
+        "Independent source and release integration review"
+      ]
     ]
   },
-  "remaining_acceptance": ["User approval that gameplay reproduces the concept.", "Complete directional animation and weapon production assets.", "Human route duration of five to eight minutes.", "Sustained Linux human playtest and listening review."]
+  "remaining_acceptance": [
+    "User approval that gameplay reproduces the concept.",
+    "Complete directional animation and weapon production assets.",
+    "Human route duration of five to eight minutes.",
+    "Sustained Linux human playtest and listening review."
+  ]
 }

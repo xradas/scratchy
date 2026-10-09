@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-09T17:59:23.877977+00:00",
+  "checked_utc": "2026-10-09T18:32:50.646569+00:00",
   "stage": "Pale Ward original concept material and signage sampling; visual acceptance and complete production pending",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
@@ -17,8 +17,8 @@
     "audio": "23 runtime SFX plus three stereo music files. Weapon/material contacts, distinct short pain, two longer death screams, title-only Abelian, paused level mix, mute and reset ownership verified. Original sources/edits/licenses retained; wet pack rejected.",
     "weapon_prototypes": "Approved-board transparent pistol/shotgun/glove sprite atlases; four poses each, byte-original pixels. Runtime authored regions/scales/markers register generated poses. Nearest display keeps correct proportions, clips within world viewport and leaves crosshair clear. Accepted shot reaches a visible muzzle frame before lifetime decrement; no baked muzzle flash in source.",
     "export": "Fresh embedded-PCK gore Linux export passed native actual shotgun kill, nine grounded pieces, embedded textures and retry reset plus foundation pause/settings/audio buses from /tmp. Source normal combat route complete; sustained human release playtest pending.",
-    "creature_prototypes": "Approved-board builtin imagegen edits: two transparent eight-pose front-view sprite atlases now runtime art. Perframe feet, bounded128\u00d7192 silhouette rays,24 manually authored Vessel hardware contacts and disabled corpse queries pass native/headless. World physics stays capsule-based; fine source alpha detail is approximated.",
-    "identity_selection": "User explicitly selected Corrupted biotech \u2014 The Pale Ward on9October2026 for the first playable art pass/first level. Concept quality target remains separate from acceptance of simplified runtime studies.",
+    "creature_prototypes": "Approved-board builtin imagegen edits: two transparent eight-pose front-view sprite atlases now runtime art. Perframe feet, bounded128×192 silhouette rays,24 manually authored Vessel hardware contacts and disabled corpse queries pass native/headless. World physics stays capsule-based; fine source alpha detail is approximated.",
+    "identity_selection": "User explicitly selected Corrupted biotech — The Pale Ward on9October2026 for the first playable art pass/first level. Concept quality target remains separate from acceptance of simplified runtime studies.",
     "title_art": "Actual original approved Pale Ward composition is title artwork, copied byte-identically and displayed above its static concept HUD with an AtlasTexture region. Abelian remains title only. Title artwork is explicitly static, not a live room.",
     "gore": "Authoritative resolved hurt/death events: flesh spray, armor sparks, pinned surface-conforming death pools, intact corpse/scraps and heavy shotgun overkill nine-part dismemberment. Actual layer1 geometry splits stains at stair risers. Native30/60/120 fixed-tick results agree; pause freezes and retry clears; hurt/death audio remains dry and unchanged. Generated original raster assets and exact prompts audited."
   },
@@ -82,11 +82,11 @@
   "pending": [
     "User review of playable art/environment/gore and existing dry contacts, hurt/death and actual stereo mix.",
     "Complete directional creature/weapon animation and richer interactions.",
-    "Extend human-paced encounters toward original5\u20138minute target.",
+    "Extend human-paced encounters toward original5–8minute target.",
     "Sustained outside-source complete-level Linux human playtest and final release acceptance."
   ],
   "known_issues": [
-    "The full game image has not been accepted as reproducing the concept; original 5\u20138 minute human duration and polish remain pending.",
+    "The full game image has not been accepted as reproducing the concept; original 5–8 minute human duration and polish remain pending.",
     "Eight frontal enemy poses only; full eight-direction animation still pending; generated detail/perspective drift.",
     "Three brief floor-flag transitions across12 stairs, identical at30/60/120 caps; nofall/jump/doorwaygap inroute checks.",
     "Room graph pursuit/local obstacle steering are representative; sustained human encounter/release review remains pending.",
@@ -229,7 +229,7 @@
     "bytes": 109081208,
     "sha256": "da3d9871d41e8721b94c0bf0c70a6c052a1a25583d23e89e92c15e417ad6a4d5",
     "pck": "embedded",
-    "scope": "Reference-based connected Pale Ward playable level art pass; eleven enemies; physical stairs, key-return, shortcut/secret, doors/lift, exit and visited automap. Native export smoke from /tmp; source live AI normal-ammo completion. Not a polished5\u20138minute final release.",
+    "scope": "Reference-based connected Pale Ward playable level art pass; eleven enemies; physical stairs, key-return, shortcut/secret, doors/lift, exit and visited automap. Native export smoke from /tmp; source live AI normal-ammo completion. Not a polished5–8minute final release.",
     "source_commit": "316c29da599486ceca2acd8ce0d5dabf94b66e54"
   },
   "preserved_level_portable_archive": {
@@ -328,5 +328,25 @@
     "audio_validation": "gore/movie-audio.log",
     "integrated_lufs": -25.0,
     "true_peak_dbtp": -6.8
+  },
+  "style_pass": {
+    "date": "2026-10-09",
+    "direction": "../docs/production-direction.json",
+    "art_review": "http://127.0.0.1:8765/style-review.html",
+    "accepted_as_visual_match": false,
+    "captures": "style-v2/captures/*.png",
+    "presentation": "320×180 combined world/enemy/weapon/muzzle;640×360 camera; current full-window HUD preserved",
+    "composite_checks": [
+      "style-v2/s01/composite.json",
+      "style-v2/s01/composite-native.json"
+    ],
+    "registered_art": "style-v2/registered-art-final.json",
+    "atlas_registration": "style-v2/s03/new-atlas-r2-registration.json",
+    "atlas_runtime": "style-v2/s03/new-atlas-r2-runtime.json",
+    "aim_balance": "style-v2/aim/aim-balance.json",
+    "shot_cadence": "style-v2/shot-cadence-native.json",
+    "first_run_hitch_ms": 155.14,
+    "integrated_route": "style-v2/final-integration/20261009T182939Z-7cbc0780/summary.json",
+    "art_observations": "Shared visible pixel size and reduced world glare implemented. Native capture reviewed; weapon still has broad shiny highlights and creature/source detail drift. Full approved style and directional production remain pending."
   }
 }

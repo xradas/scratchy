@@ -1,0 +1,474 @@
+{
+  "alpha_threshold": 0.5,
+  "bounds_format": "local x,y,width,height; right/bottom exclusive",
+  "contact_policy": "bottom occupied pixel boundary; x center of occupied bottom 3 rows within optional reviewed contact region",
+  "directional_limitation": "Eight representative frontal poses only; full directional production remains pending.",
+  "frames": [
+    {
+      "alpha_bounds": [
+        31,
+        77,
+        323,
+        406
+      ],
+      "background_alpha_bins": {
+        "above_0.01": 0,
+        "above_0.05": 0,
+        "above_0.1": 0,
+        "above_0.25": 0
+      },
+      "background_subthreshold_pixels": 219,
+      "cell_edge_alpha_max": 0.00392156885936856,
+      "cell_edge_nonzero_pixels": 4,
+      "cell_edge_opaque_locations": [],
+      "cell_edge_opaque_pixels": 0,
+      "cell_origin": [
+        0,
+        0
+      ],
+      "connected_component_pixel_counts": [
+        60827
+      ],
+      "contact_is_reviewed_region": false,
+      "contact_pivot": [
+        159.0,
+        483
+      ],
+      "frame": 0,
+      "nonzero_alpha_pixels": 79058,
+      "opaque_pixels": 60827,
+      "pose_role": "stance_foot_contact",
+      "quality_failures": [],
+      "subthreshold_pixels": 18231
+    },
+    {
+      "alpha_bounds": [
+        58,
+        80,
+        299,
+        405
+      ],
+      "background_alpha_bins": {
+        "above_0.01": 4,
+        "above_0.05": 0,
+        "above_0.1": 0,
+        "above_0.25": 0
+      },
+      "background_subthreshold_pixels": 878,
+      "cell_edge_alpha_max": 0.00392156885936856,
+      "cell_edge_nonzero_pixels": 1,
+      "cell_edge_opaque_locations": [],
+      "cell_edge_opaque_pixels": 0,
+      "cell_origin": [
+        384,
+        0
+      ],
+      "connected_component_pixel_counts": [
+        57622
+      ],
+      "contact_is_reviewed_region": false,
+      "contact_pivot": [
+        167.0,
+        485
+      ],
+      "frame": 1,
+      "nonzero_alpha_pixels": 74518,
+      "opaque_pixels": 57622,
+      "pose_role": "stance_foot_contact",
+      "quality_failures": [],
+      "subthreshold_pixels": 16896
+    },
+    {
+      "alpha_bounds": [
+        36,
+        90,
+        331,
+        399
+      ],
+      "background_alpha_bins": {
+        "above_0.01": 24,
+        "above_0.05": 7,
+        "above_0.1": 0,
+        "above_0.25": 0
+      },
+      "background_subthreshold_pixels": 475,
+      "cell_edge_alpha_max": 0.062745101749897,
+      "cell_edge_nonzero_pixels": 31,
+      "cell_edge_opaque_locations": [],
+      "cell_edge_opaque_pixels": 0,
+      "cell_origin": [
+        768,
+        0
+      ],
+      "connected_component_pixel_counts": [
+        60086
+      ],
+      "contact_is_reviewed_region": false,
+      "contact_pivot": [
+        149.0,
+        489
+      ],
+      "frame": 2,
+      "nonzero_alpha_pixels": 78329,
+      "opaque_pixels": 60086,
+      "pose_role": "stance_foot_contact",
+      "quality_failures": [],
+      "subthreshold_pixels": 18243
+    },
+    {
+      "alpha_bounds": [
+        0,
+        50,
+        369,
+        439
+      ],
+      "background_alpha_bins": {
+        "above_0.01": 0,
+        "above_0.05": 0,
+        "above_0.1": 0,
+        "above_0.25": 0
+      },
+      "background_subthreshold_pixels": 262,
+      "cell_edge_alpha_max": 0.756862759590149,
+      "cell_edge_nonzero_pixels": 33,
+      "cell_edge_opaque_locations": [
+        [
+          0,
+          88,
+          0.537254929542542
+        ],
+        [
+          0,
+          89,
+          0.631372570991516
+        ],
+        [
+          0,
+          90,
+          0.674509823322296
+        ],
+        [
+          0,
+          91,
+          0.721568644046783
+        ],
+        [
+          0,
+          92,
+          0.74117648601532
+        ],
+        [
+          0,
+          93,
+          0.752941191196442
+        ],
+        [
+          0,
+          94,
+          0.756862759590149
+        ],
+        [
+          0,
+          95,
+          0.752941191196442
+        ],
+        [
+          0,
+          96,
+          0.74117648601532
+        ],
+        [
+          0,
+          97,
+          0.709803938865662
+        ],
+        [
+          0,
+          98,
+          0.662745118141174
+        ],
+        [
+          0,
+          99,
+          0.560784339904785
+        ]
+      ],
+      "cell_edge_opaque_pixels": 12,
+      "cell_origin": [
+        1152,
+        0
+      ],
+      "connected_component_pixel_counts": [
+        57606
+      ],
+      "contact_is_reviewed_region": false,
+      "contact_pivot": [
+        61.5,
+        489
+      ],
+      "frame": 3,
+      "nonzero_alpha_pixels": 73339,
+      "opaque_pixels": 57606,
+      "pose_role": "stance_foot_contact",
+      "quality_failures": [
+        "alpha>=0.5 cell edge: opaque clipping or neighboring pose spill"
+      ],
+      "subthreshold_pixels": 15733
+    },
+    {
+      "alpha_bounds": [
+        36,
+        57,
+        324,
+        412
+      ],
+      "background_alpha_bins": {
+        "above_0.01": 21,
+        "above_0.05": 0,
+        "above_0.1": 0,
+        "above_0.25": 0
+      },
+      "background_subthreshold_pixels": 803,
+      "cell_edge_alpha_max": 0.0,
+      "cell_edge_nonzero_pixels": 0,
+      "cell_edge_opaque_locations": [],
+      "cell_edge_opaque_pixels": 0,
+      "cell_origin": [
+        0,
+        512
+      ],
+      "connected_component_pixel_counts": [
+        55618
+      ],
+      "contact_is_reviewed_region": false,
+      "contact_pivot": [
+        71.5,
+        469
+      ],
+      "frame": 4,
+      "nonzero_alpha_pixels": 70975,
+      "opaque_pixels": 55618,
+      "pose_role": "stance_foot_contact",
+      "quality_failures": [],
+      "subthreshold_pixels": 15357
+    },
+    {
+      "alpha_bounds": [
+        50,
+        64,
+        261,
+        405
+      ],
+      "background_alpha_bins": {
+        "above_0.01": 9,
+        "above_0.05": 0,
+        "above_0.1": 0,
+        "above_0.25": 0
+      },
+      "background_subthreshold_pixels": 1278,
+      "cell_edge_alpha_max": 0.0,
+      "cell_edge_nonzero_pixels": 0,
+      "cell_edge_opaque_locations": [],
+      "cell_edge_opaque_pixels": 0,
+      "cell_origin": [
+        384,
+        512
+      ],
+      "connected_component_pixel_counts": [
+        54239
+      ],
+      "contact_is_reviewed_region": false,
+      "contact_pivot": [
+        83.0,
+        469
+      ],
+      "frame": 5,
+      "nonzero_alpha_pixels": 65902,
+      "opaque_pixels": 54239,
+      "pose_role": "stance_foot_contact",
+      "quality_failures": [],
+      "subthreshold_pixels": 11663
+    },
+    {
+      "alpha_bounds": [
+        22,
+        52,
+        356,
+        415
+      ],
+      "background_alpha_bins": {
+        "above_0.01": 0,
+        "above_0.05": 0,
+        "above_0.1": 0,
+        "above_0.25": 0
+      },
+      "background_subthreshold_pixels": 379,
+      "cell_edge_alpha_max": 0.00784313771873713,
+      "cell_edge_nonzero_pixels": 47,
+      "cell_edge_opaque_locations": [],
+      "cell_edge_opaque_pixels": 0,
+      "cell_origin": [
+        768,
+        512
+      ],
+      "connected_component_pixel_counts": [
+        52679
+      ],
+      "contact_is_reviewed_region": false,
+      "contact_pivot": [
+        243.0,
+        467
+      ],
+      "frame": 6,
+      "nonzero_alpha_pixels": 68668,
+      "opaque_pixels": 52679,
+      "pose_role": "corpse_ground_contact",
+      "quality_failures": [],
+      "subthreshold_pixels": 15989
+    },
+    {
+      "alpha_bounds": [
+        14,
+        289,
+        352,
+        177
+      ],
+      "background_alpha_bins": {
+        "above_0.01": 0,
+        "above_0.05": 0,
+        "above_0.1": 0,
+        "above_0.25": 0
+      },
+      "background_subthreshold_pixels": 2336,
+      "cell_edge_alpha_max": 0.00392156885936856,
+      "cell_edge_nonzero_pixels": 35,
+      "cell_edge_opaque_locations": [],
+      "cell_edge_opaque_pixels": 0,
+      "cell_origin": [
+        1152,
+        512
+      ],
+      "connected_component_pixel_counts": [
+        32228,
+        39,
+        39,
+        18,
+        18,
+        14,
+        5,
+        4,
+        3,
+        3,
+        2,
+        1,
+        1
+      ],
+      "contact_is_reviewed_region": false,
+      "contact_pivot": [
+        166.0,
+        466
+      ],
+      "frame": 7,
+      "nonzero_alpha_pixels": 44255,
+      "opaque_pixels": 32375,
+      "pose_role": "corpse_ground_contact",
+      "quality_failures": [],
+      "subthreshold_pixels": 11880
+    }
+  ],
+  "quality_failures": [
+    "frame 3: alpha>=0.5 cell edge: opaque clipping or neighboring pose spill"
+  ],
+  "quality_pass": false,
+  "reference_standing_frame": 0,
+  "reference_standing_height_m": 1.8,
+  "registered_pixel_size": 0.00443349753694581,
+  "review_required": "Root must inspect anatomy, pose order, isolated neighbor fragments, and all contact candidates before accepting; automated gates cannot establish art approval.",
+  "source": "res://assets/enemies/concept-style-v2/unsealed-atlas.png",
+  "source_cell_dimensions": [
+    384,
+    512
+  ],
+  "source_dimensions": [
+    1536,
+    1024
+  ],
+  "source_has_alpha": true,
+  "source_pixels_unchanged": true,
+  "source_sha256": "ff723186b87bad79dec10844359cc0fadc71aac15b6deb9458706b024d4ed5a1",
+  "unsealed_registration": {
+    "clips": {},
+    "columns": 4,
+    "directions": 1,
+    "file": "res://assets/enemies/concept-style-v2/unsealed-atlas.png",
+    "foot_pivot": [
+      159.0,
+      483
+    ],
+    "pixel_size": 0.00443349753694581,
+    "sprite_options": {
+      "alpha_threshold": 0.5,
+      "frame_pivots": {
+        "0": [
+          159.0,
+          483
+        ],
+        "1": [
+          167.0,
+          485
+        ],
+        "2": [
+          149.0,
+          489
+        ],
+        "3": [
+          61.5,
+          489
+        ],
+        "4": [
+          71.5,
+          469
+        ],
+        "5": [
+          83.0,
+          469
+        ],
+        "6": [
+          243.0,
+          467
+        ],
+        "7": [
+          166.0,
+          466
+        ]
+      },
+      "hurt_material_default": "flesh",
+      "hurt_resolution": [
+        128,
+        192
+      ],
+      "material_regions": {},
+      "pose_frames": {
+        "chase": [
+          0,
+          1,
+          2
+        ],
+        "dead": [
+          6,
+          7
+        ],
+        "pain": [
+          5
+        ],
+        "recovery": [
+          4
+        ],
+        "windup": [
+          3
+        ]
+      },
+      "rows": 2
+    }
+  }
+}

@@ -29,10 +29,14 @@ RESERVED_NAMES = {"BUILD.json", "README.txt", "SHA256SUMS", "SOURCE_SHA256SUMS",
                   "export-gore.png", "export-gameplay.png", "export-menu.png", "provenance"}
 BAD_OUTPUT = re.compile(r"(?:^|\n)\s*(?:SCRIPT ERROR:|ERROR:|WARNING:)|SMOKE_FAILED:", re.I)
 EXCLUDED = {".godot", ".git", "build", "concepts", "docs", "tools", "verification"}
+STYLE_PASS_LIMITATIONS = [
+    "Current style pass combines world, viewgun and muzzle presentation at a 320 × 180 display grid; human visual acceptance against the approved concept remains pending.",
+    "Current creature atlas is generated art with eight representative frontal poses; complete directional animation and generated detail/perspective drift remain work.",
+]
 DEFAULT_LIMITATIONS = [
     "Playable reference-based art/layout pass; full production and human release acceptance pending.",
     "Materials and signs sample the original approved board; source-byte preservation does not establish whole-scene visual acceptance.",
-    "Creature art remains generated, with eight frontal poses; complete directional animation and generated detail/perspective drift remain work.",
+    *STYLE_PASS_LIMITATIONS,
     "Human-paced encounters toward the original 5–8 minute duration remain work.",
     "Sustained human combat, interaction audio, and final mix review remain pending.",
 ]
@@ -84,7 +88,8 @@ def git(*arguments: str) -> str:
 
 def provenance_files() -> list[Path]:
     roots = ("concepts/environment-art-v1", "concepts/gore-art-v1",
-             "concepts/sprite-art-v1", "concepts/visual-v2/corrupted-biotech")
+             "concepts/sprite-art-v1", "concepts/style-art-v2",
+             "concepts/visual-v2/corrupted-biotech")
     paths = [PROJECT / "concepts/visual-v2/manifest.json",
              PROJECT / "concepts/audio-v3/manifest.json",
              PROJECT / "concepts/audio-v2/manifest.json",
@@ -271,7 +276,10 @@ def package(args: argparse.Namespace) -> dict:
             raise PackagingError("Source inputs changed during export/smoke; stabilize source and retry")
         integration_path = PROJECT / "verification/INTEGRATION.json"
         integration = json.loads(integration_path.read_text()) if integration_path.is_file() else {}
-        limitations = integration.get("known_issues", DEFAULT_LIMITATIONS)
+        limitations = list(integration.get("known_issues", DEFAULT_LIMITATIONS))
+        for issue in STYLE_PASS_LIMITATIONS:
+            if issue not in limitations:
+                limitations.append(issue)
         record = {"project": "Eyesore / The Pale Ward", "engine": version, "renderer": "Compatibility",
                   "source_commit": commit, "source_branch": git("branch", "--show-current"),
                   "source_head": head, "source_git_status": git("status", "--porcelain=v1", "--untracked-files=all"),

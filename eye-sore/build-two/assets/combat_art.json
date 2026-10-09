@@ -21,80 +21,85 @@
   },
   "enemies": {
     "unsealed": {
-      "file": "res://assets/enemies/board-sprites/unsealed-atlas.png",
+      "file": "res://assets/enemies/concept-style-v2/unsealed-atlas-r2.png",
       "columns": 4,
       "directions": 1,
       "clips": {},
-      "pixel_size": 0.0053731343283582094,
+      "pixel_size": 0.00442260442260442,
       "foot_pivot": [
-        192,
-        458
+        192.0,
+        485
       ],
       "sprite_options": {
-        "rows": 2,
-        "pose_frames": {
-          "chase": [
-            0,
-            1,
-            2
-          ],
-          "windup": [
-            3
-          ],
-          "recovery": [
-            4
-          ],
-          "pain": [
-            5
-          ],
-          "dead": [
-            6,
-            7
-          ]
-        },
+        "alpha_threshold": 0.5,
         "frame_pivots": {
           "0": [
-            192,
-            458
+            192.0,
+            485
           ],
           "1": [
-            192,
-            459
+            192.0,
+            486
           ],
           "2": [
-            192,
-            457
+            192.0,
+            490
           ],
           "3": [
-            192,
-            458
+            192.0,
+            490
           ],
           "4": [
-            192,
-            412
+            192.0,
+            471
           ],
           "5": [
-            192,
-            414
+            192.0,
+            471
           ],
           "6": [
-            192,
-            419
+            192.0,
+            468
           ],
           "7": [
-            192,
-            428
+            192.0,
+            468
           ]
         },
+        "hurt_material_default": "flesh",
         "hurt_resolution": [
           128,
           192
         ],
-        "alpha_threshold": 0.5,
-        "hurt_material_default": "flesh",
-        "material_regions": {}
+        "material_regions": {},
+        "pose_frames": {
+          "chase": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "dead": [
+            6.0,
+            7.0
+          ],
+          "pain": [
+            5.0
+          ],
+          "recovery": [
+            4.0
+          ],
+          "windup": [
+            3.0
+          ]
+        },
+        "rows": 2
       },
-      "presentation": "Generated transparent2D sprite adaptation of approved Pale Ward board. Eight representative frontal poses; full8direction production pending."
+      "presentation": "Untouched generated PNG matching approved original painted pixel concept style. Eight representative frontal poses; full eight-direction production pending.",
+      "sha256": "a83f7b7e8267bfae12da10e8480d677b73fd2741bed7ecd32e929642c1471869",
+      "source_dimensions": [
+        1536,
+        1024
+      ]
     },
     "vessel": {
       "file": "res://assets/enemies/board-sprites/vessel-atlas.png",

@@ -54,5 +54,5 @@ void fragment() {
 	ALBEDO = paint * tint.rgb;
 	METALLIC = metal;
 	ROUGHNESS = clamp(base_roughness + (0.18 - dot(paint,vec3(0.333))) * 0.65, 0.24, 0.94);
-	SPECULAR = 0.55;
+	SPECULAR = 0.22;
 }

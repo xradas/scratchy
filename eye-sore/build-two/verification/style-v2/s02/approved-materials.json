@@ -1,0 +1,164 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "original bytes and git HEAD preservation",
+      "passed": true
+    },
+    {
+      "name": "approved region metadata",
+      "passed": true
+    },
+    {
+      "name": "generated scene materials",
+      "passed": true
+    },
+    {
+      "name": "actual author material block",
+      "passed": true
+    },
+    {
+      "name": "confined nearest shader sampling and lossless import",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "evidence": {
+    "board_size_pixels": [
+      1536,
+      1024
+    ],
+    "source_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+    "runtime_copy_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+    "unchanged_originals": {
+      "concepts/visual-v2/corrupted-biotech/board.png": {
+        "current_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+        "head_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79"
+      },
+      "concepts/visual-v2/corrupted-biotech/scene.png": {
+        "current_sha256": "9afa00a3ea1b1812503435c5534973afa5f005d979f99448888598106d65b185",
+        "head_sha256": "9afa00a3ea1b1812503435c5534973afa5f005d979f99448888598106d65b185"
+      },
+      "concepts/visual-v2/corrupted-biotech/scene_pixel_preview.png": {
+        "current_sha256": "9aa0697866eae3fad401ed2c61740fad542bec98245b093e205ed11c9def63c7",
+        "head_sha256": "9aa0697866eae3fad401ed2c61740fad542bec98245b093e205ed11c9def63c7"
+      }
+    },
+    "scene_materials": {
+      "ceramic": {
+        "source_region_pixels": [
+          1216.0,
+          625.0,
+          111.0,
+          102.0
+        ],
+        "tint": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "steel": {
+        "source_region_pixels": [
+          1362.0,
+          625.0,
+          111.0,
+          102.0
+        ],
+        "tint": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "grate": {
+        "source_region_pixels": [
+          1216.0,
+          761.0,
+          111.0,
+          106.0
+        ],
+        "tint": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "floor": {
+        "source_region_pixels": [
+          1362.0,
+          625.0,
+          111.0,
+          102.0
+        ],
+        "tint": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "author_materials": {
+      "ceramic": {
+        "source_region_pixels": [
+          1216.0,
+          625.0,
+          111.0,
+          102.0
+        ],
+        "tint": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "steel": {
+        "source_region_pixels": [
+          1362.0,
+          625.0,
+          111.0,
+          102.0
+        ],
+        "tint": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "grate": {
+        "source_region_pixels": [
+          1216.0,
+          761.0,
+          111.0,
+          106.0
+        ],
+        "tint": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "floor": {
+        "source_region_pixels": [
+          1362.0,
+          625.0,
+          111.0,
+          102.0
+        ],
+        "tint": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    }
+  }
+}

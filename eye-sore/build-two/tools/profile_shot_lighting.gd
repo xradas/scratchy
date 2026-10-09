@@ -13,6 +13,7 @@ var sample_draws := false
 var results: Array[Dictionary] = []
 var force_offscreen := false
 var output_stem := "p14-shot-lighting-native"
+var evidence_path := ""
 var total_completed_draws := 0
 
 func request_forced_draw() -> void:
@@ -68,6 +69,13 @@ func rendered() -> void:
 		shot.first_dark_draw_usec = now
 
 func run_profile() -> void:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--evidence-path="):
+			evidence_path = argument.trim_prefix("--evidence-path=")
+			if evidence_path.is_empty():
+				require(false, "--evidence-path requires a nonempty path")
+				quit(1)
+				return
 	force_offscreen = "--force-offscreen-draw" in OS.get_cmdline_user_args()
 	if force_offscreen:
 		output_stem = "p14-shot-lighting-forced-offscreen"
@@ -156,6 +164,19 @@ func run_profile() -> void:
 	quit(0 if failures.is_empty() else 1)
 
 func write_report() -> void:
-	var file := FileAccess.open("res://verification/grit/" + output_stem + ".json", FileAccess.WRITE)
+	var destination := evidence_path if not evidence_path.is_empty() else "res://verification/grit/" + output_stem + ".json"
+	var absolute := ProjectSettings.globalize_path(destination)
+	var directory_error := DirAccess.make_dir_recursive_absolute(absolute.get_base_dir())
+	if directory_error != OK:
+		require(false, "Could not create evidence directory %s: error %d" % [absolute.get_base_dir(), directory_error])
+		return
+	var file := FileAccess.open(destination, FileAccess.WRITE)
+	if file == null:
+		require(false, "Could not open evidence report %s: error %d" % [destination, FileAccess.get_open_error()])
+		return
 	file.store_string(JSON.stringify({"scope":"Native current main scene, 640x360 world and current screen shader; vsync disabled, no-focus window; 60Hz physics, actual Combat.try_fire every tick, aim behind encounter, enemy AI disabled. frame_post_draw records the actual light state submitted for each completed render; does not measure pixel brightness or sustained AI gameplay. Expiry bound is duration plus one requested-cap render interval plus 3ms scheduling tolerance; actual longest draw interval is reported independently so a render hitch cannot relax the expiry check.", "render_mode":"forced offscreen native OpenGL; force_draw(false) after process nodes on each process-frame cadence while minimized; FPS measures offscreen rendering, not visible-window presentation" if force_offscreen else "ordinary native visible-window rendering", "adapter":RenderingServer.get_video_adapter_name(), "renderer_drawable":DisplayServer.window_can_draw(), "window_mode":root.mode, "total_engine_frames":Engine.get_frames_drawn(), "total_completed_draws":total_completed_draws, "results":results, "failures":failures}, "  ") + "\n")
+	file.flush()
+	var write_error := file.get_error()
 	file.close()
+	if write_error != OK:
+		require(false, "Could not write evidence report %s: error %d" % [destination, write_error])

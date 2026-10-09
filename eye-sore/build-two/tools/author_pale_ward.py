@@ -37,9 +37,9 @@ for kind in ['player','level','door','lift']:
 ext.append('[ext_resource type="ArrayMesh" path="res://resources/ward_ramp_mesh.tres" id="ramp_mesh"]')
 ext.append('[ext_resource type="Shader" path="res://shaders/ward_surface.gdshader" id="ward_surface"]')
 ext.append('[ext_resource type="Texture2D" path="res://assets/enemies/board-sprites/unsealed-atlas.png" id="specimen_atlas"]')
-for kind,uv in [('ceramic',.30),('steel',.5),('floor',.35),('grate',.7)]:
+for kind,uv in [('ceramic',.65),('steel',.5),('floor',.7),('grate',.7)]:
  ext.append(f'[ext_resource type="Texture2D" path="res://assets/materials/pale-ward-approved-board.png" id="tex_{kind}"]')
- metal,rough,relief={'ceramic':(0,.68,2.8), 'steel':(.52,.38,3.5), 'floor':(.18,.50,2.3), 'grate':(.56,.40,3.3)}[kind]
+ metal,rough,relief={'ceramic':(0,.87,.25), 'steel':(.35,.75,.4), 'floor':(.12,.83,.25), 'grate':(.35,.78,.25)}[kind]
  region={'ceramic':(1216,625,111,102), 'steel':(1362,625,111,102), 'floor':(1362,625,111,102), 'grate':(1216,761,111,106)}[kind]
  subs.append(f'[sub_resource type="ShaderMaterial" id="{kind}"]\nshader = ExtResource("ward_surface")\nshader_parameter/painted_surface = ExtResource("tex_{kind}")\nshader_parameter/source_region_pixels = Vector4({", ".join(str(v) for v in region)})\nshader_parameter/world_scale = {uv}\nshader_parameter/tint = {color((1,1,1,1))}\nshader_parameter/metal = {metal}\nshader_parameter/base_roughness = {rough}\nshader_parameter/relief = {relief}\n')
 for name,c in [('recess',(.085,.087,.082,1)),('trim',(.22,.225,.21,1)),('rust',(.26,.12,.065,1)),('blood',(.17,.035,.025,1)),('ivory',(.55,.50,.36,1)),('sign_ink',(.06,.065,.06,1))]:
@@ -87,7 +87,7 @@ def light(name,pos,color_v,energy=2,range_v=10,shadow=False):
  add_node(name,'OmniLight3D',props=f'position = {vec(pos)}\nlight_color = {color(color_v)}\nlight_energy = {energy}\nomni_range = {range_v}\nshadow_enabled = '+str(shadow).lower())
 
 def downlight(name,pos,energy=4.5,range_v=11):
- add_node(name,'SpotLight3D',props=f'position = {vec(pos)}\nrotation_degrees = Vector3(-90,0,0)\nlight_color = Color(.95,.95,.91,1)\nlight_energy = {energy}\nspot_range = {range_v}\nspot_angle = 58\nspot_attenuation = 1.2\nshadow_enabled = true\nshadow_bias = .025\nshadow_normal_bias = .35\n')
+ add_node(name,'SpotLight3D',props=f'position = {vec(pos)}\nrotation_degrees = Vector3(-90,0,0)\nlight_color = Color(.9,.88,.8,1)\nlight_energy = {energy}\nspot_range = {range_v}\nspot_angle = 58\nspot_attenuation = 1.2\nshadow_enabled = true\nshadow_bias = .025\nshadow_normal_bias = .35\n')
 
 def label(name,text,pos,rotation=(0,0,0),size=65,pixel=.006,tint=(.1,.11,.10,1),parent='.'):
  add_node(name,'Label3D',parent=parent,props='position = '+vec(pos)+'\nrotation_degrees = '+vec(rotation)+f'\ntext = "{text}"\nfont_size = {size}\npixel_size = {pixel}\nmodulate = '+color(tint)+'\noutline_size = 0\nno_depth_test = false\nshaded = true\n')
@@ -214,7 +214,7 @@ for j,z in enumerate([-11,-3,5,13]):
   box(f'LampHousing{j}_{s}',(s*3.25,5.45,z),(1.4,.15,.48),'recess',False)
   box(f'LampFace{j}_{s}',(s*3.25,5.35,z),(1.22,.05,.35),'lamp',False)
  light('HallWarm'+str(j),(0,4.7,z),(.80,.85,.91,1),.32,8)
- downlight('HallKey'+str(j),(0,5.3,z),5.0,11)
+ downlight('HallKey'+str(j),(0,5.3,z),4.0,11)
 for j,x in enumerate([-1.5,-.9,2.25]):
  cylinder('MainConduit'+str(j),(x,5.28,1),.14 if j<2 else .25,33,'steel',(90,0,0))
  for k,z in enumerate([-12,-4,4,12]):cylinder(f'PipeCollar{j}_{k}',(x,5.28,z),.19 if j<2 else .31,.11,'recess',(90,0,0))
@@ -276,7 +276,7 @@ cylinder('BioUpperManifold',(5.66,4.65,-4),.19,12.5,'steel',(90,0,0))
 # Cached captures contain only static world meshes. No monsters, pickups or
 # corpses can remain baked into the floor reflections after a kill/retry.
 for name,pos,size in [('HallFront',(0,2.8,6),(12.4,6.6,20)),('HallRear',(0,3,-9),(12.4,7.0,12))]:
- add_node('Reflection_'+name,'ReflectionProbe',props=f'position = {vec(pos)}\nsize = {vec(size)}\nbox_projection = true\ninterior = true\nambient_mode = 0\nintensity = .78\nblend_distance = 2.0\nupdate_mode = 0\ncull_mask = 1\nenable_shadows = true\n')
+ add_node('Reflection_'+name,'ReflectionProbe',props=f'position = {vec(pos)}\nsize = {vec(size)}\nbox_projection = true\ninterior = true\nambient_mode = 0\nintensity = .45\nblend_distance = 2.0\nupdate_mode = 0\ncull_mask = 1\nenable_shadows = true\n')
 # The art has old blood in the room before combat, separate from new death gore.
 ext.append('[ext_resource type="Texture2D" path="res://assets/effects/gore-v1/pools-atlas.png" id="old_blood"]')
 material('old_blood','albedo_texture = ExtResource("old_blood")\nalbedo_color = Color(.8,.8,.8,1)\ntransparency = 2\nalpha_scissor_threshold = .12\ntexture_filter = 2\nroughness = .30\ncull_mode = 2\nuv1_scale = Vector3(.5,.5,1)\nuv1_offset = Vector3(.5,0,0)')

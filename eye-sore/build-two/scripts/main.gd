@@ -32,6 +32,7 @@ var art_data: Dictionary = {}
 var closing: bool = false
 var title_art: TextureRect
 var weapon_layer: Control
+var weapon_canvas: CanvasLayer
 var muzzle_pending: bool = false
 var automap: Control
 var level_message: String = ""
@@ -60,6 +61,12 @@ func _ready() -> void:
 	world_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	world_image.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	world_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# Reduce the complete world/weapon composite once, leaving window UI readable.
+	var pixel_material := ShaderMaterial.new()
+	pixel_material.shader = preload("res://shaders/concept_pixels.gdshader")
+	if "--style-native-grid" in OS.get_cmdline_user_args():
+		pixel_material.set_shader_parameter("virtual_resolution", Vector2(640, 360))
+	world_image.material = pixel_material
 	add_child(world_image)
 	# Preserve the approved composition as the actual title artwork.
 	if ResourceLoader.exists("res://assets/ui/pale-ward-title.png"):
@@ -74,10 +81,17 @@ func _ready() -> void:
 		title_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		title_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(title_art)
+	# One persistent presentation canvas shares the world render target. Retry
+	# replaces the world only, so it cannot duplicate or orphan weapon overlays.
+	weapon_canvas = CanvasLayer.new()
+	weapon_canvas.name = "WeaponCanvas"
+	weapon_canvas.layer = 1
+	world_view.add_child(weapon_canvas)
 	weapon_layer = Control.new()
+	weapon_layer.name = "WeaponLayer"
 	weapon_layer.clip_contents = true
 	weapon_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(weapon_layer)
+	weapon_canvas.add_child(weapon_layer)
 	weapon_image = TextureRect.new()
 	weapon_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	weapon_image.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -185,9 +199,9 @@ func layout_view() -> void:
 	if is_instance_valid(title_art):
 		title_art.size = world_image.size
 		title_art.position = world_image.position
-	weapon_image.size = world_image.size
-	weapon_layer.position = world_image.position
-	weapon_layer.size = world_image.size
+	weapon_layer.position = Vector2.ZERO
+	weapon_layer.size = Vector2(world_view.size)
+	weapon_image.size = weapon_layer.size
 	weapon_image.position = Vector2.ZERO
 	damage_overlay.size = world_image.size
 	damage_overlay.position = world_image.position
@@ -437,20 +451,20 @@ func _process(delta: float) -> void:
 			texture_cache[cache_key] = texture
 		weapon_image.texture = texture_cache[cache_key]
 	weapon_image.visible = started and not state.dead
-	weapon_image.size = world_image.size
+	weapon_image.size = weapon_layer.size
 	if not atlas_definition.is_empty() and weapon_image.texture:
 		var frame_size := weapon_image.texture.get_size()
-		weapon_image.size.x = minf(world_image.size.x, world_image.size.y * frame_size.x / frame_size.y)
-	weapon_image.position = Vector2((world_image.size.x - weapon_image.size.x) * 0.5, combat.recoil_remaining * world_image.size.y / 180.0)
+		weapon_image.size.x = minf(weapon_layer.size.x, weapon_layer.size.y * frame_size.x / frame_size.y)
+	weapon_image.position = Vector2((weapon_layer.size.x - weapon_image.size.x) * 0.5, combat.recoil_remaining * weapon_layer.size.y / 180.0)
 	if atlas_definition.has("placement"):
 		# Authored region/marker registration consumes the untouched generated atlas.
 		var pose: Dictionary = atlas_definition.placement[String(state.weapon_phase)]
-		var pixels := world_image.size.y / float(atlas_definition.get("source_canvas_height", 768)) * float(pose.get("scale", 1.0))
+		var pixels := weapon_layer.size.y / float(atlas_definition.get("source_canvas_height", 768)) * float(pose.get("scale", 1.0))
 		weapon_image.size = weapon_image.texture.get_size() * pixels
 		var marker: Array = pose.marker
 		var target: Array = pose.get("target", [0.5, 0.64])
-		weapon_image.position = world_image.size * Vector2(target[0], target[1]) - Vector2(marker[0], marker[1]) * pixels
-		weapon_image.position.y += combat.recoil_remaining * world_image.size.y / 180.0
+		weapon_image.position = weapon_layer.size * Vector2(target[0], target[1]) - Vector2(marker[0], marker[1]) * pixels
+		weapon_image.position.y += combat.recoil_remaining * weapon_layer.size.y / 180.0
 	if not get_tree().paused:
 		damage_flash = maxf(0.0, damage_flash - delta)
 		# An accepted shot must reach one render before its lifetime is decremented.
@@ -466,7 +480,7 @@ func _process(delta: float) -> void:
 		var scale_factor := weapon_image.size / Vector2(320, 180)
 		muzzle_image.size = Vector2(64, 64) * scale_factor
 		if not atlas_definition.is_empty():
-			muzzle_image.size = Vector2.ONE * float(flash.get("world_size", 36)) * world_image.size.y / 360.0
+			muzzle_image.size = Vector2.ONE * float(flash.get("world_size", 36)) * weapon_layer.size.y / 360.0
 		muzzle_image.position = weapon_image.position + Vector2(anchor[0], anchor[1]) * scale_factor - muzzle_image.size * 0.5
 
 func add_slider(parent: VBoxContainer, title: String, minimum: float, maximum: float, step: float, value: float, changed: Callable) -> void:
