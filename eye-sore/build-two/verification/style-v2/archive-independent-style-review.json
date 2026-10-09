@@ -1,0 +1,177 @@
+{
+  "status": "passed",
+  "failures": [],
+  "source_commit": "cbc5fc87e6512a234d85b939d2fbf1b1630b8b57",
+  "recorded_source_git_status": "",
+  "archive_executable_mode": "0o755",
+  "staged_executable_matches_archive": true,
+  "embedded_pck_native_read": {
+    "actual_png_dimensions": [
+      1536,
+      1024
+    ],
+    "actual_png_sha256": "",
+    "alpha_ge_0_5_rgb_mismatches": 0,
+    "alpha_mismatches": 0,
+    "embedded_pixel_data_sha256": "3c645077173f0708c7e4f996e35c110dd049e7f045ff46bef7f30155b5d9c7ba",
+    "embedded_unsealed": {
+      "clips": {},
+      "columns": 4.0,
+      "directions": 1.0,
+      "file": "res://assets/enemies/concept-style-v2/unsealed-atlas-r2.png",
+      "foot_pivot": [
+        192.0,
+        485.0
+      ],
+      "pixel_size": 0.00442260442260442,
+      "presentation": "Untouched generated PNG matching approved original painted pixel concept style. Eight representative frontal poses; full eight-direction production pending.",
+      "sha256": "a83f7b7e8267bfae12da10e8480d677b73fd2741bed7ecd32e929642c1471869",
+      "source_dimensions": [
+        1536.0,
+        1024.0
+      ],
+      "sprite_options": {
+        "alpha_threshold": 0.5,
+        "frame_pivots": {
+          "0": [
+            192.0,
+            485.0
+          ],
+          "1": [
+            192.0,
+            486.0
+          ],
+          "2": [
+            192.0,
+            490.0
+          ],
+          "3": [
+            192.0,
+            490.0
+          ],
+          "4": [
+            192.0,
+            471.0
+          ],
+          "5": [
+            192.0,
+            471.0
+          ],
+          "6": [
+            192.0,
+            468.0
+          ],
+          "7": [
+            192.0,
+            468.0
+          ]
+        },
+        "hurt_material_default": "flesh",
+        "hurt_resolution": [
+          128.0,
+          192.0
+        ],
+        "material_regions": {},
+        "pose_frames": {
+          "chase": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "dead": [
+            6.0,
+            7.0
+          ],
+          "pain": [
+            5.0
+          ],
+          "recovery": [
+            4.0
+          ],
+          "windup": [
+            3.0
+          ]
+        },
+        "rows": 2.0
+      }
+    },
+    "metadata_sha256": "ecc4ea2c55d6a79d0f59f878ae53775db3a07e6ce2dc5edc95190019318e00b2",
+    "nonzero_alpha_rgb_mismatches": 77297,
+    "raw_png_present": false,
+    "source_pixel_data_sha256": "51bc0ad86f3f9f33966aa9e2d9294840acc727684cd29510139185eeef8ad57d",
+    "source_png_sha256": "a83f7b7e8267bfae12da10e8480d677b73fd2741bed7ecd32e929642c1471869",
+    "transparent_rgb_mismatches": 16273
+  },
+  "style_provenance": [
+    {
+      "path": "concepts/style-art-v2/generation.json",
+      "asset": "assets/enemies/concept-style-v2/unsealed-atlas.png",
+      "sha256": "ff723186b87bad79dec10844359cc0fadc71aac15b6deb9458706b024d4ed5a1",
+      "source_and_archive_manifest_match": true
+    },
+    {
+      "path": "concepts/style-art-v2/revision-generation.json",
+      "asset": "assets/enemies/concept-style-v2/unsealed-atlas-r2.png",
+      "sha256": "a83f7b7e8267bfae12da10e8480d677b73fd2741bed7ecd32e929642c1471869",
+      "source_and_archive_manifest_match": true
+    }
+  ],
+  "native_export_diagnostic": {
+    "accepted": true,
+    "configured_pellets": 7,
+    "distance": 1.5,
+    "events": [
+      {
+        "direction": "(0.0, -0.254259, -0.967136)",
+        "material": "",
+        "pellets": 7,
+        "physics_tick": 3,
+        "position": "(0.0, 1.52, 11.0)",
+        "seed": 8391,
+        "shot_id": 1,
+        "target_id": "",
+        "time_seconds": 0.05,
+        "type": "shot",
+        "weapon_id": "shotgun"
+      },
+      {
+        "material": "flesh",
+        "pellets": 7,
+        "position": "(0.0, 1.125651, 9.5)",
+        "shot_id": 1,
+        "target_id": "enemy_unsealed_0",
+        "type": "impact",
+        "weapon_id": "shotgun"
+      },
+      {
+        "contact_position": "(0.0, 1.125651, 9.5)",
+        "damage": 112.0,
+        "direction": "(0.0, -0.254259, -0.967136)",
+        "enemy_kind": "unsealed",
+        "gibbed": true,
+        "material": "flesh",
+        "overkill": 32.0,
+        "position": "(0.0, 0.87, 9.5)",
+        "shot_id": 1,
+        "target_id": "enemy_unsealed_0",
+        "type": "enemy_death",
+        "weapon_id": "shotgun"
+      }
+    ],
+    "overkill": 32.0,
+    "resolved_damage": 112.0,
+    "torso_alpha": 0.992156863212585,
+    "torso_pixel": [
+      192.0,
+      235.0
+    ],
+    "torso_world": "(0.0, 1.125651, 9.5)",
+    "victim_contact_pellets": 7,
+    "victim_dead": true,
+    "victim_gibbed": true,
+    "victim_health_after": 0.0,
+    "victim_health_before": 80.0
+  },
+  "settle_retry_pause_capture_markers_present": true,
+  "scope": "Archive byte/checksum audit plus headless native read of embedded metadata and imported texture from archive-identical staged executable; existing native export event/marker evidence inspected. No GPU/export/executable rerun, Git authentication, visual acceptance, human playtest, or standalone source delivery claimed. Imported texture preserves every alpha value and every alpha>=0.5 RGB value; Godot alpha-border import changes RGB below the scissor threshold. Nine-piece settling/retry is checked by smoke success assertion markers, not independently simulated."
+}

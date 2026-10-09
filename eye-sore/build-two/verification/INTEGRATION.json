@@ -1,6 +1,6 @@
 {
-  "checked_utc": "2026-10-09T18:32:50.646569+00:00",
-  "stage": "Pale Ward original concept material and signage sampling; visual acceptance and complete production pending",
+  "checked_utc": "2026-10-09T18:41:39.419955+00:00",
+  "stage": "Pale Ward art-style review: shared pixel presentation, painted material tuning and registered generated creature poses; full visual acceptance pending",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
   "renderer": "Compatibility",
@@ -92,7 +92,8 @@
     "Room graph pursuit/local obstacle steering are representative; sustained human encounter/release review remains pending.",
     "Interaction world/UI audio remains limited; level music remains candidate assigned to biotech.",
     "First forced-offscreen pistol render recorded a 176ms hitch and 212ms flash expiry; repeat warmed run passed nominal duration bounds. Cold rendering needs further review.",
-    "Visible-window rendering was minimized during early checks; later native captures were drawable. Physical mouse capture and sustained human playtest remain unverified in this session."
+    "Visible-window rendering was minimized during early checks; later native captures were drawable. Physical mouse capture and sustained human playtest remain unverified in this session.",
+    "Current style native cadence check recorded a155.14ms first30FPS pistol render hitch; all six cap/weapon cadence and flash expiry cases passed. Weapon highlights remain broader/shinier than the approved illustration."
   ],
   "preserved_room_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-stage-one-2026-10-08/eyesore-room-preview-v2.x86_64",
@@ -102,13 +103,13 @@
     "scope": "Movement/display room preview; no combat, full level or ingame soundtrack."
   },
   "executable": {
-    "bytes": 114668768,
+    "bytes": 117933496,
     "mode": "0755",
-    "path": "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/eyesore-pale-ward-grit.x86_64",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-style-v2-2026-10-09/eyesore-pale-ward-style-v2.x86_64",
     "pck": "embedded",
-    "sha256": "57f94906738b4be7b1d0649d3b8d4dedccb8a2f1c93de0d729dcaed42b072002",
-    "source_commit": "dea9c14a39e33ec8bb930c7bae5f34c52ea03a57",
-    "scope": "Original concept material/sign sampling and shot-light art review pass; visual acceptance, full directional production and sustained human release review pending."
+    "sha256": "0bcd4b3ea55fbd174c747ec32022cc27636f96c62e6261bb793e79411791e866",
+    "source_commit": "cbc5fc87e6512a234d85b939d2fbf1b1630b8b57",
+    "scope": "Pale Ward shared pixel presentation and creature art-style review; full visual acceptance and complete production pending."
   },
   "audio_capture": {
     "file": "level/integrated-game-mix.wav",
@@ -139,10 +140,10 @@
   },
   "portable_archive": {
     "archived_executable_hash_and_mode_verified": true,
-    "bytes": 243521359,
-    "path": "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/eyesore-pale-ward-grit-linux.tar.gz",
-    "sha256": "6c8947f044c34120c8c257f8a19062fa4d7e2ce05a01f2257a921acd4f2e98b4",
-    "independent_audit": "grit/final-archive-audit.json"
+    "bytes": 206322058,
+    "path": "/home/rikki/Builds/eyesore-pale-ward-style-v2-2026-10-09/eyesore-pale-ward-style-v2-linux.tar.gz",
+    "sha256": "016b3a1096d35ffb530dc2f805de61d1ac9a897895542bc318fa684d2a617531",
+    "independent_audit": "style-v2/archive-audit.json"
   },
   "preserved_mesh_study_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-2026-10-09/eyesore-combat-art-review.x86_64",
@@ -195,17 +196,19 @@
     "result": "All final checks pass. Live bot completed10/11 kills,health90.4,fiveshells; optionalsecretnotused. Source cadence30/60/120: identical stair endpoint and sixpistolshots120physicsticks; cache16poses/twoimages."
   },
   "gameplay_video": {
-    "bytes": 32294290,
+    "bytes": 22937766,
     "original_recording": {
-      "bytes": 142690960,
-      "path": "pale-ward-grit-gameplay.avi",
-      "sha256": "7f0056f623cc05c1b9919e72db3a1a66ff2d6c3ecf3c809be9e062bee8ea2f81"
+      "bytes": 122130780,
+      "path": "pale-ward-style-gameplay.avi",
+      "sha256": "48dc6abe021403acdb45f1a8077805af4290c74033576b22d96d7187f9c1a84e"
     },
-    "path": "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/pale-ward-grit-gameplay.mp4",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-style-v2-2026-10-09/pale-ward-style-gameplay.mp4",
     "processing": "Existing MP4 copied unchanged; no transcoding or new capture",
-    "sha256": "563def7cb6161c180e819a9e541859cb842fe81891d06b5894b59819462ba2a4",
-    "capture": "Godot MovieMaker actual game renderer and stereo Master game mix; automated normal AI/ammo route; no secret supplies. H264/AAC encoding only, no audio overlay or normalization.",
-    "audio_validation": "grit/p20-recording.json"
+    "sha256": "a69b052508bf73b7dff15d662a2754320022e0ae9053327a98b766783bb62ed6",
+    "capture": "Fresh Godot MovieMaker actual renderer and stereo Master mix; normal AI/health/ammo bot route, no secret supplies. H264/AAC encoding only, no audio overlay or normalization.",
+    "capture_source_commit": "1f032c2a37fe111a5696c84d1474674ba579a874",
+    "runtime_source_difference": "Later source checkpoint changes smoke fixture and packaging diagnostics only; gameplay art/movement/combat/audio unchanged.",
+    "audio_validation": "style-v2/recording.json"
   },
   "gore_verification": {
     "contract_files": [
@@ -359,6 +362,71 @@
       "overkill": 32,
       "gibbed": true,
       "scope": "Smoke fixture only; gameplay health/damage/masks unchanged."
-    }
+    },
+    "native_export_smoke": "/home/rikki/Builds/eyesore-pale-ward-style-v2-2026-10-09/smoke.log",
+    "export_source_commit": "cbc5fc87e6512a234d85b939d2fbf1b1630b8b57",
+    "export_source_tree_sha256": "6654d2e66c7a338ec20c8121799652b7bc6e670b12c3d0f17f522e3c3d314f8b",
+    "native_export_flags": {
+      "captures": [
+        {
+          "forced_offscreen": true,
+          "label": "gore",
+          "offscreen_required": false
+        },
+        {
+          "forced_offscreen": true,
+          "label": "gameplay",
+          "offscreen_required": false
+        },
+        {
+          "forced_offscreen": true,
+          "label": "menu",
+          "offscreen_required": false
+        }
+      ],
+      "exit_code": 0,
+      "input_mode": "Automated programmatic combat; mouse visible; physical pointer input unverified",
+      "native_export_smoke": "smoke.log",
+      "render_mode": "Forced offscreen native rendering; actual viewport PNGs, not visible-window presentation",
+      "scope": "Actual release programmatic shotgun kill, settled gore/reset, pause/resume, viewport/settings/audio buses. Human release acceptance pending.",
+      "success_markers": [
+        "GORE_EXPORT_SMOKE_OK:",
+        "FOUNDATION_SMOKE_OK:"
+      ],
+      "working_directory": "/tmp"
+    },
+    "actual_stereo_recording": "style-v2/recording.json",
+    "independent_archive_audit": "style-v2/archive-audit.json",
+    "source_delivery": "Complete source preserved in local project and Git branch; portable archive contains embedded runtime and source checksum manifest, not a standalone source checkout.",
+    "independent_embedded_asset_review": "style-v2/archive-independent-style-review.json"
+  },
+  "preserved_grit_executable": {
+    "bytes": 114668768,
+    "mode": "0755",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/eyesore-pale-ward-grit.x86_64",
+    "pck": "embedded",
+    "sha256": "57f94906738b4be7b1d0649d3b8d4dedccb8a2f1c93de0d729dcaed42b072002",
+    "source_commit": "dea9c14a39e33ec8bb930c7bae5f34c52ea03a57",
+    "scope": "Original concept material/sign sampling and shot-light art review pass; visual acceptance, full directional production and sustained human release review pending."
+  },
+  "preserved_grit_portable_archive": {
+    "archived_executable_hash_and_mode_verified": true,
+    "bytes": 243521359,
+    "path": "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/eyesore-pale-ward-grit-linux.tar.gz",
+    "sha256": "6c8947f044c34120c8c257f8a19062fa4d7e2ce05a01f2257a921acd4f2e98b4",
+    "independent_audit": "grit/final-archive-audit.json"
+  },
+  "preserved_grit_gameplay_video": {
+    "bytes": 32294290,
+    "original_recording": {
+      "bytes": 142690960,
+      "path": "pale-ward-grit-gameplay.avi",
+      "sha256": "7f0056f623cc05c1b9919e72db3a1a66ff2d6c3ecf3c809be9e062bee8ea2f81"
+    },
+    "path": "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/pale-ward-grit-gameplay.mp4",
+    "processing": "Existing MP4 copied unchanged; no transcoding or new capture",
+    "sha256": "563def7cb6161c180e819a9e541859cb842fe81891d06b5894b59819462ba2a4",
+    "capture": "Godot MovieMaker actual game renderer and stereo Master game mix; automated normal AI/ammo route; no secret supplies. H264/AAC encoding only, no audio overlay or normalization.",
+    "audio_validation": "grit/p20-recording.json"
   }
 }

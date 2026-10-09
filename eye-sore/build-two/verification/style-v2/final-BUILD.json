@@ -1,0 +1,83 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "engine_binary": {
+    "bytes": 146414384,
+    "sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e"
+  },
+  "executable": {
+    "bytes": 117933496,
+    "mode": "0755",
+    "path": "eyesore-pale-ward-style-v2.x86_64",
+    "pck": "embedded",
+    "sha256": "0bcd4b3ea55fbd174c747ec32022cc27636f96c62e6261bb793e79411791e866"
+  },
+  "known_issues": [
+    "The full game image has not been accepted as reproducing the concept; original 5–8 minute human duration and polish remain pending.",
+    "Eight frontal enemy poses only; full eight-direction animation still pending; generated detail/perspective drift.",
+    "Three brief floor-flag transitions across12 stairs, identical at30/60/120 caps; nofall/jump/doorwaygap inroute checks.",
+    "Room graph pursuit/local obstacle steering are representative; sustained human encounter/release review remains pending.",
+    "Interaction world/UI audio remains limited; level music remains candidate assigned to biotech.",
+    "First forced-offscreen pistol render recorded a 176ms hitch and 212ms flash expiry; repeat warmed run passed nominal duration bounds. Cold rendering needs further review.",
+    "Visible-window rendering was minimized during early checks; later native captures were drawable. Physical mouse capture and sustained human playtest remain unverified in this session.",
+    "Current style pass combines world, viewgun and muzzle presentation at a 320 × 180 display grid; human visual acceptance against the approved concept remains pending.",
+    "Current creature atlas is generated art with eight representative frontal poses; complete directional animation and generated detail/perspective drift remain work."
+  ],
+  "known_issues_source": {
+    "bytes": 22864,
+    "path": "verification/INTEGRATION.json",
+    "sha256": "9158e7bcdb1c34575713279bba87be64d3d35482aa1ed41a105a71fa9a7d0739"
+  },
+  "linux_release_template": {
+    "bytes": 73519416,
+    "sha256": "d9f79ab89b5ae369aeed11c6052d402e8218cd503bf85b4a235f9c30c46a7c63"
+  },
+  "project": "Eyesore / The Pale Ward",
+  "renderer": "Compatibility",
+  "source_branch": "codex/eyesore-build-two",
+  "source_checksums": "SOURCE_SHA256SUMS",
+  "source_commit": "cbc5fc87e6512a234d85b939d2fbf1b1630b8b57",
+  "source_date_epoch": 1791571116,
+  "source_git_status": "",
+  "source_head": "cbc5fc87e6512a234d85b939d2fbf1b1630b8b57",
+  "source_tree_sha256": "6654d2e66c7a338ec20c8121799652b7bc6e670b12c3d0f17f522e3c3d314f8b",
+  "verification": {
+    "captures": [
+      {
+        "forced_offscreen": true,
+        "label": "gore",
+        "offscreen_required": false
+      },
+      {
+        "forced_offscreen": true,
+        "label": "gameplay",
+        "offscreen_required": false
+      },
+      {
+        "forced_offscreen": true,
+        "label": "menu",
+        "offscreen_required": false
+      }
+    ],
+    "exit_code": 0,
+    "input_mode": "Automated programmatic combat; mouse visible; physical pointer input unverified",
+    "native_export_smoke": "smoke.log",
+    "render_mode": "Forced offscreen native rendering; actual viewport PNGs, not visible-window presentation",
+    "scope": "Actual release programmatic shotgun kill, settled gore/reset, pause/resume, viewport/settings/audio buses. Human release acceptance pending.",
+    "success_markers": [
+      "GORE_EXPORT_SMOKE_OK:",
+      "FOUNDATION_SMOKE_OK:"
+    ],
+    "working_directory": "/tmp"
+  },
+  "video": {
+    "bytes": 22937766,
+    "original_recording": {
+      "bytes": 122130780,
+      "path": "pale-ward-style-gameplay.avi",
+      "sha256": "48dc6abe021403acdb45f1a8077805af4290c74033576b22d96d7187f9c1a84e"
+    },
+    "path": "pale-ward-style-gameplay.mp4",
+    "processing": "Existing MP4 copied unchanged; no transcoding or new capture",
+    "sha256": "a69b052508bf73b7dff15d662a2754320022e0ae9053327a98b766783bb62ed6"
+  }
+}

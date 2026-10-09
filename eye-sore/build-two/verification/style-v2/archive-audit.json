@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "archive": "/home/rikki/Builds/eyesore-pale-ward-style-v2-2026-10-09/eyesore-pale-ward-style-v2-linux.tar.gz",
+  "archive_sha256": "016b3a1096d35ffb530dc2f805de61d1ac9a897895542bc318fa684d2a617531",
+  "payload_files_verified": 62,
+  "source_files_recorded": 239,
+  "source_commit": "cbc5fc87e6512a234d85b939d2fbf1b1630b8b57",
+  "source_head": "cbc5fc87e6512a234d85b939d2fbf1b1630b8b57",
+  "source_git_status": "",
+  "executable": {
+    "bytes": 117933496,
+    "mode": "0755",
+    "path": "eyesore-pale-ward-style-v2.x86_64",
+    "pck": "embedded",
+    "sha256": "0bcd4b3ea55fbd174c747ec32022cc27636f96c62e6261bb793e79411791e866"
+  },
+  "original_material_and_sign_provenance_verified": true,
+  "runtime_board_path": "assets/materials/pale-ward-approved-board.png",
+  "runtime_board_source_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+  "credits_verified": [
+    "AUDIO_CREDITS.md",
+    "VISUAL_CREDITS.md",
+    "GODOT_LICENSE.txt",
+    "GODOT_THIRD_PARTY_NOTICES.txt"
+  ],
+  "engine_component_records": 102,
+  "engine_license_bodies": 18,
+  "smoke_evidence": {
+    "markers": [
+      "GORE_EXPORT_SMOKE_OK:",
+      "FOUNDATION_SMOKE_OK:"
+    ],
+    "recorded_working_directory": "/tmp",
+    "graphics_device_log_present": true,
+    "rerun_by_verifier": false
+  },
+  "known_issues": [
+    "The full game image has not been accepted as reproducing the concept; original 5–8 minute human duration and polish remain pending.",
+    "Eight frontal enemy poses only; full eight-direction animation still pending; generated detail/perspective drift.",
+    "Three brief floor-flag transitions across12 stairs, identical at30/60/120 caps; nofall/jump/doorwaygap inroute checks.",
+    "Room graph pursuit/local obstacle steering are representative; sustained human encounter/release review remains pending.",
+    "Interaction world/UI audio remains limited; level music remains candidate assigned to biotech.",
+    "First forced-offscreen pistol render recorded a 176ms hitch and 212ms flash expiry; repeat warmed run passed nominal duration bounds. Cold rendering needs further review.",
+    "Visible-window rendering was minimized during early checks; later native captures were drawable. Physical mouse capture and sustained human playtest remain unverified in this session.",
+    "Current style pass combines world, viewgun and muzzle presentation at a 320 × 180 display grid; human visual acceptance against the approved concept remains pending.",
+    "Current creature atlas is generated art with eight representative frontal poses; complete directional animation and generated detail/perspective drift remain work."
+  ],
+  "scope": "Archive integrity and included recorded evidence only; no execution, independent source Git authentication, embedded-PCK inspection, visual approval or human release acceptance."
+}
