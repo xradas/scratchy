@@ -21,11 +21,11 @@ func run_check() -> void:
 	for enemy in combat.enemies: enemy.set_physics_process(false)
 	var enemy: CharacterBody3D = combat.enemies[0]
 	var ranged: CharacterBody3D = combat.enemies[1]
-	enemy.position=Vector3(0,.87,-4); enemy.health=100; ranged.position=Vector3(10,.87,-4)
+	enemy.position=Vector3(0,.87,-4); enemy.health=200; ranged.position=Vector3(10,.87,-4)
 	await physics_frame; await physics_frame
 	combat.currentweapon=&"shotgun"
 	assert(combat.try_fire()); assert(combat.ammo_shotgun==11); assert(combat.shot_counter==1)
-	assert(enemy.health==30.0, "Seven pellets must aggregate to exactly 70 damage")
+	assert(enemy.health==88.0, "Seven pellets must aggregate to exactly 112 damage")
 	assert(count_event(&"shot")==1 and count_event(&"impact")==1 and count_event(&"enemy_hurt")==1)
 	assert(not combat.try_fire()); assert(combat.ammo_shotgun==11)
 	for i in range(70): combat._physics_process(1.0/60)
@@ -81,7 +81,7 @@ func run_check() -> void:
 	await physics_frame; await physics_frame
 	combat.currentweapon=&"melee"; combat.weapon_phase=&"idle"; combat.cooldown=0; events.clear(); before=ranged.health
 	var ammunition: int = combat.ammo_pistol + combat.ammo_shotgun
-	assert(combat.try_fire() and ranged.health == before - 24)
+	assert(combat.try_fire() and ranged.health == before - 30)
 	assert(combat.ammo_pistol + combat.ammo_shotgun == ammunition and count_event(&"impact") == 1)
 	for event in events:
 		if event.type == &"impact": assert(event.material == &"armor")

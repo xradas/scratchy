@@ -103,7 +103,7 @@ def light(name,pos,color,energy=2,range_=10):
  nodes.append(f'[node name="{name}" type="OmniLight3D" parent="."]\nposition = {vec(pos)}\nlight_color = Color({", ".join(map(str,color))}, 1)\nlight_energy = {energy}\nomni_range = {range_}\nshadow_enabled = true\n')
 # Two connected architectural volumes; opening is physically empty, jambs are thick solids.
 box('MainFloor',(0,-.35,10),(16,.7,22),'floor')
-box('AnnexFloor',(0,-.35,-10),(16,.7,16),'floor')
+box('AnnexFloor',(0,-.35,-9.5),(16,.7,17),'floor')
 box('MainCeiling',(0,6.1,10),(16,.5,22),'concrete')
 box('AnnexCeiling',(0,5.0,-10),(16,.5,16),'concrete')
 for name,pos,size in [('LeftMain',(-8.35,3,10),(.7,6,22)),('RightMain',(8.35,3,10),(.7,6,22)),('RearMain',(0,3,21.35),(17.4,6,.7)),('LeftAnnex',(-8.35,2.4,-10),(.7,4.8,16)),('RightAnnex',(8.35,2.4,-10),(.7,4.8,16)),('EndAnnex',(0,2.4,-18.35),(17.4,4.8,.7)),('PortalLeft',(-5.6,3,-1),(4.8,6,1.5)),('PortalRight',(5.6,3,-1),(4.8,6,1.5)),('PortalLintel',(0,4.9,-1),(6.4,2.2,1.5))]: box(name,pos,size,'concrete')

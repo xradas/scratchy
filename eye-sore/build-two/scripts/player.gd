@@ -8,8 +8,8 @@ var sensitivity: float = 0.002
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * sensitivity)
-		camera.rotation.x = clampf(camera.rotation.x - event.relative.y * sensitivity, -1.48, 1.48)
+		rotate_y(-event.screen_relative.x * sensitivity)
+		camera.rotation.x = clampf(camera.rotation.x - event.screen_relative.y * sensitivity, -1.48, 1.48)
 
 func _physics_process(delta: float) -> void:
 	var movement := Vector2.ZERO

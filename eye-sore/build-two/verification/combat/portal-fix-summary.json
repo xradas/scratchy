@@ -1,0 +1,53 @@
+{
+  "verified_utc": "2026-10-08T23:58:04.846636+00:00",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "cause": "One-unit missing floor z[-2,-1] between AnnexFloor and MainFloor inside doorway",
+  "fix": {
+    "AnnexFloor_mesh_and_shape_size_before": [
+      16,
+      0.7,
+      16
+    ],
+    "AnnexFloor_mesh_and_shape_size_after": [
+      16,
+      0.7,
+      17
+    ],
+    "AnnexFloor_position_before": [
+      0,
+      -0.35,
+      -10
+    ],
+    "AnnexFloor_position_after": [
+      0,
+      -0.35,
+      -9.5
+    ],
+    "rear_boundary_unchanged": -18,
+    "front_boundary_after": -1,
+    "main_rear_boundary": -1,
+    "floor_top": 0,
+    "overlap": false
+  },
+  "before": {
+    "forward_failed_paths": 3,
+    "lowest_player_center_y": -3.09521293640137,
+    "reverse_lowest_player_center_y": 0.763802468776703,
+    "floor_ray_misses": 9
+  },
+  "after": {
+    "crossed_grounded_paths": 6,
+    "lowest_player_center_y": 0.850273430347443,
+    "floor_ray_misses": 0,
+    "floor_ray_contacts": 15,
+    "solid_mesh_shape_dimension_pairs": 52,
+    "raised_walkway_no_jump_check": "passed"
+  },
+  "test_method": "Unmodified production player movement, injected physical W; actual 60Hz physics, 8u/s; both directions at x=-1.9,0,+1.9; real physics downward ray queries at portal/seam, collision top compared to visible floor mesh dimensions",
+  "command": "Godot_v4.7.2-stable_linux.x86_64 --headless --path <build-two> --script res://tools/check_geometry.gd",
+  "owned_files": {
+    "scenes/calibration.tscn": "5cf3c6483a11efd618db89ce864142ccd117e1ceea488075bd3abde092a04ecd",
+    "tools/check_geometry.gd": "4bd7949b4f5353b9f623ab43ca64450bf1523eeea5ed4893a086c15581cb6119"
+  },
+  "scope": "Doorway floor bugfix only; no player/main/combat edits, no Git or export, no level expansion"
+}

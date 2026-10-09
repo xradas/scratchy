@@ -79,11 +79,11 @@ material = SubResource("floor")
 size = Vector3(16, 0.7, 22)
 
 [sub_resource type="BoxMesh" id="mesh_2"]
-size = Vector3(16, 0.7, 16)
+size = Vector3(16, 0.7, 17)
 material = SubResource("floor")
 
 [sub_resource type="BoxShape3D" id="shape_2"]
-size = Vector3(16, 0.7, 16)
+size = Vector3(16, 0.7, 17)
 
 [sub_resource type="BoxMesh" id="mesh_3"]
 size = Vector3(16, 0.5, 22)
@@ -779,7 +779,7 @@ mesh = SubResource("mesh_1")
 shape = SubResource("shape_1")
 
 [node name="AnnexFloor" type="StaticBody3D" parent="."]
-position = Vector3(0, -0.35, -10)
+position = Vector3(0, -0.35, -9.5)
 
 [node name="Visual" type="MeshInstance3D" parent="AnnexFloor"]
 mesh = SubResource("mesh_2")

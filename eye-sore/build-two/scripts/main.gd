@@ -5,7 +5,7 @@ var world_view: SubViewport
 var world_image: TextureRect
 var player: CharacterBody3D
 var menu: PanelContainer
-var crosshair: Label
+var crosshair: Control
 var status: Label
 var sensitivity: float = 0.002
 var field_of_view: float = 90.0
@@ -64,21 +64,24 @@ func _ready() -> void:
 	damage_overlay.color = Color(0.7, 0.07, 0.025, 0)
 	damage_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(damage_overlay)
-	crosshair = Label.new()
-	crosshair.text = "+"
-	crosshair.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	crosshair.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	crosshair = preload("res://scripts/crosshair.gd").new()
 	crosshair.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	crosshair.add_theme_font_size_override("font_size", 18)
 	add_child(crosshair)
 	status = Label.new()
-	status.text = "COMBAT REVIEW   |   WASD move · mouse look · fire · 1 pistol / 2 shotgun / 3 melee · Esc pause"
+	status.text = "WASD move · mouse look · left click fire · 1 / 2 / 3 weapons · Esc pause"
 	status.position = Vector2(16, 12)
 	status.add_theme_font_size_override("font_size", 16)
 	add_child(status)
 	hud = Label.new()
 	hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hud.add_theme_font_size_override("font_size", 18)
+	var hud_frame := StyleBoxFlat.new()
+	hud_frame.bg_color = Color(0.045, 0.065, 0.06, 0.93)
+	hud_frame.border_color = Color(0.34, 0.40, 0.30)
+	hud_frame.set_border_width_all(1)
+	hud_frame.content_margin_left = 14
+	hud_frame.content_margin_top = 8
+	hud.add_theme_stylebox_override("normal", hud_frame)
 	add_child(hud)
 	build_menu()
 	setup_menu_music()
@@ -120,9 +123,10 @@ func layout_view() -> void:
 	weapon_image.position = world_image.position
 	damage_overlay.size = world_image.size
 	damage_overlay.position = world_image.position
-	hud.position = Vector2(16, size.y - 58)
+	hud.position = world_image.position + Vector2(12, world_image.size.y - 68)
+	hud.size = Vector2(world_image.size.x - 24, 58)
 	crosshair.size = Vector2(24, 24)
-	crosshair.position = size * 0.5 - crosshair.size * 0.5
+	crosshair.position = world_image.position + world_image.size * 0.5 - crosshair.size * 0.5
 	menu.position = (size - menu.size) * 0.5
 
 func build_menu() -> void:
@@ -133,19 +137,19 @@ func build_menu() -> void:
 	column.add_theme_constant_override("separation", 12)
 	menu.add_child(column)
 	menu_title = Label.new()
-	menu_title.text = "EYESORE · COMBAT REVIEW"
+	menu_title.text = "EYESORE"
 	menu_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(menu_title)
 	menu_note = Label.new()
-	menu_note.text = "Pistol · shotgun · melee\nOne complete combat exchange before level expansion."
+	menu_note.text = "WASD move · mouse look · left click fire\n1 pistol · 2 shotgun · 3 melee"
 	menu_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(menu_note)
 	resume_button = Button.new()
-	resume_button.text = "Enter combat review"
+	resume_button.text = "Play"
 	resume_button.pressed.connect(enter_combat)
 	column.add_child(resume_button)
 	var retry := Button.new()
-	retry.text = "Restart combat review"
+	retry.text = "Restart"
 	retry.pressed.connect(restart_combat)
 	column.add_child(retry)
 	var title_screen := Button.new()
@@ -266,6 +270,8 @@ func return_to_title() -> void:
 	set_paused(true)
 
 func on_combat_event(event: Dictionary) -> void:
+	if event.get("type") in [&"enemy_hurt", &"enemy_death"]:
+		crosshair.confirm_hit()
 	if is_instance_valid(combat_audio): combat_audio.handle_event(event)
 	if event.get("type") == &"player_hurt": damage_flash = 0.24
 	if event.get("type") == &"shot" and event.get("weapon_id") != &"melee":
@@ -280,17 +286,20 @@ func _process(delta: float) -> void:
 		hud.text = "MOVEMENT PREVIEW"
 		return
 	var state: Dictionary = combat.get_hud_state()
+	hud.visible = started
+	status.visible = started and not get_tree().paused
 	hud.text = "HEALTH %d    ARMOR %d    PISTOL %d    SHELLS %d\n%s    KILLS %d/%d" % [state.health, state.armor, state.ammo_pistol, state.ammo_shotgun, String(state.weapon_id).to_upper(), state.kills, state.total_enemies]
 	var path: String = state.get("weapon_visual_path", "")
 	if not path.is_empty():
 		if not texture_cache.has(path): texture_cache[path] = load(path)
 		weapon_image.texture = texture_cache[path]
 	weapon_image.visible = started and not state.dead
+	weapon_image.position = world_image.position + Vector2(0, combat.recoil_remaining) * (world_image.size.y / 180.0)
 	if not get_tree().paused:
 		damage_flash = maxf(0.0, damage_flash - delta)
 		muzzle_time = maxf(0.0, muzzle_time - delta)
 	damage_overlay.color.a = damage_flash * 0.9
-	muzzle_image.visible = muzzle_time > 0 and started and not state.dead
+	muzzle_image.visible = muzzle_time > 0 and started and not state.dead and state.weapon_id != &"melee"
 	if muzzle_image.visible and art_data.has("flash"):
 		var flash: Dictionary = art_data.flash
 		if muzzle_image.texture == null: muzzle_image.texture = load(flash.file)
@@ -298,7 +307,7 @@ func _process(delta: float) -> void:
 		var anchor: Array = anchors.get(String(state.weapon_phase), anchors.get("fire", [160, 90]))
 		var scale_factor := world_image.size / Vector2(320, 180)
 		muzzle_image.size = Vector2(64, 64) * scale_factor
-		muzzle_image.position = world_image.position + (Vector2(anchor[0], anchor[1]) - Vector2(32, 32)) * scale_factor
+		muzzle_image.position = weapon_image.position + (Vector2(anchor[0], anchor[1]) - Vector2(32, 32)) * scale_factor
 
 func add_slider(parent: VBoxContainer, title: String, minimum: float, maximum: float, step: float, value: float, changed: Callable) -> void:
 	var label := Label.new()
@@ -328,9 +337,9 @@ func set_paused(value: bool) -> void:
 	crosshair.visible = not value
 	if is_instance_valid(menu_title):
 		var dead: bool = is_instance_valid(combat) and combat.dead
-		menu_title.text = "YOU DIED" if dead else ("PAUSED" if started else "EYESORE · COMBAT REVIEW")
-		resume_button.text = "Retry" if dead else ("Resume" if started else "Enter combat review")
-		menu_note.text = "Retry restores ammunition, enemies and all voices." if dead else "Pistol · shotgun · melee\nOne complete combat exchange before level expansion."
+		menu_title.text = "YOU DIED" if dead else ("PAUSED" if started else "EYESORE")
+		resume_button.text = "Retry" if dead else ("Resume" if started else "Play")
+		menu_note.text = "Retry from the start." if dead else "WASD move · mouse look · left click fire\n1 pistol · 2 shotgun · 3 melee"
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value else Input.MOUSE_MODE_CAPTURED
 
 func load_settings() -> void:

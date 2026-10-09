@@ -45,8 +45,6 @@ func reset() -> void:
 	health = 100.0; armor = 50.0; ammo_pistol = 36; ammo_shotgun = 12
 	currentweapon = &"pistol"; weapon_phase = &"idle"; phase_time = 0.0
 	cooldown = 0.0; empty_cooldown = 0.0; shot_counter = 0; kills = 0; dead = false
-	if is_instance_valid(camera):
-		camera.rotation.x -= recoil_remaining
 	recoil_remaining = 0.0
 	if not is_instance_valid(world) or not is_instance_valid(player): return
 	spawn_enemy(&"unsealed", Vector3(0, 0.87, 10))
@@ -66,10 +64,8 @@ func _physics_process(delta: float) -> void:
 	if not is_instance_valid(player): return
 	cooldown = maxf(0.0, cooldown - delta)
 	empty_cooldown = maxf(0.0, empty_cooldown - delta)
-	if recoil_remaining != 0.0:
-		var recovered := recoil_remaining * minf(1.0, delta * 12.0)
-		camera.rotation.x -= recovered
-		recoil_remaining -= recovered
+	# Recoil is a view-weapon offset only. Firing never moves the aiming camera.
+	recoil_remaining = move_toward(recoil_remaining, 0.0, delta * 40.0)
 	if weapon_phase != &"idle":
 		phase_time += delta
 		if phase_time >= phase_duration:
@@ -106,16 +102,21 @@ func try_fire() -> bool:
 	# The single accepted event owns ammo, timeline, recoil, ray damage and downstream sound/graphics.
 	emit_event({"type": &"shot", "weapon_id": currentweapon, "shot_id": shot_counter, "position": origin, "direction": forward, "seed": seed_value, "pellets": definition.pellets, "physics_tick": Engine.get_physics_frames(), "time_seconds": float(Engine.get_physics_frames()) / Engine.physics_ticks_per_second})
 	resolve_shot(definition, origin, forward, seed_value, shot_counter)
-	var kick := -0.012 if currentweapon == &"pistol" else (-0.033 if currentweapon == &"shotgun" else -0.006)
-	camera.rotation.x += kick; recoil_remaining += kick
+	recoil_remaining = 3.0 if currentweapon == &"pistol" else (7.0 if currentweapon == &"shotgun" else 2.0)
 	return true
 
 func resolve_shot(definition: WeaponDefinition, origin: Vector3, forward: Vector3, seed_value: int, shot_id: int) -> void:
 	var rng := RandomNumberGenerator.new(); rng.seed = seed_value
+	var pattern_rotation := rng.randf_range(-0.12, 0.12)
 	var hits: Dictionary = {}
 	for pellet in range(definition.pellets):
-		var yaw := deg_to_rad(rng.randf_range(-definition.spread_degrees, definition.spread_degrees))
-		var pitch := deg_to_rad(rng.randf_range(-definition.spread_degrees, definition.spread_degrees))
+		# One exact-center pellet plus an even ring avoids random empty-center volleys.
+		var yaw := 0.0
+		var pitch := 0.0
+		if pellet > 0:
+			var angle := TAU * float(pellet - 1) / float(definition.pellets - 1) + pattern_rotation
+			yaw = deg_to_rad(cos(angle) * definition.spread_degrees)
+			pitch = deg_to_rad(sin(angle) * definition.vertical_spread_degrees)
 		var direction := forward.rotated(Vector3.UP, yaw).rotated(camera.global_basis.x, pitch).normalized()
 		var hit := ray(origin, origin + direction * definition.range_units, [player.get_rid()])
 		if hit.is_empty(): continue

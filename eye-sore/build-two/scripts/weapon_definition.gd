@@ -7,6 +7,7 @@ extends Resource
 @export var fire_seconds: float = 0.09
 @export var pellets: int = 1
 @export var spread_degrees: float = 0.0
+@export var vertical_spread_degrees: float = 0.0
 @export var range_units: float = 60.0
 @export var ammo_key: StringName = &"ammo_pistol"
 @export var audio_bus: StringName = &"Weapons"
