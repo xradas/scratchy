@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-09T16:35:33.032805+00:00",
+  "checked_utc": "2026-10-09T16:43:48.993277+00:00",
   "stage": "Pale Ward connected level with persistent blood, normal corpses and shotgun dismemberment; full production acceptance pending",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
@@ -16,7 +16,7 @@
     "combat": "Native integrated sprite aiming/balance: stable camera, screen-relative mouse, exact crosshair/horizontalFOV; close-range pistol4/8, shotgun1/2, melee3/6. 30/60/120 live AI/projectiles retain6 shots/30 ammo over120 fixed physics ticks. Shared caches stay16 pose entries/two images across retries; materials/alpha follow current sprite frame.",
     "audio": "23 runtime SFX plus three stereo music files. Weapon/material contacts, distinct short pain, two longer death screams, title-only Abelian, paused level mix, mute and reset ownership verified. Original sources/edits/licenses retained; wet pack rejected.",
     "weapon_prototypes": "Approved-board transparent pistol/shotgun/glove sprite atlases; four poses each, byte-original pixels. Runtime authored regions/scales/markers register generated poses. Nearest display keeps correct proportions, clips within world viewport and leaves crosshair clear. Accepted shot reaches a visible muzzle frame before lifetime decrement; no baked muzzle flash in source.",
-    "export": "Fresh embedded-PCK sprite-review Linux package exported with pinned standard templates, launched natively from /tmp and passed viewport/settings/pause/bus smoke without errors/warnings. Previous mesh/audio/room binaries preserved. No sustained complete-level playtest claimed.",
+    "export": "Fresh embedded-PCK gore Linux export passed native actual shotgun kill, nine grounded pieces, embedded textures and retry reset plus foundation pause/settings/audio buses from /tmp. Source normal combat route complete; sustained human release playtest pending.",
     "creature_prototypes": "Approved-board builtin imagegen edits: two transparent eight-pose front-view sprite atlases now runtime art. Perframe feet, bounded128\u00d7192 silhouette rays,24 manually authored Vessel hardware contacts and disabled corpse queries pass native/headless. World physics stays capsule-based; fine source alpha detail is approximated.",
     "identity_selection": "User explicitly selected Corrupted biotech \u2014 The Pale Ward on9October2026 for the first playable art pass/first level. Concept quality target remains separate from acceptance of simplified runtime studies.",
     "title_art": "Actual original approved Pale Ward composition is title artwork, copied byte-identically and displayed above its static concept HUD with an AtlasTexture region. Abelian remains title only. Title artwork is explicitly static, not a live room.",
@@ -74,7 +74,10 @@
     "gore/capture.log",
     "gore/source-smoke.log",
     "gore/movie.log",
-    "gore/integrated-playtest.json"
+    "gore/integrated-playtest.json",
+    "gore/export.log",
+    "gore/licenses.log",
+    "gore/export-outside.log"
   ],
   "pending": [
     "User review of playable art/environment/gore and existing dry contacts, hurt/death and actual stereo mix.",
@@ -97,12 +100,12 @@
     "scope": "Movement/display room preview; no combat, full level or ingame soundtrack."
   },
   "executable": {
-    "path": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/eyesore-pale-ward-level.x86_64",
-    "bytes": 109081208,
-    "sha256": "da3d9871d41e8721b94c0bf0c70a6c052a1a25583d23e89e92c15e417ad6a4d5",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-gore-2026-10-09/eyesore-pale-ward-gore.x86_64",
+    "bytes": 112842680,
+    "sha256": "50920fafcf2c76a33284fd47a3bf6e4cf358b56210d983ccc71cdbb3fd4364a1",
     "pck": "embedded",
-    "scope": "Reference-based connected Pale Ward playable level art pass; eleven enemies; physical stairs, key-return, shortcut/secret, doors/lift, exit and visited automap. Native export smoke from /tmp; source live AI normal-ammo completion. Not a polished5\u20138minute final release.",
-    "source_commit": "316c29da599486ceca2acd8ce0d5dabf94b66e54"
+    "scope": "Reference-based connected Pale Ward level with persistent blood/corpses and heavy shotgun dismemberment. Native release actual-kill/effects/reset plus foundation smoke from /tmp; normal source AI route completed. Full production/human acceptance pending.",
+    "source_commit": "999ef7f321c80eba6b848d66185b5a81d2e4a00c"
   },
   "audio_capture": {
     "file": "level/integrated-game-mix.wav",
@@ -132,10 +135,10 @@
     "source": "Native isolated PulseAudio game output; no desktop/microphone capture."
   },
   "portable_archive": {
-    "path": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/eyesore-pale-ward-linux.tar.gz",
-    "bytes": 63309226,
-    "sha256": "cd85cec0391946f024f90be2e7b6b1d90808467d91acb9d71752f38a225038c8",
-    "contents": "Embedded-assets executable, README, exact source/build record, audio/visual credits, full engine/component notices, SHA256SUMS; archived executable checksum verified."
+    "path": "/home/rikki/Builds/eyesore-pale-ward-gore-2026-10-09/eyesore-pale-ward-gore-linux.tar.gz",
+    "bytes": 67049349,
+    "sha256": "79de8ea399f24f9eb1e259c76b1c9f95908c6bae86fc71508e5c6a07e764814f",
+    "contents": "Embedded-assets executable, README, exact source/build record, audio/visual credits, gore original hashes/prompts, full engine/component notices and SHA256SUMS; archived executable hash verified."
   },
   "preserved_mesh_study_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-2026-10-09/eyesore-combat-art-review.x86_64",
@@ -188,15 +191,17 @@
     "result": "All final checks pass. Live bot completed10/11 kills,health90.4,fiveshells; optionalsecretnotused. Source cadence30/60/120: identical stair endpoint and sixpistolshots120physicsticks; cache16poses/twoimages."
   },
   "gameplay_video": {
-    "path": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/pale-ward-gameplay.mp4",
-    "original_recording": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/pale-ward-gameplay.avi",
-    "capture": "Godot Movie Maker actual main scene/render and actual stereo Master game audio, offlinefixed30FPS with normal60Hzphysics/AI, nosecret/cheats. 1072frames;36seconds. Automatedcamera/aim; sourceworld same runtime as export. MP4encoding only,no audio normalization.",
-    "bytes": 28963893,
-    "sha256": "146dd1a8c93d95d61ae627dd5e43bc49ce89573f6e98fbd076bb12f1d9c4ef0b",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-gore-2026-10-09/pale-ward-gore-gameplay.mp4",
+    "original_recording": "/home/rikki/Builds/eyesore-pale-ward-gore-2026-10-09/pale-ward-gore-gameplay.avi",
+    "capture": "Actual Godot Movie Maker main scene and stereo Master game mix, fixed30FPS/60Hz physics, normal AI/ammo/health, no secret supplies. Automated navigation and aiming. MP4 encoding only; no soundtrack overlay/normalization.",
+    "bytes": 29734276,
+    "sha256": "3e6380893c16fb5b0e0cc3b125ba2508160d0ceba885e8644a8e60ccbad63d9a",
     "duration": 35.733333,
     "sample_rate": 48000,
     "channels": 2,
-    "audio_validation": "level/movie-audio.json"
+    "audio_validation": "gore/movie-audio.log",
+    "integrated_lufs": -25.0,
+    "true_peak_dbtp": -6.8
   },
   "gore_verification": {
     "contract_files": [
@@ -210,6 +215,34 @@
       "gore/bloody-remains.png"
     ],
     "integrated_combat": "gore/integrated-playtest.json",
-    "result": "Actual integrated normal combat route completed:10/11kills,health90.4,5shells,no secret; effects settled consistently at30/60/120 caps, 11parts after160physics ticks. Surface gap .009m; pause and retry passed. Native release check follows export."
+    "result": "Actual integrated normal combat route completed:10/11kills,health90.4,5shells,no secret; effects settled consistently at30/60/120 caps, 11parts after160physics ticks. Surface gap .009m; pause and retry passed. Native release check follows export. Release actual shotgun kill leaves9 grounded pieces; retry clears; viewport/settings/pause/buses pass with no errors/warnings.",
+    "native_export_smoke": "/home/rikki/Builds/eyesore-pale-ward-gore-2026-10-09/smoke.log",
+    "export_checks": "Explicit runtime conditions (release templates omit assert expressions): real accepted shotgun fire; victim dead/gibbed; nine settled pieces; zero active particles; retry clears; pause/resume/mute and viewport/settings/buses.",
+    "actual_export_screenshot": "gore/export-gore.png"
+  },
+  "preserved_level_executable": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/eyesore-pale-ward-level.x86_64",
+    "bytes": 109081208,
+    "sha256": "da3d9871d41e8721b94c0bf0c70a6c052a1a25583d23e89e92c15e417ad6a4d5",
+    "pck": "embedded",
+    "scope": "Reference-based connected Pale Ward playable level art pass; eleven enemies; physical stairs, key-return, shortcut/secret, doors/lift, exit and visited automap. Native export smoke from /tmp; source live AI normal-ammo completion. Not a polished5\u20138minute final release.",
+    "source_commit": "316c29da599486ceca2acd8ce0d5dabf94b66e54"
+  },
+  "preserved_level_portable_archive": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/eyesore-pale-ward-linux.tar.gz",
+    "bytes": 63309226,
+    "sha256": "cd85cec0391946f024f90be2e7b6b1d90808467d91acb9d71752f38a225038c8",
+    "contents": "Embedded-assets executable, README, exact source/build record, audio/visual credits, full engine/component notices, SHA256SUMS; archived executable checksum verified."
+  },
+  "preserved_level_gameplay_video": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/pale-ward-gameplay.mp4",
+    "original_recording": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/pale-ward-gameplay.avi",
+    "capture": "Godot Movie Maker actual main scene/render and actual stereo Master game audio, offlinefixed30FPS with normal60Hzphysics/AI, nosecret/cheats. 1072frames;36seconds. Automatedcamera/aim; sourceworld same runtime as export. MP4encoding only,no audio normalization.",
+    "bytes": 28963893,
+    "sha256": "146dd1a8c93d95d61ae627dd5e43bc49ce89573f6e98fbd076bb12f1d9c4ef0b",
+    "duration": 35.733333,
+    "sample_rate": 48000,
+    "channels": 2,
+    "audio_validation": "level/movie-audio.json"
   }
 }
