@@ -1,10 +1,44 @@
 extends SceneTree
+var evidence_dir := "res://verification/gore"
 ## Meaningful ownership/geometry checks on actual integrated damage and art.
 var app: Control
 var records: Dictionary = {}
 var cap := 60
 
+func prepare_evidence_dir() -> bool:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--evidence-dir="):
+			evidence_dir = argument.trim_prefix("--evidence-dir=")
+	if evidence_dir.is_empty():
+		push_error("Evidence directory cannot be empty")
+		quit(1)
+		return false
+	var error := DirAccess.make_dir_recursive_absolute(evidence_dir)
+	if error != OK:
+		push_error("Cannot create evidence directory %s: %s" % [evidence_dir, error_string(error)])
+		quit(1)
+		return false
+	return true
+
+func write_evidence(filename: String, contents: String) -> bool:
+	var path := evidence_dir.path_join(filename)
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	if file == null:
+		push_error("Cannot open evidence file %s: %s" % [path, error_string(FileAccess.get_open_error())])
+		quit(1)
+		return false
+	file.store_string(contents)
+	file.flush()
+	var error := file.get_error()
+	file.close()
+	if error != OK:
+		push_error("Cannot write evidence file %s: %s" % [path, error_string(error)])
+		quit(1)
+		return false
+	return true
+
 func _initialize() -> void:
+	if not prepare_evidence_dir(): return
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--gore-fps="): cap = int(argument.trim_prefix("--gore-fps="))
 	Engine.max_fps = cap
@@ -85,7 +119,6 @@ func run() -> void:
 	assert(not is_instance_valid(gore))
 	assert(app.combat.gore.stains.is_empty() and app.combat.gore.remains.is_empty() and app.combat.gore.death_count==0)
 	records.lifecycle = "Pause freezes gore; retry replaces owner and clears all stains/remains/particles."
-	var file := FileAccess.open("res://verification/gore/contract-%d.json" % cap,FileAccess.WRITE)
-	file.store_string(JSON.stringify(records,"  "));file.close()
+	if not write_evidence("contract-%d.json" % cap, JSON.stringify(records,"  ")): return
 	print("GORE_CHECK_OK ",JSON.stringify(records))
 	await app.quit_game()

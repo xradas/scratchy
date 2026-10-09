@@ -1,0 +1,8 @@
+{
+  "success_command": "./tools/godot.sh --headless --script res://tools/check_attack_interruption.gd -- --calibration",
+  "success_exit_code": 0,
+  "negative_command": "./tools/godot.sh --headless --script res://tools/check_attack_interruption.gd -- --evidence-path=res://verification/grit/p12-attack-interruption-negative.json",
+  "negative_exit_code": 1,
+  "success_log_has_no_errors_warnings_or_resource_leaks": true,
+  "success_shutdown": "await app.quit_game()"
+}

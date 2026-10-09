@@ -72,6 +72,7 @@ func handle_event(event: Dictionary) -> void:
 	for i in body_parts:
 		var offset := Vector3(rng.randf_range(-.25,.25),rng.randf_range(-.1,.25),rng.randf_range(-.25,.25))
 		var flying := Sprite3D.new()
+		flying.layers = 2
 		flying.texture = profile.remains; flying.hframes = 4; flying.vframes = 2
 		flying.frame = (i % 8) if dismembered else (7 if i == 0 else 3)
 		flying.pixel_size = .0017 if dismembered else .0010
@@ -89,6 +90,7 @@ func handle_event(event: Dictionary) -> void:
 func burst(point: Vector3, direction: Vector3, count: int, rng: RandomNumberGenerator, sparks: bool = false) -> void:
 	for i in count:
 		var node := MeshInstance3D.new(); node.mesh = spark_mesh if sparks else drop_mesh
+		node.layers = 2
 		add_child(node); node.global_position = point + Vector3(rng.randf_range(-.08,.08),rng.randf_range(-.08,.08),rng.randf_range(-.08,.08))
 		node.scale = Vector3.ONE * rng.randf_range(.6,1.4)
 		var velocity := direction * rng.randf_range(1.0,3.0) + Vector3(rng.randf_range(-2.2,2.2),rng.randf_range(.4,3.1),rng.randf_range(-2.2,2.2))
@@ -182,6 +184,7 @@ func surface_patch(center: Vector3, normal: Vector3, extent: Vector2, texture: T
 			material.albedo_color = Color(.72,.72,.72)
 		material_cache[material_key] = material
 	var mesh := MeshInstance3D.new(); mesh.mesh = surface.commit(); mesh.material_override = material_cache[material_key]
+	mesh.layers = 2
 	mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	mesh.set_meta("gore_remains",is_remains); mesh.set_meta("surface_normal",normal); mesh.set_meta("cell",cell)
 	add_child(mesh); mesh.global_position = center

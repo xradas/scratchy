@@ -35,26 +35,29 @@ for kind in ['player','level','door','lift']:
  file={'player':'player','level':'pale_ward_level','door':'ward_door','lift':'ward_lift'}[kind]
  ext.append(f'[ext_resource type="Script" path="res://scripts/{file}.gd" id="{kind}"]')
 ext.append('[ext_resource type="ArrayMesh" path="res://resources/ward_ramp_mesh.tres" id="ramp_mesh"]')
+ext.append('[ext_resource type="Shader" path="res://shaders/ward_surface.gdshader" id="ward_surface"]')
 ext.append('[ext_resource type="Texture2D" path="res://assets/enemies/board-sprites/unsealed-atlas.png" id="specimen_atlas"]')
 for kind,uv in [('ceramic',.30),('steel',.5),('floor',.35),('grate',.7)]:
- ext.append(f'[ext_resource type="Texture2D" path="res://assets/materials/ward-{kind}.png" id="tex_{kind}"]')
- material(kind,f'albedo_texture = ExtResource("tex_{kind}")\ntexture_filter = 2\nroughness = 0.9\nuv1_triplanar = true\nuv1_world_triplanar = true\nuv1_scale = Vector3({uv}, {uv}, {uv})')
+ ext.append(f'[ext_resource type="Texture2D" path="res://assets/materials/pale-ward-approved-board.png" id="tex_{kind}"]')
+ metal,rough,relief={'ceramic':(0,.68,2.8), 'steel':(.52,.38,3.5), 'floor':(.18,.50,2.3), 'grate':(.56,.40,3.3)}[kind]
+ region={'ceramic':(1216,625,111,102), 'steel':(1362,625,111,102), 'floor':(1362,625,111,102), 'grate':(1216,761,111,106)}[kind]
+ subs.append(f'[sub_resource type="ShaderMaterial" id="{kind}"]\nshader = ExtResource("ward_surface")\nshader_parameter/painted_surface = ExtResource("tex_{kind}")\nshader_parameter/source_region_pixels = Vector4({", ".join(str(v) for v in region)})\nshader_parameter/world_scale = {uv}\nshader_parameter/tint = {color((1,1,1,1))}\nshader_parameter/metal = {metal}\nshader_parameter/base_roughness = {rough}\nshader_parameter/relief = {relief}\n')
 for name,c in [('recess',(.085,.087,.082,1)),('trim',(.22,.225,.21,1)),('rust',(.26,.12,.065,1)),('blood',(.17,.035,.025,1)),('ivory',(.55,.50,.36,1)),('sign_ink',(.06,.065,.06,1))]:
  material(name,'albedo_color = '+color(c)+'\nroughness = .93')
-material('tube','albedo_color = Color(.68,.59,.14,.38)\ntransparency = 1\nroughness = .24\ncull_mode = 2\nemission_enabled = true\nemission = Color(.21,.18,.025,1)\nemission_energy_multiplier = .24')
+material('tube','albedo_color = Color(.63,.68,.16,.28)\ntransparency = 1\nmetallic = .12\nroughness = .18\ncull_mode = 2\nemission_enabled = true\nemission = Color(.19,.23,.035,1)\nemission_energy_multiplier = .35')
 material('fluid','albedo_color = Color(.26,.24,.075,.48)\ntransparency = 1\nroughness = .7')
 for name,c,energy in [('lamp',(.72,.68,.54,1),1.6),('olive',(.42,.40,.06,1),1.1),('key',(.76,.52,.10,1),1.0),('health',(.51,.14,.10,1),.25),('armor',(.17,.24,.27,1),.25)]:
  material(name,'albedo_color = '+color(c)+'\nroughness = .75\nemission_enabled = true\nemission = '+color(c)+f'\nemission_energy_multiplier = {energy}')
 subs.append('''[sub_resource type="Environment" id="environment"]
 background_mode = 1
 background_color = Color(.025,.027,.025,1)
-ambient_light_source = 3
-ambient_light_color = Color(.47,.45,.39,1)
-ambient_light_energy = .22
+ambient_light_source = 2
+ambient_light_color = Color(.52,.53,.55,1)
+ambient_light_energy = .30
 tonemap_mode = 0
 fog_enabled = true
-fog_light_color = Color(.10,.105,.09,1)
-fog_density = .005
+fog_light_color = Color(.09,.105,.115,1)
+fog_density = .008
 ''')
 subs.append('[sub_resource type="CapsuleShape3D" id="player_shape"]\nradius = .3\nheight = 1.7\n')
 subs.append('[sub_resource type="AtlasTexture" id="specimen"]\natlas = ExtResource("specimen_atlas")\nregion = Rect2(0,0,384,512)\n')
@@ -83,8 +86,21 @@ def cylinder(name,pos,r,h,mat='steel',rot=None,solid=False):
 def light(name,pos,color_v,energy=2,range_v=10,shadow=False):
  add_node(name,'OmniLight3D',props=f'position = {vec(pos)}\nlight_color = {color(color_v)}\nlight_energy = {energy}\nomni_range = {range_v}\nshadow_enabled = '+str(shadow).lower())
 
+def downlight(name,pos,energy=4.5,range_v=11):
+ add_node(name,'SpotLight3D',props=f'position = {vec(pos)}\nrotation_degrees = Vector3(-90,0,0)\nlight_color = Color(.95,.95,.91,1)\nlight_energy = {energy}\nspot_range = {range_v}\nspot_angle = 58\nspot_attenuation = 1.2\nshadow_enabled = true\nshadow_bias = .025\nshadow_normal_bias = .35\n')
+
 def label(name,text,pos,rotation=(0,0,0),size=65,pixel=.006,tint=(.1,.11,.10,1),parent='.'):
  add_node(name,'Label3D',parent=parent,props='position = '+vec(pos)+'\nrotation_degrees = '+vec(rotation)+f'\ntext = "{text}"\nfont_size = {size}\npixel_size = {pixel}\nmodulate = '+color(tint)+'\noutline_size = 0\nno_depth_test = false\nshaded = true\n')
+
+def original_sign(name,region,pos,size):
+ # Preserve approved board pixels through native UV mapping; QuadMesh faces +Z.
+ texture='[ext_resource type="Texture2D" path="res://assets/materials/pale-ward-approved-board.png" id="approved_sign_board"]'
+ if texture not in ext:ext.append(texture)
+ x,y,w,h=region
+ mat=name+'_material';mesh=name+'_mesh'
+ material(mat,'albedo_texture = ExtResource("approved_sign_board")\ntexture_filter = 0\ntexture_repeat = false\nroughness = .9\nshading_mode = 1\ncull_mode = 0\nuv1_scale = '+vec((w/1536,h/1024,1))+'\nuv1_offset = '+vec((x/1536,y/1024,0)))
+ subs.append(f'[sub_resource type="QuadMesh" id="{mesh}"]\nmaterial = SubResource("{mat}")\nsize = Vector2({size[0]}, {size[1]})\norientation = 2\n')
+ add_node(name,'MeshInstance3D',props='position = '+vec(pos)+f'\nmesh = SubResource("{mesh}")\n')
 
 def marker(name,pos,meta,typ='Marker3D',extra=''):
  add_node(name,typ,props='position = '+vec(pos)+'\n'+meta+'\n'+extra)
@@ -99,8 +115,8 @@ def pickup(name,kind,pos,amount=25):
  i+=1;mid=f'm{i}'
  material_id=kind if kind in ['key','health','armor'] else 'ivory'
  subs.append(f'[sub_resource type="BoxMesh" id="{mid}"]\nsize = Vector3(.48,.32,.35)\nmaterial = SubResource("{material_id}")\n')
- add_node('Case','MeshInstance3D','Pickup_'+name,f'mesh = SubResource("{mid}")')
- add_node('Mark','Label3D','Pickup_'+name,f'text = "'+{'health':'+','armor':'A','key':'C3','shells':'12G','pistol':'9MM'}[kind]+'"\nposition = Vector3(0,.20,0)\nfont_size = 34\npixel_size = .004\nmodulate = Color(.88,.83,.68,1)\noutline_size = 0\nbillboard = 1')
+ add_node('Case','MeshInstance3D','Pickup_'+name,f'mesh = SubResource("{mid}")\nlayers = 2')
+ add_node('Mark','Label3D','Pickup_'+name,f'text = "'+{'health':'+','armor':'A','key':'C3','shells':'12G','pistol':'9MM'}[kind]+'"\nposition = Vector3(0,.20,0)\nfont_size = 34\npixel_size = .004\nmodulate = Color(.88,.83,.68,1)\noutline_size = 0\nbillboard = 1\nlayers = 2')
 
 # Ground-connected architecture; every passable threshold has a shared exact floor elevation.
 box('HallFloor',(0,-.25,1),(12,.5,34),'floor')
@@ -197,13 +213,14 @@ for j,z in enumerate([-11,-3,5,13]):
  for s in [-1,1]:
   box(f'LampHousing{j}_{s}',(s*3.25,5.45,z),(1.4,.15,.48),'recess',False)
   box(f'LampFace{j}_{s}',(s*3.25,5.35,z),(1.22,.05,.35),'lamp',False)
- light('HallWarm'+str(j),(0,4.7,z),(.90,.84,.70,1),1.5,10,j in [1,3])
+ light('HallWarm'+str(j),(0,4.7,z),(.80,.85,.91,1),.32,8)
+ downlight('HallKey'+str(j),(0,5.3,z),5.0,11)
 for j,x in enumerate([-1.5,-.9,2.25]):
  cylinder('MainConduit'+str(j),(x,5.28,1),.14 if j<2 else .25,33,'steel',(90,0,0))
  for k,z in enumerate([-12,-4,4,12]):cylinder(f'PipeCollar{j}_{k}',(x,5.28,z),.19 if j<2 else .31,.11,'recess',(90,0,0))
 for j,z in enumerate([-10,-2,6,14]):box('DuctBrace'+str(j),(-1.2,5.43,z),(1.35,.12,.2),'steel',False)
 # Tall yellow-fluid tanks: translucent outer cylinder, weathered steel frames, contained silhouettes.
-for j,(x,z,floor) in enumerate([(-4.8,12,0),(-4.8,3,0),(-4.8,-5,0),(4.8,11,0),(4.8,-2,0),(4.8,-10,0),(10.2,8.8,0),(4.7,-22,1.5)]):
+for j,(x,z,floor) in enumerate([(-4.8,12,0),(-4.8,3,0),(-4.8,-5,0),(4.8,11,0),(4.8,-3.5,0),(4.8,-10,0),(10.2,8.8,0),(4.7,-22,1.5)]):
  cylinder(f'Tank{j}_Glass',(x,floor+2.14,z),.71,3.54,'tube',solid=True)
  cylinder(f'Tank{j}_Fluid',(x,floor+2.00,z),.64,3.12,'fluid')
  for k,y in enumerate([.27,.58,3.78,4.0]):cylinder(f'Tank{j}_Ring{k}',(x,floor+y,z),.84,.20 if k in [0,3] else .10,'steel',solid=True)
@@ -214,13 +231,66 @@ for j,(x,z,floor) in enumerate([(-4.8,12,0),(-4.8,3,0),(-4.8,-5,0),(4.8,11,0),(4
   box(f'Tank{j}_Strut{k}',(xx,floor+2.14,zz),(.12,3.54,.12),'steel',False)
  # Canvas center places silhouette feet .79 above floor, face at2.63. Deliberately no gameplay enemy node.
  add_node(f'Tank{j}_Specimen','Sprite3D',props=f'position = {vec((x,floor+1.90,z))}\ntexture = SubResource("specimen")\npixel_size = .0055\nbillboard = 1\nmodulate = Color(.21,.23,.14,1)\nshaded = true\nalpha_cut = 1\ntexture_filter = 0\n')
- light(f'Tank{j}_Glow',(x,floor+2.1,z),(.48,.43,.09,1),.7,2.6)
+ light(f'Tank{j}_Glow',(x,floor+2.1,z),(.62,.67,.16,1),1.5,3.3)
  box(f'Tank{j}_Valve',(x,floor+.52,z+.89),(.23,.24,.20),'steel',False)
 # Reference signage carries the identity at the player's opening viewpoint.
-label('HallC3','C3',(-5.93,3.40,6),(0,90,0),size=160,pixel=.010)
-label('HallContainment','CONTAINMENT',(-5.92,2.35,6),(0,90,0),size=69,pixel=.0065)
-label('BioWingSign','BIO\\nWING A', (5.93,3.35,.9),(0,-90,0),size=90,pixel=.008)
-label('BioWingArrow','→',(5.92,2.28,1.0),(0,-90,0),size=115,pixel=.007)
+# The concept frames the stairs with two substantial machinery piers. They are
+# real colliders, clear of the central route and the existing Bio Wing portal.
+for s in [-1,1]:
+ x=-3.8 if s<0 else 3.4
+ z=1.0 if s<0 else -1.2
+ box('ContainmentPier'+str(s),(x,3.0,z),(1.45,6.0,1.4),'ceramic')
+ box('PierFoot'+str(s),(x,.40,z),(1.70,.80,1.68),'steel')
+ box('PierCap'+str(s),(x,5.54,z),(1.65,.28,1.60),'steel')
+ for edge in [-1,1]:
+  box(f'PierEdge{s}_{edge}',(x+edge*.70,3.15,z+.745),(.10,4.25,.10),'steel')
+ for y in [1.10,4.55]:box(f'PierBand{s}_{y}',(x,y,z+.745),(1.45,.18,.10),'steel')
+ box('PierInstrument'+str(s),(x,.78,z+.76),(.65,.40,.24),'steel')
+ box('PierGauge'+str(s),(x,.82,z+.90),(.37,.065,.02),'olive',False)
+original_sign('PierC3',(356,124,130,82),(-3.8,3.3,1.76),(1.28,.808))
+original_sign('PierBio',(972,150,90,85),(3.4,3.35,-.44),(1.20,1.133))
+# Short wall fixtures pick out grime and cast shadows across the framing piers.
+for s in [-1,1]:
+ x=-4.25 if s<0 else 3.85
+ z=1.0 if s<0 else -1.2
+ box('PierLightCase'+str(s),(x,4.38,z+.9),(.27,.58,.28),'steel')
+ box('PierLightFace'+str(s),(x,4.38,z+1.055),(.16,.43,.03),'lamp',False)
+ light('PierPool'+str(s),(x,4.2,z+1.28),(.94,.94,.84,1),.85,3.2,True)
+for k,z in enumerate([-4.0,1.0,6.0]):
+ box('MaintenancePlate'+str(k),(.9 if k%2 else -.65,.012,z),(1.65,.024,1.2),'steel')
+ for x in [-.6,.6]:box(f'PlateLip{k}_{x}',((.9 if k%2 else -.65)+x,.021,z),(.045,.012,1.16),'steel')
+# Broken-up wall services keep the broad surfaces from reading as bare cubes.
+for side in [-1,1]:
+ for k,z in enumerate([-13,-9,-5,12,16]):
+  box(f'WallService{side}_{k}',(side*5.96,.61,z),(.07,.55,2.15),'steel')
+  for offset in [-.6,0,.6]:box(f'WallRib{side}_{k}_{offset}',(side*5.91,.64,z+offset),(.055,.045,.36),'recess',False)
+ for k,z in enumerate([-13,-9,-5,12,16]):
+  cylinder(f'WallFeed{side}_{k}',(side*5.87,3.95,z),.055,2.7,'steel')
+# The right-hand junction has containment hardware instead of a bare wall.
+box('BioJunctionHousing',(5.85,1.66,.25),(.30,2.15,1.55),'steel')
+box('BioJunctionInset',(5.68,1.75,.25),(.07,1.52,1.16),'recess',False)
+for k,y in enumerate([1.20,1.45,1.70,1.95,2.20]):
+ box('BioJunctionVent'+str(k),(5.63,y,.25),(.05,.08,1.05),'steel',False)
+cylinder('BioJunctionFeed',(5.74,3.70,.25),.11,2.10,'steel',solid=True)
+cylinder('BioUpperManifold',(5.66,4.65,-4),.19,12.5,'steel',(90,0,0))
+# Cached captures contain only static world meshes. No monsters, pickups or
+# corpses can remain baked into the floor reflections after a kill/retry.
+for name,pos,size in [('HallFront',(0,2.8,6),(12.4,6.6,20)),('HallRear',(0,3,-9),(12.4,7.0,12))]:
+ add_node('Reflection_'+name,'ReflectionProbe',props=f'position = {vec(pos)}\nsize = {vec(size)}\nbox_projection = true\ninterior = true\nambient_mode = 0\nintensity = .78\nblend_distance = 2.0\nupdate_mode = 0\ncull_mask = 1\nenable_shadows = true\n')
+# The art has old blood in the room before combat, separate from new death gore.
+ext.append('[ext_resource type="Texture2D" path="res://assets/effects/gore-v1/pools-atlas.png" id="old_blood"]')
+material('old_blood','albedo_texture = ExtResource("old_blood")\nalbedo_color = Color(.8,.8,.8,1)\ntransparency = 2\nalpha_scissor_threshold = .12\ntexture_filter = 2\nroughness = .30\ncull_mode = 2\nuv1_scale = Vector3(.5,.5,1)\nuv1_offset = Vector3(.5,0,0)')
+for k,(x,z,width,depth,angle) in enumerate([(-2.0,3.3,2.6,2.8,13),(-1.6,6.1,2.4,1.5,47),(2.3,4.9,1.4,3.4,12),(4.6,2.7,2.2,2.3,-22),(-1.2,-5.0,2.0,1.3,53)]):
+ i+=1;mid=f'm{i}'
+ subs.append(f'[sub_resource type="PlaneMesh" id="{mid}"]\nsize = Vector2({width},{depth})\nmaterial = SubResource("old_blood")\n')
+ add_node('OldBlood'+str(k),'MeshInstance3D',props=f'position = {vec((x,.008,z))}\nrotation_degrees = Vector3(0,{angle},0)\nmesh = SubResource("{mid}")\ncast_shadow = 0')
+# Door faces carry actual raised inset plates, ribs, hinges and a central lock.
+for s in [-1,1]:
+ box('RearInset'+str(s),(s*1.12,-.08,.19),(1.89,2.28,.035),'steel',False,parent='Door_Rear')
+ for y in [-1.25,1.18]:box(f'RearBrace{s}_{y}',(s*1.12,y,.23),(1.90,.10,.09),'steel',False,parent='Door_Rear')
+ for y in [-1.18,1.13]:cylinder(f'RearHinge{s}_{y}',(s*2.3,3.3+y,-15.72),.07,.18,'steel',(90,0,0))
+box('RearLock',(0,-.20,.24),(.23,.72,.18),'steel',False,parent='Door_Rear')
+label('RearWarning','BIOHAZARD', (0,.38,.25),size=50,pixel=.007,tint=(.46,.42,.24,1),parent='Door_Rear')
 label('OperatingSign','OPERATING / A2',(18,3.32,.45),size=67,pixel=.007,tint=(.62,.57,.43,1))
 label('ExitSign','DISCHARGE',(3,6.4,-29.92),size=83,pixel=.010,tint=(.59,.62,.45,1))
 # Operating apparatus, lab stations and actual contextual supply cases.
@@ -234,8 +304,8 @@ light('OperatingKey',(20,3.8,-5),(.86,.83,.73,1),2.5,10,True)
 light('RearLabKey',(0,6.8,-22),(.74,.75,.65,1),3.4,14,True)
 light('ExitWarm',(3,7.2,-28),(.83,.84,.68,1),2.6,9)
 pickup('ContainmentKey','key',(20,.68,-7),1)
-pickup('HallPistol','pistol',(-2.6,.24,13),20)
-pickup('HallHealth','health',(4.6,.24,15),25)
+pickup('HallPistol','pistol',(-2.6,.24,6.4),20)
+pickup('HallHealth','health',(4.6,.24,8.5),25)
 pickup('BioShells','shells',(12,.24,8),8)
 pickup('OperatingHealth','health',(22.5,.24,-8),25)
 pickup('RearArmor','armor',(-2.0,1.76,-20.5),30)
@@ -256,7 +326,7 @@ nav('SecretPortal',(-6,.87,8),['ContainmentHall','Secret'],'Door_Secret')
 marker('Exit_Discharge',(3,5.37,-28.5),'metadata/ward_exit = true')
 add_node('EnemySpawns')
 for n,(kind,encounter,pos) in enumerate([
- ('unsealed','ContainmentHall',(-1.9,.87,7.5)),('vessel','ContainmentHall',(3.6,.87,.5)),('unsealed','ContainmentHall',(-1.4,.87,-3.0)),
+ ('unsealed','ContainmentHall',(-2.0,.87,3.3)),('vessel','ContainmentHall',(4.6,.87,.7)),('unsealed','ContainmentHall',(-4.3,.87,-7.0)),
  ('unsealed','BioWing',(11.8,.87,5.8)),('vessel','BioWing',(17.8,.87,7.7)),
  ('unsealed','OperatingRoom',(21.8,.87,-4.3)),('vessel','OperatingRoom',(15.8,.87,-8.4)),
  ('unsealed','RearLab',(-1.8,2.37,-20)),('vessel','RearLab',(3.7,2.37,-24.5)),('unsealed','RearLab',(0.5,2.37,-27.4)),
@@ -266,7 +336,7 @@ for n,(kind,encounter,pos) in enumerate([
 if (P/'assets/environment/ward-infestation.png').exists():
  ext.append('[ext_resource type="Texture2D" path="res://assets/environment/ward-infestation.png" id="infestation_tex"]')
  material('infestation','albedo_texture = ExtResource("infestation_tex")\ntransparency = 1\nroughness = .92\ncull_mode = 2\ntexture_filter = 0')
- for n,(pos,sz,rot) in enumerate([((-5.96,2.4,10.5),(4.8,7),(0,0,-90)),((-4.1,.022,9),(3.5,5),(0,0,0))]):
+ for n,(pos,sz,rot) in enumerate([((-5.96,2.4,1.8),(4.8,7),(0,0,-90)),((-3.1,.022,4.4),(3.5,5),(0,0,0))]):
   i+=1;mid=f'm{i}';subs.append(f'[sub_resource type="PlaneMesh" id="{mid}"]\nsize = Vector2({sz[0]}, {sz[1]})\nmaterial = SubResource("infestation")\n')
   add_node('Infestation'+str(n),'MeshInstance3D',props=f'position = {vec(pos)}\nrotation_degrees = {vec(rot)}\nmesh = SubResource("{mid}")\ncast_shadow = 0')
 root='''[node name="PaleWard" type="Node3D"]
@@ -275,11 +345,11 @@ script = ExtResource("level")
 environment = SubResource("environment")
 [node name="DirectionalFill" type="DirectionalLight3D" parent="."]
 rotation_degrees = Vector3(-58,-22,0)
-light_color = Color(.62,.60,.52,1)
-light_energy = .12
+light_color = Color(.55,.63,.72,1)
+light_energy = .08
 shadow_enabled = false
 [node name="Player" type="CharacterBody3D" parent="."]
-position = Vector3(0,.87,15)
+position = Vector3(0,.87,7.4)
 script = ExtResource("player")
 collision_layer = 2
 collision_mask = 3

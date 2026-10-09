@@ -1,0 +1,118 @@
+{
+  "source": "concepts/visual-v2/corrupted-biotech/board.png",
+  "runtime_copy": "assets/materials/pale-ward-approved-board.png",
+  "source_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+  "runtime_copy_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+  "board_size_pixels": [
+    1536,
+    1024
+  ],
+  "copy_method": "byte-for-byte copy; no crop, pixel edits, generated imagery, or resampling",
+  "rectangle_convention": "[x, y, width, height], upper-left origin, exclusive right/bottom edges",
+  "regions_pixels": {
+    "ceramic": [
+      1216,
+      625,
+      111,
+      102
+    ],
+    "steel": [
+      1362,
+      625,
+      111,
+      102
+    ],
+    "grate": [
+      1216,
+      761,
+      111,
+      106
+    ]
+  },
+  "sampling": {
+    "projection": "world-space triplanar",
+    "filter": "nearest; no mipmap selection",
+    "wrap": "fract in local selected-region coordinates",
+    "margin": "half a source pixel, clamped to the centers of the first and last selected pixels",
+    "relief": "source-pixel offsets pass through the same region-local wrap and clamp"
+  },
+  "materials": {
+    "ceramic": {
+      "region": "ceramic",
+      "source_region_pixels": [
+        1216,
+        625,
+        111,
+        102
+      ],
+      "world_scale": 0.3,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metal": 0,
+      "base_roughness": 0.68,
+      "relief": 2.8
+    },
+    "steel": {
+      "region": "steel",
+      "source_region_pixels": [
+        1362,
+        625,
+        111,
+        102
+      ],
+      "world_scale": 0.5,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metal": 0.52,
+      "base_roughness": 0.38,
+      "relief": 3.5
+    },
+    "floor": {
+      "region": "steel",
+      "source_region_pixels": [
+        1362,
+        625,
+        111,
+        102
+      ],
+      "world_scale": 0.35,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metal": 0.18,
+      "base_roughness": 0.5,
+      "relief": 2.3
+    },
+    "grate": {
+      "region": "grate",
+      "source_region_pixels": [
+        1216,
+        761,
+        111,
+        106
+      ],
+      "world_scale": 0.7,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metal": 0.56,
+      "base_roughness": 0.4,
+      "relief": 3.3
+    }
+  },
+  "limits": "This preserves source selection and source bytes. Triplanar mixing, world-space repetition, relief, lighting, and geometry affect the rendered result; it is not a claim of full-scene visual fidelity."
+}

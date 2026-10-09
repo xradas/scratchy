@@ -1,8 +1,16 @@
 extends SceneTree
 var app: Control
 var results: Array[Dictionary] = []
+var evidence_dir := "res://verification/combat"
 
 func _initialize() -> void:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--evidence-dir="):
+			evidence_dir = argument.trim_prefix("--evidence-dir=")
+	if evidence_dir.is_empty():
+		push_error("AIM_BALANCE_FAILED: empty evidence directory")
+		quit(1)
+		return
 	call_deferred("run_check")
 
 func prepare(kind: StringName, distance: float) -> CharacterBody3D:
@@ -71,8 +79,23 @@ func run_check() -> void:
 			elif weapon == &"melee": expected = 3 if kind == &"unsealed" else 6
 			assert(shots == expected, "%s %s unexpected shots %d" % [kind, weapon, shots])
 			results.append({"enemy":kind,"weapon":weapon,"hits_to_kill":shots,"camera_stable":true})
-	var file := FileAccess.open("res://verification/combat/aim-balance.json", FileAccess.WRITE)
+	var directory_error := DirAccess.make_dir_recursive_absolute(evidence_dir)
+	if directory_error != OK:
+		push_error("AIM_BALANCE_FAILED: cannot create evidence directory: " + error_string(directory_error))
+		quit(1)
+		return
+	var file := FileAccess.open(evidence_dir.path_join("aim-balance.json"), FileAccess.WRITE)
+	if file == null:
+		push_error("AIM_BALANCE_FAILED: cannot open evidence: " + error_string(FileAccess.get_open_error()))
+		quit(1)
+		return
 	file.store_string(JSON.stringify({"screen_relative_input":true,"crosshair_ray_center":true,"close_range_kills":results,"scope":"Actual physics contacts, torso aim. Does not claim subjective aim feel or long-range balance approval."}, "  ")+"\n")
+	file.flush()
+	var write_error := file.get_error()
 	file.close()
+	if write_error != OK:
+		push_error("AIM_BALANCE_FAILED: cannot write evidence: " + error_string(write_error))
+		quit(1)
+		return
 	print("AIM_BALANCE_OK: screen-relative input; exact crosshair/ray alignment; camera stable through shots; close-range pistol4/8, shotgun1/2, melee3/6")
 	await app.quit_game()

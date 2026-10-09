@@ -1,0 +1,11 @@
+Command: tools/godot.sh --headless --script res://tools/check_weapon_lighting.gd
+Engine: Godot v4.7.2.stable.official.ed1daf0bf
+Exit: 0
+WEAPON_LIGHTING_CHECK_OK: 21 checks; real accepted Combat shots, pistol/shotgun profiles, reusable surface light, cooldown/empty/melee exclusion, camera placement, pause/resume, world/public reset
+
+Surface lighting: one reusable OmniLight3D, warm neutral Color(1.0, 0.88, 0.72), shadows disabled.
+Pistol: 0.055 s, range 5.0, energy 2.5.
+Shotgun: 0.08 s, range 7.0, energy 4.0.
+Placement: current camera.global_position - camera.global_basis.z * 0.4.
+Authority: Combat combat_event type shot; accepted shots only. No ammo, damage or audio ownership.
+Lifetime: child of Combat; pausable process countdown; encounter_started event and public reset clear flash and active shot id.

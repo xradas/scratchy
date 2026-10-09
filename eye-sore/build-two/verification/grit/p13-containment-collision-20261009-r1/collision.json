@@ -1,0 +1,485 @@
+{
+  "assertions": 144,
+  "check_sha256": "1bfa9683d6a21ad480d589cce828e21c561a4674800820c346436e3c26f8fa89",
+  "combat_sha256": "acd10f3ca6c002b0d8f233ea380431fc45786e6ad6c6197ce4c254f4a4525d92",
+  "failures": [],
+  "projectile_impacts": [
+    {
+      "enemy_kind": "unsealed",
+      "material": "hard",
+      "position": "(-4.525, 2.0, 1.0)",
+      "shot_id": 0,
+      "target_id": "",
+      "type": "projectile_impact",
+      "weapon_id": ""
+    },
+    {
+      "enemy_kind": "unsealed",
+      "material": "hard",
+      "position": "(2.675, 2.0, -1.2)",
+      "shot_id": 0,
+      "target_id": "",
+      "type": "projectile_impact",
+      "weapon_id": ""
+    },
+    {
+      "enemy_kind": "unsealed",
+      "material": "armor",
+      "position": "(5.7, 1.66, 0.25)",
+      "shot_id": 0,
+      "target_id": "",
+      "type": "projectile_impact",
+      "weapon_id": ""
+    },
+    {
+      "enemy_kind": "unsealed",
+      "material": "armor",
+      "position": "(5.63, 3.7, 0.25)",
+      "shot_id": 0,
+      "target_id": "",
+      "type": "projectile_impact",
+      "weapon_id": ""
+    },
+    {
+      "enemy_kind": "unsealed",
+      "material": "armor",
+      "position": "(-2.55, 3.45, -15.375)",
+      "shot_id": 0,
+      "target_id": "",
+      "type": "projectile_impact",
+      "weapon_id": ""
+    },
+    {
+      "enemy_kind": "unsealed",
+      "material": "armor",
+      "position": "(2.55, 3.45, -15.375)",
+      "shot_id": 0,
+      "target_id": "",
+      "type": "projectile_impact",
+      "weapon_id": ""
+    },
+    {
+      "enemy_kind": "unsealed",
+      "material": "armor",
+      "position": "(-0.65, 0.024, -4.0)",
+      "shot_id": 0,
+      "target_id": "",
+      "type": "projectile_impact",
+      "weapon_id": ""
+    },
+    {
+      "enemy_kind": "unsealed",
+      "material": "armor",
+      "position": "(0.9, 0.024, 1.0)",
+      "shot_id": 0,
+      "target_id": "",
+      "type": "projectile_impact",
+      "weapon_id": ""
+    },
+    {
+      "enemy_kind": "unsealed",
+      "material": "armor",
+      "position": "(-0.65, 0.024, 6.0)",
+      "shot_id": 0,
+      "target_id": "",
+      "type": "projectile_impact",
+      "weapon_id": ""
+    }
+  ],
+  "projectile_sha256": "cdab6e1dc12a324f8cc452f380188f15514869f28083d7859c43bd6ca470fd44",
+  "records": [
+    {
+      "position": "(0.0, 0.87, 7.4)",
+      "solid_overlaps": [],
+      "spawn": "Player"
+    },
+    {
+      "position": "(-2.0, 0.87, 3.3)",
+      "solid_overlaps": [],
+      "spawn": "Spawn0"
+    },
+    {
+      "position": "(4.6, 0.87, 0.7)",
+      "solid_overlaps": [],
+      "spawn": "Spawn1"
+    },
+    {
+      "position": "(-4.3, 0.87, -7.0)",
+      "solid_overlaps": [],
+      "spawn": "Spawn2"
+    },
+    {
+      "position": "(11.8, 0.87, 5.8)",
+      "solid_overlaps": [],
+      "spawn": "Spawn3"
+    },
+    {
+      "position": "(17.8, 0.87, 7.7)",
+      "solid_overlaps": [],
+      "spawn": "Spawn4"
+    },
+    {
+      "position": "(21.8, 0.87, -4.3)",
+      "solid_overlaps": [],
+      "spawn": "Spawn5"
+    },
+    {
+      "position": "(15.8, 0.87, -8.4)",
+      "solid_overlaps": [],
+      "spawn": "Spawn6"
+    },
+    {
+      "position": "(-1.8, 2.37, -20.0)",
+      "solid_overlaps": [],
+      "spawn": "Spawn7"
+    },
+    {
+      "position": "(3.7, 2.37, -24.5)",
+      "solid_overlaps": [],
+      "spawn": "Spawn8"
+    },
+    {
+      "position": "(0.5, 2.37, -27.4)",
+      "solid_overlaps": [],
+      "spawn": "Spawn9"
+    },
+    {
+      "position": "(-8.6, 0.87, 7.0)",
+      "solid_overlaps": [],
+      "spawn": "Spawn10"
+    },
+    {
+      "actors": [
+        {
+          "actor": "Player",
+          "blocked": true,
+          "collider": "ContainmentPier-1",
+          "travel": "(0.548438, 0.0, 0.0)"
+        },
+        {
+          "actor": "CombatEnemy",
+          "blocked": true,
+          "collider": "ContainmentPier-1",
+          "travel": "(0.469336, 0.0, 0.0)"
+        }
+      ],
+      "combat_rays": [
+        {
+          "anatomical_hits": false,
+          "collider": "ContainmentPier-1",
+          "collision_mask": 3,
+          "position": "(-4.525, 2.0, 1.0)"
+        },
+        {
+          "anatomical_hits": true,
+          "collider": "ContainmentPier-1",
+          "collision_mask": 7,
+          "position": "(-4.525, 2.0, 1.0)"
+        }
+      ],
+      "from": "(-5.375, 2.0, 1.0)",
+      "impact_count": 1,
+      "projectile_last_position": "(-4.775, 2.0, 1.0)",
+      "projectile_physics_ticks": 5,
+      "solid": "ContainmentPier-1",
+      "to": "(-2.675, 2.0, 1.0)"
+    },
+    {
+      "actors": [
+        {
+          "actor": "Player",
+          "blocked": true,
+          "collider": "ContainmentPier1",
+          "travel": "(0.548438, 0.0, 0.0)"
+        },
+        {
+          "actor": "CombatEnemy",
+          "blocked": true,
+          "collider": "ContainmentPier1",
+          "travel": "(0.469336, 0.0, 0.0)"
+        }
+      ],
+      "combat_rays": [
+        {
+          "anatomical_hits": false,
+          "collider": "ContainmentPier1",
+          "collision_mask": 3,
+          "position": "(2.675, 2.0, -1.2)"
+        },
+        {
+          "anatomical_hits": true,
+          "collider": "ContainmentPier1",
+          "collision_mask": 7,
+          "position": "(2.675, 2.0, -1.2)"
+        }
+      ],
+      "from": "(1.825, 2.0, -1.2)",
+      "impact_count": 1,
+      "projectile_last_position": "(2.425, 2.0, -1.2)",
+      "projectile_physics_ticks": 5,
+      "solid": "ContainmentPier1",
+      "to": "(4.525, 2.0, -1.2)"
+    },
+    {
+      "actors": [
+        {
+          "actor": "Player",
+          "blocked": true,
+          "collider": "BioJunctionHousing",
+          "travel": "(0.544922, 0.0, 0.0)"
+        },
+        {
+          "actor": "CombatEnemy",
+          "blocked": true,
+          "collider": "BioJunctionHousing",
+          "travel": "(0.466211, 0.0, 0.0)"
+        }
+      ],
+      "combat_rays": [
+        {
+          "anatomical_hits": false,
+          "collider": "BioJunctionHousing",
+          "collision_mask": 3,
+          "position": "(5.7, 1.66, 0.25)"
+        },
+        {
+          "anatomical_hits": true,
+          "collider": "BioJunctionHousing",
+          "collision_mask": 7,
+          "position": "(5.7, 1.66, 0.25)"
+        }
+      ],
+      "from": "(4.85, 1.66, 0.25)",
+      "impact_count": 1,
+      "projectile_last_position": "(5.45, 1.66, 0.25)",
+      "projectile_physics_ticks": 5,
+      "solid": "BioJunctionHousing",
+      "to": "(6.4, 1.66, 0.25)"
+    },
+    {
+      "actors": [
+        {
+          "actor": "Player",
+          "blocked": true,
+          "collider": "BioJunctionFeed",
+          "travel": "(0.545508, 0.0, 0.0)"
+        },
+        {
+          "actor": "CombatEnemy",
+          "blocked": true,
+          "collider": "BioJunctionFeed",
+          "travel": "(0.465117, 0.0, 0.0)"
+        }
+      ],
+      "combat_rays": [
+        {
+          "anatomical_hits": false,
+          "collider": "BioJunctionFeed",
+          "collision_mask": 3,
+          "position": "(5.63, 3.7, 0.25)"
+        },
+        {
+          "anatomical_hits": true,
+          "collider": "BioJunctionFeed",
+          "collision_mask": 7,
+          "position": "(5.63, 3.7, 0.25)"
+        }
+      ],
+      "from": "(4.78, 3.7, 0.25)",
+      "impact_count": 1,
+      "projectile_last_position": "(5.38, 3.7, 0.25)",
+      "projectile_physics_ticks": 5,
+      "solid": "BioJunctionFeed",
+      "to": "(6.25, 3.7, 0.25)"
+    },
+    {
+      "actors": [
+        {
+          "actor": "Player",
+          "blocked": true,
+          "collider": "RearDoorJamb-1",
+          "travel": "(0.0, 0.0, -0.549219)"
+        },
+        {
+          "actor": "CombatEnemy",
+          "blocked": true,
+          "collider": "RearDoorJamb-1",
+          "travel": "(0.0, 0.0, -0.463867)"
+        }
+      ],
+      "combat_rays": [
+        {
+          "anatomical_hits": false,
+          "collider": "RearDoorJamb-1",
+          "collision_mask": 3,
+          "position": "(-2.55, 3.45, -15.375)"
+        },
+        {
+          "anatomical_hits": true,
+          "collider": "RearDoorJamb-1",
+          "collision_mask": 7,
+          "position": "(-2.55, 3.45, -15.375)"
+        }
+      ],
+      "from": "(-2.55, 3.45, -14.525)",
+      "impact_count": 1,
+      "projectile_last_position": "(-2.55, 3.45, -15.125)",
+      "projectile_physics_ticks": 5,
+      "solid": "RearDoorJamb-1",
+      "to": "(-2.55, 3.45, -16.425)"
+    },
+    {
+      "actors": [
+        {
+          "actor": "Player",
+          "blocked": true,
+          "collider": "RearDoorJamb1",
+          "travel": "(0.0, 0.0, -0.549219)"
+        },
+        {
+          "actor": "CombatEnemy",
+          "blocked": true,
+          "collider": "RearDoorJamb1",
+          "travel": "(0.0, 0.0, -0.463867)"
+        }
+      ],
+      "combat_rays": [
+        {
+          "anatomical_hits": false,
+          "collider": "RearDoorJamb1",
+          "collision_mask": 3,
+          "position": "(2.55, 3.45, -15.375)"
+        },
+        {
+          "anatomical_hits": true,
+          "collider": "RearDoorJamb1",
+          "collision_mask": 7,
+          "position": "(2.55, 3.45, -15.375)"
+        }
+      ],
+      "from": "(2.55, 3.45, -14.525)",
+      "impact_count": 1,
+      "projectile_last_position": "(2.55, 3.45, -15.125)",
+      "projectile_physics_ticks": 5,
+      "solid": "RearDoorJamb1",
+      "to": "(2.55, 3.45, -16.425)"
+    },
+    {
+      "actors": [
+        {
+          "actor": "Player",
+          "blocked": true,
+          "collider": "MaintenancePlate0",
+          "travel": "(0.0, -0.348906, 0.0)"
+        },
+        {
+          "actor": "CombatEnemy",
+          "blocked": true,
+          "collider": "MaintenancePlate0",
+          "travel": "(0.0, -0.348906, 0.0)"
+        }
+      ],
+      "combat_rays": [
+        {
+          "anatomical_hits": false,
+          "collider": "MaintenancePlate0",
+          "collision_mask": 3,
+          "position": "(-0.65, 0.024, -4.0)"
+        },
+        {
+          "anatomical_hits": true,
+          "collider": "MaintenancePlate0",
+          "collision_mask": 7,
+          "position": "(-0.65, 0.024, -4.0)"
+        }
+      ],
+      "from": "(-0.65, 1.224, -4.0)",
+      "impact_count": 1,
+      "projectile_last_position": "(-0.65, 0.174, -4.0)",
+      "projectile_physics_ticks": 8,
+      "solid": "MaintenancePlate0",
+      "to": "(-0.65, -0.4, -4.0)"
+    },
+    {
+      "actors": [
+        {
+          "actor": "Player",
+          "blocked": true,
+          "collider": "MaintenancePlate1",
+          "travel": "(0.0, -0.348906, 0.0)"
+        },
+        {
+          "actor": "CombatEnemy",
+          "blocked": true,
+          "collider": "MaintenancePlate1",
+          "travel": "(0.0, -0.348906, 0.0)"
+        }
+      ],
+      "combat_rays": [
+        {
+          "anatomical_hits": false,
+          "collider": "MaintenancePlate1",
+          "collision_mask": 3,
+          "position": "(0.9, 0.024, 1.0)"
+        },
+        {
+          "anatomical_hits": true,
+          "collider": "MaintenancePlate1",
+          "collision_mask": 7,
+          "position": "(0.9, 0.024, 1.0)"
+        }
+      ],
+      "from": "(0.9, 1.224, 1.0)",
+      "impact_count": 1,
+      "projectile_last_position": "(0.9, 0.174, 1.0)",
+      "projectile_physics_ticks": 8,
+      "solid": "MaintenancePlate1",
+      "to": "(0.9, -0.4, 1.0)"
+    },
+    {
+      "actors": [
+        {
+          "actor": "Player",
+          "blocked": true,
+          "collider": "MaintenancePlate2",
+          "travel": "(0.0, -0.348906, 0.0)"
+        },
+        {
+          "actor": "CombatEnemy",
+          "blocked": true,
+          "collider": "MaintenancePlate2",
+          "travel": "(0.0, -0.348906, 0.0)"
+        }
+      ],
+      "combat_rays": [
+        {
+          "anatomical_hits": false,
+          "collider": "MaintenancePlate2",
+          "collision_mask": 3,
+          "position": "(-0.65, 0.024, 6.0)"
+        },
+        {
+          "anatomical_hits": true,
+          "collider": "MaintenancePlate2",
+          "collision_mask": 7,
+          "position": "(-0.65, 0.024, 6.0)"
+        }
+      ],
+      "from": "(-0.65, 1.224, 6.0)",
+      "impact_count": 1,
+      "projectile_last_position": "(-0.65, 0.174, 6.0)",
+      "projectile_physics_ticks": 8,
+      "solid": "MaintenancePlate2",
+      "to": "(-0.65, -0.4, 6.0)"
+    },
+    {
+      "finish": "(0.0, 1.691947, -8.862411)",
+      "grounded": true,
+      "lowest_center_y": 0.850149869918823,
+      "physics_ticks": 122,
+      "route": "central hall only: z7.4 to z-8 at x0"
+    }
+  ],
+  "scene_sha256": "49586b0551349f8f5368183409da2dace8b73233ca789114685948701bca5f15",
+  "scope": "Authored solids; actual player/enemy test_move; Combat.ray visibility and hitscan masks; real Combat.launch_projectile physics and retirement; authored spawn capsule overlaps; focused central corridor traversal. Fixture AI disabled; no geometry mutation."
+}

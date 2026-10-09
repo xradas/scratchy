@@ -1,48 +1,59 @@
-[gd_scene load_steps=441 format=3]
+[gd_scene load_steps=594 format=3]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="player"]
 [ext_resource type="Script" path="res://scripts/pale_ward_level.gd" id="level"]
 [ext_resource type="Script" path="res://scripts/ward_door.gd" id="door"]
 [ext_resource type="Script" path="res://scripts/ward_lift.gd" id="lift"]
 [ext_resource type="ArrayMesh" path="res://resources/ward_ramp_mesh.tres" id="ramp_mesh"]
+[ext_resource type="Shader" path="res://shaders/ward_surface.gdshader" id="ward_surface"]
 [ext_resource type="Texture2D" path="res://assets/enemies/board-sprites/unsealed-atlas.png" id="specimen_atlas"]
-[ext_resource type="Texture2D" path="res://assets/materials/ward-ceramic.png" id="tex_ceramic"]
-[ext_resource type="Texture2D" path="res://assets/materials/ward-steel.png" id="tex_steel"]
-[ext_resource type="Texture2D" path="res://assets/materials/ward-floor.png" id="tex_floor"]
-[ext_resource type="Texture2D" path="res://assets/materials/ward-grate.png" id="tex_grate"]
+[ext_resource type="Texture2D" path="res://assets/materials/pale-ward-approved-board.png" id="tex_ceramic"]
+[ext_resource type="Texture2D" path="res://assets/materials/pale-ward-approved-board.png" id="tex_steel"]
+[ext_resource type="Texture2D" path="res://assets/materials/pale-ward-approved-board.png" id="tex_floor"]
+[ext_resource type="Texture2D" path="res://assets/materials/pale-ward-approved-board.png" id="tex_grate"]
+[ext_resource type="Texture2D" path="res://assets/materials/pale-ward-approved-board.png" id="approved_sign_board"]
+[ext_resource type="Texture2D" path="res://assets/effects/gore-v1/pools-atlas.png" id="old_blood"]
 [ext_resource type="Texture2D" path="res://assets/environment/ward-infestation.png" id="infestation_tex"]
 
-[sub_resource type="StandardMaterial3D" id="ceramic"]
-albedo_texture = ExtResource("tex_ceramic")
-texture_filter = 2
-roughness = 0.9
-uv1_triplanar = true
-uv1_world_triplanar = true
-uv1_scale = Vector3(0.3, 0.3, 0.3)
+[sub_resource type="ShaderMaterial" id="ceramic"]
+shader = ExtResource("ward_surface")
+shader_parameter/painted_surface = ExtResource("tex_ceramic")
+shader_parameter/source_region_pixels = Vector4(1216, 625, 111, 102)
+shader_parameter/world_scale = 0.3
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/metal = 0
+shader_parameter/base_roughness = 0.68
+shader_parameter/relief = 2.8
 
-[sub_resource type="StandardMaterial3D" id="steel"]
-albedo_texture = ExtResource("tex_steel")
-texture_filter = 2
-roughness = 0.9
-uv1_triplanar = true
-uv1_world_triplanar = true
-uv1_scale = Vector3(0.5, 0.5, 0.5)
+[sub_resource type="ShaderMaterial" id="steel"]
+shader = ExtResource("ward_surface")
+shader_parameter/painted_surface = ExtResource("tex_steel")
+shader_parameter/source_region_pixels = Vector4(1362, 625, 111, 102)
+shader_parameter/world_scale = 0.5
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/metal = 0.52
+shader_parameter/base_roughness = 0.38
+shader_parameter/relief = 3.5
 
-[sub_resource type="StandardMaterial3D" id="floor"]
-albedo_texture = ExtResource("tex_floor")
-texture_filter = 2
-roughness = 0.9
-uv1_triplanar = true
-uv1_world_triplanar = true
-uv1_scale = Vector3(0.35, 0.35, 0.35)
+[sub_resource type="ShaderMaterial" id="floor"]
+shader = ExtResource("ward_surface")
+shader_parameter/painted_surface = ExtResource("tex_floor")
+shader_parameter/source_region_pixels = Vector4(1362, 625, 111, 102)
+shader_parameter/world_scale = 0.35
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/metal = 0.18
+shader_parameter/base_roughness = 0.5
+shader_parameter/relief = 2.3
 
-[sub_resource type="StandardMaterial3D" id="grate"]
-albedo_texture = ExtResource("tex_grate")
-texture_filter = 2
-roughness = 0.9
-uv1_triplanar = true
-uv1_world_triplanar = true
-uv1_scale = Vector3(0.7, 0.7, 0.7)
+[sub_resource type="ShaderMaterial" id="grate"]
+shader = ExtResource("ward_surface")
+shader_parameter/painted_surface = ExtResource("tex_grate")
+shader_parameter/source_region_pixels = Vector4(1216, 761, 111, 106)
+shader_parameter/world_scale = 0.7
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/metal = 0.56
+shader_parameter/base_roughness = 0.4
+shader_parameter/relief = 3.3
 
 [sub_resource type="StandardMaterial3D" id="recess"]
 albedo_color = Color(0.085, 0.087, 0.082, 1)
@@ -69,13 +80,14 @@ albedo_color = Color(0.06, 0.065, 0.06, 1)
 roughness = 0.93
 
 [sub_resource type="StandardMaterial3D" id="tube"]
-albedo_color = Color(0.68,0.59,0.14,0.38)
+albedo_color = Color(0.63,0.68,0.16,0.28)
 transparency = 1
-roughness = 0.24
+metallic = 0.12
+roughness = 0.18
 cull_mode = 2
 emission_enabled = true
-emission = Color(0.21,0.18,0.025,1)
-emission_energy_multiplier = 0.24
+emission = Color(0.19,0.23,0.035,1)
+emission_energy_multiplier = 0.35
 
 [sub_resource type="StandardMaterial3D" id="fluid"]
 albedo_color = Color(0.26,0.24,0.075,0.48)
@@ -120,13 +132,13 @@ emission_energy_multiplier = 0.25
 [sub_resource type="Environment" id="environment"]
 background_mode = 1
 background_color = Color(0.025,0.027,0.025,1)
-ambient_light_source = 3
-ambient_light_color = Color(0.47,0.45,0.39,1)
-ambient_light_energy = 0.22
+ambient_light_source = 2
+ambient_light_color = Color(0.52,0.53,0.55,1)
+ambient_light_energy = 0.30
 tonemap_mode = 0
 fog_enabled = true
-fog_light_color = Color(0.10,0.105,0.09,1)
-fog_density = 0.005
+fog_light_color = Color(0.09,0.105,0.115,1)
+fog_density = 0.008
 
 [sub_resource type="CapsuleShape3D" id="player_shape"]
 radius = 0.3
@@ -1837,82 +1849,713 @@ size = Vector3(0.23, 0.24, 0.2)
 material = SubResource("steel")
 
 [sub_resource type="BoxMesh" id="m249"]
-size = Vector3(1.65, 0.24, 3)
-material = SubResource("steel")
+size = Vector3(1.45, 6, 1.4)
+material = SubResource("ceramic")
 
 [sub_resource type="BoxShape3D" id="s249"]
-size = Vector3(1.65, 0.24, 3)
+size = Vector3(1.45, 6, 1.4)
 
 [sub_resource type="BoxMesh" id="m250"]
-size = Vector3(0.12, 0.74, 0.12)
+size = Vector3(1.7, 0.8, 1.68)
 material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s250"]
+size = Vector3(1.7, 0.8, 1.68)
 
 [sub_resource type="BoxMesh" id="m251"]
-size = Vector3(0.12, 0.74, 0.12)
+size = Vector3(1.65, 0.28, 1.6)
 material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s251"]
+size = Vector3(1.65, 0.28, 1.6)
 
 [sub_resource type="BoxMesh" id="m252"]
-size = Vector3(0.12, 0.74, 0.12)
+size = Vector3(0.1, 4.25, 0.1)
 material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s252"]
+size = Vector3(0.1, 4.25, 0.1)
 
 [sub_resource type="BoxMesh" id="m253"]
-size = Vector3(0.12, 0.74, 0.12)
+size = Vector3(0.1, 4.25, 0.1)
 material = SubResource("steel")
 
+[sub_resource type="BoxShape3D" id="s253"]
+size = Vector3(0.1, 4.25, 0.1)
+
 [sub_resource type="BoxMesh" id="m254"]
-size = Vector3(0.8, 0.5, 0.8)
+size = Vector3(1.45, 0.18, 0.1)
 material = SubResource("steel")
 
 [sub_resource type="BoxShape3D" id="s254"]
-size = Vector3(0.8, 0.5, 0.8)
+size = Vector3(1.45, 0.18, 0.1)
 
 [sub_resource type="BoxMesh" id="m255"]
-size = Vector3(3, 1.3, 0.8)
+size = Vector3(1.45, 0.18, 0.1)
 material = SubResource("steel")
 
 [sub_resource type="BoxShape3D" id="s255"]
-size = Vector3(3, 1.3, 0.8)
+size = Vector3(1.45, 0.18, 0.1)
 
 [sub_resource type="BoxMesh" id="m256"]
-size = Vector3(3, 1.3, 1)
+size = Vector3(0.65, 0.4, 0.24)
 material = SubResource("steel")
 
 [sub_resource type="BoxShape3D" id="s256"]
-size = Vector3(3, 1.3, 1)
+size = Vector3(0.65, 0.4, 0.24)
 
 [sub_resource type="BoxMesh" id="m257"]
+size = Vector3(0.37, 0.065, 0.02)
+material = SubResource("olive")
+
+[sub_resource type="BoxMesh" id="m258"]
+size = Vector3(1.45, 6, 1.4)
+material = SubResource("ceramic")
+
+[sub_resource type="BoxShape3D" id="s258"]
+size = Vector3(1.45, 6, 1.4)
+
+[sub_resource type="BoxMesh" id="m259"]
+size = Vector3(1.7, 0.8, 1.68)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s259"]
+size = Vector3(1.7, 0.8, 1.68)
+
+[sub_resource type="BoxMesh" id="m260"]
+size = Vector3(1.65, 0.28, 1.6)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s260"]
+size = Vector3(1.65, 0.28, 1.6)
+
+[sub_resource type="BoxMesh" id="m261"]
+size = Vector3(0.1, 4.25, 0.1)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s261"]
+size = Vector3(0.1, 4.25, 0.1)
+
+[sub_resource type="BoxMesh" id="m262"]
+size = Vector3(0.1, 4.25, 0.1)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s262"]
+size = Vector3(0.1, 4.25, 0.1)
+
+[sub_resource type="BoxMesh" id="m263"]
+size = Vector3(1.45, 0.18, 0.1)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s263"]
+size = Vector3(1.45, 0.18, 0.1)
+
+[sub_resource type="BoxMesh" id="m264"]
+size = Vector3(1.45, 0.18, 0.1)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s264"]
+size = Vector3(1.45, 0.18, 0.1)
+
+[sub_resource type="BoxMesh" id="m265"]
+size = Vector3(0.65, 0.4, 0.24)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s265"]
+size = Vector3(0.65, 0.4, 0.24)
+
+[sub_resource type="BoxMesh" id="m266"]
+size = Vector3(0.37, 0.065, 0.02)
+material = SubResource("olive")
+
+[sub_resource type="StandardMaterial3D" id="PierC3_material"]
+albedo_texture = ExtResource("approved_sign_board")
+texture_filter = 0
+texture_repeat = false
+roughness = 0.9
+shading_mode = 1
+cull_mode = 0
+uv1_scale = Vector3(0.0846354, 0.0800781, 1)
+uv1_offset = Vector3(0.231771, 0.121094, 0)
+
+[sub_resource type="QuadMesh" id="PierC3_mesh"]
+material = SubResource("PierC3_material")
+size = Vector2(1.28, 0.808)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="PierBio_material"]
+albedo_texture = ExtResource("approved_sign_board")
+texture_filter = 0
+texture_repeat = false
+roughness = 0.9
+shading_mode = 1
+cull_mode = 0
+uv1_scale = Vector3(0.0585938, 0.0830078, 1)
+uv1_offset = Vector3(0.632812, 0.146484, 0)
+
+[sub_resource type="QuadMesh" id="PierBio_mesh"]
+material = SubResource("PierBio_material")
+size = Vector2(1.2, 1.133)
+orientation = 2
+
+[sub_resource type="BoxMesh" id="m267"]
+size = Vector3(0.27, 0.58, 0.28)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s267"]
+size = Vector3(0.27, 0.58, 0.28)
+
+[sub_resource type="BoxMesh" id="m268"]
+size = Vector3(0.16, 0.43, 0.03)
+material = SubResource("lamp")
+
+[sub_resource type="BoxMesh" id="m269"]
+size = Vector3(0.27, 0.58, 0.28)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s269"]
+size = Vector3(0.27, 0.58, 0.28)
+
+[sub_resource type="BoxMesh" id="m270"]
+size = Vector3(0.16, 0.43, 0.03)
+material = SubResource("lamp")
+
+[sub_resource type="BoxMesh" id="m271"]
+size = Vector3(1.65, 0.024, 1.2)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s271"]
+size = Vector3(1.65, 0.024, 1.2)
+
+[sub_resource type="BoxMesh" id="m272"]
+size = Vector3(0.045, 0.012, 1.16)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s272"]
+size = Vector3(0.045, 0.012, 1.16)
+
+[sub_resource type="BoxMesh" id="m273"]
+size = Vector3(0.045, 0.012, 1.16)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s273"]
+size = Vector3(0.045, 0.012, 1.16)
+
+[sub_resource type="BoxMesh" id="m274"]
+size = Vector3(1.65, 0.024, 1.2)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s274"]
+size = Vector3(1.65, 0.024, 1.2)
+
+[sub_resource type="BoxMesh" id="m275"]
+size = Vector3(0.045, 0.012, 1.16)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s275"]
+size = Vector3(0.045, 0.012, 1.16)
+
+[sub_resource type="BoxMesh" id="m276"]
+size = Vector3(0.045, 0.012, 1.16)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s276"]
+size = Vector3(0.045, 0.012, 1.16)
+
+[sub_resource type="BoxMesh" id="m277"]
+size = Vector3(1.65, 0.024, 1.2)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s277"]
+size = Vector3(1.65, 0.024, 1.2)
+
+[sub_resource type="BoxMesh" id="m278"]
+size = Vector3(0.045, 0.012, 1.16)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s278"]
+size = Vector3(0.045, 0.012, 1.16)
+
+[sub_resource type="BoxMesh" id="m279"]
+size = Vector3(0.045, 0.012, 1.16)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s279"]
+size = Vector3(0.045, 0.012, 1.16)
+
+[sub_resource type="BoxMesh" id="m280"]
+size = Vector3(0.07, 0.55, 2.15)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s280"]
+size = Vector3(0.07, 0.55, 2.15)
+
+[sub_resource type="BoxMesh" id="m281"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m282"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m283"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m284"]
+size = Vector3(0.07, 0.55, 2.15)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s284"]
+size = Vector3(0.07, 0.55, 2.15)
+
+[sub_resource type="BoxMesh" id="m285"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m286"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m287"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m288"]
+size = Vector3(0.07, 0.55, 2.15)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s288"]
+size = Vector3(0.07, 0.55, 2.15)
+
+[sub_resource type="BoxMesh" id="m289"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m290"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m291"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m292"]
+size = Vector3(0.07, 0.55, 2.15)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s292"]
+size = Vector3(0.07, 0.55, 2.15)
+
+[sub_resource type="BoxMesh" id="m293"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m294"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m295"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m296"]
+size = Vector3(0.07, 0.55, 2.15)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s296"]
+size = Vector3(0.07, 0.55, 2.15)
+
+[sub_resource type="BoxMesh" id="m297"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m298"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m299"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="CylinderMesh" id="m300"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 2.7
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m301"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 2.7
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m302"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 2.7
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m303"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 2.7
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m304"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 2.7
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m305"]
+size = Vector3(0.07, 0.55, 2.15)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s305"]
+size = Vector3(0.07, 0.55, 2.15)
+
+[sub_resource type="BoxMesh" id="m306"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m307"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m308"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m309"]
+size = Vector3(0.07, 0.55, 2.15)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s309"]
+size = Vector3(0.07, 0.55, 2.15)
+
+[sub_resource type="BoxMesh" id="m310"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m311"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m312"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m313"]
+size = Vector3(0.07, 0.55, 2.15)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s313"]
+size = Vector3(0.07, 0.55, 2.15)
+
+[sub_resource type="BoxMesh" id="m314"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m315"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m316"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m317"]
+size = Vector3(0.07, 0.55, 2.15)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s317"]
+size = Vector3(0.07, 0.55, 2.15)
+
+[sub_resource type="BoxMesh" id="m318"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m319"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m320"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m321"]
+size = Vector3(0.07, 0.55, 2.15)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s321"]
+size = Vector3(0.07, 0.55, 2.15)
+
+[sub_resource type="BoxMesh" id="m322"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m323"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m324"]
+size = Vector3(0.055, 0.045, 0.36)
+material = SubResource("recess")
+
+[sub_resource type="CylinderMesh" id="m325"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 2.7
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m326"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 2.7
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m327"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 2.7
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m328"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 2.7
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m329"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 2.7
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m330"]
+size = Vector3(0.3, 2.15, 1.55)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s330"]
+size = Vector3(0.3, 2.15, 1.55)
+
+[sub_resource type="BoxMesh" id="m331"]
+size = Vector3(0.07, 1.52, 1.16)
+material = SubResource("recess")
+
+[sub_resource type="BoxMesh" id="m332"]
+size = Vector3(0.05, 0.08, 1.05)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m333"]
+size = Vector3(0.05, 0.08, 1.05)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m334"]
+size = Vector3(0.05, 0.08, 1.05)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m335"]
+size = Vector3(0.05, 0.08, 1.05)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m336"]
+size = Vector3(0.05, 0.08, 1.05)
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m337"]
+top_radius = 0.11
+bottom_radius = 0.11
+height = 2.1
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="CylinderShape3D" id="s337"]
+radius = 0.11
+height = 2.1
+
+[sub_resource type="CylinderMesh" id="m338"]
+top_radius = 0.19
+bottom_radius = 0.19
+height = 12.5
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="StandardMaterial3D" id="old_blood"]
+albedo_texture = ExtResource("old_blood")
+albedo_color = Color(0.8,0.8,0.8,1)
+transparency = 2
+alpha_scissor_threshold = 0.12
+texture_filter = 2
+roughness = 0.30
+cull_mode = 2
+uv1_scale = Vector3(0.5,0.5,1)
+uv1_offset = Vector3(0.5,0,0)
+
+[sub_resource type="PlaneMesh" id="m339"]
+size = Vector2(2.6,2.8)
+material = SubResource("old_blood")
+
+[sub_resource type="PlaneMesh" id="m340"]
+size = Vector2(2.4,1.5)
+material = SubResource("old_blood")
+
+[sub_resource type="PlaneMesh" id="m341"]
+size = Vector2(1.4,3.4)
+material = SubResource("old_blood")
+
+[sub_resource type="PlaneMesh" id="m342"]
+size = Vector2(2.2,2.3)
+material = SubResource("old_blood")
+
+[sub_resource type="PlaneMesh" id="m343"]
+size = Vector2(2.0,1.3)
+material = SubResource("old_blood")
+
+[sub_resource type="BoxMesh" id="m344"]
+size = Vector3(1.89, 2.28, 0.035)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m345"]
+size = Vector3(1.9, 0.1, 0.09)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m346"]
+size = Vector3(1.9, 0.1, 0.09)
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m347"]
+top_radius = 0.07
+bottom_radius = 0.07
+height = 0.18
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m348"]
+top_radius = 0.07
+bottom_radius = 0.07
+height = 0.18
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m349"]
+size = Vector3(1.89, 2.28, 0.035)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m350"]
+size = Vector3(1.9, 0.1, 0.09)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m351"]
+size = Vector3(1.9, 0.1, 0.09)
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m352"]
+top_radius = 0.07
+bottom_radius = 0.07
+height = 0.18
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="CylinderMesh" id="m353"]
+top_radius = 0.07
+bottom_radius = 0.07
+height = 0.18
+radial_segments = 24
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m354"]
+size = Vector3(0.23, 0.72, 0.18)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m355"]
+size = Vector3(1.65, 0.24, 3)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s355"]
+size = Vector3(1.65, 0.24, 3)
+
+[sub_resource type="BoxMesh" id="m356"]
+size = Vector3(0.12, 0.74, 0.12)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m357"]
+size = Vector3(0.12, 0.74, 0.12)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m358"]
+size = Vector3(0.12, 0.74, 0.12)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m359"]
+size = Vector3(0.12, 0.74, 0.12)
+material = SubResource("steel")
+
+[sub_resource type="BoxMesh" id="m360"]
+size = Vector3(0.8, 0.5, 0.8)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s360"]
+size = Vector3(0.8, 0.5, 0.8)
+
+[sub_resource type="BoxMesh" id="m361"]
+size = Vector3(3, 1.3, 0.8)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s361"]
+size = Vector3(3, 1.3, 0.8)
+
+[sub_resource type="BoxMesh" id="m362"]
+size = Vector3(3, 1.3, 1)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s362"]
+size = Vector3(3, 1.3, 1)
+
+[sub_resource type="BoxMesh" id="m363"]
 size = Vector3(0.48,0.32,0.35)
 material = SubResource("key")
 
-[sub_resource type="BoxMesh" id="m258"]
+[sub_resource type="BoxMesh" id="m364"]
 size = Vector3(0.48,0.32,0.35)
 material = SubResource("ivory")
 
-[sub_resource type="BoxMesh" id="m259"]
+[sub_resource type="BoxMesh" id="m365"]
 size = Vector3(0.48,0.32,0.35)
 material = SubResource("health")
 
-[sub_resource type="BoxMesh" id="m260"]
+[sub_resource type="BoxMesh" id="m366"]
 size = Vector3(0.48,0.32,0.35)
 material = SubResource("ivory")
 
-[sub_resource type="BoxMesh" id="m261"]
+[sub_resource type="BoxMesh" id="m367"]
 size = Vector3(0.48,0.32,0.35)
 material = SubResource("health")
 
-[sub_resource type="BoxMesh" id="m262"]
+[sub_resource type="BoxMesh" id="m368"]
 size = Vector3(0.48,0.32,0.35)
 material = SubResource("armor")
 
-[sub_resource type="BoxMesh" id="m263"]
+[sub_resource type="BoxMesh" id="m369"]
 size = Vector3(0.48,0.32,0.35)
 material = SubResource("ivory")
 
-[sub_resource type="BoxMesh" id="m264"]
+[sub_resource type="BoxMesh" id="m370"]
 size = Vector3(0.48,0.32,0.35)
 material = SubResource("armor")
 
-[sub_resource type="BoxMesh" id="m265"]
+[sub_resource type="BoxMesh" id="m371"]
 size = Vector3(0.48,0.32,0.35)
 material = SubResource("ivory")
 
@@ -1923,11 +2566,11 @@ roughness = 0.92
 cull_mode = 2
 texture_filter = 0
 
-[sub_resource type="PlaneMesh" id="m266"]
+[sub_resource type="PlaneMesh" id="m372"]
 size = Vector2(4.8, 7)
 material = SubResource("infestation")
 
-[sub_resource type="PlaneMesh" id="m267"]
+[sub_resource type="PlaneMesh" id="m373"]
 size = Vector2(3.5, 5)
 material = SubResource("infestation")
 
@@ -1937,11 +2580,11 @@ script = ExtResource("level")
 environment = SubResource("environment")
 [node name="DirectionalFill" type="DirectionalLight3D" parent="."]
 rotation_degrees = Vector3(-58,-22,0)
-light_color = Color(0.62,0.60,0.52,1)
-light_energy = 0.12
+light_color = Color(0.55,0.63,0.72,1)
+light_energy = 0.08
 shadow_enabled = false
 [node name="Player" type="CharacterBody3D" parent="."]
-position = Vector3(0,0.87,15)
+position = Vector3(0,0.87,7.4)
 script = ExtResource("player")
 collision_layer = 2
 collision_mask = 3
@@ -3265,10 +3908,23 @@ mesh = SubResource("m104")
 
 [node name="HallWarm0" type="OmniLight3D" parent="."]
 position = Vector3(0, 4.7, -11)
-light_color = Color(0.9, 0.84, 0.7, 1)
-light_energy = 1.5
-omni_range = 10
+light_color = Color(0.8, 0.85, 0.91, 1)
+light_energy = 0.32
+omni_range = 8
 shadow_enabled = false
+
+[node name="HallKey0" type="SpotLight3D" parent="."]
+position = Vector3(0, 5.3, -11)
+rotation_degrees = Vector3(-90,0,0)
+light_color = Color(0.95,0.95,0.91,1)
+light_energy = 5.0
+spot_range = 11
+spot_angle = 58
+spot_attenuation = 1.2
+shadow_enabled = true
+shadow_bias = 0.025
+shadow_normal_bias = 0.35
+
 
 [node name="Pilaster1_-1" type="StaticBody3D" parent="."]
 position = Vector3(-5.78, 3, -3)
@@ -3339,10 +3995,23 @@ mesh = SubResource("m111")
 
 [node name="HallWarm1" type="OmniLight3D" parent="."]
 position = Vector3(0, 4.7, -3)
-light_color = Color(0.9, 0.84, 0.7, 1)
-light_energy = 1.5
-omni_range = 10
+light_color = Color(0.8, 0.85, 0.91, 1)
+light_energy = 0.32
+omni_range = 8
+shadow_enabled = false
+
+[node name="HallKey1" type="SpotLight3D" parent="."]
+position = Vector3(0, 5.3, -3)
+rotation_degrees = Vector3(-90,0,0)
+light_color = Color(0.95,0.95,0.91,1)
+light_energy = 5.0
+spot_range = 11
+spot_angle = 58
+spot_attenuation = 1.2
 shadow_enabled = true
+shadow_bias = 0.025
+shadow_normal_bias = 0.35
+
 
 [node name="RoofBeam2" type="StaticBody3D" parent="."]
 position = Vector3(0, 5.72, 5)
@@ -3387,10 +4056,23 @@ mesh = SubResource("m116")
 
 [node name="HallWarm2" type="OmniLight3D" parent="."]
 position = Vector3(0, 4.7, 5)
-light_color = Color(0.9, 0.84, 0.7, 1)
-light_energy = 1.5
-omni_range = 10
+light_color = Color(0.8, 0.85, 0.91, 1)
+light_energy = 0.32
+omni_range = 8
 shadow_enabled = false
+
+[node name="HallKey2" type="SpotLight3D" parent="."]
+position = Vector3(0, 5.3, 5)
+rotation_degrees = Vector3(-90,0,0)
+light_color = Color(0.95,0.95,0.91,1)
+light_energy = 5.0
+spot_range = 11
+spot_angle = 58
+spot_attenuation = 1.2
+shadow_enabled = true
+shadow_bias = 0.025
+shadow_normal_bias = 0.35
+
 
 [node name="Pilaster3_-1" type="StaticBody3D" parent="."]
 position = Vector3(-5.78, 3, 13)
@@ -3487,10 +4169,23 @@ mesh = SubResource("m125")
 
 [node name="HallWarm3" type="OmniLight3D" parent="."]
 position = Vector3(0, 4.7, 13)
-light_color = Color(0.9, 0.84, 0.7, 1)
-light_energy = 1.5
-omni_range = 10
+light_color = Color(0.8, 0.85, 0.91, 1)
+light_energy = 0.32
+omni_range = 8
+shadow_enabled = false
+
+[node name="HallKey3" type="SpotLight3D" parent="."]
+position = Vector3(0, 5.3, 13)
+rotation_degrees = Vector3(-90,0,0)
+light_color = Color(0.95,0.95,0.91,1)
+light_energy = 5.0
+spot_range = 11
+spot_angle = 58
+spot_attenuation = 1.2
 shadow_enabled = true
+shadow_bias = 0.025
+shadow_normal_bias = 0.35
+
 
 [node name="MainConduit0" type="Node3D" parent="."]
 position = Vector3(-1.5, 5.28, 1)
@@ -3790,9 +4485,9 @@ texture_filter = 0
 
 [node name="Tank0_Glow" type="OmniLight3D" parent="."]
 position = Vector3(-4.8, 2.1, 12)
-light_color = Color(0.48, 0.43, 0.09, 1)
-light_energy = 0.7
-omni_range = 2.6
+light_color = Color(0.62, 0.67, 0.16, 1)
+light_energy = 1.5
+omni_range = 3.3
 shadow_enabled = false
 
 [node name="Tank0_Valve" type="Node3D" parent="."]
@@ -3937,9 +4632,9 @@ texture_filter = 0
 
 [node name="Tank1_Glow" type="OmniLight3D" parent="."]
 position = Vector3(-4.8, 2.1, 3)
-light_color = Color(0.48, 0.43, 0.09, 1)
-light_energy = 0.7
-omni_range = 2.6
+light_color = Color(0.62, 0.67, 0.16, 1)
+light_energy = 1.5
+omni_range = 3.3
 shadow_enabled = false
 
 [node name="Tank1_Valve" type="Node3D" parent="."]
@@ -4084,9 +4779,9 @@ texture_filter = 0
 
 [node name="Tank2_Glow" type="OmniLight3D" parent="."]
 position = Vector3(-4.8, 2.1, -5)
-light_color = Color(0.48, 0.43, 0.09, 1)
-light_energy = 0.7
-omni_range = 2.6
+light_color = Color(0.62, 0.67, 0.16, 1)
+light_energy = 1.5
+omni_range = 3.3
 shadow_enabled = false
 
 [node name="Tank2_Valve" type="Node3D" parent="."]
@@ -4231,9 +4926,9 @@ texture_filter = 0
 
 [node name="Tank3_Glow" type="OmniLight3D" parent="."]
 position = Vector3(4.8, 2.1, 11)
-light_color = Color(0.48, 0.43, 0.09, 1)
-light_energy = 0.7
-omni_range = 2.6
+light_color = Color(0.62, 0.67, 0.16, 1)
+light_energy = 1.5
+omni_range = 3.3
 shadow_enabled = false
 
 [node name="Tank3_Valve" type="Node3D" parent="."]
@@ -4244,7 +4939,7 @@ position = Vector3(4.8, 0.52, 11.89)
 mesh = SubResource("m196")
 
 [node name="Tank4_Glass" type="StaticBody3D" parent="."]
-position = Vector3(4.8, 2.14, -2)
+position = Vector3(4.8, 2.14, -3.5)
 collision_layer = 1
 collision_mask = 3
 metadata/hit_material = "armor"
@@ -4257,7 +4952,7 @@ cast_shadow = 0
 shape = SubResource("s197")
 
 [node name="Tank4_Fluid" type="Node3D" parent="."]
-position = Vector3(4.8, 2, -2)
+position = Vector3(4.8, 2, -3.5)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Tank4_Fluid"]
@@ -4265,7 +4960,7 @@ mesh = SubResource("m198")
 cast_shadow = 0
 
 [node name="Tank4_Ring0" type="StaticBody3D" parent="."]
-position = Vector3(4.8, 0.27, -2)
+position = Vector3(4.8, 0.27, -3.5)
 collision_layer = 1
 collision_mask = 3
 metadata/hit_material = "armor"
@@ -4278,7 +4973,7 @@ cast_shadow = 1
 shape = SubResource("s199")
 
 [node name="Tank4_Ring1" type="StaticBody3D" parent="."]
-position = Vector3(4.8, 0.58, -2)
+position = Vector3(4.8, 0.58, -3.5)
 collision_layer = 1
 collision_mask = 3
 metadata/hit_material = "armor"
@@ -4291,7 +4986,7 @@ cast_shadow = 1
 shape = SubResource("s200")
 
 [node name="Tank4_Ring2" type="StaticBody3D" parent="."]
-position = Vector3(4.8, 3.78, -2)
+position = Vector3(4.8, 3.78, -3.5)
 collision_layer = 1
 collision_mask = 3
 metadata/hit_material = "armor"
@@ -4304,7 +4999,7 @@ cast_shadow = 1
 shape = SubResource("s201")
 
 [node name="Tank4_Ring3" type="StaticBody3D" parent="."]
-position = Vector3(4.8, 4, -2)
+position = Vector3(4.8, 4, -3.5)
 collision_layer = 1
 collision_mask = 3
 metadata/hit_material = "armor"
@@ -4317,7 +5012,7 @@ cast_shadow = 1
 shape = SubResource("s202")
 
 [node name="Tank4_Base" type="StaticBody3D" parent="."]
-position = Vector3(4.8, 0.11, -2)
+position = Vector3(4.8, 0.11, -3.5)
 collision_layer = 1
 collision_mask = 3
 metadata/hit_material = "armor"
@@ -4330,7 +5025,7 @@ cast_shadow = 1
 shape = SubResource("s203")
 
 [node name="Tank4_Cap" type="Node3D" parent="."]
-position = Vector3(4.8, 4.2, -2)
+position = Vector3(4.8, 4.2, -3.5)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Tank4_Cap"]
@@ -4338,35 +5033,35 @@ mesh = SubResource("m204")
 cast_shadow = 1
 
 [node name="Tank4_Strut0" type="Node3D" parent="."]
-position = Vector3(5.34447, 2.14, -1.45553)
+position = Vector3(5.34447, 2.14, -2.95553)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Tank4_Strut0"]
 mesh = SubResource("m205")
 
 [node name="Tank4_Strut1" type="Node3D" parent="."]
-position = Vector3(5.34447, 2.14, -2.54447)
+position = Vector3(5.34447, 2.14, -4.04447)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Tank4_Strut1"]
 mesh = SubResource("m206")
 
 [node name="Tank4_Strut2" type="Node3D" parent="."]
-position = Vector3(4.25553, 2.14, -2.54447)
+position = Vector3(4.25553, 2.14, -4.04447)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Tank4_Strut2"]
 mesh = SubResource("m207")
 
 [node name="Tank4_Strut3" type="Node3D" parent="."]
-position = Vector3(4.25553, 2.14, -1.45553)
+position = Vector3(4.25553, 2.14, -2.95553)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Tank4_Strut3"]
 mesh = SubResource("m208")
 
 [node name="Tank4_Specimen" type="Sprite3D" parent="."]
-position = Vector3(4.8, 1.9, -2)
+position = Vector3(4.8, 1.9, -3.5)
 texture = SubResource("specimen")
 pixel_size = 0.0055
 billboard = 1
@@ -4377,14 +5072,14 @@ texture_filter = 0
 
 
 [node name="Tank4_Glow" type="OmniLight3D" parent="."]
-position = Vector3(4.8, 2.1, -2)
-light_color = Color(0.48, 0.43, 0.09, 1)
-light_energy = 0.7
-omni_range = 2.6
+position = Vector3(4.8, 2.1, -3.5)
+light_color = Color(0.62, 0.67, 0.16, 1)
+light_energy = 1.5
+omni_range = 3.3
 shadow_enabled = false
 
 [node name="Tank4_Valve" type="Node3D" parent="."]
-position = Vector3(4.8, 0.52, -1.11)
+position = Vector3(4.8, 0.52, -2.61)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Tank4_Valve"]
@@ -4525,9 +5220,9 @@ texture_filter = 0
 
 [node name="Tank5_Glow" type="OmniLight3D" parent="."]
 position = Vector3(4.8, 2.1, -10)
-light_color = Color(0.48, 0.43, 0.09, 1)
-light_energy = 0.7
-omni_range = 2.6
+light_color = Color(0.62, 0.67, 0.16, 1)
+light_energy = 1.5
+omni_range = 3.3
 shadow_enabled = false
 
 [node name="Tank5_Valve" type="Node3D" parent="."]
@@ -4672,9 +5367,9 @@ texture_filter = 0
 
 [node name="Tank6_Glow" type="OmniLight3D" parent="."]
 position = Vector3(10.2, 2.1, 8.8)
-light_color = Color(0.48, 0.43, 0.09, 1)
-light_energy = 0.7
-omni_range = 2.6
+light_color = Color(0.62, 0.67, 0.16, 1)
+light_energy = 1.5
+omni_range = 3.3
 shadow_enabled = false
 
 [node name="Tank6_Valve" type="Node3D" parent="."]
@@ -4819,9 +5514,9 @@ texture_filter = 0
 
 [node name="Tank7_Glow" type="OmniLight3D" parent="."]
 position = Vector3(4.7, 3.6, -22)
-light_color = Color(0.48, 0.43, 0.09, 1)
-light_energy = 0.7
-omni_range = 2.6
+light_color = Color(0.62, 0.67, 0.16, 1)
+light_energy = 1.5
+omni_range = 3.3
 shadow_enabled = false
 
 [node name="Tank7_Valve" type="Node3D" parent="."]
@@ -4831,49 +5526,1054 @@ position = Vector3(4.7, 2.02, -21.11)
 [node name="Visual" type="MeshInstance3D" parent="Tank7_Valve"]
 mesh = SubResource("m248")
 
-[node name="HallC3" type="Label3D" parent="."]
-position = Vector3(-5.93, 3.4, 6)
-rotation_degrees = Vector3(0, 90, 0)
-text = "C3"
-font_size = 160
-pixel_size = 0.01
-modulate = Color(0.1, 0.11, 0.1, 1)
-outline_size = 0
-no_depth_test = false
-shaded = true
+[node name="ContainmentPier-1" type="StaticBody3D" parent="."]
+position = Vector3(-3.8, 3, 1)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "hard"
+
+[node name="Visual" type="MeshInstance3D" parent="ContainmentPier-1"]
+mesh = SubResource("m249")
+
+[node name="Collision" type="CollisionShape3D" parent="ContainmentPier-1"]
+shape = SubResource("s249")
+
+[node name="PierFoot-1" type="StaticBody3D" parent="."]
+position = Vector3(-3.8, 0.4, 1)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierFoot-1"]
+mesh = SubResource("m250")
+
+[node name="Collision" type="CollisionShape3D" parent="PierFoot-1"]
+shape = SubResource("s250")
+
+[node name="PierCap-1" type="StaticBody3D" parent="."]
+position = Vector3(-3.8, 5.54, 1)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierCap-1"]
+mesh = SubResource("m251")
+
+[node name="Collision" type="CollisionShape3D" parent="PierCap-1"]
+shape = SubResource("s251")
+
+[node name="PierEdge-1_-1" type="StaticBody3D" parent="."]
+position = Vector3(-4.5, 3.15, 1.745)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierEdge-1_-1"]
+mesh = SubResource("m252")
+
+[node name="Collision" type="CollisionShape3D" parent="PierEdge-1_-1"]
+shape = SubResource("s252")
+
+[node name="PierEdge-1_1" type="StaticBody3D" parent="."]
+position = Vector3(-3.1, 3.15, 1.745)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierEdge-1_1"]
+mesh = SubResource("m253")
+
+[node name="Collision" type="CollisionShape3D" parent="PierEdge-1_1"]
+shape = SubResource("s253")
+
+[node name="PierBand-1_1.1" type="StaticBody3D" parent="."]
+position = Vector3(-3.8, 1.1, 1.745)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierBand-1_1.1"]
+mesh = SubResource("m254")
+
+[node name="Collision" type="CollisionShape3D" parent="PierBand-1_1.1"]
+shape = SubResource("s254")
+
+[node name="PierBand-1_4.55" type="StaticBody3D" parent="."]
+position = Vector3(-3.8, 4.55, 1.745)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierBand-1_4.55"]
+mesh = SubResource("m255")
+
+[node name="Collision" type="CollisionShape3D" parent="PierBand-1_4.55"]
+shape = SubResource("s255")
+
+[node name="PierInstrument-1" type="StaticBody3D" parent="."]
+position = Vector3(-3.8, 0.78, 1.76)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierInstrument-1"]
+mesh = SubResource("m256")
+
+[node name="Collision" type="CollisionShape3D" parent="PierInstrument-1"]
+shape = SubResource("s256")
+
+[node name="PierGauge-1" type="Node3D" parent="."]
+position = Vector3(-3.8, 0.82, 1.9)
 
 
-[node name="HallContainment" type="Label3D" parent="."]
-position = Vector3(-5.92, 2.35, 6)
-rotation_degrees = Vector3(0, 90, 0)
-text = "CONTAINMENT"
-font_size = 69
-pixel_size = 0.0065
-modulate = Color(0.1, 0.11, 0.1, 1)
-outline_size = 0
-no_depth_test = false
-shaded = true
+[node name="Visual" type="MeshInstance3D" parent="PierGauge-1"]
+mesh = SubResource("m257")
+
+[node name="ContainmentPier1" type="StaticBody3D" parent="."]
+position = Vector3(3.4, 3, -1.2)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "hard"
+
+[node name="Visual" type="MeshInstance3D" parent="ContainmentPier1"]
+mesh = SubResource("m258")
+
+[node name="Collision" type="CollisionShape3D" parent="ContainmentPier1"]
+shape = SubResource("s258")
+
+[node name="PierFoot1" type="StaticBody3D" parent="."]
+position = Vector3(3.4, 0.4, -1.2)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierFoot1"]
+mesh = SubResource("m259")
+
+[node name="Collision" type="CollisionShape3D" parent="PierFoot1"]
+shape = SubResource("s259")
+
+[node name="PierCap1" type="StaticBody3D" parent="."]
+position = Vector3(3.4, 5.54, -1.2)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierCap1"]
+mesh = SubResource("m260")
+
+[node name="Collision" type="CollisionShape3D" parent="PierCap1"]
+shape = SubResource("s260")
+
+[node name="PierEdge1_-1" type="StaticBody3D" parent="."]
+position = Vector3(2.7, 3.15, -0.455)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierEdge1_-1"]
+mesh = SubResource("m261")
+
+[node name="Collision" type="CollisionShape3D" parent="PierEdge1_-1"]
+shape = SubResource("s261")
+
+[node name="PierEdge1_1" type="StaticBody3D" parent="."]
+position = Vector3(4.1, 3.15, -0.455)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierEdge1_1"]
+mesh = SubResource("m262")
+
+[node name="Collision" type="CollisionShape3D" parent="PierEdge1_1"]
+shape = SubResource("s262")
+
+[node name="PierBand1_1.1" type="StaticBody3D" parent="."]
+position = Vector3(3.4, 1.1, -0.455)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierBand1_1.1"]
+mesh = SubResource("m263")
+
+[node name="Collision" type="CollisionShape3D" parent="PierBand1_1.1"]
+shape = SubResource("s263")
+
+[node name="PierBand1_4.55" type="StaticBody3D" parent="."]
+position = Vector3(3.4, 4.55, -0.455)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierBand1_4.55"]
+mesh = SubResource("m264")
+
+[node name="Collision" type="CollisionShape3D" parent="PierBand1_4.55"]
+shape = SubResource("s264")
+
+[node name="PierInstrument1" type="StaticBody3D" parent="."]
+position = Vector3(3.4, 0.78, -0.44)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierInstrument1"]
+mesh = SubResource("m265")
+
+[node name="Collision" type="CollisionShape3D" parent="PierInstrument1"]
+shape = SubResource("s265")
+
+[node name="PierGauge1" type="Node3D" parent="."]
+position = Vector3(3.4, 0.82, -0.3)
 
 
-[node name="BioWingSign" type="Label3D" parent="."]
-position = Vector3(5.93, 3.35, 0.9)
-rotation_degrees = Vector3(0, -90, 0)
-text = "BIO\nWING A"
-font_size = 90
-pixel_size = 0.008
-modulate = Color(0.1, 0.11, 0.1, 1)
-outline_size = 0
-no_depth_test = false
-shaded = true
+[node name="Visual" type="MeshInstance3D" parent="PierGauge1"]
+mesh = SubResource("m266")
+
+[node name="PierC3" type="MeshInstance3D" parent="."]
+position = Vector3(-3.8, 3.3, 1.76)
+mesh = SubResource("PierC3_mesh")
 
 
-[node name="BioWingArrow" type="Label3D" parent="."]
-position = Vector3(5.92, 2.28, 1)
-rotation_degrees = Vector3(0, -90, 0)
-text = "→"
-font_size = 115
+[node name="PierBio" type="MeshInstance3D" parent="."]
+position = Vector3(3.4, 3.35, -0.44)
+mesh = SubResource("PierBio_mesh")
+
+
+[node name="PierLightCase-1" type="StaticBody3D" parent="."]
+position = Vector3(-4.25, 4.38, 1.9)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierLightCase-1"]
+mesh = SubResource("m267")
+
+[node name="Collision" type="CollisionShape3D" parent="PierLightCase-1"]
+shape = SubResource("s267")
+
+[node name="PierLightFace-1" type="Node3D" parent="."]
+position = Vector3(-4.25, 4.38, 2.055)
+
+
+[node name="Visual" type="MeshInstance3D" parent="PierLightFace-1"]
+mesh = SubResource("m268")
+
+[node name="PierPool-1" type="OmniLight3D" parent="."]
+position = Vector3(-4.25, 4.2, 2.28)
+light_color = Color(0.94, 0.94, 0.84, 1)
+light_energy = 0.85
+omni_range = 3.2
+shadow_enabled = true
+
+[node name="PierLightCase1" type="StaticBody3D" parent="."]
+position = Vector3(3.85, 4.38, -0.3)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PierLightCase1"]
+mesh = SubResource("m269")
+
+[node name="Collision" type="CollisionShape3D" parent="PierLightCase1"]
+shape = SubResource("s269")
+
+[node name="PierLightFace1" type="Node3D" parent="."]
+position = Vector3(3.85, 4.38, -0.145)
+
+
+[node name="Visual" type="MeshInstance3D" parent="PierLightFace1"]
+mesh = SubResource("m270")
+
+[node name="PierPool1" type="OmniLight3D" parent="."]
+position = Vector3(3.85, 4.2, 0.08)
+light_color = Color(0.94, 0.94, 0.84, 1)
+light_energy = 0.85
+omni_range = 3.2
+shadow_enabled = true
+
+[node name="MaintenancePlate0" type="StaticBody3D" parent="."]
+position = Vector3(-0.65, 0.012, -4)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="MaintenancePlate0"]
+mesh = SubResource("m271")
+
+[node name="Collision" type="CollisionShape3D" parent="MaintenancePlate0"]
+shape = SubResource("s271")
+
+[node name="PlateLip0_-0.6" type="StaticBody3D" parent="."]
+position = Vector3(-1.25, 0.021, -4)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PlateLip0_-0.6"]
+mesh = SubResource("m272")
+
+[node name="Collision" type="CollisionShape3D" parent="PlateLip0_-0.6"]
+shape = SubResource("s272")
+
+[node name="PlateLip0_0.6" type="StaticBody3D" parent="."]
+position = Vector3(-0.05, 0.021, -4)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PlateLip0_0.6"]
+mesh = SubResource("m273")
+
+[node name="Collision" type="CollisionShape3D" parent="PlateLip0_0.6"]
+shape = SubResource("s273")
+
+[node name="MaintenancePlate1" type="StaticBody3D" parent="."]
+position = Vector3(0.9, 0.012, 1)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="MaintenancePlate1"]
+mesh = SubResource("m274")
+
+[node name="Collision" type="CollisionShape3D" parent="MaintenancePlate1"]
+shape = SubResource("s274")
+
+[node name="PlateLip1_-0.6" type="StaticBody3D" parent="."]
+position = Vector3(0.3, 0.021, 1)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PlateLip1_-0.6"]
+mesh = SubResource("m275")
+
+[node name="Collision" type="CollisionShape3D" parent="PlateLip1_-0.6"]
+shape = SubResource("s275")
+
+[node name="PlateLip1_0.6" type="StaticBody3D" parent="."]
+position = Vector3(1.5, 0.021, 1)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PlateLip1_0.6"]
+mesh = SubResource("m276")
+
+[node name="Collision" type="CollisionShape3D" parent="PlateLip1_0.6"]
+shape = SubResource("s276")
+
+[node name="MaintenancePlate2" type="StaticBody3D" parent="."]
+position = Vector3(-0.65, 0.012, 6)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="MaintenancePlate2"]
+mesh = SubResource("m277")
+
+[node name="Collision" type="CollisionShape3D" parent="MaintenancePlate2"]
+shape = SubResource("s277")
+
+[node name="PlateLip2_-0.6" type="StaticBody3D" parent="."]
+position = Vector3(-1.25, 0.021, 6)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PlateLip2_-0.6"]
+mesh = SubResource("m278")
+
+[node name="Collision" type="CollisionShape3D" parent="PlateLip2_-0.6"]
+shape = SubResource("s278")
+
+[node name="PlateLip2_0.6" type="StaticBody3D" parent="."]
+position = Vector3(-0.05, 0.021, 6)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="PlateLip2_0.6"]
+mesh = SubResource("m279")
+
+[node name="Collision" type="CollisionShape3D" parent="PlateLip2_0.6"]
+shape = SubResource("s279")
+
+[node name="WallService-1_0" type="StaticBody3D" parent="."]
+position = Vector3(-5.96, 0.61, -13)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="WallService-1_0"]
+mesh = SubResource("m280")
+
+[node name="Collision" type="CollisionShape3D" parent="WallService-1_0"]
+shape = SubResource("s280")
+
+[node name="WallRib-1_0_-0.6" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, -13.6)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_0_-0.6"]
+mesh = SubResource("m281")
+
+[node name="WallRib-1_0_0" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, -13)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_0_0"]
+mesh = SubResource("m282")
+
+[node name="WallRib-1_0_0.6" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, -12.4)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_0_0.6"]
+mesh = SubResource("m283")
+
+[node name="WallService-1_1" type="StaticBody3D" parent="."]
+position = Vector3(-5.96, 0.61, -9)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="WallService-1_1"]
+mesh = SubResource("m284")
+
+[node name="Collision" type="CollisionShape3D" parent="WallService-1_1"]
+shape = SubResource("s284")
+
+[node name="WallRib-1_1_-0.6" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, -9.6)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_1_-0.6"]
+mesh = SubResource("m285")
+
+[node name="WallRib-1_1_0" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, -9)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_1_0"]
+mesh = SubResource("m286")
+
+[node name="WallRib-1_1_0.6" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, -8.4)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_1_0.6"]
+mesh = SubResource("m287")
+
+[node name="WallService-1_2" type="StaticBody3D" parent="."]
+position = Vector3(-5.96, 0.61, -5)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="WallService-1_2"]
+mesh = SubResource("m288")
+
+[node name="Collision" type="CollisionShape3D" parent="WallService-1_2"]
+shape = SubResource("s288")
+
+[node name="WallRib-1_2_-0.6" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, -5.6)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_2_-0.6"]
+mesh = SubResource("m289")
+
+[node name="WallRib-1_2_0" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, -5)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_2_0"]
+mesh = SubResource("m290")
+
+[node name="WallRib-1_2_0.6" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, -4.4)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_2_0.6"]
+mesh = SubResource("m291")
+
+[node name="WallService-1_3" type="StaticBody3D" parent="."]
+position = Vector3(-5.96, 0.61, 12)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="WallService-1_3"]
+mesh = SubResource("m292")
+
+[node name="Collision" type="CollisionShape3D" parent="WallService-1_3"]
+shape = SubResource("s292")
+
+[node name="WallRib-1_3_-0.6" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, 11.4)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_3_-0.6"]
+mesh = SubResource("m293")
+
+[node name="WallRib-1_3_0" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, 12)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_3_0"]
+mesh = SubResource("m294")
+
+[node name="WallRib-1_3_0.6" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, 12.6)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_3_0.6"]
+mesh = SubResource("m295")
+
+[node name="WallService-1_4" type="StaticBody3D" parent="."]
+position = Vector3(-5.96, 0.61, 16)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="WallService-1_4"]
+mesh = SubResource("m296")
+
+[node name="Collision" type="CollisionShape3D" parent="WallService-1_4"]
+shape = SubResource("s296")
+
+[node name="WallRib-1_4_-0.6" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, 15.4)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_4_-0.6"]
+mesh = SubResource("m297")
+
+[node name="WallRib-1_4_0" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, 16)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_4_0"]
+mesh = SubResource("m298")
+
+[node name="WallRib-1_4_0.6" type="Node3D" parent="."]
+position = Vector3(-5.91, 0.64, 16.6)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib-1_4_0.6"]
+mesh = SubResource("m299")
+
+[node name="WallFeed-1_0" type="Node3D" parent="."]
+position = Vector3(-5.87, 3.95, -13)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallFeed-1_0"]
+mesh = SubResource("m300")
+cast_shadow = 1
+
+[node name="WallFeed-1_1" type="Node3D" parent="."]
+position = Vector3(-5.87, 3.95, -9)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallFeed-1_1"]
+mesh = SubResource("m301")
+cast_shadow = 1
+
+[node name="WallFeed-1_2" type="Node3D" parent="."]
+position = Vector3(-5.87, 3.95, -5)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallFeed-1_2"]
+mesh = SubResource("m302")
+cast_shadow = 1
+
+[node name="WallFeed-1_3" type="Node3D" parent="."]
+position = Vector3(-5.87, 3.95, 12)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallFeed-1_3"]
+mesh = SubResource("m303")
+cast_shadow = 1
+
+[node name="WallFeed-1_4" type="Node3D" parent="."]
+position = Vector3(-5.87, 3.95, 16)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallFeed-1_4"]
+mesh = SubResource("m304")
+cast_shadow = 1
+
+[node name="WallService1_0" type="StaticBody3D" parent="."]
+position = Vector3(5.96, 0.61, -13)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="WallService1_0"]
+mesh = SubResource("m305")
+
+[node name="Collision" type="CollisionShape3D" parent="WallService1_0"]
+shape = SubResource("s305")
+
+[node name="WallRib1_0_-0.6" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, -13.6)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_0_-0.6"]
+mesh = SubResource("m306")
+
+[node name="WallRib1_0_0" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, -13)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_0_0"]
+mesh = SubResource("m307")
+
+[node name="WallRib1_0_0.6" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, -12.4)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_0_0.6"]
+mesh = SubResource("m308")
+
+[node name="WallService1_1" type="StaticBody3D" parent="."]
+position = Vector3(5.96, 0.61, -9)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="WallService1_1"]
+mesh = SubResource("m309")
+
+[node name="Collision" type="CollisionShape3D" parent="WallService1_1"]
+shape = SubResource("s309")
+
+[node name="WallRib1_1_-0.6" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, -9.6)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_1_-0.6"]
+mesh = SubResource("m310")
+
+[node name="WallRib1_1_0" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, -9)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_1_0"]
+mesh = SubResource("m311")
+
+[node name="WallRib1_1_0.6" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, -8.4)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_1_0.6"]
+mesh = SubResource("m312")
+
+[node name="WallService1_2" type="StaticBody3D" parent="."]
+position = Vector3(5.96, 0.61, -5)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="WallService1_2"]
+mesh = SubResource("m313")
+
+[node name="Collision" type="CollisionShape3D" parent="WallService1_2"]
+shape = SubResource("s313")
+
+[node name="WallRib1_2_-0.6" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, -5.6)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_2_-0.6"]
+mesh = SubResource("m314")
+
+[node name="WallRib1_2_0" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, -5)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_2_0"]
+mesh = SubResource("m315")
+
+[node name="WallRib1_2_0.6" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, -4.4)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_2_0.6"]
+mesh = SubResource("m316")
+
+[node name="WallService1_3" type="StaticBody3D" parent="."]
+position = Vector3(5.96, 0.61, 12)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="WallService1_3"]
+mesh = SubResource("m317")
+
+[node name="Collision" type="CollisionShape3D" parent="WallService1_3"]
+shape = SubResource("s317")
+
+[node name="WallRib1_3_-0.6" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, 11.4)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_3_-0.6"]
+mesh = SubResource("m318")
+
+[node name="WallRib1_3_0" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, 12)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_3_0"]
+mesh = SubResource("m319")
+
+[node name="WallRib1_3_0.6" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, 12.6)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_3_0.6"]
+mesh = SubResource("m320")
+
+[node name="WallService1_4" type="StaticBody3D" parent="."]
+position = Vector3(5.96, 0.61, 16)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="WallService1_4"]
+mesh = SubResource("m321")
+
+[node name="Collision" type="CollisionShape3D" parent="WallService1_4"]
+shape = SubResource("s321")
+
+[node name="WallRib1_4_-0.6" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, 15.4)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_4_-0.6"]
+mesh = SubResource("m322")
+
+[node name="WallRib1_4_0" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, 16)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_4_0"]
+mesh = SubResource("m323")
+
+[node name="WallRib1_4_0.6" type="Node3D" parent="."]
+position = Vector3(5.91, 0.64, 16.6)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallRib1_4_0.6"]
+mesh = SubResource("m324")
+
+[node name="WallFeed1_0" type="Node3D" parent="."]
+position = Vector3(5.87, 3.95, -13)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallFeed1_0"]
+mesh = SubResource("m325")
+cast_shadow = 1
+
+[node name="WallFeed1_1" type="Node3D" parent="."]
+position = Vector3(5.87, 3.95, -9)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallFeed1_1"]
+mesh = SubResource("m326")
+cast_shadow = 1
+
+[node name="WallFeed1_2" type="Node3D" parent="."]
+position = Vector3(5.87, 3.95, -5)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallFeed1_2"]
+mesh = SubResource("m327")
+cast_shadow = 1
+
+[node name="WallFeed1_3" type="Node3D" parent="."]
+position = Vector3(5.87, 3.95, 12)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallFeed1_3"]
+mesh = SubResource("m328")
+cast_shadow = 1
+
+[node name="WallFeed1_4" type="Node3D" parent="."]
+position = Vector3(5.87, 3.95, 16)
+
+
+[node name="Visual" type="MeshInstance3D" parent="WallFeed1_4"]
+mesh = SubResource("m329")
+cast_shadow = 1
+
+[node name="BioJunctionHousing" type="StaticBody3D" parent="."]
+position = Vector3(5.85, 1.66, 0.25)
+
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="BioJunctionHousing"]
+mesh = SubResource("m330")
+
+[node name="Collision" type="CollisionShape3D" parent="BioJunctionHousing"]
+shape = SubResource("s330")
+
+[node name="BioJunctionInset" type="Node3D" parent="."]
+position = Vector3(5.68, 1.75, 0.25)
+
+
+[node name="Visual" type="MeshInstance3D" parent="BioJunctionInset"]
+mesh = SubResource("m331")
+
+[node name="BioJunctionVent0" type="Node3D" parent="."]
+position = Vector3(5.63, 1.2, 0.25)
+
+
+[node name="Visual" type="MeshInstance3D" parent="BioJunctionVent0"]
+mesh = SubResource("m332")
+
+[node name="BioJunctionVent1" type="Node3D" parent="."]
+position = Vector3(5.63, 1.45, 0.25)
+
+
+[node name="Visual" type="MeshInstance3D" parent="BioJunctionVent1"]
+mesh = SubResource("m333")
+
+[node name="BioJunctionVent2" type="Node3D" parent="."]
+position = Vector3(5.63, 1.7, 0.25)
+
+
+[node name="Visual" type="MeshInstance3D" parent="BioJunctionVent2"]
+mesh = SubResource("m334")
+
+[node name="BioJunctionVent3" type="Node3D" parent="."]
+position = Vector3(5.63, 1.95, 0.25)
+
+
+[node name="Visual" type="MeshInstance3D" parent="BioJunctionVent3"]
+mesh = SubResource("m335")
+
+[node name="BioJunctionVent4" type="Node3D" parent="."]
+position = Vector3(5.63, 2.2, 0.25)
+
+
+[node name="Visual" type="MeshInstance3D" parent="BioJunctionVent4"]
+mesh = SubResource("m336")
+
+[node name="BioJunctionFeed" type="StaticBody3D" parent="."]
+position = Vector3(5.74, 3.7, 0.25)
+collision_layer = 1
+collision_mask = 3
+metadata/hit_material = "armor"
+
+[node name="Visual" type="MeshInstance3D" parent="BioJunctionFeed"]
+mesh = SubResource("m337")
+cast_shadow = 1
+
+[node name="Collision" type="CollisionShape3D" parent="BioJunctionFeed"]
+shape = SubResource("s337")
+
+[node name="BioUpperManifold" type="Node3D" parent="."]
+position = Vector3(5.66, 4.65, -4)
+rotation_degrees = Vector3(90, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="BioUpperManifold"]
+mesh = SubResource("m338")
+cast_shadow = 1
+
+[node name="Reflection_HallFront" type="ReflectionProbe" parent="."]
+position = Vector3(0, 2.8, 6)
+size = Vector3(12.4, 6.6, 20)
+box_projection = true
+interior = true
+ambient_mode = 0
+intensity = 0.78
+blend_distance = 2.0
+update_mode = 0
+cull_mask = 1
+enable_shadows = true
+
+
+[node name="Reflection_HallRear" type="ReflectionProbe" parent="."]
+position = Vector3(0, 3, -9)
+size = Vector3(12.4, 7, 12)
+box_projection = true
+interior = true
+ambient_mode = 0
+intensity = 0.78
+blend_distance = 2.0
+update_mode = 0
+cull_mask = 1
+enable_shadows = true
+
+
+[node name="OldBlood0" type="MeshInstance3D" parent="."]
+position = Vector3(-2, 0.008, 3.3)
+rotation_degrees = Vector3(0,13,0)
+mesh = SubResource("m339")
+cast_shadow = 0
+
+[node name="OldBlood1" type="MeshInstance3D" parent="."]
+position = Vector3(-1.6, 0.008, 6.1)
+rotation_degrees = Vector3(0,47,0)
+mesh = SubResource("m340")
+cast_shadow = 0
+
+[node name="OldBlood2" type="MeshInstance3D" parent="."]
+position = Vector3(2.3, 0.008, 4.9)
+rotation_degrees = Vector3(0,12,0)
+mesh = SubResource("m341")
+cast_shadow = 0
+
+[node name="OldBlood3" type="MeshInstance3D" parent="."]
+position = Vector3(4.6, 0.008, 2.7)
+rotation_degrees = Vector3(0,-22,0)
+mesh = SubResource("m342")
+cast_shadow = 0
+
+[node name="OldBlood4" type="MeshInstance3D" parent="."]
+position = Vector3(-1.2, 0.008, -5)
+rotation_degrees = Vector3(0,53,0)
+mesh = SubResource("m343")
+cast_shadow = 0
+
+[node name="RearInset-1" type="Node3D" parent="Door_Rear"]
+position = Vector3(-1.12, -0.08, 0.19)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Door_Rear/RearInset-1"]
+mesh = SubResource("m344")
+
+[node name="RearBrace-1_-1.25" type="Node3D" parent="Door_Rear"]
+position = Vector3(-1.12, -1.25, 0.23)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Door_Rear/RearBrace-1_-1.25"]
+mesh = SubResource("m345")
+
+[node name="RearBrace-1_1.18" type="Node3D" parent="Door_Rear"]
+position = Vector3(-1.12, 1.18, 0.23)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Door_Rear/RearBrace-1_1.18"]
+mesh = SubResource("m346")
+
+[node name="RearHinge-1_-1.18" type="Node3D" parent="."]
+position = Vector3(-2.3, 2.12, -15.72)
+rotation_degrees = Vector3(90, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="RearHinge-1_-1.18"]
+mesh = SubResource("m347")
+cast_shadow = 1
+
+[node name="RearHinge-1_1.13" type="Node3D" parent="."]
+position = Vector3(-2.3, 4.43, -15.72)
+rotation_degrees = Vector3(90, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="RearHinge-1_1.13"]
+mesh = SubResource("m348")
+cast_shadow = 1
+
+[node name="RearInset1" type="Node3D" parent="Door_Rear"]
+position = Vector3(1.12, -0.08, 0.19)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Door_Rear/RearInset1"]
+mesh = SubResource("m349")
+
+[node name="RearBrace1_-1.25" type="Node3D" parent="Door_Rear"]
+position = Vector3(1.12, -1.25, 0.23)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Door_Rear/RearBrace1_-1.25"]
+mesh = SubResource("m350")
+
+[node name="RearBrace1_1.18" type="Node3D" parent="Door_Rear"]
+position = Vector3(1.12, 1.18, 0.23)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Door_Rear/RearBrace1_1.18"]
+mesh = SubResource("m351")
+
+[node name="RearHinge1_-1.18" type="Node3D" parent="."]
+position = Vector3(2.3, 2.12, -15.72)
+rotation_degrees = Vector3(90, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="RearHinge1_-1.18"]
+mesh = SubResource("m352")
+cast_shadow = 1
+
+[node name="RearHinge1_1.13" type="Node3D" parent="."]
+position = Vector3(2.3, 4.43, -15.72)
+rotation_degrees = Vector3(90, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="RearHinge1_1.13"]
+mesh = SubResource("m353")
+cast_shadow = 1
+
+[node name="RearLock" type="Node3D" parent="Door_Rear"]
+position = Vector3(0, -0.2, 0.24)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Door_Rear/RearLock"]
+mesh = SubResource("m354")
+
+[node name="RearWarning" type="Label3D" parent="Door_Rear"]
+position = Vector3(0, 0.38, 0.25)
+rotation_degrees = Vector3(0, 0, 0)
+text = "BIOHAZARD"
+font_size = 50
 pixel_size = 0.007
-modulate = Color(0.1, 0.11, 0.1, 1)
+modulate = Color(0.46, 0.42, 0.24, 1)
 outline_size = 0
 no_depth_test = false
 shaded = true
@@ -4911,38 +6611,38 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="OperatingTable"]
-mesh = SubResource("m249")
+mesh = SubResource("m355")
 
 [node name="Collision" type="CollisionShape3D" parent="OperatingTable"]
-shape = SubResource("s249")
+shape = SubResource("s355")
 
 [node name="TableLeg0" type="Node3D" parent="."]
 position = Vector3(16.5, 0.37, -6.4)
 
 
 [node name="Visual" type="MeshInstance3D" parent="TableLeg0"]
-mesh = SubResource("m250")
+mesh = SubResource("m356")
 
 [node name="TableLeg1" type="Node3D" parent="."]
 position = Vector3(17.7, 0.37, -6.4)
 
 
 [node name="Visual" type="MeshInstance3D" parent="TableLeg1"]
-mesh = SubResource("m251")
+mesh = SubResource("m357")
 
 [node name="TableLeg2" type="Node3D" parent="."]
 position = Vector3(16.5, 0.37, -4.4)
 
 
 [node name="Visual" type="MeshInstance3D" parent="TableLeg2"]
-mesh = SubResource("m252")
+mesh = SubResource("m358")
 
 [node name="TableLeg3" type="Node3D" parent="."]
 position = Vector3(17.7, 0.37, -4.4)
 
 
 [node name="Visual" type="MeshInstance3D" parent="TableLeg3"]
-mesh = SubResource("m253")
+mesh = SubResource("m359")
 
 [node name="KeyPedestal" type="StaticBody3D" parent="."]
 position = Vector3(20, 0.25, -7)
@@ -4952,10 +6652,10 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="KeyPedestal"]
-mesh = SubResource("m254")
+mesh = SubResource("m360")
 
 [node name="Collision" type="CollisionShape3D" parent="KeyPedestal"]
-shape = SubResource("s254")
+shape = SubResource("s360")
 
 [node name="BioConsole" type="StaticBody3D" parent="."]
 position = Vector3(12, 0.65, 2.1)
@@ -4965,10 +6665,10 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="BioConsole"]
-mesh = SubResource("m255")
+mesh = SubResource("m361")
 
 [node name="Collision" type="CollisionShape3D" parent="BioConsole"]
-shape = SubResource("s255")
+shape = SubResource("s361")
 
 [node name="RearLabConsole" type="StaticBody3D" parent="."]
 position = Vector3(3.7, 2.15, -19.8)
@@ -4978,10 +6678,10 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="RearLabConsole"]
-mesh = SubResource("m256")
+mesh = SubResource("m362")
 
 [node name="Collision" type="CollisionShape3D" parent="RearLabConsole"]
-shape = SubResource("s256")
+shape = SubResource("s362")
 
 [node name="BioKey" type="OmniLight3D" parent="."]
 position = Vector3(15, 3.5, 6)
@@ -5018,7 +6718,8 @@ metadata/amount = 1
 
 
 [node name="Case" type="MeshInstance3D" parent="Pickup_ContainmentKey"]
-mesh = SubResource("m257")
+mesh = SubResource("m363")
+layers = 2
 
 [node name="Mark" type="Label3D" parent="Pickup_ContainmentKey"]
 text = "C3"
@@ -5028,15 +6729,17 @@ pixel_size = 0.004
 modulate = Color(0.88,0.83,0.68,1)
 outline_size = 0
 billboard = 1
+layers = 2
 
 [node name="Pickup_HallPistol" type="Node3D" parent="."]
-position = Vector3(-2.6, 0.24, 13)
+position = Vector3(-2.6, 0.24, 6.4)
 metadata/ward_pickup = "pistol"
 metadata/amount = 20
 
 
 [node name="Case" type="MeshInstance3D" parent="Pickup_HallPistol"]
-mesh = SubResource("m258")
+mesh = SubResource("m364")
+layers = 2
 
 [node name="Mark" type="Label3D" parent="Pickup_HallPistol"]
 text = "9MM"
@@ -5046,15 +6749,17 @@ pixel_size = 0.004
 modulate = Color(0.88,0.83,0.68,1)
 outline_size = 0
 billboard = 1
+layers = 2
 
 [node name="Pickup_HallHealth" type="Node3D" parent="."]
-position = Vector3(4.6, 0.24, 15)
+position = Vector3(4.6, 0.24, 8.5)
 metadata/ward_pickup = "health"
 metadata/amount = 25
 
 
 [node name="Case" type="MeshInstance3D" parent="Pickup_HallHealth"]
-mesh = SubResource("m259")
+mesh = SubResource("m365")
+layers = 2
 
 [node name="Mark" type="Label3D" parent="Pickup_HallHealth"]
 text = "+"
@@ -5064,6 +6769,7 @@ pixel_size = 0.004
 modulate = Color(0.88,0.83,0.68,1)
 outline_size = 0
 billboard = 1
+layers = 2
 
 [node name="Pickup_BioShells" type="Node3D" parent="."]
 position = Vector3(12, 0.24, 8)
@@ -5072,7 +6778,8 @@ metadata/amount = 8
 
 
 [node name="Case" type="MeshInstance3D" parent="Pickup_BioShells"]
-mesh = SubResource("m260")
+mesh = SubResource("m366")
+layers = 2
 
 [node name="Mark" type="Label3D" parent="Pickup_BioShells"]
 text = "12G"
@@ -5082,6 +6789,7 @@ pixel_size = 0.004
 modulate = Color(0.88,0.83,0.68,1)
 outline_size = 0
 billboard = 1
+layers = 2
 
 [node name="Pickup_OperatingHealth" type="Node3D" parent="."]
 position = Vector3(22.5, 0.24, -8)
@@ -5090,7 +6798,8 @@ metadata/amount = 25
 
 
 [node name="Case" type="MeshInstance3D" parent="Pickup_OperatingHealth"]
-mesh = SubResource("m261")
+mesh = SubResource("m367")
+layers = 2
 
 [node name="Mark" type="Label3D" parent="Pickup_OperatingHealth"]
 text = "+"
@@ -5100,6 +6809,7 @@ pixel_size = 0.004
 modulate = Color(0.88,0.83,0.68,1)
 outline_size = 0
 billboard = 1
+layers = 2
 
 [node name="Pickup_RearArmor" type="Node3D" parent="."]
 position = Vector3(-2, 1.76, -20.5)
@@ -5108,7 +6818,8 @@ metadata/amount = 30
 
 
 [node name="Case" type="MeshInstance3D" parent="Pickup_RearArmor"]
-mesh = SubResource("m262")
+mesh = SubResource("m368")
+layers = 2
 
 [node name="Mark" type="Label3D" parent="Pickup_RearArmor"]
 text = "A"
@@ -5118,6 +6829,7 @@ pixel_size = 0.004
 modulate = Color(0.88,0.83,0.68,1)
 outline_size = 0
 billboard = 1
+layers = 2
 
 [node name="Pickup_RearShells" type="Node3D" parent="."]
 position = Vector3(5.1, 1.76, -27)
@@ -5126,7 +6838,8 @@ metadata/amount = 8
 
 
 [node name="Case" type="MeshInstance3D" parent="Pickup_RearShells"]
-mesh = SubResource("m263")
+mesh = SubResource("m369")
+layers = 2
 
 [node name="Mark" type="Label3D" parent="Pickup_RearShells"]
 text = "12G"
@@ -5136,6 +6849,7 @@ pixel_size = 0.004
 modulate = Color(0.88,0.83,0.68,1)
 outline_size = 0
 billboard = 1
+layers = 2
 
 [node name="Pickup_SecretArmor" type="Node3D" parent="."]
 position = Vector3(-8.6, 0.24, 8)
@@ -5144,7 +6858,8 @@ metadata/amount = 50
 
 
 [node name="Case" type="MeshInstance3D" parent="Pickup_SecretArmor"]
-mesh = SubResource("m264")
+mesh = SubResource("m370")
+layers = 2
 
 [node name="Mark" type="Label3D" parent="Pickup_SecretArmor"]
 text = "A"
@@ -5154,6 +6869,7 @@ pixel_size = 0.004
 modulate = Color(0.88,0.83,0.68,1)
 outline_size = 0
 billboard = 1
+layers = 2
 
 [node name="Pickup_SecretShells" type="Node3D" parent="."]
 position = Vector3(-8, 0.24, 8.8)
@@ -5162,7 +6878,8 @@ metadata/amount = 8
 
 
 [node name="Case" type="MeshInstance3D" parent="Pickup_SecretShells"]
-mesh = SubResource("m265")
+mesh = SubResource("m371")
+layers = 2
 
 [node name="Mark" type="Label3D" parent="Pickup_SecretShells"]
 text = "12G"
@@ -5172,6 +6889,7 @@ pixel_size = 0.004
 modulate = Color(0.88,0.83,0.68,1)
 outline_size = 0
 billboard = 1
+layers = 2
 
 [node name="Room_ContainmentHall" type="Marker3D" parent="."]
 position = Vector3(0, 2.5, 1)
@@ -5246,17 +6964,17 @@ metadata/ward_exit = true
 
 
 [node name="Spawn0" type="Marker3D" parent="EnemySpawns"]
-position = Vector3(-1.9, 0.87, 7.5)
+position = Vector3(-2, 0.87, 3.3)
 metadata/kind = "unsealed"
 metadata/encounter = "ContainmentHall"
 
 [node name="Spawn1" type="Marker3D" parent="EnemySpawns"]
-position = Vector3(3.6, 0.87, 0.5)
+position = Vector3(4.6, 0.87, 0.7)
 metadata/kind = "vessel"
 metadata/encounter = "ContainmentHall"
 
 [node name="Spawn2" type="Marker3D" parent="EnemySpawns"]
-position = Vector3(-1.4, 0.87, -3)
+position = Vector3(-4.3, 0.87, -7)
 metadata/kind = "unsealed"
 metadata/encounter = "ContainmentHall"
 
@@ -5301,13 +7019,13 @@ metadata/kind = "unsealed"
 metadata/encounter = "Secret"
 
 [node name="Infestation0" type="MeshInstance3D" parent="."]
-position = Vector3(-5.96, 2.4, 10.5)
+position = Vector3(-5.96, 2.4, 1.8)
 rotation_degrees = Vector3(0, 0, -90)
-mesh = SubResource("m266")
+mesh = SubResource("m372")
 cast_shadow = 0
 
 [node name="Infestation1" type="MeshInstance3D" parent="."]
-position = Vector3(-4.1, 0.022, 9)
+position = Vector3(-3.1, 0.022, 4.4)
 rotation_degrees = Vector3(0, 0, 0)
-mesh = SubResource("m267")
+mesh = SubResource("m373")
 cast_shadow = 0

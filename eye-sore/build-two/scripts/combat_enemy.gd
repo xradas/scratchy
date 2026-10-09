@@ -219,6 +219,7 @@ func configure_sprite_texture(texture: Texture2D, columns: int, rows: int, clips
 	sprite_pivot.position.y = -$CollisionShape3D.shape.height * 0.5
 	add_child(sprite_pivot)
 	sprite = Sprite3D.new(); sprite.name = "VisualSprite"; sprite.texture = texture
+	sprite.layers = 2 # Exclude moving creatures from cached static world reflections.
 	sprite.hframes = columns; sprite.vframes = rows; sprite_directions = rows; sprite_clips = clips
 	sprite.pixel_size = pixel_size; sprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST

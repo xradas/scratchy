@@ -1,0 +1,57 @@
+ffmpeg version n9.0.2 Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16 (GCC)
+  configuration: --prefix=/usr --disable-debug --disable-static --disable-stripping --enable-amf --enable-avisynth --enable-cuda-llvm --enable-lto --enable-fontconfig --enable-frei0r --enable-gmp --enable-gnutls --enable-gpl --enable-ladspa --enable-lcms2 --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libdav1d --enable-libdrm --enable-libdvdnav --enable-libdvdread --enable-libfreetype --enable-libfribidi --enable-libgsm --enable-libharfbuzz --enable-libiec61883 --enable-libjack --enable-libjxl --enable-libmodplug --enable-libmp3lame --enable-libopencore_amrnb --enable-libopencore_amrwb --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libplacebo --enable-libpulse --enable-librav1e --enable-librsvg --enable-librubberband --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtheora --enable-libv4l2 --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpl --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxcb --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-nvdec --enable-nvenc --enable-opencl --enable-opengl --enable-shared --enable-vapoursynth --enable-version3 --enable-vulkan --disable-decoder=magicyuv
+  libavutil      61.  1.102 / 61.  1.102
+  libavcodec     63.  1.102 / 63.  1.102
+  libavformat    63.  1.102 / 63.  1.102
+  libavdevice    63.  1.102 / 63.  1.102
+  libavfilter    12.  1.102 / 12.  1.102
+  libswscale     10.  1.102 / 10.  1.102
+  libswresample   7.  1.102 /  7.  1.102
+[aist#0:1/pcm_s16le @ 0x55edfcd62b00] Guessed Channel Layout: stereo
+Input #0, avi, from '/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/pale-ward-grit-gameplay.avi':
+  Duration: 00:00:35.13, start: 0.000000, bitrate: 32491 kb/s
+  Stream #0:0: Video: mjpeg (Baseline) (MJPG / 0x47504A4D), yuvj420p(pc, bt470bg/unknown/unknown), 1280x720 [SAR 1:1 DAR 16:9], 30973 kb/s, 30 fps, 30 tbr, 30 tbn
+  Stream #0:1: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (mjpeg (native) -> h264 (libx264))
+  Stream #0:1 -> #0:1 (pcm_s16le (native) -> aac (native))
+Press [q] to stop, [?] for help
+[swscaler @ 0x7efcec015a80] deprecated pixel format used, make sure you did set range correctly
+[libx264 @ 0x55edfcd70940] using SAR=1/1
+[libx264 @ 0x55edfcd70940] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2 AVX512
+[libx264 @ 0x55edfcd70940] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 0x55edfcd70940] 264 - core 165 r3222 b35605a - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=18 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/pale-ward-grit-gameplay.mp4':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.102 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 192 kb/s
+    Metadata:
+      encoder         : Lavc63.1.102 aac
+frame=   32 fps=0.0 q=26.0 size=     768KiB time=00:00:03.34 bitrate=1878.5kbits/s speed= 6.7x elapsed=0:00:00.50    frame=  142 fps=142 q=26.0 size=    2560KiB time=00:00:07.16 bitrate=2925.8kbits/s speed=7.17x elapsed=0:00:01.00    frame=  250 fps=167 q=26.0 size=    3328KiB time=00:00:10.77 bitrate=2530.6kbits/s speed=7.18x elapsed=0:00:01.50    frame=  290 fps=145 q=26.0 size=    6144KiB time=00:00:12.18 bitrate=4131.9kbits/s speed=6.09x elapsed=0:00:02.00    frame=  348 fps=139 q=26.0 size=    8960KiB time=00:00:14.08 bitrate=5213.1kbits/s speed=5.63x elapsed=0:00:02.50    frame=  442 fps=147 q=26.0 size=   11008KiB time=00:00:17.17 bitrate=5251.0kbits/s speed=5.72x elapsed=0:00:03.00    frame=  484 fps=138 q=26.0 size=   13568KiB time=00:00:18.58 bitrate=5981.8kbits/s speed= 5.3x elapsed=0:00:03.50    frame=  531 fps=133 q=26.0 size=   16128KiB time=00:00:20.18 bitrate=6546.7kbits/s speed=5.04x elapsed=0:00:04.00    frame=  610 fps=135 q=26.0 size=   17408KiB time=00:00:22.78 bitrate=6259.1kbits/s speed=5.06x elapsed=0:00:04.50    frame=  659 fps=132 q=26.0 size=   19968KiB time=00:00:24.49 bitrate=6679.2kbits/s speed=4.89x elapsed=0:00:05.00    frame=  717 fps=130 q=26.0 size=   22016KiB time=00:00:26.38 bitrate=6834.4kbits/s speed=4.79x elapsed=0:00:05.50    frame=  833 fps=139 q=26.0 size=   24320KiB time=00:00:30.14 bitrate=6609.3kbits/s speed=5.02x elapsed=0:00:06.00    frame=  899 fps=138 q=26.0 size=   26112KiB time=00:00:32.44 bitrate=6592.4kbits/s speed=4.99x elapsed=0:00:06.50    frame=  962 fps=137 q=26.0 size=   27904KiB time=00:00:34.53 bitrate=6618.4kbits/s speed=4.93x elapsed=0:00:07.00    frame= 1019 fps=136 q=26.0 size=   29696KiB time=N/A bitrate=N/A speed=N/A elapsed=0:00:07.50    [mp4 @ 0x55edfcd62ec0] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0x55edfcd62dc0] video:30674KiB audio:825KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.124210%
+frame= 1054 fps=137 q=-1.0 Lsize=   31537KiB time=00:00:35.13 bitrate=7353.5kbits/s speed=4.56x elapsed=0:00:07.70    
+[libx264 @ 0x55edfcd70940] frame I:13    Avg QP:20.80  size:146101
+[libx264 @ 0x55edfcd70940] frame P:278   Avg QP:21.67  size: 43971
+[libx264 @ 0x55edfcd70940] frame B:763   Avg QP:25.39  size: 22655
+[libx264 @ 0x55edfcd70940] consecutive B-frames:  2.2%  2.7%  3.7% 91.5%
+[libx264 @ 0x55edfcd70940] mb I  I16..4:  1.5% 91.9%  6.7%
+[libx264 @ 0x55edfcd70940] mb P  I16..4:  1.4% 36.2%  2.9%  P16..4: 12.6%  4.8%  4.3%  0.0%  0.0%    skip:37.7%
+[libx264 @ 0x55edfcd70940] mb B  I16..4:  0.5%  8.4%  1.0%  B16..8: 15.1% 11.8%  4.8%  direct: 6.4%  skip:52.0%  L0:37.7% L1:43.9% BI:18.3%
+[libx264 @ 0x55edfcd70940] 8x8 transform intra:87.7% inter:60.2%
+[libx264 @ 0x55edfcd70940] coded y,uvDC,uvAC intra: 86.2% 53.5% 13.4% inter: 23.1% 12.2% 0.8%
+[libx264 @ 0x55edfcd70940] i16 v,h,dc,p: 42% 46%  8%  3%
+[libx264 @ 0x55edfcd70940] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 22% 20% 31%  4%  3%  3%  4%  4%  8%
+[libx264 @ 0x55edfcd70940] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 35% 30% 14%  3%  3%  3%  4%  3%  5%
+[libx264 @ 0x55edfcd70940] i8c dc,h,v,p: 53% 24% 21%  2%
+[libx264 @ 0x55edfcd70940] Weighted P-Frames: Y:2.9% UV:2.9%
+[libx264 @ 0x55edfcd70940] ref P L0: 53.8%  9.8% 20.7% 11.3%  4.4%
+[libx264 @ 0x55edfcd70940] ref B L0: 85.9% 11.0%  3.1%
+[libx264 @ 0x55edfcd70940] ref B L1: 94.6%  5.4%
+[libx264 @ 0x55edfcd70940] kb/s:7151.97
+[aac @ 0x55edfcd87300] Qavg: 1733.113

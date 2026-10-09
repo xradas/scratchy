@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.71.09 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3060 Ti
+
+ERROR: NO GRAB
+   at: _mouse_update_mode (platform/linuxbsd/x11/display_server_x11.cpp:588)
+   GDScript backtrace (most recent call first):
+       [0] set_paused (res://scripts/main.gd:505)
+       [1] enter_combat (res://scripts/main.gd:347)
+       [2] run_profile (res://tools/profile_shot_lighting.gd:73)
+NATIVE_DRAW_STATE: false root_visible=true mode=1 position=(40, 40) render_loop=true frames=0
+ERROR: Native renderer unavailable: window minimized/not drawable and no completed renders after warm-up. Flash visibility and cap performance are unverified.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (res://tools/profile_shot_lighting.gd:21)
+       [1] run_profile (res://tools/profile_shot_lighting.gd:87)

@@ -1,6 +1,6 @@
 {
-  "checked_utc": "2026-10-09T16:43:48.993277+00:00",
-  "stage": "Pale Ward connected level with persistent blood, normal corpses and shotgun dismemberment; full production acceptance pending",
+  "checked_utc": "2026-10-09T17:47:43.653310+00:00",
+  "stage": "Pale Ward original concept material and signage sampling; visual acceptance and complete production pending",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
   "renderer": "Compatibility",
@@ -86,11 +86,13 @@
     "Sustained outside-source complete-level Linux human playtest and final release acceptance."
   ],
   "known_issues": [
-    "Playable reference-based art/layout pass; original5\u20138minute human duration and full polish not accepted.",
+    "The full game image has not been accepted as reproducing the concept; original 5\u20138 minute human duration and polish remain pending.",
     "Eight frontal enemy poses only; full eight-direction animation still pending; generated detail/perspective drift.",
     "Three brief floor-flag transitions across12 stairs, identical at30/60/120 caps; nofall/jump/doorwaygap inroute checks.",
     "Room graph pursuit/local obstacle steering are representative; sustained human encounter/release review remains pending.",
-    "Interaction world/UI audio remains limited; level music remains candidate assigned to biotech."
+    "Interaction world/UI audio remains limited; level music remains candidate assigned to biotech.",
+    "First forced-offscreen pistol render recorded a 176ms hitch and 212ms flash expiry; repeat warmed run passed nominal duration bounds. Cold rendering needs further review.",
+    "Visible-window rendering was minimized during early checks; later native captures were drawable. Physical mouse capture and sustained human playtest remain unverified in this session."
   ],
   "preserved_room_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-stage-one-2026-10-08/eyesore-room-preview-v2.x86_64",
@@ -244,5 +246,27 @@
     "sample_rate": 48000,
     "channels": 2,
     "audio_validation": "level/movie-audio.json"
+  },
+  "grit_pass": {
+    "direction": "../docs/production-direction.json",
+    "team": "grit/team.json",
+    "original_pixels": "../assets/materials/approved-material-regions.json",
+    "original_signs": "../assets/materials/approved-sign-regions.json",
+    "art_review": "http://127.0.0.1:8765/grit-review.html",
+    "accepted_as_visual_match": false,
+    "captures": "grit/*.png",
+    "native_capture_flags": [
+      "--automated-input",
+      "--force-offscreen-draw"
+    ],
+    "native_capture_offscreen_required": false,
+    "shot_timing_warm": "grit/p14-shot-lighting-forced-offscreen.json",
+    "shot_timing_initial_hitch": "grit/p14-shot-lighting-forced-offscreen-first-run.json",
+    "scope": "Original selected source pixels verified, readable physical composition and real shot lighting implemented; incomplete directional creature production and complete scene fidelity remain in review.",
+    "shot_timing_visible": "grit/p14-shot-lighting-native.json",
+    "shot_timing_visible_result": "Final ordinary visible-window native run: all six cap/weapon cases pass, drawable true, 1032 engine-rendered frames; exact fixed-tick counts and nominal flash bounds.",
+    "final_integration": "grit/final-integration/20261009T174859Z-2a9797c0/summary.json",
+    "actual_stereo_recording": "grit/p20-recording.json",
+    "final_movie_route": "grit/final-movie-route.json"
   }
 }

@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "runs": [
+    {
+      "case": "negative",
+      "command": [
+        "python3",
+        "tools/check_art_review.py",
+        "--test-missing-path",
+        "--report",
+        "verification/grit/p16-art-review-negative.json"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"passed\": false,\n  \"checks\": 239,\n  \"failures\": [\n    {\n      \"check\": \"resource exists\",\n      \"passed\": false,\n      \"detail\": \"concepts/grit-review-assets/p16-intentionally-missing.png\"\n    }\n  ],\n  \"error\": null,\n  \"negative_missing_path_test\": null\n}\n",
+      "stderr": ""
+    },
+    {
+      "case": "actual",
+      "command": [
+        "python3",
+        "tools/check_art_review.py",
+        "--self-test",
+        "--report",
+        "verification/grit/p16-art-review.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"passed\": true,\n  \"checks\": 238,\n  \"failures\": [],\n  \"error\": null,\n  \"negative_missing_path_test\": {\n    \"passed\": true,\n    \"fixture\": \"in-memory HTML only\",\n    \"injected_audit_passed\": false\n  }\n}\n",
+      "stderr": ""
+    }
+  ]
+}

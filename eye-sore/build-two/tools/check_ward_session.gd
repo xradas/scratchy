@@ -1,6 +1,23 @@
 extends SceneTree
+var evidence_dir := "res://verification/level"
 ## Main-menu ownership, world pause, visited-map drawing and complete scene replacement.
+func prepare_evidence_dir() -> bool:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--evidence-dir="):
+			evidence_dir = argument.trim_prefix("--evidence-dir=")
+	if evidence_dir.is_empty():
+		push_error("Evidence directory cannot be empty")
+		quit(1)
+		return false
+	var error := DirAccess.make_dir_recursive_absolute(evidence_dir)
+	if error != OK:
+		push_error("Cannot create evidence directory %s: %s" % [evidence_dir, error_string(error)])
+		quit(1)
+		return false
+	return true
+
 func _initialize() -> void:
+	if not prepare_evidence_dir(): return
 	call_deferred("run")
 
 func run() -> void:
@@ -26,7 +43,12 @@ func run() -> void:
 	assert(app.world.get_level_state().map_rooms.size() == 1)
 	if DisplayServer.get_name() != "headless":
 		await RenderingServer.frame_post_draw
-		root.get_texture().get_image().save_png("res://verification/level/visited-map.png")
+		var path := evidence_dir.path_join("visited-map.png")
+		var error := root.get_texture().get_image().save_png(path)
+		if error != OK:
+			push_error("Cannot write evidence file %s: %s" % [path, error_string(error)])
+			quit(1)
+			return
 	var old_world: Node3D = app.world; var old_audio: Node3D = app.combat_audio
 	app.world.has_key = true; app.world.get_node("Door_Rear").activate(true)
 	app.combat.ammo_shotgun = 0; app.combat.health = 1

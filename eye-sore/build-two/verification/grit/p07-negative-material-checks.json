@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "method": "In-memory read interception; no source or asset mutations",
+  "cases": [
+    {
+      "mutation": "runtime board changed",
+      "correctly_rejected": true,
+      "diagnostics": [
+        "runtime board differs byte-for-byte from approved original",
+        "manifest runtime hash does not match copy"
+      ]
+    },
+    {
+      "mutation": "approved scene changed",
+      "correctly_rejected": true,
+      "diagnostics": [
+        "approved original changed from git HEAD: concepts/visual-v2/corrupted-biotech/scene.png"
+      ]
+    },
+    {
+      "mutation": "scene tint altered",
+      "correctly_rejected": true,
+      "diagnostics": [
+        "scene: ceramic tint must be neutral Color(1,1,1,1)"
+      ]
+    },
+    {
+      "mutation": "author floor rectangle altered",
+      "correctly_rejected": true,
+      "diagnostics": [
+        "author: floor rectangle must be [1362, 625, 111, 102]"
+      ]
+    },
+    {
+      "mutation": "shader clamp removed",
+      "correctly_rejected": true,
+      "diagnostics": [
+        "shader region sampler must wrap locally and clamp to selected pixel centers before atlas lookup"
+      ]
+    },
+    {
+      "mutation": "shader neighbor fetch added",
+      "correctly_rejected": true,
+      "diagnostics": [
+        "shader must sample board only once through region_paint; no alternate/mipmap/neighbor fetches",
+        "shader albedo must use approved region paint and neutral material tint"
+      ]
+    },
+    {
+      "mutation": "mipmaps enabled",
+      "correctly_rejected": true,
+      "diagnostics": [
+        "runtime board import must disable mipmap generation"
+      ]
+    }
+  ]
+}

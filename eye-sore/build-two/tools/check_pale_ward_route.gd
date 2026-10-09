@@ -1,4 +1,5 @@
 extends SceneTree
+var evidence_dir := "res://verification/combat"
 const LevelScript = preload("res://scripts/pale_ward_level.gd")
 const DoorScript = preload("res://scripts/ward_door.gd")
 const LiftScript = preload("res://scripts/ward_lift.gd")
@@ -8,7 +9,41 @@ var level:Node3D
 var combat:Node3D
 var records:Array[Dictionary]=[]
 var failures:Array[String]=[]
-func _initialize()->void:call_deferred("run_check")
+func prepare_evidence_dir() -> bool:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--evidence-dir="):
+			evidence_dir = argument.trim_prefix("--evidence-dir=")
+	if evidence_dir.is_empty():
+		push_error("Evidence directory cannot be empty")
+		quit(1)
+		return false
+	var error := DirAccess.make_dir_recursive_absolute(evidence_dir)
+	if error != OK:
+		push_error("Cannot create evidence directory %s: %s" % [evidence_dir, error_string(error)])
+		quit(1)
+		return false
+	return true
+
+func write_evidence(filename: String, contents: String) -> bool:
+	var path := evidence_dir.path_join(filename)
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	if file == null:
+		push_error("Cannot open evidence file %s: %s" % [path, error_string(FileAccess.get_open_error())])
+		quit(1)
+		return false
+	file.store_string(contents)
+	file.flush()
+	var error := file.get_error()
+	file.close()
+	if error != OK:
+		push_error("Cannot write evidence file %s: %s" % [path, error_string(error)])
+		quit(1)
+		return false
+	return true
+
+func _initialize()->void:
+	if not prepare_evidence_dir(): return
+	call_deferred("run_check")
 func check(value:bool,label:String)->void:
 	if not value: failures.append(label);push_error(label)
 func key(pressed:bool)->void:
@@ -185,8 +220,7 @@ func run_check()->void:
 	supplies.shotgun_damage_capacity=supplies.shells*shotgun.damage*shotgun.pellets
 	supplies.accuracy_assumption="Upper bound assumes all shots/pellets hit; not a combat completion bot or survival proof. Melee and optional secret supplies excluded."
 	check(supplies.pistol_damage_capacity+supplies.shotgun_damage_capacity>supplies.enemy_total_hp,"Mandatory supplied damage capacity exceeds authored enemy HP")
-	var file:=FileAccess.open("res://verification/combat/pale-ward-route.json",FileAccess.WRITE)
-	file.store_string(JSON.stringify({"records":records,"failures":failures,"fixed_physics":60,"scene_sha256":FileAccess.get_sha256("res://scenes/pale_ward.tscn"),"movement_sha256":FileAccess.get_sha256("res://scripts/grounded_step.gd"),"supplies":supplies,"scope":"Authored route/no-jump real CharacterBody traversal; enemies disabled for fixture; pickup effects, key gate, lift, exit, reset."},"  "));file.close()
+	if not write_evidence("pale-ward-route.json", JSON.stringify({"records":records,"failures":failures,"fixed_physics":60,"scene_sha256":FileAccess.get_sha256("res://scenes/pale_ward.tscn"),"movement_sha256":FileAccess.get_sha256("res://scripts/grounded_step.gd"),"supplies":supplies,"scope":"Authored route/no-jump real CharacterBody traversal; enemies disabled for fixture; pickup effects, key gate, lift, exit, reset."},"  ")): return
 	print("PALE_WARD_ROUTE_OK" if failures.is_empty() else "PALE_WARD_ROUTE_FAILED")
 	key(false);world.free();world=null;player=null;level=null;combat=null
 	await process_frame;quit(0 if failures.is_empty() else 1)

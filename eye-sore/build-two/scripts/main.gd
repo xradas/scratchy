@@ -12,6 +12,7 @@ var field_of_view: float = 90.0
 var muted: bool = false
 var started: bool = false
 var smoke: bool = false
+var automated_input: bool = false
 var world: Node3D
 var combat: Node3D
 var combat_audio: Node3D
@@ -41,6 +42,8 @@ func _ready() -> void:
 	DisplayServer.window_set_title("Eyesore / The Pale Ward")
 	load_settings()
 	smoke = "--smoke-test" in OS.get_cmdline_user_args()
+	# Automated fixtures call combat directly and do not verify physical mouse input.
+	automated_input = smoke or "--automated-input" in OS.get_cmdline_user_args()
 	var background := ColorRect.new()
 	background.color = Color.BLACK
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -124,6 +127,7 @@ func _ready() -> void:
 func run_smoke() -> void:
 	get_tree().root.set_flag(Window.FLAG_NO_FOCUS,true)
 	enter_combat()
+	if not smoke_require(Input.mouse_mode == Input.MOUSE_MODE_VISIBLE, "Automated combat attempted pointer capture"): return
 	if "--gore-smoke" in OS.get_cmdline_user_args():
 		# Exercise embedded art and actual resolved damage in the release template.
 		player.set_physics_process(false)
@@ -140,20 +144,22 @@ func run_smoke() -> void:
 		await get_tree().create_timer(2.7).timeout
 		if not smoke_require(combat.gore.remains.size() == 9 and combat.gore.particles.is_empty(),"Gore did not settle into nine pieces"): return
 		player.camera.look_at(Vector3(0,.2,7))
-		await capture_smoke_frame("gore")
+		if not await capture_smoke_frame("gore"): return
 		restart_combat()
+		if not smoke_require(Input.mouse_mode == Input.MOUSE_MODE_VISIBLE, "Automated retry attempted pointer capture"): return
 		if not smoke_require(combat.gore.stains.is_empty() and combat.gore.remains.is_empty(),"Retry retained gore"): return
 		print("GORE_EXPORT_SMOKE_OK: actual shotgun kill, nine grounded parts, embedded textures and retry reset")
 	await get_tree().create_timer(0.5).timeout
-	await capture_smoke_frame("gameplay")
+	if not await capture_smoke_frame("gameplay"): return
 	set_paused(true)
 	if not smoke_require(get_tree().paused,"Pause did not activate"): return
 	var paused_position := player.position
 	await get_tree().create_timer(0.2).timeout
 	if not smoke_require(player.position == paused_position,"Player moved while paused"): return
-	await capture_smoke_frame("menu")
+	if not await capture_smoke_frame("menu"): return
 	AudioServer.set_bus_mute(0, true)
 	set_paused(false)
+	if not smoke_require(Input.mouse_mode == Input.MOUSE_MODE_VISIBLE, "Automated resume attempted pointer capture"): return
 	if not smoke_require(not get_tree().paused and AudioServer.is_bus_mute(0),"Resume/mute ownership failed"): return
 	AudioServer.set_bus_mute(0, muted)
 	set_paused(true)
@@ -502,7 +508,7 @@ func set_paused(value: bool) -> void:
 		menu_title.text = "WARD ESCAPED" if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / THE PALE WARD"))
 		resume_button.text = "Play again" if level_complete else ("Retry" if dead else ("Resume" if started else "Play"))
 		menu_note.text = ("You reached the quarantine exit.\nKills %d/%d" % [combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1 pistol · 2 shotgun · 3 melee · E use · Tab map")
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value else Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value or automated_input else Input.MOUSE_MODE_CAPTURED
 
 func load_settings() -> void:
 	var config := ConfigFile.new()
@@ -521,11 +527,25 @@ func save_settings() -> void:
 	var error := config.save(SETTINGS_PATH)
 	if error != OK: push_warning("Could not save calibration settings: " + error_string(error))
 
-func capture_smoke_frame(label: String) -> void:
-	if DisplayServer.get_name() == "headless": return
+func capture_smoke_frame(label: String) -> bool:
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--capture-prefix="):
-			await RenderingServer.frame_post_draw
+			if not smoke_require(DisplayServer.get_name() != "headless", "Capture requires a native renderer"): return false
+			var force_offscreen := "--force-offscreen-draw" in OS.get_cmdline_user_args()
+			var offscreen_required := false
+			if force_offscreen:
+				# force_draw emits frame_post_draw synchronously; never await it afterward.
+				# Process-frame warm-up lets the world SubViewport reach the root texture.
+				for i in 3:
+					await get_tree().process_frame
+					offscreen_required = offscreen_required or not DisplayServer.window_can_draw()
+					RenderingServer.force_draw(false)
+			else:
+				await RenderingServer.frame_post_draw
 			var path := argument.trim_prefix("--capture-prefix=") + "-" + label + ".png"
-			var error := get_viewport().get_texture().get_image().save_png(path)
-			assert(error == OK)
+			var captured := get_viewport().get_texture().get_image()
+			if not smoke_require(captured != null and not captured.is_empty(), "Empty native capture: " + path): return false
+			var error := captured.save_png(path)
+			if not smoke_require(error == OK, "Capture save failed: " + path + " (" + error_string(error) + ")"): return false
+			print("SMOKE_CAPTURE_OK: label=", label, " forced_offscreen=", force_offscreen, " offscreen_required=", offscreen_required, " path=", path)
+	return true

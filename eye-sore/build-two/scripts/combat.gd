@@ -24,6 +24,7 @@ var weapons: Dictionary = {}
 var weapon_visuals: Dictionary = {}
 var recoil_remaining: float = 0.0
 var gore: Node3D
+var weapon_lighting: Node3D
 const SWITCH_TIME: float = 0.22
 
 func setup(room: Node3D, actor: CharacterBody3D) -> void:
@@ -37,9 +38,14 @@ func setup(room: Node3D, actor: CharacterBody3D) -> void:
 	add_child(gore)
 	gore.setup(self, preload("res://resources/gore_profile.tres"))
 	combat_event.connect(gore.handle_event)
+	weapon_lighting = preload("res://scripts/weapon_lighting.gd").new()
+	weapon_lighting.name = "WeaponLighting"
+	add_child(weapon_lighting)
+	weapon_lighting.setup(self)
 	reset()
 
 func reset() -> void:
+	if is_instance_valid(weapon_lighting): weapon_lighting.reset()
 	if is_instance_valid(gore): gore.reset()
 	for enemy in enemies:
 		if is_instance_valid(enemy):

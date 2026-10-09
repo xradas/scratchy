@@ -1,0 +1,184 @@
+{
+  "schema": "eyesore-recording-validation-v1",
+  "checked_utc": "2026-10-09T17:51:19.266515+00:00",
+  "source_status": "fresh-capture",
+  "scope": "Structural and decoded numerical evidence only; no listening-quality or visual route-coverage claim.",
+  "thresholds": {
+    "silence_rms": 1e-07,
+    "stereo_relative_rms": 1e-05,
+    "over_full_scale_epsilon": 1e-06,
+    "aac_duration_allowance_samples": 2048
+  },
+  "failures": [],
+  "video": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/pale-ward-grit-gameplay.mp4",
+    "sha256": "563def7cb6161c180e819a9e541859cb842fe81891d06b5894b59819462ba2a4",
+    "size_bytes": 32294290,
+    "mtime_utc": "2026-10-09T17:50:42.705237+00:00",
+    "format": "mov,mp4,m4a,3gp,3g2,mj2",
+    "duration_seconds": 35.133333,
+    "frame_rate": 30.0,
+    "video": {
+      "index": 0,
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "pix_fmt": "yuvj420p",
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "bit_rate": "7152127",
+      "duration": "35.133333",
+      "nb_frames": "1054",
+      "start_time": "0.000000"
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "aac",
+      "sample_fmt": "fltp",
+      "sample_rate": "48000",
+      "channels": 2,
+      "channel_layout": "stereo",
+      "bit_rate": "192171",
+      "bits_per_sample": 0,
+      "duration": "35.133333",
+      "start_time": "0.000000"
+    },
+    "failures": [],
+    "decoded_audio": {
+      "decode_command": [
+        "ffmpeg",
+        "-nostdin",
+        "-v",
+        "error",
+        "-i",
+        "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/pale-ward-grit-gameplay.mp4",
+        "-map",
+        "0:1",
+        "-vn",
+        "-sn",
+        "-dn",
+        "-c:a",
+        "pcm_f32le",
+        "-f",
+        "f32le",
+        "pipe:1"
+      ],
+      "decoded_frames": 1686400,
+      "decoded_duration_seconds": 35.13333333333333,
+      "peak_per_channel": [
+        0.46217358112335205,
+        0.4801090955734253
+      ],
+      "rms_per_channel": [
+        0.03855323721975839,
+        0.03796023466207827
+      ],
+      "difference_rms": 0.018912433352762614,
+      "difference_threshold": 3.8553237219758395e-07,
+      "stereo_difference_nonzero": true,
+      "correlation": 0.8779190441503588,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "pcm_rail_sample_count": 0,
+      "pcm_positive_rail": null,
+      "nonzero_each_channel": true
+    },
+    "audio_video_duration_tolerance_seconds": 0.076001,
+    "audio_video_start_delta_seconds": 0.0,
+    "passed": true
+  },
+  "original": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/pale-ward-grit-gameplay.avi",
+    "sha256": "7f0056f623cc05c1b9919e72db3a1a66ff2d6c3ecf3c809be9e062bee8ea2f81",
+    "size_bytes": 142690960,
+    "mtime_utc": "2026-10-09T17:49:46.277962+00:00",
+    "format": "avi",
+    "duration_seconds": 35.133333,
+    "frame_rate": 30.0,
+    "video": {
+      "index": 0,
+      "codec_name": "mjpeg",
+      "width": 1280,
+      "height": 720,
+      "pix_fmt": "yuvj420p",
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "bit_rate": "30973089",
+      "duration": "35.133333",
+      "nb_frames": "1054",
+      "start_time": "0.000000"
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "pcm_s16le",
+      "sample_fmt": "s16",
+      "sample_rate": "48000",
+      "channels": 2,
+      "channel_layout": null,
+      "bit_rate": "1536000",
+      "bits_per_sample": 16,
+      "duration": null,
+      "start_time": "0.000000"
+    },
+    "failures": [],
+    "decoded_audio": {
+      "decode_command": [
+        "ffmpeg",
+        "-nostdin",
+        "-v",
+        "error",
+        "-i",
+        "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/pale-ward-grit-gameplay.avi",
+        "-map",
+        "0:1",
+        "-vn",
+        "-sn",
+        "-dn",
+        "-c:a",
+        "pcm_f32le",
+        "-f",
+        "f32le",
+        "pipe:1"
+      ],
+      "decoded_frames": 1686400,
+      "decoded_duration_seconds": 35.13333333333333,
+      "peak_per_channel": [
+        0.448638916015625,
+        0.471588134765625
+      ],
+      "rms_per_channel": [
+        0.03876308603146368,
+        0.038151054509627996
+      ],
+      "difference_rms": 0.019024022638592396,
+      "difference_threshold": 3.8763086031463683e-07,
+      "stereo_difference_nonzero": true,
+      "correlation": 0.8777637312318155,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "pcm_rail_sample_count": 0,
+      "pcm_positive_rail": 0.999969482421875,
+      "nonzero_each_channel": true
+    },
+    "audio_video_duration_tolerance_seconds": 0.033334333333333334,
+    "audio_video_start_delta_seconds": 0.0,
+    "passed": true
+  },
+  "duration_comparison": {
+    "tolerance_seconds": 0.076001,
+    "deltas_seconds": {
+      "container": 0.0,
+      "decoded_audio": 0.0,
+      "video_stream": 0.0
+    }
+  },
+  "route_report": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/final-movie-test/integrated-playtest.json",
+    "sha256": "ceff8043c6dce276e5bc32d0652670b8491828373a0798eb5e9d9ca22ed74ad7",
+    "completed": true,
+    "failures": [],
+    "scope": "Actual main scene, authored spawns, normal AI/health/ammo, authoritative hitscan; automated aiming, no secret supplies or cheats. Timing is bot traversal, not human level-duration acceptance.",
+    "association": "Caller supplied this route report; media-to-route provenance is not inferred from filenames."
+  },
+  "passed": true
+}

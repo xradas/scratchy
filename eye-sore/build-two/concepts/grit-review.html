@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Pale Ward — approved target and actual game review</title>
+  <link rel="stylesheet" href="grit-review.css">
+  <script defer src="grit-review.js"></script>
+</head>
+<body>
+<main>
+  <header>
+    <p>EYESORE / BUILD TWO / VISUAL COMPARISON</p>
+    <h1>The approved target and the actual game</h1>
+    <p>The approved Pale Ward concept is the specification for the painted and pixel texture identity. Polygon geometry is compatible with that requirement. These captures show the current implementation for review; they do not establish a visual match or approval.</p>
+    <p>All comparison frames have equal displayed dimensions and use nearest-neighbour scaling. Images retain their aspect ratio with no crop. Click an image to open its full original.</p>
+    <p><a href="index.html">Original concept review</a> · <a href="grit-review-assets/manifest.json">Image provenance and byte checks</a></p>
+  </header>
+  <div class="comparison">
+    <section aria-labelledby="target-heading">
+      <h2 id="target-heading">Approved target — concept artwork</h2>
+      <label for="target-view">Target source</label>
+      <select id="target-view">
+        <option value="scene_pixel_preview">Approved top thumbnail / pixel preview</option>
+        <option value="scene">Original concept scene</option>
+      </select>
+      <figure>
+        <a id="target-link" class="image-frame" href="visual-v2/corrupted-biotech/scene_pixel_preview.png" aria-label="Open approved top thumbnail original PNG"><img id="target-image" src="visual-v2/corrupted-biotech/scene_pixel_preview.png" alt="Approved Pale Ward top thumbnail, the pixel preview of the concept scene"></a>
+        <figcaption id="target-caption">Approved top thumbnail / pixel preview. Concept artwork, not a game capture.</figcaption>
+      </figure>
+      <p><a href="visual-v2/corrupted-biotech/scene_pixel_preview.png">Full approved thumbnail PNG</a> · <a href="visual-v2/corrupted-biotech/scene.png">Full original concept scene PNG</a></p>
+    </section>
+    <section aria-labelledby="current-heading">
+      <h2 id="current-heading">Actual current game — native capture</h2>
+      <label for="current-view">Current game location</label>
+      <select id="current-view">
+        <option value="containment-entry">Containment entry</option>
+        <option value="containment-stairs">Containment stairs</option>
+        <option value="bio-wing">Bio wing</option>
+        <option value="operating-room">Operating room</option>
+        <option value="rear-lab">Rear lab</option>
+        <option value="exit-gallery">Exit gallery</option>
+      </select>
+      <figure>
+        <a id="current-link" class="image-frame" href="grit-review-assets/containment-entry.png" aria-label="Open actual current game containment entry original PNG"><img id="current-image" src="grit-review-assets/containment-entry.png" alt="Actual current game native screenshot: containment entry"></a>
+        <figcaption id="current-caption">Actual current game: containment entry. Native capture copied byte for byte.</figcaption>
+      </figure>
+      <p>No acceptance claim is made for the current game.</p>
+    </section>
+  </div>
+  <section aria-labelledby="older-heading" class="older">
+    <h2 id="older-heading">Older game — preserved native captures</h2>
+    <p>Earlier implementation for comparison. These images are neither the approved target nor the current game.</p>
+    <div class="comparison">
+      <figure>
+        <a class="image-frame" href="grit-review-assets/before-entry.png" aria-label="Open older game containment entry original PNG"><img src="grit-review-assets/before-entry.png" alt="Older game native screenshot: containment entry"></a>
+        <figcaption>Older game: containment entry.</figcaption>
+      </figure>
+      <figure>
+        <a class="image-frame" href="grit-review-assets/before-stairs.png" aria-label="Open older game containment stairs original PNG"><img src="grit-review-assets/before-stairs.png" alt="Older game native screenshot: containment stairs"></a>
+        <figcaption>Older game: containment stairs.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section>
+    <h2>Current captures — full originals</h2>
+    <p>Every current native PNG remains available here, including when JavaScript is disabled.</p>
+    <ul>
+      <li><a href="grit-review-assets/containment-entry.png">Actual current game: containment entry</a></li>
+      <li><a href="grit-review-assets/containment-stairs.png">Actual current game: containment stairs</a></li>
+      <li><a href="grit-review-assets/bio-wing.png">Actual current game: bio wing</a></li>
+      <li><a href="grit-review-assets/operating-room.png">Actual current game: operating room</a></li>
+      <li><a href="grit-review-assets/rear-lab.png">Actual current game: rear lab</a></li>
+      <li><a href="grit-review-assets/exit-gallery.png">Actual current game: exit gallery</a></li>
+    </ul>
+  </section>
+  <footer><p>Review assets are unchanged native PNG copies. Approved concept originals stay in their original directory. No compositing, filters or image edits are applied.</p></footer>
+  <p id="view-status" role="status" aria-live="polite" class="sr-only"></p>
+</main>
+</body>
+</html>

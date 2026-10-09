@@ -1,0 +1,104 @@
+{
+  "scope": "Native source fixtures and automated programmatic smoke; actual root viewport PNGs. Physical mouse input and human acceptance unverified; no export performed.",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "render_mode": "Explicit forced draw native OpenGL Compatibility",
+  "offscreen_required": false,
+  "automated_input": "Visible pointer through combat/retry/pause/resume; final smoke omitted explicit --automated-input to verify smoke implies it.",
+  "negative_checks": {
+    "headless_capture": "exit 1; PALE_WARD_CAPTURE_FAILED",
+    "headless_smoke_capture": "exit 1; SMOKE_FAILED",
+    "missing_png_destination": "exit 1; PALE_WARD_CAPTURE_FAILED"
+  },
+  "captures": [
+    {
+      "path": "verification/grit/p21/capture/bio-wing.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "colors": 43080,
+      "bytes": 547659,
+      "sha256": "1fa7a48ac0c4a8e410ddaaa296009088ae293c7dda6371bca7a49abe5d20de82"
+    },
+    {
+      "path": "verification/grit/p21/capture/containment-entry.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "colors": 67069,
+      "bytes": 677536,
+      "sha256": "2b86c5651972bf01ac1eba1b7823f9b406e40e7e367b1887881efaae21923f1c"
+    },
+    {
+      "path": "verification/grit/p21/capture/containment-stairs.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "colors": 39122,
+      "bytes": 614190,
+      "sha256": "321e41541b3023347d2d4ca66d6ac4fc5d37c990ff23773b8cea26be961da5b9"
+    },
+    {
+      "path": "verification/grit/p21/capture/exit-gallery.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "colors": 53996,
+      "bytes": 659907,
+      "sha256": "4007f572b390d096622d23f0d388cccdde07d9f0b160b3216bf0c074cdd81d78"
+    },
+    {
+      "path": "verification/grit/p21/capture/operating-room.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "colors": 49683,
+      "bytes": 648437,
+      "sha256": "5f549c7d27d0ea7d6c190aab18e6cd2d223e6f36f3a1fb89eac3acf69485cbf5"
+    },
+    {
+      "path": "verification/grit/p21/capture/rear-lab.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "colors": 59543,
+      "bytes": 641045,
+      "sha256": "bcf62eb36eec1abdd3d6b376130db9a1c24eb97d4b3f71dd576bc88b5feb3525"
+    },
+    {
+      "path": "verification/grit/p21/smoke/source-gameplay.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "colors": 60716,
+      "bytes": 664396,
+      "sha256": "cea7f9a3e3cdb4f67ff166649f14d0ebbeac14144cd63da34c60cec1297ef70b"
+    },
+    {
+      "path": "verification/grit/p21/smoke/source-gore.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "colors": 55295,
+      "bytes": 670391,
+      "sha256": "00a225b0b0dbe1286d70e7d5530718ee57d08a5bf03b83347c49a211e9c79670"
+    },
+    {
+      "path": "verification/grit/p21/smoke/source-menu.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "colors": 52142,
+      "bytes": 574868,
+      "sha256": "b5082f5041e52bd1fd98b0e308cd7867140825ce60202615025400c2ec4fa162"
+    }
+  ]
+}
