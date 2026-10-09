@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "archive": "/home/rikki/Builds/eyesore-pale-ward-grit-2026-10-09/eyesore-pale-ward-grit-linux.tar.gz",
+  "archive_sha256": "6c8947f044c34120c8c257f8a19062fa4d7e2ce05a01f2257a921acd4f2e98b4",
+  "payload_files_verified": 57,
+  "source_files_recorded": 229,
+  "source_commit": "dea9c14a39e33ec8bb930c7bae5f34c52ea03a57",
+  "source_head": "dea9c14a39e33ec8bb930c7bae5f34c52ea03a57",
+  "source_git_status": "?? eye-sore/build-two/verification/grit/final-package.log",
+  "executable": {
+    "bytes": 114668768,
+    "mode": "0755",
+    "path": "eyesore-pale-ward-grit.x86_64",
+    "pck": "embedded",
+    "sha256": "57f94906738b4be7b1d0649d3b8d4dedccb8a2f1c93de0d729dcaed42b072002"
+  },
+  "original_material_and_sign_provenance_verified": true,
+  "runtime_board_path": "assets/materials/pale-ward-approved-board.png",
+  "runtime_board_source_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+  "credits_verified": [
+    "AUDIO_CREDITS.md",
+    "VISUAL_CREDITS.md",
+    "GODOT_LICENSE.txt",
+    "GODOT_THIRD_PARTY_NOTICES.txt"
+  ],
+  "engine_component_records": 102,
+  "engine_license_bodies": 18,
+  "smoke_evidence": {
+    "markers": [
+      "GORE_EXPORT_SMOKE_OK:",
+      "FOUNDATION_SMOKE_OK:"
+    ],
+    "recorded_working_directory": "/tmp",
+    "graphics_device_log_present": true,
+    "rerun_by_verifier": false
+  },
+  "known_issues": [
+    "The full game image has not been accepted as reproducing the concept; original 5–8 minute human duration and polish remain pending.",
+    "Eight frontal enemy poses only; full eight-direction animation still pending; generated detail/perspective drift.",
+    "Three brief floor-flag transitions across12 stairs, identical at30/60/120 caps; nofall/jump/doorwaygap inroute checks.",
+    "Room graph pursuit/local obstacle steering are representative; sustained human encounter/release review remains pending.",
+    "Interaction world/UI audio remains limited; level music remains candidate assigned to biotech.",
+    "First forced-offscreen pistol render recorded a 176ms hitch and 212ms flash expiry; repeat warmed run passed nominal duration bounds. Cold rendering needs further review.",
+    "Visible-window rendering was minimized during early checks; later native captures were drawable. Physical mouse capture and sustained human playtest remain unverified in this session."
+  ],
+  "scope": "Archive integrity and included recorded evidence only; no execution, independent source Git authentication, embedded-PCK inspection, visual approval or human release acceptance."
+}
