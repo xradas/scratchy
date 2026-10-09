@@ -135,36 +135,39 @@ func run_smoke() -> void:
 		player.camera.look_at(victim.global_position + Vector3(0,.28,0))
 		combat.currentweapon = &"shotgun"
 		await get_tree().physics_frame; await get_tree().physics_frame
-		assert(combat.try_fire())
-		assert(victim.dead and victim.gibbed)
+		var accepted: bool = combat.try_fire()
+		if not smoke_require(accepted and victim.dead and victim.gibbed,"Actual shotgun shot did not gib victim"): return
 		await get_tree().create_timer(2.7).timeout
-		assert(combat.gore.remains.size() == 9 and combat.gore.particles.is_empty())
+		if not smoke_require(combat.gore.remains.size() == 9 and combat.gore.particles.is_empty(),"Gore did not settle into nine pieces"): return
 		player.camera.look_at(Vector3(0,.2,7))
 		await capture_smoke_frame("gore")
 		restart_combat()
-		assert(combat.gore.stains.is_empty() and combat.gore.remains.is_empty())
+		if not smoke_require(combat.gore.stains.is_empty() and combat.gore.remains.is_empty(),"Retry retained gore"): return
 		print("GORE_EXPORT_SMOKE_OK: actual shotgun kill, nine grounded parts, embedded textures and retry reset")
 	await get_tree().create_timer(0.5).timeout
 	await capture_smoke_frame("gameplay")
 	set_paused(true)
-	assert(get_tree().paused)
+	if not smoke_require(get_tree().paused,"Pause did not activate"): return
 	var paused_position := player.position
 	await get_tree().create_timer(0.2).timeout
-	assert(player.position == paused_position)
+	if not smoke_require(player.position == paused_position,"Player moved while paused"): return
 	await capture_smoke_frame("menu")
 	AudioServer.set_bus_mute(0, true)
 	set_paused(false)
-	assert(not get_tree().paused)
-	assert(AudioServer.is_bus_mute(0))
+	if not smoke_require(not get_tree().paused and AudioServer.is_bus_mute(0),"Resume/mute ownership failed"): return
 	AudioServer.set_bus_mute(0, muted)
 	set_paused(true)
-	assert(AudioServer.bus_count == 6)
-	assert(AudioServer.get_bus_name(1) == "Weapons")
-	assert(AudioServer.get_bus_name(5) == "UI")
-	assert(world_view.size == Vector2i(640, 360))
-	assert(player.get_node("Camera3D").fov == field_of_view)
+	if not smoke_require(AudioServer.bus_count == 6 and AudioServer.get_bus_name(1) == "Weapons" and AudioServer.get_bus_name(5) == "UI","Audio bus layout differs"): return
+	if not smoke_require(world_view.size == Vector2i(640,360) and player.get_node("Camera3D").fov == field_of_view,"Viewport/settings differ"): return
 	print("FOUNDATION_SMOKE_OK: scene instantiated; fixed viewport; settings applied; pause active; buses=", AudioServer.bus_count)
 	await quit_game()
+
+func smoke_require(condition: bool, message: String) -> bool:
+	# Release templates omit assert expressions entirely; checks must execute here.
+	if not condition:
+		push_error("SMOKE_FAILED: " + message)
+		get_tree().quit(1)
+	return condition
 
 func layout_view() -> void:
 	if not is_instance_valid(world_image): return
