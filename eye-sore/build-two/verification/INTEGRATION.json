@@ -1,6 +1,6 @@
 {
-  "checked_utc": "2026-10-09T12:32:13.071267+00:00",
-  "stage": "Approved Pale Ward concept art directly adapted into playable2D sprite review; full production/level acceptance pending",
+  "checked_utc": "2026-10-09T16:35:33.032805+00:00",
+  "stage": "Pale Ward connected level with persistent blood, normal corpses and shotgun dismemberment; full production acceptance pending",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
   "renderer": "Compatibility",
@@ -19,7 +19,8 @@
     "export": "Fresh embedded-PCK sprite-review Linux package exported with pinned standard templates, launched natively from /tmp and passed viewport/settings/pause/bus smoke without errors/warnings. Previous mesh/audio/room binaries preserved. No sustained complete-level playtest claimed.",
     "creature_prototypes": "Approved-board builtin imagegen edits: two transparent eight-pose front-view sprite atlases now runtime art. Perframe feet, bounded128\u00d7192 silhouette rays,24 manually authored Vessel hardware contacts and disabled corpse queries pass native/headless. World physics stays capsule-based; fine source alpha detail is approximated.",
     "identity_selection": "User explicitly selected Corrupted biotech \u2014 The Pale Ward on9October2026 for the first playable art pass/first level. Concept quality target remains separate from acceptance of simplified runtime studies.",
-    "title_art": "Actual original approved Pale Ward composition is title artwork, copied byte-identically and displayed above its static concept HUD with an AtlasTexture region. Abelian remains title only. Title artwork is explicitly static, not a live room."
+    "title_art": "Actual original approved Pale Ward composition is title artwork, copied byte-identically and displayed above its static concept HUD with an AtlasTexture region. Abelian remains title only. Title artwork is explicitly static, not a live room.",
+    "gore": "Authoritative resolved hurt/death events: flesh spray, armor sparks, pinned surface-conforming death pools, intact corpse/scraps and heavy shotgun overkill nine-part dismemberment. Actual layer1 geometry splits stains at stair risers. Native30/60/120 fixed-tick results agree; pause freezes and retry clears; hurt/death audio remains dry and unchanged. Generated original raster assets and exact prompts audited."
   },
   "evidence": [
     "revised-assets.json",
@@ -68,13 +69,18 @@
     "combat/board-sprite-shotgun-fire.png",
     "combat/board-sprite-title.png",
     "combat/board-sprite-export-outside.log",
-    "combat/board-sprite-provenance.json"
+    "combat/board-sprite-provenance.json",
+    "gore/final-combat.log",
+    "gore/capture.log",
+    "gore/source-smoke.log",
+    "gore/movie.log",
+    "gore/integrated-playtest.json"
   ],
   "pending": [
-    "User listening review of dry contacts, hurt/death and actual stereo mix.",
-    "Complete directional creature and weapon animation sets and integrated combat review.",
-    "One 5\u20138 minute authored level, doors/lift/key-return route, automap and full session UI.",
-    "Route balance and sustained outside-source complete-level Linux playtest."
+    "User review of playable art/environment/gore and existing dry contacts, hurt/death and actual stereo mix.",
+    "Complete directional creature/weapon animation and richer interactions.",
+    "Extend human-paced encounters toward original5\u20138minute target.",
+    "Sustained outside-source complete-level Linux human playtest and final release acceptance."
   ],
   "known_issues": [
     "Playable reference-based art/layout pass; original5\u20138minute human duration and full polish not accepted.",
@@ -191,5 +197,19 @@
     "sample_rate": 48000,
     "channels": 2,
     "audio_validation": "level/movie-audio.json"
+  },
+  "gore_verification": {
+    "contract_files": [
+      "gore/contract-30.json",
+      "gore/contract-60.json",
+      "gore/contract-120.json"
+    ],
+    "actual_screenshots": [
+      "gore/shotgun-burst.png",
+      "gore/corpse-close.png",
+      "gore/bloody-remains.png"
+    ],
+    "integrated_combat": "gore/integrated-playtest.json",
+    "result": "Actual integrated normal combat route completed:10/11kills,health90.4,5shells,no secret; effects settled consistently at30/60/120 caps, 11parts after160physics ticks. Surface gap .009m; pause and retry passed. Native release check follows export."
   }
 }

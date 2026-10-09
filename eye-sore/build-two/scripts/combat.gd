@@ -23,6 +23,7 @@ var enemies: Array[CharacterBody3D] = []
 var weapons: Dictionary = {}
 var weapon_visuals: Dictionary = {}
 var recoil_remaining: float = 0.0
+var gore: Node3D
 const SWITCH_TIME: float = 0.22
 
 func setup(room: Node3D, actor: CharacterBody3D) -> void:
@@ -31,9 +32,15 @@ func setup(room: Node3D, actor: CharacterBody3D) -> void:
 	camera = player.get_node("Camera3D")
 	for id in [&"pistol", &"shotgun", &"melee"]:
 		weapons[id] = load("res://resources/weapons/%s.tres" % id)
+	gore = preload("res://scripts/combat_gore.gd").new()
+	gore.name = "Gore"
+	add_child(gore)
+	gore.setup(self, preload("res://resources/gore_profile.tres"))
+	combat_event.connect(gore.handle_event)
 	reset()
 
 func reset() -> void:
+	if is_instance_valid(gore): gore.reset()
 	for enemy in enemies:
 		if is_instance_valid(enemy):
 			enemy.collision_layer = 0; enemy.collision_mask = 0

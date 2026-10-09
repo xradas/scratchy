@@ -6,6 +6,7 @@ var definition: EnemyDefinition
 var target_id: String
 var health: float = 1.0
 var dead: bool = false
+var gibbed: bool = false
 var awake: bool = true
 var state: StringName = &"chase"
 var state_time: float = 0.0
@@ -124,17 +125,22 @@ func apply_damage(amount: float, shot_id: int, weapon_id: StringName, hit_positi
 	if dead or amount <= 0.0 or seen_shots.has(shot_id): return {}
 	awake = true
 	seen_shots[shot_id] = true
+	var overkill := maxf(0.0, amount - health)
 	health = maxf(0.0, health - amount)
 	var struck_material := definition.hit_material if impact_material == &"" else impact_material
-	var event := {"type": &"enemy_hurt", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": struck_material, "position": hit_position, "damage": amount}
+	var direction: Vector3 = -combat.camera.global_basis.z
+	var event := {"type": &"enemy_hurt", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": struck_material, "position": hit_position, "damage": amount, "direction":direction}
 	# Pain always cancels a pending unreleased strike; a fresh windup is needed after pain.
 	released = true
 	if health <= 0.0:
+		gibbed = is_instance_valid(combat.gore) and combat.gore.should_gib(weapon_id, overkill)
 		dead = true; change_state(&"dead"); collision_layer = 0; collision_mask = 0; velocity = Vector3.ZERO
 		for hurt_shape in hurt_shapes: hurt_shape.collision_layer = 0
 		$Visual.rotation.z = PI / 2; $Visual.position.y = -0.5
 		if is_instance_valid(sprite): update_sprite()
-		event = {"type": &"enemy_death", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": struck_material, "position": global_position}
+		if gibbed: $Visual.visible = false
+		if gibbed and is_instance_valid(visual_rig): visual_rig.visible = false
+		event = {"type": &"enemy_death", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": struck_material, "position": global_position, "contact_position":hit_position, "direction":direction, "damage":amount, "overkill":overkill, "gibbed":gibbed}
 		combat.emit_event(event)
 		combat.enemy_killed(self)
 	else:
@@ -264,6 +270,7 @@ func clear_hurt_surfaces() -> void:
 
 func update_sprite() -> void:
 	if not is_instance_valid(sprite): return
+	sprite.visible = not gibbed
 	var camera: Node3D = player.get_node_or_null("Camera3D") if is_instance_valid(player) else null
 	if camera != null:
 		var offset := camera.global_position - sprite_pivot.global_position

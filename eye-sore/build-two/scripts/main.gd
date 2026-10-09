@@ -121,6 +121,26 @@ func _ready() -> void:
 	set_paused(true)
 	if smoke:
 		enter_combat()
+		if "--gore-smoke" in OS.get_cmdline_user_args():
+			# Exercise embedded art and actual resolved damage in the release template.
+			player.set_physics_process(false)
+			player.position = Vector3(0,.87,11)
+			for enemy in combat.enemies:
+				enemy.set_physics_process(false); enemy.position.x = 80
+			var victim: CharacterBody3D = combat.enemies[0]
+			victim.position = Vector3(0,.87,7); victim.health = 80
+			player.camera.look_at(victim.global_position + Vector3(0,.28,0))
+			combat.currentweapon = &"shotgun"
+			await get_tree().physics_frame; await get_tree().physics_frame
+			assert(combat.try_fire())
+			assert(victim.dead and victim.gibbed)
+			await get_tree().create_timer(2.7).timeout
+			assert(combat.gore.remains.size() == 9 and combat.gore.particles.is_empty())
+			player.camera.look_at(Vector3(0,.2,7))
+			await capture_smoke_frame("gore")
+			restart_combat()
+			assert(combat.gore.stains.is_empty() and combat.gore.remains.is_empty())
+			print("GORE_EXPORT_SMOKE_OK: actual shotgun kill, nine grounded parts, embedded textures and retry reset")
 		await get_tree().create_timer(0.5).timeout
 		await capture_smoke_frame("gameplay")
 		set_paused(true)
