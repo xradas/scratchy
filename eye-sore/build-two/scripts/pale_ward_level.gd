@@ -118,7 +118,7 @@ func get_level_state() -> Dictionary:
 	var map: Array[Dictionary] = []
 	for room in rooms:
 		var id := String(room.get_meta("ward_room"))
-		if visited.has(id): 
+		if visited.has(id):
 			var bounds:Vector3=room.get_meta("room_bounds",Vector3(5,3,5))
 			map.append({"id":id,"label":room.get_meta("ward_label",ROOM_LABELS.get(id,id)),"rect":Rect2(Vector2(room.global_position.x-bounds.x,room.global_position.z-bounds.z),Vector2(bounds.x*2,bounds.z*2)),"visited":true,"position":room.global_position,"bounds":bounds})
 	return {"objective":objective,"prompt":prompt,"current_room":current_room,"visited_rooms":visited.keys(),"map_rooms":map,"key":has_key,"shortcut_open":shortcut_open,"secret_found":secret_found,"exit_ready":has_key,"completed":finished,"pickups_remaining":pickups.size()-collected.size()}
