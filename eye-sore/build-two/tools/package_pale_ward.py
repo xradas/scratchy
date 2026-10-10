@@ -94,6 +94,7 @@ def provenance_files() -> list[Path]:
              "concepts/weapon-style-v3",
              "concepts/visual-v2/corrupted-biotech")
     paths = [PROJECT / "concepts/visual-v2/manifest.json",
+             PROJECT / "concepts/audio-v4/manifest.json",
              PROJECT / "concepts/audio-v3/manifest.json",
              PROJECT / "concepts/audio-v2/manifest.json",
              PROJECT / "verification/download_manifest.json",

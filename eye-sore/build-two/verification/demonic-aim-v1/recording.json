@@ -1,0 +1,184 @@
+{
+  "schema": "eyesore-recording-validation-v1",
+  "checked_utc": "2026-10-10T19:04:35.817063+00:00",
+  "source_status": "fresh-capture",
+  "scope": "Structural and decoded numerical evidence only; no listening-quality or visual route-coverage claim.",
+  "thresholds": {
+    "silence_rms": 1e-07,
+    "stereo_relative_rms": 1e-05,
+    "over_full_scale_epsilon": 1e-06,
+    "aac_duration_allowance_samples": 2048
+  },
+  "failures": [],
+  "video": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-demonic-aim-2026-10-10/pale-ward-demonic-aim-gameplay.mp4",
+    "sha256": "afcea74ddfbbe4ba720677a212b85f423901918802521e9de624e599d3fc6465",
+    "size_bytes": 26432081,
+    "mtime_utc": "2026-10-10T19:04:27.749054+00:00",
+    "format": "mov,mp4,m4a,3gp,3g2,mj2",
+    "duration_seconds": 34.266667,
+    "frame_rate": 30.0,
+    "video": {
+      "index": 0,
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "pix_fmt": "yuvj420p",
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "bit_rate": "5969817",
+      "duration": "34.266667",
+      "nb_frames": "1028",
+      "start_time": "0.000000"
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "aac",
+      "sample_fmt": "fltp",
+      "sample_rate": "48000",
+      "channels": 2,
+      "channel_layout": "stereo",
+      "bit_rate": "191858",
+      "bits_per_sample": 0,
+      "duration": "34.266667",
+      "start_time": "0.000000"
+    },
+    "failures": [],
+    "decoded_audio": {
+      "decode_command": [
+        "ffmpeg",
+        "-nostdin",
+        "-v",
+        "error",
+        "-i",
+        "/home/rikki/Builds/eyesore-pale-ward-demonic-aim-2026-10-10/pale-ward-demonic-aim-gameplay.mp4",
+        "-map",
+        "0:1",
+        "-vn",
+        "-sn",
+        "-dn",
+        "-c:a",
+        "pcm_f32le",
+        "-f",
+        "f32le",
+        "pipe:1"
+      ],
+      "decoded_frames": 1644800,
+      "decoded_duration_seconds": 34.266666666666666,
+      "peak_per_channel": [
+        0.5055074691772461,
+        0.46376335620880127
+      ],
+      "rms_per_channel": [
+        0.03824136719972298,
+        0.03737545451310244
+      ],
+      "difference_rms": 0.018626512050302236,
+      "difference_threshold": 3.824136719972298e-07,
+      "stereo_difference_nonzero": true,
+      "correlation": 0.8788918071053485,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "pcm_rail_sample_count": 0,
+      "pcm_positive_rail": null,
+      "nonzero_each_channel": true
+    },
+    "audio_video_duration_tolerance_seconds": 0.076001,
+    "audio_video_start_delta_seconds": 0.0,
+    "passed": true
+  },
+  "original": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-demonic-aim-2026-10-10/pale-ward-demonic-aim-gameplay.avi",
+    "sha256": "2015c22f4fad958b9782b525c210c63ec01efec908e6eb535a9dcaef72413de1",
+    "size_bytes": 121524310,
+    "mtime_utc": "2026-10-10T19:03:44.180811+00:00",
+    "format": "avi",
+    "duration_seconds": 34.266667,
+    "frame_rate": 30.0,
+    "video": {
+      "index": 0,
+      "codec_name": "mjpeg",
+      "width": 1280,
+      "height": 720,
+      "pix_fmt": "yuvj420p",
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "bit_rate": "26849953",
+      "duration": "34.266667",
+      "nb_frames": "1028",
+      "start_time": "0.000000"
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "pcm_s16le",
+      "sample_fmt": "s16",
+      "sample_rate": "48000",
+      "channels": 2,
+      "channel_layout": null,
+      "bit_rate": "1536000",
+      "bits_per_sample": 16,
+      "duration": null,
+      "start_time": "0.000000"
+    },
+    "failures": [],
+    "decoded_audio": {
+      "decode_command": [
+        "ffmpeg",
+        "-nostdin",
+        "-v",
+        "error",
+        "-i",
+        "/home/rikki/Builds/eyesore-pale-ward-demonic-aim-2026-10-10/pale-ward-demonic-aim-gameplay.avi",
+        "-map",
+        "0:1",
+        "-vn",
+        "-sn",
+        "-dn",
+        "-c:a",
+        "pcm_f32le",
+        "-f",
+        "f32le",
+        "pipe:1"
+      ],
+      "decoded_frames": 1644800,
+      "decoded_duration_seconds": 34.266666666666666,
+      "peak_per_channel": [
+        0.48651123046875,
+        0.459747314453125
+      ],
+      "rms_per_channel": [
+        0.03844823345781067,
+        0.03756641052127286
+      ],
+      "difference_rms": 0.018719693564148727,
+      "difference_threshold": 3.844823345781067e-07,
+      "stereo_difference_nonzero": true,
+      "correlation": 0.8789606557933723,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "pcm_rail_sample_count": 0,
+      "pcm_positive_rail": 0.999969482421875,
+      "nonzero_each_channel": true
+    },
+    "audio_video_duration_tolerance_seconds": 0.033334333333333334,
+    "audio_video_start_delta_seconds": 0.0,
+    "passed": true
+  },
+  "duration_comparison": {
+    "tolerance_seconds": 0.076001,
+    "deltas_seconds": {
+      "container": 0.0,
+      "decoded_audio": 0.0,
+      "video_stream": 0.0
+    }
+  },
+  "route_report": {
+    "path": "/home/rikki/Builds/eyesore-pale-ward-demonic-aim-2026-10-10/movie-route/integrated-playtest.json",
+    "sha256": "cb37a749ef433728e9d826b72b2b207061c4464eaa8c445ead46a611ed284e3e",
+    "completed": true,
+    "failures": [],
+    "scope": "Actual main scene, authored spawns, normal AI/health/ammo, authoritative hitscan; automated aiming, no secret supplies or cheats. Timing is bot traversal, not human level-duration acceptance.",
+    "association": "Caller supplied this route report; media-to-route provenance is not inferred from filenames."
+  },
+  "passed": true
+}

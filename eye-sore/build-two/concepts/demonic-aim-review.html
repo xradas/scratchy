@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Pale Ward — demonic voices and aim review</title>
+  <link rel="stylesheet" href="grit-review.css">
+  <style>
+    .audio-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .audio-grid article { border: 1px solid #555; padding: 12px 16px; }
+    .audio-grid h3 { margin: 0; }
+    .audio-grid audio { width: 100%; }
+    @media (max-width: 760px) { .audio-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p>EYESORE / BUILD TWO / VOICE AND AIM COMPARISON</p>
+    <h1>The Pale Ward — demonic voices and aim review</h1>
+    <p>Six creature cues have been revised toward lower, layered demonic voices. Each audition plays the preceding runtime cue, a short pause, then the revised cue. These are listening comparisons, not recorded gameplay audio. Music and player, weapon, and material-contact sounds remain unchanged.</p>
+    <p>The images compare native full-window captures of the actual game before and after the gun bore and crosshair alignment change. The fire and switch views freeze the simulation at real gameplay events; no weapon overlays were added to the PNGs. Open any image for its unchanged pixels. Human listening and visual acceptance remain pending.</p>
+    <p><a href="weapon-style-review.html">Previous weapon review</a> · <a href="demonic-aim-v1/manifest.json">Source SHA256 and byte checks</a> · <a href="audio-v4/manifest.json">Audio processing provenance</a> · <a href="../verification/demonic-aim-v1/aim/aim-balance.json">Aim balance evidence</a></p>
+  </header>
+  <section aria-labelledby="voice-heading">
+    <h2 id="voice-heading">Creature voices — before, then after</h2>
+    <div class="audio-grid">
+      <article>
+        <h3>Unsealed hurt</h3>
+        <p>Previous cue, brief pause, then new demonic cue.</p>
+        <audio controls preload="none" aria-label="Unsealed hurt before and after" src="demonic-aim-v1/auditions/unsealed_hurt-before-after.wav"></audio>
+        <p><a href="demonic-aim-v1/auditions/unsealed_hurt-before-after.wav">Unchanged audition WAV</a> · <a href="../concepts/audio-v4/auditions/unsealed_hurt-before-after.wav">Original audition source</a></p>
+      </article>
+      <article>
+        <h3>Vessel hurt</h3>
+        <p>Previous cue, brief pause, then new demonic cue.</p>
+        <audio controls preload="none" aria-label="Vessel hurt before and after" src="demonic-aim-v1/auditions/vessel_hurt-before-after.wav"></audio>
+        <p><a href="demonic-aim-v1/auditions/vessel_hurt-before-after.wav">Unchanged audition WAV</a> · <a href="../concepts/audio-v4/auditions/vessel_hurt-before-after.wav">Original audition source</a></p>
+      </article>
+      <article>
+        <h3>Unsealed attack warning</h3>
+        <p>Previous cue, brief pause, then new demonic cue.</p>
+        <audio controls preload="none" aria-label="Unsealed attack warning before and after" src="demonic-aim-v1/auditions/unsealed_attack_warning-before-after.wav"></audio>
+        <p><a href="demonic-aim-v1/auditions/unsealed_attack_warning-before-after.wav">Unchanged audition WAV</a> · <a href="../concepts/audio-v4/auditions/unsealed_attack_warning-before-after.wav">Original audition source</a></p>
+      </article>
+      <article>
+        <h3>Vessel attack warning</h3>
+        <p>Previous cue, brief pause, then new demonic cue.</p>
+        <audio controls preload="none" aria-label="Vessel attack warning before and after" src="demonic-aim-v1/auditions/vessel_attack_warning-before-after.wav"></audio>
+        <p><a href="demonic-aim-v1/auditions/vessel_attack_warning-before-after.wav">Unchanged audition WAV</a> · <a href="../concepts/audio-v4/auditions/vessel_attack_warning-before-after.wav">Original audition source</a></p>
+      </article>
+      <article>
+        <h3>Unsealed death</h3>
+        <p>Previous cue, brief pause, then new demonic cue.</p>
+        <audio controls preload="none" aria-label="Unsealed death before and after" src="demonic-aim-v1/auditions/unsealed_death-before-after.wav"></audio>
+        <p><a href="demonic-aim-v1/auditions/unsealed_death-before-after.wav">Unchanged audition WAV</a> · <a href="../concepts/audio-v4/auditions/unsealed_death-before-after.wav">Original audition source</a></p>
+      </article>
+      <article>
+        <h3>Vessel death</h3>
+        <p>Previous cue, brief pause, then new demonic cue.</p>
+        <audio controls preload="none" aria-label="Vessel death before and after" src="demonic-aim-v1/auditions/vessel_death-before-after.wav"></audio>
+        <p><a href="demonic-aim-v1/auditions/vessel_death-before-after.wav">Unchanged audition WAV</a> · <a href="../concepts/audio-v4/auditions/vessel_death-before-after.wav">Original audition source</a></p>
+      </article>
+    </div>
+  </section>
+  <section aria-labelledby="aim-heading">
+    <h2 id="aim-heading">Gun bore and crosshair — actual game</h2>
+    <label for="view">Gameplay phase</label>
+    <select id="view">
+        <option value="containment-entry">Containment entry</option>
+        <option value="pistol-idle">Pistol idle</option>
+        <option value="pistol-fire">Pistol fire</option>
+        <option value="pistol-recover">Pistol recover</option>
+        <option value="pistol-switch">Pistol switch</option>
+        <option value="shotgun-idle">Shotgun idle</option>
+        <option value="shotgun-fire">Shotgun fire</option>
+        <option value="shotgun-recover">Shotgun recover</option>
+        <option value="shotgun-switch">Shotgun switch</option>
+    </select>
+    <div class="comparison">
+      <section aria-labelledby="before-heading">
+        <h3 id="before-heading">Before alignment</h3>
+        <figure><a id="before-link" class="image-frame" href="demonic-aim-v1/before/containment-entry.png"><img id="before-image" src="demonic-aim-v1/before/containment-entry.png" alt="Before alignment: Containment entry"></a><figcaption id="before-caption">Before: Containment entry. Native running-game capture.</figcaption></figure>
+      </section>
+      <section aria-labelledby="after-heading">
+        <h3 id="after-heading">After alignment</h3>
+        <figure><a id="after-link" class="image-frame" href="demonic-aim-v1/after/containment-entry.png"><img id="after-image" src="demonic-aim-v1/after/containment-entry.png" alt="After alignment: Containment entry"></a><figcaption id="after-caption">After: Containment entry. Native running-game capture.</figcaption></figure>
+      </section>
+    </div>
+    <p>Both images use equal display dimensions, preserve aspect ratio without cropping, and use nearest-neighbour display scaling.</p>
+    <ul>
+      <li>Containment entry: <a href="demonic-aim-v1/before/containment-entry.png">before PNG</a> · <a href="demonic-aim-v1/after/containment-entry.png">after PNG</a></li>
+      <li>Pistol idle: <a href="demonic-aim-v1/before/pistol-idle.png">before PNG</a> · <a href="demonic-aim-v1/after/pistol-idle.png">after PNG</a></li>
+      <li>Pistol fire: <a href="demonic-aim-v1/before/pistol-fire.png">before PNG</a> · <a href="demonic-aim-v1/after/pistol-fire.png">after PNG</a></li>
+      <li>Pistol recover: <a href="demonic-aim-v1/before/pistol-recover.png">before PNG</a> · <a href="demonic-aim-v1/after/pistol-recover.png">after PNG</a></li>
+      <li>Pistol switch: <a href="demonic-aim-v1/before/pistol-switch.png">before PNG</a> · <a href="demonic-aim-v1/after/pistol-switch.png">after PNG</a></li>
+      <li>Shotgun idle: <a href="demonic-aim-v1/before/shotgun-idle.png">before PNG</a> · <a href="demonic-aim-v1/after/shotgun-idle.png">after PNG</a></li>
+      <li>Shotgun fire: <a href="demonic-aim-v1/before/shotgun-fire.png">before PNG</a> · <a href="demonic-aim-v1/after/shotgun-fire.png">after PNG</a></li>
+      <li>Shotgun recover: <a href="demonic-aim-v1/before/shotgun-recover.png">before PNG</a> · <a href="demonic-aim-v1/after/shotgun-recover.png">after PNG</a></li>
+      <li>Shotgun switch: <a href="demonic-aim-v1/before/shotgun-switch.png">before PNG</a> · <a href="demonic-aim-v1/after/shotgun-switch.png">after PNG</a></li>
+    </ul>
+  </section>
+  <footer><p>Review media are byte-for-byte copies. The <a href="demonic-aim-v1/manifest.json">manifest</a> records every source and copy SHA256. No review image or audio file was edited.</p></footer>
+  <p id="view-status" role="status" aria-live="polite" class="sr-only"></p>
+</main>
+<script>
+"use strict";
+document.getElementById("view").addEventListener("change", (event) => {
+  const name = event.target.value;
+  const text = event.target.selectedOptions[0].textContent;
+  for (const state of ["before", "after"]) {
+    const value = `demonic-aim-v1/${state}/${name}.png`;
+    document.getElementById(`${state}-link`).href = value;
+    const image = document.getElementById(`${state}-image`);
+    image.src = value;
+    image.alt = `${state === "before" ? "Before" : "After"} alignment: ${text}`;
+    document.getElementById(`${state}-caption`).textContent = `${state === "before" ? "Before" : "After"}: ${text}. Native running-game capture.`;
+  }
+  document.getElementById("view-status").textContent = `Gameplay phase changed to ${text}.`;
+});
+</script>
+</body>
+</html>

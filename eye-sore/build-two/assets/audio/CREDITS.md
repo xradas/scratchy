@@ -13,3 +13,5 @@ All new physical and vocal source recordings use CC0 1.0. Original extracted FLA
 
 
 Sources, original files, license evidence, exact edits and hashes are in the source project’s `concepts/audio-v3/manifest.json` and its referenced `concepts/audio-v2` music originals. Runtime cues are derivatives; Abelian is menu music. Level music is provisional. No Doom/Quake audio is distributed.
+
+The six creature attack, hurt and death cues in `assets/audio/demonic-v1` are new layered derivatives of the preserved HaelDB CC0 performances. Lowered pitch/formants, duration compensation, harmonic saturation and restrained fast amplitude modulation give each species a separate voice. No added reverb, echo, wet foley or unprocessed voice layer. `concepts/audio-v4/manifest.json` records the original SHA-256, excerpts, complete filter graphs, preceding versions and exported hashes; `build_demonic.py` reproduces the treatment. Previous runtime cues remain preserved. Human listening approval is pending.

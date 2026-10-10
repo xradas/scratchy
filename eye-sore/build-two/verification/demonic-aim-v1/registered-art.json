@@ -1,0 +1,565 @@
+{
+  "alpha_contract": "Existing check_sprite_alpha.gd owns alpha contact acceptance; this audit checks registration only.",
+  "checks": 350,
+  "enemies": {
+    "unsealed": {
+      "atlas_dimensions": [
+        1536,
+        1024
+      ],
+      "direction_count": 1,
+      "frame_count": 8,
+      "frame_dimensions": [
+        384,
+        512
+      ],
+      "frames": [
+        {
+          "foot_pivot": [
+            192.0,
+            485.0
+          ],
+          "frame": 0,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            486.0
+          ],
+          "frame": 1,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            490.0
+          ],
+          "frame": 2,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            490.0
+          ],
+          "frame": 3,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            471.0
+          ],
+          "frame": 4,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            471.0
+          ],
+          "frame": 5,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            468.0
+          ],
+          "frame": 6,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            468.0
+          ],
+          "frame": 7,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh"
+          ],
+          "render_layer_does_not_shift_registration": true
+        }
+      ],
+      "path": "res://assets/enemies/concept-style-v2/unsealed-atlas-r2.png"
+    },
+    "vessel": {
+      "atlas_dimensions": [
+        1536,
+        1024
+      ],
+      "direction_count": 1,
+      "frame_count": 8,
+      "frame_dimensions": [
+        384,
+        512
+      ],
+      "frames": [
+        {
+          "foot_pivot": [
+            192.0,
+            470.0
+          ],
+          "frame": 0,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh",
+            "armor"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            480.0
+          ],
+          "frame": 1,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh",
+            "armor"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            480.0
+          ],
+          "frame": 2,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh",
+            "armor"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            469.0
+          ],
+          "frame": 3,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh",
+            "armor"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            420.0
+          ],
+          "frame": 4,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh",
+            "armor"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            430.0
+          ],
+          "frame": 5,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh",
+            "armor"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            434.0
+          ],
+          "frame": 6,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh"
+          ],
+          "render_layer_does_not_shift_registration": true
+        },
+        {
+          "foot_pivot": [
+            192.0,
+            433.0
+          ],
+          "frame": 7,
+          "ground_y": 0.0199999809265137,
+          "native_hurt_materials": [
+            "flesh"
+          ],
+          "render_layer_does_not_shift_registration": true
+        }
+      ],
+      "path": "res://assets/enemies/board-sprites/vessel-atlas.png"
+    }
+  },
+  "failures": [],
+  "known_limitations": [
+    "unsealed: eight representative frontal poses; full eight-direction production animation remains pending. This does not fail current registration.",
+    "vessel: eight representative frontal poses; full eight-direction production animation remains pending. This does not fail current registration."
+  ],
+  "manifest_sha256": "3c90e24092b62a1a56befc2168de3ebe59e85fd508288c7653b5c149d433e307",
+  "passed": true,
+  "presentation_contract": {
+    "camera_resolution": [
+      640,
+      360
+    ],
+    "horizontal_fov": 90.0,
+    "shared_weapon_muzzle_owner": true,
+    "single_canvas": true,
+    "weapon_canvas_resolution": [
+      640,
+      360
+    ],
+    "window_ui_unfiltered": true
+  },
+  "source_identity": {
+    "res://assets/enemies/board-sprites/vessel-atlas.png": {
+      "current_blob": "d777e6766cb01d0433a3a44a3bf25d32420c72b1",
+      "head_blob": "d777e6766cb01d0433a3a44a3bf25d32420c72b1",
+      "registered_sha256": "",
+      "sha256": "ff821c5a7756b3d989e33f078b5b5cfc85564b69f8ed7c649e36a02104f59577",
+      "tracked_original": true,
+      "unchanged_from_head": true
+    },
+    "res://assets/enemies/concept-style-v2/unsealed-atlas-r2.png": {
+      "current_blob": "306a11c275bb0a5d80974c0e60a1f47cd771c19f",
+      "head_blob": "306a11c275bb0a5d80974c0e60a1f47cd771c19f",
+      "registered_sha256": "a83f7b7e8267bfae12da10e8480d677b73fd2741bed7ecd32e929642c1471869",
+      "sha256": "a83f7b7e8267bfae12da10e8480d677b73fd2741bed7ecd32e929642c1471869",
+      "tracked_original": true,
+      "unchanged_from_head": true
+    },
+    "res://assets/weapons/board-sprites/melee-atlas.png": {
+      "current_blob": "98446e8f9f8af9b3face0624434e2530e186bc75",
+      "head_blob": "98446e8f9f8af9b3face0624434e2530e186bc75",
+      "registered_sha256": "611432117160e778b3b50989308eea6459e4d21781ba80dcd3ea3b8383393b18",
+      "sha256": "611432117160e778b3b50989308eea6459e4d21781ba80dcd3ea3b8383393b18",
+      "tracked_original": true,
+      "unchanged_from_head": true
+    },
+    "res://assets/weapons/painted-v3/pistol-atlas.png": {
+      "current_blob": "434168cfa135ce422e86e9440caa7a1aa604363d",
+      "head_blob": "434168cfa135ce422e86e9440caa7a1aa604363d",
+      "registered_sha256": "2c4a36b306fb3a624d21c4ad12500f7b88e699b3085a103d7d829cb29976e829",
+      "sha256": "2c4a36b306fb3a624d21c4ad12500f7b88e699b3085a103d7d829cb29976e829",
+      "tracked_original": true,
+      "unchanged_from_head": true
+    },
+    "res://assets/weapons/painted-v3/shotgun-atlas.png": {
+      "current_blob": "1e8d6103a2df94427323a886ca0f403ab584c2c6",
+      "head_blob": "1e8d6103a2df94427323a886ca0f403ab584c2c6",
+      "registered_sha256": "83c91a1d066410553e8fe0cb231532a3b08b8076f99ef330e4a27129e6f97a36",
+      "sha256": "83c91a1d066410553e8fe0cb231532a3b08b8076f99ef330e4a27129e6f97a36",
+      "tracked_original": true,
+      "unchanged_from_head": true
+    },
+    "res://scenes/combat_enemy.tscn": {
+      "current_blob": "55630207c5b066c083e08f3d573c749433f72d8e",
+      "head_blob": "55630207c5b066c083e08f3d573c749433f72d8e",
+      "registered_sha256": "",
+      "sha256": "49f542d1b0d754dbeb007134d2f2bb82d1f46b9156d4cf435bf77346d7564d7a",
+      "tracked_original": true,
+      "unchanged_from_head": true
+    },
+    "res://scripts/combat.gd": {
+      "current_blob": "4134f12450a4bbed6c3ca52565d983da16c9acf6",
+      "head_blob": "4134f12450a4bbed6c3ca52565d983da16c9acf6",
+      "registered_sha256": "",
+      "sha256": "acd10f3ca6c002b0d8f233ea380431fc45786e6ad6c6197ce4c254f4a4525d92",
+      "tracked_original": true,
+      "unchanged_from_head": true
+    },
+    "res://scripts/player.gd": {
+      "current_blob": "1f64cd81ce329bac1a9862f29bdbe27671028076",
+      "head_blob": "1f64cd81ce329bac1a9862f29bdbe27671028076",
+      "registered_sha256": "",
+      "sha256": "8b1107491fa24cd6dd637431788e7724175394f701101798e8a9d3c0a4ea8600",
+      "tracked_original": true,
+      "unchanged_from_head": true
+    },
+    "res://scripts/sprite_hurt_geometry.gd": {
+      "current_blob": "5c496eb6ab952fe80ebc67ef0d4940e56adcb320",
+      "head_blob": "5c496eb6ab952fe80ebc67ef0d4940e56adcb320",
+      "registered_sha256": "",
+      "sha256": "19627ea1e2c3dd92edbedb01272b6d3de6efb197197a61f83137f5f4e811149a",
+      "tracked_original": true,
+      "unchanged_from_head": true
+    }
+  },
+  "weapons": {
+    "melee": {
+      "fire": {
+        "marker": [
+          340.0,
+          195.0
+        ],
+        "path": "res://assets/weapons/board-sprites/melee-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          768.0,
+          0.0,
+          768.0,
+          512.0
+        ],
+        "target": [
+          0.5,
+          0.63
+        ],
+        "visible": true
+      },
+      "idle": {
+        "marker": [
+          550.0,
+          300.0
+        ],
+        "path": "res://assets/weapons/board-sprites/melee-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          0.0,
+          0.0,
+          768.0,
+          512.0
+        ],
+        "target": [
+          0.68,
+          0.77
+        ],
+        "visible": true
+      },
+      "recover": {
+        "marker": [
+          510.0,
+          150.0
+        ],
+        "path": "res://assets/weapons/board-sprites/melee-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          0.0,
+          512.0,
+          768.0,
+          512.0
+        ],
+        "target": [
+          0.68,
+          0.77
+        ],
+        "visible": true
+      },
+      "switch": {
+        "marker": [
+          470.0,
+          330.0
+        ],
+        "path": "res://assets/weapons/board-sprites/melee-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          768.0,
+          512.0,
+          768.0,
+          512.0
+        ],
+        "target": [
+          0.7,
+          0.88
+        ],
+        "visible": true
+      }
+    },
+    "pistol": {
+      "fire": {
+        "marker": [
+          309.0,
+          136.0
+        ],
+        "path": "res://assets/weapons/painted-v3/pistol-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          768.0,
+          0.0,
+          768.0,
+          528.0
+        ],
+        "target": [
+          0.6,
+          0.63
+        ],
+        "visible": true
+      },
+      "idle": {
+        "marker": [
+          338.0,
+          183.0
+        ],
+        "path": "res://assets/weapons/painted-v3/pistol-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          0.0,
+          0.0,
+          768.0,
+          528.0
+        ],
+        "target": [
+          0.6,
+          0.66
+        ],
+        "visible": true
+      },
+      "recover": {
+        "marker": [
+          344.0,
+          57.0
+        ],
+        "path": "res://assets/weapons/painted-v3/pistol-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          0.0,
+          528.0,
+          768.0,
+          496.0
+        ],
+        "target": [
+          0.58,
+          0.66
+        ],
+        "visible": true
+      },
+      "switch": {
+        "marker": [
+          334.0,
+          112.0
+        ],
+        "path": "res://assets/weapons/painted-v3/pistol-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          768.0,
+          528.0,
+          768.0,
+          496.0
+        ],
+        "target": [
+          0.6,
+          0.84
+        ],
+        "visible": true
+      }
+    },
+    "shotgun": {
+      "fire": {
+        "marker": [
+          300.0,
+          202.0
+        ],
+        "path": "res://assets/weapons/painted-v3/shotgun-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          768.0,
+          0.0,
+          768.0,
+          560.0
+        ],
+        "target": [
+          0.6,
+          0.61
+        ],
+        "visible": true
+      },
+      "idle": {
+        "marker": [
+          310.0,
+          216.0
+        ],
+        "path": "res://assets/weapons/painted-v3/shotgun-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          0.0,
+          0.0,
+          768.0,
+          560.0
+        ],
+        "target": [
+          0.6,
+          0.63
+        ],
+        "visible": true
+      },
+      "recover": {
+        "marker": [
+          331.0,
+          52.0
+        ],
+        "path": "res://assets/weapons/painted-v3/shotgun-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          0.0,
+          560.0,
+          800.0,
+          464.0
+        ],
+        "target": [
+          0.58,
+          0.63
+        ],
+        "visible": true
+      },
+      "switch": {
+        "marker": [
+          239.0,
+          164.0
+        ],
+        "path": "res://assets/weapons/painted-v3/shotgun-atlas.png",
+        "placement_matches_manifest": true,
+        "region": [
+          800.0,
+          560.0,
+          736.0,
+          464.0
+        ],
+        "target": [
+          0.6,
+          0.83
+        ],
+        "visible": true
+      }
+    }
+  }
+}

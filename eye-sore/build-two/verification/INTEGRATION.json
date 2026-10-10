@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-10T18:17:44.363658+00:00",
+  "checked_utc": "2026-10-10T19:04:22.941991+00:00",
   "stage": "Pale Ward weapon shading review: registered dark painted pistol and shotgun; full visual acceptance pending",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
@@ -516,5 +516,26 @@
     "capture_source_commit": "1f032c2a37fe111a5696c84d1474674ba579a874",
     "runtime_source_difference": "Later source checkpoint changes smoke fixture and packaging diagnostics only; gameplay art/movement/combat/audio unchanged.",
     "audio_validation": "style-v2/recording.json"
+  },
+  "demonic_aim_pass": {
+    "date": "2026-10-10",
+    "art_and_audio_review": "http://127.0.0.1:8765/demonic-aim-review.html",
+    "accepted_as_full_visual_or_listening_match": false,
+    "audio_provenance": "../concepts/audio-v4/manifest.json",
+    "audio_contract": "demonic-aim-v1/audio/transformed/audio-contract.json",
+    "attack_interruption": "demonic-aim-v1/audio/actual-attack-interruption.json",
+    "preserved_audio_baseline": "demonic-aim-v1/audio/prechange-preserved-audio.json",
+    "barrel_projection": "demonic-aim-v1/bore-axis-registration.json",
+    "aim_balance": "demonic-aim-v1/aim/aim-balance.json",
+    "before_captures": "demonic-aim-v1/before",
+    "after_captures": "demonic-aim-v1/after",
+    "scope": "Six dry transformed creature vocals and gun pose translation only; centered physical aim, weapon damage/cadence, HUD/music/material contacts preserved. Approximate bore annotation supports native image review; human tone/physical aiming acceptance pending.",
+    "registered_art": "demonic-aim-v1/registered-art.json",
+    "shot_cadence": "demonic-aim-v1/shot-cadence-native.json",
+    "actual_movie_route": "demonic-aim-v1/movie-route.json",
+    "movie_runtime_fingerprints": "demonic-aim-v1/movie-runtime-source.json",
+    "actual_stereo_recording": "demonic-aim-v1/recording.json",
+    "initial_capture_failure": "demonic-aim-v1/movie-capture-missing-directory.log",
+    "capture_failure_resolution": "Output folder was missing. Failed media/log retained under separate build failure-evidence; output directory created; fresh1028frame clean route captured. No game changes."
   }
 }

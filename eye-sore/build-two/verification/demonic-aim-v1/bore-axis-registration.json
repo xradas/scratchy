@@ -1,0 +1,248 @@
+{
+  "method": "Project visually identified front muzzle marker and rear barrel-axis reference through the actual captured TextureRect position and atlas region. Extend their line to camera/crosshair y=180 in the 640x360 native view. Reference points are approximate annotations on source art; residual is a visual pose measure, not a ballistics model.",
+  "native_aim": [
+    320,
+    180
+  ],
+  "tests": {
+    "before_axis_miss_over_35_native_px": true,
+    "after_axis_residual_under_8_native_px": true,
+    "ready_muzzle_below_crosshair_over_35_native_px": true,
+    "camera_ray_center_and_shot_stability": true,
+    "actual_trigger_flash_and_ammo_validated_in_capture_state": true
+  },
+  "samples": [
+    {
+      "stage": "before",
+      "weapon": "pistol",
+      "phase": "idle",
+      "front_marker_source": [
+        338,
+        183
+      ],
+      "rear_bore_reference_source": [
+        470,
+        300
+      ],
+      "projected_front_native": [
+        320.0,
+        237.6
+      ],
+      "projected_rear_native": [
+        368.49,
+        280.58
+      ],
+      "axis_crossing_at_aim_y_native": 255.02,
+      "crosshair_native": [
+        320,
+        180
+      ],
+      "horizontal_residual_native": -64.98,
+      "front_below_crosshair_native": 57.6,
+      "screenshot": "before/pistol-idle.png"
+    },
+    {
+      "stage": "before",
+      "weapon": "pistol",
+      "phase": "recover",
+      "front_marker_source": [
+        344,
+        57
+      ],
+      "rear_bore_reference_source": [
+        470,
+        192
+      ],
+      "projected_front_native": [
+        320.0,
+        237.6
+      ],
+      "projected_rear_native": [
+        361.66,
+        282.23
+      ],
+      "axis_crossing_at_aim_y_native": 266.24,
+      "crosshair_native": [
+        320,
+        180
+      ],
+      "horizontal_residual_native": -53.76,
+      "front_below_crosshair_native": 57.6,
+      "screenshot": "before/pistol-recover.png"
+    },
+    {
+      "stage": "before",
+      "weapon": "shotgun",
+      "phase": "idle",
+      "front_marker_source": [
+        310,
+        216
+      ],
+      "rear_bore_reference_source": [
+        520,
+        375
+      ],
+      "projected_front_native": [
+        320.0,
+        226.8
+      ],
+      "projected_rear_native": [
+        395.6,
+        284.04
+      ],
+      "axis_crossing_at_aim_y_native": 258.19,
+      "crosshair_native": [
+        320,
+        180
+      ],
+      "horizontal_residual_native": -61.81,
+      "front_below_crosshair_native": 46.8,
+      "screenshot": "before/shotgun-idle.png"
+    },
+    {
+      "stage": "before",
+      "weapon": "shotgun",
+      "phase": "recover",
+      "front_marker_source": [
+        331,
+        52
+      ],
+      "rear_bore_reference_source": [
+        540,
+        250
+      ],
+      "projected_front_native": [
+        320.0,
+        232.8
+      ],
+      "projected_rear_native": [
+        387.72,
+        296.95
+      ],
+      "axis_crossing_at_aim_y_native": 264.27,
+      "crosshair_native": [
+        320,
+        180
+      ],
+      "horizontal_residual_native": -55.73,
+      "front_below_crosshair_native": 52.8,
+      "screenshot": "before/shotgun-recover.png"
+    },
+    {
+      "stage": "after",
+      "weapon": "pistol",
+      "phase": "idle",
+      "front_marker_source": [
+        338,
+        183
+      ],
+      "rear_bore_reference_source": [
+        470,
+        300
+      ],
+      "projected_front_native": [
+        384.0,
+        237.6
+      ],
+      "projected_rear_native": [
+        432.49,
+        280.58
+      ],
+      "axis_crossing_at_aim_y_native": 319.02,
+      "crosshair_native": [
+        320,
+        180
+      ],
+      "horizontal_residual_native": -0.98,
+      "front_below_crosshair_native": 57.6,
+      "screenshot": "after/pistol-idle.png"
+    },
+    {
+      "stage": "after",
+      "weapon": "pistol",
+      "phase": "recover",
+      "front_marker_source": [
+        344,
+        57
+      ],
+      "rear_bore_reference_source": [
+        470,
+        192
+      ],
+      "projected_front_native": [
+        371.2,
+        237.6
+      ],
+      "projected_rear_native": [
+        412.86,
+        282.23
+      ],
+      "axis_crossing_at_aim_y_native": 317.44,
+      "crosshair_native": [
+        320,
+        180
+      ],
+      "horizontal_residual_native": -2.56,
+      "front_below_crosshair_native": 57.6,
+      "screenshot": "after/pistol-recover.png"
+    },
+    {
+      "stage": "after",
+      "weapon": "shotgun",
+      "phase": "idle",
+      "front_marker_source": [
+        310,
+        216
+      ],
+      "rear_bore_reference_source": [
+        520,
+        375
+      ],
+      "projected_front_native": [
+        384.0,
+        226.8
+      ],
+      "projected_rear_native": [
+        459.6,
+        284.04
+      ],
+      "axis_crossing_at_aim_y_native": 322.19,
+      "crosshair_native": [
+        320,
+        180
+      ],
+      "horizontal_residual_native": 2.19,
+      "front_below_crosshair_native": 46.8,
+      "screenshot": "after/shotgun-idle.png"
+    },
+    {
+      "stage": "after",
+      "weapon": "shotgun",
+      "phase": "recover",
+      "front_marker_source": [
+        331,
+        52
+      ],
+      "rear_bore_reference_source": [
+        540,
+        250
+      ],
+      "projected_front_native": [
+        371.2,
+        232.8
+      ],
+      "projected_rear_native": [
+        438.92,
+        296.95
+      ],
+      "axis_crossing_at_aim_y_native": 315.47,
+      "crosshair_native": [
+        320,
+        180
+      ],
+      "horizontal_residual_native": -4.53,
+      "front_below_crosshair_native": 52.8,
+      "screenshot": "after/shotgun-recover.png"
+    }
+  ]
+}

@@ -39,3 +39,7 @@ This selection authorizes biotech asset development. It does not accept the simp
 ## Approved-art reuse correction
 
 The user said the earlier nice 2D concept artwork should be used and the rough 3D direction seemed a waste. The playable revision now directly adapts that exact board into transparent creature/weapon sprites, preserves scarred anatomy, containment cage/green sac and worn gun/black-glove appearance, and displays the original scene as title artwork. This is a generated representative sprite pass: eight frontal enemy poses and four weapon poses, with measured pivots and actual alpha/material contacts. It does not imply acceptance or complete directional production.
+
+## Creature voice and bore alignment correction, 10 October 2026
+
+User reports the monster voices sound human and requests a more demonic treatment, plus review of crosshair/barrel alignment. This supersedes the preceding lightly shifted human vocal candidates. Six new attack/hurt/death derivatives layer substantially lowered, duration-compensated throats with dry harmonic rasp and restrained fast modulation. Separate species voices retain short warning/pain and prolonged death timing; original recordings and preceding cues are preserved. Pistol/shotgun pose placement now projects the painted bore toward the centered physical aim; no camera or hit-ray offset. Subjective listening and physical play acceptance remain pending.
