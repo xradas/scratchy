@@ -16,6 +16,7 @@ var avoid_side := 1
 var lift_returned := false
 var configured := false
 var report_dir := ""
+var package_dir := ""
 var baseline: Dictionary = {}
 
 func _init() -> void:
@@ -46,8 +47,13 @@ func run() -> void:
 	if not require(report_dir.is_absolute_path() and not report_dir.begins_with("res://"), "Report directory must be an absolute filesystem path"):
 		report_dir = OS.get_user_data_dir().path_join("release-route-reports")
 		await finish(); return
-	var project_dir := ProjectSettings.globalize_path("res://").simplify_path().trim_suffix("/")
-	if not require(report_dir != project_dir and not report_dir.begins_with(project_dir + "/"), "Receipt directory must be outside the project/package directory"):
+	# res:// globalization is editor-only; embedded export paths need not map
+	# to the directory containing the executable/PCK.
+	package_dir = (ProjectSettings.globalize_path("res://") if OS.has_feature("editor") else OS.get_executable_path().get_base_dir()).simplify_path().trim_suffix("/")
+	if not require(package_dir.is_absolute_path() and not package_dir.begins_with("res://") and package_dir.length() > 1, "Could not resolve a meaningful absolute project/package directory"):
+		report_dir = OS.get_user_data_dir().path_join("release-route-reports")
+		await finish(); return
+	if not require(report_dir != package_dir and not report_dir.begins_with(package_dir + "/"), "Receipt directory must be outside the project/package directory"):
 		report_dir = OS.get_user_data_dir().path_join("release-route-reports")
 		await finish(); return
 	var route_path := "res://resources/stages/" + stage_id + "-route.json"
@@ -84,7 +90,7 @@ func run() -> void:
 
 func finish() -> void:
 	stop(); key(KEY_E,false)
-	var report := {"stage":stage_id,"executable":OS.get_executable_path(),"working_directory":OS.get_environment("PWD"),"editor_feature":OS.has_feature("editor"),"main_integration":true,"release_checks_enabled":true,"baseline":baseline,"failures":failures,"completed":world.finished,"completion_menu_paused":app.level_complete and get_tree().paused,"health":combat.health,"armor":combat.armor,"pistol":combat.ammo_pistol,"shells":combat.ammo_shotgun,"kills":combat.kills,"total":combat.total_enemies,"shots":combat.shot_counter,"physics_seconds":float(Engine.get_physics_frames()-global_start)/Engine.physics_ticks_per_second if global_start > 0 else 0.0,"bot_control_seconds":float(ticks)/Engine.physics_ticks_per_second,"secret_used":world.secret_found,"shortcuts":world.shortcuts.keys(),"flags":world.flags.duplicate(),"lift_round_trip":lift_returned,"interactions":interactions,"segments":records,"scope":"Export-safe Main route: real CharacterBody player/AI physics, ordinary baseline health/ammo, authoritative weapon rays; automated aim/strafe and real E input, no teleport, secret supplies or cheats. Bot time is not human duration."}
+	var report := {"stage":stage_id,"executable":OS.get_executable_path(),"project_package_dir":package_dir,"working_directory":OS.get_environment("PWD"),"editor_feature":OS.has_feature("editor"),"main_integration":true,"release_checks_enabled":true,"baseline":baseline,"failures":failures,"completed":world.finished,"completion_menu_paused":app.level_complete and get_tree().paused,"health":combat.health,"armor":combat.armor,"pistol":combat.ammo_pistol,"shells":combat.ammo_shotgun,"kills":combat.kills,"total":combat.total_enemies,"shots":combat.shot_counter,"physics_seconds":float(Engine.get_physics_frames()-global_start)/Engine.physics_ticks_per_second if global_start > 0 else 0.0,"bot_control_seconds":float(ticks)/Engine.physics_ticks_per_second,"secret_used":world.secret_found,"shortcuts":world.shortcuts.keys(),"flags":world.flags.duplicate(),"lift_round_trip":lift_returned,"interactions":interactions,"segments":records,"scope":"Export-safe Main route: real CharacterBody player/AI physics, ordinary baseline health/ammo, authoritative weapon rays; automated aim/strafe and real E input, no teleport, secret supplies or cheats. Bot time is not human duration."}
 	var directory_error := DirAccess.make_dir_recursive_absolute(report_dir)
 	require(directory_error == OK, "Could not create receipt directory: " + report_dir)
 	var receipt_path := report_dir.path_join(stage_id + "-release-route.json")

@@ -1,0 +1,158 @@
+{
+  "checked_utc": "2026-10-10T20:09:29.411877+00:00",
+  "scope": "Read-only full video decode frame counts and native metadata comparison; lossy H264 pixel identity is not asserted.",
+  "records": [
+    {
+      "stage": "pale_ward",
+      "original": {
+        "path": "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/pale_ward.avi",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-threads",
+          "2",
+          "-select_streams",
+          "v:0",
+          "-count_frames",
+          "-show_entries",
+          "stream=width,height,avg_frame_rate,nb_frames,nb_read_frames",
+          "-of",
+          "json",
+          "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/pale_ward.avi"
+        ],
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1",
+        "nb_frames": "5959",
+        "nb_read_frames": "5959"
+      },
+      "encoded": {
+        "path": "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/pale_ward.mp4",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-threads",
+          "2",
+          "-select_streams",
+          "v:0",
+          "-count_frames",
+          "-show_entries",
+          "stream=width,height,avg_frame_rate,nb_frames,nb_read_frames",
+          "-of",
+          "json",
+          "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/pale_ward.mp4"
+        ],
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1",
+        "nb_frames": "5959",
+        "nb_read_frames": "5959"
+      },
+      "failures": []
+    },
+    {
+      "stage": "ash_citadel",
+      "original": {
+        "path": "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/ash_citadel.avi",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-threads",
+          "2",
+          "-select_streams",
+          "v:0",
+          "-count_frames",
+          "-show_entries",
+          "stream=width,height,avg_frame_rate,nb_frames,nb_read_frames",
+          "-of",
+          "json",
+          "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/ash_citadel.avi"
+        ],
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1",
+        "nb_frames": "7903",
+        "nb_read_frames": "7903"
+      },
+      "encoded": {
+        "path": "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/ash_citadel.mp4",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-threads",
+          "2",
+          "-select_streams",
+          "v:0",
+          "-count_frames",
+          "-show_entries",
+          "stream=width,height,avg_frame_rate,nb_frames,nb_read_frames",
+          "-of",
+          "json",
+          "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/ash_citadel.mp4"
+        ],
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1",
+        "nb_frames": "7903",
+        "nb_read_frames": "7903"
+      },
+      "failures": []
+    },
+    {
+      "stage": "occupied_line",
+      "original": {
+        "path": "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/occupied_line.avi",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-threads",
+          "2",
+          "-select_streams",
+          "v:0",
+          "-count_frames",
+          "-show_entries",
+          "stream=width,height,avg_frame_rate,nb_frames,nb_read_frames",
+          "-of",
+          "json",
+          "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/occupied_line.avi"
+        ],
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1",
+        "nb_frames": "7196",
+        "nb_read_frames": "7196"
+      },
+      "encoded": {
+        "path": "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/occupied_line.mp4",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-threads",
+          "2",
+          "-select_streams",
+          "v:0",
+          "-count_frames",
+          "-show_entries",
+          "stream=width,height,avg_frame_rate,nb_frames,nb_read_frames",
+          "-of",
+          "json",
+          "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/occupied_line.mp4"
+        ],
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1",
+        "nb_frames": "7196",
+        "nb_read_frames": "7196"
+      },
+      "failures": []
+    }
+  ],
+  "failures": [],
+  "passed": true
+}

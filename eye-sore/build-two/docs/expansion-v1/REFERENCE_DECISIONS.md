@@ -11,3 +11,7 @@ All new raster generation used the built-in imagegen tool with the original appr
 Four new creatures have eight directional stance images plus frontal combat, pain and death sequences. The existing Ward pair retain their approved frontal sequences. Full directional animated movement/attack production, human listening approval, visual acceptance and human pacing remain open.
 
 Abelian remains menu-only. Bestial Paragon Interface scores Ward and temporarily Line; Dragged Through Hellfire (Abomination) scores Citadel. Existing licensed music bytes are preserved. New twelve dry creature voice cues derive from preserved HaelDB CC0 originals with distinct formants, rasp and duration compensation; exact edits/hashes in concepts/audio-v5/manifest.json. Its first build rejected the short decimal afade duration spelling (FFmpeg exit234); the corrected0.035 spelling passed all twelve duration/rail checks.
+
+## Export verification path contract
+
+Godot documents that `ProjectSettings.globalize_path("res://…")` does not work in exported projects; exported filesystem neighbors use `OS.get_executable_path().get_base_dir()`. Primary reference: https://docs.godotengine.org/en/stable/classes/class_projectsettings.html#class-projectsettings-method-globalize-path . The optional release test receipt-directory guard must use that executable directory outside the editor. This changes the verification driver only, not ordinary gameplay. Initial rejected external-path evidence is preserved separately; accepted release routes must be rerun on the corrected export.

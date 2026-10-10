@@ -1,0 +1,54 @@
+{
+  "scope": "Observed source-editor driver tests after package-directory fix. Genuine exported executable tests are performed separately by root.",
+  "script_sha256": "74d68f8092420ebbe7a06754ea4261c2754f63581b05107d16eab4f2a3d55409",
+  "cases": [
+    {
+      "name": "source-v2-positive",
+      "receipt": "verification/expansion-v1/release/source-v2-positive-receipt.json",
+      "receipt_sha256": "8d238e35f6e380577695ca8b49c888b1fb79a7703d755af2920a34e6a97b50f7",
+      "observed_exit_code": 0,
+      "command": [
+        "./tools/godot.sh",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "tools/check_release_stage_playtest.gd",
+        "--fixed-fps",
+        "60",
+        "--",
+        "--stage=pale_ward",
+        "--release-report-dir=/tmp/eyesore-release-route-source-v2"
+      ],
+      "completed": true,
+      "failures": [],
+      "project_package_dir": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+      "editor_feature": true
+    },
+    {
+      "name": "source-v2-inside-source-negative",
+      "receipt": "verification/expansion-v1/release/source-v2-inside-source-negative-receipt.json",
+      "receipt_sha256": "e4a528dccb5a988fce5e74fc5d7e756fb390bbf43d97fd7c67a0ebd642f0c073",
+      "observed_exit_code": 1,
+      "command": [
+        "./tools/godot.sh",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "tools/check_release_stage_playtest.gd",
+        "--fixed-fps",
+        "60",
+        "--",
+        "--stage=pale_ward",
+        "--release-report-dir=/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/rejected-release-receipt"
+      ],
+      "completed": false,
+      "failures": [
+        "Receipt directory must be outside the project/package directory"
+      ],
+      "project_package_dir": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+      "editor_feature": true
+    }
+  ]
+}

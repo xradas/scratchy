@@ -1,0 +1,184 @@
+{
+  "schema": "eyesore-recording-validation-v1",
+  "checked_utc": "2026-10-10T20:07:38.790893+00:00",
+  "source_status": "fresh-capture",
+  "scope": "Structural and decoded numerical evidence only; no listening-quality or visual route-coverage claim.",
+  "thresholds": {
+    "silence_rms": 1e-07,
+    "stereo_relative_rms": 1e-05,
+    "over_full_scale_epsilon": 1e-06,
+    "aac_duration_allowance_samples": 2048
+  },
+  "failures": [],
+  "video": {
+    "path": "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/pale_ward.mp4",
+    "sha256": "a02047f1c2f0f9b2d2fab742c81688cd18d2dff32ebf08eced02f519f86f607d",
+    "size_bytes": 211490611,
+    "mtime_utc": "2026-10-10T20:04:21.426885+00:00",
+    "format": "mov,mp4,m4a,3gp,3g2,mj2",
+    "duration_seconds": 198.633333,
+    "frame_rate": 30.0,
+    "video": {
+      "index": 0,
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "pix_fmt": "yuvj420p",
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "bit_rate": "8315002",
+      "duration": "198.633333",
+      "nb_frames": "5959",
+      "start_time": "0.000000"
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "aac",
+      "sample_fmt": "fltp",
+      "sample_rate": "48000",
+      "channels": 2,
+      "channel_layout": "stereo",
+      "bit_rate": "194053",
+      "bits_per_sample": 0,
+      "duration": "198.633333",
+      "start_time": "0.000000"
+    },
+    "failures": [],
+    "decoded_audio": {
+      "decode_command": [
+        "ffmpeg",
+        "-nostdin",
+        "-v",
+        "error",
+        "-i",
+        "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/pale_ward.mp4",
+        "-map",
+        "0:1",
+        "-vn",
+        "-sn",
+        "-dn",
+        "-c:a",
+        "pcm_f32le",
+        "-f",
+        "f32le",
+        "pipe:1"
+      ],
+      "decoded_frames": 9534400,
+      "decoded_duration_seconds": 198.63333333333333,
+      "peak_per_channel": [
+        0.4627358019351959,
+        0.48433005809783936
+      ],
+      "rms_per_channel": [
+        0.03512462013015173,
+        0.03657033808880875
+      ],
+      "difference_rms": 0.026477082920614747,
+      "difference_threshold": 3.6570338088808755e-07,
+      "stereo_difference_nonzero": true,
+      "correlation": 0.7279347678580249,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "pcm_rail_sample_count": 0,
+      "pcm_positive_rail": null,
+      "nonzero_each_channel": true
+    },
+    "audio_video_duration_tolerance_seconds": 0.076001,
+    "audio_video_start_delta_seconds": 0.0,
+    "passed": true
+  },
+  "original": {
+    "path": "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/pale_ward.avi",
+    "sha256": "3b4fdefcd1fe0168019b825c4ceda3a94f626af31f325de7b26e91044eb8d74e",
+    "size_bytes": 592431440,
+    "mtime_utc": "2026-10-10T19:57:52.272959+00:00",
+    "format": "avi",
+    "duration_seconds": 198.633333,
+    "frame_rate": 30.0,
+    "video": {
+      "index": 0,
+      "codec_name": "mjpeg",
+      "width": 1280,
+      "height": 720,
+      "pix_fmt": "yuvj420p",
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "bit_rate": "22316514",
+      "duration": "198.633333",
+      "nb_frames": "5959",
+      "start_time": "0.000000"
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "pcm_s16le",
+      "sample_fmt": "s16",
+      "sample_rate": "48000",
+      "channels": 2,
+      "channel_layout": null,
+      "bit_rate": "1536000",
+      "bits_per_sample": 16,
+      "duration": null,
+      "start_time": "0.000000"
+    },
+    "failures": [],
+    "decoded_audio": {
+      "decode_command": [
+        "ffmpeg",
+        "-nostdin",
+        "-v",
+        "error",
+        "-i",
+        "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/pale_ward.avi",
+        "-map",
+        "0:1",
+        "-vn",
+        "-sn",
+        "-dn",
+        "-c:a",
+        "pcm_f32le",
+        "-f",
+        "f32le",
+        "pipe:1"
+      ],
+      "decoded_frames": 9534400,
+      "decoded_duration_seconds": 198.63333333333333,
+      "peak_per_channel": [
+        0.466949462890625,
+        0.474517822265625
+      ],
+      "rms_per_channel": [
+        0.035451530331937084,
+        0.03686313528796985
+      ],
+      "difference_rms": 0.026751291971013662,
+      "difference_threshold": 3.6863135287969853e-07,
+      "stereo_difference_nonzero": true,
+      "correlation": 0.7269630216309098,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "pcm_rail_sample_count": 0,
+      "pcm_positive_rail": 0.999969482421875,
+      "nonzero_each_channel": true
+    },
+    "audio_video_duration_tolerance_seconds": 0.033334333333333334,
+    "audio_video_start_delta_seconds": 0.0,
+    "passed": true
+  },
+  "duration_comparison": {
+    "tolerance_seconds": 0.076001,
+    "deltas_seconds": {
+      "container": 0.0,
+      "decoded_audio": 0.0,
+      "video_stream": 0.0
+    }
+  },
+  "route_report": {
+    "path": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/expansion-v1/stages/native/pale_ward-playtest.json",
+    "sha256": "b28dd480e8d1d0d4bba550671695a0d8c893d66634083a5c650a852a0ff463f4",
+    "completed": true,
+    "failures": [],
+    "scope": "Authored expanded stage, real CharacterBody player/AI physics, original normal health/ammo, authoritative weapon rays; automated aim/strafe, no teleport, secret supplies or cheats. Bot time is not human duration.",
+    "association": "Caller supplied this route report; media-to-route provenance is not inferred from filenames."
+  },
+  "passed": true
+}

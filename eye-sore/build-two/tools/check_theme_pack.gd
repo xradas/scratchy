@@ -187,6 +187,44 @@ func inspect_engine_licenses() -> void:
 		check(report.engine_license_sha256 == expected.engine_license_sha256, "archived license equals trusted pinned Engine query")
 		check(report.engine_notices_sha256 == expected.engine_notices_sha256, "archived component notices equal trusted pinned Engine query")
 
+func same_resource_value(actual: Variant, wanted: Variant) -> bool:
+	if actual is Texture2D: return actual.resource_path == wanted
+	if actual is Vector2: actual = [actual.x, actual.y]
+	elif actual is Rect2: actual = [actual.position.x, actual.position.y, actual.size.x, actual.size.y]
+	elif actual is Color: actual = [actual.r, actual.g, actual.b, actual.a]
+	if actual is Dictionary and wanted is Dictionary:
+		if actual.size() != wanted.size(): return false
+		for key in wanted:
+			if not actual.has(key) or not same_resource_value(actual[key], wanted[key]): return false
+		return true
+	if actual is Array and wanted is Array:
+		if actual.size() != wanted.size(): return false
+		for index in wanted.size():
+			if not same_resource_value(actual[index], wanted[index]): return false
+		return true
+	if (actual is int or actual is float) and (wanted is int or wanted is float): return absf(float(actual) - float(wanted)) < .00001
+	return actual == wanted
+
+func inspect_gore() -> void:
+	var profile: Resource = load("res://resources/gore_profile.tres")
+	if not check(profile != null, "packed runtime gore profile"): return
+	for key in expected.gore.profile_properties:
+		check(same_resource_value(profile.get(key), expected.gore.profile_properties[key]), "gore profile original property: " + key)
+	check(same_resource_value(profile.get("pools"), expected.gore.pools) and same_resource_value(profile.get("remains"), expected.gore.remains), "original gore-v1 pool/remains fallbacks preserved")
+	var species: Dictionary = profile.get("species_atlases")
+	check(species.size() == 6, "six packed species gore atlas registrations")
+	var parts := 0
+	for kind in KINDS:
+		if not check(species.has(kind), kind + " gore species registration"): continue
+		check(same_resource_value(species[kind], expected.gore.species[kind]), kind + " exact native gore regions/parts/materials")
+		check(species[kind].parts.size() == int(expected.gore.profile_properties.gib_counts[kind]), kind + " explicit gib-count part coverage")
+		parts += species[kind].parts.size()
+	for path in expected.gore.atlases:
+		var texture: Texture2D = load(path)
+		if not check(texture != null, "packed native gore atlas: " + path): continue
+		image_matches(texture.get_image(), expected.gore.atlases[path].image, path)
+	report.gore = {"species_count": species.size(), "registered_part_count": parts, "native_atlas_paths": expected.gore.atlases.keys(), "three_gore_v2_native_atlases": true, "runtime_profile_verified": true}
+
 func run() -> void:
 	var art := json_file("res://assets/combat_art.json")
 	var catalog := json_file("res://resources/stages/catalog.json")
@@ -194,6 +232,7 @@ func run() -> void:
 	if not art.is_empty(): inspect_enemies(art)
 	if not catalog.is_empty(): inspect_stages(catalog)
 	if not ledger.is_empty(): inspect_audio(ledger)
+	inspect_gore()
 	inspect_engine_licenses()
 	report.pass = report.failures.is_empty()
 	var file := FileAccess.open(output, FileAccess.WRITE); file.store_string(JSON.stringify(report, "  ") + "\n"); file.close()

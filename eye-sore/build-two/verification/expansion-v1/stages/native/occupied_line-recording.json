@@ -1,0 +1,184 @@
+{
+  "schema": "eyesore-recording-validation-v1",
+  "checked_utc": "2026-10-10T20:08:34.939242+00:00",
+  "source_status": "fresh-capture",
+  "scope": "Structural and decoded numerical evidence only; no listening-quality or visual route-coverage claim.",
+  "thresholds": {
+    "silence_rms": 1e-07,
+    "stereo_relative_rms": 1e-05,
+    "over_full_scale_epsilon": 1e-06,
+    "aac_duration_allowance_samples": 2048
+  },
+  "failures": [],
+  "video": {
+    "path": "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/occupied_line.mp4",
+    "sha256": "611170176e25f1f4b31ca5328a6c5fee5312da6f5b1b20305ac8386a639a3769",
+    "size_bytes": 209357450,
+    "mtime_utc": "2026-10-10T20:07:22.272860+00:00",
+    "format": "mov,mp4,m4a,3gp,3g2,mj2",
+    "duration_seconds": 239.866667,
+    "frame_rate": 30.0,
+    "video": {
+      "index": 0,
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "pix_fmt": "yuvj420p",
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "bit_rate": "6779184",
+      "duration": "239.866667",
+      "nb_frames": "7196",
+      "start_time": "0.000000"
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "aac",
+      "sample_fmt": "fltp",
+      "sample_rate": "48000",
+      "channels": 2,
+      "channel_layout": "stereo",
+      "bit_rate": "194482",
+      "bits_per_sample": 0,
+      "duration": "239.866667",
+      "start_time": "0.000000"
+    },
+    "failures": [],
+    "decoded_audio": {
+      "decode_command": [
+        "ffmpeg",
+        "-nostdin",
+        "-v",
+        "error",
+        "-i",
+        "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/occupied_line.mp4",
+        "-map",
+        "0:1",
+        "-vn",
+        "-sn",
+        "-dn",
+        "-c:a",
+        "pcm_f32le",
+        "-f",
+        "f32le",
+        "pipe:1"
+      ],
+      "decoded_frames": 11513600,
+      "decoded_duration_seconds": 239.86666666666667,
+      "peak_per_channel": [
+        0.4870399832725525,
+        0.45941805839538574
+      ],
+      "rms_per_channel": [
+        0.03580715868949882,
+        0.036373523194434154
+      ],
+      "difference_rms": 0.026860338613780108,
+      "difference_threshold": 3.637352319443416e-07,
+      "stereo_difference_nonzero": true,
+      "correlation": 0.7231499038116779,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "pcm_rail_sample_count": 0,
+      "pcm_positive_rail": null,
+      "nonzero_each_channel": true
+    },
+    "audio_video_duration_tolerance_seconds": 0.076001,
+    "audio_video_start_delta_seconds": 0.0,
+    "passed": true
+  },
+  "original": {
+    "path": "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/occupied_line.avi",
+    "sha256": "81cd94c8e5d6bad387a70e0de99e52d078fce7f8823724ab41445976c34faeed",
+    "size_bytes": 677488632,
+    "mtime_utc": "2026-10-10T20:02:21.526332+00:00",
+    "format": "avi",
+    "duration_seconds": 239.866667,
+    "frame_rate": 30.0,
+    "video": {
+      "index": 0,
+      "codec_name": "mjpeg",
+      "width": 1280,
+      "height": 720,
+      "pix_fmt": "yuvj420p",
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "bit_rate": "21050901",
+      "duration": "239.866667",
+      "nb_frames": "7196",
+      "start_time": "0.000000"
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "pcm_s16le",
+      "sample_fmt": "s16",
+      "sample_rate": "48000",
+      "channels": 2,
+      "channel_layout": null,
+      "bit_rate": "1536000",
+      "bits_per_sample": 16,
+      "duration": null,
+      "start_time": "0.000000"
+    },
+    "failures": [],
+    "decoded_audio": {
+      "decode_command": [
+        "ffmpeg",
+        "-nostdin",
+        "-v",
+        "error",
+        "-i",
+        "/home/rikki/Builds/eyesore-themed-expansion-captures-2026-10-10/occupied_line.avi",
+        "-map",
+        "0:1",
+        "-vn",
+        "-sn",
+        "-dn",
+        "-c:a",
+        "pcm_f32le",
+        "-f",
+        "f32le",
+        "pipe:1"
+      ],
+      "decoded_frames": 11513600,
+      "decoded_duration_seconds": 239.86666666666667,
+      "peak_per_channel": [
+        0.47930908203125,
+        0.4625244140625
+      ],
+      "rms_per_channel": [
+        0.036130561451359365,
+        0.036664484945726564
+      ],
+      "difference_rms": 0.027096641956655367,
+      "difference_threshold": 3.666448494572657e-07,
+      "stereo_difference_nonzero": true,
+      "correlation": 0.7229793846289206,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "pcm_rail_sample_count": 0,
+      "pcm_positive_rail": 0.999969482421875,
+      "nonzero_each_channel": true
+    },
+    "audio_video_duration_tolerance_seconds": 0.033334333333333334,
+    "audio_video_start_delta_seconds": 0.0,
+    "passed": true
+  },
+  "duration_comparison": {
+    "tolerance_seconds": 0.076001,
+    "deltas_seconds": {
+      "container": 0.0,
+      "decoded_audio": 0.0,
+      "video_stream": 0.0
+    }
+  },
+  "route_report": {
+    "path": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/expansion-v1/stages/native/occupied_line-playtest.json",
+    "sha256": "f798961b23cc71b5e04f4840f1b691294ea809170051dfcd1fca625d15b81385",
+    "completed": true,
+    "failures": [],
+    "scope": "Authored expanded stage, real CharacterBody player/AI physics, original normal health/ammo, authoritative weapon rays; automated aim/strafe, no teleport, secret supplies or cheats. Bot time is not human duration.",
+    "association": "Caller supplied this route report; media-to-route provenance is not inferred from filenames."
+  },
+  "passed": true
+}

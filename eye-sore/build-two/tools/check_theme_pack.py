@@ -29,7 +29,8 @@ GODOT = Path.home() / ".local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linu
 KINDS = ("unsealed", "vessel", "ironbound", "censer", "reaver", "surveyor")
 MUSIC = ("menu_abelian", "level_music_biotech_candidate", "level_music_fortress_candidate")
 PROVENANCE = ("concepts/audio-v3/manifest.json", "concepts/audio-v4/manifest.json",
-              "concepts/audio-v5/manifest.json", "concepts/expansion-v1/provenance.json")
+              "concepts/audio-v5/manifest.json", "concepts/expansion-v1/provenance.json",
+              "concepts/expansion-v1/gore/provenance.json")
 
 
 def digest(data: bytes) -> str:
@@ -135,7 +136,7 @@ def expectations(root: Path, source: dict[str, str] | None = None) -> dict:
 
     for path in ("assets/combat_art.json", "resources/stages/catalog.json", "assets/audio/runtime-cues.json"):
         recorded(path)
-    result = {"files": files, "enemies": {}, "stages": {}, "audio": {}, "music": {},
+    result = {"files": files, "enemies": {}, "stages": {}, "audio": {}, "music": {}, "gore": {},
               "creature_cues": [f"{kind}_{action}" for kind in KINDS for action in ("attack_warning", "hurt", "death")]}
     require(set(art["enemies"]) == set(KINDS), "Source manifest must have exactly six species")
     for kind in KINDS:
@@ -168,6 +169,29 @@ def expectations(root: Path, source: dict[str, str] | None = None) -> dict:
         path = f"assets/audio/music/{name}.ogg"
         result["music"][name] = {"path": "res://" + path, **ogg_identity(recorded(path))}
         require(result["music"][name]["channels"] == 2, "Source music must remain stereo: " + name)
+    profile = recorded("resources/gore_profile.tres").decode()
+    external = {identifier: path for path, identifier in re.findall(r'^\[ext_resource type="Texture2D" path="([^"]+)" id="([^"]+)"\]', profile, re.M)}
+    scalar = {}
+    for key in ("spray_counts", "death_counts", "max_stains", "max_remains", "max_particles", "corpse_integrity_fraction", "corpse_integrity_minimum", "gib_counts"):
+        match = re.search(r"^" + key + r" = (.+)$", profile, re.M)
+        require(match is not None, "Explicit runtime gore profile property: " + key)
+        scalar[key] = json.loads(match[1])
+    species = {}
+    for kind, header, body in re.findall(r'^"([^"]+)": \{("texture".*?)"parts": \[\n(.*?)\n\]\}', profile, re.M | re.S):
+        encoded = '{' + header + '"parts":[' + body + ']}'
+        encoded = re.sub(r'ExtResource\("([^"]+)"\)', lambda match: json.dumps(external[match[1]]), encoded)
+        encoded = re.sub(r'(?:Rect2|Vector2|Color)\(([^)]+)\)', r'[\1]', encoded)
+        species[kind] = json.loads(encoded)
+    require(set(species) == set(KINDS), "Six species runtime gore atlas registrations")
+    atlases = {}
+    for path in set(external.values()):
+        native = recorded(path.removeprefix("res://"))
+        width, height, rgba = png_rgba(native)
+        atlases[path] = {"sha256": digest(native), "image": pixels(width, height, rgba)}
+    require(len([path for path in atlases if "/gore-v2/" in path]) == 3, "Three native gore-v2 theme atlases")
+    result["gore"] = {"profile_properties": scalar, "species": species, "atlases": atlases,
+                      "pools": external[re.search(r'^pools = ExtResource\("([^"]+)"\)', profile, re.M)[1]],
+                      "remains": external[re.search(r'^remains = ExtResource\("([^"]+)"\)', profile, re.M)[1]]}
     return result
 
 
@@ -182,14 +206,16 @@ def provenance(root: Path, bundle: tarfile.TarFile, source: dict[str, str]) -> d
         doc = json.loads(data, object_pairs_hook=unique_object)
         verified.append(path)
         if path.endswith("provenance.json"):
-            require({asset["kind"] for asset in doc["assets"]} == set(KINDS[2:]), "Four original-board art provenance records")
+            identifier_key = "theme" if "/gore/" in path else "kind"
+            ids = {"pale_ward", "ash_citadel", "occupied_line"} if identifier_key == "theme" else set(KINDS[2:])
+            require({asset[identifier_key] for asset in doc["assets"]} == ids, "Original-board art provenance records: " + path)
             for asset in doc["assets"]:
-                require(source.get(asset["runtime"]) == asset["sha256"], "Native art runtime hash: " + asset["kind"])
+                require(source.get(asset["runtime"]) == asset["sha256"], "Native art runtime hash: " + asset[identifier_key])
                 for key in ("prompt", "reference"):
                     p = root / asset[key]
-                    require(digest(p.read_bytes()) == asset[key + "_sha256"], "Recorded art " + key + " hash: " + asset["kind"])
+                    require(digest(p.read_bytes()) == asset[key + "_sha256"], "Recorded art " + key + " hash: " + asset["runtime"])
                 prompt = "provenance/" + asset["prompt"]
-                require(prompt in members and digest(bundle.extractfile(prompt).read()) == asset["prompt_sha256"], "Archived original art prompt: " + asset["kind"])
+                require(prompt in members and digest(bundle.extractfile(prompt).read()) == asset["prompt_sha256"], "Archived original art prompt: " + asset["runtime"])
             continue
         licensed_ids = {record["id"] for record in doc.get("sources", [])}
         for name, cue in doc.get("cues", {}).items():
