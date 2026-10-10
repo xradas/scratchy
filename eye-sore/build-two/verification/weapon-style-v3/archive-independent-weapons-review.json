@@ -1,0 +1,373 @@
+{
+  "status": "passed",
+  "failures": [],
+  "archive": "/home/rikki/Builds/eyesore-pale-ward-weapons-2026-10-10/eyesore-pale-ward-weapons-linux.tar.gz",
+  "source_commit_recorded": "55dd3308cec5a19ace16c11b098356fc2cacb8a0",
+  "recorded_source_git_status": "?? eye-sore/build-two/tools/capture_weapon_style.gd.uid",
+  "dirty_status_explicit": true,
+  "archive_verifier_status": "passed",
+  "archive_verifier_report": "res://verification/weapon-style-v3/archive-audit.json",
+  "archive_sha256": "d1e32322a8e2d62c64e04802206c79ccdc3fda7d167320de9672f44c970b825d",
+  "staged_executable_sha256": "b02f76890ca02702544d7cf17f904727e20915023fe9f010c115cb9cbbee608d",
+  "archived_executable_sha256": "b02f76890ca02702544d7cf17f904727e20915023fe9f010c115cb9cbbee608d",
+  "source_checksums_archive_matches_stage": true,
+  "weapon_provenance": {
+    "concepts/weapon-style-v3/candidate-combat-art.json": {
+      "source_sha256": "a8a05b144b4909d51bdb45adeb46b56224d3a9d4db93dfc47d9c21c7893abe5f",
+      "archive_sha256": "a8a05b144b4909d51bdb45adeb46b56224d3a9d4db93dfc47d9c21c7893abe5f",
+      "recorded_sha256": "a8a05b144b4909d51bdb45adeb46b56224d3a9d4db93dfc47d9c21c7893abe5f",
+      "byte_identical": true
+    },
+    "concepts/weapon-style-v3/manifest.json": {
+      "source_sha256": "162c84e3dc648c7899db54e4ed2e85cfd25618a25ef2a499e034d92b8f66282f",
+      "archive_sha256": "162c84e3dc648c7899db54e4ed2e85cfd25618a25ef2a499e034d92b8f66282f",
+      "recorded_sha256": "162c84e3dc648c7899db54e4ed2e85cfd25618a25ef2a499e034d92b8f66282f",
+      "byte_identical": true
+    },
+    "concepts/weapon-style-v3/pistol-generation.json": {
+      "source_sha256": "4c788bb7aa4ce384a5d69f16cd6355e98263a6a5c2a5743981dc646aa61f3742",
+      "archive_sha256": "4c788bb7aa4ce384a5d69f16cd6355e98263a6a5c2a5743981dc646aa61f3742",
+      "recorded_sha256": "4c788bb7aa4ce384a5d69f16cd6355e98263a6a5c2a5743981dc646aa61f3742",
+      "byte_identical": true
+    },
+    "concepts/weapon-style-v3/pistol-prompt.txt": {
+      "source_sha256": "a4b892a0ab5039093278ef018ebb22cc189c4c1084c31e389b174511b4b4d1d6",
+      "archive_sha256": "a4b892a0ab5039093278ef018ebb22cc189c4c1084c31e389b174511b4b4d1d6",
+      "recorded_sha256": "a4b892a0ab5039093278ef018ebb22cc189c4c1084c31e389b174511b4b4d1d6",
+      "byte_identical": true
+    },
+    "concepts/weapon-style-v3/readonly-pixel-audit.json": {
+      "source_sha256": "f02383b7922b23176328d24fa4c94c5facf6be3da8785c11d4d6bea51a6f220a",
+      "archive_sha256": "f02383b7922b23176328d24fa4c94c5facf6be3da8785c11d4d6bea51a6f220a",
+      "recorded_sha256": "f02383b7922b23176328d24fa4c94c5facf6be3da8785c11d4d6bea51a6f220a",
+      "byte_identical": true
+    },
+    "concepts/weapon-style-v3/shotgun-generation.json": {
+      "source_sha256": "9547af6e07a9a76a248f6207945f316180ec6dfac9746527152910decea135ed",
+      "archive_sha256": "9547af6e07a9a76a248f6207945f316180ec6dfac9746527152910decea135ed",
+      "recorded_sha256": "9547af6e07a9a76a248f6207945f316180ec6dfac9746527152910decea135ed",
+      "byte_identical": true
+    },
+    "concepts/weapon-style-v3/shotgun-prompt.txt": {
+      "source_sha256": "ccb22d0d5a0b8bb9eb8494e2e80f44af445a89a6f736dddbf28f8bc5e9965063",
+      "archive_sha256": "ccb22d0d5a0b8bb9eb8494e2e80f44af445a89a6f736dddbf28f8bc5e9965063",
+      "recorded_sha256": "ccb22d0d5a0b8bb9eb8494e2e80f44af445a89a6f736dddbf28f8bc5e9965063",
+      "byte_identical": true
+    }
+  },
+  "runtime_source_identity": {
+    "assets/combat_art.json": {
+      "actual_sha256": "6449d3306acd072e38ecdd1ddeda8a50315cac108413a27da07f769ea823b033",
+      "source_checksums_sha256": "6449d3306acd072e38ecdd1ddeda8a50315cac108413a27da07f769ea823b033",
+      "matches": true
+    },
+    "assets/weapons/painted-v3/pistol-atlas.png": {
+      "actual_sha256": "2c4a36b306fb3a624d21c4ad12500f7b88e699b3085a103d7d829cb29976e829",
+      "source_checksums_sha256": "2c4a36b306fb3a624d21c4ad12500f7b88e699b3085a103d7d829cb29976e829",
+      "matches": true
+    },
+    "assets/weapons/painted-v3/shotgun-atlas.png": {
+      "actual_sha256": "83c91a1d066410553e8fe0cb231532a3b08b8076f99ef330e4a27129e6f97a36",
+      "source_checksums_sha256": "83c91a1d066410553e8fe0cb231532a3b08b8076f99ef330e4a27129e6f97a36",
+      "matches": true
+    }
+  },
+  "all_recorded_source_files": {
+    "recorded": 250,
+    "found": 250,
+    "missing": [],
+    "mismatches": []
+  },
+  "embedded_pck_native_read": {
+    "pack_loaded": true,
+    "manifest_sha256": "6449d3306acd072e38ecdd1ddeda8a50315cac108413a27da07f769ea823b033",
+    "weapons": {
+      "pistol": {
+        "all_rgb_mismatches": 30392,
+        "alpha_mismatches": 0,
+        "imported_dimensions": [
+          1536,
+          1024
+        ],
+        "imported_format": 5,
+        "imported_rgba8_sha256": "2aaf69f3e831e9a3a2c3458833b1ffa0e072fd324997a9cec87d973b4b4aca5e",
+        "path": "res://assets/weapons/painted-v3/pistol-atlas.png",
+        "placement": {
+          "fire": {
+            "marker": [
+              309.0,
+              136.0
+            ],
+            "scale": 0.9,
+            "target": [
+              0.5,
+              0.63
+            ]
+          },
+          "idle": {
+            "marker": [
+              338.0,
+              183.0
+            ],
+            "scale": 1.0,
+            "target": [
+              0.5,
+              0.66
+            ]
+          },
+          "recover": {
+            "marker": [
+              344.0,
+              57.0
+            ],
+            "scale": 0.9,
+            "target": [
+              0.5,
+              0.66
+            ]
+          },
+          "switch": {
+            "marker": [
+              334.0,
+              112.0
+            ],
+            "scale": 0.9,
+            "target": [
+              0.5,
+              0.84
+            ]
+          }
+        },
+        "regions": {
+          "fire": [
+            768.0,
+            0.0,
+            768.0,
+            528.0
+          ],
+          "idle": [
+            0.0,
+            0.0,
+            768.0,
+            528.0
+          ],
+          "recover": [
+            0.0,
+            528.0,
+            768.0,
+            496.0
+          ],
+          "switch": [
+            768.0,
+            528.0,
+            768.0,
+            496.0
+          ]
+        },
+        "registered_sha256": "2c4a36b306fb3a624d21c4ad12500f7b88e699b3085a103d7d829cb29976e829",
+        "source_dimensions": [
+          1536,
+          1024
+        ],
+        "source_png_sha256": "2c4a36b306fb3a624d21c4ad12500f7b88e699b3085a103d7d829cb29976e829",
+        "source_rgba8_sha256": "4fa887f8b37a0f20dbee858f06b2234823ac61d25d91c63f4fbd7c5458865078",
+        "texture_loaded": true,
+        "visible_rgb_mismatches": 0,
+        "source_checksums_sha256": "2c4a36b306fb3a624d21c4ad12500f7b88e699b3085a103d7d829cb29976e829",
+        "registration_and_import_match": true
+      },
+      "shotgun": {
+        "all_rgb_mismatches": 37402,
+        "alpha_mismatches": 0,
+        "imported_dimensions": [
+          1536,
+          1024
+        ],
+        "imported_format": 5,
+        "imported_rgba8_sha256": "aaf6b0f87199320b57f5219efcafc8d0628cfa12913337c7c4f1db0820afb7b7",
+        "path": "res://assets/weapons/painted-v3/shotgun-atlas.png",
+        "placement": {
+          "fire": {
+            "marker": [
+              300.0,
+              202.0
+            ],
+            "scale": 0.9,
+            "target": [
+              0.5,
+              0.61
+            ]
+          },
+          "idle": {
+            "marker": [
+              310.0,
+              216.0
+            ],
+            "scale": 1.0,
+            "target": [
+              0.5,
+              0.63
+            ]
+          },
+          "recover": {
+            "marker": [
+              331.0,
+              52.0
+            ],
+            "scale": 0.9,
+            "target": [
+              0.5,
+              0.63
+            ]
+          },
+          "switch": {
+            "marker": [
+              239.0,
+              164.0
+            ],
+            "scale": 0.9,
+            "target": [
+              0.5,
+              0.83
+            ]
+          }
+        },
+        "regions": {
+          "fire": [
+            768.0,
+            0.0,
+            768.0,
+            560.0
+          ],
+          "idle": [
+            0.0,
+            0.0,
+            768.0,
+            560.0
+          ],
+          "recover": [
+            0.0,
+            560.0,
+            800.0,
+            464.0
+          ],
+          "switch": [
+            800.0,
+            560.0,
+            736.0,
+            464.0
+          ]
+        },
+        "registered_sha256": "83c91a1d066410553e8fe0cb231532a3b08b8076f99ef330e4a27129e6f97a36",
+        "source_dimensions": [
+          1536,
+          1024
+        ],
+        "source_png_sha256": "83c91a1d066410553e8fe0cb231532a3b08b8076f99ef330e4a27129e6f97a36",
+        "source_rgba8_sha256": "35689430a4c75eb7f978a45a19b3e68d056ac8bb9ede826c49f6a12cae3741b1",
+        "texture_loaded": true,
+        "visible_rgb_mismatches": 0,
+        "source_checksums_sha256": "83c91a1d066410553e8fe0cb231532a3b08b8076f99ef330e4a27129e6f97a36",
+        "registration_and_import_match": true
+      },
+      "melee": {
+        "all_rgb_mismatches": 36143,
+        "alpha_mismatches": 0,
+        "imported_dimensions": [
+          1536,
+          1024
+        ],
+        "imported_format": 5,
+        "imported_rgba8_sha256": "afddd74e12a82e958a4d20552091900fcdbd4adc39c9ee5afddfced957056c79",
+        "path": "res://assets/weapons/board-sprites/melee-atlas.png",
+        "placement": {
+          "fire": {
+            "marker": [
+              340.0,
+              195.0
+            ],
+            "scale": 0.95,
+            "target": [
+              0.5,
+              0.63
+            ]
+          },
+          "idle": {
+            "marker": [
+              550.0,
+              300.0
+            ],
+            "scale": 1.1,
+            "target": [
+              0.68,
+              0.77
+            ]
+          },
+          "recover": {
+            "marker": [
+              510.0,
+              150.0
+            ],
+            "scale": 1.05,
+            "target": [
+              0.68,
+              0.77
+            ]
+          },
+          "switch": {
+            "marker": [
+              470.0,
+              330.0
+            ],
+            "scale": 1.0,
+            "target": [
+              0.7,
+              0.88
+            ]
+          }
+        },
+        "regions": {
+          "fire": [
+            768.0,
+            0.0,
+            768.0,
+            512.0
+          ],
+          "idle": [
+            0.0,
+            0.0,
+            768.0,
+            512.0
+          ],
+          "recover": [
+            0.0,
+            512.0,
+            768.0,
+            512.0
+          ],
+          "switch": [
+            768.0,
+            512.0,
+            768.0,
+            512.0
+          ]
+        },
+        "registered_sha256": "611432117160e778b3b50989308eea6459e4d21781ba80dcd3ea3b8383393b18",
+        "source_dimensions": [
+          1536,
+          1024
+        ],
+        "source_png_sha256": "611432117160e778b3b50989308eea6459e4d21781ba80dcd3ea3b8383393b18",
+        "source_rgba8_sha256": "c417e57fbb6b3fa04c182522ca781a0baf25559fd561389161d6107224b2645f",
+        "texture_loaded": true,
+        "visible_rgb_mismatches": 0,
+        "source_checksums_sha256": "611432117160e778b3b50989308eea6459e4d21781ba80dcd3ea3b8383393b18",
+        "registration_and_import_match": true
+      }
+    },
+    "flash_matches_source": true,
+    "flash_comparison": "Numeric JSON values compared within 1e-9 after Godot JSON.stringify; embedded manifest byte hash equals source manifest hash.",
+    "strict_reserialized_float_equal": false
+  },
+  "scope": "Independent archive/checksum audit and headless Godot 4.7.2 read of embedded PCK manifest/imported weapon textures. Compared source bytes and recorded hashes; no Git authentication, GPU rerun, visual approval, or human playtest."
+}

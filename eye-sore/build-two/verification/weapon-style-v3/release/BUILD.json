@@ -1,0 +1,84 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "engine_binary": {
+    "bytes": 146414384,
+    "sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e"
+  },
+  "executable": {
+    "bytes": 120380992,
+    "mode": "0755",
+    "path": "eyesore-pale-ward-weapons.x86_64",
+    "pck": "embedded",
+    "sha256": "b02f76890ca02702544d7cf17f904727e20915023fe9f010c115cb9cbbee608d"
+  },
+  "known_issues": [
+    "The full game image has not been accepted as reproducing the concept; original 5–8 minute human duration and polish remain pending.",
+    "Eight frontal enemy poses only; full eight-direction animation still pending; generated detail/perspective drift.",
+    "Three brief floor-flag transitions across12 stairs, identical at30/60/120 caps; nofall/jump/doorwaygap inroute checks.",
+    "Room graph pursuit/local obstacle steering are representative; sustained human encounter/release review remains pending.",
+    "Interaction world/UI audio remains limited; level music remains candidate assigned to biotech.",
+    "First forced-offscreen pistol render recorded a 176ms hitch and 212ms flash expiry; repeat warmed run passed nominal duration bounds. Cold rendering needs further review.",
+    "Visible-window rendering was minimized during early checks; later native captures were drawable. Physical mouse capture and sustained human playtest remain unverified in this session.",
+    "Current style native cadence check recorded a155.14ms first30FPS pistol render hitch; all six cap/weapon cadence and flash expiry cases passed. Weapon shading was subsequently repainted and reviewed in the10Octoberpass; full user style acceptance remains pending.",
+    "Current style pass combines world, viewgun and muzzle presentation at a 320 × 180 display grid; human visual acceptance against the approved concept remains pending.",
+    "Current creature atlas is generated art with eight representative frontal poses; complete directional animation and generated detail/perspective drift remain work."
+  ],
+  "known_issues_source": {
+    "bytes": 27929,
+    "path": "verification/INTEGRATION.json",
+    "sha256": "b7b4f7782e3473aaeeafcbd6b98d20fc99632d08efd804c3b9a9f7179ab75582"
+  },
+  "linux_release_template": {
+    "bytes": 73519416,
+    "sha256": "d9f79ab89b5ae369aeed11c6052d402e8218cd503bf85b4a235f9c30c46a7c63"
+  },
+  "project": "Eyesore / The Pale Ward",
+  "renderer": "Compatibility",
+  "source_branch": "codex/eyesore-build-two",
+  "source_checksums": "SOURCE_SHA256SUMS",
+  "source_commit": "55dd3308cec5a19ace16c11b098356fc2cacb8a0",
+  "source_date_epoch": 1791656049,
+  "source_git_status": "?? eye-sore/build-two/tools/capture_weapon_style.gd.uid",
+  "source_head": "55dd3308cec5a19ace16c11b098356fc2cacb8a0",
+  "source_tree_sha256": "09c9569f13a81db665bfc450add876c171827dc6d0c56d7a60b85c38622da492",
+  "verification": {
+    "captures": [
+      {
+        "forced_offscreen": true,
+        "label": "gore",
+        "offscreen_required": false
+      },
+      {
+        "forced_offscreen": true,
+        "label": "gameplay",
+        "offscreen_required": false
+      },
+      {
+        "forced_offscreen": true,
+        "label": "menu",
+        "offscreen_required": false
+      }
+    ],
+    "exit_code": 0,
+    "input_mode": "Automated programmatic combat; mouse visible; physical pointer input unverified",
+    "native_export_smoke": "smoke.log",
+    "render_mode": "Forced offscreen native rendering; actual viewport PNGs, not visible-window presentation",
+    "scope": "Actual release programmatic shotgun kill, settled gore/reset, pause/resume, viewport/settings/audio buses. Human release acceptance pending.",
+    "success_markers": [
+      "GORE_EXPORT_SMOKE_OK:",
+      "FOUNDATION_SMOKE_OK:"
+    ],
+    "working_directory": "/tmp"
+  },
+  "video": {
+    "bytes": 22810179,
+    "original_recording": {
+      "bytes": 121356894,
+      "path": "pale-ward-weapons-gameplay.avi",
+      "sha256": "f08256ac983c4e9dc73865004d0e30abeafc070a044d35f46ca88ee81565bf09"
+    },
+    "path": "pale-ward-weapons-gameplay.mp4",
+    "processing": "Existing MP4 copied unchanged; no transcoding or new capture",
+    "sha256": "145a62d9e62437f8faaeb74bc66e0ba0a70601393fe9fa46a97354d4a32d404b"
+  }
+}

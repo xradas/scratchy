@@ -1,6 +1,6 @@
 {
-  "checked_utc": "2026-10-10T18:11:35.210559+00:00",
-  "stage": "Pale Ward art-style review: shared pixel presentation, painted material tuning and registered generated creature poses; full visual acceptance pending",
+  "checked_utc": "2026-10-10T18:17:44.363658+00:00",
+  "stage": "Pale Ward weapon shading review: registered dark painted pistol and shotgun; full visual acceptance pending",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
   "renderer": "Compatibility",
@@ -16,7 +16,7 @@
     "combat": "Native integrated sprite aiming/balance: stable camera, screen-relative mouse, exact crosshair/horizontalFOV; close-range pistol4/8, shotgun1/2, melee3/6. 30/60/120 live AI/projectiles retain6 shots/30 ammo over120 fixed physics ticks. Shared caches stay16 pose entries/two images across retries; materials/alpha follow current sprite frame.",
     "audio": "23 runtime SFX plus three stereo music files. Weapon/material contacts, distinct short pain, two longer death screams, title-only Abelian, paused level mix, mute and reset ownership verified. Original sources/edits/licenses retained; wet pack rejected.",
     "weapon_prototypes": "Approved-board transparent pistol/shotgun/glove sprite atlases; four poses each, byte-original pixels. Runtime authored regions/scales/markers register generated poses. Nearest display keeps correct proportions, clips within world viewport and leaves crosshair clear. Accepted shot reaches a visible muzzle frame before lifetime decrement; no baked muzzle flash in source.",
-    "export": "Fresh embedded-PCK gore Linux export passed native actual shotgun kill, nine grounded pieces, embedded textures and retry reset plus foundation pause/settings/audio buses from /tmp. Source normal combat route complete; sustained human release playtest pending.",
+    "export": "Fresh weapons Linux export with embedded assets passes native actual shotgun kill, nine settled pieces, retry reset and foundation/settings/pause/audio buses from /tmp. Independent archive and embedded weapon source/provenance review pass. Sustained human release acceptance pending.",
     "creature_prototypes": "Approved-board builtin imagegen edits: two transparent eight-pose front-view sprite atlases now runtime art. Perframe feet, bounded128×192 silhouette rays,24 manually authored Vessel hardware contacts and disabled corpse queries pass native/headless. World physics stays capsule-based; fine source alpha detail is approximated.",
     "identity_selection": "User explicitly selected Corrupted biotech — The Pale Ward on9October2026 for the first playable art pass/first level. Concept quality target remains separate from acceptance of simplified runtime studies.",
     "title_art": "Actual original approved Pale Ward composition is title artwork, copied byte-identically and displayed above its static concept HUD with an AtlasTexture region. Abelian remains title only. Title artwork is explicitly static, not a live room.",
@@ -93,7 +93,7 @@
     "Interaction world/UI audio remains limited; level music remains candidate assigned to biotech.",
     "First forced-offscreen pistol render recorded a 176ms hitch and 212ms flash expiry; repeat warmed run passed nominal duration bounds. Cold rendering needs further review.",
     "Visible-window rendering was minimized during early checks; later native captures were drawable. Physical mouse capture and sustained human playtest remain unverified in this session.",
-    "Current style native cadence check recorded a155.14ms first30FPS pistol render hitch; all six cap/weapon cadence and flash expiry cases passed. Weapon shading was subsequently repainted and reviewed in the10Octoberpass; full user style acceptance remains pending."
+    "Previous9October style native cadence check recorded a155.14ms first30FPS pistol render hitch; all six cap/weapon cadence and flash expiry cases passed. Weapon shading was subsequently repainted and reviewed in the10Octoberpass; full user style acceptance remains pending."
   ],
   "preserved_room_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-stage-one-2026-10-08/eyesore-room-preview-v2.x86_64",
@@ -103,13 +103,13 @@
     "scope": "Movement/display room preview; no combat, full level or ingame soundtrack."
   },
   "executable": {
-    "bytes": 117933496,
+    "bytes": 120380992,
     "mode": "0755",
-    "path": "/home/rikki/Builds/eyesore-pale-ward-style-v2-2026-10-09/eyesore-pale-ward-style-v2.x86_64",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-weapons-2026-10-10/eyesore-pale-ward-weapons.x86_64",
     "pck": "embedded",
-    "sha256": "0bcd4b3ea55fbd174c747ec32022cc27636f96c62e6261bb793e79411791e866",
-    "source_commit": "cbc5fc87e6512a234d85b939d2fbf1b1630b8b57",
-    "scope": "Pale Ward shared pixel presentation and creature art-style review; full visual acceptance and complete production pending."
+    "sha256": "b02f76890ca02702544d7cf17f904727e20915023fe9f010c115cb9cbbee608d",
+    "source_commit": "55dd3308cec5a19ace16c11b098356fc2cacb8a0",
+    "scope": "Registered dark painted pistol/shotgun art pass. Full visual acceptance, directional production and human level-duration review pending."
   },
   "audio_capture": {
     "file": "level/integrated-game-mix.wav",
@@ -140,10 +140,10 @@
   },
   "portable_archive": {
     "archived_executable_hash_and_mode_verified": true,
-    "bytes": 206322058,
-    "path": "/home/rikki/Builds/eyesore-pale-ward-style-v2-2026-10-09/eyesore-pale-ward-style-v2-linux.tar.gz",
-    "sha256": "016b3a1096d35ffb530dc2f805de61d1ac9a897895542bc318fa684d2a617531",
-    "independent_audit": "style-v2/archive-audit.json"
+    "bytes": 207781792,
+    "path": "/home/rikki/Builds/eyesore-pale-ward-weapons-2026-10-10/eyesore-pale-ward-weapons-linux.tar.gz",
+    "sha256": "d1e32322a8e2d62c64e04802206c79ccdc3fda7d167320de9672f44c970b825d",
+    "independent_audit": "weapon-style-v3/archive-audit.json"
   },
   "preserved_mesh_study_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-2026-10-09/eyesore-combat-art-review.x86_64",
@@ -196,19 +196,18 @@
     "result": "All final checks pass. Live bot completed10/11 kills,health90.4,fiveshells; optionalsecretnotused. Source cadence30/60/120: identical stair endpoint and sixpistolshots120physicsticks; cache16poses/twoimages."
   },
   "gameplay_video": {
-    "bytes": 22937766,
+    "bytes": 22810179,
     "original_recording": {
-      "bytes": 122130780,
-      "path": "pale-ward-style-gameplay.avi",
-      "sha256": "48dc6abe021403acdb45f1a8077805af4290c74033576b22d96d7187f9c1a84e"
+      "bytes": 121356894,
+      "path": "pale-ward-weapons-gameplay.avi",
+      "sha256": "f08256ac983c4e9dc73865004d0e30abeafc070a044d35f46ca88ee81565bf09"
     },
-    "path": "/home/rikki/Builds/eyesore-pale-ward-style-v2-2026-10-09/pale-ward-style-gameplay.mp4",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-weapons-2026-10-10/pale-ward-weapons-gameplay.mp4",
     "processing": "Existing MP4 copied unchanged; no transcoding or new capture",
-    "sha256": "a69b052508bf73b7dff15d662a2754320022e0ae9053327a98b766783bb62ed6",
-    "capture": "Fresh Godot MovieMaker actual renderer and stereo Master mix; normal AI/health/ammo bot route, no secret supplies. H264/AAC encoding only, no audio overlay or normalization.",
-    "capture_source_commit": "1f032c2a37fe111a5696c84d1474674ba579a874",
-    "runtime_source_difference": "Later source checkpoint changes smoke fixture and packaging diagnostics only; gameplay art/movement/combat/audio unchanged.",
-    "audio_validation": "style-v2/recording.json"
+    "sha256": "145a62d9e62437f8faaeb74bc66e0ba0a70601393fe9fa46a97354d4a32d404b",
+    "capture": "Fresh Godot MovieMaker actual renderer and stereo Master mix; normal AI/health/ammo automated route, no secret supplies. H264/AAC encoding only, no audio overlay or normalization. 1028 frames at30FPS;34.266667seconds.",
+    "runtime_source_equality": "All195 recorded runtime fingerprints match the released SOURCE_SHA256SUMS; capture precedes source checkpoint with identical runtime files.",
+    "audio_validation": "weapon-style-v3/recording.json"
   },
   "gore_verification": {
     "contract_files": [
@@ -447,6 +446,75 @@
     "actual_movie_route": "weapon-style-v3/movie-route.json",
     "actual_recording": "weapon-style-v3/recording.json",
     "scope": "Root-reviewed darker pistol and shotgun shading/pose registration, original source atlases preserved; gameplay/HUD/audio/world/enemies unchanged. Full user art approval and complete production remain pending.",
-    "imagegen_mode": "Built-in image_gen.imagegen, PNG bytes unchanged, no subsequent raster edits."
+    "imagegen_mode": "Built-in image_gen.imagegen, PNG bytes unchanged, no subsequent raster edits.",
+    "native_export_smoke": "/home/rikki/Builds/eyesore-pale-ward-weapons-2026-10-10/smoke.log",
+    "export_source_commit": "55dd3308cec5a19ace16c11b098356fc2cacb8a0",
+    "export_source_tree_sha256": "09c9569f13a81db665bfc450add876c171827dc6d0c56d7a60b85c38622da492",
+    "export_source_git_status": "?? eye-sore/build-two/tools/capture_weapon_style.gd.uid",
+    "generated_uid_note": "Godot generated capture_weapon_style.gd.uid during export; excluded from runtime/source snapshot; preserved in subsequent metadata checkpoint. No runtime differences from source checkpoint.",
+    "native_export_flags": {
+      "captures": [
+        {
+          "forced_offscreen": true,
+          "label": "gore",
+          "offscreen_required": false
+        },
+        {
+          "forced_offscreen": true,
+          "label": "gameplay",
+          "offscreen_required": false
+        },
+        {
+          "forced_offscreen": true,
+          "label": "menu",
+          "offscreen_required": false
+        }
+      ],
+      "exit_code": 0,
+      "input_mode": "Automated programmatic combat; mouse visible; physical pointer input unverified",
+      "native_export_smoke": "smoke.log",
+      "render_mode": "Forced offscreen native rendering; actual viewport PNGs, not visible-window presentation",
+      "scope": "Actual release programmatic shotgun kill, settled gore/reset, pause/resume, viewport/settings/audio buses. Human release acceptance pending.",
+      "success_markers": [
+        "GORE_EXPORT_SMOKE_OK:",
+        "FOUNDATION_SMOKE_OK:"
+      ],
+      "working_directory": "/tmp"
+    },
+    "independent_archive_audit": "weapon-style-v3/archive-audit.json",
+    "independent_embedded_asset_review": "weapon-style-v3/archive-independent-weapons-review.json",
+    "source_delivery": "Complete source in local project and Git; portable archive contains embedded runtime and source checksum manifest, not a standalone source checkout.",
+    "cadence_result": "All six native cap/weapon cases passed; longest draw interval39.083ms; no missed flash or cadence failure. Historical earlier hitches retained separately."
+  },
+  "preserved_style_v2_executable": {
+    "bytes": 117933496,
+    "mode": "0755",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-style-v2-2026-10-09/eyesore-pale-ward-style-v2.x86_64",
+    "pck": "embedded",
+    "sha256": "0bcd4b3ea55fbd174c747ec32022cc27636f96c62e6261bb793e79411791e866",
+    "source_commit": "cbc5fc87e6512a234d85b939d2fbf1b1630b8b57",
+    "scope": "Pale Ward shared pixel presentation and creature art-style review; full visual acceptance and complete production pending."
+  },
+  "preserved_style_v2_portable_archive": {
+    "archived_executable_hash_and_mode_verified": true,
+    "bytes": 206322058,
+    "path": "/home/rikki/Builds/eyesore-pale-ward-style-v2-2026-10-09/eyesore-pale-ward-style-v2-linux.tar.gz",
+    "sha256": "016b3a1096d35ffb530dc2f805de61d1ac9a897895542bc318fa684d2a617531",
+    "independent_audit": "style-v2/archive-audit.json"
+  },
+  "preserved_style_v2_gameplay_video": {
+    "bytes": 22937766,
+    "original_recording": {
+      "bytes": 122130780,
+      "path": "pale-ward-style-gameplay.avi",
+      "sha256": "48dc6abe021403acdb45f1a8077805af4290c74033576b22d96d7187f9c1a84e"
+    },
+    "path": "/home/rikki/Builds/eyesore-pale-ward-style-v2-2026-10-09/pale-ward-style-gameplay.mp4",
+    "processing": "Existing MP4 copied unchanged; no transcoding or new capture",
+    "sha256": "a69b052508bf73b7dff15d662a2754320022e0ae9053327a98b766783bb62ed6",
+    "capture": "Fresh Godot MovieMaker actual renderer and stereo Master mix; normal AI/health/ammo bot route, no secret supplies. H264/AAC encoding only, no audio overlay or normalization.",
+    "capture_source_commit": "1f032c2a37fe111a5696c84d1474674ba579a874",
+    "runtime_source_difference": "Later source checkpoint changes smoke fixture and packaging diagnostics only; gameplay art/movement/combat/audio unchanged.",
+    "audio_validation": "style-v2/recording.json"
   }
 }
