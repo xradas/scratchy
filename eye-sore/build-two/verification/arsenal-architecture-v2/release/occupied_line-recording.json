@@ -1,0 +1,623 @@
+{
+  "schema_version": 1,
+  "stage": "occupied_line",
+  "status": "passed",
+  "source_commit": "2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6",
+  "expected_elf_sha256": "549d888194e14713b322a09f70b6b31982a8da301819b2394c42211a39c9ecd2",
+  "method": "Coordinator-confirmed completed fresh ELF native MovieMaker capture at fixed 30 fps. CPU verification/extraction/transcode only; original AVI unchanged.",
+  "scope": "Automated aim/movement and real E input, normal AI/health/ammo, no teleport or secret supplies. Bot duration is not human pacing. Numerical recording checks do not establish human visual/listening/play acceptance.",
+  "original_avi": {
+    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line.avi",
+    "sha256": "2b82adb1d749661d37d0bd7b5b1022d4f0f0aae5b512eecd3a9f01c834fad21f",
+    "bytes": 1275982704
+  },
+  "native_video": {
+    "frames": 9730,
+    "seconds": 324.3333333333333,
+    "frame_rate": 30,
+    "video": {
+      "index": 0,
+      "codec_name": "mjpeg",
+      "codec_long_name": "Motion JPEG",
+      "profile": "Baseline",
+      "codec_type": "video",
+      "codec_tag_string": "MJPG",
+      "codec_tag": "0x47504a4d",
+      "width": 1280,
+      "height": 720,
+      "coded_width": 1280,
+      "coded_height": 720,
+      "has_b_frames": 0,
+      "sample_aspect_ratio": "1:1",
+      "display_aspect_ratio": "16:9",
+      "pix_fmt": "yuvj420p",
+      "level": -99,
+      "color_range": "pc",
+      "color_space": "bt470bg",
+      "chroma_location": "center",
+      "refs": 1,
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "time_base": "1/30",
+      "start_pts": 0,
+      "start_time": "0.000000",
+      "duration_ts": 9730,
+      "duration": "324.333333",
+      "bit_rate": "29928913",
+      "bits_per_raw_sample": "8",
+      "nb_frames": "9730",
+      "nb_read_frames": "9730",
+      "disposition": {
+        "default": 0,
+        "dub": 0,
+        "original": 0,
+        "comment": 0,
+        "lyrics": 0,
+        "karaoke": 0,
+        "forced": 0,
+        "hearing_impaired": 0,
+        "visual_impaired": 0,
+        "clean_effects": 0,
+        "attached_pic": 0,
+        "timed_thumbnails": 0,
+        "non_diegetic": 0,
+        "captions": 0,
+        "descriptions": 0,
+        "metadata": 0,
+        "dependent": 0,
+        "still_image": 0,
+        "multilayer": 0
+      }
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "pcm_s16le",
+      "codec_long_name": "PCM signed 16-bit little-endian",
+      "codec_type": "audio",
+      "codec_tag_string": "[1][0][0][0]",
+      "codec_tag": "0x0001",
+      "sample_fmt": "s16",
+      "sample_rate": "48000",
+      "channels": 2,
+      "bits_per_sample": 16,
+      "initial_padding": 0,
+      "r_frame_rate": "0/0",
+      "avg_frame_rate": "0/0",
+      "time_base": "1/48000",
+      "start_pts": 0,
+      "start_time": "0.000000",
+      "bit_rate": "1536000",
+      "nb_frames": "15568000",
+      "nb_read_frames": "19460",
+      "disposition": {
+        "default": 0,
+        "dub": 0,
+        "original": 0,
+        "comment": 0,
+        "lyrics": 0,
+        "karaoke": 0,
+        "forced": 0,
+        "hearing_impaired": 0,
+        "visual_impaired": 0,
+        "clean_effects": 0,
+        "attached_pic": 0,
+        "timed_thumbnails": 0,
+        "non_diegetic": 0,
+        "captions": 0,
+        "descriptions": 0,
+        "metadata": 0,
+        "dependent": 0,
+        "still_image": 0,
+        "multilayer": 0
+      }
+    },
+    "format": {
+      "filename": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line.avi",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "avi",
+      "format_long_name": "AVI (Audio Video Interleaved)",
+      "start_time": "0.000000",
+      "duration": "324.333333",
+      "size": "1275982704",
+      "bit_rate": "31473365",
+      "probe_score": 100
+    }
+  },
+  "master_pcm": {
+    "native_pcm_payload_sha256": "bf7853dce810d77852d2eb93d570e4d2484f86e7385322c73639943e65e19f2c",
+    "native_pcm_payload_bytes": 62272000,
+    "codec": "pcm_s16le",
+    "sample_rate": 48000,
+    "channels": 2,
+    "decoded_frames": 15568000,
+    "seconds": 324.3333333333333,
+    "decode": "Native PCM packet payload, no filters/rate/channel conversion. Integer PCM is intrinsically finite; floating PCM is explicitly checked.",
+    "rms_per_channel": [
+      0.03378954004575314,
+      0.03478117243542261
+    ],
+    "peak_per_channel": [
+      0.42327880859375,
+      0.453643798828125
+    ],
+    "mean_per_channel": [
+      -2.0622196569962222e-05,
+      -2.0235314521123056e-05
+    ],
+    "difference_rms": 0.026030468310403006,
+    "difference_threshold": 3.478117243542261e-07,
+    "nonfinite_sample_count": 0,
+    "rail_sample_count": 0,
+    "over_full_scale_sample_count": 0,
+    "nonzero_each_channel": true,
+    "stereo_difference_nonzero": true
+  },
+  "master_wav": {
+    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line-master.wav",
+    "sha256": "99973ffeb4ed2d38ab0e7f2ca67c039941ac80fa2a484629a8a1d73a9a61eb87",
+    "bytes": 62272078,
+    "payload": {
+      "native_pcm_payload_sha256": "bf7853dce810d77852d2eb93d570e4d2484f86e7385322c73639943e65e19f2c",
+      "native_pcm_payload_bytes": 62272000,
+      "codec": "pcm_s16le",
+      "sample_rate": 48000,
+      "channels": 2,
+      "decoded_frames": 15568000,
+      "seconds": 324.3333333333333,
+      "decode": "Native PCM packet payload, no filters/rate/channel conversion. Integer PCM is intrinsically finite; floating PCM is explicitly checked."
+    },
+    "processing": "PCM stream copy; native stereo/rate/depth, no additions, gain, normalization, overlay, fades or filters. Native PCM payload hash exactly equals AVI."
+  },
+  "native_frame_diversity": {
+    "analysis": "24 evenly distributed native full-resolution RGB frames; no image files saved. This tests nonblack/variation only, not art acceptance or scene coverage.",
+    "unique_samples": 24,
+    "nonblack_samples": 24,
+    "samples": [
+      {
+        "frame_index": 0,
+        "native_rgb_sha256": "81364dd7cdec6294228b2fceec35588d5e8a7e39185c2ae57ad790fcbe8eb511",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 37.673998480902775
+      },
+      {
+        "frame_index": 423,
+        "native_rgb_sha256": "2d09ecaf60dbd8886763853542e7eff0f3fde0715b38573e8ac8d537a7d763a2",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 31.18094654224537
+      },
+      {
+        "frame_index": 846,
+        "native_rgb_sha256": "b758d694dc92390be86ddd2bb91df2404dc563935aa01d25386befc80c8ff4af",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 28.76886067708333
+      },
+      {
+        "frame_index": 1269,
+        "native_rgb_sha256": "bfcf07bf4d50488f780ab9f22a9f36129fdc9b0520ef61339f2a2304f1e3618d",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 28.479708116319443
+      },
+      {
+        "frame_index": 1692,
+        "native_rgb_sha256": "29456431d91def80261fb1721c28003b77c58dbb17584a54fc07e95105257a3d",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 27.264636863425928
+      },
+      {
+        "frame_index": 2115,
+        "native_rgb_sha256": "445386fa197ef307ec2eede14f257b190879776fcaa5ff010346d30918a06205",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 27.027639250578705
+      },
+      {
+        "frame_index": 2538,
+        "native_rgb_sha256": "618315f01a74fb8d09c687912d42a3b556d346b9ce7c85de9742eac0e9847776",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 23.44518988715278
+      },
+      {
+        "frame_index": 2961,
+        "native_rgb_sha256": "09c99189d7961c0b16d3ce2082ad434ec7d66f5ec0ffd94bdda423bcece2c9b7",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 28.785680338541667
+      },
+      {
+        "frame_index": 3384,
+        "native_rgb_sha256": "a377868fea4135d32eea62dd8a305269e035d8584d38d59c8463c8d9c7f0f169",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 27.502613932291666
+      },
+      {
+        "frame_index": 3807,
+        "native_rgb_sha256": "ee69afb32922dd26afa00f82e594b6e916cfc78465312ddbed84c82b4434bfa3",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 27.691979166666666
+      },
+      {
+        "frame_index": 4230,
+        "native_rgb_sha256": "e0a0c3665853e2f67dc0252831dac4d4bf7c7371b035e27353a2ca7d72fa810a",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 24.595207971643518
+      },
+      {
+        "frame_index": 4653,
+        "native_rgb_sha256": "0859b0ed1c5ce757454354f8cfee93d19ee1c776e866883e4e455c091dcb167d",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 26.373355396412038
+      },
+      {
+        "frame_index": 5076,
+        "native_rgb_sha256": "5edb29793303d29c03ec52cd9b56ea3e7f70d13f14b87d1b7f48dc96be90ae17",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 26.39551070601852
+      },
+      {
+        "frame_index": 5499,
+        "native_rgb_sha256": "74def2a7d8d8703d44c5d161782168c305d1caf02be076b1f5f9a985e7334e84",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 25.370560619212963
+      },
+      {
+        "frame_index": 5922,
+        "native_rgb_sha256": "67c951c6df50895bd5fb71e5ab24d06073394d233cbd665739a0694cc12d63dc",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 45.05693070023148
+      },
+      {
+        "frame_index": 6345,
+        "native_rgb_sha256": "0fb1e8eb46df9d2e5a78894dad2b024fef5c443d4d46fa69fd7d6918ce6d8487",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 31.366032624421297
+      },
+      {
+        "frame_index": 6768,
+        "native_rgb_sha256": "1fcb241e7a9e02c5c39670ffa4e0b26481c2daaa4b8660d378ebdd66ba87e228",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 31.38389250578704
+      },
+      {
+        "frame_index": 7191,
+        "native_rgb_sha256": "9fe28c62adb07f49aab2213a4d6f55acdd5f9564eff9f08e511794388821652c",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 26.573818721064814
+      },
+      {
+        "frame_index": 7614,
+        "native_rgb_sha256": "f4545c1fa42fc07600eb5be5aaff33386f7ee298690040f819eb332bbacf8f4f",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 25.96319263599537
+      },
+      {
+        "frame_index": 8037,
+        "native_rgb_sha256": "72883bc241cc4f6e942f7462000d7f52a370df14b6b5c5649fc36d3b73d76738",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 34.11558195891204
+      },
+      {
+        "frame_index": 8460,
+        "native_rgb_sha256": "22650f3b116e0540b1a94a6dd3ebbf5b0b11f117c1f34b94dbcb333a675caeba",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 26.338881655092592
+      },
+      {
+        "frame_index": 8883,
+        "native_rgb_sha256": "5221008999b15ccd42be18620fb45934084ac06592ad1b1e8654b7a2980596b4",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 31.65604564525463
+      },
+      {
+        "frame_index": 9306,
+        "native_rgb_sha256": "43b2986ebb5716574a4c69a56189c93cb0b14528312fe8748453e158d145ed54",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 28.55897099247685
+      },
+      {
+        "frame_index": 9729,
+        "native_rgb_sha256": "3f69b51b5f8e81395dc0faa05a6a46a55b6f9f7f11d7ace9c67b85a07cf6e318",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 104.2139037181713
+      }
+    ]
+  },
+  "route": {
+    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/reports/occupied_line-release-route.json",
+    "sha256": "82577bb8b808c6687ca081cd0e07f1118df4d013e5c5c64a0abd87eb1ce15265",
+    "bytes": 62691,
+    "completed": true,
+    "ordinary_baseline": {
+      "armor": 50.0,
+      "health": 100.0,
+      "kills": 0,
+      "pistol": 36,
+      "shells": 12,
+      "shots": 0,
+      "total": 42
+    },
+    "scope": "Export-safe Main route: real CharacterBody player/AI physics, ordinary baseline health/ammo, authoritative weapon rays; automated aim/strafe and real E input, no teleport, secret supplies or cheats. Bot time is not human duration.",
+    "main_integration": true,
+    "editor_feature": false,
+    "working_directory": "/tmp",
+    "kills": 39,
+    "total": 42,
+    "shortcuts": [
+      "shortcut_one",
+      "shortcut_two"
+    ],
+    "lift_round_trip": true,
+    "flags": {
+      "brass": true,
+      "brass_key": true,
+      "breaker": true,
+      "clear_arena_one": true,
+      "clear_arena_two": true,
+      "clear_final_arena": true,
+      "exit": true,
+      "exit_control": true,
+      "power": true,
+      "red": true,
+      "red_key": true,
+      "release": true
+    },
+    "traps": {
+      "arena_one": {
+        "cleared": true,
+        "latched": false,
+        "shutters_open": true,
+        "triggered": true
+      },
+      "arena_two": {
+        "cleared": true,
+        "latched": false,
+        "shutters_open": true,
+        "triggered": true
+      },
+      "final_arena": {
+        "cleared": true,
+        "latched": false,
+        "shutters_open": true,
+        "triggered": true
+      }
+    },
+    "owned_weapons": [
+      "pistol",
+      "shotgun",
+      "melee",
+      "twin_shotgun",
+      "rivet_cannon",
+      "siege_launcher"
+    ],
+    "final_ammo": {
+      "pistol": 94,
+      "rivets": 42,
+      "rockets": 3,
+      "shells": 48
+    },
+    "new_weapon_shots": {
+      "twin_shotgun": 13,
+      "rivet_cannon": 78,
+      "siege_launcher": 5
+    },
+    "new_weapon_kills": {
+      "twin_shotgun": 11,
+      "rivet_cannon": 10,
+      "siege_launcher": 4
+    },
+    "siege_explosions": 5,
+    "physics_seconds": 322.983333333333,
+    "bot_control_seconds": 301.633333333333,
+    "executable": {
+      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-2026-10-10/eyesore-arsenal-ambush.x86_64",
+      "sha256": "549d888194e14713b322a09f70b6b31982a8da301819b2394c42211a39c9ecd2",
+      "bytes": 150155392
+    },
+    "export_build": {
+      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-2026-10-10/BUILD.json",
+      "sha256": "8a7ec1f9ceb13750d17ef0c2e56e6465bbc6ba2474a95f08d5bf3ab35687c890",
+      "bytes": 3621
+    },
+    "source_commit": "2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6",
+    "association": "Stage-completion notification plus caller-selected matching receipt/log links media to the exported run; provenance is not inferred from video pixels or filenames."
+  },
+  "native_log": {
+    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line-native.log",
+    "sha256": "cc3b902bd60e632b0e1d0a597c7a81de8ce697932b31a27d862f3697d71f6709",
+    "bytes": 460,
+    "successful_stage_marker": {
+      "completed": true,
+      "failures": [],
+      "kills": 39,
+      "receipt": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/reports/occupied_line-release-route.json",
+      "shots": 179,
+      "stage": "occupied_line"
+    }
+  },
+  "duration_tolerance_seconds": 0.033334333333333334,
+  "human_acceptance": "pending",
+  "mp4": {
+    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line.mp4",
+    "sha256": "e1c874dc8a9a3187e9646cdb56c9113195cf676b8a797006abb0be00f2311c55",
+    "bytes": 678028603,
+    "video": {
+      "frames": 9730,
+      "seconds": 324.3333333333333,
+      "frame_rate": 30,
+      "video": {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.64001f",
+        "width": 1280,
+        "height": 720,
+        "coded_width": 1280,
+        "coded_height": 720,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
+        "pix_fmt": "yuvj420p",
+        "level": 31,
+        "color_range": "pc",
+        "color_space": "bt470bg",
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "time_base": "1/15360",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 4981760,
+        "duration": "324.333333",
+        "bit_rate": "16457709",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "9730",
+        "nb_read_frames": "9730",
+        "extradata_size": 49,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "encoder": "Lavc63.1.102 libx264"
+        }
+      },
+      "audio": {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "mime_codec_string": "mp4a.40.2",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 1024,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 15568000,
+        "duration": "324.333333",
+        "bit_rate": "257703",
+        "nb_frames": "15205",
+        "nb_read_frames": "15204",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler"
+        }
+      },
+      "format": {
+        "filename": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line.mp4",
+        "nb_streams": 2,
+        "nb_programs": 0,
+        "nb_stream_groups": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "324.333333",
+        "size": "678028603",
+        "bit_rate": "16724240",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf63.1.102"
+        }
+      }
+    },
+    "decoded_audio": {
+      "decoded_frames": 15568000,
+      "decoded_seconds": 324.3333333333333,
+      "rms_per_channel": [
+        0.033581469612532375,
+        0.03454941345620124
+      ],
+      "peak_per_channel": [
+        0.4460682272911072,
+        0.45541179180145264
+      ],
+      "difference_rms": 0.025791194201018674,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "scope": "Lossy AAC structural decode only; no source-PCM/sample equality claim."
+    },
+    "processing": "Full frame sequence, libx264 preset fast CRF16 with requested yuv420p and AAC256k faststart; ffprobe may name preserved source full-range 8-bit 4:2:0 yuvj420p. No frame overlays, source trims, additional audio, gain, normalization or fades. Video/AAC are lossy; pixel/sample equality is not claimed.",
+    "encoded_this_run": true
+  },
+  "verification_log": {
+    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/logs/occupied_line-recording-verification.log",
+    "sha256": "2a936b4ff1c2d0008ca7f1c1adf9cd4c5241ba8f320236b884a20ee58c5d53d2",
+    "bytes": 61401
+  },
+  "helper": {
+    "path": "tools/verify_arsenal_recordings.py",
+    "sha256": "f59b8485e709a9873c4796fed3cbcf520da3eabb5f17847d32b83fca68fe1af7"
+  },
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "verified_utc": "2026-10-10T21:12:48.964462+00:00"
+}
