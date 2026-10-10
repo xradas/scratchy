@@ -1,0 +1,84 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "engine_binary": {
+    "bytes": 146414384,
+    "sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e"
+  },
+  "executable": {
+    "bytes": 120458232,
+    "mode": "0755",
+    "path": "eyesore-pale-ward-demonic-aim.x86_64",
+    "pck": "embedded",
+    "sha256": "78cf75d7da360c71258533920b5db63962c774985ecf3d18d5dacd9d51ce854e"
+  },
+  "known_issues": [
+    "The full game image has not been accepted as reproducing the concept; original 5–8 minute human duration and polish remain pending.",
+    "Eight frontal enemy poses only; full eight-direction animation still pending; generated detail/perspective drift.",
+    "Three brief floor-flag transitions across12 stairs, identical at30/60/120 caps; nofall/jump/doorwaygap inroute checks.",
+    "Room graph pursuit/local obstacle steering are representative; sustained human encounter/release review remains pending.",
+    "Interaction world/UI audio remains limited; level music remains candidate assigned to biotech.",
+    "First forced-offscreen pistol render recorded a 176ms hitch and 212ms flash expiry; repeat warmed run passed nominal duration bounds. Cold rendering needs further review.",
+    "Visible-window rendering was minimized during early checks; later native captures were drawable. Physical mouse capture and sustained human playtest remain unverified in this session.",
+    "Previous9October style native cadence check recorded a155.14ms first30FPS pistol render hitch; all six cap/weapon cadence and flash expiry cases passed. Weapon shading was subsequently repainted and reviewed in the10Octoberpass; full user style acceptance remains pending.",
+    "Current style pass combines world, viewgun and muzzle presentation at a 320 × 180 display grid; human visual acceptance against the approved concept remains pending.",
+    "Current creature atlas is generated art with eight representative frontal poses; complete directional animation and generated detail/perspective drift remain work."
+  ],
+  "known_issues_source": {
+    "bytes": 33532,
+    "path": "verification/INTEGRATION.json",
+    "sha256": "5a04d7216a25a56e2a39bc9fb147ee6188385a823de53ebfeb49e4a51fbf39a9"
+  },
+  "linux_release_template": {
+    "bytes": 73519416,
+    "sha256": "d9f79ab89b5ae369aeed11c6052d402e8218cd503bf85b4a235f9c30c46a7c63"
+  },
+  "project": "Eyesore / The Pale Ward",
+  "renderer": "Compatibility",
+  "source_branch": "codex/eyesore-build-two",
+  "source_checksums": "SOURCE_SHA256SUMS",
+  "source_commit": "bf04a386df57b10d7c5eac61d9443f25dbf7fec3",
+  "source_date_epoch": 1791659103,
+  "source_git_status": "",
+  "source_head": "bf04a386df57b10d7c5eac61d9443f25dbf7fec3",
+  "source_tree_sha256": "d3e1ec39cf1ef4e089e59404be8d5e2473b4c8bf5b469530ca46d5cb0c942fbe",
+  "verification": {
+    "captures": [
+      {
+        "forced_offscreen": true,
+        "label": "gore",
+        "offscreen_required": false
+      },
+      {
+        "forced_offscreen": true,
+        "label": "gameplay",
+        "offscreen_required": false
+      },
+      {
+        "forced_offscreen": true,
+        "label": "menu",
+        "offscreen_required": false
+      }
+    ],
+    "exit_code": 0,
+    "input_mode": "Automated programmatic combat; mouse visible; physical pointer input unverified",
+    "native_export_smoke": "smoke.log",
+    "render_mode": "Forced offscreen native rendering; actual viewport PNGs, not visible-window presentation",
+    "scope": "Actual release programmatic shotgun kill, settled gore/reset, pause/resume, viewport/settings/audio buses. Human release acceptance pending.",
+    "success_markers": [
+      "GORE_EXPORT_SMOKE_OK:",
+      "FOUNDATION_SMOKE_OK:"
+    ],
+    "working_directory": "/tmp"
+  },
+  "video": {
+    "bytes": 26432081,
+    "original_recording": {
+      "bytes": 121524310,
+      "path": "pale-ward-demonic-aim-gameplay.avi",
+      "sha256": "2015c22f4fad958b9782b525c210c63ec01efec908e6eb535a9dcaef72413de1"
+    },
+    "path": "pale-ward-demonic-aim-gameplay.mp4",
+    "processing": "Existing MP4 copied unchanged; no transcoding or new capture",
+    "sha256": "afcea74ddfbbe4ba720677a212b85f423901918802521e9de624e599d3fc6465"
+  }
+}

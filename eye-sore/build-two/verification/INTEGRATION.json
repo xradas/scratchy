@@ -1,6 +1,6 @@
 {
-  "checked_utc": "2026-10-10T19:04:22.941991+00:00",
-  "stage": "Pale Ward weapon shading review: registered dark painted pistol and shotgun; full visual acceptance pending",
+  "checked_utc": "2026-10-10T19:08:20.379114+00:00",
+  "stage": "Pale Ward demonic creature voices and visual gun-bore alignment correction; human listening/aiming review pending",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
   "renderer": "Compatibility",
@@ -14,9 +14,9 @@
     "foundation": "Doorway floor gap closed; visible and physical service ramp use exact same triangles. Shared room geometry and bidirectional grounded portal/walkway tests pass. Native standard-template export launched from /tmp without warnings/errors.",
     "doom_reference": "Publisher reference audit records spatial depth, shading, threat mass, weapon framing and game-scale readability criteria; no copied Doom assets.",
     "combat": "Native integrated sprite aiming/balance: stable camera, screen-relative mouse, exact crosshair/horizontalFOV; close-range pistol4/8, shotgun1/2, melee3/6. 30/60/120 live AI/projectiles retain6 shots/30 ammo over120 fixed physics ticks. Shared caches stay16 pose entries/two images across retries; materials/alpha follow current sprite frame.",
-    "audio": "23 runtime SFX plus three stereo music files. Weapon/material contacts, distinct short pain, two longer death screams, title-only Abelian, paused level mix, mute and reset ownership verified. Original sources/edits/licenses retained; wet pack rejected.",
+    "audio": "Six demonic-v1 layered dry creature warning/hurt/death cues integrated; music/player/weapon/material contacts/buses preserved. Focused113-check ownership, actual two-enemy interruption, fresh stereo route and native export smoke pass; subjective voice approval pending.",
     "weapon_prototypes": "Approved-board transparent pistol/shotgun/glove sprite atlases; four poses each, byte-original pixels. Runtime authored regions/scales/markers register generated poses. Nearest display keeps correct proportions, clips within world viewport and leaves crosshair clear. Accepted shot reaches a visible muzzle frame before lifetime decrement; no baked muzzle flash in source.",
-    "export": "Fresh weapons Linux export with embedded assets passes native actual shotgun kill, nine settled pieces, retry reset and foundation/settings/pause/audio buses from /tmp. Independent archive and embedded weapon source/provenance review pass. Sustained human release acceptance pending.",
+    "export": "Fresh demonic/aim Linux export launched from /tmp; actual shotgun kill/nine settled gore/retry and foundation/settings/pause/buses pass. Independent archive/PCK cue metadata and source trace pass. Human full release acceptance pending.",
     "creature_prototypes": "Approved-board builtin imagegen edits: two transparent eight-pose front-view sprite atlases now runtime art. Perframe feet, bounded128×192 silhouette rays,24 manually authored Vessel hardware contacts and disabled corpse queries pass native/headless. World physics stays capsule-based; fine source alpha detail is approximated.",
     "identity_selection": "User explicitly selected Corrupted biotech — The Pale Ward on9October2026 for the first playable art pass/first level. Concept quality target remains separate from acceptance of simplified runtime studies.",
     "title_art": "Actual original approved Pale Ward composition is title artwork, copied byte-identically and displayed above its static concept HUD with an AtlasTexture region. Abelian remains title only. Title artwork is explicitly static, not a live room.",
@@ -103,13 +103,13 @@
     "scope": "Movement/display room preview; no combat, full level or ingame soundtrack."
   },
   "executable": {
-    "bytes": 120380992,
+    "bytes": 120458232,
     "mode": "0755",
-    "path": "/home/rikki/Builds/eyesore-pale-ward-weapons-2026-10-10/eyesore-pale-ward-weapons.x86_64",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-demonic-aim-2026-10-10/eyesore-pale-ward-demonic-aim.x86_64",
     "pck": "embedded",
-    "sha256": "b02f76890ca02702544d7cf17f904727e20915023fe9f010c115cb9cbbee608d",
-    "source_commit": "55dd3308cec5a19ace16c11b098356fc2cacb8a0",
-    "scope": "Registered dark painted pistol/shotgun art pass. Full visual acceptance, directional production and human level-duration review pending."
+    "sha256": "78cf75d7da360c71258533920b5db63962c774985ecf3d18d5dacd9d51ce854e",
+    "source_commit": "bf04a386df57b10d7c5eac61d9443f25dbf7fec3",
+    "scope": "Six redesigned dry creature voices and corrected visual gun bore alignment. Centered hitscan, gameplay/HUD/music preserved; human tone/aim review pending."
   },
   "audio_capture": {
     "file": "level/integrated-game-mix.wav",
@@ -140,10 +140,10 @@
   },
   "portable_archive": {
     "archived_executable_hash_and_mode_verified": true,
-    "bytes": 207781792,
-    "path": "/home/rikki/Builds/eyesore-pale-ward-weapons-2026-10-10/eyesore-pale-ward-weapons-linux.tar.gz",
-    "sha256": "d1e32322a8e2d62c64e04802206c79ccdc3fda7d167320de9672f44c970b825d",
-    "independent_audit": "weapon-style-v3/archive-audit.json"
+    "bytes": 211544732,
+    "path": "/home/rikki/Builds/eyesore-pale-ward-demonic-aim-2026-10-10/eyesore-pale-ward-demonic-aim-linux.tar.gz",
+    "sha256": "3481a757d6d8c42571dff8e96b6cbf85b35b2ce7fb5bda12db5f423ea3a89234",
+    "independent_audit": "demonic-aim-v1/archive-audit.json"
   },
   "preserved_mesh_study_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-2026-10-09/eyesore-combat-art-review.x86_64",
@@ -196,18 +196,18 @@
     "result": "All final checks pass. Live bot completed10/11 kills,health90.4,fiveshells; optionalsecretnotused. Source cadence30/60/120: identical stair endpoint and sixpistolshots120physicsticks; cache16poses/twoimages."
   },
   "gameplay_video": {
-    "bytes": 22810179,
+    "bytes": 26432081,
     "original_recording": {
-      "bytes": 121356894,
-      "path": "pale-ward-weapons-gameplay.avi",
-      "sha256": "f08256ac983c4e9dc73865004d0e30abeafc070a044d35f46ca88ee81565bf09"
+      "bytes": 121524310,
+      "path": "pale-ward-demonic-aim-gameplay.avi",
+      "sha256": "2015c22f4fad958b9782b525c210c63ec01efec908e6eb535a9dcaef72413de1"
     },
-    "path": "/home/rikki/Builds/eyesore-pale-ward-weapons-2026-10-10/pale-ward-weapons-gameplay.mp4",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-demonic-aim-2026-10-10/pale-ward-demonic-aim-gameplay.mp4",
     "processing": "Existing MP4 copied unchanged; no transcoding or new capture",
-    "sha256": "145a62d9e62437f8faaeb74bc66e0ba0a70601393fe9fa46a97354d4a32d404b",
-    "capture": "Fresh Godot MovieMaker actual renderer and stereo Master mix; normal AI/health/ammo automated route, no secret supplies. H264/AAC encoding only, no audio overlay or normalization. 1028 frames at30FPS;34.266667seconds.",
-    "runtime_source_equality": "All195 recorded runtime fingerprints match the released SOURCE_SHA256SUMS; capture precedes source checkpoint with identical runtime files.",
-    "audio_validation": "weapon-style-v3/recording.json"
+    "sha256": "afcea74ddfbbe4ba720677a212b85f423901918802521e9de624e599d3fc6465",
+    "capture": "Fresh Godot MovieMaker actual main renderer and stereo Master mix,1028frames30FPS34.266667s. NormalAI/health/ammo automated route, no secret supplies; H264/AAC encoding only, no audio overlay or normalization.",
+    "runtime_source_equality": "All207 recorded runtime fingerprints equal released SOURCE_SHA256SUMS; capture precedes source checkpoint with identical runtime files.",
+    "audio_validation": "demonic-aim-v1/recording.json"
   },
   "gore_verification": {
     "contract_files": [
@@ -536,6 +536,74 @@
     "movie_runtime_fingerprints": "demonic-aim-v1/movie-runtime-source.json",
     "actual_stereo_recording": "demonic-aim-v1/recording.json",
     "initial_capture_failure": "demonic-aim-v1/movie-capture-missing-directory.log",
-    "capture_failure_resolution": "Output folder was missing. Failed media/log retained under separate build failure-evidence; output directory created; fresh1028frame clean route captured. No game changes."
+    "capture_failure_resolution": "Output folder was missing. Failed media/log retained under separate build failure-evidence; output directory created; fresh1028frame clean route captured. No game changes.",
+    "native_export_smoke": "/home/rikki/Builds/eyesore-pale-ward-demonic-aim-2026-10-10/smoke.log",
+    "export_source_commit": "bf04a386df57b10d7c5eac61d9443f25dbf7fec3",
+    "export_source_tree_sha256": "d3e1ec39cf1ef4e089e59404be8d5e2473b4c8bf5b469530ca46d5cb0c942fbe",
+    "export_source_git_status": "",
+    "native_export_flags": {
+      "captures": [
+        {
+          "forced_offscreen": true,
+          "label": "gore",
+          "offscreen_required": false
+        },
+        {
+          "forced_offscreen": true,
+          "label": "gameplay",
+          "offscreen_required": false
+        },
+        {
+          "forced_offscreen": true,
+          "label": "menu",
+          "offscreen_required": false
+        }
+      ],
+      "exit_code": 0,
+      "input_mode": "Automated programmatic combat; mouse visible; physical pointer input unverified",
+      "native_export_smoke": "smoke.log",
+      "render_mode": "Forced offscreen native rendering; actual viewport PNGs, not visible-window presentation",
+      "scope": "Actual release programmatic shotgun kill, settled gore/reset, pause/resume, viewport/settings/audio buses. Human release acceptance pending.",
+      "success_markers": [
+        "GORE_EXPORT_SMOKE_OK:",
+        "FOUNDATION_SMOKE_OK:"
+      ],
+      "working_directory": "/tmp"
+    },
+    "independent_archive_audit": "demonic-aim-v1/archive-audit.json",
+    "independent_embedded_asset_review": "demonic-aim-v1/archive-independent-review.json",
+    "independent_audit_initial_fixture_failure": "demonic-aim-v1/archive-independent-review-initial.json",
+    "independent_audit_correction": "Initial report incorrectly required local original/license evidence files in package source checksum list. Corrected audit verifies their local ledger hashes and included derivative provenance separately. Failure retained.",
+    "source_delivery": "Complete source and preserved originals in local project/Git branch; portable archive contains embedded runtime, derivative provenance and source checksum manifest, not a standalone source checkout."
+  },
+  "preserved_weapon_style_v3_executable": {
+    "bytes": 120380992,
+    "mode": "0755",
+    "path": "/home/rikki/Builds/eyesore-pale-ward-weapons-2026-10-10/eyesore-pale-ward-weapons.x86_64",
+    "pck": "embedded",
+    "sha256": "b02f76890ca02702544d7cf17f904727e20915023fe9f010c115cb9cbbee608d",
+    "source_commit": "55dd3308cec5a19ace16c11b098356fc2cacb8a0",
+    "scope": "Registered dark painted pistol/shotgun art pass. Full visual acceptance, directional production and human level-duration review pending."
+  },
+  "preserved_weapon_style_v3_portable_archive": {
+    "archived_executable_hash_and_mode_verified": true,
+    "bytes": 207781792,
+    "path": "/home/rikki/Builds/eyesore-pale-ward-weapons-2026-10-10/eyesore-pale-ward-weapons-linux.tar.gz",
+    "sha256": "d1e32322a8e2d62c64e04802206c79ccdc3fda7d167320de9672f44c970b825d",
+    "independent_audit": "weapon-style-v3/archive-audit.json"
+  },
+  "preserved_weapon_style_v3_gameplay_video": {
+    "bytes": 22810179,
+    "original_recording": {
+      "bytes": 121356894,
+      "path": "pale-ward-weapons-gameplay.avi",
+      "sha256": "f08256ac983c4e9dc73865004d0e30abeafc070a044d35f46ca88ee81565bf09"
+    },
+    "path": "/home/rikki/Builds/eyesore-pale-ward-weapons-2026-10-10/pale-ward-weapons-gameplay.mp4",
+    "processing": "Existing MP4 copied unchanged; no transcoding or new capture",
+    "sha256": "145a62d9e62437f8faaeb74bc66e0ba0a70601393fe9fa46a97354d4a32d404b",
+    "capture": "Fresh Godot MovieMaker actual renderer and stereo Master mix; normal AI/health/ammo automated route, no secret supplies. H264/AAC encoding only, no audio overlay or normalization. 1028 frames at30FPS;34.266667seconds.",
+    "runtime_source_equality": "All195 recorded runtime fingerprints match the released SOURCE_SHA256SUMS; capture precedes source checkpoint with identical runtime files.",
+    "audio_validation": "weapon-style-v3/recording.json"
   }
 }
