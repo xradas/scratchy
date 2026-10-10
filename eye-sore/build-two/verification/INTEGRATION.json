@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-10T21:13:50.187492+00:00",
+  "checked_utc": "2026-10-10T21:48:44.461420+00:00",
   "stage": "Nine connected levels: Pale Ward → Ash Citadel → Occupied Line; aligned gun bores and replacement Rivet artwork.",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
@@ -16,7 +16,7 @@
     "combat": "Native integrated sprite aiming/balance: stable camera, screen-relative mouse, exact crosshair/horizontalFOV; close-range pistol4/8, shotgun1/2, melee3/6. 30/60/120 live AI/projectiles retain6 shots/30 ammo over120 fixed physics ticks. Shared caches stay16 pose entries/two images across retries; materials/alpha follow current sprite frame.",
     "audio": "35mapped combat cues,18distinct six-species warning/hurt/death paths. Twelve new dry HaelDB CC0 derivatives with exact sources/filters/hashes. Original23cue registrations/bytes andthree stereo music files preserved; Abelianmenu-only, CitadelHellfire, Ward/LineBestial. Human listening acceptance pending.",
     "weapon_prototypes": "Approved-board transparent pistol/shotgun/glove sprite atlases; four poses each, byte-original pixels. Runtime authored regions/scales/markers register generated poses. Nearest display keeps correct proportions, clips within world viewport and leaves crosshair clear. Accepted shot reaches a visible muzzle frame before lifetime decrement; no baked muzzle flash in source.",
-    "export": "Fresh portable Linux six-weapon arsenal/ambush release built from clean source2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6. Independent2517 packed-resource checks,109payload hashes and419source fingerprints pass. Genuine native actualMain ordinary baseline/AI routes from/tmp pass all3 stages,39/42kills, all flags/manualcontrols/bothshortcuts/liftroundtrip, nosecrets. Human final release acceptance pending.",
+    "export": "Fresh nine-level portable Linux export. Genuine shipped ELF headless continuous full9 physical combat route passes, native Intake route/movie passes;3152 independent archive checks and462 source fingerprints verified. Human acceptance pending.",
     "creature_prototypes": "Approved-board builtin imagegen edits: two transparent eight-pose front-view sprite atlases now runtime art. Perframe feet, bounded128×192 silhouette rays,24 manually authored Vessel hardware contacts and disabled corpse queries pass native/headless. World physics stays capsule-based; fine source alpha detail is approximated.",
     "identity_selection": "User explicitly selected Corrupted biotech — The Pale Ward on9October2026 for the first playable art pass/first level. Concept quality target remains separate from acceptance of simplified runtime studies.",
     "title_art": "Actual original approved Pale Ward composition is title artwork, copied byte-identically and displayed above its static concept HUD with an AtlasTexture region. Abelian remains title only. Title artwork is explicitly static, not a live room.",
@@ -112,7 +112,11 @@
     "arsenal-architecture-v2/release/recordings-delivery.json",
     "arsenal-architecture-v2/release/pale_ward-recording.json",
     "arsenal-architecture-v2/release/ash_citadel-recording.json",
-    "arsenal-architecture-v2/release/occupied_line-recording.json"
+    "arsenal-architecture-v2/release/occupied_line-recording.json",
+    "campaign-v3/release/final-release.json",
+    "campaign-v3/release/archive-audit.json",
+    "campaign-v3/release/source-integrity.json",
+    "campaign-v3/release/intake-recording.json"
   ],
   "pending": [
     "User review of playable art/environment/gore and existing dry contacts, hurt/death and actual stereo mix.",
@@ -138,22 +142,29 @@
     "scope": "Movement/display room preview; no combat, full level or ingame soundtrack."
   },
   "executable": {
-    "bytes": 150155392,
+    "bytes": 155616376,
     "mode": "0755",
-    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-2026-10-10/eyesore-arsenal-ambush.x86_64",
+    "path": "/home/rikki/Builds/eyesore-campaign-2026-10-10/eyesore-campaign-v3.x86_64",
     "pck": "embedded",
-    "sha256": "549d888194e14713b322a09f70b6b31982a8da301819b2394c42211a39c9ecd2",
-    "source_commit": "2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6",
-    "scope": "Six weapons, theme-exclusive creatures and stages, nine pickup ambushes, layered arena routes and twelve materials per theme. All three genuine native exported automated routes pass; human review pending."
+    "sha256": "645c225be09dfee6f1cdc296f54802b171f45f83f4caa6050d029473196f4728",
+    "source_commit": "99a7b19eb2b7c7cdd4cbb784d9b955f71ea9437b"
   },
   "audio_capture": {
-    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward-master.wav",
-    "sha256": "8329ced641c25744b8b577ade28832172dfe1e2d4c03d93ba6e5d5b7c46209e4",
-    "bytes": 51616078,
-    "duration": 268.8333333333333,
-    "channels": 2,
-    "sample_rate": 48000,
-    "source": "Exact native stereo PCM payload from fresh exported Ward MovieMaker recording. No normalization or edits. Technical checks passed; subjective listening pending."
+    "path": "/home/rikki/Builds/eyesore-campaign-captures-2026-10-10/intake-master.wav",
+    "sha256": "46d6c8cee53f69ccc0926c43470d4305f57de5234d98bb4e9e610b2ba433a11c",
+    "bytes": 41772878,
+    "payload": {
+      "native_pcm_payload_sha256": "6206062db0e9e2781a6b532d7942eb4325e4c652b95d951ca1343594a2c1b985",
+      "native_pcm_payload_bytes": 41772800,
+      "codec": "pcm_s16le",
+      "sample_rate": 48000,
+      "channels": 2,
+      "decoded_frames": 10443200,
+      "seconds": 217.56666666666666,
+      "decode": "Native PCM packet payload, no filters/rate/channel conversion. Integer PCM is intrinsically finite; floating PCM is explicitly checked."
+    },
+    "processing": "Unchanged source PCM packet stream copied to stereo 48 kHz WAV; exact payload SHA256/length/frame equality, no filters or gain.",
+    "source": "MovieMaker actual stereo Master, exact unchanged PCM stream copy. Human listening acceptance pending."
   },
   "preserved_audio_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-stage-one-2026-10-08/eyesore-audio-combat-prototype.x86_64",
@@ -174,10 +185,10 @@
   },
   "portable_archive": {
     "archived_executable_hash_and_mode_verified": true,
-    "bytes": 103326393,
-    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-2026-10-10/eyesore-arsenal-ambush-linux.tar.gz",
-    "sha256": "5e35d931977ad9fbeed3004deb3ea6ef89d888b1d9f508199c66719fe9fce5da",
-    "independent_audit": "arsenal-architecture-v2/release/archive-audit.json"
+    "bytes": 105392173,
+    "path": "/home/rikki/Builds/eyesore-campaign-2026-10-10/eyesore-campaign-v3-linux.tar.gz",
+    "sha256": "c4d3316cc24faf048968c2ec4a952e3a4fc49f2ed30d0e2e844dea11d99223e8",
+    "independent_audit": "campaign-v3/release/archive-audit.json"
   },
   "preserved_mesh_study_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-2026-10-09/eyesore-combat-art-review.x86_64",
@@ -230,25 +241,194 @@
     "result": "All final checks pass. Live bot completed10/11 kills,health90.4,fiveshells; optionalsecretnotused. Source cadence30/60/120: identical stair endpoint and sixpistolshots120physicsticks; cache16poses/twoimages."
   },
   "gameplay_video": {
-    "stage": "pale_ward",
-    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward.mp4",
-    "sha256": "587ac7884cb14c0043fe6c507d9a822f3d47aaf7dac5a8f55389fb6268341c9e",
-    "bytes": 506176611,
+    "path": "/home/rikki/Builds/eyesore-campaign-captures-2026-10-10/intake.mp4",
+    "sha256": "a55e7547e25e1e41d5541396d21cfe1fd868a35ea0c8a9914cdeaaca29d48ed2",
+    "bytes": 416966104,
+    "video": {
+      "frames": 6527,
+      "seconds": 217.56666666666666,
+      "frame_rate": 30,
+      "video": {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.64001f",
+        "width": 1280,
+        "height": 720,
+        "coded_width": 1280,
+        "coded_height": 720,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
+        "pix_fmt": "yuvj420p",
+        "level": 31,
+        "color_range": "pc",
+        "color_space": "bt470bg",
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "time_base": "1/15360",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 3341824,
+        "duration": "217.566667",
+        "bit_rate": "15065820",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "6527",
+        "nb_read_frames": "6527",
+        "extradata_size": 49,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "encoder": "Lavc63.1.102 libx264"
+        }
+      },
+      "audio": {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "mime_codec_string": "mp4a.40.2",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 1024,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 10443200,
+        "duration": "217.566667",
+        "bit_rate": "257324",
+        "nb_frames": "10200",
+        "nb_read_frames": "10199",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler"
+        }
+      },
+      "format": {
+        "filename": "/home/rikki/Builds/eyesore-campaign-captures-2026-10-10/intake.mp4",
+        "nb_streams": 2,
+        "nb_programs": 0,
+        "nb_stream_groups": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "217.566667",
+        "size": "416966104",
+        "bit_rate": "15331984",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf63.1.102"
+        }
+      }
+    },
+    "decoded_audio": {
+      "decoded_frames": 10443200,
+      "decoded_seconds": 217.56666666666666,
+      "rms_per_channel": [
+        0.0360922738012052,
+        0.03662410653114038
+      ],
+      "peak_per_channel": [
+        0.44702720642089844,
+        0.43616580963134766
+      ],
+      "difference_rms": 0.02710066965989042,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "scope": "Lossy AAC structural decode only; no source-PCM/sample equality claim."
+    },
+    "processing": "Full 6527-frame H.264 libx264 fast CRF16 8-bit 4:2:0 and AAC256k faststart; no trim, overlays, gain, fades or additional streams. Video/AAC are lossy; pixel/sample equality is not claimed.",
+    "stage": "pale_ward_01",
     "original_recording": {
-      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward.avi",
-      "sha256": "cd8746a2eff7dc47eab0bbe5fbda1dcfe5aa8689bf4932bddf8f011d56cd60e5",
-      "bytes": 1056271294
+      "path": "/home/rikki/Builds/eyesore-campaign-captures-2026-10-10/intake.avi",
+      "sha256": "3bbbf94c29534bdab0f9e541f0ad48b70e93fd413706fd93203bf67ed288adad",
+      "bytes": 862045392
     },
     "master_wav": {
-      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward-master.wav",
-      "sha256": "8329ced641c25744b8b577ade28832172dfe1e2d4c03d93ba6e5d5b7c46209e4",
-      "bytes": 51616078
+      "path": "/home/rikki/Builds/eyesore-campaign-captures-2026-10-10/intake-master.wav",
+      "sha256": "46d6c8cee53f69ccc0926c43470d4305f57de5234d98bb4e9e610b2ba433a11c",
+      "bytes": 41772878,
+      "payload": {
+        "native_pcm_payload_sha256": "6206062db0e9e2781a6b532d7942eb4325e4c652b95d951ca1343594a2c1b985",
+        "native_pcm_payload_bytes": 41772800,
+        "codec": "pcm_s16le",
+        "sample_rate": 48000,
+        "channels": 2,
+        "decoded_frames": 10443200,
+        "seconds": 217.56666666666666,
+        "decode": "Native PCM packet payload, no filters/rate/channel conversion. Integer PCM is intrinsically finite; floating PCM is explicitly checked."
+      },
+      "processing": "Unchanged source PCM packet stream copied to stereo 48 kHz WAV; exact payload SHA256/length/frame equality, no filters or gain."
     },
-    "capture": "Fresh exported ELF actual Main renderer and stereo Master mix, programmatic normal-baseline/AI route without secrets. Native AVI unchanged; WAV exact PCM stream copy. H264/AAC delivery only, no overlay, normalization, filter, fade or downmix. AAC is lossy.",
-    "video_frames": 8065,
-    "duration_seconds": 268.8333333333333,
-    "audio_validation": "arsenal-architecture-v2/release/pale_ward-recording.json",
-    "capture_to_release_changes": "None: all movies use the genuine exported ELF built from source2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6. Final metadata/helper commit excludes runtime;419source fingerprints unchanged."
+    "capture": "Actual shipped ELF native Main1280x720, automated ordinary combat, real E exits; actual stereo Master. Full MP4 encoding only; no audio addition/gain/fades or overlays.",
+    "audio_validation": "campaign-v3/release/intake-recording.json",
+    "source_commit": "99a7b19eb2b7c7cdd4cbb784d9b955f71ea9437b",
+    "capture_to_release_changes": "None to462 recorded source/provenance files; final changes only excluded verification/session/postprocess metadata."
   },
   "gore_verification": {
     "contract_files": [
@@ -707,67 +887,194 @@
   },
   "gameplay_videos": [
     {
-      "stage": "pale_ward",
-      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward.mp4",
-      "sha256": "587ac7884cb14c0043fe6c507d9a822f3d47aaf7dac5a8f55389fb6268341c9e",
-      "bytes": 506176611,
+      "path": "/home/rikki/Builds/eyesore-campaign-captures-2026-10-10/intake.mp4",
+      "sha256": "a55e7547e25e1e41d5541396d21cfe1fd868a35ea0c8a9914cdeaaca29d48ed2",
+      "bytes": 416966104,
+      "video": {
+        "frames": 6527,
+        "seconds": 217.56666666666666,
+        "frame_rate": 30,
+        "video": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "mime_codec_string": "avc1.64001f",
+          "width": 1280,
+          "height": 720,
+          "coded_width": 1280,
+          "coded_height": 720,
+          "has_b_frames": 2,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "16:9",
+          "pix_fmt": "yuvj420p",
+          "level": 31,
+          "color_range": "pc",
+          "color_space": "bt470bg",
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "time_base": "1/15360",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 3341824,
+          "duration": "217.566667",
+          "bit_rate": "15065820",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "6527",
+          "nb_read_frames": "6527",
+          "extradata_size": 49,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0,
+            "multilayer": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "encoder": "Lavc63.1.102 libx264"
+          }
+        },
+        "audio": {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_long_name": "AAC (Advanced Audio Coding)",
+          "profile": "LC",
+          "codec_type": "audio",
+          "codec_tag_string": "mp4a",
+          "codec_tag": "0x6134706d",
+          "mime_codec_string": "mp4a.40.2",
+          "sample_fmt": "fltp",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "bits_per_sample": 0,
+          "initial_padding": 1024,
+          "id": "0x2",
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "time_base": "1/48000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 10443200,
+          "duration": "217.566667",
+          "bit_rate": "257324",
+          "nb_frames": "10200",
+          "nb_read_frames": "10199",
+          "extradata_size": 5,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0,
+            "multilayer": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler"
+          }
+        },
+        "format": {
+          "filename": "/home/rikki/Builds/eyesore-campaign-captures-2026-10-10/intake.mp4",
+          "nb_streams": 2,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "217.566667",
+          "size": "416966104",
+          "bit_rate": "15331984",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf63.1.102"
+          }
+        }
+      },
+      "decoded_audio": {
+        "decoded_frames": 10443200,
+        "decoded_seconds": 217.56666666666666,
+        "rms_per_channel": [
+          0.0360922738012052,
+          0.03662410653114038
+        ],
+        "peak_per_channel": [
+          0.44702720642089844,
+          0.43616580963134766
+        ],
+        "difference_rms": 0.02710066965989042,
+        "nonfinite_sample_count": 0,
+        "over_full_scale_sample_count": 0,
+        "scope": "Lossy AAC structural decode only; no source-PCM/sample equality claim."
+      },
+      "processing": "Full 6527-frame H.264 libx264 fast CRF16 8-bit 4:2:0 and AAC256k faststart; no trim, overlays, gain, fades or additional streams. Video/AAC are lossy; pixel/sample equality is not claimed.",
+      "stage": "pale_ward_01",
       "original_recording": {
-        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward.avi",
-        "sha256": "cd8746a2eff7dc47eab0bbe5fbda1dcfe5aa8689bf4932bddf8f011d56cd60e5",
-        "bytes": 1056271294
+        "path": "/home/rikki/Builds/eyesore-campaign-captures-2026-10-10/intake.avi",
+        "sha256": "3bbbf94c29534bdab0f9e541f0ad48b70e93fd413706fd93203bf67ed288adad",
+        "bytes": 862045392
       },
       "master_wav": {
-        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward-master.wav",
-        "sha256": "8329ced641c25744b8b577ade28832172dfe1e2d4c03d93ba6e5d5b7c46209e4",
-        "bytes": 51616078
+        "path": "/home/rikki/Builds/eyesore-campaign-captures-2026-10-10/intake-master.wav",
+        "sha256": "46d6c8cee53f69ccc0926c43470d4305f57de5234d98bb4e9e610b2ba433a11c",
+        "bytes": 41772878,
+        "payload": {
+          "native_pcm_payload_sha256": "6206062db0e9e2781a6b532d7942eb4325e4c652b95d951ca1343594a2c1b985",
+          "native_pcm_payload_bytes": 41772800,
+          "codec": "pcm_s16le",
+          "sample_rate": 48000,
+          "channels": 2,
+          "decoded_frames": 10443200,
+          "seconds": 217.56666666666666,
+          "decode": "Native PCM packet payload, no filters/rate/channel conversion. Integer PCM is intrinsically finite; floating PCM is explicitly checked."
+        },
+        "processing": "Unchanged source PCM packet stream copied to stereo 48 kHz WAV; exact payload SHA256/length/frame equality, no filters or gain."
       },
-      "capture": "Fresh exported ELF actual Main renderer and stereo Master mix, programmatic normal-baseline/AI route without secrets. Native AVI unchanged; WAV exact PCM stream copy. H264/AAC delivery only, no overlay, normalization, filter, fade or downmix. AAC is lossy.",
-      "video_frames": 8065,
-      "duration_seconds": 268.8333333333333,
-      "audio_validation": "arsenal-architecture-v2/release/pale_ward-recording.json",
-      "capture_to_release_changes": "None: all movies use the genuine exported ELF built from source2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6. Final metadata/helper commit excludes runtime;419source fingerprints unchanged."
-    },
-    {
-      "stage": "ash_citadel",
-      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/ash_citadel.mp4",
-      "sha256": "82f8eabf0f91a98fff6edf6b51a2f1c5f3ee31aa918ed7d5e1c07c9b0a89dc72",
-      "bytes": 721183442,
-      "original_recording": {
-        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/ash_citadel.avi",
-        "sha256": "70ace72bdad4f62477d567de9236bdf14a115073037b336695097035f6ddf484",
-        "bytes": 1233775042
-      },
-      "master_wav": {
-        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/ash_citadel-master.wav",
-        "sha256": "8d79ad95ad4ef07db1b4b0d6344ed53cc739c8e0dff0335bcf914395d48f1554",
-        "bytes": 56275278
-      },
-      "capture": "Fresh exported ELF actual Main renderer and stereo Master mix, programmatic normal-baseline/AI route without secrets. Native AVI unchanged; WAV exact PCM stream copy. H264/AAC delivery only, no overlay, normalization, filter, fade or downmix. AAC is lossy.",
-      "video_frames": 8793,
-      "duration_seconds": 293.1,
-      "audio_validation": "arsenal-architecture-v2/release/ash_citadel-recording.json",
-      "capture_to_release_changes": "None: all movies use the genuine exported ELF built from source2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6. Final metadata/helper commit excludes runtime;419source fingerprints unchanged."
-    },
-    {
-      "stage": "occupied_line",
-      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line.mp4",
-      "sha256": "e1c874dc8a9a3187e9646cdb56c9113195cf676b8a797006abb0be00f2311c55",
-      "bytes": 678028603,
-      "original_recording": {
-        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line.avi",
-        "sha256": "2b82adb1d749661d37d0bd7b5b1022d4f0f0aae5b512eecd3a9f01c834fad21f",
-        "bytes": 1275982704
-      },
-      "master_wav": {
-        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line-master.wav",
-        "sha256": "99973ffeb4ed2d38ab0e7f2ca67c039941ac80fa2a484629a8a1d73a9a61eb87",
-        "bytes": 62272078
-      },
-      "capture": "Fresh exported ELF actual Main renderer and stereo Master mix, programmatic normal-baseline/AI route without secrets. Native AVI unchanged; WAV exact PCM stream copy. H264/AAC delivery only, no overlay, normalization, filter, fade or downmix. AAC is lossy.",
-      "video_frames": 9730,
-      "duration_seconds": 324.3333333333333,
-      "audio_validation": "arsenal-architecture-v2/release/occupied_line-recording.json",
-      "capture_to_release_changes": "None: all movies use the genuine exported ELF built from source2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6. Final metadata/helper commit excludes runtime;419source fingerprints unchanged."
+      "capture": "Actual shipped ELF native Main1280x720, automated ordinary combat, real E exits; actual stereo Master. Full MP4 encoding only; no audio addition/gain/fades or overlays.",
+      "audio_validation": "campaign-v3/release/intake-recording.json",
+      "source_commit": "99a7b19eb2b7c7cdd4cbb784d9b955f71ea9437b",
+      "capture_to_release_changes": "None to462 recorded source/provenance files; final changes only excluded verification/session/postprocess metadata."
     }
   ],
   "preserved_theme_expansion_executable": {
@@ -893,6 +1200,120 @@
     "alignment_checks": "../tools/check_weapon_alignment_v3.gd",
     "review": "http://127.0.0.1:8765/campaign-review.html",
     "art_provenance": "../concepts/campaign-v3/provenance.json",
-    "export_verification": "pending at runtime checkpoint"
+    "export_verification": "campaign-v3/release/final-release.json",
+    "source_commit": "99a7b19eb2b7c7cdd4cbb784d9b955f71ea9437b",
+    "source_tree_sha256": "39d76bf1531dbbc53c5576d38482d81cb6a52d8827b22b37e4555c1edfa4e42e",
+    "recordings": "campaign-v3/release/intake-recording.json"
+  },
+  "preserved_arsenal_executable": {
+    "bytes": 150155392,
+    "mode": "0755",
+    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-2026-10-10/eyesore-arsenal-ambush.x86_64",
+    "pck": "embedded",
+    "sha256": "549d888194e14713b322a09f70b6b31982a8da301819b2394c42211a39c9ecd2",
+    "source_commit": "2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6",
+    "scope": "Six weapons, theme-exclusive creatures and stages, nine pickup ambushes, layered arena routes and twelve materials per theme. All three genuine native exported automated routes pass; human review pending."
+  },
+  "preserved_arsenal_portable_archive": {
+    "archived_executable_hash_and_mode_verified": true,
+    "bytes": 103326393,
+    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-2026-10-10/eyesore-arsenal-ambush-linux.tar.gz",
+    "sha256": "5e35d931977ad9fbeed3004deb3ea6ef89d888b1d9f508199c66719fe9fce5da",
+    "independent_audit": "arsenal-architecture-v2/release/archive-audit.json"
+  },
+  "preserved_arsenal_gameplay_video": {
+    "stage": "pale_ward",
+    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward.mp4",
+    "sha256": "587ac7884cb14c0043fe6c507d9a822f3d47aaf7dac5a8f55389fb6268341c9e",
+    "bytes": 506176611,
+    "original_recording": {
+      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward.avi",
+      "sha256": "cd8746a2eff7dc47eab0bbe5fbda1dcfe5aa8689bf4932bddf8f011d56cd60e5",
+      "bytes": 1056271294
+    },
+    "master_wav": {
+      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward-master.wav",
+      "sha256": "8329ced641c25744b8b577ade28832172dfe1e2d4c03d93ba6e5d5b7c46209e4",
+      "bytes": 51616078
+    },
+    "capture": "Fresh exported ELF actual Main renderer and stereo Master mix, programmatic normal-baseline/AI route without secrets. Native AVI unchanged; WAV exact PCM stream copy. H264/AAC delivery only, no overlay, normalization, filter, fade or downmix. AAC is lossy.",
+    "video_frames": 8065,
+    "duration_seconds": 268.8333333333333,
+    "audio_validation": "arsenal-architecture-v2/release/pale_ward-recording.json",
+    "capture_to_release_changes": "None: all movies use the genuine exported ELF built from source2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6. Final metadata/helper commit excludes runtime;419source fingerprints unchanged."
+  },
+  "preserved_arsenal_gameplay_videos": [
+    {
+      "stage": "pale_ward",
+      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward.mp4",
+      "sha256": "587ac7884cb14c0043fe6c507d9a822f3d47aaf7dac5a8f55389fb6268341c9e",
+      "bytes": 506176611,
+      "original_recording": {
+        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward.avi",
+        "sha256": "cd8746a2eff7dc47eab0bbe5fbda1dcfe5aa8689bf4932bddf8f011d56cd60e5",
+        "bytes": 1056271294
+      },
+      "master_wav": {
+        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward-master.wav",
+        "sha256": "8329ced641c25744b8b577ade28832172dfe1e2d4c03d93ba6e5d5b7c46209e4",
+        "bytes": 51616078
+      },
+      "capture": "Fresh exported ELF actual Main renderer and stereo Master mix, programmatic normal-baseline/AI route without secrets. Native AVI unchanged; WAV exact PCM stream copy. H264/AAC delivery only, no overlay, normalization, filter, fade or downmix. AAC is lossy.",
+      "video_frames": 8065,
+      "duration_seconds": 268.8333333333333,
+      "audio_validation": "arsenal-architecture-v2/release/pale_ward-recording.json",
+      "capture_to_release_changes": "None: all movies use the genuine exported ELF built from source2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6. Final metadata/helper commit excludes runtime;419source fingerprints unchanged."
+    },
+    {
+      "stage": "ash_citadel",
+      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/ash_citadel.mp4",
+      "sha256": "82f8eabf0f91a98fff6edf6b51a2f1c5f3ee31aa918ed7d5e1c07c9b0a89dc72",
+      "bytes": 721183442,
+      "original_recording": {
+        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/ash_citadel.avi",
+        "sha256": "70ace72bdad4f62477d567de9236bdf14a115073037b336695097035f6ddf484",
+        "bytes": 1233775042
+      },
+      "master_wav": {
+        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/ash_citadel-master.wav",
+        "sha256": "8d79ad95ad4ef07db1b4b0d6344ed53cc739c8e0dff0335bcf914395d48f1554",
+        "bytes": 56275278
+      },
+      "capture": "Fresh exported ELF actual Main renderer and stereo Master mix, programmatic normal-baseline/AI route without secrets. Native AVI unchanged; WAV exact PCM stream copy. H264/AAC delivery only, no overlay, normalization, filter, fade or downmix. AAC is lossy.",
+      "video_frames": 8793,
+      "duration_seconds": 293.1,
+      "audio_validation": "arsenal-architecture-v2/release/ash_citadel-recording.json",
+      "capture_to_release_changes": "None: all movies use the genuine exported ELF built from source2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6. Final metadata/helper commit excludes runtime;419source fingerprints unchanged."
+    },
+    {
+      "stage": "occupied_line",
+      "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line.mp4",
+      "sha256": "e1c874dc8a9a3187e9646cdb56c9113195cf676b8a797006abb0be00f2311c55",
+      "bytes": 678028603,
+      "original_recording": {
+        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line.avi",
+        "sha256": "2b82adb1d749661d37d0bd7b5b1022d4f0f0aae5b512eecd3a9f01c834fad21f",
+        "bytes": 1275982704
+      },
+      "master_wav": {
+        "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/occupied_line-master.wav",
+        "sha256": "99973ffeb4ed2d38ab0e7f2ca67c039941ac80fa2a484629a8a1d73a9a61eb87",
+        "bytes": 62272078
+      },
+      "capture": "Fresh exported ELF actual Main renderer and stereo Master mix, programmatic normal-baseline/AI route without secrets. Native AVI unchanged; WAV exact PCM stream copy. H264/AAC delivery only, no overlay, normalization, filter, fade or downmix. AAC is lossy.",
+      "video_frames": 9730,
+      "duration_seconds": 324.3333333333333,
+      "audio_validation": "arsenal-architecture-v2/release/occupied_line-recording.json",
+      "capture_to_release_changes": "None: all movies use the genuine exported ELF built from source2fb2fd496965c7bdb3cfb4ccaca5bed288a159e6. Final metadata/helper commit excludes runtime;419source fingerprints unchanged."
+    }
+  ],
+  "preserved_arsenal_audio_capture": {
+    "path": "/home/rikki/Builds/eyesore-arsenal-ambush-captures-2026-10-10/pale_ward-master.wav",
+    "sha256": "8329ced641c25744b8b577ade28832172dfe1e2d4c03d93ba6e5d5b7c46209e4",
+    "bytes": 51616078,
+    "duration": 268.8333333333333,
+    "channels": 2,
+    "sample_rate": 48000,
+    "source": "Exact native stereo PCM payload from fresh exported Ward MovieMaker recording. No normalization or edits. Technical checks passed; subjective listening pending."
   }
 }

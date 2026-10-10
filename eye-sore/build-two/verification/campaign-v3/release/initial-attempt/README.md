@@ -1,0 +1,1 @@
+Initial exported command explicitly requested --automated-input, which preserves standalone-mode compatibility. It omitted --campaign-level=pale_ward_01 and therefore correctly refused a continuous campaign run. No level entered. The corrected command explicitly selects Ward Intake; this is a fixture launch-argument failure, not a route failure. Original receipt/log retained.

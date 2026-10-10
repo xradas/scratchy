@@ -1,0 +1,14 @@
+{
+  "source": "ps -eo pid,etime,args observed while the native MovieMaker process was running; command also supplied by the capture coordinator",
+  "pid": 66981,
+  "command": [
+    "/home/rikki/Builds/eyesore-campaign-2026-10-10/eyesore-campaign-v3.x86_64",
+    "--fixed-fps", "30", "--disable-vsync",
+    "--write-movie", "/home/rikki/Builds/eyesore-campaign-captures-2026-10-10/intake.avi",
+    "--log-file", "/home/rikki/Builds/eyesore-campaign-captures-2026-10-10/intake.log",
+    "--", "--campaign-route-test", "--campaign-level=pale_ward_01",
+    "--release-report-dir=/tmp/eyesore-campaign-export-native",
+    "--automated-input", "--force-offscreen-draw"
+  ],
+  "note": "Godot's exported route receipt reports engine_arguments as an empty array, so the process argument observation and native MovieMaker declaration carry the launch-argument evidence."
+}
