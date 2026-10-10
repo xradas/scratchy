@@ -1,0 +1,599 @@
+{
+  "id": "ash_citadel_03",
+  "board": "res://assets/materials/expanded-stages/ash_citadel-board.png",
+  "material_regions": {
+    "wall": [
+      1277,
+      724,
+      109,
+      111
+    ],
+    "steel": [
+      1401,
+      724,
+      110,
+      111
+    ],
+    "floor": [
+      1277,
+      724,
+      109,
+      111
+    ],
+    "grate": [
+      1401,
+      724,
+      110,
+      111
+    ],
+    "invasion": [
+      1277,
+      850,
+      109,
+      108
+    ]
+  },
+  "rooms": [
+    {
+      "id": "entry",
+      "label": "LOWER CRYPT",
+      "center": [
+        -0.0,
+        0,
+        0.0
+      ],
+      "size": [
+        28.776000000000003,
+        6,
+        41.536
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "service",
+      "label": "Gate Passage",
+      "center": [
+        -0.0,
+        0,
+        -49.324000000000005
+      ],
+      "size": [
+        14.388000000000002,
+        5,
+        36.344
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "arena_one",
+      "label": "RELIQUARY",
+      "center": [
+        -0.0,
+        0.0,
+        -98.64800000000001
+      ],
+      "size": [
+        43.164,
+        14,
+        51.919999999999995
+      ],
+      "secret": false,
+      "arena_id": "arena_one",
+      "chamfer": 3.0,
+      "encounter": "sealed weapon cache"
+    },
+    {
+      "id": "key_console",
+      "label": "Brass Seal Shrine",
+      "center": [
+        -45.562000000000005,
+        0,
+        -98.64800000000001
+      ],
+      "size": [
+        26.378000000000004,
+        5,
+        31.152
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "return_store",
+      "label": "Crypt Return",
+      "center": [
+        -40.76600000000001,
+        0,
+        -49.324000000000005
+      ],
+      "size": [
+        28.776000000000003,
+        5,
+        28.556
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "spine",
+      "label": "Inner Bastion",
+      "center": [
+        -0.0,
+        0,
+        -159.654
+      ],
+      "size": [
+        19.184000000000005,
+        6,
+        31.152
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "arena_two",
+      "label": "UPPER VAULT",
+      "center": [
+        -0.0,
+        0.0,
+        -205.084
+      ],
+      "size": [
+        45.562000000000005,
+        16,
+        41.536
+      ],
+      "secret": false,
+      "arena_id": "arena_two",
+      "chamfer": 3.0,
+      "encounter": "raised crossfire bridge"
+    },
+    {
+      "id": "red_console",
+      "label": "Red Seal Altar",
+      "center": [
+        47.96,
+        0,
+        -205.084
+      ],
+      "size": [
+        26.378000000000004,
+        6,
+        31.152
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "final_arena",
+      "label": "CIVIL CONDUIT",
+      "center": [
+        -0.0,
+        1.5,
+        -272.58000000000004
+      ],
+      "size": [
+        40.76600000000001,
+        14,
+        51.919999999999995
+      ],
+      "secret": false,
+      "arena_id": "final_arena",
+      "chamfer": 3.0,
+      "encounter": "lower court and upper launcher reward"
+    },
+    {
+      "id": "exit_gallery",
+      "label": "CIVIL CONDUIT / DEAD PLATFORM",
+      "center": [
+        -0.0,
+        1.5,
+        -320.60600000000005
+      ],
+      "size": [
+        23.98,
+        6,
+        23.364
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "supplies",
+      "label": "Pilgrim Stores",
+      "center": [
+        31.174000000000003,
+        0,
+        -5.192
+      ],
+      "size": [
+        16.786000000000005,
+        5,
+        23.364
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "maintenance",
+      "label": "Watch Post",
+      "center": [
+        -33.57200000000001,
+        0,
+        7.788
+      ],
+      "size": [
+        21.582,
+        5,
+        20.768
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "pump_room",
+      "label": "Bell Chamber",
+      "center": [
+        -45.562000000000005,
+        0,
+        -175.23
+      ],
+      "size": [
+        23.98,
+        5,
+        23.364
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "armory",
+      "label": "Armory",
+      "center": [
+        47.96,
+        0,
+        -151.866
+      ],
+      "size": [
+        23.98,
+        5,
+        25.959999999999997
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "secret_one",
+      "label": "Walled Niche",
+      "center": [
+        50.358000000000004,
+        0,
+        -5.192
+      ],
+      "size": [
+        9.592000000000002,
+        5,
+        10.384
+      ],
+      "secret": true,
+      "arena_id": ""
+    },
+    {
+      "id": "observation",
+      "label": "Upper Battlement",
+      "center": [
+        -45.562000000000005,
+        4.5,
+        -272.58000000000004
+      ],
+      "size": [
+        21.582,
+        5,
+        23.364
+      ],
+      "secret": false,
+      "arena_id": ""
+    }
+  ],
+  "portals": [
+    {
+      "from": "entry",
+      "to": "service",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "service",
+      "to": "arena_one",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "return_store",
+      "to": "service",
+      "width": 4.0,
+      "gate": "shortcut_one",
+      "requires": [],
+      "secret": false,
+      "shortcut": true,
+      "lift": false
+    },
+    {
+      "from": "arena_one",
+      "to": "spine",
+      "width": 4.0,
+      "gate": "brass_gate",
+      "requires": [
+        "breaker",
+        "brass_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "spine",
+      "to": "arena_two",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "armory",
+      "to": "spine",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "arena_two",
+      "to": "final_arena",
+      "width": 4.0,
+      "gate": "red_gate",
+      "requires": [
+        "release",
+        "red_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "final_arena",
+      "to": "exit_gallery",
+      "width": 4.0,
+      "gate": "exit_gate",
+      "requires": [
+        "exit_control"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "entry",
+      "to": "supplies",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "entry",
+      "to": "maintenance",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "spine",
+      "to": "pump_room",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "supplies",
+      "to": "secret_one",
+      "width": 2.4,
+      "gate": "secret_one",
+      "requires": [],
+      "secret": true,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "final_arena",
+      "to": "observation",
+      "width": 4.0,
+      "gate": "lift",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": true
+    },
+    {
+      "from": "arena_one",
+      "to": "key_console",
+      "width": 5.2,
+      "gate": "breaker",
+      "requires": [
+        "breaker"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "key_console",
+      "to": "return_store",
+      "width": 5.2,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "arena_two",
+      "to": "red_console",
+      "width": 5.2,
+      "gate": "release",
+      "requires": [
+        "release"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "red_console",
+      "to": "armory",
+      "width": 5.2,
+      "gate": "shortcut_two",
+      "requires": [],
+      "secret": false,
+      "shortcut": true,
+      "lift": false
+    }
+  ],
+  "spawn_room": "entry",
+  "spawn_local": [
+    0,
+    0.87,
+    14.278
+  ],
+  "buttons": [
+    {
+      "id": "breaker",
+      "room": "arena_one",
+      "arena": "arena_one",
+      "sets": "breaker",
+      "label": "ENABLE BRASS ACCESS"
+    },
+    {
+      "id": "release",
+      "room": "arena_two",
+      "arena": "arena_two",
+      "sets": "release",
+      "label": "RELEASE RED ACCESS"
+    },
+    {
+      "id": "exit_control",
+      "room": "final_arena",
+      "arena": "final_arena",
+      "sets": "exit_control",
+      "label": "OPEN SECTOR EXIT"
+    }
+  ],
+  "keys": [
+    {
+      "id": "brass_key",
+      "room": "key_console",
+      "label": "BRASS ACCESS KEY"
+    },
+    {
+      "id": "red_key",
+      "room": "red_console",
+      "label": "RED ACCESS KEY"
+    }
+  ],
+  "exit": {
+    "room": "exit_gallery",
+    "requires": [
+      "brass_key",
+      "red_key",
+      "exit_control"
+    ]
+  },
+  "enemy_counts": {
+    "entry": 4,
+    "service": 2,
+    "arena_one": 7,
+    "key_console": 2,
+    "return_store": 1,
+    "spine": 2,
+    "arena_two": 7,
+    "red_console": 1,
+    "final_arena": 8,
+    "pump_room": 1,
+    "armory": 1,
+    "secret_one": 1
+  },
+  "supplies": {
+    "main_route_shells": 76,
+    "main_route_pistol": 144,
+    "main_route_health": 220,
+    "main_route_armor": 180,
+    "secrets_are_extra": true
+  },
+  "theme_geometry": "Open vertical stone arch ribs, stepped battlements, braziers and torn banners, rust grille cages; warm fire light/dark red cloth.",
+  "architecture_version": 2,
+  "usable_elevations": [
+    0.0,
+    2.0,
+    4.0
+  ],
+  "weapon_cache": {
+    "arena_one": {
+      "weapon": "siege_launcher",
+      "ammo": 8
+    },
+    "arena_two": {
+      "weapon": "siege_launcher",
+      "ammo": 8
+    },
+    "final_arena": {
+      "weapon": "siege_launcher",
+      "ammo": 8
+    }
+  },
+  "optional_rooms": [
+    "supplies",
+    "maintenance",
+    "pump_room",
+    "armory"
+  ],
+  "secret_rooms": [
+    "secret_one"
+  ],
+  "supply_rooms": [
+    "entry",
+    "service",
+    "arena_one",
+    "key_console",
+    "return_store",
+    "spine",
+    "arena_two",
+    "red_console",
+    "final_arena"
+  ],
+  "campaign_level_id": "ash_citadel_03",
+  "theme": "ash_citadel",
+  "title": "Black Reliquary",
+  "subtitle": "Upper vault / civil conduit"
+}

@@ -1,0 +1,533 @@
+{
+  "id": "occupied_line_02",
+  "board": "res://assets/materials/expanded-stages/occupied_line-board.png",
+  "material_regions": {
+    "wall": [
+      1287,
+      687,
+      105,
+      100
+    ],
+    "steel": [
+      1412,
+      687,
+      105,
+      100
+    ],
+    "floor": [
+      1287,
+      687,
+      105,
+      100
+    ],
+    "grate": [
+      1412,
+      687,
+      105,
+      100
+    ],
+    "invasion": [
+      1412,
+      810,
+      105,
+      100
+    ]
+  },
+  "rooms": [
+    {
+      "id": "entry",
+      "label": "CIVIC ENTRY",
+      "center": [
+        -0.0,
+        0,
+        0.0
+      ],
+      "size": [
+        26.726399999999995,
+        6,
+        43.0592
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "service",
+      "label": "Platform Approach",
+      "center": [
+        -0.0,
+        0,
+        -51.132799999999996
+      ],
+      "size": [
+        13.363199999999997,
+        5,
+        37.67679999999999
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "arena_one",
+      "label": "ADMIN HUB",
+      "center": [
+        -0.0,
+        -1.5,
+        -102.26559999999999
+      ],
+      "size": [
+        40.0896,
+        11,
+        53.824
+      ],
+      "secret": false,
+      "arena_id": "arena_one",
+      "chamfer": 2.0,
+      "encounter": "sealed weapon cache"
+    },
+    {
+      "id": "key_wing",
+      "label": "Ticket Wing",
+      "center": [
+        -42.31679999999999,
+        0,
+        -102.26559999999999
+      ],
+      "size": [
+        31.180799999999994,
+        5,
+        24.220799999999997
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "key_console",
+      "label": "Brass Access Office",
+      "center": [
+        -42.31679999999999,
+        0,
+        -141.28799999999998
+      ],
+      "size": [
+        24.4992,
+        5,
+        32.294399999999996
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "return_store",
+      "label": "Baggage Return",
+      "center": [
+        -37.862399999999994,
+        0,
+        -51.132799999999996
+      ],
+      "size": [
+        26.726399999999995,
+        5,
+        29.603199999999998
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "spine",
+      "label": "Transfer Spine",
+      "center": [
+        -0.0,
+        0,
+        -165.50879999999995
+      ],
+      "size": [
+        17.8176,
+        6,
+        32.294399999999996
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "arena_two",
+      "label": "LOCKDOWN MEZZANINE",
+      "center": [
+        37.0672,
+        -1.5,
+        -165.50879999999995
+      ],
+      "size": [
+        42.31679999999999,
+        13,
+        48.72
+      ],
+      "secret": false,
+      "arena_id": "arena_two",
+      "chamfer": 2.0,
+      "encounter": "raised crossfire bridge"
+    },
+    {
+      "id": "red_console",
+      "label": "Red Dispatch Console",
+      "center": [
+        77.4752,
+        0,
+        -165.50879999999995
+      ],
+      "size": [
+        24.4992,
+        6,
+        32.294399999999996
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "final_arena",
+      "label": "TRANSIT SEAL",
+      "center": [
+        37.0672,
+        0.0,
+        -229.78079999999997
+      ],
+      "size": [
+        37.862399999999994,
+        11,
+        53.824
+      ],
+      "secret": false,
+      "arena_id": "final_arena",
+      "chamfer": 2.0,
+      "encounter": "lower court and upper launcher reward"
+    },
+    {
+      "id": "exit_gallery",
+      "label": "TO OCCUPATION ENGINE",
+      "center": [
+        37.0672,
+        1.5,
+        -277.80319999999995
+      ],
+      "size": [
+        22.272,
+        6,
+        24.220799999999997
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "supplies",
+      "label": "First Aid",
+      "center": [
+        28.953599999999994,
+        0,
+        -5.3824
+      ],
+      "size": [
+        15.590399999999997,
+        5,
+        24.220799999999997
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "pump_room",
+      "label": "Transformer Hall",
+      "center": [
+        -42.31679999999999,
+        0,
+        -181.65599999999998
+      ],
+      "size": [
+        22.272,
+        5,
+        24.220799999999997
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "observation",
+      "label": "Upper Platform",
+      "center": [
+        72.0208,
+        4.5,
+        -229.78079999999997
+      ],
+      "size": [
+        20.0448,
+        5,
+        24.220799999999997
+      ],
+      "secret": false,
+      "arena_id": ""
+    }
+  ],
+  "portals": [
+    {
+      "from": "entry",
+      "to": "service",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "service",
+      "to": "arena_one",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "arena_one",
+      "to": "key_wing",
+      "width": 4.0,
+      "gate": "breaker",
+      "requires": [
+        "breaker"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "key_wing",
+      "to": "key_console",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "key_wing",
+      "to": "return_store",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "return_store",
+      "to": "service",
+      "width": 4.0,
+      "gate": "shortcut_one",
+      "requires": [],
+      "secret": false,
+      "shortcut": true,
+      "lift": false
+    },
+    {
+      "from": "arena_one",
+      "to": "spine",
+      "width": 4.0,
+      "gate": "brass_gate",
+      "requires": [
+        "breaker",
+        "brass_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "spine",
+      "to": "arena_two",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "arena_two",
+      "to": "final_arena",
+      "width": 4.0,
+      "gate": "red_gate",
+      "requires": [
+        "release",
+        "red_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "final_arena",
+      "to": "exit_gallery",
+      "width": 4.0,
+      "gate": "exit_gate",
+      "requires": [
+        "exit_control"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "entry",
+      "to": "supplies",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "spine",
+      "to": "pump_room",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "final_arena",
+      "to": "observation",
+      "width": 4.0,
+      "gate": "lift",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": true
+    },
+    {
+      "from": "arena_two",
+      "to": "red_console",
+      "width": 5.2,
+      "gate": "release",
+      "requires": [
+        "release"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    }
+  ],
+  "spawn_room": "entry",
+  "spawn_local": [
+    0,
+    0.87,
+    14.801599999999999
+  ],
+  "buttons": [
+    {
+      "id": "breaker",
+      "room": "arena_one",
+      "arena": "arena_one",
+      "sets": "breaker",
+      "label": "ENABLE BRASS ACCESS"
+    },
+    {
+      "id": "release",
+      "room": "arena_two",
+      "arena": "arena_two",
+      "sets": "release",
+      "label": "RELEASE RED ACCESS"
+    },
+    {
+      "id": "exit_control",
+      "room": "final_arena",
+      "arena": "final_arena",
+      "sets": "exit_control",
+      "label": "OPEN SECTOR EXIT"
+    }
+  ],
+  "keys": [
+    {
+      "id": "brass_key",
+      "room": "key_console",
+      "label": "BRASS ACCESS KEY"
+    },
+    {
+      "id": "red_key",
+      "room": "red_console",
+      "label": "RED ACCESS KEY"
+    }
+  ],
+  "exit": {
+    "room": "exit_gallery",
+    "requires": [
+      "brass_key",
+      "red_key",
+      "exit_control"
+    ]
+  },
+  "enemy_counts": {
+    "entry": 3,
+    "service": 2,
+    "arena_one": 7,
+    "key_wing": 3,
+    "key_console": 2,
+    "return_store": 1,
+    "spine": 2,
+    "arena_two": 7,
+    "red_console": 1,
+    "final_arena": 8,
+    "pump_room": 1
+  },
+  "supplies": {
+    "main_route_shells": 76,
+    "main_route_pistol": 144,
+    "main_route_health": 220,
+    "main_route_armor": 180,
+    "secrets_are_extra": true
+  },
+  "theme_geometry": "Wide blue-tile square piers, upper daylight bands, platform signage/hazard-stripe native meshes, transit rail/dividers and cable nests/cyan nodes.",
+  "architecture_version": 2,
+  "usable_elevations": [
+    -1.5,
+    0.0,
+    3.0
+  ],
+  "weapon_cache": {
+    "arena_one": {
+      "weapon": "rivet_cannon",
+      "ammo": 96
+    },
+    "arena_two": {
+      "weapon": "rivet_cannon",
+      "ammo": 96
+    },
+    "final_arena": {
+      "weapon": "rivet_cannon",
+      "ammo": 96
+    }
+  },
+  "optional_rooms": [
+    "supplies",
+    "pump_room"
+  ],
+  "secret_rooms": [],
+  "supply_rooms": [
+    "entry",
+    "service",
+    "arena_one",
+    "key_wing",
+    "key_console",
+    "return_store",
+    "spine",
+    "arena_two",
+    "red_console",
+    "final_arena"
+  ],
+  "campaign_level_id": "occupied_line_02",
+  "theme": "occupied_line",
+  "title": "Civic Lockdown",
+  "subtitle": "Admin hub / mezzanine returns"
+}

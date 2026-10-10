@@ -1,0 +1,899 @@
+{
+  "id": "occupied_line_03",
+  "architecture_version": 2,
+  "rooms": {
+    "entry": {
+      "id": "entry",
+      "label": "ENGINE ACCESS",
+      "center": [
+        0.0,
+        0,
+        0.0
+      ],
+      "size": [
+        30.9024,
+        6,
+        41.2032
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "service": {
+      "id": "service",
+      "label": "Platform Approach",
+      "center": [
+        0.0,
+        0,
+        -48.9288
+      ],
+      "size": [
+        15.4512,
+        5,
+        36.0528
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "arena_one": {
+      "id": "arena_one",
+      "label": "TURBINE COURT",
+      "center": [
+        0.0,
+        -1.5,
+        -97.8576
+      ],
+      "size": [
+        46.3536,
+        11,
+        51.504000000000005
+      ],
+      "secret": false,
+      "arena_id": "arena_one",
+      "chamfer": 2.0,
+      "encounter": "sealed weapon cache"
+    },
+    "key_console": {
+      "id": "key_console",
+      "label": "Brass Access Office",
+      "center": [
+        48.9288,
+        0,
+        -97.8576
+      ],
+      "size": [
+        28.3272,
+        5,
+        30.9024
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "spine": {
+      "id": "spine",
+      "label": "Transfer Spine",
+      "center": [
+        0.0,
+        0,
+        -158.3748
+      ],
+      "size": [
+        20.6016,
+        6,
+        30.9024
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "arena_two": {
+      "id": "arena_two",
+      "label": "REACTOR RISER",
+      "center": [
+        0.0,
+        -1.5,
+        -203.44080000000002
+      ],
+      "size": [
+        48.9288,
+        13,
+        46.620000000000005
+      ],
+      "secret": false,
+      "arena_id": "arena_two",
+      "chamfer": 2.0,
+      "encounter": "raised crossfire bridge"
+    },
+    "red_console": {
+      "id": "red_console",
+      "label": "Red Dispatch Console",
+      "center": [
+        -51.504000000000005,
+        0,
+        -203.44080000000002
+      ],
+      "size": [
+        28.3272,
+        6,
+        30.9024
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "final_arena": {
+      "id": "final_arena",
+      "label": "FINAL PLATFORM",
+      "center": [
+        0.0,
+        0.0,
+        -270.396
+      ],
+      "size": [
+        43.778400000000005,
+        11,
+        51.504000000000005
+      ],
+      "secret": false,
+      "arena_id": "final_arena",
+      "chamfer": 2.0,
+      "encounter": "lower court and upper launcher reward"
+    },
+    "exit_gallery": {
+      "id": "exit_gallery",
+      "label": "ENGINE SHUTDOWN / CAMPAIGN END",
+      "center": [
+        0.0,
+        1.5,
+        -318.0372
+      ],
+      "size": [
+        25.752000000000002,
+        6,
+        23.1768
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "pump_room": {
+      "id": "pump_room",
+      "label": "Transformer Hall",
+      "center": [
+        48.9288,
+        0,
+        -173.82600000000002
+      ],
+      "size": [
+        25.752000000000002,
+        5,
+        23.1768
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "secret_one": {
+      "id": "secret_one",
+      "label": "Hidden Staff Room",
+      "center": [
+        -54.0792,
+        0,
+        -5.1504
+      ],
+      "size": [
+        10.3008,
+        5,
+        10.3008
+      ],
+      "secret": true,
+      "arena_id": ""
+    }
+  },
+  "portals": [
+    {
+      "from": "entry",
+      "to": "service",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        0.0,
+        0,
+        -20.6016
+      ],
+      "end": [
+        0.0,
+        0,
+        -30.902400000000004
+      ],
+      "middle": [
+        0.0,
+        0.0,
+        -25.752000000000002
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "service",
+      "to": "arena_one",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "trap_entry": "TrapEntry_arena_one",
+      "start": [
+        0.0,
+        0,
+        -66.9552
+      ],
+      "end": [
+        0.0,
+        -1.5,
+        -72.10560000000001
+      ],
+      "middle": [
+        0.0,
+        -0.75,
+        -69.53040000000001
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "arena_one",
+      "to": "spine",
+      "width": 4.0,
+      "gate": "brass_gate",
+      "requires": [
+        "breaker",
+        "brass_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        0.0,
+        -1.5,
+        -123.6096
+      ],
+      "end": [
+        0.0,
+        0,
+        -142.9236
+      ],
+      "middle": [
+        0.0,
+        -0.75,
+        -133.26659999999998
+      ],
+      "axis": 2,
+      "door": "Door_brass_gate"
+    },
+    {
+      "from": "spine",
+      "to": "arena_two",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "trap_entry": "TrapEntry_arena_two",
+      "start": [
+        0.0,
+        0,
+        -173.826
+      ],
+      "end": [
+        0.0,
+        -1.5,
+        -180.13080000000002
+      ],
+      "middle": [
+        0.0,
+        -0.75,
+        -176.97840000000002
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "arena_two",
+      "to": "final_arena",
+      "width": 4.0,
+      "gate": "red_gate",
+      "requires": [
+        "release",
+        "red_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "trap_entry": "TrapEntry_final_arena",
+      "start": [
+        0.0,
+        -1.5,
+        -226.75080000000003
+      ],
+      "end": [
+        0.0,
+        0.0,
+        -244.644
+      ],
+      "middle": [
+        0.0,
+        -0.75,
+        -235.69740000000002
+      ],
+      "axis": 2,
+      "door": "Door_red_gate"
+    },
+    {
+      "from": "final_arena",
+      "to": "exit_gallery",
+      "width": 4.0,
+      "gate": "exit_gate",
+      "requires": [
+        "exit_control"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        0.0,
+        0.0,
+        -296.148
+      ],
+      "end": [
+        0.0,
+        1.5,
+        -306.4488
+      ],
+      "middle": [
+        0.0,
+        0.75,
+        -301.2984
+      ],
+      "axis": 2,
+      "door": "Door_exit_gate"
+    },
+    {
+      "from": "spine",
+      "to": "pump_room",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        10.3008,
+        0,
+        -164.23760000000001
+      ],
+      "end": [
+        36.052800000000005,
+        0,
+        -164.23760000000001
+      ],
+      "middle": [
+        23.176800000000004,
+        0.0,
+        -164.23760000000001
+      ],
+      "axis": 0,
+      "door": null
+    },
+    {
+      "from": "arena_one",
+      "to": "key_console",
+      "width": 5.2,
+      "gate": "breaker",
+      "requires": [
+        "breaker"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        23.1768,
+        -1.5,
+        -97.8576
+      ],
+      "end": [
+        34.7652,
+        0,
+        -97.8576
+      ],
+      "middle": [
+        28.971,
+        -0.75,
+        -97.8576
+      ],
+      "axis": 0,
+      "door": "Door_breaker"
+    },
+    {
+      "from": "arena_two",
+      "to": "red_console",
+      "width": 5.2,
+      "gate": "release",
+      "requires": [
+        "release"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -24.4644,
+        -1.5,
+        -203.44080000000002
+      ],
+      "end": [
+        -37.3404,
+        0,
+        -203.44080000000002
+      ],
+      "middle": [
+        -30.9024,
+        -0.75,
+        -203.44080000000002
+      ],
+      "axis": 0,
+      "door": "Door_release"
+    },
+    {
+      "from": "entry",
+      "to": "secret_one",
+      "width": 5.2,
+      "gate": "secret_one",
+      "requires": [],
+      "secret": true,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -15.4512,
+        0,
+        -2.6
+      ],
+      "end": [
+        -48.9288,
+        0,
+        -2.6
+      ],
+      "middle": [
+        -32.19,
+        0.0,
+        -2.6
+      ],
+      "axis": 0,
+      "door": "Door_secret_one"
+    }
+  ],
+  "buttons": [
+    {
+      "id": "breaker",
+      "room": "arena_one",
+      "arena": "arena_one",
+      "sets": "breaker",
+      "label": "ENABLE BRASS ACCESS"
+    },
+    {
+      "id": "release",
+      "room": "arena_two",
+      "arena": "arena_two",
+      "sets": "release",
+      "label": "RELEASE RED ACCESS"
+    },
+    {
+      "id": "exit_control",
+      "room": "final_arena",
+      "arena": "final_arena",
+      "sets": "exit_control",
+      "label": "OPEN SECTOR EXIT"
+    }
+  ],
+  "keys": [
+    {
+      "id": "brass_key",
+      "room": "key_console",
+      "label": "BRASS ACCESS KEY"
+    },
+    {
+      "id": "red_key",
+      "room": "red_console",
+      "label": "RED ACCESS KEY"
+    }
+  ],
+  "exit": {
+    "room": "exit_gallery",
+    "requires": [
+      "brass_key",
+      "red_key",
+      "exit_control"
+    ]
+  },
+  "weapon_cache": {
+    "arena_one": {
+      "weapon": "siege_launcher",
+      "ammo": 8
+    },
+    "arena_two": {
+      "weapon": "siege_launcher",
+      "ammo": 8
+    },
+    "final_arena": {
+      "weapon": "siege_launcher",
+      "ammo": 8
+    }
+  },
+  "vertical_routes": {
+    "arena_one_gallery": [
+      [
+        -7.0,
+        -1.5,
+        -74.1056
+      ],
+      [
+        -7.0,
+        3.0,
+        -90.3056
+      ],
+      [
+        -7.0,
+        3.0,
+        -105.40960000000001
+      ],
+      [
+        -7.0,
+        -1.5,
+        -121.60960000000001
+      ]
+    ],
+    "arena_two_altar": [
+      [
+        0.0,
+        -1.5,
+        -190.44080000000002
+      ],
+      [
+        0.0,
+        0.5,
+        -198.44080000000002
+      ],
+      [
+        0.0,
+        0.5,
+        -203.44080000000002
+      ],
+      [
+        0.0,
+        0.5,
+        -208.44080000000002
+      ],
+      [
+        0.0,
+        -1.5,
+        -216.44080000000002
+      ]
+    ],
+    "arena_two_gallery": [
+      [
+        -7.0,
+        -1.5,
+        -182.13080000000002
+      ],
+      [
+        -7.0,
+        3.0,
+        -198.3308
+      ],
+      [
+        -7.0,
+        3.0,
+        -208.55080000000004
+      ],
+      [
+        -7.0,
+        -1.5,
+        -224.75080000000003
+      ]
+    ],
+    "final_arena_gallery": [
+      [
+        -7.0,
+        0.0,
+        -249.81024000000002
+      ],
+      [
+        -7.0,
+        3.0,
+        -260.61024000000003
+      ],
+      [
+        -7.0,
+        3.0,
+        -280.18176
+      ],
+      [
+        -7.0,
+        0.0,
+        -290.98176
+      ]
+    ]
+  },
+  "combat_paths": {
+    "arena_one": [
+      [
+        [
+          -4.3,
+          -1.5,
+          -87.8576
+        ],
+        [
+          -4.3,
+          -1.5,
+          -107.8576
+        ]
+      ],
+      [
+        [
+          4.3,
+          -1.5,
+          -87.8576
+        ],
+        [
+          4.3,
+          -1.5,
+          -107.8576
+        ]
+      ]
+    ],
+    "arena_two": [
+      [
+        [
+          -4.3,
+          -1.5,
+          -193.44080000000002
+        ],
+        [
+          -4.3,
+          -1.5,
+          -213.44080000000002
+        ]
+      ],
+      [
+        [
+          4.3,
+          -1.5,
+          -193.44080000000002
+        ],
+        [
+          4.3,
+          -1.5,
+          -213.44080000000002
+        ]
+      ]
+    ],
+    "final_arena": [
+      [
+        [
+          -4.3,
+          0.0,
+          -260.396
+        ],
+        [
+          -4.3,
+          0.0,
+          -280.396
+        ]
+      ],
+      [
+        [
+          4.3,
+          0.0,
+          -260.396
+        ],
+        [
+          4.3,
+          0.0,
+          -280.396
+        ]
+      ]
+    ]
+  },
+  "theme": "occupied_line",
+  "title": "Occupation Engine",
+  "subtitle": "Reactor / turbine courts / riser",
+  "entry_weapon": null,
+  "combat_flanks": {
+    "arena_one": [
+      [
+        -4.3,
+        -1.5,
+        -97.8576
+      ],
+      [
+        -16.1768,
+        -1.5,
+        -97.8576
+      ],
+      [
+        -16.1768,
+        -1.5,
+        -106.8576
+      ],
+      [
+        -16.1768,
+        -1.5,
+        -100.8576
+      ],
+      [
+        -16.1768,
+        -1.5,
+        -94.8576
+      ],
+      [
+        -16.1768,
+        -1.5,
+        -88.8576
+      ],
+      [
+        4.3,
+        -1.5,
+        -97.8576
+      ],
+      [
+        16.1768,
+        -1.5,
+        -97.8576
+      ],
+      [
+        16.1768,
+        -1.5,
+        -106.8576
+      ],
+      [
+        16.1768,
+        -1.5,
+        -100.8576
+      ],
+      [
+        16.1768,
+        -1.5,
+        -94.8576
+      ],
+      [
+        16.1768,
+        -1.5,
+        -88.8576
+      ]
+    ],
+    "arena_two": [
+      [
+        -4.3,
+        -1.5,
+        -203.44080000000002
+      ],
+      [
+        -17.4644,
+        -1.5,
+        -203.44080000000002
+      ],
+      [
+        -17.4644,
+        -1.5,
+        -212.44080000000002
+      ],
+      [
+        -17.4644,
+        -1.5,
+        -206.44080000000002
+      ],
+      [
+        -17.4644,
+        -1.5,
+        -200.44080000000002
+      ],
+      [
+        -17.4644,
+        -1.5,
+        -194.44080000000002
+      ],
+      [
+        4.3,
+        -1.5,
+        -203.44080000000002
+      ],
+      [
+        17.4644,
+        -1.5,
+        -203.44080000000002
+      ],
+      [
+        17.4644,
+        -1.5,
+        -212.44080000000002
+      ],
+      [
+        17.4644,
+        -1.5,
+        -206.44080000000002
+      ],
+      [
+        17.4644,
+        -1.5,
+        -200.44080000000002
+      ],
+      [
+        17.4644,
+        -1.5,
+        -194.44080000000002
+      ]
+    ],
+    "final_arena": [
+      [
+        -4.3,
+        0.0,
+        -270.396
+      ],
+      [
+        -14.889200000000002,
+        0.0,
+        -270.396
+      ],
+      [
+        -14.889200000000002,
+        0.0,
+        -279.396
+      ],
+      [
+        -14.889200000000002,
+        0.0,
+        -273.396
+      ],
+      [
+        -14.889200000000002,
+        0.0,
+        -267.396
+      ],
+      [
+        -14.889200000000002,
+        0.0,
+        -261.396
+      ],
+      [
+        4.3,
+        0.0,
+        -270.396
+      ],
+      [
+        14.889200000000002,
+        0.0,
+        -270.396
+      ],
+      [
+        14.889200000000002,
+        0.0,
+        -279.396
+      ],
+      [
+        14.889200000000002,
+        0.0,
+        -273.396
+      ],
+      [
+        14.889200000000002,
+        0.0,
+        -267.396
+      ],
+      [
+        14.889200000000002,
+        0.0,
+        -261.396
+      ]
+    ]
+  }
+}

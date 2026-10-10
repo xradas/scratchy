@@ -25,10 +25,10 @@
       "switch": "res://assets/weapons/arsenal-v2/twin_shotgun-atlas-r2.png"
     },
     "rivet_cannon": {
-      "idle": "res://assets/weapons/arsenal-v2/rivet_cannon-atlas.png",
-      "fire": "res://assets/weapons/arsenal-v2/rivet_cannon-atlas.png",
-      "recover": "res://assets/weapons/arsenal-v2/rivet_cannon-atlas.png",
-      "switch": "res://assets/weapons/arsenal-v2/rivet_cannon-atlas.png"
+      "idle": "res://assets/weapons/campaign-v3/rivet_cannon-atlas.png",
+      "fire": "res://assets/weapons/campaign-v3/rivet_cannon-atlas.png",
+      "recover": "res://assets/weapons/campaign-v3/rivet_cannon-atlas.png",
+      "switch": "res://assets/weapons/campaign-v3/rivet_cannon-atlas.png"
     },
     "siege_launcher": {
       "idle": "res://assets/weapons/arsenal-v2/siege_launcher-atlas.png",
@@ -5640,38 +5640,38 @@
     "anchors": {
       "pistol": {
         "idle": [
-          140.83333333333334,
-          62.38636363636364
+          147.5,
+          60.68181818181818
         ],
         "fire": [
-          128.75,
-          46.36363636363636
+          136.66666666666666,
+          40.90909090909091
         ],
         "recover": [
-          143.33333333333334,
-          20.68548387096774
+          146.66666666666666,
+          13.790322580645162
         ],
         "switch": [
-          139.16666666666666,
-          40.64516129032258
+          146.66666666666666,
+          36.29032258064516
         ]
       },
       "shotgun": {
         "idle": [
-          129.16666666666666,
-          69.42857142857143
+          132.91666666666666,
+          67.17857142857143
         ],
         "fire": [
-          125.0,
-          64.92857142857143
+          131.66666666666666,
+          49.17857142857143
         ],
         "recover": [
-          132.4,
-          20.17241379310345
+          136.8,
+          14.741379310344827
         ],
         "switch": [
-          103.91304347826087,
-          63.62068965517241
+          106.52173913043478,
+          62.06896551724138
         ]
       },
       "melee": {
@@ -5683,55 +5683,55 @@
       "twin_shotgun": {
         "idle": [
           155.48717948717947,
-          36.0
+          38.76923076923077
         ],
         "fire": [
-          102.85714285714286,
-          15.923076923076923
+          99.8941798941799,
+          15.23076923076923
         ],
         "recover": [
-          127.17948717948718,
-          11.785714285714286
+          131.28205128205127,
+          14.285714285714286
         ],
         "switch": [
-          87.19576719576719,
-          35.714285714285715
+          84.65608465608466,
+          38.57142857142857
         ]
       },
       "rivet_cannon": {
         "idle": [
-          155.20208604954368,
-          31.289719626168225
+          158.33333333333334,
+          46.666666666666664
         ],
         "fire": [
-          130.83333333333334,
-          19.514018691588785
+          158.33333333333334,
+          46.666666666666664
         ],
         "recover": [
-          155.22697795071335,
-          18.03680981595092
+          158.33333333333334,
+          26.03305785123967
         ],
         "switch": [
-          134.03141361256544,
-          28.711656441717793
+          156.66666666666666,
+          50.20661157024794
         ]
       },
       "siege_launcher": {
         "idle": [
           160.0,
-          46.40625
+          53.7890625
         ],
         "fire": [
-          146.5648854961832,
-          45.26946107784431
+          148.60050890585242,
+          53.89221556886228
         ],
         "recover": [
           162.56,
-          48.266129032258064
+          41.733870967741936
         ],
         "switch": [
-          126.61577608142494,
-          46.45161290322581
+          142.4936386768448,
+          41.733870967741936
         ]
       }
     },
@@ -5785,7 +5785,17 @@
             0.6,
             0.66
           ],
-          "scale": 1
+          "scale": 1,
+          "bore": {
+            "muzzle": [
+              354,
+              178
+            ],
+            "breech": [
+              462,
+              298
+            ]
+          }
         },
         "fire": {
           "marker": [
@@ -5796,7 +5806,17 @@
             0.6,
             0.63
           ],
-          "scale": 0.9
+          "scale": 0.9,
+          "bore": {
+            "muzzle": [
+              328,
+              120
+            ],
+            "breech": [
+              492,
+              300
+            ]
+          }
         },
         "recover": {
           "marker": [
@@ -5807,7 +5827,17 @@
             0.58,
             0.66
           ],
-          "scale": 0.9
+          "scale": 0.9,
+          "bore": {
+            "muzzle": [
+              352,
+              38
+            ],
+            "breech": [
+              470,
+              220
+            ]
+          }
         },
         "switch": {
           "marker": [
@@ -5818,7 +5848,18 @@
             0.6,
             0.84
           ],
-          "scale": 0.9
+          "scale": 0.9,
+          "bore": {
+            "muzzle": [
+              352,
+              100
+            ],
+            "breech": [
+              502,
+              260
+            ]
+          },
+          "align_bore": false
         }
       },
       "sha256": "2c4a36b306fb3a624d21c4ad12500f7b88e699b3085a103d7d829cb29976e829",
@@ -5874,7 +5915,17 @@
             0.6,
             0.63
           ],
-          "scale": 1
+          "scale": 1,
+          "bore": {
+            "muzzle": [
+              319,
+              209
+            ],
+            "breech": [
+              545,
+              435
+            ]
+          }
         },
         "fire": {
           "marker": [
@@ -5885,7 +5936,17 @@
             0.6,
             0.61
           ],
-          "scale": 0.9
+          "scale": 0.9,
+          "bore": {
+            "muzzle": [
+              316,
+              153
+            ],
+            "breech": [
+              605,
+              450
+            ]
+          }
         },
         "recover": {
           "marker": [
@@ -5896,7 +5957,17 @@
             0.58,
             0.63
           ],
-          "scale": 0.9
+          "scale": 0.9,
+          "bore": {
+            "muzzle": [
+              342,
+              38
+            ],
+            "breech": [
+              610,
+              333
+            ]
+          }
         },
         "switch": {
           "marker": [
@@ -5907,7 +5978,18 @@
             0.6,
             0.83
           ],
-          "scale": 0.9
+          "scale": 0.9,
+          "bore": {
+            "muzzle": [
+              245,
+              160
+            ],
+            "breech": [
+              540,
+              385
+            ]
+          },
+          "align_bore": false
         }
       },
       "sha256": "83c91a1d066410553e8fe0cb231532a3b08b8076f99ef330e4a27129e6f97a36",
@@ -6046,7 +6128,17 @@
             0.5,
             0.56
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              379,
+              112
+            ],
+            "breech": [
+              386,
+              300
+            ]
+          }
         },
         "fire": {
           "marker": [
@@ -6057,7 +6149,17 @@
             0.5,
             0.54
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              236,
+              44
+            ],
+            "breech": [
+              420,
+              275
+            ]
+          }
         },
         "recover": {
           "marker": [
@@ -6068,7 +6170,17 @@
             0.5,
             0.56
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              320,
+              40
+            ],
+            "breech": [
+              470,
+              260
+            ]
+          }
         },
         "switch": {
           "marker": [
@@ -6079,7 +6191,18 @@
             0.5,
             0.72
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              200,
+              108
+            ],
+            "breech": [
+              460,
+              305
+            ]
+          },
+          "align_bore": false
         }
       },
       "source_canvas_height": 512,
@@ -6103,81 +6226,138 @@
         "idle": [
           0,
           0,
-          767,
-          535
+          768,
+          540
         ],
         "fire": [
           768,
           0,
           768,
-          535
+          540
         ],
         "recover": [
           0,
-          535,
-          771,
-          489
+          540,
+          768,
+          484
         ],
         "switch": [
-          772,
-          535,
-          764,
-          489
+          768,
+          540,
+          768,
+          484
         ]
       },
       "placement": {
         "idle": {
           "marker": [
-            372,
-            93
+            380,
+            140
           ],
           "target": [
             0.5,
-            0.56
+            0.57
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              380,
+              140
+            ],
+            "breech": [
+              425,
+              410
+            ]
+          },
+          "receiver": [
+            425,
+            410
+          ]
         },
         "fire": {
           "marker": [
-            314,
-            58
+            380,
+            140
           ],
           "target": [
             0.5,
-            0.54
+            0.55
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              380,
+              140
+            ],
+            "breech": [
+              425,
+              410
+            ]
+          },
+          "receiver": [
+            425,
+            410
+          ]
         },
         "recover": {
           "marker": [
-            374,
-            49
+            380,
+            70
           ],
           "target": [
             0.5,
-            0.56
+            0.57
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              380,
+              70
+            ],
+            "breech": [
+              425,
+              410
+            ]
+          },
+          "receiver": [
+            425,
+            333
+          ]
         },
         "switch": {
           "marker": [
-            320,
-            78
+            376,
+            135
           ],
           "target": [
             0.5,
             0.72
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              376,
+              135
+            ],
+            "breech": [
+              425,
+              430
+            ]
+          },
+          "align_bore": false,
+          "receiver": [
+            425,
+            380
+          ]
         }
       },
       "source_canvas_height": 512,
-      "sha256": "8d89c9648c0d7d4d67275130ea157e95c0ea5ab062aeb0f9dd9161df7e9b0853",
+      "sha256": "e7a8eae0b72ba8c3600603dc054a2a5d49993771ee8e70c24b22e69c8ef5e16e",
       "source_dimensions": [
         1536,
         1024
       ],
-      "presentation": "Byte-original generated PNG; irregular native rectangles and authored visual forward-tip markers. Native framing and illustrated bore direction await review; no human style acceptance claim."
+      "presentation": "Byte-original four-pose Rivet cannon atlas. Per-phase breech and muzzle markers register the illustrated bore; active poses converge toward the fixed camera center while switch is lowered and nonfiring."
     },
     "siege_launcher": {
       "columns": 2,
@@ -6224,7 +6404,17 @@
             0.5,
             0.56
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              375,
+              153
+            ],
+            "breech": [
+              575,
+              390
+            ]
+          }
         },
         "fire": {
           "marker": [
@@ -6235,7 +6425,17 @@
             0.5,
             0.54
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              365,
+              150
+            ],
+            "breech": [
+              630,
+              398
+            ]
+          }
         },
         "recover": {
           "marker": [
@@ -6246,7 +6446,17 @@
             0.5,
             0.56
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              381,
+              115
+            ],
+            "breech": [
+              585,
+              378
+            ]
+          }
         },
         "switch": {
           "marker": [
@@ -6257,7 +6467,18 @@
             0.5,
             0.72
           ],
-          "scale": 0.75
+          "scale": 0.75,
+          "bore": {
+            "muzzle": [
+              350,
+              115
+            ],
+            "breech": [
+              630,
+              378
+            ]
+          },
+          "align_bore": false
         }
       },
       "source_canvas_height": 512,

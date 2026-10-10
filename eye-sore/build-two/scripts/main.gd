@@ -40,6 +40,13 @@ var level_complete: bool = false
 var stage_id := "pale_ward"
 var stage_catalog: Array = []
 var stage_selector: OptionButton
+var campaign = preload("res://scripts/campaign_state.gd").new()
+var campaign_mode := false
+var campaign_button: Button
+var stage_mode_button: Button
+var campaign_transitioning := false
+var weapon_hint := ""
+var weapon_hint_time := 0.0
 
 func selected_stage() -> Dictionary:
 	for entry in stage_catalog:
@@ -50,16 +57,33 @@ func _ready() -> void:
 	get_tree().auto_accept_quit = false
 	var expansion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://resources/stages/catalog.json"))
 	stage_catalog = expansion.stages
+	campaign.load_catalog("res://resources/campaign/catalog.json")
+	var direct_campaign_level := ""
+	var standalone_requested := false
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--stage="):
+			standalone_requested = true
 			var requested := argument.trim_prefix("--stage=")
 			for entry in stage_catalog:
 				if entry.id == requested: stage_id = requested
-	DisplayServer.window_set_title("Eyesore / " + String(selected_stage().title))
+		elif argument.begins_with("--campaign-level="):
+			direct_campaign_level = argument.trim_prefix("--campaign-level=")
+	if not direct_campaign_level.is_empty() and campaign.seek(direct_campaign_level):
+		campaign_mode = true
+		stage_id = String(campaign.current_level().theme)
+	elif not standalone_requested and not campaign.levels.is_empty():
+		var standalone_flags := ["--calibration", "--legacy-ward", "--release-route-test", "--smoke-test", "--automated-input"]
+		var ordinary_launch := true
+		for flag in standalone_flags:
+			if flag in OS.get_cmdline_user_args(): ordinary_launch = false
+		if ordinary_launch:
+			campaign_mode = true
+			stage_id = String(campaign.current_level().theme)
+	update_window_title()
 	load_settings()
 	smoke = "--smoke-test" in OS.get_cmdline_user_args()
 	# Automated fixtures call combat directly and do not verify physical mouse input.
-	automated_input = smoke or "--automated-input" in OS.get_cmdline_user_args() or "--release-route-test" in OS.get_cmdline_user_args()
+	automated_input = smoke or "--automated-input" in OS.get_cmdline_user_args() or "--release-route-test" in OS.get_cmdline_user_args() or "--campaign-route-test" in OS.get_cmdline_user_args()
 	var background := ColorRect.new()
 	background.color = Color.BLACK
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -71,6 +95,7 @@ func _ready() -> void:
 	world_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	add_child(world_view)
 	create_world()
+	if campaign_mode: campaign.entry_snapshot = campaign.capture(combat)
 	world_image = TextureRect.new()
 	world_image.texture = world_view.get_texture()
 	world_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -155,10 +180,18 @@ func _ready() -> void:
 	if smoke: call_deferred("run_smoke")
 	elif "--release-route-test" in OS.get_cmdline_user_args():
 		call_deferred("run_release_route_test")
+	elif "--campaign-route-test" in OS.get_cmdline_user_args():
+		call_deferred("run_campaign_route_test")
 
 func run_release_route_test() -> void:
 	# Explicit verification mode; ordinary play never creates the route driver.
 	var driver := preload("res://scripts/release_stage_playtest.gd").new()
+	add_child(driver)
+	driver.setup(self)
+
+func run_campaign_route_test() -> void:
+	# Explicit native/export fixture; never instantiated in ordinary play.
+	var driver := preload("res://scripts/campaign_route_playtest.gd").new()
 	add_child(driver)
 	driver.setup(self)
 
@@ -292,6 +325,15 @@ func build_menu() -> void:
 	menu_note.text = "WASD move · mouse look · left click fire · E use · Tab map\n1 pistol · 2 shotgun · 3 melee · 4 twin shotgun · 5 rivet cannon · 6 siege launcher\nFind the heavy weapons in each stage."
 	menu_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(menu_note)
+	campaign_button = Button.new()
+	campaign_button.text = "New Game"
+	campaign_button.visible = not campaign.levels.is_empty()
+	campaign_button.pressed.connect(start_new_campaign)
+	column.add_child(campaign_button)
+	stage_mode_button = Button.new()
+	stage_mode_button.text = "Stage Select / Playtest"
+	stage_mode_button.pressed.connect(switch_to_stage_select)
+	column.add_child(stage_mode_button)
 	stage_selector = OptionButton.new()
 	for entry in stage_catalog:
 		stage_selector.add_item(entry.title)
@@ -338,10 +380,25 @@ func show_credits() -> void:
 	credits.popup_centered(Vector2i(660, 470))
 
 func select_stage(index: int) -> void:
+	campaign_mode = false
 	stage_id = String(stage_catalog[index].id)
 	return_to_title()
 	update_title_art()
-	DisplayServer.window_set_title("Eyesore / " + String(selected_stage().title))
+	update_window_title()
+
+func switch_to_stage_select() -> void:
+	campaign_mode = false
+	stage_id = "pale_ward"
+	return_to_title()
+
+func update_window_title() -> void:
+	var title := String(campaign.current_level().get("title", "")) if campaign_mode else String(selected_stage().get("title", "Eyesore"))
+	DisplayServer.window_set_title("Eyesore / " + title)
+
+func current_level_label() -> String:
+	if not campaign_mode: return String(selected_stage().get("title", ""))
+	var level: Dictionary = campaign.current_level()
+	return "%s · %d/%d · %s" % [String(level.get("chapter_title", "")), int(level.get("chapter_index", 0)) + 1, int(level.get("chapter_length", 1)), String(level.get("title", ""))]
 
 func update_title_art() -> void:
 	if not is_instance_valid(title_art): return
@@ -355,6 +412,7 @@ func update_title_art() -> void:
 
 func create_world() -> void:
 	var scene_path: String = selected_stage().scene
+	if campaign_mode: scene_path = String(campaign.current_level().scene)
 	if "--calibration" in OS.get_cmdline_user_args(): scene_path = "res://scenes/calibration.tscn"
 	elif "--legacy-ward" in OS.get_cmdline_user_args(): scene_path = "res://scenes/pale_ward.tscn"
 	world = (load(scene_path) as PackedScene).instantiate()
@@ -438,6 +496,12 @@ func setup_menu_music() -> void:
 	menu_music.play()
 
 func enter_combat() -> void:
+	if campaign_mode and level_complete:
+		if campaign.next_level().is_empty():
+			start_new_campaign()
+		else:
+			continue_campaign()
+		return
 	if level_complete or (is_instance_valid(combat) and combat.dead):
 		restart_combat()
 		return
@@ -447,34 +511,78 @@ func enter_combat() -> void:
 	set_paused(false)
 
 func restart_combat() -> void:
+	var restore_snapshot: Dictionary = campaign.entry_snapshot.duplicate(true) if campaign_mode else {}
 	set_paused(true)
 	level_complete = false
 	level_message = ""
-	if is_instance_valid(combat_audio): combat_audio.stop_all()
-	combat_audio = null
-	combat = null
-	world.free()
-	create_world()
-	damage_flash = 0
-	muzzle_time = 0
-	muzzle_pending = false
+	replace_world(restore_snapshot)
 	enter_combat()
 
 func return_to_title() -> void:
 	set_paused(true)
 	level_complete = false
 	level_message = ""
+	campaign.reset()
+	if campaign_mode: stage_id = String(campaign.current_level().theme)
+	for index in stage_catalog.size():
+		if String(stage_catalog[index].id) == stage_id:
+			stage_selector.select(index)
+			break
+	replace_world({})
+	if campaign_mode: campaign.entry_snapshot = campaign.capture(combat)
+	started = false
+	if is_instance_valid(menu_music): menu_music.play()
+	update_title_art()
+	update_window_title()
+	set_paused(true)
+
+func start_new_campaign() -> void:
+	if campaign.levels.is_empty(): return
+	set_paused(true)
+	campaign.reset()
+	campaign_mode = true
+	stage_id = String(campaign.current_level().theme)
+	level_complete = false
+	level_message = ""
+	replace_world({})
+	campaign.entry_snapshot = campaign.capture(combat)
+	started = false
+	update_title_art()
+	update_window_title()
+	enter_combat()
+
+func continue_campaign() -> void:
+	if campaign_transitioning or not campaign_mode or not level_complete: return
+	if campaign.next_level().is_empty(): return
+	campaign_transitioning = true
+	var carried := campaign.capture(combat)
+	set_paused(true)
+	menu_title.text = "LOADING " + String(campaign.next_level().title).to_upper()
+	campaign.advance()
+	stage_id = String(campaign.current_level().theme)
+	level_complete = false
+	level_message = ""
+	replace_world(carried)
+	campaign.entry_snapshot = campaign.capture(combat)
+	update_title_art()
+	update_window_title()
+	campaign_transitioning = false
+	enter_combat()
+
+func replace_world(snapshot: Dictionary) -> void:
 	if is_instance_valid(combat_audio): combat_audio.stop_all()
 	combat_audio = null
 	combat = null
-	world.free()
+	if is_instance_valid(world): world.free()
 	create_world()
-	started = false
+	if campaign_mode and not snapshot.is_empty(): campaign.restore(combat, snapshot)
 	damage_flash = 0
 	muzzle_time = 0
 	muzzle_pending = false
-	if is_instance_valid(menu_music): menu_music.play()
-	set_paused(true)
+	if is_instance_valid(automap):
+		automap.visible = false
+		automap.state.clear()
+	weapon_hint_time = 0.0
 
 func on_combat_event(event: Dictionary) -> void:
 	if event.get("type") in [&"enemy_hurt", &"enemy_death"]:
@@ -489,10 +597,13 @@ func on_player_died() -> void:
 	call_deferred("set_paused", true)
 
 func on_level_completed() -> void:
+	if level_complete or campaign_transitioning: return
 	level_complete = true
+	if campaign_mode and is_instance_valid(combat_audio): combat_audio.stop_all()
 	call_deferred("set_paused", true)
 
 func _process(delta: float) -> void:
+	if not get_tree().paused: weapon_hint_time = maxf(0.0, weapon_hint_time - delta)
 	if not is_instance_valid(hud): return
 	if not is_instance_valid(combat):
 		hud.text = "MOVEMENT PREVIEW"
@@ -503,8 +614,9 @@ func _process(delta: float) -> void:
 	status.visible = started and not get_tree().paused
 	if world.has_method("get_level_state"):
 		var level_state: Dictionary = world.get_level_state()
-		status.text = String(level_state.get("objective", "")) + "\n" + String(level_state.get("prompt", ""))
+		status.text = current_level_label() + "\n" + String(level_state.get("objective", "")) + "\n" + String(level_state.get("prompt", ""))
 		if not level_message.is_empty(): status.text += "\n" + level_message
+		if weapon_hint_time > 0.0: status.text += "\n" + weapon_hint
 		if automap.visible:
 			automap.update_map(level_state, player.global_position, player.rotation.y)
 	var heavy_ammo := ""
@@ -539,15 +651,13 @@ func _process(delta: float) -> void:
 		var frame_size := weapon_image.texture.get_size()
 		weapon_image.size.x = minf(weapon_layer.size.x, weapon_layer.size.y * frame_size.x / frame_size.y)
 	weapon_image.position = Vector2((weapon_layer.size.x - weapon_image.size.x) * 0.5, combat.recoil_remaining * weapon_layer.size.y / 180.0)
+	var projected_weapon_pose: Dictionary = {}
 	if atlas_definition.has("placement"):
 		# Authored region/marker registration consumes the untouched generated atlas.
 		var pose: Dictionary = atlas_definition.placement[String(state.weapon_phase)]
-		var pixels := weapon_layer.size.y / float(atlas_definition.get("source_canvas_height", 768)) * float(pose.get("scale", 1.0))
-		weapon_image.size = weapon_image.texture.get_size() * pixels
-		var marker: Array = pose.marker
-		var target: Array = pose.get("target", [0.5, 0.64])
-		weapon_image.position = weapon_layer.size * Vector2(target[0], target[1]) - Vector2(marker[0], marker[1]) * pixels
-		weapon_image.position.y += combat.recoil_remaining * weapon_layer.size.y / 180.0
+		projected_weapon_pose = preload("res://scripts/weapon_presentation.gd").pose(pose, weapon_image.texture.get_size(), float(atlas_definition.get("source_canvas_height", 768)), weapon_layer.size, combat.recoil_remaining)
+		weapon_image.size = projected_weapon_pose.size
+		weapon_image.position = projected_weapon_pose.position
 	if not get_tree().paused:
 		damage_flash = maxf(0.0, damage_flash - delta)
 		# An accepted shot must reach one render before its lifetime is decremented.
@@ -564,7 +674,7 @@ func _process(delta: float) -> void:
 		muzzle_image.size = Vector2(64, 64) * scale_factor
 		if not atlas_definition.is_empty():
 			muzzle_image.size = Vector2.ONE * float(flash.get("world_size", 36)) * weapon_layer.size.y / 360.0
-		muzzle_image.position = weapon_image.position + Vector2(anchor[0], anchor[1]) * scale_factor - muzzle_image.size * 0.5
+		muzzle_image.position = projected_weapon_pose.muzzle - muzzle_image.size * 0.5 if projected_weapon_pose.has("muzzle") else weapon_image.position + Vector2(anchor[0], anchor[1]) * scale_factor - muzzle_image.size * 0.5
 
 func add_slider(parent: VBoxContainer, title: String, minimum: float, maximum: float, step: float, value: float, changed: Callable) -> void:
 	var label := Label.new()
@@ -591,6 +701,12 @@ func _input(event: InputEvent) -> void:
 		elif event.keycode == KEY_TAB:
 			automap.visible = not automap.visible
 			get_viewport().set_input_as_handled()
+		elif event.keycode in [KEY_4, KEY_5, KEY_6]:
+			var locked_id: StringName = {KEY_4: &"twin_shotgun", KEY_5: &"rivet_cannon", KEY_6: &"siege_launcher"}[event.keycode]
+			if not combat.has_weapon(locked_id):
+				var location: String = {&"twin_shotgun": "Ward Intake", &"rivet_cannon": "Ward Containment", &"siege_launcher": "Ward Breach"}[locked_id]
+				weapon_hint = "%s locked · find its cache%s." % [String(locked_id).replace("_", " ").capitalize(), " in " + location if campaign_mode else ""]
+				weapon_hint_time = 3.0
 	elif not get_tree().paused and event is InputEventMouseMotion:
 		player._unhandled_input(event)
 		get_viewport().set_input_as_handled()
@@ -602,9 +718,22 @@ func set_paused(value: bool) -> void:
 	crosshair.visible = not value
 	if is_instance_valid(menu_title):
 		var dead: bool = is_instance_valid(combat) and combat.dead
-		menu_title.text = "STAGE COMPLETE" if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / " + String(selected_stage().title).to_upper()))
-		resume_button.text = "Play again" if level_complete else ("Retry" if dead else ("Resume" if started else "Play"))
-		menu_note.text = ("%s completed.\nKills %d/%d" % [selected_stage().title, combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1–6 weapons · E use · Tab map")
+		if campaign_mode:
+			var next: Dictionary = campaign.next_level()
+			var chapter_end := campaign.is_chapter_end()
+			menu_title.text = ("CAMPAIGN COMPLETE" if next.is_empty() else ("CHAPTER CLEARED" if chapter_end else "LEVEL CLEARED")) if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / CAMPAIGN"))
+			resume_button.text = ("New Game" if next.is_empty() else "Continue") if level_complete else ("Retry" if dead else ("Resume" if started else "Play " + String(campaign.current_level().title)))
+			if level_complete:
+				menu_note.text = "%s cleared.\n%s" % [current_level_label(), "The occupation is broken." if next.is_empty() else ("Next chapter: " + String(next.chapter_title) if chapter_end else "Next: " + String(next.title))]
+			else:
+				menu_note.text = "%s\n%s" % [current_level_label(), "Retry from this level's entrance." if dead else "WASD move · mouse look · left click fire\n1–6 weapons · E use · Tab map"]
+		else:
+			menu_title.text = "STAGE COMPLETE" if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / " + String(selected_stage().title).to_upper()))
+			resume_button.text = "Play again" if level_complete else ("Retry" if dead else ("Resume" if started else "Play"))
+			menu_note.text = ("%s completed.\nKills %d/%d" % [selected_stage().title, combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1–6 weapons · E use · Tab map")
+		stage_selector.visible = not campaign_mode
+		campaign_button.visible = not started and not campaign.levels.is_empty()
+		stage_mode_button.visible = not started and campaign_mode
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value or automated_input else Input.MOUSE_MODE_CAPTURED
 
 func load_settings() -> void:

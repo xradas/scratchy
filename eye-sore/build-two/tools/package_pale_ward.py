@@ -41,7 +41,7 @@ DEFAULT_LIMITATIONS = [
     *STYLE_PASS_LIMITATIONS,
     "Human-paced encounters toward the original 5–8 minute duration remain work.",
     "Sustained human combat, interaction audio, and final mix review remain pending.",
-    "Stages are independently selectable; chapter order and campaign progression are deferred.",
+    "Nine connected campaign levels; campaign saves remain deferred.",
     "Occupied Line temporarily shares the Ward score, pending a separate music review.",
 ]
 
@@ -95,6 +95,7 @@ def provenance_files() -> list[Path]:
              "concepts/sprite-art-v1", "concepts/style-art-v2",
              "concepts/weapon-style-v3", "concepts/expansion-v1", "docs/expansion-v1",
              "concepts/arsenal-architecture-v2", "docs/arsenal-architecture-v2",
+             "concepts/campaign-v3", "docs/campaign-v3",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")
     paths = [PROJECT / "concepts/visual-v2/manifest.json",
@@ -110,7 +111,7 @@ def provenance_files() -> list[Path]:
     for root in roots:
         paths.extend(p for p in (PROJECT / root).rglob("*")
                      if p.is_file() and p.suffix in {".json", ".txt", ".md"}
-                     and not (root == "concepts/arsenal-architecture-v2"
+                     and not (root in {"concepts/arsenal-architecture-v2", "concepts/campaign-v3"}
                               and "review" in p.relative_to(PROJECT / root).parts))
     return sorted(set(paths))
 
@@ -352,17 +353,20 @@ def package(args: argparse.Namespace) -> dict:
         write_json(stage / "BUILD.json", record)
         (stage / "SOURCE_SHA256SUMS").write_text("".join(f"{digest}  {path}\n" for path, digest in sorted(source.items())), encoding="utf-8")
         (stage / "README.txt").write_text(
-            f"EYESORE / THREE THEMED STAGES\n\nRun ./{name}, choose a stage, and click Play.\n"
-            "The Pale Ward / The Ash Citadel / The Occupied Line.\n"
+            f"EYESORE / NINE-LEVEL CAMPAIGN\n\nRun ./{name}, and start New Game.\n"
+            "Three levels each: The Pale Ward, The Ash Citadel, The Occupied Line.\n"
             "WASD move, mouse look, left click fire; 1 pistol, 2 shotgun, 3 melee.\n"
             "Find heavy weapons: 4 twin shotgun, 5 rivet cannon, 6 siege launcher.\n"
             "Weapon caches spring ambushes; clear the fight to reopen retreat.\n"
             "E uses doors/lift/exit; walk over pickups; Tab shows visited areas.\n"
-            "Escape pauses/settings; Retry restores the level. No jump/dash/reload.\n\n"
+            "Escape pauses/settings; Retry restores the level-entry loadout. No jump/dash/reload.\n"
+            "Continue carries health, armor, weapons and ammunition into the next level.\n"
+            "Ward Intake has a signed Twin cache; Containment introduces Rivet; Breach introduces Siege.\n\n"
             "Clear each arena to enable its marked control. Use the breaker, find\n"
             "the brass key, return through the shortcut, then release the red-key\n"
             "wing. Clear the final arena and enable its exit control. Side rooms\n"
-            "and secrets are optional. Stages are independent; chapter order is deferred.\n\n"
+            "and secrets are optional. The three chapters follow in that order.\n"
+            "The previous three standalone stages remain selectable separately.\n\n"
             "Linux x86_64 graphics/audio/system libraries required. Assets are embedded.\n"
             "Native release smoke passed from /tmp; see smoke.log and BUILD.json.\n"
             "Audio/visual credits, unchanged provenance, engine/component notices and\n"

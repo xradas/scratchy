@@ -1,0 +1,1012 @@
+{
+  "id": "pale_ward_03",
+  "architecture_version": 2,
+  "rooms": {
+    "entry": {
+      "id": "entry",
+      "label": "SILO ACCESS",
+      "center": [
+        0.0,
+        0,
+        0.0
+      ],
+      "size": [
+        25.200000000000003,
+        6,
+        37.76
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "arena_one": {
+      "id": "arena_one",
+      "label": "CULTURE SHAFT",
+      "center": [
+        0.0,
+        -1.0,
+        -89.67999999999999
+      ],
+      "size": [
+        37.800000000000004,
+        10,
+        47.199999999999996
+      ],
+      "secret": false,
+      "arena_id": "arena_one",
+      "chamfer": 2.0,
+      "encounter": "sealed weapon cache"
+    },
+    "key_wing": {
+      "id": "key_wing",
+      "label": "Bio Wing",
+      "center": [
+        44.9,
+        1.5,
+        -89.67999999999999
+      ],
+      "size": [
+        29.400000000000002,
+        5,
+        21.24
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "key_console": {
+      "id": "key_console",
+      "label": "Operating Theatre",
+      "center": [
+        44.9,
+        1.5,
+        -123.89999999999999
+      ],
+      "size": [
+        23.1,
+        5,
+        28.32
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "spine": {
+      "id": "spine",
+      "label": "Quarantine Spine",
+      "center": [
+        0.0,
+        1.5,
+        -145.14
+      ],
+      "size": [
+        16.8,
+        6,
+        28.32
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "arena_two": {
+      "id": "arena_two",
+      "label": "SPECIMEN BREACH",
+      "center": [
+        0.0,
+        0.0,
+        -186.44
+      ],
+      "size": [
+        39.9,
+        12,
+        37.76
+      ],
+      "secret": false,
+      "arena_id": "arena_two",
+      "chamfer": 2.0,
+      "encounter": "raised crossfire bridge"
+    },
+    "red_wing": {
+      "id": "red_wing",
+      "label": "Pathology",
+      "center": [
+        -42.0,
+        1.5,
+        -186.44
+      ],
+      "size": [
+        27.3,
+        6,
+        30.68
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "red_console": {
+      "id": "red_console",
+      "label": "Red Access Control",
+      "center": [
+        -42.0,
+        1.5,
+        -226.56
+      ],
+      "size": [
+        23.1,
+        6,
+        28.32
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "final_arena": {
+      "id": "final_arena",
+      "label": "FISSURE EXIT",
+      "center": [
+        0.0,
+        1.5,
+        -247.79999999999998
+      ],
+      "size": [
+        35.7,
+        10,
+        47.199999999999996
+      ],
+      "secret": false,
+      "arena_id": "final_arena",
+      "chamfer": 2.0,
+      "encounter": "lower court and upper launcher reward"
+    },
+    "exit_gallery": {
+      "id": "exit_gallery",
+      "label": "BURIED OCCULT GATE / ASH APPROACH",
+      "center": [
+        0.0,
+        3.0,
+        -291.46
+      ],
+      "size": [
+        21.0,
+        6,
+        21.24
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "supplies": {
+      "id": "supplies",
+      "label": "Medical Stores",
+      "center": [
+        -27.3,
+        0,
+        -4.72
+      ],
+      "size": [
+        14.700000000000001,
+        5,
+        21.24
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "maintenance": {
+      "id": "maintenance",
+      "label": "Maintenance",
+      "center": [
+        29.400000000000002,
+        0,
+        7.08
+      ],
+      "size": [
+        18.900000000000002,
+        5,
+        18.88
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "secret_two": {
+      "id": "secret_two",
+      "label": "Hidden Specimen Room",
+      "center": [
+        -63.0,
+        1.5,
+        -226.56
+      ],
+      "size": [
+        10.5,
+        5,
+        11.799999999999999
+      ],
+      "secret": true,
+      "arena_id": ""
+    }
+  },
+  "portals": [
+    {
+      "from": "arena_one",
+      "to": "key_wing",
+      "width": 4.0,
+      "gate": "breaker",
+      "requires": [
+        "breaker"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        18.900000000000002,
+        -1.0,
+        -89.67999999999999
+      ],
+      "end": [
+        30.199999999999996,
+        1.5,
+        -89.67999999999999
+      ],
+      "middle": [
+        24.549999999999997,
+        0.25,
+        -89.67999999999999
+      ],
+      "axis": 0,
+      "door": "Door_breaker"
+    },
+    {
+      "from": "key_wing",
+      "to": "key_console",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        44.9,
+        1.5,
+        -100.3
+      ],
+      "end": [
+        44.9,
+        1.5,
+        -109.74
+      ],
+      "middle": [
+        44.9,
+        1.5,
+        -105.02
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "arena_one",
+      "to": "spine",
+      "width": 4.0,
+      "gate": "brass_gate",
+      "requires": [
+        "breaker",
+        "brass_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        0.0,
+        -1.0,
+        -113.27999999999999
+      ],
+      "end": [
+        0.0,
+        1.5,
+        -130.98
+      ],
+      "middle": [
+        0.0,
+        0.25,
+        -122.13
+      ],
+      "axis": 2,
+      "door": "Door_brass_gate"
+    },
+    {
+      "from": "spine",
+      "to": "arena_two",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "trap_entry": "TrapEntry_arena_two",
+      "start": [
+        0.0,
+        1.5,
+        -159.29999999999998
+      ],
+      "end": [
+        0.0,
+        0.0,
+        -167.56
+      ],
+      "middle": [
+        0.0,
+        0.75,
+        -163.43
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "arena_two",
+      "to": "red_wing",
+      "width": 4.0,
+      "gate": "release",
+      "requires": [
+        "release"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -19.95,
+        0.0,
+        -186.44
+      ],
+      "end": [
+        -28.35,
+        1.5,
+        -186.44
+      ],
+      "middle": [
+        -24.15,
+        0.75,
+        -186.44
+      ],
+      "axis": 0,
+      "door": "Door_release"
+    },
+    {
+      "from": "red_wing",
+      "to": "red_console",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -42.0,
+        1.5,
+        -201.78
+      ],
+      "end": [
+        -42.0,
+        1.5,
+        -212.4
+      ],
+      "middle": [
+        -42.0,
+        1.5,
+        -207.09
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "arena_two",
+      "to": "final_arena",
+      "width": 4.0,
+      "gate": "red_gate",
+      "requires": [
+        "release",
+        "red_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "trap_entry": "TrapEntry_final_arena",
+      "start": [
+        0.0,
+        0.0,
+        -205.32
+      ],
+      "end": [
+        0.0,
+        1.5,
+        -224.2
+      ],
+      "middle": [
+        0.0,
+        0.75,
+        -214.76
+      ],
+      "axis": 2,
+      "door": "Door_red_gate"
+    },
+    {
+      "from": "final_arena",
+      "to": "exit_gallery",
+      "width": 4.0,
+      "gate": "exit_gate",
+      "requires": [
+        "exit_control"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        0.0,
+        1.5,
+        -271.4
+      ],
+      "end": [
+        0.0,
+        3.0,
+        -280.84
+      ],
+      "middle": [
+        0.0,
+        2.25,
+        -276.12
+      ],
+      "axis": 2,
+      "door": "Door_exit_gate"
+    },
+    {
+      "from": "entry",
+      "to": "supplies",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -12.600000000000001,
+        0,
+        0.0
+      ],
+      "end": [
+        -19.95,
+        0,
+        0.0
+      ],
+      "middle": [
+        -16.275,
+        0.0,
+        0.0
+      ],
+      "axis": 0,
+      "door": null
+    },
+    {
+      "from": "entry",
+      "to": "maintenance",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        12.600000000000001,
+        0,
+        0.0
+      ],
+      "end": [
+        19.950000000000003,
+        0,
+        0.0
+      ],
+      "middle": [
+        16.275000000000002,
+        0.0,
+        0.0
+      ],
+      "axis": 0,
+      "door": null
+    },
+    {
+      "from": "red_console",
+      "to": "secret_two",
+      "width": 2.4,
+      "gate": "secret_two",
+      "requires": [],
+      "secret": true,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -53.55,
+        1.5,
+        -226.56
+      ],
+      "end": [
+        -57.75,
+        1.5,
+        -226.56
+      ],
+      "middle": [
+        -55.65,
+        1.5,
+        -226.56
+      ],
+      "axis": 0,
+      "door": "Door_secret_two"
+    },
+    {
+      "from": "entry",
+      "to": "arena_one",
+      "width": 5.2,
+      "gate": "entry_gate",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "trap_entry": "TrapEntry_arena_one",
+      "start": [
+        0.0,
+        0,
+        -18.88
+      ],
+      "end": [
+        0.0,
+        -1.0,
+        -66.08
+      ],
+      "middle": [
+        0.0,
+        -0.5,
+        -42.48
+      ],
+      "axis": 2,
+      "door": "Door_entry_gate"
+    }
+  ],
+  "buttons": [
+    {
+      "id": "breaker",
+      "room": "arena_one",
+      "arena": "arena_one",
+      "sets": "breaker",
+      "label": "ENABLE BRASS ACCESS"
+    },
+    {
+      "id": "release",
+      "room": "arena_two",
+      "arena": "arena_two",
+      "sets": "release",
+      "label": "RELEASE RED ACCESS"
+    },
+    {
+      "id": "exit_control",
+      "room": "final_arena",
+      "arena": "final_arena",
+      "sets": "exit_control",
+      "label": "OPEN SECTOR EXIT"
+    }
+  ],
+  "keys": [
+    {
+      "id": "brass_key",
+      "room": "key_console",
+      "label": "BRASS ACCESS KEY"
+    },
+    {
+      "id": "red_key",
+      "room": "red_console",
+      "label": "RED ACCESS KEY"
+    }
+  ],
+  "exit": {
+    "room": "exit_gallery",
+    "requires": [
+      "brass_key",
+      "red_key",
+      "exit_control"
+    ]
+  },
+  "weapon_cache": {
+    "arena_one": {
+      "weapon": "siege_launcher",
+      "ammo": 8
+    },
+    "arena_two": {
+      "weapon": "siege_launcher",
+      "ammo": 8
+    },
+    "final_arena": {
+      "weapon": "siege_launcher",
+      "ammo": 8
+    }
+  },
+  "vertical_routes": {
+    "arena_one_gallery": [
+      [
+        -7.0,
+        -1.0,
+        -71.71199999999999
+      ],
+      [
+        -7.0,
+        1.5,
+        -80.71199999999999
+      ],
+      [
+        -7.0,
+        1.5,
+        -98.648
+      ],
+      [
+        -7.0,
+        -1.0,
+        -107.648
+      ]
+    ],
+    "arena_one_rim": [
+      [
+        7.0,
+        -1.0,
+        -71.71199999999999
+      ],
+      [
+        7.0,
+        1.5,
+        -80.71199999999999
+      ],
+      [
+        -7.0,
+        1.5,
+        -82.51199999999999
+      ],
+      [
+        -7.0,
+        1.5,
+        -96.848
+      ],
+      [
+        7.0,
+        1.5,
+        -96.848
+      ]
+    ],
+    "arena_two_altar": [
+      [
+        0.0,
+        0.0,
+        -173.44
+      ],
+      [
+        0.0,
+        2.0,
+        -181.44
+      ],
+      [
+        0.0,
+        2.0,
+        -186.44
+      ],
+      [
+        0.0,
+        2.0,
+        -191.44
+      ],
+      [
+        0.0,
+        0.0,
+        -199.44
+      ]
+    ],
+    "arena_two_gallery": [
+      [
+        -7.0,
+        0.0,
+        -170.2656
+      ],
+      [
+        -7.0,
+        2.5,
+        -179.2656
+      ],
+      [
+        -7.0,
+        2.5,
+        -193.6144
+      ],
+      [
+        -7.0,
+        0.0,
+        -202.6144
+      ]
+    ],
+    "final_arena_gallery": [
+      [
+        -7.0,
+        1.5,
+        -229.832
+      ],
+      [
+        -7.0,
+        4.0,
+        -238.832
+      ],
+      [
+        -7.0,
+        4.0,
+        -256.768
+      ],
+      [
+        -7.0,
+        1.5,
+        -265.768
+      ]
+    ]
+  },
+  "combat_paths": {
+    "arena_one": [
+      [
+        [
+          -4.3,
+          -1.0,
+          -79.67999999999999
+        ],
+        [
+          -4.3,
+          -1.0,
+          -99.67999999999999
+        ]
+      ],
+      [
+        [
+          4.3,
+          -1.0,
+          -79.67999999999999
+        ],
+        [
+          4.3,
+          -1.0,
+          -99.67999999999999
+        ]
+      ]
+    ],
+    "arena_two": [
+      [
+        [
+          -4.3,
+          0.0,
+          -176.44
+        ],
+        [
+          -4.3,
+          0.0,
+          -196.44
+        ]
+      ],
+      [
+        [
+          4.3,
+          0.0,
+          -176.44
+        ],
+        [
+          4.3,
+          0.0,
+          -196.44
+        ]
+      ]
+    ],
+    "final_arena": [
+      [
+        [
+          -4.3,
+          1.5,
+          -237.79999999999998
+        ],
+        [
+          -4.3,
+          1.5,
+          -257.79999999999995
+        ]
+      ],
+      [
+        [
+          4.3,
+          1.5,
+          -237.79999999999998
+        ],
+        [
+          4.3,
+          1.5,
+          -257.79999999999995
+        ]
+      ]
+    ]
+  },
+  "theme": "pale_ward",
+  "title": "Breach",
+  "subtitle": "Specimen silo / occult fissure",
+  "entry_weapon": "siege_launcher",
+  "combat_flanks": {
+    "arena_one": [
+      [
+        -4.3,
+        -1.0,
+        -89.67999999999999
+      ],
+      [
+        -11.900000000000002,
+        -1.0,
+        -89.67999999999999
+      ],
+      [
+        -11.900000000000002,
+        -1.0,
+        -98.67999999999999
+      ],
+      [
+        -11.900000000000002,
+        -1.0,
+        -92.67999999999999
+      ],
+      [
+        -11.900000000000002,
+        -1.0,
+        -86.67999999999999
+      ],
+      [
+        -11.900000000000002,
+        -1.0,
+        -80.67999999999999
+      ],
+      [
+        4.3,
+        -1.0,
+        -89.67999999999999
+      ],
+      [
+        11.900000000000002,
+        -1.0,
+        -89.67999999999999
+      ],
+      [
+        11.900000000000002,
+        -1.0,
+        -98.67999999999999
+      ],
+      [
+        11.900000000000002,
+        -1.0,
+        -92.67999999999999
+      ],
+      [
+        11.900000000000002,
+        -1.0,
+        -86.67999999999999
+      ],
+      [
+        11.900000000000002,
+        -1.0,
+        -80.67999999999999
+      ]
+    ],
+    "arena_two": [
+      [
+        -4.3,
+        0.0,
+        -186.44
+      ],
+      [
+        -12.95,
+        0.0,
+        -186.44
+      ],
+      [
+        -12.95,
+        0.0,
+        -195.44
+      ],
+      [
+        -12.95,
+        0.0,
+        -189.44
+      ],
+      [
+        -12.95,
+        0.0,
+        -183.44
+      ],
+      [
+        -12.95,
+        0.0,
+        -177.44
+      ],
+      [
+        4.3,
+        0.0,
+        -186.44
+      ],
+      [
+        12.95,
+        0.0,
+        -186.44
+      ],
+      [
+        12.95,
+        0.0,
+        -195.44
+      ],
+      [
+        12.95,
+        0.0,
+        -189.44
+      ],
+      [
+        12.95,
+        0.0,
+        -183.44
+      ],
+      [
+        12.95,
+        0.0,
+        -177.44
+      ]
+    ],
+    "final_arena": [
+      [
+        -4.3,
+        1.5,
+        -247.79999999999998
+      ],
+      [
+        -12.850000000000001,
+        1.5,
+        -247.79999999999998
+      ],
+      [
+        -12.850000000000001,
+        1.5,
+        -256.79999999999995
+      ],
+      [
+        -12.850000000000001,
+        1.5,
+        -250.79999999999998
+      ],
+      [
+        -12.850000000000001,
+        1.5,
+        -244.79999999999998
+      ],
+      [
+        -12.850000000000001,
+        1.5,
+        -238.79999999999998
+      ],
+      [
+        4.3,
+        1.5,
+        -247.79999999999998
+      ],
+      [
+        12.850000000000001,
+        1.5,
+        -247.79999999999998
+      ],
+      [
+        12.850000000000001,
+        1.5,
+        -256.79999999999995
+      ],
+      [
+        12.850000000000001,
+        1.5,
+        -250.79999999999998
+      ],
+      [
+        12.850000000000001,
+        1.5,
+        -244.79999999999998
+      ],
+      [
+        12.850000000000001,
+        1.5,
+        -238.79999999999998
+      ]
+    ]
+  }
+}

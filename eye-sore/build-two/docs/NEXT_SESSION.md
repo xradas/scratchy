@@ -1,3 +1,9 @@
+# Resume checkpoint — connected campaign, 10 October 2026
+
+User confirmed three levels per chapter, Pale Ward → Ash Citadel → Occupied Line. Nine distinct authored level graphs now replace campaign-order deferral; standalone scenes/builds remain preserved. Continue carries combat state; Retry restores entry loadout. Signed arrival caches introduce Twin, Rivet and Siege in Ward01/02/03. Replaced Rivet native PNG, registered all firing bores and actual muzzle positions;719 actual Main alignment checks at three window sizes pass.
+
+Continuous source nine-level normal-combat route passes actual physical movement, AI, shots, E exits and exact loadout carry with no secrets, reseeding or signal injection. Independent loaded-resource preflight3150 checks pass. Fresh portable export and genuine exported campaign route are the remaining release checks at this checkpoint. Native controlled images are explicitly frozen-AI camera studies, separate from route evidence. Human visual, pacing, physical mouse and listening acceptance remain pending. Provenance: concepts/campaign-v3/provenance.json; source route: verification/campaign-v3/routes/source-all-9.json.
+
 # Resume checkpoint — arsenal and ambush expansion, 10 October 2026
 
 Current scope: three separate theme stages, chapter ordering deferred. Added slots4Twin Shotgun (16pellets/two shells),5Rivet Cannon (36damage/.16s) and6Siege Launcher (physical swept projectile,120direct+90falloff blast, walls block splash/self-risk). New weapons begin unowned and ammo zero; physical caches are bait for three shutter/entry-seal ambushes per stage. Dead foes/cleared traps reopen retreat and enable manual controls. Galleries, altars, sunken floors, split routes, chamfered courts and fourteen real W-input elevation paths pass. Twelve dedicated materials per theme and three new four-phase native gun atlases use unchanged builtinImageGen PNGs; exact prompts/provenance under concepts/arsenal-architecture-v2.

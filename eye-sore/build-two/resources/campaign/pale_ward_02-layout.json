@@ -1,0 +1,508 @@
+{
+  "id": "pale_ward_02",
+  "board": "res://assets/materials/expanded-stages/pale_ward-board.png",
+  "material_regions": {
+    "wall": [
+      1216,
+      625,
+      111,
+      102
+    ],
+    "steel": [
+      1362,
+      625,
+      111,
+      102
+    ],
+    "floor": [
+      1362,
+      625,
+      111,
+      102
+    ],
+    "grate": [
+      1216,
+      761,
+      111,
+      106
+    ],
+    "invasion": [
+      1362,
+      761,
+      111,
+      106
+    ]
+  },
+  "rooms": [
+    {
+      "id": "entry",
+      "label": "RESERVOIR",
+      "center": [
+        -0.0,
+        0,
+        0.0
+      ],
+      "size": [
+        27.839999999999996,
+        6,
+        34.24
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "service",
+      "label": "Service Spine",
+      "center": [
+        -0.0,
+        1.5,
+        -40.660000000000004
+      ],
+      "size": [
+        13.919999999999998,
+        5,
+        29.96
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "arena_one",
+      "label": "SURGICAL GALLERY",
+      "center": [
+        -0.0,
+        -1.0,
+        -81.32000000000001
+      ],
+      "size": [
+        41.76,
+        10,
+        42.800000000000004
+      ],
+      "secret": false,
+      "arena_id": "arena_one",
+      "chamfer": 2.0,
+      "encounter": "sealed weapon cache"
+    },
+    {
+      "id": "key_console",
+      "label": "Operating Theatre",
+      "center": [
+        -44.08,
+        1.5,
+        -81.32000000000001
+      ],
+      "size": [
+        25.52,
+        5,
+        25.68
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "return_store",
+      "label": "Supply Return",
+      "center": [
+        -39.44,
+        1.5,
+        -40.660000000000004
+      ],
+      "size": [
+        27.839999999999996,
+        5,
+        23.540000000000003
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "spine",
+      "label": "Quarantine Spine",
+      "center": [
+        -0.0,
+        1.5,
+        -131.61
+      ],
+      "size": [
+        18.56,
+        6,
+        25.68
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "arena_two",
+      "label": "RIVET CACHE",
+      "center": [
+        38.32,
+        0.0,
+        -131.61
+      ],
+      "size": [
+        44.08,
+        12,
+        34.24
+      ],
+      "secret": false,
+      "arena_id": "arena_two",
+      "chamfer": 2.0,
+      "encounter": "raised crossfire bridge"
+    },
+    {
+      "id": "red_wing",
+      "label": "Pathology",
+      "center": [
+        82.44,
+        1.5,
+        -131.61
+      ],
+      "size": [
+        30.159999999999997,
+        6,
+        27.82
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "red_console",
+      "label": "Red Access Control",
+      "center": [
+        82.44,
+        1.5,
+        -167.36
+      ],
+      "size": [
+        25.52,
+        6,
+        25.68
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "final_arena",
+      "label": "WET TRANSFER",
+      "center": [
+        38.32,
+        1.5,
+        -183.13000000000002
+      ],
+      "size": [
+        39.44,
+        10,
+        42.800000000000004
+      ],
+      "secret": false,
+      "arena_id": "final_arena",
+      "chamfer": 2.0,
+      "encounter": "lower court and upper launcher reward"
+    },
+    {
+      "id": "exit_gallery",
+      "label": "TO SPECIMEN SILO / BREACH",
+      "center": [
+        38.32,
+        3.0,
+        -223.16000000000003
+      ],
+      "size": [
+        23.2,
+        6,
+        19.26
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "supplies",
+      "label": "Medical Stores",
+      "center": [
+        30.159999999999997,
+        0,
+        -4.28
+      ],
+      "size": [
+        16.24,
+        5,
+        19.26
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    {
+      "id": "secret_one",
+      "label": "Sealed Cabinet",
+      "center": [
+        48.72,
+        0,
+        -4.28
+      ],
+      "size": [
+        9.28,
+        5,
+        8.56
+      ],
+      "secret": true,
+      "arena_id": ""
+    }
+  ],
+  "portals": [
+    {
+      "from": "entry",
+      "to": "service",
+      "width": 8.0,
+      "gate": "entry_gate",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "service",
+      "to": "arena_one",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "return_store",
+      "to": "service",
+      "width": 4.0,
+      "gate": "shortcut_one",
+      "requires": [],
+      "secret": false,
+      "shortcut": true,
+      "lift": false
+    },
+    {
+      "from": "arena_one",
+      "to": "spine",
+      "width": 4.0,
+      "gate": "brass_gate",
+      "requires": [
+        "breaker",
+        "brass_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "spine",
+      "to": "arena_two",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "arena_two",
+      "to": "red_wing",
+      "width": 4.0,
+      "gate": "release",
+      "requires": [
+        "release"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "red_wing",
+      "to": "red_console",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "arena_two",
+      "to": "final_arena",
+      "width": 4.0,
+      "gate": "red_gate",
+      "requires": [
+        "release",
+        "red_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "final_arena",
+      "to": "exit_gallery",
+      "width": 4.0,
+      "gate": "exit_gate",
+      "requires": [
+        "exit_control"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "entry",
+      "to": "supplies",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "supplies",
+      "to": "secret_one",
+      "width": 2.4,
+      "gate": "secret_one",
+      "requires": [],
+      "secret": true,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "arena_one",
+      "to": "key_console",
+      "width": 5.2,
+      "gate": "breaker",
+      "requires": [
+        "breaker"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    },
+    {
+      "from": "key_console",
+      "to": "return_store",
+      "width": 5.2,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false
+    }
+  ],
+  "spawn_room": "entry",
+  "spawn_local": [
+    0,
+    0.87,
+    11.770000000000001
+  ],
+  "buttons": [
+    {
+      "id": "breaker",
+      "room": "arena_one",
+      "arena": "arena_one",
+      "sets": "breaker",
+      "label": "ENABLE BRASS ACCESS"
+    },
+    {
+      "id": "release",
+      "room": "arena_two",
+      "arena": "arena_two",
+      "sets": "release",
+      "label": "RELEASE RED ACCESS"
+    },
+    {
+      "id": "exit_control",
+      "room": "final_arena",
+      "arena": "final_arena",
+      "sets": "exit_control",
+      "label": "OPEN SECTOR EXIT"
+    }
+  ],
+  "keys": [
+    {
+      "id": "brass_key",
+      "room": "key_console",
+      "label": "BRASS ACCESS KEY"
+    },
+    {
+      "id": "red_key",
+      "room": "red_console",
+      "label": "RED ACCESS KEY"
+    }
+  ],
+  "exit": {
+    "room": "exit_gallery",
+    "requires": [
+      "brass_key",
+      "red_key",
+      "exit_control"
+    ]
+  },
+  "enemy_counts": {
+    "entry": 3,
+    "service": 2,
+    "arena_one": 6,
+    "key_console": 2,
+    "return_store": 1,
+    "spine": 2,
+    "arena_two": 6,
+    "red_wing": 3,
+    "red_console": 1,
+    "final_arena": 7,
+    "secret_one": 1
+  },
+  "supplies": {
+    "main_route_shells": 76,
+    "main_route_pistol": 144,
+    "main_route_health": 220,
+    "main_route_armor": 180,
+    "secrets_are_extra": true
+  },
+  "theme_geometry": "Original containment-style broad rear stairs, asymmetric piers, specimen tubes, overhead pipes and dark machinery clusters.",
+  "architecture_version": 2,
+  "usable_elevations": [
+    -1.0,
+    1.5,
+    3.0
+  ],
+  "weapon_cache": {
+    "arena_one": {
+      "weapon": "rivet_cannon",
+      "ammo": 96
+    },
+    "arena_two": {
+      "weapon": "rivet_cannon",
+      "ammo": 96
+    },
+    "final_arena": {
+      "weapon": "rivet_cannon",
+      "ammo": 96
+    }
+  },
+  "optional_rooms": [
+    "supplies"
+  ],
+  "secret_rooms": [
+    "secret_one"
+  ],
+  "supply_rooms": [
+    "entry",
+    "service",
+    "arena_one",
+    "key_console",
+    "return_store",
+    "spine",
+    "arena_two",
+    "red_wing",
+    "red_console",
+    "final_arena"
+  ],
+  "campaign_level_id": "pale_ward_02",
+  "theme": "pale_ward",
+  "title": "Containment",
+  "subtitle": "Reservoir loop / surgical galleries"
+}
