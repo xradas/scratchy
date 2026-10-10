@@ -1,3 +1,9 @@
+# Resume checkpoint — weapon shading pass,10 October2026
+
+Continued from the user's request to resume the unfinished art style. Current pistol/shotgun use assets/weapons/painted-v3/*-atlas.png, built-in imagegen edits referenced to the original Pale Ward board. Darker painted surfaces, reduced broad highlights; original PNGs preserved byte-for-byte. Prompts and hashes in concepts/weapon-style-v3. Generation shifted framing, so root authored per-phase regions, barrel markers and source scale; new lower shotgun split at sourcex800 is exactly transparent and avoids the prior nominal-cell clipping. All four phases retain actual combat ownership. No gameplay/HUD/audio/level changes.
+
+New native comparison: http://127.0.0.1:8765/weapon-style-review.html. Current screenshots are real main-scene renders frozen at accepted shot/switch states, not diagnostic overlay fixtures; capture-state.json records events/ammo. Native atlas audit passes160checks and integrated art registration350checks. Separate candidate fixture images are labeledFIXTURE and are not gameplay previews. Full visual acceptance and complete directional/production animation remain pending. Prior style-v2 package and source checkpoint preserved.
+
 # Resume checkpoint — art style correction, 9 October 2026
 
 Latest clarification: the user wants the approved illustration’s ART STYLE. Layout remains a chapter basis, but this pass focuses on chunky pixels, painted grey-brown shading, dark worn metal and restrained yellow-green light. Do not claim full match from pixel sampling or test results. HUD and praised music retained.

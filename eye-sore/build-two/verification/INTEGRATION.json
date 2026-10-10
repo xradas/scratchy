@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-09T18:41:39.419955+00:00",
+  "checked_utc": "2026-10-10T18:11:35.210559+00:00",
   "stage": "Pale Ward art-style review: shared pixel presentation, painted material tuning and registered generated creature poses; full visual acceptance pending",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
@@ -93,7 +93,7 @@
     "Interaction world/UI audio remains limited; level music remains candidate assigned to biotech.",
     "First forced-offscreen pistol render recorded a 176ms hitch and 212ms flash expiry; repeat warmed run passed nominal duration bounds. Cold rendering needs further review.",
     "Visible-window rendering was minimized during early checks; later native captures were drawable. Physical mouse capture and sustained human playtest remain unverified in this session.",
-    "Current style native cadence check recorded a155.14ms first30FPS pistol render hitch; all six cap/weapon cadence and flash expiry cases passed. Weapon highlights remain broader/shinier than the approved illustration."
+    "Current style native cadence check recorded a155.14ms first30FPS pistol render hitch; all six cap/weapon cadence and flash expiry cases passed. Weapon shading was subsequently repainted and reviewed in the10Octoberpass; full user style acceptance remains pending."
   ],
   "preserved_room_executable": {
     "path": "/home/rikki/Builds/eyesore-build-two-stage-one-2026-10-08/eyesore-room-preview-v2.x86_64",
@@ -428,5 +428,25 @@
     "sha256": "563def7cb6161c180e819a9e541859cb842fe81891d06b5894b59819462ba2a4",
     "capture": "Godot MovieMaker actual game renderer and stereo Master game mix; automated normal AI/ammo route; no secret supplies. H264/AAC encoding only, no audio overlay or normalization.",
     "audio_validation": "grit/p20-recording.json"
+  },
+  "weapon_style_pass": {
+    "date": "2026-10-10",
+    "art_review": "http://127.0.0.1:8765/weapon-style-review.html",
+    "accepted_as_full_visual_match": false,
+    "sources": [
+      "../assets/weapons/painted-v3/pistol-atlas.png",
+      "../assets/weapons/painted-v3/shotgun-atlas.png"
+    ],
+    "generation_provenance": "../concepts/weapon-style-v3",
+    "native_atlas_audit": "weapon-style-v3/candidate-r3-audit/weapon-style-audit.json",
+    "integrated_art_registration": "weapon-style-v3/registered-art.json",
+    "captures": "weapon-style-v3/captures",
+    "capture_state": "weapon-style-v3/captures/capture-state.json",
+    "shot_cadence": "weapon-style-v3/shot-cadence-native.json",
+    "aim_balance": "weapon-style-v3/aim/aim-balance.json",
+    "actual_movie_route": "weapon-style-v3/movie-route.json",
+    "actual_recording": "weapon-style-v3/recording.json",
+    "scope": "Root-reviewed darker pistol and shotgun shading/pose registration, original source atlases preserved; gameplay/HUD/audio/world/enemies unchanged. Full user art approval and complete production remain pending.",
+    "imagegen_mode": "Built-in image_gen.imagegen, PNG bytes unchanged, no subsequent raster edits."
   }
 }

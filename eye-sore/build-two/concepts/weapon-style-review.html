@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Pale Ward — weapon style review</title>
+  <link rel="stylesheet" href="grit-review.css">
+  <style>
+    .weapon-comparison { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .weapon-comparison .image-frame { aspect-ratio: 16 / 9; }
+    @media (max-width: 1050px) { .weapon-comparison { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p>EYESORE / BUILD TWO / WEAPON STYLE COMPARISON</p>
+    <h1>The Pale Ward — weapon style review</h1>
+    <p>Compare the unchanged approved concept preview with actual running-game captures from the previous style pass and the new weapon pass. The reference sets the requested painted, coarse-pixel treatment; it does not prescribe an identical camera or composition.</p>
+    <p>All images are native PNGs copied byte for byte, shown uncropped with nearest-neighbour display scaling. Open an image to inspect its full source pixels. Visual acceptance remains pending.</p>
+    <p>The new fire and switch views are full-window screenshots from the actual gameplay renderer. Capture paused the simulation at real shot and weapon-switch states; no weapon images or other overlays were composited into these screenshots. <a href="../verification/weapon-style-v3/captures/capture-state.json">Capture state evidence</a> records each phase and event.</p>
+    <p>The HUD and audio are unchanged in this weapon pass.</p>
+    <p><a href="style-review.html">Previous style review</a> · <a href="grit-review.html">Earlier grit review</a> · <a href="weapon-style-v3/manifest.json">Source SHA256 and byte checks</a></p>
+  </header>
+  <div class="weapon-comparison">
+    <section aria-labelledby="reference-heading">
+      <h2 id="reference-heading">Approved style reference — original concept</h2>
+      <figure>
+        <a class="image-frame" href="weapon-style-v3/reference/scene_pixel_preview.png" aria-label="Open unchanged approved concept preview PNG"><img src="weapon-style-v3/reference/scene_pixel_preview.png" alt="Original Pale Ward concept pixel preview"></a>
+        <figcaption>Original scene_pixel_preview.png; approved art style reference.</figcaption>
+      </figure>
+      <p><a href="visual-v2/corrupted-biotech/scene_pixel_preview.png">Original source PNG</a></p>
+    </section>
+    <section aria-labelledby="previous-heading">
+      <h2 id="previous-heading">Previous actual game — style v2</h2>
+      <figure>
+        <a class="image-frame" href="weapon-style-v3/previous/containment-entry.png" aria-label="Open unchanged previous actual game PNG"><img src="weapon-style-v3/previous/containment-entry.png" alt="Previous actual game, containment entry"></a>
+        <figcaption>Previous running-game containment entry capture, before the weapon pass.</figcaption>
+      </figure>
+    </section>
+    <section aria-labelledby="current-heading">
+      <h2 id="current-heading">New actual game — weapon style v3</h2>
+      <label for="current-view">New running-game capture</label>
+      <select id="current-view">
+          <option value="weapon-style-v3/current/containment-entry.png">Containment entry</option>
+          <option value="weapon-style-v3/current/pistol-fire.png">Pistol fire</option>
+          <option value="weapon-style-v3/current/pistol-idle.png">Pistol idle</option>
+          <option value="weapon-style-v3/current/pistol-recover.png">Pistol recover</option>
+          <option value="weapon-style-v3/current/pistol-switch.png">Pistol switch</option>
+          <option value="weapon-style-v3/current/shotgun-fire.png">Shotgun fire</option>
+          <option value="weapon-style-v3/current/shotgun-idle.png">Shotgun idle</option>
+          <option value="weapon-style-v3/current/shotgun-recover.png">Shotgun recover</option>
+          <option value="weapon-style-v3/current/shotgun-switch.png">Shotgun switch</option>
+      </select>
+      <figure>
+        <a id="current-link" class="image-frame" href="weapon-style-v3/current/containment-entry.png" aria-label="Open unchanged new actual game PNG"><img id="current-image" src="weapon-style-v3/current/containment-entry.png" alt="New actual game: Containment entry"></a>
+        <figcaption id="current-caption">New running-game capture: Containment entry.</figcaption>
+      </figure>
+      <p>Review pending; no visual match or acceptance is claimed.</p>
+    </section>
+  </div>
+  <section>
+    <h2>New actual game captures</h2>
+    <p>Direct links also work without JavaScript.</p>
+    <ul>
+        <li><a href="weapon-style-v3/current/containment-entry.png">Actual new game: Containment entry</a></li>
+        <li><a href="weapon-style-v3/current/pistol-fire.png">Actual new game: Pistol fire</a></li>
+        <li><a href="weapon-style-v3/current/pistol-idle.png">Actual new game: Pistol idle</a></li>
+        <li><a href="weapon-style-v3/current/pistol-recover.png">Actual new game: Pistol recover</a></li>
+        <li><a href="weapon-style-v3/current/pistol-switch.png">Actual new game: Pistol switch</a></li>
+        <li><a href="weapon-style-v3/current/shotgun-fire.png">Actual new game: Shotgun fire</a></li>
+        <li><a href="weapon-style-v3/current/shotgun-idle.png">Actual new game: Shotgun idle</a></li>
+        <li><a href="weapon-style-v3/current/shotgun-recover.png">Actual new game: Shotgun recover</a></li>
+        <li><a href="weapon-style-v3/current/shotgun-switch.png">Actual new game: Shotgun switch</a></li>
+    </ul>
+  </section>
+  <footer><p>The <a href="weapon-style-v3/manifest.json">manifest</a> names each original source and copied asset with dimensions, byte count, and SHA256. Source PNG pixels are preserved without editing, filtering, or compositing.</p></footer>
+  <p id="view-status" role="status" aria-live="polite" class="sr-only"></p>
+</main>
+<script>
+"use strict";
+document.getElementById("current-view").addEventListener("change", (event) => {
+  const option = event.target.selectedOptions[0];
+  const image = document.getElementById("current-image");
+  image.src = option.value;
+  image.alt = `New actual game: ${option.textContent}`;
+  const link = document.getElementById("current-link");
+  link.href = option.value;
+  link.setAttribute("aria-label", `Open unchanged new actual game ${option.textContent} PNG`);
+  document.getElementById("current-caption").textContent = `New running-game capture: ${option.textContent}.`;
+  document.getElementById("view-status").textContent = `New actual game view changed to ${option.textContent}.`;
+});
+</script>
+</body>
+</html>

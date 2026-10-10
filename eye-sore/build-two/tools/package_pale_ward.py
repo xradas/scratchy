@@ -91,6 +91,7 @@ def git(*arguments: str) -> str:
 def provenance_files() -> list[Path]:
     roots = ("concepts/environment-art-v1", "concepts/gore-art-v1",
              "concepts/sprite-art-v1", "concepts/style-art-v2",
+             "concepts/weapon-style-v3",
              "concepts/visual-v2/corrupted-biotech")
     paths = [PROJECT / "concepts/visual-v2/manifest.json",
              PROJECT / "concepts/audio-v3/manifest.json",
