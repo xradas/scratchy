@@ -16,6 +16,9 @@ var seen_shots: Dictionary = {}
 var sprite_clips: Dictionary = {}
 var sprite_directions: int = 1
 var sprite: Sprite3D
+var sprite_source_texture: Texture2D
+var sprite_source_columns: int = 1
+var sprite_source_rows: int = 1
 var sprite_pivot: Node3D
 var sprite_data: Dictionary = {}
 var sprite_foot: Vector2
@@ -25,6 +28,11 @@ var sprite_bodies: Dictionary = {}
 const SpriteHurt := preload("res://scripts/sprite_hurt_geometry.gd")
 var visual_rig: Node3D
 var hurt_shapes: Array[StaticBody3D] = []
+var corpse_shapes: Array[StaticBody3D] = []
+var corpse_bodies: Dictionary = {}
+var corpse_integrity: float = 0.0
+var corpse_frame: int = -1
+var corpse_seen_shots: Dictionary = {}
 
 func setup(controller: Node3D, actor: CharacterBody3D, data: EnemyDefinition, id: String) -> void:
 	combat = controller; player = actor; definition = data; target_id = id; health = definition.health
@@ -46,7 +54,10 @@ func _physics_process(delta: float) -> void:
 	var distance := Vector2(offset.x, offset.z).length()
 	var visible := can_see_player()
 	if not awake:
-		if visible or (combat.weapon_phase == &"fire" and distance < 13.0):
+		var arena_enabled := true
+		if combat.world.has_method("is_arena_active") and has_meta("arena_id"):
+			arena_enabled = combat.world.is_arena_active(String(get_meta("arena_id")))
+		if arena_enabled and (visible or (combat.weapon_phase == &"fire" and distance < 13.0)):
 			awake = true
 		else:
 			velocity.x = 0; velocity.z = 0
@@ -133,13 +144,16 @@ func apply_damage(amount: float, shot_id: int, weapon_id: StringName, hit_positi
 	# Pain always cancels a pending unreleased strike; a fresh windup is needed after pain.
 	released = true
 	if health <= 0.0:
-		gibbed = is_instance_valid(combat.gore) and combat.gore.should_gib(weapon_id, overkill)
-		dead = true; change_state(&"dead"); collision_layer = 0; collision_mask = 0; velocity = Vector3.ZERO
+		gibbed = is_instance_valid(combat.gore) and combat.gore.should_gib(weapon_id, overkill, struck_material)
+		dead = true
+		corpse_integrity = maxf(combat.gore.profile.corpse_integrity_minimum, definition.health * combat.gore.profile.corpse_integrity_fraction)
+		change_state(&"dead"); collision_layer = 0; collision_mask = 0; velocity = Vector3.ZERO
 		for hurt_shape in hurt_shapes: hurt_shape.collision_layer = 0
 		$Visual.rotation.z = PI / 2; $Visual.position.y = -0.5
 		if is_instance_valid(sprite): update_sprite()
 		if gibbed: $Visual.visible = false
 		if gibbed and is_instance_valid(visual_rig): visual_rig.visible = false
+		if not gibbed and not is_instance_valid(sprite): build_rig_corpse_surfaces()
 		event = {"type": &"enemy_death", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": struck_material, "position": global_position, "contact_position":hit_position, "direction":direction, "damage":amount, "overkill":overkill, "gibbed":gibbed}
 		combat.emit_event(event)
 		combat.enemy_killed(self)
@@ -147,6 +161,57 @@ func apply_damage(amount: float, shot_id: int, weapon_id: StringName, hit_positi
 		combat.emit_event(event)
 		change_state(&"pain")
 	return event
+
+## Cosmetic corpse integrity is independent of health, AI, kills and arena state.
+func apply_corpse_damage(amount: float, shot_id: int, weapon_id: StringName, hit_position: Vector3, impact_material: StringName = &"flesh") -> Dictionary:
+	if not dead or gibbed or amount <= 0 or corpse_seen_shots.has(shot_id): return {}
+	corpse_seen_shots[shot_id] = true
+	corpse_integrity = maxf(0, corpse_integrity - amount)
+	var event := {"type":&"corpse_hurt","enemy_kind":definition.identifier,"target_id":target_id,"shot_id":shot_id,"weapon_id":weapon_id,"material":impact_material,"position":global_position,"contact_position":hit_position,"direction":-combat.camera.global_basis.z,"damage":amount,"overkill":0.0,"gibbed":false}
+	if corpse_integrity <= 0:
+		gibbed = true; event.type = &"corpse_gib"; event.gibbed = true
+		clear_corpse_surfaces()
+		$Visual.visible = false
+		if is_instance_valid(sprite): sprite.visible = false
+		if is_instance_valid(visual_rig): visual_rig.visible = false
+	combat.emit_event(event)
+	return event
+
+func clear_corpse_surfaces() -> void:
+	for body in corpse_shapes:
+		if is_instance_valid(body): body.collision_layer = 0; body.queue_free()
+	corpse_shapes.clear(); corpse_bodies.clear(); corpse_frame = -1
+
+func corpse_body(parent: Node3D, material: StringName) -> StaticBody3D:
+	var body := StaticBody3D.new(); body.name = "CorpseQuery_" + String(material)
+	body.collision_layer = 8; body.collision_mask = 0
+	body.set_meta("combat_target", self); body.set_meta("hit_material", material)
+	body.set_meta("cosmetic_corpse", true)
+	var shape := CollisionShape3D.new(); shape.name = "HitSurface"; body.add_child(shape)
+	parent.add_child(body); corpse_shapes.append(body)
+	return body
+
+func sync_sprite_corpse_surfaces(geometry: Dictionary) -> void:
+	if not dead or gibbed: return
+	for body in corpse_bodies.values(): body.collision_layer = 0; body.get_node("HitSurface").shape = null
+	for material in geometry.shapes:
+		var body: StaticBody3D
+		if corpse_bodies.has(material): body = corpse_bodies[material]
+		else:
+			body = corpse_body(sprite_pivot, StringName(material)); corpse_bodies[material] = body
+		body.get_node("HitSurface").shape = geometry.shapes[material]
+		body.collision_layer = 8
+
+func build_rig_corpse_surfaces() -> void:
+	clear_corpse_surfaces()
+	if is_instance_valid(visual_rig):
+		for living in hurt_shapes:
+			var shape: CollisionShape3D = living.get_node("HitSurface")
+			var body := corpse_body(living.get_parent(), StringName(living.get_meta("hit_material", "flesh")))
+			body.transform = living.transform; body.get_node("HitSurface").shape = shape.shape
+	else:
+		var body := corpse_body($Visual, definition.hit_material)
+		body.get_node("HitSurface").shape = $Visual.mesh.create_trimesh_shape()
 
 func configure_live_visual(scene_path: String) -> void:
 	clear_hurt_surfaces()
@@ -205,6 +270,7 @@ func configure_sprite_texture(texture: Texture2D, columns: int, rows: int, clips
 	if is_instance_valid(sprite_pivot): sprite_pivot.queue_free()
 	elif is_instance_valid(sprite): sprite.queue_free()
 	sprite_data = data.duplicate(true)
+	sprite_source_texture = texture; sprite_source_columns = columns; sprite_source_rows = rows
 	if sprite_data.has("pose_frames"):
 		sprite_data.layout = "poses"
 		var poses: Dictionary = sprite_data.pose_frames.duplicate(true)
@@ -220,13 +286,19 @@ func configure_sprite_texture(texture: Texture2D, columns: int, rows: int, clips
 	add_child(sprite_pivot)
 	sprite = Sprite3D.new(); sprite.name = "VisualSprite"; sprite.texture = texture
 	sprite.layers = 2 # Exclude moving creatures from cached static world reflections.
-	sprite.hframes = columns; sprite.vframes = rows; sprite_directions = rows; sprite_clips = clips
+	sprite.hframes = columns; sprite.vframes = rows; sprite_directions = int(data.get("direction_count", rows)); sprite_clips = clips
+	if sprite_data.has("source_regions"):
+		# An AtlasTexture references unchanged native source pixels, including
+		# unequal rounded grid cells; no rescale, padding or canvas rewrite.
+		var atlas := AtlasTexture.new(); atlas.atlas = texture
+		atlas.region = Rect2(SpriteHurt.frame_region(texture, columns, rows, 0, sprite_data)); atlas.filter_clip = true
+		sprite.texture = atlas; sprite.hframes = 1; sprite.vframes = 1
 	sprite.pixel_size = pixel_size; sprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	sprite.alpha_scissor_threshold = float(data.get("alpha_threshold", 0.5))
 	sprite.shaded = bool(data.get("shaded", false))
-	var frame_size := Vector2(texture.get_width() / float(columns), texture.get_height() / float(rows))
+	var frame_size := Vector2(SpriteHurt.frame_region(texture, columns, rows, 0, sprite_data).size)
 	if data.has("foot_pivot_normalized"):
 		var normalized: Array = data.foot_pivot_normalized
 		foot_pivot = Vector2(normalized[0], normalized[1]) * frame_size
@@ -259,11 +331,12 @@ func sprite_projectile_origin() -> Vector3:
 	var selected_uv: Variant = frame_origins.get(str(sprite_frame), sprite_data.get("projectile_origin_uv", null))
 	if selected_uv is Array:
 		var uv: Array = selected_uv
-		var size := Vector2(sprite.texture.get_width() / float(sprite.hframes), sprite.texture.get_height() / float(sprite.vframes))
+		var size := Vector2(SpriteHurt.frame_region(sprite_source_texture, sprite_source_columns, sprite_source_rows, sprite_frame, sprite_data).size)
 		return sprite_pivot.to_global(Vector3((uv[0] * size.x - sprite_foot.x) * sprite.pixel_size, (sprite_foot.y - uv[1] * size.y) * sprite.pixel_size, 0.0))
 	return global_position + Vector3(0, 0.4, 0)
 
 func clear_hurt_surfaces() -> void:
+	clear_corpse_surfaces()
 	for body in hurt_shapes:
 		if is_instance_valid(body): body.collision_layer = 0; body.queue_free()
 	hurt_shapes.clear()
@@ -290,7 +363,12 @@ func update_sprite() -> void:
 			elif state == &"recovery": duration = definition.recovery_seconds
 			elif state == &"pain": duration = definition.pain_seconds
 			index = mini(frames.size()-1,int(clampf(state_time/maxf(duration,.001),0,1)*frames.size()))
+			if state == &"recovery" and sprite_data.has("direction_frames"):
+				index = 0 if state_time < float(sprite_data.get("release_pose_seconds",.12)) else frames.size()-1
 		selected = int(frames[index])
+		if state == &"chase" and sprite_data.has("direction_frames"):
+			var direction_index := sprite_direction_row()
+			if direction_index != 0: selected = int(sprite_data.direction_frames[direction_index])
 	else:
 		var clip: Vector2i = sprite_clips.get(state, sprite_clips.get(&"chase", Vector2i(0, 1)))
 		var count := maxi(clip.y, 1)
@@ -302,15 +380,19 @@ func update_sprite() -> void:
 			elif state == &"recovery": duration = definition.recovery_seconds
 			elif state == &"pain": duration = definition.pain_seconds
 			index = mini(count-1,int(clampf(state_time/maxf(duration,.001),0,1)*count))
-		selected = sprite_direction_row() * sprite.hframes + clip.x + index
+		selected = sprite_direction_row() * sprite_source_columns + clip.x + index
 	if selected != sprite_frame:
-		assert(selected >= 0 and selected < sprite.hframes * sprite.vframes)
-		sprite.frame = selected; sprite_frame = selected
+		assert(selected >= 0 and selected < sprite_source_columns * sprite_source_rows)
+		if sprite_data.has("source_regions"):
+			(sprite.texture as AtlasTexture).region = Rect2(SpriteHurt.frame_region(sprite_source_texture, sprite_source_columns, sprite_source_rows, selected, sprite_data))
+			sprite.frame = 0
+		else: sprite.frame = selected
+		sprite_frame = selected
 		sprite_foot = foot_for_frame(selected)
-		var frame_size := Vector2(sprite.texture.get_width()/float(sprite.hframes),sprite.texture.get_height()/float(sprite.vframes))
+		var frame_size := Vector2(SpriteHurt.frame_region(sprite_source_texture, sprite_source_columns, sprite_source_rows, selected, sprite_data).size)
 		sprite.position.y = (sprite_foot.y-frame_size.y*.5)*sprite.pixel_size
 		sprite.offset.x = frame_size.x*.5-sprite_foot.x
-		var geometry: Dictionary = SpriteHurt.build(sprite.texture,sprite.hframes,sprite.vframes,selected,sprite.pixel_size,sprite_foot,sprite_data)
+		var geometry: Dictionary = SpriteHurt.build(sprite_source_texture,sprite_source_columns,sprite_source_rows,selected,sprite.pixel_size,sprite_foot,sprite_data)
 		for body in sprite_bodies.values(): body.collision_layer = 0; body.get_node("HitSurface").shape = null
 		for material in geometry.shapes:
 			var body: StaticBody3D
@@ -324,6 +406,10 @@ func update_sprite() -> void:
 			body.collision_layer = 0 if dead else 4
 	if dead:
 		for body in hurt_shapes: body.collision_layer = 0
+		if not gibbed and corpse_frame != selected:
+			var corpse_geometry := SpriteHurt.build(sprite_source_texture,sprite_source_columns,sprite_source_rows,selected,sprite.pixel_size,sprite_foot,sprite_data)
+			sync_sprite_corpse_surfaces(corpse_geometry)
+			corpse_frame = selected
 
 ## Row zero faces the camera with the actor's forward (-Z); subsequent rows turn clockwise.
 func sprite_direction_row() -> int:

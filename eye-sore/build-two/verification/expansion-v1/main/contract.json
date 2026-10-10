@@ -1,0 +1,93 @@
+{
+  "cue_count": 35,
+  "failures": [],
+  "scope": "Actual main selector/scene/audio/pause/retry ownership; controlled stale-state injection tests reset. Route gameplay and audible appeal are covered separately.",
+  "species_voice_resources": {
+    "censer": [
+      "res://assets/audio/demonic-v2/censer_attack_warning.ogg",
+      "res://assets/audio/demonic-v2/censer_hurt.ogg",
+      "res://assets/audio/demonic-v2/censer_death.ogg"
+    ],
+    "ironbound": [
+      "res://assets/audio/demonic-v2/ironbound_attack_warning.ogg",
+      "res://assets/audio/demonic-v2/ironbound_hurt.ogg",
+      "res://assets/audio/demonic-v2/ironbound_death.ogg"
+    ],
+    "reaver": [
+      "res://assets/audio/demonic-v2/reaver_attack_warning.ogg",
+      "res://assets/audio/demonic-v2/reaver_hurt.ogg",
+      "res://assets/audio/demonic-v2/reaver_death.ogg"
+    ],
+    "surveyor": [
+      "res://assets/audio/demonic-v2/surveyor_attack_warning.ogg",
+      "res://assets/audio/demonic-v2/surveyor_hurt.ogg",
+      "res://assets/audio/demonic-v2/surveyor_death.ogg"
+    ],
+    "unsealed": [
+      "res://assets/audio/demonic-v1/unsealed_attack_warning.ogg",
+      "res://assets/audio/demonic-v1/unsealed_hurt.ogg",
+      "res://assets/audio/demonic-v1/unsealed_death.ogg"
+    ],
+    "vessel": [
+      "res://assets/audio/demonic-v1/vessel_attack_warning.ogg",
+      "res://assets/audio/demonic-v1/vessel_hurt.ogg",
+      "res://assets/audio/demonic-v1/vessel_death.ogg"
+    ]
+  },
+  "stages": [
+    {
+      "arena_counts": {
+        "arena_one": 7,
+        "arena_two": 7,
+        "final_arena": 7
+      },
+      "music": "res://assets/audio/music/level_music_biotech_candidate.ogg",
+      "pause_frozen": true,
+      "retry_flags_map_gore_queries_voices_cleared": true,
+      "roster": {
+        "unsealed": 33,
+        "vessel": 9
+      },
+      "scene": "res://scenes/stages/pale_ward_expanded.tscn",
+      "selector_signal": true,
+      "stage": "pale_ward",
+      "title_only_abelian": true
+    },
+    {
+      "arena_counts": {
+        "arena_one": 7,
+        "arena_two": 7,
+        "final_arena": 7
+      },
+      "music": "res://assets/audio/music/level_music_fortress_candidate.ogg",
+      "pause_frozen": true,
+      "retry_flags_map_gore_queries_voices_cleared": true,
+      "roster": {
+        "censer": 9,
+        "ironbound": 33
+      },
+      "scene": "res://scenes/stages/ash_citadel.tscn",
+      "selector_signal": true,
+      "stage": "ash_citadel",
+      "title_only_abelian": true
+    },
+    {
+      "arena_counts": {
+        "arena_one": 7,
+        "arena_two": 7,
+        "final_arena": 7
+      },
+      "music": "res://assets/audio/music/level_music_biotech_candidate.ogg",
+      "pause_frozen": true,
+      "retry_flags_map_gore_queries_voices_cleared": true,
+      "roster": {
+        "reaver": 33,
+        "surveyor": 9
+      },
+      "scene": "res://scenes/stages/occupied_line.tscn",
+      "selector_signal": true,
+      "stage": "occupied_line",
+      "title_only_abelian": true
+    }
+  ]
+}

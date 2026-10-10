@@ -9,6 +9,14 @@ var sweep_shape := SphereShape3D.new()
 
 func setup(controller: Node3D, enemy: CharacterBody3D, motion: Vector3, amount: float) -> void:
 	combat = controller; owner_enemy = enemy; velocity = motion; damage = amount; sweep_shape.radius = 0.12
+	# Per-instance visual override preserves the shared Vessel mesh/material.
+	var palette := {&"censer": Color(1, .3, .045), &"surveyor": Color(.08, .72, .9)}
+	$Visual.material_override = null
+	if palette.has(enemy.definition.identifier):
+		var material: StandardMaterial3D = $Visual.mesh.surface_get_material(0).duplicate()
+		material.albedo_color = palette[enemy.definition.identifier]
+		material.emission = palette[enemy.definition.identifier]
+		$Visual.material_override = material
 
 func is_combat_projectile() -> bool: return true
 

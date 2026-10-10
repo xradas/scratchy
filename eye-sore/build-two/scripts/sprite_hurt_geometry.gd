@@ -3,6 +3,19 @@ extends RefCounted
 static var frame_cache: Dictionary = {}
 static var image_cache: Dictionary = {}
 
+## Native integer rectangles may partition atlases whose dimensions do not
+## divide evenly. Rendering and queries consume this same source rectangle.
+static func frame_region(texture: Texture2D, columns: int, rows: int, frame: int, data: Dictionary) -> Rect2i:
+	var regions: Dictionary = data.get("source_regions", {})
+	var supplied: Variant = regions.get(str(frame), regions.get(frame, null))
+	if supplied is Array:
+		assert(supplied.size() == 4)
+		var rect := Rect2i(int(supplied[0]), int(supplied[1]), int(supplied[2]), int(supplied[3]))
+		assert(rect.size.x > 0 and rect.size.y > 0 and Rect2i(Vector2i.ZERO, Vector2i(texture.get_size())).encloses(rect))
+		return rect
+	var size := Vector2i(texture.get_width() / columns, texture.get_height() / rows)
+	return Rect2i(Vector2i((frame % columns) * size.x, (frame / columns) * size.y), size)
+
 static func build(texture: Texture2D, columns: int, rows: int, frame: int, pixels: float, foot: Vector2, data: Dictionary) -> Dictionary:
 	# File-backed atlases reuse one cache entry across retry-created Texture resources.
 	var texture_key := texture.resource_path if not texture.resource_path.is_empty() else "memory:%d" % texture.get_instance_id()
@@ -13,11 +26,12 @@ static func build(texture: Texture2D, columns: int, rows: int, frame: int, pixel
 		if source.is_compressed(): source.decompress()
 		image_cache[texture_key] = source
 	var image: Image = image_cache[texture_key]
-	var width := image.get_width() / columns
-	var height := image.get_height() / rows
+	var source_region := frame_region(texture, columns, rows, frame, data)
+	var width := source_region.size.x
+	var height := source_region.size.y
 	var limit: Array = data.get("hurt_resolution", [128, 192])
 	var grid := Vector2i(mini(width, clampi(int(limit[0]), 1, 128)), mini(height, clampi(int(limit[1]), 1, 192)))
-	var origin := Vector2i((frame % columns) * width, (frame / columns) * height)
+	var origin := source_region.position
 	var threshold: float = data.get("alpha_threshold", 0.5)
 	var regions: Dictionary = data.get("hurt_material_regions", {})
 	var entries: Array = regions.get(str(frame), regions.get(frame, regions.get("default", [])))
@@ -53,7 +67,7 @@ static func build(texture: Texture2D, columns: int, rows: int, frame: int, pixel
 		var shape := ConcavePolygonShape3D.new()
 		shape.set_faces(geometry[material]); shape.backface_collision = true
 		shapes[material] = shape
-	var result := {"shapes": shapes, "grid": grid, "opaque_cells": opaque, "frame": frame}
+	var result := {"shapes": shapes, "grid": grid, "opaque_cells": opaque, "frame": frame, "source_region": source_region}
 	frame_cache[signature] = result
 	return result
 

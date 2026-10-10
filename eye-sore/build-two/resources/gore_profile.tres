@@ -1,8 +1,113 @@
-[gd_resource type="Resource" script_class="GoreProfile" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="GoreProfile" load_steps=7 format=3]
 [ext_resource type="Script" path="res://scripts/gore_profile.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/effects/gore-v1/pools-atlas.png" id="2"]
 [ext_resource type="Texture2D" path="res://assets/effects/gore-v1/remains-atlas.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/effects/gore-v2/pale_ward-parts-atlas.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/effects/gore-v2/ash_citadel-parts-atlas.png" id="5"]
+[ext_resource type="Texture2D" path="res://assets/effects/gore-v2/occupied_line-parts-atlas.png" id="6"]
 [resource]
 script = ExtResource("1")
 pools = ExtResource("2")
 remains = ExtResource("3")
+spray_counts = {"pistol": 11, "shotgun": 30, "melee": 9}
+death_counts = {"pistol": 20, "shotgun": 48, "melee": 16}
+max_stains = 640
+max_remains = 640
+max_particles = 256
+corpse_integrity_fraction = 0.4
+corpse_integrity_minimum = 38.0
+gib_counts = {"unsealed": 12, "vessel": 14, "ironbound": 14, "censer": 15, "reaver": 12, "surveyor": 13}
+species_atlases = {
+"unsealed": {"texture": ExtResource("4"), "columns": 4, "rows": 2, "regions": {}, "parts": [
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "head", "cell": 0, "material": "flesh", "size": Vector2(0.42, 0.54), "tint": Color(1, 1, 1, 1)},
+{"name": "ribcage", "cell": 1, "material": "flesh", "size": Vector2(0.4, 0.44), "tint": Color(1, 1, 1, 1)},
+{"name": "arm", "cell": 2, "material": "flesh", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "arm", "cell": 2, "material": "flesh", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "flesh", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "flesh", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "spine", "cell": 6, "material": "flesh", "size": Vector2(0.2, 0.6), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)}
+]},
+"vessel": {"texture": ExtResource("4"), "columns": 4, "rows": 2, "regions": {}, "parts": [
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "head", "cell": 0, "material": "flesh", "size": Vector2(0.42, 0.54), "tint": Color(1, 1, 1, 1)},
+{"name": "ribcage", "cell": 1, "material": "flesh", "size": Vector2(0.4, 0.44), "tint": Color(1, 1, 1, 1)},
+{"name": "arm", "cell": 2, "material": "flesh", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "arm", "cell": 2, "material": "flesh", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "flesh", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "flesh", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "containment_core", "cell": 4, "material": "flesh", "size": Vector2(0.5, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "cage", "cell": 5, "material": "armor", "size": Vector2(0.34, 0.44), "tint": Color(1, 1, 1, 1)},
+{"name": "spine", "cell": 6, "material": "flesh", "size": Vector2(0.2, 0.6), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)}
+]},
+"ironbound": {"texture": ExtResource("5"), "columns": 4, "rows": 2, "regions": {"jaw": Rect2(449, 611, 295, 313), "spine": Rect2(825, 542, 239, 427), "cleaver": Rect2(1133, 526, 361, 457), "flesh": Rect2(449, 611, 295, 313)}, "parts": [
+{"name": "flesh", "cell": 5, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 5, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 5, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "head", "cell": 0, "material": "armor", "size": Vector2(0.42, 0.54), "tint": Color(1, 1, 1, 1)},
+{"name": "ribcage", "cell": 1, "material": "flesh", "size": Vector2(0.4, 0.44), "tint": Color(1, 1, 1, 1)},
+{"name": "arm", "cell": 2, "material": "armor", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "arm", "cell": 2, "material": "armor", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "armor", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "armor", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "jaw", "cell": 5, "material": "flesh", "size": Vector2(0.34, 0.4), "tint": Color(1, 1, 1, 1)},
+{"name": "spine", "cell": 6, "material": "flesh", "size": Vector2(0.2, 0.6), "tint": Color(1, 1, 1, 1)},
+{"name": "cleaver", "cell": 7, "material": "armor", "size": Vector2(0.3, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 5, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 5, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)}
+]},
+"censer": {"texture": ExtResource("5"), "columns": 4, "rows": 2, "regions": {"head": Rect2(55, 542, 347, 428), "jaw": Rect2(449, 611, 295, 313), "spine": Rect2(825, 542, 239, 427)}, "parts": [
+{"name": "flesh", "cell": 1, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 1, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 1, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "head", "cell": 4, "material": "armor", "size": Vector2(0.42, 0.54), "tint": Color(1, 1, 1, 1)},
+{"name": "ribcage", "cell": 1, "material": "flesh", "size": Vector2(0.4, 0.44), "tint": Color(1, 1, 1, 1)},
+{"name": "arm", "cell": 2, "material": "armor", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "arm", "cell": 2, "material": "armor", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "armor", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "armor", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "armor", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "armor", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "jaw", "cell": 5, "material": "flesh", "size": Vector2(0.34, 0.4), "tint": Color(1, 1, 1, 1)},
+{"name": "spine", "cell": 6, "material": "flesh", "size": Vector2(0.2, 0.6), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 1, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 1, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)}
+]},
+"reaver": {"texture": ExtResource("6"), "columns": 4, "rows": 2, "regions": {}, "parts": [
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "head", "cell": 0, "material": "flesh", "size": Vector2(0.42, 0.54), "tint": Color(1, 1, 1, 1)},
+{"name": "ribcage", "cell": 1, "material": "flesh", "size": Vector2(0.4, 0.44), "tint": Color(1, 1, 1, 1)},
+{"name": "blade_arm", "cell": 2, "material": "flesh", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "blade_arm", "cell": 2, "material": "flesh", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "flesh", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 3, "material": "flesh", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "carapace", "cell": 6, "material": "armor", "size": Vector2(0.34, 0.28), "tint": Color(1, 1, 1, 1)},
+{"name": "carapace", "cell": 6, "material": "armor", "size": Vector2(0.24, 0.2), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)}
+]},
+"surveyor": {"texture": ExtResource("6"), "columns": 4, "rows": 2, "regions": {}, "parts": [
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
+{"name": "head", "cell": 4, "material": "flesh", "size": Vector2(0.42, 0.54), "tint": Color(1, 1, 1, 1)},
+{"name": "ribcage", "cell": 1, "material": "flesh", "size": Vector2(0.4, 0.44), "tint": Color(1, 1, 1, 1)},
+{"name": "arm", "cell": 5, "material": "armor", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "arm", "cell": 5, "material": "armor", "size": Vector2(0.22, 0.55), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 5, "material": "armor", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 5, "material": "armor", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "leg", "cell": 5, "material": "armor", "size": Vector2(0.28, 0.62), "tint": Color(1, 1, 1, 1)},
+{"name": "hardware_core", "cell": 5, "material": "armor", "size": Vector2(0.3, 0.34), "tint": Color(1, 1, 1, 1)},
+{"name": "carapace", "cell": 6, "material": "armor", "size": Vector2(0.34, 0.28), "tint": Color(1, 1, 1, 1)},
+{"name": "carapace", "cell": 6, "material": "armor", "size": Vector2(0.24, 0.2), "tint": Color(1, 1, 1, 1)}
+]}
+}

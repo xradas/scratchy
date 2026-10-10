@@ -1,0 +1,906 @@
+{
+  "id": "occupied_line",
+  "rooms": {
+    "entry": {
+      "id": "entry",
+      "label": "Transit Concourse",
+      "center": [
+        0.0,
+        0,
+        0.0
+      ],
+      "size": [
+        27.839999999999996,
+        6,
+        37.12
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "service": {
+      "id": "service",
+      "label": "Platform Approach",
+      "center": [
+        0.0,
+        0,
+        -44.08
+      ],
+      "size": [
+        13.919999999999998,
+        5,
+        32.48
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "arena_one": {
+      "id": "arena_one",
+      "label": "Checkpoint Arena",
+      "center": [
+        0.0,
+        0,
+        -88.16
+      ],
+      "size": [
+        41.76,
+        7,
+        46.4
+      ],
+      "secret": false,
+      "arena_id": "arena_one"
+    },
+    "key_wing": {
+      "id": "key_wing",
+      "label": "Ticket Wing",
+      "center": [
+        44.08,
+        0,
+        -88.16
+      ],
+      "size": [
+        32.48,
+        5,
+        20.88
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "key_console": {
+      "id": "key_console",
+      "label": "Brass Access Office",
+      "center": [
+        44.08,
+        0,
+        -121.8
+      ],
+      "size": [
+        25.52,
+        5,
+        27.839999999999996
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "return_store": {
+      "id": "return_store",
+      "label": "Baggage Return",
+      "center": [
+        39.44,
+        0,
+        -44.08
+      ],
+      "size": [
+        27.839999999999996,
+        5,
+        25.52
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "spine": {
+      "id": "spine",
+      "label": "Transfer Spine",
+      "center": [
+        0.0,
+        0,
+        -142.67999999999998
+      ],
+      "size": [
+        18.56,
+        6,
+        27.839999999999996
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "arena_two": {
+      "id": "arena_two",
+      "label": "Relay Arena",
+      "center": [
+        0.0,
+        0,
+        -183.28
+      ],
+      "size": [
+        44.08,
+        8,
+        37.12
+      ],
+      "secret": false,
+      "arena_id": "arena_two"
+    },
+    "red_wing": {
+      "id": "red_wing",
+      "label": "Service Wing",
+      "center": [
+        -46.4,
+        0,
+        -183.28
+      ],
+      "size": [
+        30.159999999999997,
+        6,
+        30.159999999999997
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "red_console": {
+      "id": "red_console",
+      "label": "Red Dispatch Console",
+      "center": [
+        -46.4,
+        0,
+        -222.71999999999997
+      ],
+      "size": [
+        25.52,
+        6,
+        27.839999999999996
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "final_arena": {
+      "id": "final_arena",
+      "label": "Signal Arena",
+      "center": [
+        0.0,
+        1.5,
+        -243.6
+      ],
+      "size": [
+        39.44,
+        7,
+        46.4
+      ],
+      "secret": false,
+      "arena_id": "final_arena"
+    },
+    "exit_gallery": {
+      "id": "exit_gallery",
+      "label": "Departure Platform",
+      "center": [
+        0.0,
+        1.5,
+        -286.52
+      ],
+      "size": [
+        23.2,
+        6,
+        20.88
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "supplies": {
+      "id": "supplies",
+      "label": "First Aid",
+      "center": [
+        -30.159999999999997,
+        0,
+        -4.64
+      ],
+      "size": [
+        16.24,
+        5,
+        20.88
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "maintenance": {
+      "id": "maintenance",
+      "label": "Maintenance Booth",
+      "center": [
+        32.48,
+        0,
+        6.959999999999999
+      ],
+      "size": [
+        20.88,
+        5,
+        18.56
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "pump_room": {
+      "id": "pump_room",
+      "label": "Transformer Hall",
+      "center": [
+        44.08,
+        0,
+        -156.6
+      ],
+      "size": [
+        23.2,
+        5,
+        20.88
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "armory": {
+      "id": "armory",
+      "label": "Security Locker",
+      "center": [
+        -46.4,
+        0,
+        -135.72
+      ],
+      "size": [
+        23.2,
+        5,
+        23.2
+      ],
+      "secret": false,
+      "arena_id": ""
+    },
+    "secret_one": {
+      "id": "secret_one",
+      "label": "Hidden Staff Room",
+      "center": [
+        -48.72,
+        0,
+        -4.64
+      ],
+      "size": [
+        9.28,
+        5,
+        9.28
+      ],
+      "secret": true,
+      "arena_id": ""
+    },
+    "secret_two": {
+      "id": "secret_two",
+      "label": "Cable Cache",
+      "center": [
+        -69.6,
+        0,
+        -222.71999999999997
+      ],
+      "size": [
+        11.6,
+        5,
+        11.6
+      ],
+      "secret": true,
+      "arena_id": ""
+    },
+    "observation": {
+      "id": "observation",
+      "label": "Upper Platform",
+      "center": [
+        44.08,
+        4.5,
+        -243.6
+      ],
+      "size": [
+        20.88,
+        5,
+        20.88
+      ],
+      "secret": false,
+      "arena_id": ""
+    }
+  },
+  "portals": [
+    {
+      "from": "entry",
+      "to": "service",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        0.0,
+        0,
+        -18.56
+      ],
+      "end": [
+        0.0,
+        0,
+        -27.84
+      ],
+      "middle": [
+        0.0,
+        0.0,
+        -23.2
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "service",
+      "to": "arena_one",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        0.0,
+        0,
+        -60.31999999999999
+      ],
+      "end": [
+        0.0,
+        0,
+        -64.96
+      ],
+      "middle": [
+        0.0,
+        0.0,
+        -62.63999999999999
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "arena_one",
+      "to": "key_wing",
+      "width": 4.0,
+      "gate": "breaker",
+      "requires": [
+        "breaker"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        20.88,
+        0,
+        -88.16
+      ],
+      "end": [
+        27.84,
+        0,
+        -88.16
+      ],
+      "middle": [
+        24.36,
+        0.0,
+        -88.16
+      ],
+      "axis": 0,
+      "door": "Door_breaker"
+    },
+    {
+      "from": "key_wing",
+      "to": "key_console",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        44.08,
+        0,
+        -98.6
+      ],
+      "end": [
+        44.08,
+        0,
+        -107.88
+      ],
+      "middle": [
+        44.08,
+        0.0,
+        -103.24
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "key_wing",
+      "to": "return_store",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        44.08,
+        0,
+        -77.72
+      ],
+      "end": [
+        44.08,
+        0,
+        -56.839999999999996
+      ],
+      "middle": [
+        44.08,
+        0.0,
+        -67.28
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "return_store",
+      "to": "service",
+      "width": 4.0,
+      "gate": "shortcut_one",
+      "requires": [],
+      "secret": false,
+      "shortcut": true,
+      "lift": false,
+      "start": [
+        25.52,
+        0,
+        -44.08
+      ],
+      "end": [
+        6.959999999999999,
+        0,
+        -44.08
+      ],
+      "middle": [
+        16.24,
+        0.0,
+        -44.08
+      ],
+      "axis": 0,
+      "door": "Door_shortcut_one"
+    },
+    {
+      "from": "arena_one",
+      "to": "spine",
+      "width": 4.0,
+      "gate": "brass_gate",
+      "requires": [
+        "breaker",
+        "brass_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        0.0,
+        0,
+        -111.36
+      ],
+      "end": [
+        0.0,
+        0,
+        -128.76
+      ],
+      "middle": [
+        0.0,
+        0.0,
+        -120.06
+      ],
+      "axis": 2,
+      "door": "Door_brass_gate"
+    },
+    {
+      "from": "spine",
+      "to": "arena_two",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        0.0,
+        0,
+        -156.59999999999997
+      ],
+      "end": [
+        0.0,
+        0,
+        -164.72
+      ],
+      "middle": [
+        0.0,
+        0.0,
+        -160.65999999999997
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "arena_two",
+      "to": "red_wing",
+      "width": 4.0,
+      "gate": "release",
+      "requires": [
+        "release"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -22.04,
+        0,
+        -183.28
+      ],
+      "end": [
+        -31.32,
+        0,
+        -183.28
+      ],
+      "middle": [
+        -26.68,
+        0.0,
+        -183.28
+      ],
+      "axis": 0,
+      "door": "Door_release"
+    },
+    {
+      "from": "red_wing",
+      "to": "red_console",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -46.4,
+        0,
+        -198.36
+      ],
+      "end": [
+        -46.4,
+        0,
+        -208.79999999999998
+      ],
+      "middle": [
+        -46.4,
+        0.0,
+        -203.57999999999998
+      ],
+      "axis": 2,
+      "door": null
+    },
+    {
+      "from": "red_wing",
+      "to": "armory",
+      "width": 4.0,
+      "gate": "shortcut_two",
+      "requires": [],
+      "secret": false,
+      "shortcut": true,
+      "lift": false,
+      "start": [
+        -46.4,
+        0,
+        -168.2
+      ],
+      "end": [
+        -46.4,
+        0,
+        -147.32
+      ],
+      "middle": [
+        -46.4,
+        0.0,
+        -157.76
+      ],
+      "axis": 2,
+      "door": "Door_shortcut_two"
+    },
+    {
+      "from": "armory",
+      "to": "spine",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -34.8,
+        0,
+        -135.72
+      ],
+      "end": [
+        -9.28,
+        0,
+        -135.72
+      ],
+      "middle": [
+        -22.04,
+        0.0,
+        -135.72
+      ],
+      "axis": 0,
+      "door": null
+    },
+    {
+      "from": "arena_two",
+      "to": "final_arena",
+      "width": 4.0,
+      "gate": "red_gate",
+      "requires": [
+        "release",
+        "red_key"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        0.0,
+        0,
+        -201.84
+      ],
+      "end": [
+        0.0,
+        1.5,
+        -220.4
+      ],
+      "middle": [
+        0.0,
+        0.75,
+        -211.12
+      ],
+      "axis": 2,
+      "door": "Door_red_gate"
+    },
+    {
+      "from": "final_arena",
+      "to": "exit_gallery",
+      "width": 4.0,
+      "gate": "exit_gate",
+      "requires": [
+        "exit_control"
+      ],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        0.0,
+        1.5,
+        -266.8
+      ],
+      "end": [
+        0.0,
+        1.5,
+        -276.08
+      ],
+      "middle": [
+        0.0,
+        1.5,
+        -271.44
+      ],
+      "axis": 2,
+      "door": "Door_exit_gate"
+    },
+    {
+      "from": "entry",
+      "to": "supplies",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -13.919999999999998,
+        0,
+        0.0
+      ],
+      "end": [
+        -22.04,
+        0,
+        0.0
+      ],
+      "middle": [
+        -17.979999999999997,
+        0.0,
+        0.0
+      ],
+      "axis": 0,
+      "door": null
+    },
+    {
+      "from": "entry",
+      "to": "maintenance",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        13.919999999999998,
+        0,
+        0.0
+      ],
+      "end": [
+        22.04,
+        0,
+        0.0
+      ],
+      "middle": [
+        17.979999999999997,
+        0.0,
+        0.0
+      ],
+      "axis": 0,
+      "door": null
+    },
+    {
+      "from": "spine",
+      "to": "pump_room",
+      "width": 4.0,
+      "gate": "",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        9.28,
+        0,
+        -148.16
+      ],
+      "end": [
+        32.48,
+        0,
+        -148.16
+      ],
+      "middle": [
+        20.88,
+        0.0,
+        -148.16
+      ],
+      "axis": 0,
+      "door": null
+    },
+    {
+      "from": "supplies",
+      "to": "secret_one",
+      "width": 2.4,
+      "gate": "secret_one",
+      "requires": [],
+      "secret": true,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -38.279999999999994,
+        0,
+        -4.64
+      ],
+      "end": [
+        -44.08,
+        0,
+        -4.64
+      ],
+      "middle": [
+        -41.17999999999999,
+        0.0,
+        -4.64
+      ],
+      "axis": 0,
+      "door": "Door_secret_one"
+    },
+    {
+      "from": "red_console",
+      "to": "secret_two",
+      "width": 2.4,
+      "gate": "secret_two",
+      "requires": [],
+      "secret": true,
+      "shortcut": false,
+      "lift": false,
+      "start": [
+        -59.16,
+        0,
+        -222.71999999999997
+      ],
+      "end": [
+        -63.8,
+        0,
+        -222.71999999999997
+      ],
+      "middle": [
+        -61.48,
+        0.0,
+        -222.71999999999997
+      ],
+      "axis": 0,
+      "door": "Door_secret_two"
+    },
+    {
+      "from": "final_arena",
+      "to": "observation",
+      "width": 4.0,
+      "gate": "lift",
+      "requires": [],
+      "secret": false,
+      "shortcut": false,
+      "lift": true,
+      "start": [
+        19.72,
+        1.5,
+        -243.6
+      ],
+      "end": [
+        33.64,
+        4.5,
+        -243.6
+      ],
+      "middle": [
+        26.68,
+        3.0,
+        -243.6
+      ],
+      "axis": 0,
+      "door": null
+    }
+  ],
+  "buttons": [
+    {
+      "id": "breaker",
+      "room": "arena_one",
+      "arena": "arena_one",
+      "sets": "breaker",
+      "label": "RESTORE POWER"
+    },
+    {
+      "id": "release",
+      "room": "arena_two",
+      "arena": "arena_two",
+      "sets": "release",
+      "label": "RELEASE ACCESS"
+    },
+    {
+      "id": "exit_control",
+      "room": "final_arena",
+      "arena": "final_arena",
+      "sets": "exit_control",
+      "label": "UNLOCK EXIT"
+    }
+  ],
+  "keys": [
+    {
+      "id": "brass_key",
+      "room": "key_console",
+      "label": "BRASS ACCESS KEY"
+    },
+    {
+      "id": "red_key",
+      "room": "red_console",
+      "label": "RED ACCESS KEY"
+    }
+  ],
+  "exit": {
+    "room": "exit_gallery",
+    "requires": [
+      "brass_key",
+      "red_key",
+      "exit_control"
+    ]
+  }
+}

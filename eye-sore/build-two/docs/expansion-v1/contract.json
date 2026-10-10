@@ -1,0 +1,130 @@
+{
+  "authority": "User10October: six original-board enemies stay in their own themed stages; chapter/story order deferred. Coordinator owns art/reference/creative direction; programmers implement. Preserve demonic voices, dry physical contacts, gun alignment, movement, HUD and praised music. No Doom/BrutalDoom assets copied.",
+  "stages": [
+    {
+      "id": "pale_ward",
+      "title": "The Pale Ward",
+      "scene": "res://scenes/stages/pale_ward_expanded.tscn",
+      "reference": "concepts/visual-v2/corrupted-biotech/board.png",
+      "enemy_kinds": [
+        "unsealed",
+        "vessel"
+      ],
+      "theme": "Dirty cream ceramic, grey worn steel, dark grates, olive tanks, infestation; approved broad rear stair/containment gate anchor.",
+      "music": "res://assets/audio/music/level_music_biotech_candidate.ogg"
+    },
+    {
+      "id": "ash_citadel",
+      "title": "The Ash Citadel",
+      "scene": "res://scenes/stages/ash_citadel.tscn",
+      "reference": "concepts/visual-v2/occult-fortress/board.png",
+      "enemy_kinds": [
+        "ironbound",
+        "censer"
+      ],
+      "theme": "Massive weathered masonry, soot iron, red torn banners, braziers/orange ember light, monumental ritual stairs; fortress geometry and cages, no ward tank machinery.",
+      "music": "res://assets/audio/music/level_music_fortress_candidate.ogg"
+    },
+    {
+      "id": "occupied_line",
+      "title": "The Occupied Line",
+      "scene": "res://scenes/stages/occupied_line.tscn",
+      "reference": "concepts/visual-v2/civic-invasion/board.png",
+      "enemy_kinds": [
+        "reaver",
+        "surveyor"
+      ],
+      "theme": "Broad civic transit hall, worn blue tile piers, dirty concrete, orange route/hazard stripes, platform edges, upper daylight bands, purple cable infestation/cyan nodes.",
+      "music": "res://assets/audio/music/level_music_biotech_candidate.ogg"
+    }
+  ],
+  "enemy_catalog": {
+    "unsealed": {
+      "source": "corrupted-biotech",
+      "role": "Existing fast flesh melee;80HP; retain current registered art/audio."
+    },
+    "vessel": {
+      "source": "corrupted-biotech",
+      "role": "Existing squat flesh/containment cage projectile;160HP; retain current art/audio."
+    },
+    "ironbound": {
+      "source": "occult-fortress",
+      "role": "Armored hulking cleaver/chained gauntlet pursuer;120HP speed2.65 damage18 windup.70 recovery.85 pain.24 range2.05;flesh plus authored metal armor regions;2.05m visible height."
+    },
+    "censer": {
+      "source": "occult-fortress",
+      "role": "Squat quadruped infernal living furnace, stone roof and iron orange grille;180HP speed1.8 rangeddamage16 projectile8 windup.80 recovery1.10 pain.24 range18;flesh plus stone/iron armor regions;1.6m height."
+    },
+    "reaver": {
+      "source": "civic-invasion",
+      "role": "Hunched orange plate/violet sinew blade-arm alien pursuer;100HP speed3.4 damage14 windup.52 recovery.72 pain.18 range1.9;flesh plus armor carapace;2.15m height."
+    },
+    "surveyor": {
+      "source": "civic-invasion",
+      "role": "Tall thin tripod-headed violet sinew/metal alien with cyan chest/eyes, projectile attacker;140HP speed2.25 rangeddamage12 projectile10 windup.60 recovery.88 pain.22 range20;flesh plus hardware armor;2.2m height."
+    }
+  },
+  "level_route": {
+    "main_sequence": [
+      "Entry landmark",
+      "Service approach with optional supply side room",
+      "First arena; clear authored enemies to enable breaker button",
+      "Breaker restores power to coloured key-door system",
+      "Side-wing loop; acquire brass access key",
+      "Return through opened shortcut; brass gate",
+      "Secondary arena; clear group to enable hydraulic/ritual/transit release button",
+      "Release opens route to red key console",
+      "Red key acquired; return to red gate",
+      "Raised final room and final mixed arena; clear group then exit-control button",
+      "Exit now enabled"
+    ],
+    "scale": "Each stage substantially larger than current six-region eleven-enemy prototype. Aim16\u201320 distinguishable rooms/regions, two or three arenas,32\u201344 enemies and 400\u2013600m main travel including key returns. Human pacing subject to playtest; no bot time presented as human duration.",
+    "extras": "Minimum4 optional side rooms,2 secrets and2 shortcuts per stage; secrets bonus only. Main supplies enough to finish without secrets. At least one physical stair/height change and working lift. Colour/icon/label connections on gate/button/key, brief current objective and visited-only map. Clear spatial main route without wall labels becoming tutorials.",
+    "geometry": "Room footprints and connecting portals authored explicitly; every open portal has contiguous visible/physical floor. Closed/moving/open doors block movement, ray visibility/hitscan/projectiles consistently. Fixed physics; no arbitrary timer locks. No invisible collision ramps; visible mesh and collider same.",
+    "arena_contract": "Spawns carry arena_id. Activation wakes that group. Enemy-death events only advance authored group state once; no unvisited secret kill needed. A clear arena ENABLES its marked physical button, rather than automatically granting key. Do not trap on closing doors crushing player; initially locked onward gate, retreat route remains available."
+  },
+  "gore_contract": {
+    "reference": "https://www.moddb.com/mods/brutal-doom",
+    "design": "More forceful directional blood fans and wall/floor spatter, legible anatomical severed pieces with momentum/tumbling/settling, species-aware flesh/metal fragments, varied death results tied to weapon/contact/overkill. Shoot intact dead bodies to break them further without extra kills or live damage; once fully gibbed cannot repeat burst endlessly. Existing dry contact/vocals/music preserved.",
+    "ownership": "Single accepted shot owns damage/impact/gore. Corpse query layer8 exclusively cosmetic; no actor movement or projectile targeting, no dead attacks. Collision mask include corpses only for weapon anatomical ray queries; world still blocks first. Deduplicate same shotgun/target. Corpses have bounded cosmetic integrity and transition once; event corpse_hurt/corpse_gib separate from enemy_death; deaths/kills unchanged.",
+    "limits": "Per-stage budgets sized for44enemy corpses; deterministic fixed physics; pause freezes; retry resets bodies/fragments/stains/query colliders. Surface-conforming patches respect actual slopes/stairs/walls. Preserve prior fixtures but update expectations when counts intentionally change."
+  },
+  "shared_file_owners": {
+    "level_worker": [
+      "scripts/stage_level.gd",
+      "scripts/stage_door.gd",
+      "tools/author_themed_stages.py",
+      "scenes/stages/*",
+      "resources/stages/*",
+      "tools/check_expanded_stages.gd",
+      "tools/playtest_expanded_stages.gd"
+    ],
+    "enemy_worker": [
+      "resources/enemies/ironbound.tres",
+      "resources/enemies/censer.tres",
+      "resources/enemies/reaver.tres",
+      "resources/enemies/surveyor.tres",
+      "tools/register_expansion_enemies.gd",
+      "tools/check_expansion_enemies.gd"
+    ],
+    "gore_worker": [
+      "scripts/combat_gore.gd",
+      "scripts/gore_profile.gd",
+      "resources/gore_profile.tres",
+      "scripts/combat.gd",
+      "scripts/combat_enemy.gd",
+      "tools/check_expanded_gore.gd"
+    ],
+    "root": [
+      "scripts/main.gd",
+      "assets/combat_art.json",
+      "assets/audio/*",
+      "resources/combat_audio.tres",
+      "assets/enemies/expansion-v1/*",
+      "concepts/expansion-v1/*",
+      "docs/expansion-v1/*",
+      "Git integration/export"
+    ],
+    "coordination": "Ask root before editing outside owner files. Enemy worker needs combat_enemy changes: send patchproposal to gore worker/root; do not collide. Level worker must not edit main/combat. Root main wires stage signals, group metadata and selection; communicate API."
+  }
+}

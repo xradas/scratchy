@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "checks": 72,
+  "failures": [],
+  "unique_png_hashes": 24,
+  "stages": {
+    "pale_ward": {
+      "report": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/expansion-v1/art/pale_ward-landmarks.json",
+      "captures": 4,
+      "portrait_enemies_per_view": [
+        3,
+        3,
+        7,
+        7
+      ]
+    },
+    "ash_citadel": {
+      "report": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/expansion-v1/art/ash_citadel-landmarks.json",
+      "captures": 4,
+      "portrait_enemies_per_view": [
+        3,
+        3,
+        7,
+        7
+      ]
+    },
+    "occupied_line": {
+      "report": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/expansion-v1/art/occupied_line-landmarks.json",
+      "captures": 4,
+      "portrait_enemies_per_view": [
+        3,
+        3,
+        7,
+        7
+      ]
+    }
+  },
+  "scope": "CPU-only camera/PNG integrity check and visual review of controlled portraits; does not establish normal route gameplay.",
+  "visual_observations": [
+    "All six final species visibly rendered with clean alpha in these views; no obvious sprite matte, body clipping or feet registration fault.",
+    "Both unchanged pistol and shotgun composites rendered with actual HUD.",
+    "Straight north-facing poses emphasize repeated box-hall architecture and tiled board patterns; native decorative arches/tanks are not prominent in the arena views.",
+    "Visible floor texture joins and highly emissive rectangular door panels reduce architectural emphasis; no source/runtime geometry changes made.",
+    "Repeat-heavy room surfaces and simplified architecture/lighting do not yet reproduce the full approved scene compositions."
+  ],
+  "visual_acceptance": false,
+  "visual_review_status": "Limitations recorded; scene composition not accepted."
+}

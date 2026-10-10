@@ -37,14 +37,29 @@ var muzzle_pending: bool = false
 var automap: Control
 var level_message: String = ""
 var level_complete: bool = false
+var stage_id := "pale_ward"
+var stage_catalog: Array = []
+var stage_selector: OptionButton
+
+func selected_stage() -> Dictionary:
+	for entry in stage_catalog:
+		if entry.id == stage_id: return entry
+	return {}
 
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
-	DisplayServer.window_set_title("Eyesore / The Pale Ward")
+	var expansion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://resources/stages/catalog.json"))
+	stage_catalog = expansion.stages
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--stage="):
+			var requested := argument.trim_prefix("--stage=")
+			for entry in stage_catalog:
+				if entry.id == requested: stage_id = requested
+	DisplayServer.window_set_title("Eyesore / " + String(selected_stage().title))
 	load_settings()
 	smoke = "--smoke-test" in OS.get_cmdline_user_args()
 	# Automated fixtures call combat directly and do not verify physical mouse input.
-	automated_input = smoke or "--automated-input" in OS.get_cmdline_user_args()
+	automated_input = smoke or "--automated-input" in OS.get_cmdline_user_args() or "--release-route-test" in OS.get_cmdline_user_args()
 	var background := ColorRect.new()
 	background.color = Color.BLACK
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -81,6 +96,7 @@ func _ready() -> void:
 		title_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		title_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(title_art)
+		update_title_art()
 	# One persistent presentation canvas shares the world render target. Retry
 	# replaces the world only, so it cannot duplicate or orphan weapon overlays.
 	weapon_canvas = CanvasLayer.new()
@@ -137,6 +153,14 @@ func _ready() -> void:
 	layout_view()
 	set_paused(true)
 	if smoke: call_deferred("run_smoke")
+	elif "--release-route-test" in OS.get_cmdline_user_args():
+		call_deferred("run_release_route_test")
+
+func run_release_route_test() -> void:
+	# Explicit verification mode; ordinary play never creates the route driver.
+	var driver := preload("res://scripts/release_stage_playtest.gd").new()
+	add_child(driver)
+	driver.setup(self)
 
 func run_smoke() -> void:
 	get_tree().root.set_flag(Window.FLAG_NO_FOCUS,true)
@@ -184,14 +208,15 @@ func run_smoke() -> void:
 				diagnostic_file.close()
 		if not smoke_require(accepted and victim.dead and victim.gibbed,"Actual shotgun shot did not gib victim"): return
 		if not smoke_require(health_before == 80 and combat.weapons[&"shotgun"].pellets == 7 and contact_pellets == 7 and actual_overkill >= 16,"Close torso fixture did not resolve seven real pellets with required overkill"): return
-		await get_tree().create_timer(2.7).timeout
-		if not smoke_require(combat.gore.remains.size() == 9 and combat.gore.particles.is_empty(),"Gore did not settle into nine pieces"): return
+		await get_tree().create_timer(4.0).timeout
+		var expected_parts: int = combat.gore.profile.gib_counts.get(String(victim.definition.identifier), 12)
+		if not smoke_require(combat.gore.remains.size() == expected_parts and combat.gore.particles.is_empty(),"Gore did not settle into species-authored pieces"): return
 		player.camera.look_at(Vector3(0,.2,9.5))
 		if not await capture_smoke_frame("gore"): return
 		restart_combat()
 		if not smoke_require(Input.mouse_mode == Input.MOUSE_MODE_VISIBLE, "Automated retry attempted pointer capture"): return
 		if not smoke_require(combat.gore.stains.is_empty() and combat.gore.remains.is_empty(),"Retry retained gore"): return
-		print("GORE_EXPORT_SMOKE_OK: actual shotgun kill, nine grounded parts, embedded textures and retry reset")
+		print("GORE_EXPORT_SMOKE_OK: actual shotgun kill, ", expected_parts, " grounded parts, embedded textures and retry reset")
 	await get_tree().create_timer(0.5).timeout
 	if not await capture_smoke_frame("gameplay"): return
 	set_paused(true)
@@ -267,6 +292,12 @@ func build_menu() -> void:
 	menu_note.text = "WASD move · mouse look · left click fire\n1 pistol · 2 shotgun · 3 melee"
 	menu_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(menu_note)
+	stage_selector = OptionButton.new()
+	for entry in stage_catalog:
+		stage_selector.add_item(entry.title)
+		if entry.id == stage_id: stage_selector.select(stage_selector.item_count - 1)
+	stage_selector.item_selected.connect(select_stage)
+	column.add_child(stage_selector)
 	resume_button = Button.new()
 	resume_button.text = "Play"
 	resume_button.pressed.connect(enter_combat)
@@ -298,23 +329,41 @@ func build_menu() -> void:
 
 func show_credits() -> void:
 	var credits := AcceptDialog.new()
-	credits.title = "The Pale Ward / credits"
-	credits.dialog_text = "Eyesore — The Pale Ward\nOriginal environment geometry and gameplay: Eyesore project\nVisual assets adapted from approved Pale Ward concept art with OpenAI imagegen\n\nMusic: Zander Noriega\nAbelian — menu (CC BY 3.0)\nBestial Paragon Interface — level (CC BY 3.0)\n\nFirearms: Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney\nOther sound sources: qubodup, rubberduck, HaelDB (CC0)\nGodot Engine 4.7.2 — MIT\n\nFull source links, licenses and edits accompany the portable package."
+	credits.title = "Eyesore / credits"
+	credits.dialog_text = "Eyesore — The Pale Ward / The Ash Citadel / The Occupied Line\nOriginal environment geometry and gameplay: Eyesore project\nVisual assets adapted from the approved theme boards with OpenAI imagegen\n\nMusic: Zander Noriega\nAbelian — menu (CC BY 3.0)\nBestial Paragon Interface — Ward / Line (CC BY 3.0)\nDragged Through Hellfire (Abomination) — Citadel (CC BY 4.0)\n\nFirearms: Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney\nOther sound sources: qubodup, rubberduck, HaelDB (CC0)\nGodot Engine 4.7.2 — MIT\n\nFull source links, licenses and edits accompany the portable package."
 	credits.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(credits)
 	credits.confirmed.connect(credits.queue_free)
 	credits.canceled.connect(credits.queue_free)
 	credits.popup_centered(Vector2i(660, 470))
 
+func select_stage(index: int) -> void:
+	stage_id = String(stage_catalog[index].id)
+	return_to_title()
+	update_title_art()
+	DisplayServer.window_set_title("Eyesore / " + String(selected_stage().title))
+
+func update_title_art() -> void:
+	if not is_instance_valid(title_art): return
+	var entry := selected_stage()
+	var region: Array = entry.title_region
+	var image := AtlasTexture.new()
+	image.atlas = load(entry.title_board)
+	image.region = Rect2(region[0], region[1], region[2], region[3])
+	image.filter_clip = true
+	title_art.texture = image
+
 func create_world() -> void:
-	var scene_path := "res://scenes/calibration.tscn" if "--calibration" in OS.get_cmdline_user_args() else "res://scenes/pale_ward.tscn"
+	var scene_path: String = selected_stage().scene
+	if "--calibration" in OS.get_cmdline_user_args(): scene_path = "res://scenes/calibration.tscn"
+	elif "--legacy-ward" in OS.get_cmdline_user_args(): scene_path = "res://scenes/pale_ward.tscn"
 	world = (load(scene_path) as PackedScene).instantiate()
 	world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	world_view.add_child(world)
 	player = world.get_node("Player")
 	player.collision_layer = 2
 	player.collision_mask = 3
-	if "--view=annex" in OS.get_cmdline_user_args():
+	if "--view=annex" in OS.get_cmdline_user_args() and world.has_node("AnnexPreviewPose"):
 		player.transform = world.get_node("AnnexPreviewPose").transform
 	player.sensitivity = sensitivity
 	player.get_node("Camera3D").keep_aspect = Camera3D.KEEP_WIDTH
@@ -329,7 +378,9 @@ func create_world() -> void:
 		if ResourceLoader.exists("res://resources/combat_audio.tres"):
 			combat_audio = preload("res://scripts/combat_audio.gd").new()
 			world.add_child(combat_audio)
-			combat_audio.setup(load("res://resources/combat_audio.tres"), false)
+			var audio_profile: CombatAudioProfile = load("res://resources/combat_audio.tres").duplicate()
+			audio_profile.music = load(selected_stage().music)
+			combat_audio.setup(audio_profile, false)
 		configure_combat_art()
 		if world.has_method("setup"):
 			world.setup(combat, player)
@@ -548,9 +599,9 @@ func set_paused(value: bool) -> void:
 	crosshair.visible = not value
 	if is_instance_valid(menu_title):
 		var dead: bool = is_instance_valid(combat) and combat.dead
-		menu_title.text = "WARD ESCAPED" if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / THE PALE WARD"))
+		menu_title.text = "STAGE COMPLETE" if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / " + String(selected_stage().title).to_upper()))
 		resume_button.text = "Play again" if level_complete else ("Retry" if dead else ("Resume" if started else "Play"))
-		menu_note.text = ("You reached the quarantine exit.\nKills %d/%d" % [combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1 pistol · 2 shotgun · 3 melee · E use · Tab map")
+		menu_note.text = ("%s completed.\nKills %d/%d" % [selected_stage().title, combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1 pistol · 2 shotgun · 3 melee · E use · Tab map")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value or automated_input else Input.MOUSE_MODE_CAPTURED
 
 func load_settings() -> void:

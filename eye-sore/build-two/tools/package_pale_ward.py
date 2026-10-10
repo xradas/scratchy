@@ -33,7 +33,7 @@ BAD_OUTPUT = re.compile(r"(?:^|\n)\s*(?:SCRIPT ERROR:|ERROR:|WARNING:)|SMOKE_FAI
 EXCLUDED = {".godot", ".git", "build", "concepts", "docs", "tools", "verification"}
 STYLE_PASS_LIMITATIONS = [
     "Current style pass combines world, viewgun and muzzle presentation at a 320 × 180 display grid; human visual acceptance against the approved concept remains pending.",
-    "Current creature atlas is generated art with eight representative frontal poses; complete directional animation and generated detail/perspective drift remain work.",
+    "The four new creatures have eight directional stance images and frontal combat/death sequences; the Ward creatures retain frontal sequences. Complete animation in eight directions remains work.",
 ]
 DEFAULT_LIMITATIONS = [
     "Playable reference-based art/layout pass; full production and human release acceptance pending.",
@@ -41,6 +41,8 @@ DEFAULT_LIMITATIONS = [
     *STYLE_PASS_LIMITATIONS,
     "Human-paced encounters toward the original 5–8 minute duration remain work.",
     "Sustained human combat, interaction audio, and final mix review remain pending.",
+    "Stages are independently selectable; chapter order and campaign progression are deferred.",
+    "Occupied Line temporarily shares the Ward score, pending a separate music review.",
 ]
 
 
@@ -91,15 +93,18 @@ def git(*arguments: str) -> str:
 def provenance_files() -> list[Path]:
     roots = ("concepts/environment-art-v1", "concepts/gore-art-v1",
              "concepts/sprite-art-v1", "concepts/style-art-v2",
-             "concepts/weapon-style-v3",
-             "concepts/visual-v2/corrupted-biotech")
+             "concepts/weapon-style-v3", "concepts/expansion-v1", "docs/expansion-v1",
+             "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
+             "concepts/visual-v2/civic-invasion")
     paths = [PROJECT / "concepts/visual-v2/manifest.json",
              PROJECT / "concepts/audio-v4/manifest.json",
+             PROJECT / "concepts/audio-v5/manifest.json",
              PROJECT / "concepts/audio-v3/manifest.json",
              PROJECT / "concepts/audio-v2/manifest.json",
              PROJECT / "verification/download_manifest.json",
              PROJECT / "assets/materials/approved-material-regions.json",
-             PROJECT / "assets/materials/approved-sign-regions.json"]
+             PROJECT / "assets/materials/approved-sign-regions.json",
+             PROJECT / "assets/materials/expanded-stages/provenance.json"]
     for root in roots:
         paths.extend(p for p in (PROJECT / root).rglob("*")
                      if p.is_file() and p.suffix in {".json", ".txt", ".md"})
@@ -309,7 +314,7 @@ def package(args: argparse.Namespace) -> dict:
         for issue in STYLE_PASS_LIMITATIONS:
             if issue not in limitations:
                 limitations.append(issue)
-        record = {"project": "Eyesore / The Pale Ward", "engine": version, "renderer": "Compatibility",
+        record = {"project": "Eyesore / The Pale Ward / The Ash Citadel / The Occupied Line", "engine": version, "renderer": "Compatibility",
                   "source_commit": commit, "source_branch": git("branch", "--show-current"),
                   "source_head": head, "source_git_status": git("status", "--porcelain=v1", "--untracked-files=all"),
                   "source_date_epoch": epoch, "source_tree_sha256": plan["source_tree_sha256"],
@@ -343,12 +348,15 @@ def package(args: argparse.Namespace) -> dict:
         write_json(stage / "BUILD.json", record)
         (stage / "SOURCE_SHA256SUMS").write_text("".join(f"{digest}  {path}\n" for path, digest in sorted(source.items())), encoding="utf-8")
         (stage / "README.txt").write_text(
-            f"EYESORE / THE PALE WARD\n\nRun ./{name} and click Play.\n"
+            f"EYESORE / THREE THEMED STAGES\n\nRun ./{name}, choose a stage, and click Play.\n"
+            "The Pale Ward / The Ash Citadel / The Occupied Line.\n"
             "WASD move, mouse look, left click fire; 1 pistol, 2 shotgun, 3 melee.\n"
             "E uses doors/lift/exit; walk over pickups; Tab shows visited areas.\n"
             "Escape pauses/settings; Retry restores the level. No jump/dash/reload.\n\n"
-            "Find the Bio Wing / Operating Room key, return through the shortcut,\n"
-            "open the raised C3 rear door, ride the lab lift and use the exit.\n\n"
+            "Clear each arena to enable its marked control. Use the breaker, find\n"
+            "the brass key, return through the shortcut, then release the red-key\n"
+            "wing. Clear the final arena and enable its exit control. Side rooms\n"
+            "and secrets are optional. Stages are independent; chapter order is deferred.\n\n"
             "Linux x86_64 graphics/audio/system libraries required. Assets are embedded.\n"
             "Native release smoke passed from /tmp; see smoke.log and BUILD.json.\n"
             "Audio/visual credits, unchanged provenance, engine/component notices and\n"

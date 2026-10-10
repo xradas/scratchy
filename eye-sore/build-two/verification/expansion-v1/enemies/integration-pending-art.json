@@ -1,0 +1,133 @@
+{
+  "checks": 585,
+  "failures": [
+    "ironbound candidate measurement passed",
+    "censer candidate measurement passed",
+    "censer spawned sprite configured",
+    "reaver registered art entry missing",
+    "surveyor registered art entry missing"
+  ],
+  "pass": false,
+  "resources_only": false,
+  "species": {
+    "censer": {
+      "definition": {
+        "attack_range": 18.0,
+        "damage": 16.0,
+        "health": 180.0,
+        "pain_seconds": 0.24,
+        "projectile_speed": 8.0,
+        "ranged": true,
+        "recovery_seconds": 1.1,
+        "speed": 1.8,
+        "windup_seconds": 0.8
+      }
+    },
+    "ironbound": {
+      "definition": {
+        "attack_range": 2.05,
+        "damage": 18.0,
+        "health": 120.0,
+        "pain_seconds": 0.24,
+        "projectile_speed": 9.0,
+        "ranged": false,
+        "recovery_seconds": 0.85,
+        "speed": 2.65,
+        "windup_seconds": 0.7
+      },
+      "runtime": {
+        "actual_player_damage": 18.0,
+        "corpse_frame": 15,
+        "death_events": 1,
+        "hurt_events": 1,
+        "release_events": 1,
+        "source_sha256": "728f5e0be6bba07b0c0ce026fb210f53f56e604f21027689bd88eb299d440e17",
+        "warning_events": 1
+      }
+    },
+    "reaver": {
+      "definition": {
+        "attack_range": 1.9,
+        "damage": 14.0,
+        "health": 100.0,
+        "pain_seconds": 0.18,
+        "projectile_speed": 9.0,
+        "ranged": false,
+        "recovery_seconds": 0.72,
+        "speed": 3.4,
+        "windup_seconds": 0.52
+      }
+    },
+    "surveyor": {
+      "definition": {
+        "attack_range": 20.0,
+        "damage": 12.0,
+        "health": 140.0,
+        "pain_seconds": 0.22,
+        "projectile_speed": 10.0,
+        "ranged": true,
+        "recovery_seconds": 0.88,
+        "speed": 2.25,
+        "windup_seconds": 0.6
+      }
+    },
+    "unsealed": {
+      "definition": {
+        "attack_range": 1.8,
+        "damage": 12.0,
+        "health": 80.0,
+        "pain_seconds": 0.22,
+        "projectile_speed": 9.0,
+        "ranged": false,
+        "recovery_seconds": 0.8,
+        "speed": 2.6,
+        "windup_seconds": 0.6
+      },
+      "runtime": {
+        "actual_player_damage": 12.0,
+        "corpse_frame": 7,
+        "death_events": 1,
+        "hurt_events": 1,
+        "release_events": 1,
+        "source_sha256": "a83f7b7e8267bfae12da10e8480d677b73fd2741bed7ecd32e929642c1471869",
+        "warning_events": 1
+      }
+    },
+    "vessel": {
+      "definition": {
+        "attack_range": 14.0,
+        "damage": 12.0,
+        "health": 160.0,
+        "pain_seconds": 0.22,
+        "projectile_speed": 9.0,
+        "ranged": true,
+        "recovery_seconds": 1.25,
+        "speed": 1.4,
+        "windup_seconds": 0.95
+      },
+      "runtime": {
+        "actual_player_damage": 12.0,
+        "corpse_frame": 7,
+        "death_events": 1,
+        "hurt_events": 1,
+        "release_events": 1,
+        "source_sha256": "ff821c5a7756b3d989e33f078b5b5cfc85564b69f8ed7c649e36a02104f59577",
+        "warning_events": 1
+      }
+    }
+  },
+  "stages": {
+    "ash_citadel": {
+      "censer": 9,
+      "ironbound": 33
+    },
+    "occupied_line": {
+      "reaver": 33,
+      "surveyor": 9
+    },
+    "pale_ward": {
+      "unsealed": 33,
+      "vessel": 9
+    }
+  }
+}

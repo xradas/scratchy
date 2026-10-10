@@ -50,6 +50,7 @@ func reset() -> void:
 	for enemy in enemies:
 		if is_instance_valid(enemy):
 			enemy.collision_layer = 0; enemy.collision_mask = 0
+			enemy.clear_corpse_surfaces()
 			enemy.set_physics_process(false); enemy.queue_free()
 	enemies.clear()
 	for projectile in get_children():
@@ -147,7 +148,7 @@ func resolve_shot(definition: WeaponDefinition, origin: Vector3, forward: Vector
 		if collider.has_meta("combat_target"):
 			collider = collider.get_meta("combat_target")
 		var key := collider.get_instance_id()
-		if not hits.has(key): hits[key] = {"collider": collider, "position": hit.position, "damage": 0.0, "pellets": 0, "materials": {}}
+		if not hits.has(key): hits[key] = {"collider": collider, "position": hit.position, "damage": 0.0, "pellets": 0, "materials": {}, "corpse": collider.has_method("apply_corpse_damage") and collider.dead}
 		hits[key].damage += definition.damage; hits[key].pellets += 1
 		hits[key].materials[contact_material] = hits[key].materials.get(contact_material, 0) + 1
 	for value in hits.values():
@@ -160,13 +161,15 @@ func resolve_shot(definition: WeaponDefinition, origin: Vector3, forward: Vector
 				material = struck_material
 				most_contacts = value.materials[struck_material]
 		emit_event({"type": &"impact", "weapon_id": definition.identifier, "shot_id": shot_id, "target_id": target_id, "material": material, "position": value.position, "pellets": value.pellets})
-		if collider.has_method("apply_damage"):
+		if value.corpse:
+			collider.apply_corpse_damage(value.damage, shot_id, definition.identifier, value.position, material)
+		elif collider.has_method("apply_damage"):
 			collider.apply_damage(value.damage, shot_id, definition.identifier, value.position, material)
 
 func ray(from: Vector3, to: Vector3, exclude: Array = [], anatomical_hits: bool = false) -> Dictionary:
 	var typed_exclude: Array[RID] = []
 	typed_exclude.assign(exclude)
-	var query := PhysicsRayQueryParameters3D.create(from, to, 7 if anatomical_hits else 3, typed_exclude)
+	var query := PhysicsRayQueryParameters3D.create(from, to, 15 if anatomical_hits else 3, typed_exclude)
 	return get_world_3d().direct_space_state.intersect_ray(query)
 
 func material_for(collider: Object) -> StringName:

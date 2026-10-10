@@ -1,0 +1,40 @@
+{
+  "audio": {
+    "creature_paths": [
+      "res://assets/audio/demonic-v1/unsealed_hurt.ogg",
+      "res://assets/audio/demonic-v1/vessel_hurt.ogg",
+      "res://assets/audio/demonic-v1/unsealed_death.ogg",
+      "res://assets/audio/demonic-v1/vessel_death.ogg",
+      "res://assets/audio/demonic-v1/unsealed_attack_warning.ogg",
+      "res://assets/audio/demonic-v1/vessel_attack_warning.ogg"
+    ],
+    "cue_count": 23,
+    "stereo_music_tracks": [
+      "menu_abelian",
+      "level_music_biotech_candidate",
+      "level_music_fortress_candidate"
+    ]
+  },
+  "checks": 197,
+  "enemies": {},
+  "engine_license_sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+  "engine_notices_sha256": "69bda62e15d8922f845fd309511a69f94b588b3564868d40c3a22b9be1cb8f12",
+  "failures": [
+    "packed/source JSON bytes: res://assets/combat_art.json",
+    "runtime JSON exists: res://resources/stages/catalog.json",
+    "packed/source JSON bytes: res://assets/audio/runtime-cues.json",
+    "six registered species",
+    "35 runtime audio cues",
+    "35 profile cues",
+    "18 distinct creature paths for six species"
+  ],
+  "packed": true,
+  "pass": false,
+  "stages": {},
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "probe_exit_code": 1,
+  "script_errors": false,
+  "probe_log_tail": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nTHEME_PACK_FAILURE: packed/source JSON bytes: res://assets/combat_art.json\nTHEME_PACK_FAILURE: runtime JSON exists: res://resources/stages/catalog.json\nTHEME_PACK_FAILURE: packed/source JSON bytes: res://assets/audio/runtime-cues.json\nTHEME_PACK_FAILURE: six registered species\nTHEME_PACK_FAILURE: 35 runtime audio cues\nTHEME_PACK_FAILURE: 35 profile cues\nTHEME_PACK_FAILURE: 18 distinct creature paths for six species\nTHEME_PACK_FAILED: 197 checks; 7 failures; packed=true\n",
+  "purpose": "Expected-failure old two-species embedded pack isolation proof, not fresh release acceptance.",
+  "expected_failure_confirmed": true
+}

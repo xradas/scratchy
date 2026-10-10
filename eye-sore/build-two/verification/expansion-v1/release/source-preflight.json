@@ -1,0 +1,135 @@
+{
+  "status": "passed",
+  "source_preflight": true,
+  "embedded_pack": {
+    "audio": {
+      "creature_paths": [
+        "res://assets/audio/demonic-v1/unsealed_hurt.ogg",
+        "res://assets/audio/demonic-v1/vessel_hurt.ogg",
+        "res://assets/audio/demonic-v1/unsealed_death.ogg",
+        "res://assets/audio/demonic-v1/vessel_death.ogg",
+        "res://assets/audio/demonic-v1/unsealed_attack_warning.ogg",
+        "res://assets/audio/demonic-v1/vessel_attack_warning.ogg",
+        "res://assets/audio/demonic-v2/ironbound_attack_warning.ogg",
+        "res://assets/audio/demonic-v2/ironbound_hurt.ogg",
+        "res://assets/audio/demonic-v2/ironbound_death.ogg",
+        "res://assets/audio/demonic-v2/censer_attack_warning.ogg",
+        "res://assets/audio/demonic-v2/censer_hurt.ogg",
+        "res://assets/audio/demonic-v2/censer_death.ogg",
+        "res://assets/audio/demonic-v2/reaver_attack_warning.ogg",
+        "res://assets/audio/demonic-v2/reaver_hurt.ogg",
+        "res://assets/audio/demonic-v2/reaver_death.ogg",
+        "res://assets/audio/demonic-v2/surveyor_attack_warning.ogg",
+        "res://assets/audio/demonic-v2/surveyor_hurt.ogg",
+        "res://assets/audio/demonic-v2/surveyor_death.ogg"
+      ],
+      "cue_count": 35,
+      "stereo_music_tracks": [
+        "menu_abelian",
+        "level_music_biotech_candidate",
+        "level_music_fortress_candidate"
+      ]
+    },
+    "checks": 1322,
+    "enemies": {
+      "censer": {
+        "frames_checked": 16,
+        "native_adapter": true,
+        "native_alpha_verified": true,
+        "original_png_sha256": "b984345f33a1eaf997424fab909318688f65b891825e416343cc80b6bdfa6604",
+        "path": "res://assets/enemies/expansion-v1/censer-atlas.png"
+      },
+      "ironbound": {
+        "frames_checked": 16,
+        "native_adapter": true,
+        "native_alpha_verified": true,
+        "original_png_sha256": "728f5e0be6bba07b0c0ce026fb210f53f56e604f21027689bd88eb299d440e17",
+        "path": "res://assets/enemies/expansion-v1/ironbound-atlas.png"
+      },
+      "reaver": {
+        "frames_checked": 16,
+        "native_adapter": true,
+        "native_alpha_verified": true,
+        "original_png_sha256": "6d7697763a7ded157e28b94658bf1e2feda6639a6fa3d648f33e4bcaff3acaec",
+        "path": "res://assets/enemies/expansion-v1/reaver-atlas.png"
+      },
+      "surveyor": {
+        "frames_checked": 16,
+        "native_adapter": true,
+        "native_alpha_verified": true,
+        "original_png_sha256": "74a4ce7675341dd4ee040003f3c13809ba1e961dcf1241a45a87f096e1959f62",
+        "path": "res://assets/enemies/expansion-v1/surveyor-atlas.png"
+      },
+      "unsealed": {
+        "frames_checked": 8,
+        "native_adapter": false,
+        "native_alpha_verified": true,
+        "original_png_sha256": "a83f7b7e8267bfae12da10e8480d677b73fd2741bed7ecd32e929642c1471869",
+        "path": "res://assets/enemies/concept-style-v2/unsealed-atlas-r2.png"
+      },
+      "vessel": {
+        "frames_checked": 8,
+        "native_adapter": false,
+        "native_alpha_verified": true,
+        "original_png_sha256": "ff821c5a7756b3d989e33f078b5b5cfc85564b69f8ed7c649e36a02104f59577",
+        "path": "res://assets/enemies/board-sprites/vessel-atlas.png"
+      }
+    },
+    "engine_license_sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+    "engine_notices_sha256": "69bda62e15d8922f845fd309511a69f94b588b3564868d40c3a22b9be1cb8f12",
+    "failures": [],
+    "packed": false,
+    "pass": true,
+    "stages": {
+      "ash_citadel": {
+        "arena_counts": {
+          "": 21,
+          "arena_one": 7,
+          "arena_two": 7,
+          "final_arena": 7
+        },
+        "music": "res://assets/audio/music/level_music_fortress_candidate.ogg",
+        "roster": {
+          "censer": 9,
+          "ironbound": 33
+        },
+        "scene": "res://scenes/stages/ash_citadel.tscn"
+      },
+      "occupied_line": {
+        "arena_counts": {
+          "": 21,
+          "arena_one": 7,
+          "arena_two": 7,
+          "final_arena": 7
+        },
+        "music": "res://assets/audio/music/level_music_biotech_candidate.ogg",
+        "roster": {
+          "reaver": 33,
+          "surveyor": 9
+        },
+        "scene": "res://scenes/stages/occupied_line.tscn"
+      },
+      "pale_ward": {
+        "arena_counts": {
+          "": 21,
+          "arena_one": 7,
+          "arena_two": 7,
+          "final_arena": 7
+        },
+        "music": "res://assets/audio/music/level_music_biotech_candidate.ogg",
+        "roster": {
+          "unsealed": 33,
+          "vessel": 9
+        },
+        "scene": "res://scenes/stages/pale_ward_expanded.tscn"
+      }
+    },
+    "engine_version": "4.7.2.stable.official.ed1daf0bf",
+    "probe_exit_code": 0,
+    "script_errors": false,
+    "probe_log_tail": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nTHEME_PACK_OK: 1322 checks; 0 failures; packed=false\n"
+  },
+  "scope": "Current source resource audit only; no fresh archive or release claim.",
+  "auditor_sha256": "07692a29f58c6e019e48bb7f131810ca7a939b22c5ce3fb422dccab7203c2d85",
+  "godot_probe_sha256": "417f878a5119feedc4e9d80234d6bb54968353ab6e08201d924fc99519f5f37d"
+}

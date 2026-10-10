@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/enemy_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+identifier = &"censer"
+display_name = "Censer"
+health = 180.0
+speed = 1.8
+ranged = true
+damage = 16.0
+attack_range = 18
+windup_seconds = 0.8
+recovery_seconds = 1.1
+pain_seconds = 0.24
+projectile_speed = 8.0
+hit_material = &"flesh"
+audio_bus = &"Creatures"
+metadata/visible_height_m = 1.6
+metadata/source_theme = "occult-fortress"
