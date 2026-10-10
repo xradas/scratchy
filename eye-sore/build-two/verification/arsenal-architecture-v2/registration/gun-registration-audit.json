@@ -1,0 +1,1474 @@
+{
+  "passed": false,
+  "failures": [
+    "twin_shotgun switch: visible alpha clipped on exterior right"
+  ],
+  "weapons": {
+    "twin_shotgun": {
+      "file": "res://assets/weapons/arsenal-v2/twin_shotgun-atlas.png",
+      "sha256": "8ba30ead496a0df7849770caefe60b9a2c7eb7590d43026eef5eca80ca599c48",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "uncovered_visible_alpha_pixels": 0,
+      "frames": {
+        "idle": {
+          "native_region": [
+            0,
+            0,
+            800,
+            544
+          ],
+          "alpha_bounds_local": [
+            92,
+            132,
+            580,
+            381
+          ],
+          "alpha_bounds_source": [
+            92,
+            132,
+            580,
+            381
+          ],
+          "occupied_pixels_above_5": 105400,
+          "exact_nonzero_edge_pixels": {
+            "left": 7,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "internal_edges": {
+            "left": false,
+            "right": true,
+            "top": false,
+            "bottom": true
+          },
+          "pivot_local": [
+            394,
+            146
+          ],
+          "muzzle_local": [
+            394,
+            146
+          ],
+          "exterior_bottom_contact": false,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                224.453125,
+                249.21562500000005
+              ],
+              "muzzle_screen": [
+                640.0,
+                403.20000000000005
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                364.453125,
+                339.21562500000005
+              ],
+              "muzzle_screen": [
+                780.0,
+                493.20000000000005
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                192.2265625,
+                244.60781250000002
+              ],
+              "muzzle_screen": [
+                400.0,
+                321.6
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                21.600000000000023
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        },
+        "fire": {
+          "native_region": [
+            800,
+            0,
+            736,
+            544
+          ],
+          "alpha_bounds_local": [
+            45,
+            17,
+            621,
+            496
+          ],
+          "alpha_bounds_source": [
+            845,
+            17,
+            621,
+            496
+          ],
+          "occupied_pixels_above_5": 135469,
+          "exact_nonzero_edge_pixels": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "internal_edges": {
+            "left": true,
+            "right": false,
+            "top": false,
+            "bottom": true
+          },
+          "pivot_local": [
+            225,
+            33
+          ],
+          "muzzle_local": [
+            225,
+            33
+          ],
+          "exterior_bottom_contact": false,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                402.6953125,
+                353.9953125
+              ],
+              "muzzle_screen": [
+                640.0,
+                388.8
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                28.80000000000001
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                542.6953125,
+                443.9953125
+              ],
+              "muzzle_screen": [
+                780.0,
+                478.8
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                28.80000000000001
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                281.34765625,
+                296.99765625
+              ],
+              "muzzle_screen": [
+                400.0,
+                314.4
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                14.399999999999977
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        },
+        "recover": {
+          "native_region": [
+            0,
+            544,
+            800,
+            480
+          ],
+          "alpha_bounds_local": [
+            63,
+            63,
+            703,
+            417
+          ],
+          "alpha_bounds_source": [
+            63,
+            607,
+            703,
+            417
+          ],
+          "occupied_pixels_above_5": 135620,
+          "exact_nonzero_edge_pixels": {
+            "left": 9,
+            "right": 0,
+            "top": 0,
+            "bottom": 598
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 563
+          },
+          "internal_edges": {
+            "left": false,
+            "right": true,
+            "top": true,
+            "bottom": false
+          },
+          "pivot_local": [
+            334,
+            78
+          ],
+          "muzzle_local": [
+            334,
+            78
+          ],
+          "exterior_bottom_contact": true,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                287.734375,
+                320.93437500000005
+              ],
+              "muzzle_screen": [
+                640.0,
+                403.20000000000005
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                427.734375,
+                410.93437500000005
+              ],
+              "muzzle_screen": [
+                780.0,
+                493.20000000000005
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                223.8671875,
+                280.4671875
+              ],
+              "muzzle_screen": [
+                400.0,
+                321.6
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                21.600000000000023
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        },
+        "switch": {
+          "native_region": [
+            800,
+            544,
+            736,
+            480
+          ],
+          "alpha_bounds_local": [
+            33,
+            138,
+            703,
+            342
+          ],
+          "alpha_bounds_source": [
+            833,
+            682,
+            703,
+            342
+          ],
+          "occupied_pixels_above_5": 113853,
+          "exact_nonzero_edge_pixels": {
+            "left": 0,
+            "right": 17,
+            "top": 0,
+            "bottom": 617
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 5,
+            "top": 0,
+            "bottom": 578
+          },
+          "internal_edges": {
+            "left": true,
+            "right": false,
+            "top": true,
+            "bottom": false
+          },
+          "pivot_local": [
+            227,
+            152
+          ],
+          "muzzle_local": [
+            227,
+            152
+          ],
+          "exterior_bottom_contact": true,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                400.5859375,
+                358.0875
+              ],
+              "muzzle_screen": [
+                640.0,
+                518.4
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                158.39999999999998
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                540.5859375,
+                448.0875
+              ],
+              "muzzle_screen": [
+                780.0,
+                608.4
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                158.39999999999998
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                280.29296875,
+                299.04375
+              ],
+              "muzzle_screen": [
+                400.0,
+                379.2
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                79.19999999999999
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        }
+      }
+    },
+    "rivet_cannon": {
+      "file": "res://assets/weapons/arsenal-v2/rivet_cannon-atlas.png",
+      "sha256": "8d89c9648c0d7d4d67275130ea157e95c0ea5ab062aeb0f9dd9161df7e9b0853",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "uncovered_visible_alpha_pixels": 0,
+      "frames": {
+        "idle": {
+          "native_region": [
+            0,
+            0,
+            767,
+            535
+          ],
+          "alpha_bounds_local": [
+            40,
+            70,
+            724,
+            441
+          ],
+          "alpha_bounds_source": [
+            40,
+            70,
+            724,
+            441
+          ],
+          "occupied_pixels_above_5": 160806,
+          "exact_nonzero_edge_pixels": {
+            "left": 19,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "internal_edges": {
+            "left": false,
+            "right": true,
+            "top": false,
+            "bottom": true
+          },
+          "pivot_local": [
+            372,
+            93
+          ],
+          "muzzle_local": [
+            372,
+            93
+          ],
+          "exterior_bottom_contact": false,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                247.65625,
+                305.11406250000005
+              ],
+              "muzzle_screen": [
+                640.0,
+                403.20000000000005
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                387.65625,
+                395.11406250000005
+              ],
+              "muzzle_screen": [
+                780.0,
+                493.20000000000005
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                203.828125,
+                272.55703125
+              ],
+              "muzzle_screen": [
+                400.0,
+                321.6
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                21.600000000000023
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        },
+        "fire": {
+          "native_region": [
+            768,
+            0,
+            768,
+            535
+          ],
+          "alpha_bounds_local": [
+            35,
+            33,
+            729,
+            479
+          ],
+          "alpha_bounds_source": [
+            803,
+            33,
+            729,
+            479
+          ],
+          "occupied_pixels_above_5": 181423,
+          "exact_nonzero_edge_pixels": {
+            "left": 0,
+            "right": 5,
+            "top": 0,
+            "bottom": 0
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "internal_edges": {
+            "left": true,
+            "right": false,
+            "top": false,
+            "bottom": true
+          },
+          "pivot_local": [
+            314,
+            58
+          ],
+          "muzzle_local": [
+            314,
+            58
+          ],
+          "exterior_bottom_contact": false,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                308.828125,
+                327.628125
+              ],
+              "muzzle_screen": [
+                640.0,
+                388.8
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                28.80000000000001
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                448.828125,
+                417.628125
+              ],
+              "muzzle_screen": [
+                780.0,
+                478.8
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                28.80000000000001
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                234.4140625,
+                283.8140625
+              ],
+              "muzzle_screen": [
+                400.0,
+                314.4
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                14.399999999999977
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        },
+        "recover": {
+          "native_region": [
+            0,
+            535,
+            771,
+            489
+          ],
+          "alpha_bounds_local": [
+            34,
+            26,
+            731,
+            453
+          ],
+          "alpha_bounds_source": [
+            34,
+            561,
+            731,
+            453
+          ],
+          "occupied_pixels_above_5": 172766,
+          "exact_nonzero_edge_pixels": {
+            "left": 13,
+            "right": 0,
+            "top": 0,
+            "bottom": 663
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "internal_edges": {
+            "left": false,
+            "right": true,
+            "top": true,
+            "bottom": false
+          },
+          "pivot_local": [
+            374,
+            49
+          ],
+          "muzzle_local": [
+            374,
+            49
+          ],
+          "exterior_bottom_contact": true,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                245.546875,
+                351.52031250000005
+              ],
+              "muzzle_screen": [
+                640.0,
+                403.20000000000005
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                385.546875,
+                441.52031250000005
+              ],
+              "muzzle_screen": [
+                780.0,
+                493.20000000000005
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                202.7734375,
+                295.76015625
+              ],
+              "muzzle_screen": [
+                400.0,
+                321.6
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                21.600000000000023
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        },
+        "switch": {
+          "native_region": [
+            772,
+            535,
+            764,
+            489
+          ],
+          "alpha_bounds_local": [
+            20,
+            54,
+            735,
+            425
+          ],
+          "alpha_bounds_source": [
+            792,
+            589,
+            735,
+            425
+          ],
+          "occupied_pixels_above_5": 157056,
+          "exact_nonzero_edge_pixels": {
+            "left": 0,
+            "right": 1,
+            "top": 0,
+            "bottom": 686
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "internal_edges": {
+            "left": true,
+            "right": false,
+            "top": true,
+            "bottom": false
+          },
+          "pivot_local": [
+            320,
+            78
+          ],
+          "muzzle_local": [
+            320,
+            78
+          ],
+          "exterior_bottom_contact": true,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                302.5,
+                436.134375
+              ],
+              "muzzle_screen": [
+                640.0,
+                518.4
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                158.39999999999998
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                442.5,
+                526.134375
+              ],
+              "muzzle_screen": [
+                780.0,
+                608.4
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                158.39999999999998
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                231.25,
+                338.0671875
+              ],
+              "muzzle_screen": [
+                400.0,
+                379.2
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                79.19999999999999
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        }
+      }
+    },
+    "siege_launcher": {
+      "file": "res://assets/weapons/arsenal-v2/siege_launcher-atlas.png",
+      "sha256": "1840c172717f66b07792d18df584f09e44eef7bb15ebb83f0f350762ee3eb7e6",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "uncovered_visible_alpha_pixels": 0,
+      "frames": {
+        "idle": {
+          "native_region": [
+            0,
+            0,
+            750,
+            512
+          ],
+          "alpha_bounds_local": [
+            75,
+            95,
+            654,
+            402
+          ],
+          "alpha_bounds_source": [
+            75,
+            95,
+            654,
+            402
+          ],
+          "occupied_pixels_above_5": 120399,
+          "exact_nonzero_edge_pixels": {
+            "left": 7,
+            "right": 0,
+            "top": 13,
+            "bottom": 0
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "internal_edges": {
+            "left": false,
+            "right": true,
+            "top": false,
+            "bottom": true
+          },
+          "pivot_local": [
+            375,
+            132
+          ],
+          "muzzle_local": [
+            375,
+            132
+          ],
+          "exterior_bottom_contact": false,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                244.4921875,
+                263.98125000000005
+              ],
+              "muzzle_screen": [
+                640.0,
+                403.20000000000005
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                384.4921875,
+                353.98125000000005
+              ],
+              "muzzle_screen": [
+                780.0,
+                493.20000000000005
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                202.24609375,
+                251.99062500000002
+              ],
+              "muzzle_screen": [
+                400.0,
+                321.6
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                21.600000000000023
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        },
+        "fire": {
+          "native_region": [
+            750,
+            0,
+            786,
+            501
+          ],
+          "alpha_bounds_local": [
+            126,
+            88,
+            635,
+            409
+          ],
+          "alpha_bounds_source": [
+            876,
+            88,
+            635,
+            409
+          ],
+          "occupied_pixels_above_5": 122916,
+          "exact_nonzero_edge_pixels": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "internal_edges": {
+            "left": true,
+            "right": false,
+            "top": false,
+            "bottom": true
+          },
+          "pivot_local": [
+            360,
+            126
+          ],
+          "muzzle_local": [
+            360,
+            126
+          ],
+          "exterior_bottom_contact": false,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                260.3125,
+                255.909375
+              ],
+              "muzzle_screen": [
+                640.0,
+                388.8
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                28.80000000000001
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                400.3125,
+                345.909375
+              ],
+              "muzzle_screen": [
+                780.0,
+                478.8
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                28.80000000000001
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                210.15625,
+                247.95468749999998
+              ],
+              "muzzle_screen": [
+                400.0,
+                314.4
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                14.399999999999977
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        },
+        "recover": {
+          "native_region": [
+            0,
+            528,
+            750,
+            496
+          ],
+          "alpha_bounds_local": [
+            70,
+            68,
+            665,
+            414
+          ],
+          "alpha_bounds_source": [
+            70,
+            596,
+            665,
+            414
+          ],
+          "occupied_pixels_above_5": 128218,
+          "exact_nonzero_edge_pixels": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 65
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "internal_edges": {
+            "left": false,
+            "right": true,
+            "top": true,
+            "bottom": false
+          },
+          "pivot_local": [
+            381,
+            133
+          ],
+          "muzzle_local": [
+            381,
+            133
+          ],
+          "exterior_bottom_contact": true,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                238.1640625,
+                262.92656250000005
+              ],
+              "muzzle_screen": [
+                640.0,
+                403.20000000000005
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                378.1640625,
+                352.92656250000005
+              ],
+              "muzzle_screen": [
+                780.0,
+                493.20000000000005
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                43.200000000000045
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                199.08203125,
+                251.46328125000002
+              ],
+              "muzzle_screen": [
+                400.0,
+                321.6
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                21.600000000000023
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        },
+        "switch": {
+          "native_region": [
+            750,
+            528,
+            786,
+            496
+          ],
+          "alpha_bounds_local": [
+            96,
+            75,
+            633,
+            407
+          ],
+          "alpha_bounds_source": [
+            846,
+            603,
+            633,
+            407
+          ],
+          "occupied_pixels_above_5": 126716,
+          "exact_nonzero_edge_pixels": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 108
+          },
+          "visible_edge_pixels_above_5": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "internal_edges": {
+            "left": true,
+            "right": false,
+            "top": true,
+            "bottom": false
+          },
+          "pivot_local": [
+            311,
+            128
+          ],
+          "muzzle_local": [
+            311,
+            128
+          ],
+          "exterior_bottom_contact": true,
+          "screen_projections": [
+            {
+              "window": [
+                1280,
+                720
+              ],
+              "weapon_origin": [
+                311.9921875,
+                383.4
+              ],
+              "muzzle_screen": [
+                640.0,
+                518.4
+              ],
+              "crosshair_screen": [
+                640.0,
+                360.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                158.39999999999998
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                1560,
+                900
+              ],
+              "weapon_origin": [
+                451.9921875,
+                473.4
+              ],
+              "muzzle_screen": [
+                780.0,
+                608.4
+              ],
+              "crosshair_screen": [
+                780.0,
+                450.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                158.39999999999998
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            },
+            {
+              "window": [
+                800,
+                600
+              ],
+              "weapon_origin": [
+                235.99609375,
+                311.7
+              ],
+              "muzzle_screen": [
+                400.0,
+                379.2
+              ],
+              "crosshair_screen": [
+                400.0,
+                300.0
+              ],
+              "muzzle_minus_crosshair": [
+                0.0,
+                79.19999999999999
+              ],
+              "scope": "Authored point projection only; does not authenticate illustrated bore direction or human visual acceptance."
+            }
+          ]
+        }
+      }
+    }
+  },
+  "old_metadata_identical": true,
+  "source_pngs_rewritten": false,
+  "scope": "Read-only source alpha/rectangle/marker audit and candidate metadata generation. External bottom contact is recorded for review; explicit internal seams must be alpha-zero. No raster transformation, native screenshot, illustrated aim authentication or human style acceptance claim.",
+  "baseline_sha256": "f2aa17bd1432ae6319ec53897432ddfbebbfffcd63967d04b9b3621b176ed11f",
+  "baseline_bytes_preserved": true
+}

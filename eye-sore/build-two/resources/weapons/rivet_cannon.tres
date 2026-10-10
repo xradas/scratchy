@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/weapon_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+identifier = &"rivet_cannon"
+display_name = "Rivet Cannon"
+damage = 36
+cooldown_seconds = 0.16
+fire_seconds = 0.065
+pellets = 1
+spread_degrees = 0
+vertical_spread_degrees = 0
+range_units = 70
+ammo_key = &"ammo_rivets"
+ammo_cost = 1
+recoil = 4.5
+fire_mode = "hitscan"

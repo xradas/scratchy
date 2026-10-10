@@ -128,7 +128,7 @@ func _ready() -> void:
 	crosshair.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(crosshair)
 	status = Label.new()
-	status.text = "WASD move · mouse look · left click fire · 1 / 2 / 3 weapons · Esc pause"
+	status.text = "WASD move · mouse look · left click fire · 1–6 weapons · Esc pause"
 	status.position = Vector2(16, 12)
 	status.add_theme_font_size_override("font_size", 16)
 	add_child(status)
@@ -289,7 +289,7 @@ func build_menu() -> void:
 	menu_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(menu_title)
 	menu_note = Label.new()
-	menu_note.text = "WASD move · mouse look · left click fire\n1 pistol · 2 shotgun · 3 melee"
+	menu_note.text = "WASD move · mouse look · left click fire · E use · Tab map\n1 pistol · 2 shotgun · 3 melee · 4 twin shotgun · 5 rivet cannon · 6 siege launcher\nFind the heavy weapons in each stage."
 	menu_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(menu_note)
 	stage_selector = OptionButton.new()
@@ -507,7 +507,10 @@ func _process(delta: float) -> void:
 		if not level_message.is_empty(): status.text += "\n" + level_message
 		if automap.visible:
 			automap.update_map(level_state, player.global_position, player.rotation.y)
-	hud.text = "HEALTH %d    ARMOR %d    PISTOL %d    SHELLS %d\n%s    KILLS %d/%d" % [state.health, state.armor, state.ammo_pistol, state.ammo_shotgun, String(state.weapon_id).to_upper(), state.kills, state.total_enemies]
+	var heavy_ammo := ""
+	if state.owned_weapons.has("rivet_cannon"): heavy_ammo += "    RIVETS %d" % state.ammo_rivets
+	if state.owned_weapons.has("siege_launcher"): heavy_ammo += "    ROCKETS %d" % state.ammo_rockets
+	hud.text = "HEALTH %d    ARMOR %d    PISTOL %d    SHELLS %d\n%s    KILLS %d/%d%s" % [state.health, state.armor, state.ammo_pistol, state.ammo_shotgun, String(state.weapon_id).replace("_", " ").to_upper(), state.kills, state.total_enemies, heavy_ammo]
 	var path: String = state.get("weapon_visual_path", "")
 	var atlas_definition: Dictionary = art_data.get("weapon_atlases", {}).get(String(state.weapon_id), {})
 	if not path.is_empty():
@@ -601,7 +604,7 @@ func set_paused(value: bool) -> void:
 		var dead: bool = is_instance_valid(combat) and combat.dead
 		menu_title.text = "STAGE COMPLETE" if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / " + String(selected_stage().title).to_upper()))
 		resume_button.text = "Play again" if level_complete else ("Retry" if dead else ("Resume" if started else "Play"))
-		menu_note.text = ("%s completed.\nKills %d/%d" % [selected_stage().title, combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1 pistol · 2 shotgun · 3 melee · E use · Tab map")
+		menu_note.text = ("%s completed.\nKills %d/%d" % [selected_stage().title, combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1–6 weapons · E use · Tab map")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value or automated_input else Input.MOUSE_MODE_CAPTURED
 
 func load_settings() -> void:

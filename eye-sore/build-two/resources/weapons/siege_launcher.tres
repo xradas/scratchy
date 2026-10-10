@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/weapon_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+identifier = &"siege_launcher"
+display_name = "Siege Launcher"
+damage = 120
+cooldown_seconds = 1.0
+fire_seconds = 0.12
+pellets = 1
+spread_degrees = 0
+vertical_spread_degrees = 0
+range_units = 70
+ammo_key = &"ammo_rockets"
+ammo_cost = 1
+recoil = 9
+fire_mode = "projectile"

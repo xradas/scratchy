@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3]
+[ext_resource type="Script" path="res://scripts/player_ordnance.gd" id="1"]
+[sub_resource type="StandardMaterial3D" id="material"]
+albedo_color = Color(0.95, 0.45, 0.08, 1)
+emission_enabled = true
+emission = Color(1, 0.2, 0.02, 1)
+emission_energy_multiplier = 2.0
+[sub_resource type="SphereMesh" id="mesh"]
+radius = 0.09
+height = 0.18
+radial_segments = 8
+rings = 4
+material = SubResource("material")
+[node name="PlayerOrdnance" type="Node3D"]
+script = ExtResource("1")
+[node name="Visual" type="MeshInstance3D" parent="."]
+mesh = SubResource("mesh")

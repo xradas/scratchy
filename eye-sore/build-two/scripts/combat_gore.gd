@@ -37,7 +37,7 @@ func reset() -> void:
 
 func should_gib(weapon: StringName, overkill: float, material: StringName = &"flesh") -> bool:
 	var threshold := profile.gib_overkill * (1.4 if material == &"armor" else 1.0)
-	return (weapon == &"shotgun" and overkill >= threshold) or overkill >= threshold * 3.0
+	return (weapon in [&"shotgun", &"twin_shotgun", &"rivet_cannon", &"siege_launcher"] and overkill >= threshold) or overkill >= threshold * 3.0
 
 func handle_event(event: Dictionary) -> void:
 	var type := String(event.get("type", ""))
@@ -48,15 +48,16 @@ func handle_event(event: Dictionary) -> void:
 	if seen.size() > 2048: seen.erase(seen.keys()[0])
 	var rng := RandomNumberGenerator.new(); rng.seed = hash(key)
 	var weapon := String(event.get("weapon_id", "pistol"))
+	var blast_weapon := weapon in ["shotgun", "twin_shotgun", "siege_launcher"]
 	var direction: Vector3 = (event.get("direction", -combat.camera.global_basis.z) as Vector3).normalized()
 	var contact: Vector3 = event.get("contact_position", event.position)
 	var armored := String(event.get("material", "flesh")) == "armor"
 	if type in ["enemy_hurt", "corpse_hurt"]:
 		if armored:
-			burst(contact, direction, 6 if weapon == "shotgun" else 2, rng, true)
+			burst(contact, direction, 6 if blast_weapon else 2, rng, true)
 		else:
 			burst(contact, direction, int(profile.spray_counts.get(weapon, 11)), rng)
-			spatter_behind(contact, direction, .4 if weapon == "shotgun" else .22, rng)
+			spatter_behind(contact, direction, .4 if blast_weapon else .22, rng)
 		return
 	var target := String(event.target_id)
 	if type == "enemy_death" and death_records.has(target): return
@@ -71,12 +72,12 @@ func handle_event(event: Dictionary) -> void:
 	var floor_hit := world_ray(event.position + Vector3.UP * .2, event.position + Vector3.DOWN * 3.0)
 	var pool: MeshInstance3D
 	if not floor_hit.is_empty() and floor_hit.normal.y > .65:
-		var radius := 1.28 if dismembered else (.95 if weapon == "shotgun" else .78)
+		var radius := 1.28 if dismembered else (.95 if blast_weapon else .78)
 		pool = surface_patch(floor_hit.position, floor_hit.normal, Vector2.ONE * radius * 2,
 			profile.pools, 2, 2, 1, 9, rng.randf_range(0,TAU), false)
 		if is_instance_valid(pool): pool.set_meta("death_pool",true)
-	var body_parts := int(profile.gib_counts.get(kind,12)) if dismembered else (3 if weapon == "shotgun" else 2)
-	var presentation := "rupture" if dismembered else ("blast-collapse" if weapon == "shotgun" else ("cleave" if weapon == "melee" else "collapse"))
+	var body_parts := int(profile.gib_counts.get(kind,12)) if dismembered else (3 if blast_weapon else 2)
+	var presentation := "rupture" if dismembered else ("blast-collapse" if blast_weapon else ("cleave" if weapon == "melee" else "collapse"))
 	for i in body_parts:
 		var part := part_spec(kind,i,dismembered)
 		var flying := Sprite3D.new(); flying.layers = 2
@@ -94,7 +95,7 @@ func handle_event(event: Dictionary) -> void:
 		var height := .5 if part.name in ["head","jaw"] else (-.35 if part.name == "leg" else .12)
 		if type == "corpse_gib": height *= .25
 		flying.global_position = origin + Vector3(rng.randf_range(-.24,.24),height+rng.randf_range(-.08,.08),rng.randf_range(-.16,.16))
-		var force := (4.4 if weapon == "shotgun" else 2.8) if dismembered else 1.5
+		var force := (4.4 if blast_weapon else 2.8) if dismembered else 1.5
 		force += minf(float(event.get("overkill",0)) * .015,1.8)
 		if part.material == "armor": force *= .72
 		var side := direction.cross(Vector3.UP).normalized()

@@ -1,5 +1,6 @@
 {
   "id": "occupied_line",
+  "architecture_version": 2,
   "rooms": {
     "entry": {
       "id": "entry",
@@ -38,16 +39,18 @@
       "label": "Checkpoint Arena",
       "center": [
         0.0,
-        0,
+        -1.5,
         -88.16
       ],
       "size": [
         41.76,
-        7,
+        11,
         46.4
       ],
       "secret": false,
-      "arena_id": "arena_one"
+      "arena_id": "arena_one",
+      "chamfer": 2.0,
+      "encounter": "sealed weapon cache"
     },
     "key_wing": {
       "id": "key_wing",
@@ -118,16 +121,18 @@
       "label": "Relay Arena",
       "center": [
         0.0,
-        0,
+        -1.5,
         -183.28
       ],
       "size": [
         44.08,
-        8,
-        37.12
+        13,
+        42
       ],
       "secret": false,
-      "arena_id": "arena_two"
+      "arena_id": "arena_two",
+      "chamfer": 2.0,
+      "encounter": "raised crossfire bridge"
     },
     "red_wing": {
       "id": "red_wing",
@@ -166,16 +171,18 @@
       "label": "Signal Arena",
       "center": [
         0.0,
-        1.5,
+        0.0,
         -243.6
       ],
       "size": [
         39.44,
-        7,
+        11,
         46.4
       ],
       "secret": false,
-      "arena_id": "final_arena"
+      "arena_id": "final_arena",
+      "chamfer": 2.0,
+      "encounter": "lower court and upper launcher reward"
     },
     "exit_gallery": {
       "id": "exit_gallery",
@@ -343,6 +350,7 @@
       "secret": false,
       "shortcut": false,
       "lift": false,
+      "trap_entry": "TrapEntry_arena_one",
       "start": [
         0.0,
         0,
@@ -350,12 +358,12 @@
       ],
       "end": [
         0.0,
-        0,
+        -1.5,
         -64.96
       ],
       "middle": [
         0.0,
-        0.0,
+        -0.75,
         -62.63999999999999
       ],
       "axis": 2,
@@ -374,7 +382,7 @@
       "lift": false,
       "start": [
         20.88,
-        0,
+        -1.5,
         -88.16
       ],
       "end": [
@@ -384,7 +392,7 @@
       ],
       "middle": [
         24.36,
-        0.0,
+        -0.75,
         -88.16
       ],
       "axis": 0,
@@ -485,7 +493,7 @@
       "lift": false,
       "start": [
         0.0,
-        0,
+        -1.5,
         -111.36
       ],
       "end": [
@@ -495,7 +503,7 @@
       ],
       "middle": [
         0.0,
-        0.0,
+        -0.75,
         -120.06
       ],
       "axis": 2,
@@ -510,6 +518,7 @@
       "secret": false,
       "shortcut": false,
       "lift": false,
+      "trap_entry": "TrapEntry_arena_two",
       "start": [
         0.0,
         0,
@@ -517,13 +526,13 @@
       ],
       "end": [
         0.0,
-        0,
-        -164.72
+        -1.5,
+        -162.28
       ],
       "middle": [
         0.0,
-        0.0,
-        -160.65999999999997
+        -0.75,
+        -159.44
       ],
       "axis": 2,
       "door": null
@@ -541,7 +550,7 @@
       "lift": false,
       "start": [
         -22.04,
-        0,
+        -1.5,
         -183.28
       ],
       "end": [
@@ -551,7 +560,7 @@
       ],
       "middle": [
         -26.68,
-        0.0,
+        -0.75,
         -183.28
       ],
       "axis": 0,
@@ -650,20 +659,21 @@
       "secret": false,
       "shortcut": false,
       "lift": false,
+      "trap_entry": "TrapEntry_final_arena",
       "start": [
         0.0,
-        0,
-        -201.84
+        -1.5,
+        -204.28
       ],
       "end": [
         0.0,
-        1.5,
+        0.0,
         -220.4
       ],
       "middle": [
         0.0,
-        0.75,
-        -211.12
+        -0.75,
+        -212.34
       ],
       "axis": 2,
       "door": "Door_red_gate"
@@ -681,7 +691,7 @@
       "lift": false,
       "start": [
         0.0,
-        1.5,
+        0.0,
         -266.8
       ],
       "end": [
@@ -691,7 +701,7 @@
       ],
       "middle": [
         0.0,
-        1.5,
+        0.75,
         -271.44
       ],
       "axis": 2,
@@ -843,7 +853,7 @@
       "lift": true,
       "start": [
         19.72,
-        1.5,
+        0.0,
         -243.6
       ],
       "end": [
@@ -853,7 +863,7 @@
       ],
       "middle": [
         26.68,
-        3.0,
+        2.25,
         -243.6
       ],
       "axis": 0,
@@ -901,6 +911,195 @@
       "brass_key",
       "red_key",
       "exit_control"
+    ]
+  },
+  "weapon_cache": {
+    "arena_one": {
+      "weapon": "twin_shotgun",
+      "ammo": 12
+    },
+    "arena_two": {
+      "weapon": "rivet_cannon",
+      "ammo": 72
+    },
+    "final_arena": {
+      "weapon": "siege_launcher",
+      "ammo": 6
+    }
+  },
+  "vertical_routes": {
+    "arena_one_gallery": [
+      [
+        -7.0,
+        -1.5,
+        -66.96
+      ],
+      [
+        -7.0,
+        3.0,
+        -83.16
+      ],
+      [
+        -7.0,
+        3.0,
+        -93.16
+      ],
+      [
+        -7.0,
+        -1.5,
+        -109.36
+      ]
+    ],
+    "arena_two_altar": [
+      [
+        0.0,
+        -1.5,
+        -170.28
+      ],
+      [
+        0.0,
+        0.5,
+        -178.28
+      ],
+      [
+        0.0,
+        0.5,
+        -183.28
+      ],
+      [
+        0.0,
+        0.5,
+        -188.28
+      ],
+      [
+        0.0,
+        -1.5,
+        -196.28
+      ]
+    ],
+    "arena_two_gallery": [
+      [
+        -7.0,
+        -1.5,
+        -164.28
+      ],
+      [
+        -7.0,
+        3.0,
+        -180.48
+      ],
+      [
+        -7.0,
+        3.0,
+        -186.08
+      ],
+      [
+        -7.0,
+        -1.5,
+        -202.28
+      ]
+    ],
+    "final_arena_gallery": [
+      [
+        -7.0,
+        0.0,
+        -223.98399999999998
+      ],
+      [
+        -7.0,
+        3.0,
+        -234.784
+      ],
+      [
+        -7.0,
+        3.0,
+        -252.416
+      ],
+      [
+        -7.0,
+        0.0,
+        -263.216
+      ]
+    ]
+  },
+  "combat_paths": {
+    "arena_one": [
+      [
+        [
+          -4.3,
+          -1.5,
+          -78.16
+        ],
+        [
+          -4.3,
+          -1.5,
+          -98.16
+        ]
+      ],
+      [
+        [
+          4.3,
+          -1.5,
+          -78.16
+        ],
+        [
+          4.3,
+          -1.5,
+          -98.16
+        ]
+      ]
+    ],
+    "arena_two": [
+      [
+        [
+          -4.3,
+          -1.5,
+          -173.28
+        ],
+        [
+          -4.3,
+          -1.5,
+          -193.28
+        ]
+      ],
+      [
+        [
+          4.3,
+          -1.5,
+          -173.28
+        ],
+        [
+          4.3,
+          -1.5,
+          -193.28
+        ]
+      ]
+    ],
+    "final_arena": [
+      [
+        [
+          -4.3,
+          0.0,
+          -233.6
+        ],
+        [
+          -4.3,
+          0.0,
+          -253.6
+        ]
+      ],
+      [
+        [
+          4.3,
+          0.0,
+          -233.6
+        ],
+        [
+          4.3,
+          0.0,
+          -253.6
+        ]
+      ]
     ]
   }
 }

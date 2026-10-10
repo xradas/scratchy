@@ -14,6 +14,9 @@ var dead_ids: Dictionary = {}
 var arena_remaining: Dictionary = {}
 var arena_active: Dictionary = {}
 var enemy_groups: Dictionary = {}
+var traps: Dictionary = {}
+var trap_entries: Dictionary = {}
+var trap_shutters: Dictionary = {}
 var current_room := ""
 var finished := false
 var prompt := ""
@@ -24,12 +27,18 @@ var secrets: Dictionary = {}
 var shortcuts: Dictionary = {}
 func setup(controller: Node, actor: CharacterBody3D) -> void:
 	combat = controller; player = actor
-	rooms.clear(); navigation.clear(); pickups.clear(); mechanisms.clear()
+	rooms.clear(); navigation.clear(); pickups.clear(); mechanisms.clear(); trap_entries.clear(); trap_shutters.clear()
 	scan(self)
 	if combat.has_signal("combat_event") and not combat.combat_event.is_connected(handle_event): combat.combat_event.connect(handle_event)
 	reset()
 func scan(node: Node) -> void:
 	if node is Node3D:
+		if node.has_meta("stage_polygon") and node.get_child_count() == 0: build_polygon(node)
+		if node.has_meta("trap_entry"): trap_entries[String(node.get_meta("trap_entry"))] = node
+		if node.has_meta("trap_shutter"):
+			var arena := String(node.get_meta("trap_shutter"))
+			if not trap_shutters.has(arena): trap_shutters[arena] = []
+			trap_shutters[arena].append(node)
 		if node.has_meta("stage_room"): rooms.append(node)
 		if node.has_meta("stage_nav"): navigation.append(node)
 		if node.has_meta("stage_pickup"): pickups.append(node)
@@ -37,6 +46,11 @@ func scan(node: Node) -> void:
 	for child in node.get_children(): scan(child)
 func reset() -> void:
 	flags.clear(); collected.clear(); visited.clear(); dead_ids.clear(); arena_remaining.clear(); arena_active.clear(); enemy_groups.clear(); secrets.clear(); shortcuts.clear()
+	traps.clear()
+	for arena in trap_entries:
+		traps[arena] = {"triggered":false,"cleared":false,"latched":false,"shutters_open":false}
+		trap_entries[arena].reset_door()
+		for shutter in trap_shutters.get(arena,[]): shutter.reset_door()
 	finished = false; secret_found = false; shortcut_open = false; current_room = ""; prompt = ""
 	objective = "Restore power at the first arena breaker."
 	for item in pickups: item.visible = true
@@ -61,15 +75,44 @@ func update_player(actor: CharacterBody3D, controller: Node) -> void:
 	if not current_room.is_empty():
 		visited[current_room] = true
 		for room in rooms:
-			if String(room.get_meta("stage_room")) == current_room and room.has_meta("arena_id"): activate_arena(String(room.get_meta("arena_id")))
+			if String(room.get_meta("stage_room")) == current_room and room.has_meta("arena_id") and not traps.has(String(room.get_meta("arena_id"))): activate_arena(String(room.get_meta("arena_id")))
 	for enemy in combat.enemies:
-		if is_instance_valid(enemy) and not enemy.dead and String(enemy.get_meta("activate_room", "")) == current_room: enemy.awake = true
+		if is_instance_valid(enemy) and not enemy.dead and String(enemy.get_meta("activate_room", "")) == current_room and is_arena_active(String(enemy.get_meta("arena_id", ""))): enemy.awake = true
 	for item in pickups:
 		if not collected.has(item.get_instance_id()) and player.global_position.distance_to(item.global_position) < 1.2: collect(item)
+	update_traps()
 	var selected := nearest_mechanism()
 	prompt = describe(selected) if selected != null else ""
 func _physics_process(_delta: float) -> void:
 	if is_instance_valid(player) and is_instance_valid(combat): update_player(player, combat)
+func trigger_trap(arena: String) -> void:
+	if not traps.has(arena) or traps[arena].triggered: return
+	traps[arena].triggered = true
+	message_changed.emit("AMBUSH · survive the weapon cache")
+	objective = "Clear the ambush to reopen retreat and enable its control."
+	for shutter in trap_shutters.get(arena,[]): shutter.activate()
+	# The normal weapon pickup is a lure, never a permanent prerequisite.
+	if int(arena_remaining.get(arena,0)) == 0: clear_trap(arena)
+func clear_trap(arena: String) -> void:
+	if not traps.has(arena): return
+	traps[arena].cleared = true; traps[arena].latched = false
+	trap_entries[arena].activate()
+	flags["clear_"+arena] = true
+func update_traps() -> void:
+	for arena in traps:
+		var state: Dictionary = traps[arena]
+		if not state.triggered: continue
+		var entry: Node3D = trap_entries[arena]
+		if state.cleared: continue
+		var normal: Vector3 = entry.get_meta("entry_normal")
+		var threshold: Vector3 = entry.get_meta("entry_threshold")
+		if (player.global_position-threshold).dot(normal) > 3.0 and entry.opened: entry.seal()
+		state.latched = entry.is_closed()
+		var exposed := true
+		for shutter in trap_shutters.get(arena,[]):
+			if not shutter.is_open(): exposed = false
+		state.shutters_open = exposed
+		if exposed and not arena_active.get(arena,false): activate_arena(arena)
 func activate_arena(arena: String) -> void:
 	if arena_active.has(arena): return
 	arena_active[arena] = true
@@ -86,6 +129,7 @@ func notify_enemy_death(id: String, arena: String = "") -> void:
 	arena_remaining[arena] = maxi(0, int(arena_remaining[arena]) - 1)
 	if int(arena_remaining[arena]) == 0:
 		flags["clear_" + arena] = true
+		clear_trap(arena)
 		if arena_active.get(arena, false): objective = "Use this arena’s enabled control."
 		message_changed.emit("Arena clear · its control is enabled")
 func missing_requirements(node: Node) -> Array[String]:
@@ -153,8 +197,10 @@ func collect(item: Node3D) -> void:
 	elif kind == "armor":
 		if combat.armor >= 100: return
 		combat.armor = minf(100, combat.armor + amount)
-	elif kind == "pistol": combat.ammo_pistol += amount
-	elif kind == "shells": combat.ammo_shotgun += amount
+	elif kind in ["pistol","shells","rivets","rockets"]: combat.add_ammo(StringName(kind),amount)
+	elif kind in ["twin_shotgun","rivet_cannon","siege_launcher"]:
+		combat.grant_weapon(StringName(kind),amount)
+		trigger_trap(String(item.get_meta("bait_arena","")))
 	elif kind in ["brass", "red", "brass_key", "red_key"]:
 		if not flags.get("power", false): return
 		flags[kind] = true
@@ -162,7 +208,11 @@ func collect(item: Node3D) -> void:
 		refresh_objective()
 	else: return
 	collected[item.get_instance_id()] = true; item.visible = false
-	message_changed.emit(kind.trim_suffix("_key").capitalize() + " access key acquired" if kind in ["brass", "red", "brass_key", "red_key"] else "%s +%d" % [kind.capitalize(), amount])
+	if kind in ["twin_shotgun","rivet_cannon","siege_launcher"]:
+		var equip_key: int = {"twin_shotgun":4,"rivet_cannon":5,"siege_launcher":6}[kind]
+		message_changed.emit("%s acquired · [%d] equip · AMBUSH" % [kind.replace("_"," ").capitalize(),equip_key])
+	else:
+		message_changed.emit(kind.trim_suffix("_key").capitalize() + " access key acquired" if kind in ["brass", "red", "brass_key", "red_key"] else "%s +%d" % [kind.capitalize(), amount])
 func refresh_objective() -> void:
 	if flags.get("exit", false): objective = "Reach the enabled exit."
 	elif flags.get("red", false): objective = "Return to the red gate and clear the raised final arena."
@@ -206,6 +256,38 @@ func get_level_state() -> Dictionary:
 		if not visited.has(id): continue
 		var bounds: Vector3 = room.get_meta("room_bounds")
 		map.append({"id": id, "label": room.get_meta("stage_label", id), "rect": Rect2(Vector2(room.global_position.x - bounds.x, room.global_position.z - bounds.z), Vector2(bounds.x * 2, bounds.z * 2)), "visited": true, "position": room.global_position, "bounds": bounds})
-	return {"objective": objective, "prompt": prompt, "current_room": current_room, "visited_rooms": visited.keys(), "map_rooms": map, "key": flags.get("brass", false), "brass_key": flags.get("brass", false), "red_key": flags.get("red", false), "power": flags.get("power", false), "arena_remaining": arena_remaining.duplicate(), "shortcut_open": shortcut_open, "shortcuts_open": shortcuts.size(), "secret_found": secret_found, "secrets_found": secrets.size(), "exit_ready": flags.get("exit", false), "completed": finished, "pickups_remaining": pickups.size() - collected.size(), "flags": flags.duplicate()}
+	return {"objective": objective, "prompt": prompt, "current_room": current_room, "visited_rooms": visited.keys(), "map_rooms": map, "key": flags.get("brass", false), "brass_key": flags.get("brass", false), "red_key": flags.get("red", false), "power": flags.get("power", false), "arena_remaining": arena_remaining.duplicate(), "traps": traps.duplicate(true), "shortcut_open": shortcut_open, "shortcuts_open": shortcuts.size(), "secret_found": secret_found, "secrets_found": secrets.size(), "exit_ready": flags.get("exit", false), "completed": finished, "pickups_remaining": pickups.size() - collected.size(), "flags": flags.duplicate()}
 func is_arena_active(arena: String) -> bool:
 	return arena.is_empty() or bool(arena_active.get(arena, false))
+
+func build_polygon(node: Node3D) -> void:
+	var outline: PackedVector2Array = node.get_meta("stage_polygon")
+	var height: float = node.get_meta("polygon_height",1.0)
+	var vertices := PackedVector3Array()
+	for elevation in [0.0,height]:
+		for point in outline: vertices.append(Vector3(point.x,elevation,point.y))
+	var faces: Array[Vector3i] = []
+	var count := outline.size()
+	for index in range(1,count-1):
+		faces.append(Vector3i(0,index,index+1))
+		faces.append(Vector3i(count,count+index+1,count+index))
+	for index in count:
+		var following := (index+1)%count
+		faces.append(Vector3i(index,following,index+count))
+		faces.append(Vector3i(following,following+count,index+count))
+	var center := Vector3.ZERO
+	for vertex in vertices: center += vertex
+	center /= vertices.size()
+	var surface := SurfaceTool.new(); surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for face in faces:
+		var a := vertices[face.x]; var b := vertices[face.y]; var c := vertices[face.z]
+		var normal := (b-a).cross(c-a).normalized()
+		if normal.dot((a+b+c)/3.0-center) < 0:
+			var temporary := b; b=c; c=temporary; normal=-normal
+		for vertex in [a,b,c]: surface.set_normal(normal); surface.add_vertex(vertex)
+	var mesh := surface.commit()
+	mesh.surface_set_material(0,node.get_meta("polygon_material"))
+	var body := StaticBody3D.new();body.collision_layer=1;body.collision_mask=3;body.set_meta("hit_material","hard");node.add_child(body)
+	var visual := MeshInstance3D.new();visual.mesh=mesh;body.add_child(visual)
+	var shape := ConvexPolygonShape3D.new();shape.points=vertices
+	var collider := CollisionShape3D.new();collider.shape=shape;body.add_child(collider)

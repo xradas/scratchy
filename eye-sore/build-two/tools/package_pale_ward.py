@@ -37,7 +37,7 @@ STYLE_PASS_LIMITATIONS = [
 ]
 DEFAULT_LIMITATIONS = [
     "Playable reference-based art/layout pass; full production and human release acceptance pending.",
-    "Materials and signs sample the original approved board; source-byte preservation does not establish whole-scene visual acceptance.",
+    "Dedicated architecture materials and original-board signs retain native source pixels; source-byte preservation does not establish whole-scene visual acceptance.",
     *STYLE_PASS_LIMITATIONS,
     "Human-paced encounters toward the original 5–8 minute duration remain work.",
     "Sustained human combat, interaction audio, and final mix review remain pending.",
@@ -94,11 +94,13 @@ def provenance_files() -> list[Path]:
     roots = ("concepts/environment-art-v1", "concepts/gore-art-v1",
              "concepts/sprite-art-v1", "concepts/style-art-v2",
              "concepts/weapon-style-v3", "concepts/expansion-v1", "docs/expansion-v1",
+             "concepts/arsenal-architecture-v2", "docs/arsenal-architecture-v2",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")
     paths = [PROJECT / "concepts/visual-v2/manifest.json",
              PROJECT / "concepts/audio-v4/manifest.json",
              PROJECT / "concepts/audio-v5/manifest.json",
+             PROJECT / "concepts/audio-v6/manifest.json",
              PROJECT / "concepts/audio-v3/manifest.json",
              PROJECT / "concepts/audio-v2/manifest.json",
              PROJECT / "verification/download_manifest.json",
@@ -107,7 +109,9 @@ def provenance_files() -> list[Path]:
              PROJECT / "assets/materials/expanded-stages/provenance.json"]
     for root in roots:
         paths.extend(p for p in (PROJECT / root).rglob("*")
-                     if p.is_file() and p.suffix in {".json", ".txt", ".md"})
+                     if p.is_file() and p.suffix in {".json", ".txt", ".md"}
+                     and not (root == "concepts/arsenal-architecture-v2"
+                              and "review" in p.relative_to(PROJECT / root).parts))
     return sorted(set(paths))
 
 
@@ -351,6 +355,8 @@ def package(args: argparse.Namespace) -> dict:
             f"EYESORE / THREE THEMED STAGES\n\nRun ./{name}, choose a stage, and click Play.\n"
             "The Pale Ward / The Ash Citadel / The Occupied Line.\n"
             "WASD move, mouse look, left click fire; 1 pistol, 2 shotgun, 3 melee.\n"
+            "Find heavy weapons: 4 twin shotgun, 5 rivet cannon, 6 siege launcher.\n"
+            "Weapon caches spring ambushes; clear the fight to reopen retreat.\n"
             "E uses doors/lift/exit; walk over pickups; Tab shows visited areas.\n"
             "Escape pauses/settings; Retry restores the level. No jump/dash/reload.\n\n"
             "Clear each arena to enable its marked control. Use the breaker, find\n"

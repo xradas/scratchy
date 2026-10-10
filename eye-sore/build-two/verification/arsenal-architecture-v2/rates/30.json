@@ -1,0 +1,1178 @@
+{
+  "accepted_shots": 16,
+  "actors_removed": 2,
+  "camera_unchanged": true,
+  "damage_owner": {
+    "accepted": "scripts/combat.gd:try_fire/resolve_shot",
+    "explosion": "scripts/combat.gd:resolve_ordnance_explosion",
+    "explosion_counts": {
+      "15": 1,
+      "16": 1
+    },
+    "fixture_wall_id": "58267273440",
+    "projectile": "scripts/player_ordnance.gd swept physical contacts",
+    "siege_shots": [
+      15,
+      16
+    ]
+  },
+  "display_server": "X11",
+  "failures": [],
+  "final_ammo": {
+    "ammo_pistol": 36,
+    "ammo_rivets": 60,
+    "ammo_rockets": 4,
+    "ammo_shotgun": 20
+  },
+  "firing_draws": 176,
+  "fixture_grants": {
+    "rivet_cannon_rivets": 72,
+    "siege_launcher_rockets": 6,
+    "twin_shotgun_shells": 12
+  },
+  "forced_draw_calls": 0,
+  "forced_draws": 0,
+  "frame_times_ms": {
+    "maximum": 186.189,
+    "mean": 33.8303522727273,
+    "median": 33.33,
+    "minimum": 1.257,
+    "p95": 34.577,
+    "samples": 176
+  },
+  "granted_ammo": {
+    "ammo_pistol": 36,
+    "ammo_rivets": 72,
+    "ammo_rockets": 6,
+    "ammo_shotgun": 24
+  },
+  "hidden_shot_ids": [],
+  "matched_cap": true,
+  "measured_render_fps": 29.5592547171364,
+  "native_draws": 255,
+  "phase_transitions": [
+    {
+      "cooldown_seconds": 0.0,
+      "fixture_tick": 1,
+      "phase": "idle",
+      "phase_seconds": 0.0,
+      "physics_tick": 2,
+      "weapon": "pistol"
+    },
+    {
+      "cooldown_seconds": 0.22,
+      "fixture_tick": 24,
+      "phase": "switch",
+      "phase_seconds": 0.0,
+      "physics_tick": 25,
+      "weapon": "twin_shotgun"
+    },
+    {
+      "cooldown_seconds": 1.2,
+      "fixture_tick": 38,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 39,
+      "weapon": "twin_shotgun"
+    },
+    {
+      "cooldown_seconds": 1.08333333333333,
+      "fixture_tick": 45,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 46,
+      "weapon": "twin_shotgun"
+    },
+    {
+      "cooldown_seconds": 1.2,
+      "fixture_tick": 110,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 111,
+      "weapon": "twin_shotgun"
+    },
+    {
+      "cooldown_seconds": 1.08333333333333,
+      "fixture_tick": 117,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 118,
+      "weapon": "twin_shotgun"
+    },
+    {
+      "cooldown_seconds": 0.22,
+      "fixture_tick": 182,
+      "phase": "switch",
+      "phase_seconds": 0.0,
+      "physics_tick": 183,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 196,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 197,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 200,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 201,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 206,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 207,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 210,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 211,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 216,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 217,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 220,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 221,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 226,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 227,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 230,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 231,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 236,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 237,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 240,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 241,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 246,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 247,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 250,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 251,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 256,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 257,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 260,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 261,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 266,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 267,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 270,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 271,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 276,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 277,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 280,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 281,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 286,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 287,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 290,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 291,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 296,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 297,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 300,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 301,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.16,
+      "fixture_tick": 306,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 307,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0933333333333334,
+      "fixture_tick": 310,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 311,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.0,
+      "fixture_tick": 316,
+      "phase": "idle",
+      "phase_seconds": 0.0,
+      "physics_tick": 317,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "cooldown_seconds": 0.22,
+      "fixture_tick": 339,
+      "phase": "switch",
+      "phase_seconds": 0.0,
+      "physics_tick": 340,
+      "weapon": "siege_launcher"
+    },
+    {
+      "cooldown_seconds": 1.0,
+      "fixture_tick": 353,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 354,
+      "weapon": "siege_launcher"
+    },
+    {
+      "cooldown_seconds": 0.866666666666666,
+      "fixture_tick": 361,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 362,
+      "weapon": "siege_launcher"
+    },
+    {
+      "cooldown_seconds": 1.0,
+      "fixture_tick": 413,
+      "phase": "fire",
+      "phase_seconds": 0.0,
+      "physics_tick": 414,
+      "weapon": "siege_launcher"
+    },
+    {
+      "cooldown_seconds": 0.866666666666666,
+      "fixture_tick": 421,
+      "phase": "recover",
+      "phase_seconds": 0.0,
+      "physics_tick": 422,
+      "weapon": "siege_launcher"
+    },
+    {
+      "cooldown_seconds": 0.0,
+      "fixture_tick": 474,
+      "phase": "idle",
+      "phase_seconds": 0.0,
+      "physics_tick": 475,
+      "weapon": "siege_launcher"
+    }
+  ],
+  "physics_delta_seconds": {
+    "maximum": 0.0166666666666667,
+    "mean": 0.0166666666666667,
+    "median": 0.0166666666666667,
+    "minimum": 0.0166666666666667,
+    "p95": 0.0166666666666667,
+    "samples": 517
+  },
+  "physics_ticks": 517,
+  "physics_ticks_per_second": 60,
+  "render_cap": 30,
+  "rendered_shots": {
+    "1": {
+      "draw": 19,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 1,
+      "physics_tick": 40,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "2": {
+      "draw": 52,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 111,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "3": {
+      "draw": 95,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 197,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "4": {
+      "draw": 100,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 207,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "5": {
+      "draw": 105,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 217,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "6": {
+      "draw": 110,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 227,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "7": {
+      "draw": 115,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 237,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "8": {
+      "draw": 120,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 247,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "9": {
+      "draw": 125,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 257,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "10": {
+      "draw": 130,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 267,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "11": {
+      "draw": 135,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 277,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "12": {
+      "draw": 140,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 287,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "13": {
+      "draw": 145,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 297,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "14": {
+      "draw": 150,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 0,
+      "physics_tick": 307,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "15": {
+      "draw": 174,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 1,
+      "physics_tick": 355,
+      "texture_present": true,
+      "window_can_draw": true
+    },
+    "16": {
+      "draw": 204,
+      "forced": false,
+      "muzzle_visible": true,
+      "physics_latency": 1,
+      "physics_tick": 415,
+      "texture_present": true,
+      "window_can_draw": true
+    }
+  },
+  "rendering_method": "gl_compatibility",
+  "scope": "Native Main calibration wall-shot cadence and muzzle visibility. Two original AI actors removed, stable camera/player fixture placement, declared ammo grants; 60 Hz real engine physics with 30/60/120 render cap. No live-AI, physical mouse feel, or human acceptance claim.",
+  "simulated_seconds": 8.61666666666667,
+  "startup_ammo": {
+    "ammo_pistol": 36,
+    "ammo_rivets": 0,
+    "ammo_rockets": 0,
+    "ammo_shotgun": 12
+  },
+  "timeline": [
+    {
+      "ammo": 0,
+      "ammo_kind": "ammo_shotgun",
+      "amount": 12,
+      "fixture_tick": 0,
+      "material": "",
+      "physics_tick": 1,
+      "shot_id": 0,
+      "target_id": "",
+      "type": "ammo_added",
+      "weapon": "",
+      "window_tick": 0
+    },
+    {
+      "ammo": 12,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 0,
+      "material": "",
+      "physics_tick": 1,
+      "shot_id": 0,
+      "target_id": "",
+      "type": "weapon_granted",
+      "weapon": "twin_shotgun",
+      "window_tick": 0
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "ammo_rivets",
+      "amount": 72,
+      "fixture_tick": 0,
+      "material": "",
+      "physics_tick": 1,
+      "shot_id": 0,
+      "target_id": "",
+      "type": "ammo_added",
+      "weapon": "",
+      "window_tick": 0
+    },
+    {
+      "ammo": 72,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 0,
+      "material": "",
+      "physics_tick": 1,
+      "shot_id": 0,
+      "target_id": "",
+      "type": "weapon_granted",
+      "weapon": "rivet_cannon",
+      "window_tick": 0
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "ammo_rockets",
+      "amount": 6,
+      "fixture_tick": 0,
+      "material": "",
+      "physics_tick": 1,
+      "shot_id": 0,
+      "target_id": "",
+      "type": "ammo_added",
+      "weapon": "",
+      "window_tick": 0
+    },
+    {
+      "ammo": 6,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 0,
+      "material": "",
+      "physics_tick": 1,
+      "shot_id": 0,
+      "target_id": "",
+      "type": "weapon_granted",
+      "weapon": "siege_launcher",
+      "window_tick": 0
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 24,
+      "material": "",
+      "physics_tick": 25,
+      "shot_id": 0,
+      "target_id": "",
+      "type": "weapon_switch",
+      "weapon": "twin_shotgun",
+      "window_tick": 0
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 38,
+      "material": "",
+      "physics_tick": 39,
+      "shot_id": 1,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "twin_shotgun",
+      "window_tick": 0
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 38,
+      "material": "hard",
+      "physics_tick": 39,
+      "shot_id": 1,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "twin_shotgun",
+      "window_tick": 0
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 110,
+      "material": "",
+      "physics_tick": 111,
+      "shot_id": 2,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "twin_shotgun",
+      "window_tick": 72
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 110,
+      "material": "hard",
+      "physics_tick": 111,
+      "shot_id": 2,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "twin_shotgun",
+      "window_tick": 72
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 182,
+      "material": "",
+      "physics_tick": 183,
+      "shot_id": 0,
+      "target_id": "",
+      "type": "weapon_switch",
+      "weapon": "rivet_cannon",
+      "window_tick": 120
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 196,
+      "material": "",
+      "physics_tick": 197,
+      "shot_id": 3,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 0
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 196,
+      "material": "hard",
+      "physics_tick": 197,
+      "shot_id": 3,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 0
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 206,
+      "material": "",
+      "physics_tick": 207,
+      "shot_id": 4,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 10
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 206,
+      "material": "hard",
+      "physics_tick": 207,
+      "shot_id": 4,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 10
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 216,
+      "material": "",
+      "physics_tick": 217,
+      "shot_id": 5,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 20
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 216,
+      "material": "hard",
+      "physics_tick": 217,
+      "shot_id": 5,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 20
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 226,
+      "material": "",
+      "physics_tick": 227,
+      "shot_id": 6,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 30
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 226,
+      "material": "hard",
+      "physics_tick": 227,
+      "shot_id": 6,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 30
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 236,
+      "material": "",
+      "physics_tick": 237,
+      "shot_id": 7,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 40
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 236,
+      "material": "hard",
+      "physics_tick": 237,
+      "shot_id": 7,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 40
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 246,
+      "material": "",
+      "physics_tick": 247,
+      "shot_id": 8,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 50
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 246,
+      "material": "hard",
+      "physics_tick": 247,
+      "shot_id": 8,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 50
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 256,
+      "material": "",
+      "physics_tick": 257,
+      "shot_id": 9,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 60
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 256,
+      "material": "hard",
+      "physics_tick": 257,
+      "shot_id": 9,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 60
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 266,
+      "material": "",
+      "physics_tick": 267,
+      "shot_id": 10,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 70
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 266,
+      "material": "hard",
+      "physics_tick": 267,
+      "shot_id": 10,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 70
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 276,
+      "material": "",
+      "physics_tick": 277,
+      "shot_id": 11,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 80
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 276,
+      "material": "hard",
+      "physics_tick": 277,
+      "shot_id": 11,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 80
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 286,
+      "material": "",
+      "physics_tick": 287,
+      "shot_id": 12,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 90
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 286,
+      "material": "hard",
+      "physics_tick": 287,
+      "shot_id": 12,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 90
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 296,
+      "material": "",
+      "physics_tick": 297,
+      "shot_id": 13,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 100
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 296,
+      "material": "hard",
+      "physics_tick": 297,
+      "shot_id": 13,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 100
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 306,
+      "material": "",
+      "physics_tick": 307,
+      "shot_id": 14,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "rivet_cannon",
+      "window_tick": 110
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 306,
+      "material": "hard",
+      "physics_tick": 307,
+      "shot_id": 14,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "rivet_cannon",
+      "window_tick": 110
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 339,
+      "material": "",
+      "physics_tick": 340,
+      "shot_id": 0,
+      "target_id": "",
+      "type": "weapon_switch",
+      "weapon": "siege_launcher",
+      "window_tick": 120
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 353,
+      "material": "",
+      "physics_tick": 354,
+      "shot_id": 15,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "siege_launcher",
+      "window_tick": 0
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 380,
+      "material": "",
+      "physics_tick": 382,
+      "shot_id": 15,
+      "target_id": "",
+      "type": "ordnance_explosion",
+      "weapon": "siege_launcher",
+      "window_tick": 28
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 380,
+      "material": "hard",
+      "physics_tick": 382,
+      "shot_id": 15,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "siege_launcher",
+      "window_tick": 28
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 413,
+      "material": "",
+      "physics_tick": 414,
+      "shot_id": 16,
+      "target_id": "",
+      "type": "shot",
+      "weapon": "siege_launcher",
+      "window_tick": 60
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 440,
+      "material": "",
+      "physics_tick": 442,
+      "shot_id": 16,
+      "target_id": "",
+      "type": "ordnance_explosion",
+      "weapon": "siege_launcher",
+      "window_tick": 88
+    },
+    {
+      "ammo": 0,
+      "ammo_kind": "",
+      "amount": 0,
+      "fixture_tick": 440,
+      "material": "hard",
+      "physics_tick": 442,
+      "shot_id": 16,
+      "target_id": "58267273440",
+      "type": "impact",
+      "weapon": "siege_launcher",
+      "window_tick": 88
+    }
+  ],
+  "visible_muzzle_draws": 31,
+  "weapon_windows": [
+    {
+      "accepted_count": 2,
+      "accepted_shot_ids": [
+        1,
+        2
+      ],
+      "accepted_ticks": [
+        0,
+        72
+      ],
+      "ammo_after": 20,
+      "ammo_before": 24,
+      "ammo_cost": 2,
+      "ammo_key": "ammo_shotgun",
+      "ammo_spent": 4,
+      "fixture_start": 38,
+      "physics_start": 39,
+      "physics_ticks": 120,
+      "weapon": "twin_shotgun"
+    },
+    {
+      "accepted_count": 12,
+      "accepted_shot_ids": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "accepted_ticks": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+        110
+      ],
+      "ammo_after": 60,
+      "ammo_before": 72,
+      "ammo_cost": 1,
+      "ammo_key": "ammo_rivets",
+      "ammo_spent": 12,
+      "fixture_start": 196,
+      "physics_start": 197,
+      "physics_ticks": 120,
+      "weapon": "rivet_cannon"
+    },
+    {
+      "accepted_count": 2,
+      "accepted_shot_ids": [
+        15,
+        16
+      ],
+      "accepted_ticks": [
+        0,
+        60
+      ],
+      "ammo_after": 4,
+      "ammo_before": 6,
+      "ammo_cost": 1,
+      "ammo_key": "ammo_rockets",
+      "ammo_spent": 2,
+      "fixture_start": 353,
+      "physics_start": 354,
+      "physics_ticks": 120,
+      "weapon": "siege_launcher"
+    }
+  ],
+  "window_can_draw_frames": 255,
+  "window_dimensions": [
+    1280,
+    720
+  ],
+  "world_viewport_dimensions": [
+    640,
+    360
+  ]
+}

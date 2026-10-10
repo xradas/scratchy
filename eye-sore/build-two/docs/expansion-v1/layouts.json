@@ -74,16 +74,18 @@
           "label": "Culture Arena",
           "center": [
             0,
-            1.5,
+            -1.0,
             -76
           ],
           "size": [
             36,
-            7,
+            10,
             40
           ],
           "secret": false,
-          "arena_id": "arena_one"
+          "arena_id": "arena_one",
+          "chamfer": 2.0,
+          "encounter": "sealed weapon cache"
         },
         {
           "id": "key_wing",
@@ -154,16 +156,18 @@
           "label": "Suppression Chamber",
           "center": [
             0,
-            1.5,
+            0.0,
             -158
           ],
           "size": [
             38,
-            8,
+            12,
             32
           ],
           "secret": false,
-          "arena_id": "arena_two"
+          "arena_id": "arena_two",
+          "chamfer": 2.0,
+          "encounter": "raised crossfire bridge"
         },
         {
           "id": "red_wing",
@@ -202,16 +206,18 @@
           "label": "Core Vault",
           "center": [
             0,
-            3.0,
+            1.5,
             -210
           ],
           "size": [
             34,
-            7,
+            10,
             40
           ],
           "secret": false,
-          "arena_id": "final_arena"
+          "arena_id": "final_arena",
+          "chamfer": 2.0,
+          "encounter": "lower court and upper launcher reward"
         },
         {
           "id": "exit_gallery",
@@ -629,7 +635,27 @@
         "main_route_armor": 180,
         "secrets_are_extra": true
       },
-      "theme_geometry": "Original containment-style broad rear stairs, asymmetric piers, specimen tubes, overhead pipes and dark machinery clusters."
+      "theme_geometry": "Original containment-style broad rear stairs, asymmetric piers, specimen tubes, overhead pipes and dark machinery clusters.",
+      "architecture_version": 2,
+      "usable_elevations": [
+        -1.0,
+        1.5,
+        3.0
+      ],
+      "weapon_cache": {
+        "arena_one": {
+          "weapon": "twin_shotgun",
+          "ammo": 12
+        },
+        "arena_two": {
+          "weapon": "rivet_cannon",
+          "ammo": 72
+        },
+        "final_arena": {
+          "weapon": "siege_launcher",
+          "ammo": 6
+        }
+      }
     },
     {
       "id": "ash_citadel",
@@ -704,16 +730,18 @@
           "label": "Chain Court",
           "center": [
             0.0,
-            0,
+            0.0,
             -83.60000000000001
           ],
           "size": [
             39.6,
-            9,
+            14,
             44.0
           ],
           "secret": false,
-          "arena_id": "arena_one"
+          "arena_id": "arena_one",
+          "chamfer": 3.0,
+          "encounter": "sealed weapon cache"
         },
         {
           "id": "key_wing",
@@ -784,16 +812,18 @@
           "label": "Furnace Court",
           "center": [
             0.0,
-            0,
+            0.0,
             -173.8
           ],
           "size": [
             41.800000000000004,
-            10,
+            16,
             35.2
           ],
           "secret": false,
-          "arena_id": "arena_two"
+          "arena_id": "arena_two",
+          "chamfer": 3.0,
+          "encounter": "raised crossfire bridge"
         },
         {
           "id": "red_wing",
@@ -837,11 +867,13 @@
           ],
           "size": [
             37.400000000000006,
-            9,
+            14,
             44.0
           ],
           "secret": false,
-          "arena_id": "final_arena"
+          "arena_id": "final_arena",
+          "chamfer": 3.0,
+          "encounter": "lower court and upper launcher reward"
         },
         {
           "id": "exit_gallery",
@@ -1259,7 +1291,27 @@
         "main_route_armor": 180,
         "secrets_are_extra": true
       },
-      "theme_geometry": "Open vertical stone arch ribs, stepped battlements, braziers and torn banners, rust grille cages; warm fire light/dark red cloth."
+      "theme_geometry": "Open vertical stone arch ribs, stepped battlements, braziers and torn banners, rust grille cages; warm fire light/dark red cloth.",
+      "architecture_version": 2,
+      "usable_elevations": [
+        0.0,
+        2.0,
+        4.0
+      ],
+      "weapon_cache": {
+        "arena_one": {
+          "weapon": "twin_shotgun",
+          "ammo": 12
+        },
+        "arena_two": {
+          "weapon": "rivet_cannon",
+          "ammo": 72
+        },
+        "final_arena": {
+          "weapon": "siege_launcher",
+          "ammo": 6
+        }
+      }
     },
     {
       "id": "occupied_line",
@@ -1334,16 +1386,18 @@
           "label": "Checkpoint Arena",
           "center": [
             0.0,
-            0,
+            -1.5,
             -88.16
           ],
           "size": [
             41.76,
-            7,
+            11,
             46.4
           ],
           "secret": false,
-          "arena_id": "arena_one"
+          "arena_id": "arena_one",
+          "chamfer": 2.0,
+          "encounter": "sealed weapon cache"
         },
         {
           "id": "key_wing",
@@ -1414,16 +1468,18 @@
           "label": "Relay Arena",
           "center": [
             0.0,
-            0,
+            -1.5,
             -183.28
           ],
           "size": [
             44.08,
-            8,
-            37.12
+            13,
+            42
           ],
           "secret": false,
-          "arena_id": "arena_two"
+          "arena_id": "arena_two",
+          "chamfer": 2.0,
+          "encounter": "raised crossfire bridge"
         },
         {
           "id": "red_wing",
@@ -1462,16 +1518,18 @@
           "label": "Signal Arena",
           "center": [
             0.0,
-            1.5,
+            0.0,
             -243.6
           ],
           "size": [
             39.44,
-            7,
+            11,
             46.4
           ],
           "secret": false,
-          "arena_id": "final_arena"
+          "arena_id": "final_arena",
+          "chamfer": 2.0,
+          "encounter": "lower court and upper launcher reward"
         },
         {
           "id": "exit_gallery",
@@ -1889,7 +1947,27 @@
         "main_route_armor": 180,
         "secrets_are_extra": true
       },
-      "theme_geometry": "Wide blue-tile square piers, upper daylight bands, platform signage/hazard-stripe native meshes, transit rail/dividers and cable nests/cyan nodes."
+      "theme_geometry": "Wide blue-tile square piers, upper daylight bands, platform signage/hazard-stripe native meshes, transit rail/dividers and cable nests/cyan nodes.",
+      "architecture_version": 2,
+      "usable_elevations": [
+        -1.5,
+        0.0,
+        3.0
+      ],
+      "weapon_cache": {
+        "arena_one": {
+          "weapon": "twin_shotgun",
+          "ammo": 12
+        },
+        "arena_two": {
+          "weapon": "rivet_cannon",
+          "ammo": 72
+        },
+        "final_arena": {
+          "weapon": "siege_launcher",
+          "ammo": 6
+        }
+      }
     }
   ]
 }

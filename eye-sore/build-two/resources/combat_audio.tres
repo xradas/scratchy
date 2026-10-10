@@ -1,248 +1,332 @@
 [gd_resource type="Resource" script_class="CombatAudioProfile" format=3]
 
-[ext_resource type="Script" path="res://scripts/combat_cue.gd" id="1_olwcw"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/pistol_fire.ogg" id="2_pdvem"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/shotgun_fire.ogg" id="3_11y3x"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/melee_swing.ogg" id="4_xa820"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/empty.ogg" id="5_606w1"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/pistol_flesh.ogg" id="6_ivcuq"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/shotgun_flesh.ogg" id="7_iv21c"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/melee_flesh.ogg" id="8_j3pg3"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/pistol_armor.ogg" id="9_thokj"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/shotgun_armor.ogg" id="10_ixh0h"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/melee_armor.ogg" id="11_2vrww"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/pistol_hard.ogg" id="12_530o4"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/shotgun_hard.ogg" id="13_rvtet"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/melee_hard.ogg" id="14_ch4yb"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/projectile_impact.ogg" id="15_2bpjd"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/projectile_hard.ogg" id="16_qh3ym"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/projectile_release.ogg" id="17_mnstr"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/unsealed_hurt.ogg" id="18_ckovq"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/vessel_hurt.ogg" id="19_6s05y"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/unsealed_death.ogg" id="20_k2ihn"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/vessel_death.ogg" id="21_00fmh"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/unsealed_attack_warning.ogg" id="22_vxv2t"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/vessel_attack_warning.ogg" id="23_prhf4"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/player_hurt.ogg" id="24_fhtrb"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/ironbound_attack_warning.ogg" id="25_jjgum"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/ironbound_hurt.ogg" id="26_u82dw"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/ironbound_death.ogg" id="27_b64yh"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/censer_attack_warning.ogg" id="28_soghu"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/censer_hurt.ogg" id="29_5ofyj"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/censer_death.ogg" id="30_cbwbr"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/reaver_attack_warning.ogg" id="31_543pp"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/reaver_hurt.ogg" id="32_2yc7l"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/reaver_death.ogg" id="33_w1jdh"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/surveyor_attack_warning.ogg" id="34_nw6lo"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/surveyor_hurt.ogg" id="35_7v8lv"]
-[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/surveyor_death.ogg" id="36_cekb0"]
-[ext_resource type="AudioStream" path="res://assets/audio/music/level_music_biotech_candidate.ogg" id="37_66ngv"]
-[ext_resource type="Script" path="res://scripts/combat_audio_profile.gd" id="38_bvap3"]
-
-[sub_resource type="Resource" id="Resource_dxl0o"]
-script = ExtResource("1_olwcw")
-identifier = &"pistol_fire"
-bus = &"Weapons"
-variations = Array[AudioStream]([ExtResource("2_pdvem")])
-spatial = false
-
-[sub_resource type="Resource" id="Resource_cjwuu"]
-script = ExtResource("1_olwcw")
-identifier = &"shotgun_fire"
-bus = &"Weapons"
-variations = Array[AudioStream]([ExtResource("3_11y3x")])
-spatial = false
-
-[sub_resource type="Resource" id="Resource_7ldme"]
-script = ExtResource("1_olwcw")
-identifier = &"melee_swing"
-bus = &"Weapons"
-variations = Array[AudioStream]([ExtResource("4_xa820")])
-spatial = false
-
-[sub_resource type="Resource" id="Resource_j2baf"]
-script = ExtResource("1_olwcw")
-identifier = &"empty"
-bus = &"Weapons"
-variations = Array[AudioStream]([ExtResource("5_606w1")])
-spatial = false
-
-[sub_resource type="Resource" id="Resource_hn4qg"]
-script = ExtResource("1_olwcw")
-identifier = &"pistol_flesh"
-variations = Array[AudioStream]([ExtResource("6_ivcuq")])
-
-[sub_resource type="Resource" id="Resource_ascqa"]
-script = ExtResource("1_olwcw")
-identifier = &"shotgun_flesh"
-variations = Array[AudioStream]([ExtResource("7_iv21c")])
-
-[sub_resource type="Resource" id="Resource_6aup6"]
-script = ExtResource("1_olwcw")
-identifier = &"melee_flesh"
-variations = Array[AudioStream]([ExtResource("8_j3pg3")])
-
-[sub_resource type="Resource" id="Resource_claoy"]
-script = ExtResource("1_olwcw")
-identifier = &"pistol_armor"
-variations = Array[AudioStream]([ExtResource("9_thokj")])
-
-[sub_resource type="Resource" id="Resource_k14e7"]
-script = ExtResource("1_olwcw")
-identifier = &"shotgun_armor"
-variations = Array[AudioStream]([ExtResource("10_ixh0h")])
-
-[sub_resource type="Resource" id="Resource_0hy5u"]
-script = ExtResource("1_olwcw")
-identifier = &"melee_armor"
-variations = Array[AudioStream]([ExtResource("11_2vrww")])
-
-[sub_resource type="Resource" id="Resource_g56ka"]
-script = ExtResource("1_olwcw")
-identifier = &"pistol_hard"
-variations = Array[AudioStream]([ExtResource("12_530o4")])
-
-[sub_resource type="Resource" id="Resource_rjmg3"]
-script = ExtResource("1_olwcw")
-identifier = &"shotgun_hard"
-variations = Array[AudioStream]([ExtResource("13_rvtet")])
-
-[sub_resource type="Resource" id="Resource_1ogs4"]
-script = ExtResource("1_olwcw")
-identifier = &"melee_hard"
-variations = Array[AudioStream]([ExtResource("14_ch4yb")])
-
-[sub_resource type="Resource" id="Resource_t343t"]
-script = ExtResource("1_olwcw")
-identifier = &"projectile_impact"
-variations = Array[AudioStream]([ExtResource("15_2bpjd")])
-
-[sub_resource type="Resource" id="Resource_fwvow"]
-script = ExtResource("1_olwcw")
-identifier = &"projectile_hard"
-variations = Array[AudioStream]([ExtResource("16_qh3ym")])
-
-[sub_resource type="Resource" id="Resource_vhb7y"]
-script = ExtResource("1_olwcw")
-identifier = &"projectile_release"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("17_mnstr")])
-
-[sub_resource type="Resource" id="Resource_xksua"]
-script = ExtResource("1_olwcw")
-identifier = &"unsealed_hurt"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("18_ckovq")])
-
-[sub_resource type="Resource" id="Resource_kdoa7"]
-script = ExtResource("1_olwcw")
-identifier = &"vessel_hurt"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("19_6s05y")])
-
-[sub_resource type="Resource" id="Resource_h3ky2"]
-script = ExtResource("1_olwcw")
-identifier = &"unsealed_death"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("20_k2ihn")])
-
-[sub_resource type="Resource" id="Resource_fsu7e"]
-script = ExtResource("1_olwcw")
-identifier = &"vessel_death"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("21_00fmh")])
-
-[sub_resource type="Resource" id="Resource_7xjxu"]
-script = ExtResource("1_olwcw")
-identifier = &"unsealed_attack_warning"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("22_vxv2t")])
-
-[sub_resource type="Resource" id="Resource_qjj3a"]
-script = ExtResource("1_olwcw")
-identifier = &"vessel_attack_warning"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("23_prhf4")])
-
-[sub_resource type="Resource" id="Resource_bcji0"]
-script = ExtResource("1_olwcw")
-identifier = &"player_hurt"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("24_fhtrb")])
-
-[sub_resource type="Resource" id="Resource_bsp3v"]
-script = ExtResource("1_olwcw")
-identifier = &"ironbound_attack_warning"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("25_jjgum")])
-
-[sub_resource type="Resource" id="Resource_lyc2n"]
-script = ExtResource("1_olwcw")
-identifier = &"ironbound_hurt"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("26_u82dw")])
-
-[sub_resource type="Resource" id="Resource_jwtui"]
-script = ExtResource("1_olwcw")
-identifier = &"ironbound_death"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("27_b64yh")])
+[ext_resource type="Script" path="res://scripts/combat_cue.gd" id="1_ch4yb"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/pistol_fire.ogg" id="2_2bpjd"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/shotgun_fire.ogg" id="3_qh3ym"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/melee_swing.ogg" id="4_mnstr"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/empty.ogg" id="5_ckovq"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/pistol_flesh.ogg" id="6_6s05y"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/shotgun_flesh.ogg" id="7_k2ihn"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/melee_flesh.ogg" id="8_00fmh"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/pistol_armor.ogg" id="9_vxv2t"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/shotgun_armor.ogg" id="10_prhf4"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/melee_armor.ogg" id="11_fhtrb"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/pistol_hard.ogg" id="12_jjgum"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/shotgun_hard.ogg" id="13_u82dw"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/melee_hard.ogg" id="14_b64yh"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/projectile_impact.ogg" id="15_soghu"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/projectile_hard.ogg" id="16_5ofyj"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/projectile_release.ogg" id="17_cbwbr"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/unsealed_hurt.ogg" id="18_543pp"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/vessel_hurt.ogg" id="19_2yc7l"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/unsealed_death.ogg" id="20_w1jdh"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/vessel_death.ogg" id="21_nw6lo"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/unsealed_attack_warning.ogg" id="22_7v8lv"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v1/vessel_attack_warning.ogg" id="23_cekb0"]
+[ext_resource type="AudioStream" path="res://assets/audio/cues/player_hurt.ogg" id="24_66ngv"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/ironbound_attack_warning.ogg" id="25_bvap3"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/ironbound_hurt.ogg" id="26_dxl0o"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/ironbound_death.ogg" id="27_cjwuu"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/censer_attack_warning.ogg" id="28_7ldme"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/censer_hurt.ogg" id="29_j2baf"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/censer_death.ogg" id="30_hn4qg"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/reaver_attack_warning.ogg" id="31_ascqa"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/reaver_hurt.ogg" id="32_6aup6"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/reaver_death.ogg" id="33_claoy"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/surveyor_attack_warning.ogg" id="34_k14e7"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/surveyor_hurt.ogg" id="35_0hy5u"]
+[ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/surveyor_death.ogg" id="36_g56ka"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/twin_shotgun_fire.ogg" id="37_rjmg3"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/rivet_cannon_fire.ogg" id="38_1ogs4"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/siege_launcher_fire.ogg" id="39_t343t"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/siege_explosion.ogg" id="40_fwvow"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/twin_shotgun_flesh.ogg" id="41_vhb7y"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/twin_shotgun_armor.ogg" id="42_xksua"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/twin_shotgun_hard.ogg" id="43_kdoa7"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/rivet_cannon_flesh.ogg" id="44_h3ky2"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/rivet_cannon_armor.ogg" id="45_fsu7e"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/rivet_cannon_hard.ogg" id="46_7xjxu"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/siege_launcher_flesh.ogg" id="47_qjj3a"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/siege_launcher_armor.ogg" id="48_bcji0"]
+[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/siege_launcher_hard.ogg" id="49_bsp3v"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/level_music_biotech_candidate.ogg" id="50_lyc2n"]
+[ext_resource type="Script" path="res://scripts/combat_audio_profile.gd" id="51_jwtui"]
 
 [sub_resource type="Resource" id="Resource_kqw2p"]
-script = ExtResource("1_olwcw")
-identifier = &"censer_attack_warning"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("28_soghu")])
+script = ExtResource("1_ch4yb")
+identifier = &"pistol_fire"
+bus = &"Weapons"
+variations = Array[AudioStream]([ExtResource("2_2bpjd")])
+spatial = false
 
 [sub_resource type="Resource" id="Resource_dvwsd"]
-script = ExtResource("1_olwcw")
-identifier = &"censer_hurt"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("29_5ofyj")])
+script = ExtResource("1_ch4yb")
+identifier = &"shotgun_fire"
+bus = &"Weapons"
+variations = Array[AudioStream]([ExtResource("3_qh3ym")])
+spatial = false
 
 [sub_resource type="Resource" id="Resource_e4pat"]
-script = ExtResource("1_olwcw")
-identifier = &"censer_death"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("30_cbwbr")])
+script = ExtResource("1_ch4yb")
+identifier = &"melee_swing"
+bus = &"Weapons"
+variations = Array[AudioStream]([ExtResource("4_mnstr")])
+spatial = false
 
 [sub_resource type="Resource" id="Resource_ak6cj"]
-script = ExtResource("1_olwcw")
-identifier = &"reaver_attack_warning"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("31_543pp")])
+script = ExtResource("1_ch4yb")
+identifier = &"empty"
+bus = &"Weapons"
+variations = Array[AudioStream]([ExtResource("5_ckovq")])
+spatial = false
 
 [sub_resource type="Resource" id="Resource_rin0i"]
-script = ExtResource("1_olwcw")
-identifier = &"reaver_hurt"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("32_2yc7l")])
+script = ExtResource("1_ch4yb")
+identifier = &"pistol_flesh"
+variations = Array[AudioStream]([ExtResource("6_6s05y")])
 
 [sub_resource type="Resource" id="Resource_vjjp8"]
-script = ExtResource("1_olwcw")
-identifier = &"reaver_death"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("33_w1jdh")])
+script = ExtResource("1_ch4yb")
+identifier = &"shotgun_flesh"
+variations = Array[AudioStream]([ExtResource("7_k2ihn")])
 
 [sub_resource type="Resource" id="Resource_c3xjg"]
-script = ExtResource("1_olwcw")
-identifier = &"surveyor_attack_warning"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("34_nw6lo")])
+script = ExtResource("1_ch4yb")
+identifier = &"melee_flesh"
+variations = Array[AudioStream]([ExtResource("8_00fmh")])
 
 [sub_resource type="Resource" id="Resource_idrf5"]
-script = ExtResource("1_olwcw")
-identifier = &"surveyor_hurt"
-bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("35_7v8lv")])
+script = ExtResource("1_ch4yb")
+identifier = &"pistol_armor"
+variations = Array[AudioStream]([ExtResource("9_vxv2t")])
 
 [sub_resource type="Resource" id="Resource_xh7nf"]
-script = ExtResource("1_olwcw")
+script = ExtResource("1_ch4yb")
+identifier = &"shotgun_armor"
+variations = Array[AudioStream]([ExtResource("10_prhf4")])
+
+[sub_resource type="Resource" id="Resource_hbneu"]
+script = ExtResource("1_ch4yb")
+identifier = &"melee_armor"
+variations = Array[AudioStream]([ExtResource("11_fhtrb")])
+
+[sub_resource type="Resource" id="Resource_8dkui"]
+script = ExtResource("1_ch4yb")
+identifier = &"pistol_hard"
+variations = Array[AudioStream]([ExtResource("12_jjgum")])
+
+[sub_resource type="Resource" id="Resource_g166v"]
+script = ExtResource("1_ch4yb")
+identifier = &"shotgun_hard"
+variations = Array[AudioStream]([ExtResource("13_u82dw")])
+
+[sub_resource type="Resource" id="Resource_k6p0o"]
+script = ExtResource("1_ch4yb")
+identifier = &"melee_hard"
+variations = Array[AudioStream]([ExtResource("14_b64yh")])
+
+[sub_resource type="Resource" id="Resource_d5clj"]
+script = ExtResource("1_ch4yb")
+identifier = &"projectile_impact"
+variations = Array[AudioStream]([ExtResource("15_soghu")])
+
+[sub_resource type="Resource" id="Resource_oekpy"]
+script = ExtResource("1_ch4yb")
+identifier = &"projectile_hard"
+variations = Array[AudioStream]([ExtResource("16_5ofyj")])
+
+[sub_resource type="Resource" id="Resource_rogqo"]
+script = ExtResource("1_ch4yb")
+identifier = &"projectile_release"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("17_cbwbr")])
+
+[sub_resource type="Resource" id="Resource_jrvti"]
+script = ExtResource("1_ch4yb")
+identifier = &"unsealed_hurt"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("18_543pp")])
+
+[sub_resource type="Resource" id="Resource_adyuf"]
+script = ExtResource("1_ch4yb")
+identifier = &"vessel_hurt"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("19_2yc7l")])
+
+[sub_resource type="Resource" id="Resource_tf742"]
+script = ExtResource("1_ch4yb")
+identifier = &"unsealed_death"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("20_w1jdh")])
+
+[sub_resource type="Resource" id="Resource_7xc8h"]
+script = ExtResource("1_ch4yb")
+identifier = &"vessel_death"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("21_nw6lo")])
+
+[sub_resource type="Resource" id="Resource_3smh4"]
+script = ExtResource("1_ch4yb")
+identifier = &"unsealed_attack_warning"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("22_7v8lv")])
+
+[sub_resource type="Resource" id="Resource_80hdo"]
+script = ExtResource("1_ch4yb")
+identifier = &"vessel_attack_warning"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("23_cekb0")])
+
+[sub_resource type="Resource" id="Resource_75re4"]
+script = ExtResource("1_ch4yb")
+identifier = &"player_hurt"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("24_66ngv")])
+
+[sub_resource type="Resource" id="Resource_4mri0"]
+script = ExtResource("1_ch4yb")
+identifier = &"ironbound_attack_warning"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("25_bvap3")])
+
+[sub_resource type="Resource" id="Resource_boqk7"]
+script = ExtResource("1_ch4yb")
+identifier = &"ironbound_hurt"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("26_dxl0o")])
+
+[sub_resource type="Resource" id="Resource_fwjb6"]
+script = ExtResource("1_ch4yb")
+identifier = &"ironbound_death"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("27_cjwuu")])
+
+[sub_resource type="Resource" id="Resource_nldr1"]
+script = ExtResource("1_ch4yb")
+identifier = &"censer_attack_warning"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("28_7ldme")])
+
+[sub_resource type="Resource" id="Resource_0jqgm"]
+script = ExtResource("1_ch4yb")
+identifier = &"censer_hurt"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("29_j2baf")])
+
+[sub_resource type="Resource" id="Resource_o87ax"]
+script = ExtResource("1_ch4yb")
+identifier = &"censer_death"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("30_hn4qg")])
+
+[sub_resource type="Resource" id="Resource_j6aom"]
+script = ExtResource("1_ch4yb")
+identifier = &"reaver_attack_warning"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("31_ascqa")])
+
+[sub_resource type="Resource" id="Resource_01giq"]
+script = ExtResource("1_ch4yb")
+identifier = &"reaver_hurt"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("32_6aup6")])
+
+[sub_resource type="Resource" id="Resource_gqh7u"]
+script = ExtResource("1_ch4yb")
+identifier = &"reaver_death"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("33_claoy")])
+
+[sub_resource type="Resource" id="Resource_1ea5q"]
+script = ExtResource("1_ch4yb")
+identifier = &"surveyor_attack_warning"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("34_k14e7")])
+
+[sub_resource type="Resource" id="Resource_cd8wq"]
+script = ExtResource("1_ch4yb")
+identifier = &"surveyor_hurt"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("35_0hy5u")])
+
+[sub_resource type="Resource" id="Resource_s5agc"]
+script = ExtResource("1_ch4yb")
 identifier = &"surveyor_death"
 bus = &"Creatures"
-variations = Array[AudioStream]([ExtResource("36_cekb0")])
+variations = Array[AudioStream]([ExtResource("36_g56ka")])
+
+[sub_resource type="Resource" id="Resource_rw7yo"]
+script = ExtResource("1_ch4yb")
+identifier = &"twin_shotgun_fire"
+bus = &"Weapons"
+variations = Array[AudioStream]([ExtResource("37_rjmg3")])
+spatial = false
+
+[sub_resource type="Resource" id="Resource_6itos"]
+script = ExtResource("1_ch4yb")
+identifier = &"rivet_cannon_fire"
+bus = &"Weapons"
+variations = Array[AudioStream]([ExtResource("38_1ogs4")])
+spatial = false
+
+[sub_resource type="Resource" id="Resource_bk1if"]
+script = ExtResource("1_ch4yb")
+identifier = &"siege_launcher_fire"
+bus = &"Weapons"
+variations = Array[AudioStream]([ExtResource("39_t343t")])
+spatial = false
+
+[sub_resource type="Resource" id="Resource_mvtw6"]
+script = ExtResource("1_ch4yb")
+identifier = &"siege_explosion"
+variations = Array[AudioStream]([ExtResource("40_fwvow")])
+
+[sub_resource type="Resource" id="Resource_tqjsv"]
+script = ExtResource("1_ch4yb")
+identifier = &"twin_shotgun_flesh"
+variations = Array[AudioStream]([ExtResource("41_vhb7y")])
+
+[sub_resource type="Resource" id="Resource_qulq2"]
+script = ExtResource("1_ch4yb")
+identifier = &"twin_shotgun_armor"
+variations = Array[AudioStream]([ExtResource("42_xksua")])
+
+[sub_resource type="Resource" id="Resource_7rb25"]
+script = ExtResource("1_ch4yb")
+identifier = &"twin_shotgun_hard"
+variations = Array[AudioStream]([ExtResource("43_kdoa7")])
+
+[sub_resource type="Resource" id="Resource_ip82e"]
+script = ExtResource("1_ch4yb")
+identifier = &"rivet_cannon_flesh"
+variations = Array[AudioStream]([ExtResource("44_h3ky2")])
+
+[sub_resource type="Resource" id="Resource_yxw5b"]
+script = ExtResource("1_ch4yb")
+identifier = &"rivet_cannon_armor"
+variations = Array[AudioStream]([ExtResource("45_fsu7e")])
+
+[sub_resource type="Resource" id="Resource_bsdfb"]
+script = ExtResource("1_ch4yb")
+identifier = &"rivet_cannon_hard"
+variations = Array[AudioStream]([ExtResource("46_7xjxu")])
+
+[sub_resource type="Resource" id="Resource_p7rav"]
+script = ExtResource("1_ch4yb")
+identifier = &"siege_launcher_flesh"
+variations = Array[AudioStream]([ExtResource("47_qjj3a")])
+
+[sub_resource type="Resource" id="Resource_56l4j"]
+script = ExtResource("1_ch4yb")
+identifier = &"siege_launcher_armor"
+variations = Array[AudioStream]([ExtResource("48_bcji0")])
+
+[sub_resource type="Resource" id="Resource_7yw7w"]
+script = ExtResource("1_ch4yb")
+identifier = &"siege_launcher_hard"
+variations = Array[AudioStream]([ExtResource("49_bsp3v")])
 
 [resource]
-script = ExtResource("38_bvap3")
-cues = Array[ExtResource("1_olwcw")]([SubResource("Resource_dxl0o"), SubResource("Resource_cjwuu"), SubResource("Resource_7ldme"), SubResource("Resource_j2baf"), SubResource("Resource_hn4qg"), SubResource("Resource_ascqa"), SubResource("Resource_6aup6"), SubResource("Resource_claoy"), SubResource("Resource_k14e7"), SubResource("Resource_0hy5u"), SubResource("Resource_g56ka"), SubResource("Resource_rjmg3"), SubResource("Resource_1ogs4"), SubResource("Resource_t343t"), SubResource("Resource_fwvow"), SubResource("Resource_vhb7y"), SubResource("Resource_xksua"), SubResource("Resource_kdoa7"), SubResource("Resource_h3ky2"), SubResource("Resource_fsu7e"), SubResource("Resource_7xjxu"), SubResource("Resource_qjj3a"), SubResource("Resource_bcji0"), SubResource("Resource_bsp3v"), SubResource("Resource_lyc2n"), SubResource("Resource_jwtui"), SubResource("Resource_kqw2p"), SubResource("Resource_dvwsd"), SubResource("Resource_e4pat"), SubResource("Resource_ak6cj"), SubResource("Resource_rin0i"), SubResource("Resource_vjjp8"), SubResource("Resource_c3xjg"), SubResource("Resource_idrf5"), SubResource("Resource_xh7nf")])
-music = ExtResource("37_66ngv")
+script = ExtResource("51_jwtui")
+cues = Array[ExtResource("1_ch4yb")]([SubResource("Resource_kqw2p"), SubResource("Resource_dvwsd"), SubResource("Resource_e4pat"), SubResource("Resource_ak6cj"), SubResource("Resource_rin0i"), SubResource("Resource_vjjp8"), SubResource("Resource_c3xjg"), SubResource("Resource_idrf5"), SubResource("Resource_xh7nf"), SubResource("Resource_hbneu"), SubResource("Resource_8dkui"), SubResource("Resource_g166v"), SubResource("Resource_k6p0o"), SubResource("Resource_d5clj"), SubResource("Resource_oekpy"), SubResource("Resource_rogqo"), SubResource("Resource_jrvti"), SubResource("Resource_adyuf"), SubResource("Resource_tf742"), SubResource("Resource_7xc8h"), SubResource("Resource_3smh4"), SubResource("Resource_80hdo"), SubResource("Resource_75re4"), SubResource("Resource_4mri0"), SubResource("Resource_boqk7"), SubResource("Resource_fwjb6"), SubResource("Resource_nldr1"), SubResource("Resource_0jqgm"), SubResource("Resource_o87ax"), SubResource("Resource_j6aom"), SubResource("Resource_01giq"), SubResource("Resource_gqh7u"), SubResource("Resource_1ea5q"), SubResource("Resource_cd8wq"), SubResource("Resource_s5agc"), SubResource("Resource_rw7yo"), SubResource("Resource_6itos"), SubResource("Resource_bk1if"), SubResource("Resource_mvtw6"), SubResource("Resource_tqjsv"), SubResource("Resource_qulq2"), SubResource("Resource_7rb25"), SubResource("Resource_ip82e"), SubResource("Resource_yxw5b"), SubResource("Resource_bsdfb"), SubResource("Resource_p7rav"), SubResource("Resource_56l4j"), SubResource("Resource_7yw7w")])
+music = ExtResource("50_lyc2n")

@@ -19,7 +19,12 @@ var stage_id := "pale_ward"
 var global_start := 0
 var initial_shots := 0
 var avoid_side := 1
+var heavy_mode := false
+var weapon_shots: Dictionary = {}
+var weapon_kills: Dictionary = {}
+var arsenal_events: Array[Dictionary] = []
 func _initialize() -> void:
+	heavy_mode = "--use-heavy-weapons" in OS.get_cmdline_user_args()
 	main_mode = "--main" in OS.get_cmdline_user_args()
 	capture_mode = "--capture" in OS.get_cmdline_user_args()
 	for argument in OS.get_cmdline_user_args():
@@ -32,10 +37,32 @@ func stop() -> void:
 	for code in [KEY_W,KEY_S,KEY_A,KEY_D]: key(code, false)
 func vector(a: Array, elevation := .87) -> Vector3: return Vector3(a[0],a[1]+elevation,a[2])
 func horizontal(a: Vector3,b: Vector3) -> float: return Vector2(a.x-b.x,a.z-b.z).length()
+func observe_weapon_event(event: Dictionary) -> void:
+	var kind:=String(event.get("type",""))
+	var weapon:=String(event.get("weapon_id",""))
+	if kind=="shot":weapon_shots[weapon]=int(weapon_shots.get(weapon,0))+1
+	elif kind=="enemy_death":weapon_kills[weapon]=int(weapon_kills.get(weapon,0))+1
+	if weapon in ["twin_shotgun","rivet_cannon","siege_launcher"] and kind in ["shot","enemy_death","ordnance_explosion"]:
+		arsenal_events.append({"type":kind,"weapon":weapon,"shot_id":int(event.get("shot_id",0)),"target_id":String(event.get("target_id","")),"damage":float(event.get("damage",0)),"physics_tick":Engine.get_physics_frames()})
+func new_weapon_counts(source: Dictionary) -> Dictionary:
+	var result:={}
+	for weapon in ["twin_shotgun","rivet_cannon","siege_launcher"]:result[weapon]=int(source.get(weapon,0))
+	return result
+func final_ammo() -> Dictionary:
+	return {"pistol":combat.ammo_pistol,"shells":combat.ammo_shotgun,"rivets":combat.ammo_rivets,"rockets":combat.ammo_rockets}
+func choose_weapon(target: CharacterBody3D,distance: float) -> StringName:
+	if heavy_mode:
+		if combat.has_weapon(&"siege_launcher") and combat.ammo_rockets>0 and distance>9 and distance<25 and target.can_see_player():return &"siege_launcher"
+		if combat.has_weapon(&"twin_shotgun") and distance<11 and combat.ammo_shotgun>=2:return &"twin_shotgun"
+		if combat.has_weapon(&"rivet_cannon") and combat.ammo_rivets>0 and distance>=11 and distance<32:return &"rivet_cannon"
+	var weapon: StringName = &"shotgun" if distance < 17 and combat.ammo_shotgun > 0 else &"pistol"
+	if combat.ammo_pistol == 0 and combat.ammo_shotgun > 0: weapon = &"shotgun"
+	if combat.ammo_shotgun == 0 and combat.ammo_pistol == 0: weapon = &"melee"
+	return weapon
 func closest_enemy() -> CharacterBody3D:
 	var target: CharacterBody3D; var closest := 38.0
 	for enemy in combat.enemies:
-		if enemy.dead: continue
+		if enemy.dead or not enemy.awake: continue
 		var distance: float = enemy.global_position.distance_to(player.global_position)
 		if distance < closest and enemy.can_see_player(): target = enemy; closest = distance
 	return target
@@ -49,9 +76,7 @@ func tick(destination: Vector3, fight := true) -> void:
 		player.rotation.y = atan2(-offset.x,-offset.z)
 		player.camera.look_at(target.global_position + Vector3(0,.28,0))
 		var distance := horizontal(target.global_position,player.global_position)
-		var weapon: StringName = &"shotgun" if distance < 17 and combat.ammo_shotgun > 0 else &"pistol"
-		if combat.ammo_pistol == 0 and combat.ammo_shotgun > 0: weapon = &"shotgun"
-		if combat.ammo_shotgun == 0 and combat.ammo_pistol == 0: weapon = &"melee"
+		var weapon: StringName = choose_weapon(target,distance)
 		if weapon == &"melee": key(KEY_W,distance > 1.5)
 		elif not target.definition.ranged and distance < 3.2:
 			var backwards: Vector3 = player.global_basis.z * .6
@@ -79,8 +104,45 @@ func walk(point: Vector3,label: String) -> bool:
 	world.update_player(player,combat)
 	records.append({"segment":label,"ticks":ticks-start,"position":player.global_position,"health":combat.health,"armor":combat.armor,"pistol":combat.ammo_pistol,"shells":combat.ammo_shotgun,"kills":combat.kills})
 	return true
-func room_center(id: String) -> Vector3: return vector(route.rooms[id].center)
+func room_center(id: String) -> Vector3:
+	var room: Dictionary = route.rooms[id]
+	var point := vector(room.center)
+	if not String(room.get("arena_id","")).is_empty(): point.z += float(room.size[2])/2.0-2.5
+	return point
+func arena_floor_route(id: String,point: Vector3,arriving: bool) -> bool:
+	var room: Dictionary = route.rooms[id]
+	if String(room.get("arena_id","")).is_empty(): return await walk(room_center(id) if arriving else point,"Room route "+id)
+	var center := room_center(id)
+	var original: Vector3 = vector(room.center)
+	if point.z > original.z+float(room.size[2])/2.0-3.0: return await walk(center if arriving else point,"Entry floor "+id)
+	var side := -1.0 if point.x < original.x+.5 else 1.0
+	var lane := original.x+side*4.3
+	var near_portal := Vector3(lane,original.y,point.z)
+	if absf(point.x-original.x)<.5: near_portal.z += 2.0 if point.z<original.z else -2.0
+	var near_entry := Vector3(lane,original.y,center.z)
+	var positions: Array = [near_portal,near_entry,center] if arriving else [near_entry,near_portal,point]
+	for waypoint in positions:
+		if not await walk(waypoint,"Arena ring route "+id): return false
+	return true
 func clear_arena(id: String) -> bool:
+	# Collect the tempting cache by walking through its real pickup volume.
+	var bait: Node3D = world.get_node_or_null("Bait_"+id)
+	if bait != null and not world.traps.get(id,{}).get("triggered",false):
+		if id == "arena_two":
+			var floor_point: Vector3 = vector(route.rooms[id].center)
+			if not await walk(floor_point+Vector3(0,0,13),"Altar stair approach"): return false
+			if not await walk(floor_point+Vector3(0,2,5),"Climb altar stairs"): return false
+		if id=="final_arena":
+			var gallery: Array = route.vertical_routes[id+"_gallery"]
+			if not await walk(vector(gallery[0]),"Launcher gallery stair approach"):return false
+			if not await walk(vector(gallery[1]),"Climb launcher gallery stairs"):return false
+		if not await walk(bait.global_position,"Physical weapon cache "+id): return false
+		world.update_player(player,combat)
+		if not world.traps.get(id,{}).get("triggered",false): failures.append(id+": physical bait did not trigger ambush"); return false
+		for frame in 130:
+			await tick(player.global_position,false)
+			if world.is_arena_active(id): break
+		if not world.is_arena_active(id) and int(world.arena_remaining.get(id,0)) > 0: failures.append(id+": closet opening did not wake roster"); return false
 	var start := ticks
 	while int(world.arena_remaining.get(id,0)) > 0:
 		if combat.dead or ticks-start > 3600: failures.append(id+": arena clear failed"); return false
@@ -88,7 +150,16 @@ func clear_arena(id: String) -> bool:
 		var destination := room_center(id)
 		if target == null:
 			for enemy in combat.enemies:
-				if not enemy.dead and String(enemy.get_meta("arena_id","")) == id: destination = enemy.global_position; break
+				if not enemy.dead and String(enemy.get_meta("arena_id","")) == id:
+					var floor_point: Vector3 = vector(route.rooms[id].center)
+					var side := -1.0 if enemy.global_position.x < floor_point.x else 1.0
+					var lane := floor_point.x+side*maxf(12.0,float(route.rooms[id].size[0])/2.0-7.0)
+					if not await return_to_arena_staging(id):return false
+					var ring_x := floor_point.x+side*4.3
+					var points: Array = [Vector3(ring_x,floor_point.y,room_center(id).z),Vector3(ring_x,floor_point.y,floor_point.z),Vector3(lane,floor_point.y,floor_point.z),Vector3(lane,floor_point.y,enemy.global_position.z)]
+					for waypoint in points:
+						if not await walk(waypoint,"Closet flank "+id):return false
+					destination=player.global_position;break
 		await tick(destination)
 	stop(); return true
 func use(name: String) -> bool:
@@ -111,8 +182,22 @@ func use(name: String) -> bool:
 			await tick(player.global_position)
 		failures.append(name+": gate stalled"); return false
 	return true
+func return_to_arena_staging(id: String) -> bool:
+	var floor_point: Vector3 = vector(route.rooms[id].center)
+	if id=="arena_two" and player.global_position.y>floor_point.y+1.0:
+		if not await walk(floor_point+Vector3(0,0,13),"Descend cleared altar"):return false
+	var side := -1.0 if player.global_position.x<floor_point.x else 1.0
+	var outer := absf(player.global_position.x-floor_point.x)>7.0
+	var lane := floor_point.x+side*(maxf(12.0,float(route.rooms[id].size[0])/2.0-7.0) if outer else 4.3)
+	var points: Array = [Vector3(lane,floor_point.y,player.global_position.z),Vector3(lane,floor_point.y,floor_point.z),Vector3(floor_point.x+side*4.3,floor_point.y,floor_point.z),Vector3(floor_point.x+side*4.3,floor_point.y,room_center(id).z),room_center(id)]
+	for point in points:
+		if not await walk(point,"Arena ring retreat "+id):return false
+	return true
 func button(id: String) -> bool:
 	var node: Node3D = world.get_node("Button_"+id)
+	var arena := "arena_one" if id=="breaker" else "arena_two" if id=="release" else "final_arena"
+	if not await return_to_arena_staging(arena):return false
+	if not await arena_floor_route(arena,node.global_position+Vector3(0,-.18,1.25),false):return false
 	if not await walk(node.global_position+Vector3(0,-.18,1.25),"Control "+id): return false
 	var accepted := await use("Button_"+id)
 	if accepted: await photo(id)
@@ -125,7 +210,7 @@ func connect_rooms(a: String,b: String) -> bool:
 	if link.is_empty(): failures.append("No authored portal "+a+"→"+b); return false
 	var start := vector(link.start if link.from==a else link.end)
 	var end := vector(link.end if link.from==a else link.start)
-	if not await walk(start,"Threshold "+a+"→"+b): return false
+	if not await arena_floor_route(a,start,false): return false
 	if link.door != null:
 		var door: Node3D = world.get_node(String(link.door))
 		if not door.is_open():
@@ -135,7 +220,7 @@ func connect_rooms(a: String,b: String) -> bool:
 			if not await walk(middle-toward*1.45,"Gate "+String(link.gate)): return false
 			if not await use(String(link.door)): return false
 	if not await walk(end,"Portal "+a+"→"+b): return false
-	return await walk(room_center(b),"Room "+b)
+	return await arena_floor_route(b,end,true)
 func key_room(room: String,key_id: String) -> bool:
 	var item: Node3D = world.get_node("Key_"+key_id)
 	if not await walk(item.global_position,"Acquire "+key_id): return false
@@ -145,6 +230,11 @@ func key_room(room: String,key_id: String) -> bool:
 func ride_lift() -> bool:
 	var lift: AnimatableBody3D = world.get_node("Lift_Observation")
 	var lower: Vector3 = lift.global_position+Vector3(0,1.02,0)
+	var lift_link: Dictionary
+	for portal in route.portals:
+		if bool(portal.get("lift",false)):lift_link=portal;break
+	if not await walk(room_center("final_arena"),"Final lift approach staging"):return false
+	if not await arena_floor_route("final_arena",vector(lift_link.start),false):return false
 	# Optional observation lift is a physics shaft; it cannot bypass final combat.
 	if not await walk(lower,"Lift boarding"): return false
 	if not await use("Lift_Observation"): return false
@@ -161,7 +251,8 @@ func ride_lift() -> bool:
 		await physics_frame
 		if capture != null: stereo.append_array(capture.get_buffer(capture.get_frames_available()))
 		if not lift.moving: break
-	return await walk(room_center("final_arena"),"Return from lift")
+	if not await walk(vector(lift_link.start),"Lower lift corridor return"):return false
+	return await arena_floor_route("final_arena",vector(lift_link.start),true)
 func route_run() -> void:
 	# Main route collects only authored required-room supply clusters.
 	for pair in [["entry","service"],["service","arena_one"]]:
@@ -218,6 +309,7 @@ func run() -> void:
 		root.add_child(world); player = world.get_node("Player")
 		combat = load("res://scripts/combat.gd").new(); world.add_child(combat); combat.setup(world,player)
 		configure_art(); world.setup(combat,player)
+	combat.combat_event.connect(observe_weapon_event)
 	if capture_mode and main_mode:
 		# Capture full Master output without persisting any user settings change.
 		AudioServer.set_bus_mute(0, false)
@@ -228,7 +320,7 @@ func run() -> void:
 	await photo("entry")
 	global_start = Engine.get_physics_frames()
 	await route_run(); stop()
-	var report := {"stage":stage_id,"main_integration":main_mode,"failures":failures,"completed":world.finished,"health":combat.health,"armor":combat.armor,"pistol":combat.ammo_pistol,"shells":combat.ammo_shotgun,"kills":combat.kills,"total":combat.total_enemies,"shots":combat.shot_counter,"physics_seconds":float(Engine.get_physics_frames()-global_start)/Engine.physics_ticks_per_second,"bot_control_seconds":ticks/60.0,"secret_used":world.secret_found,"shortcuts":world.shortcuts.size(),"segments":records,"scope":"Authored expanded stage, real CharacterBody player/AI physics, original normal health/ammo, authoritative weapon rays; automated aim/strafe, no teleport, secret supplies or cheats. Bot time is not human duration."}
+	var report := {"stage":stage_id,"main_integration":main_mode,"failures":failures,"completed":world.finished,"health":combat.health,"armor":combat.armor,"pistol":combat.ammo_pistol,"shells":combat.ammo_shotgun,"kills":combat.kills,"total":combat.total_enemies,"shots":combat.shot_counter,"use_heavy_weapons":heavy_mode,"weapon_shots":weapon_shots.duplicate(),"weapon_kills":weapon_kills.duplicate(),"new_weapon_shots":new_weapon_counts(weapon_shots),"new_weapon_kills":new_weapon_counts(weapon_kills),"arsenal_events":arsenal_events,"owned_weapons":combat.owned_weapons.keys(),"final_ammo":final_ammo(),"physics_seconds":float(Engine.get_physics_frames()-global_start)/Engine.physics_ticks_per_second,"bot_control_seconds":ticks/60.0,"traps":world.traps.duplicate(true),"secret_used":world.secret_found,"shortcuts":world.shortcuts.size(),"segments":records,"scope":"Authored expanded stage, real CharacterBody player/AI physics, original normal health/ammo, authoritative weapon rays; automated aim/strafe, no teleport, secret supplies or cheats. Bot time is not human duration."}
 	var output := FileAccess.open(evidence_dir+"/"+stage_id+"-playtest.json",FileAccess.WRITE);output.store_string(JSON.stringify(report,"  "))
 	if capture_mode and main_mode: save_mix()
 	print("EXPANDED_STAGE_PLAYTEST ",JSON.stringify(report))

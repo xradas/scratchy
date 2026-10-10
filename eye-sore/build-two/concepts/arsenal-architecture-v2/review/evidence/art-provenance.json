@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "mode": "builtin imagegen",
+  "coordinator_owns_research_direction": true,
+  "raster_transformation": false,
+  "style_acceptance": "Pending human review of actual game, not established by source-byte or seam validation.",
+  "weapons": {
+    "twin_shotgun": {
+      "file": "assets/weapons/arsenal-v2/twin_shotgun-atlas-r2.png",
+      "original": "/home/rikki/.codex/generated_images/01a11d9f-4fdc-7f71-99a7-53b3d07a454d/exec-315ffb93-c597-4dea-9a5b-810da4444770.png",
+      "sha256": "dc785a6e3bdfd037e2820ef4e9b0cbc068808d14d7ecd4c69e74fe1bf6e41768",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparent": true,
+      "reference": "concepts/visual-v2/corrupted-biotech/board.png",
+      "reference_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+      "prompt": "concepts/arsenal-architecture-v2/twin_shotgun_padding-prompt.txt",
+      "registration": "verification/arsenal-architecture-v2/registration/gun-layout-r2.json",
+      "source_byte_identical": true
+    },
+    "rivet_cannon": {
+      "file": "assets/weapons/arsenal-v2/rivet_cannon-atlas.png",
+      "original": "/home/rikki/.codex/generated_images/01a11d9f-4fdc-7f71-99a7-53b3d07a454d/exec-c7c2c791-e216-47b4-a2a8-0f405fda8b87.png",
+      "sha256": "8d89c9648c0d7d4d67275130ea157e95c0ea5ab062aeb0f9dd9161df7e9b0853",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparent": true,
+      "reference": "concepts/visual-v2/corrupted-biotech/board.png",
+      "reference_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+      "prompt": "concepts/arsenal-architecture-v2/rivet_cannon-prompt.txt",
+      "registration": "verification/arsenal-architecture-v2/registration/gun-layout-r2.json",
+      "source_byte_identical": true
+    },
+    "siege_launcher": {
+      "file": "assets/weapons/arsenal-v2/siege_launcher-atlas.png",
+      "original": "/home/rikki/.codex/generated_images/01a11d9f-4fdc-7f71-99a7-53b3d07a454d/exec-505416d7-111d-4bab-9d4f-928d5d62ffae.png",
+      "sha256": "1840c172717f66b07792d18df584f09e44eef7bb15ebb83f0f350762ee3eb7e6",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparent": true,
+      "reference": "concepts/visual-v2/civic-invasion/board.png",
+      "reference_sha256": "c308d210b983b319487ebabed9fce5b5b1187e2dce2c4f74966ff19d2d9ea8ce",
+      "prompt": "concepts/arsenal-architecture-v2/siege_launcher_revision-prompt.txt",
+      "registration": "verification/arsenal-architecture-v2/registration/gun-layout-r2.json",
+      "source_byte_identical": true
+    }
+  },
+  "materials": {
+    "pale_ward": {
+      "file": "res://assets/materials/architecture-v2/pale_ward-atlas.png",
+      "sha256": "4303b23e710d9530681a41727dfe9e71588ceee044894c68f4651a484655d447",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "generated_original": "/home/rikki/.codex/generated_images/01a11d9f-4fdc-7f71-99a7-53b3d07a454d/exec-8f6c5ff7-9224-4c45-95c1-605178da157e.png",
+      "prompt": "concepts/arsenal-architecture-v2/pale_ward_material-prompt.txt",
+      "regions": {
+        "wall": [
+          0,
+          0,
+          384,
+          341
+        ],
+        "floor": [
+          384,
+          0,
+          384,
+          341
+        ],
+        "ceiling": [
+          768,
+          0,
+          384,
+          341
+        ],
+        "trim": [
+          1152,
+          0,
+          384,
+          341
+        ],
+        "grate": [
+          0,
+          341,
+          384,
+          341
+        ],
+        "door": [
+          384,
+          341,
+          384,
+          341
+        ],
+        "panel": [
+          768,
+          341,
+          384,
+          341
+        ],
+        "damaged": [
+          1152,
+          341,
+          384,
+          341
+        ],
+        "stairs": [
+          0,
+          682,
+          384,
+          341
+        ],
+        "infestation": [
+          384,
+          682,
+          384,
+          341
+        ],
+        "banner": [
+          768,
+          682,
+          384,
+          341
+        ],
+        "pillar": [
+          1152,
+          682,
+          384,
+          341
+        ]
+      },
+      "reference": "concepts/visual-v2/corrupted-biotech/board.png",
+      "reference_sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+      "source_byte_identical": true
+    },
+    "ash_citadel": {
+      "file": "res://assets/materials/architecture-v2/ash_citadel-atlas.png",
+      "sha256": "37eaea3bd69aca4f54cfa2ce4dbb592c2a7c4ec86589343eeb6676b5e6b7563f",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "generated_original": "/home/rikki/.codex/generated_images/01a11d9f-4fdc-7f71-99a7-53b3d07a454d/exec-70c39f0a-f7f3-4bbe-ab53-5129d15ea748.png",
+      "prompt": "concepts/arsenal-architecture-v2/ash_citadel_material-prompt.txt",
+      "regions": {
+        "wall": [
+          0,
+          0,
+          384,
+          341
+        ],
+        "floor": [
+          384,
+          0,
+          384,
+          341
+        ],
+        "ceiling": [
+          768,
+          0,
+          384,
+          341
+        ],
+        "trim": [
+          1152,
+          0,
+          384,
+          341
+        ],
+        "grate": [
+          0,
+          341,
+          384,
+          341
+        ],
+        "door": [
+          384,
+          341,
+          384,
+          341
+        ],
+        "panel": [
+          768,
+          341,
+          384,
+          341
+        ],
+        "damaged": [
+          1152,
+          341,
+          384,
+          341
+        ],
+        "stairs": [
+          0,
+          682,
+          384,
+          341
+        ],
+        "infestation": [
+          384,
+          682,
+          384,
+          341
+        ],
+        "banner": [
+          768,
+          682,
+          384,
+          341
+        ],
+        "pillar": [
+          1152,
+          682,
+          384,
+          341
+        ]
+      },
+      "reference": "concepts/visual-v2/occult-fortress/board.png",
+      "reference_sha256": "02aa6c514877676fd64bab7a33d41f5cc99671a3e8ae668d9bc088bf954e6e17",
+      "source_byte_identical": true
+    },
+    "occupied_line": {
+      "file": "res://assets/materials/architecture-v2/occupied_line-atlas.png",
+      "sha256": "bbf41b4cc6dcb1d7bb975249a4efca4a3ddd78159ec29d8d77ef6aefb2ee0daa",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "generated_original": "/home/rikki/.codex/generated_images/01a11d9f-4fdc-7f71-99a7-53b3d07a454d/exec-41441bf0-6e74-46fa-9723-f7aebe7ee3e0.png",
+      "prompt": "concepts/arsenal-architecture-v2/occupied_line_material-prompt.txt",
+      "regions": {
+        "wall": [
+          0,
+          0,
+          384,
+          341
+        ],
+        "floor": [
+          384,
+          0,
+          384,
+          341
+        ],
+        "ceiling": [
+          768,
+          0,
+          384,
+          341
+        ],
+        "trim": [
+          1152,
+          0,
+          384,
+          341
+        ],
+        "grate": [
+          0,
+          341,
+          384,
+          341
+        ],
+        "door": [
+          384,
+          341,
+          384,
+          341
+        ],
+        "panel": [
+          768,
+          341,
+          384,
+          341
+        ],
+        "damaged": [
+          1152,
+          341,
+          384,
+          341
+        ],
+        "stairs": [
+          0,
+          682,
+          384,
+          341
+        ],
+        "infestation": [
+          384,
+          682,
+          384,
+          341
+        ],
+        "banner": [
+          768,
+          682,
+          384,
+          341
+        ],
+        "pillar": [
+          1152,
+          682,
+          384,
+          341
+        ]
+      },
+      "reference": "concepts/visual-v2/civic-invasion/board.png",
+      "reference_sha256": "c308d210b983b319487ebabed9fce5b5b1187e2dce2c4f74966ff19d2d9ea8ce",
+      "source_byte_identical": true
+    }
+  },
+  "rejected_variants": [
+    {
+      "original": "/home/rikki/.codex/generated_images/01a11d9f-4fdc-7f71-99a7-53b3d07a454d/exec-90608a96-bbed-4d2d-8062-50c6f49018e6.png",
+      "sha256": "4825fac6fdc623926d4ae1ce325d8d980a132abbc6fe9c0226140a0261949219",
+      "reason": "Twin silhouette repeated old pump gun",
+      "runtime_selected": false
+    },
+    {
+      "original": "/home/rikki/.codex/generated_images/01a11d9f-4fdc-7f71-99a7-53b3d07a454d/exec-6dbc323e-5d20-44fc-9759-3716ce081f1f.png",
+      "sha256": "8ba30ead496a0df7849770caefe60b9a2c7eb7590d43026eef5eca80ca599c48",
+      "reason": "Twin exterior-right forearm alpha contacted source border",
+      "runtime_selected": false
+    },
+    {
+      "original": "/home/rikki/.codex/generated_images/01a11d9f-4fdc-7f71-99a7-53b3d07a454d/exec-5e03865d-7f15-47bc-a26f-523fac756144.png",
+      "sha256": "7beaf8e0f588ca6fd48a9cd15ba006391bf51ae8695fc244243e802a2b02a2d0",
+      "reason": "Siege illustrated bore pointed toward player",
+      "runtime_selected": false
+    }
+  ]
+}
