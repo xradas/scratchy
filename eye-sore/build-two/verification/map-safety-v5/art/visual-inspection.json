@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "scope": "Read-only visual inspection of native PNG originals. Presentation evidence only; no route, combat, interlock safety or human approval claim. No image edits.",
+  "files": [
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-c3-exit-stairs.png",
+      "sha256": "601e59f8d430cfaeefea066fdec173cc699b4fabe28bc4c4cafa34c0c06da183"
+    },
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-c3-exit-stairs-world.png",
+      "sha256": "95f664202fbfc7c2d1d8395a206934be9703c6c4f171693012d7749d9afbf1a5"
+    },
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-lower-guard-platform-away.png",
+      "sha256": "3392635845a5d83b3863aa60eb462bf1a95b8fbbef82b00b92ca2d9680b51708"
+    },
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-lower-guard-platform-away-world.png",
+      "sha256": "de20a6a3dfac8abd4e388b25776c34886b7d0652a3489fd87bc9b38a2edc9b4a"
+    },
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-upper-guard-platform-away.png",
+      "sha256": "c1776fe9402a5acbf78cb86eb70ebf602a22563505c2621fcb578a18f207e226"
+    },
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-upper-guard-platform-away-world.png",
+      "sha256": "57c75f0d7b3b26a9d652048e8c9347f502c08306fb7e4c80a030ab58ccce3a62"
+    }
+  ],
+  "findings": [
+    {
+      "capture": "lower-guard-platform-away",
+      "finding": "E CALL LIFT reads outward from controlled lower approach. Dark panel body, small indicator, closed guard and frames visible."
+    },
+    {
+      "capture": "upper-guard-platform-away",
+      "finding": "E CALL LIFT reads outward from controlled upper approach. Panel pedestal, small indicator, closed guard and frames visible."
+    },
+    {
+      "capture": "c3-exit-stairs",
+      "finding": "Stair treads, lit approach, exit doorway and separate right-side EXIT arrow visible; short arrow label remains subdued in the native low-resolution art style."
+    }
+  ],
+  "source_hashes": {
+    "res://resources/campaign/pale_ward_01-route.json": "0a5584147f3622f221881790403553dbff8bf0042dfacff27a15d1395208bc30",
+    "res://scenes/campaign/pale_ward_01.tscn": "082ceb6b2f111a61a6ef0e0ee7eabe18f0d1760da524dbec47b5d0166fc6a25e",
+    "res://scripts/lift_landing_gate.gd": "6c64a0834938f52d3681deef02ea601bfd265562b532a20e6ff88ad439f3b5bb",
+    "res://scripts/main.gd": "46f22f5b9b3a8443172a18e799fb1639d20f3be7d3266365114223153b479133",
+    "res://scripts/stage_level.gd": "5b5b3d971c9f196f418638057cb3756e0756ec6668cd64471c106cb6dd99fdb4",
+    "res://scripts/ward_lift.gd": "054b6bdec420592c43893bf9e168ea96014586a668530fc095e83350bed0867a"
+  },
+  "previous_rejected_cohort": "verification/map-safety-v5/art-before-visual-fix",
+  "original_png_bytes_verified": true,
+  "current_source_hashes_match": true
+}

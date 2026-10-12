@@ -1,0 +1,25 @@
+{
+  "command": [
+    "tools/godot.sh",
+    "--headless",
+    "--fixed-fps",
+    "60",
+    "--log-file",
+    "/tmp/eyesore-map-safety-v5-source-lift.log",
+    "--",
+    "--campaign-route-test",
+    "--campaign-level=pale_ward_01",
+    "--use-heavy-weapons",
+    "--check-lift-route",
+    "--release-report-dir=/tmp/eyesore-map-safety-v5-source-lift"
+  ],
+  "cwd": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+  "scope": "Source Main automated finite Ward01 seed; live AI, real damage/fire, physical lift roundtrip and actual E exits. Headless, not native rendering/humanplay.",
+  "runtime_sha256": {
+    "scripts/ward_lift.gd": "054b6bdec420592c43893bf9e168ea96014586a668530fc095e83350bed0867a",
+    "scripts/lift_landing_gate.gd": "6c64a0834938f52d3681deef02ea601bfd265562b532a20e6ff88ad439f3b5bb",
+    "scripts/stage_level.gd": "5b5b3d971c9f196f418638057cb3756e0756ec6668cd64471c106cb6dd99fdb4",
+    "scenes/campaign/pale_ward_01.tscn": "a53b3dc3ae106b1a943b9445e4ab48bfdb95b8caa8425f6dd0175f219b5d3a55",
+    "scripts/campaign_route_playtest.gd": "b933a2ae5902a217371967945b7275a7bdb0bf82c6eca0c555bfb5f61e09ace9"
+  }
+}

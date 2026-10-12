@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-12",
+  "user_report": "Fell out of first level near C3 exit, thought it was stairs. Requested more map design.",
+  "baseline_source_commit": "4657497dcfcc99a62406af84bf0b815df5d00636",
+  "preserved_build": "/home/rikki/Builds/eyesore-combat-balance-2026-10-12",
+  "scope": "Physical lift safety and exit stair legibility inallcurrent12maps, fixingunprotectedshaftbyC3andsharedvariants. Exactusersmovementnotrecorded, staticC3stairs hadnosupportgap.",
+  "static_stair_findings": "Ward01 full width exit/gallery stairs and landings show no support gaps in95779native queries and33actual WASD trials. This does not identify the precise user path.",
+  "lift_hazard": "Baseline actual Main15 hazards across5campaignlifts; finalmovementauditall12maps/eightlifts nowreportszero hazards/errors. Independentfine gatechecks andnativevisualfinalreview recordedseparately.",
+  "geometry_contract": [
+    "Visible collidable shaft base directly under the lowest deck, no invisible catchplane.",
+    "Fixed guards at both landings open only with real lift docked and stopped.",
+    "Refuse departure when a body straddles the entrance; guard visual and collider state agree.",
+    "Fixed visible call controls outside guards and retained passenger/shaft-base call positions.",
+    "Clear marked exit stair approach and restrained local landing illumination.",
+    "Backwall closes space below the upper room, while docking remains flush with its floor.",
+    "Descending deck waits with0.4m underside clearance for bodies below; lower emergency guard and two0.15m steps permit egress, then descent resumes after guard clearance.",
+    "One physics boundary and repeated clear-volume check separate gate closure from deck departure."
+  ],
+  "campaign_lift_levels": [
+    "pale_ward_01",
+    "ash_citadel_01",
+    "ash_citadel_03",
+    "occupied_line_01",
+    "occupied_line_02"
+  ],
+  "preserve": [
+    "Nine-level chapter order, progression, all pickups and budgets.",
+    "Weapon/enemy stats and original art/audio/music.",
+    "Previous build remains independently playable."
+  ],
+  "specialists": {
+    "godot_foundation": "Static stair/landing physical audit, independent gate/interlock checks.",
+    "ambush_stages_v2": "Actual Main before/after falling reproduction, lift calls/carry/reset and exit movement.",
+    "campaign_levels_v3": "Implement coordinator geometry in author and scenes, preserving resource budgets.",
+    "coordinator": "Research/direction, runtime gate integration, source/release verification."
+  },
+  "human_acceptance": "pending",
+  "standalone_scope": "Apply same physical containment tothreecurrentstandalone maps sharingthisauthor primitive; previouslybuiltpackages remainpreserved."
+}

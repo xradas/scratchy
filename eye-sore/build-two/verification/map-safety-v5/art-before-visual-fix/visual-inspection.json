@@ -1,0 +1,52 @@
+{
+  "status": "visual_changes_requested",
+  "scope": "Read-only inspection of native PNG originals, not route, combat or lift safety proof. Original capture bytes verified against native receipt. No image edits.",
+  "files": [
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-c3-exit-stairs.png",
+      "sha256": "ac7ece7ebce3bd13980a04408bae22bd47090e654e190cda61db523665b3875d"
+    },
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-c3-exit-stairs-world.png",
+      "sha256": "e47da5ce4f21d06bb62d881b5468f3ff02bfe57937b3dd6dd4dcea9a8a0cb7a6"
+    },
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-lower-guard-platform-away.png",
+      "sha256": "ea95b6bce4182054378a732bfe54d5eb7d8c3b4ce1d97ce0bf7fc8809077503a"
+    },
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-lower-guard-platform-away-world.png",
+      "sha256": "47e98d0ac6b49d48690a3bb8dfafa0016cdcdd2964fee829371d57c12c1b7e2d"
+    },
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-upper-guard-platform-away.png",
+      "sha256": "46837cd8f068aecee87016ac28469e60c543f7fec89cae6411339c02d970c49b"
+    },
+    {
+      "path": "verification/map-safety-v5/art/pale_ward_01-upper-guard-platform-away-world.png",
+      "sha256": "74aea87935854c47f871ee9095da062b50faf8b1fa0344f5174dea917e2df17e"
+    }
+  ],
+  "findings": [
+    {
+      "capture": "lower-guard-platform-away",
+      "finding": "Visible E CALL LIFT text is backward from controlled outside approach; physical plate and closed guard/frame visible."
+    },
+    {
+      "capture": "upper-guard-platform-away",
+      "finding": "Visible E CALL LIFT text is backward from controlled outside approach; physical plate and closed guard/frame visible."
+    },
+    {
+      "capture": "c3-exit-stairs",
+      "finding": "Native stair treads/approach visible; exit wayfinding label partially overlaps another label in chosen perspective."
+    }
+  ],
+  "source_hashes": {
+    "res://resources/campaign/pale_ward_01-route.json": "0a5584147f3622f221881790403553dbff8bf0042dfacff27a15d1395208bc30",
+    "res://scenes/campaign/pale_ward_01.tscn": "a53b3dc3ae106b1a943b9445e4ab48bfdb95b8caa8425f6dd0175f219b5d3a55",
+    "res://scripts/lift_landing_gate.gd": "6c64a0834938f52d3681deef02ea601bfd265562b532a20e6ff88ad439f3b5bb",
+    "res://scripts/main.gd": "46f22f5b9b3a8443172a18e799fb1639d20f3be7d3266365114223153b479133",
+    "res://scripts/stage_level.gd": "5b5b3d971c9f196f418638057cb3756e0756ec6668cd64471c106cb6dd99fdb4",
+    "res://scripts/ward_lift.gd": "054b6bdec420592c43893bf9e168ea96014586a668530fc095e83350bed0867a"
+  }
+}

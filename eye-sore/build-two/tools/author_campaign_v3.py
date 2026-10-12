@@ -190,18 +190,14 @@ def author_campaign(stage, contract):
         floor_size=[w,.5,w];floor_size[axis]=length+.04
         lift=p.get('lift',False);rise=bc[1]-ac[1]
         if lift:
-            deck=list(end);deck[axis]-=sign*2;deck[1]=ac[1]-.15
-            approach_len=length-4;fpos=list(middle);fpos[axis]=start[axis]+sign*approach_len/2;fpos[1]=ac[1]-.25
-            fs=list(floor_size);fs[axis]=approach_len+.04;sc.box(name+'_Approach',fpos,fs,'floor')
-            sc.box('Lift_Observation',deck,(4,.3,4),'steel',typ='AnimatableBody3D',extra='script = ExtResource("lift")\nmetadata/ward_lift = true\nmetadata/requires = '+arr(['clear_final_arena'])+'\nmetadata/locked_message = "Clear the final arena before operating this lift"\nmetadata/lift_offset = '+vec((0,rise,0))+'\nmetadata/use_anchor = Vector3(0,1,0)')
-            for signpost in [-1,1]:
-                pp=list(deck);pp[cross]+=signpost*2.3;pp[1]=floor+3
-                sc.box('LiftGuide'+str(signpost),pp,(.15,7,.15),'steel')
+            base.safe_lift(sc, name, start, end, axis, cross, sign, w)
         elif rise:
             low,high=(start,end) if rise>0 else (end,start)
             sc.stairs('Step_'+str(number)+'_',low,high,w)
         else:
             pp=list(middle);pp[1]=floor-.25;sc.box(name+'_Floor',pp,floor_size,'floor')
+        if p['from']=='final_arena' and p['to']=='exit_gallery':
+            base.exit_stair_wayfinding(sc, start, axis, sign, bool(rise))
         roof=list(middle);roof[1]=max(ac[1],bc[1])+h+.15;rs=list(floor_size);rs[1]=.3;sc.box(name+'_Roof',roof,rs,'ceiling')
         for side in [-1,1]:
             pp=list(middle);pp[cross]+=side*(w/2+.2);pp[1]=floor+(h+abs(rise))/2

@@ -140,7 +140,9 @@ func missing_requirements(node: Node) -> Array[String]:
 func describe(node: Node3D) -> String:
 	if not missing_requirements(node).is_empty(): return String(node.get_meta("locked_message", "Access locked"))
 	if node.has_meta("stage_exit"): return "E · leave " + String(get_meta("stage_title", "the stage"))
-	if node.has_meta("ward_lift"): return "Lift travelling" if node.moving else "E · operate lift"
+	if node.has_meta("ward_lift"):
+		if node.obstructed: return "Lift blocked · clear the lower landing"
+		return "Lift travelling" if node.moving else "E · call / operate lift"
 	if node.has_meta("stage_button"):
 		return "Control active" if flags.get(String(node.get_meta("stage_button")), false) else "E · " + String(node.get_meta("label", "press control"))
 	return "Passage open" if node.opened else "E · " + String(node.get_meta("label", "open gate"))
@@ -152,19 +154,26 @@ func nearest_mechanism() -> Node3D:
 		var anchor: Vector3 = candidate.get_meta("use_anchor", Vector3.ZERO)
 		var point: Vector3 = candidate.to_global(anchor)
 		if candidate.has_method("reset_door"): point = candidate.get_parent().to_global(candidate.origin + anchor)
-		elif candidate.has_meta("ward_lift"):
-			# Fixed landing call positions remain usable while the deck is away.
+		var points: Array[Vector3] = [point]
+		if candidate.has_meta("ward_lift"):
+			# Keep passenger and shaft-base calls, and add fixed buttons outside
+			# each guard. A closed landing must never hide the only call point.
 			var lower: Vector3 = candidate.get_parent().to_global(candidate.origin + anchor)
-			var upper: Vector3 = lower + candidate.lift_offset
-			point = lower if player.global_position.distance_to(lower) <= player.global_position.distance_to(upper) else upper
-		var separation: float = player.global_position.distance_to(point)
-		if separation >= distance: continue
-		var camera: Camera3D = player.get_node_or_null("Camera3D")
-		if camera != null:
-			var ray := PhysicsRayQueryParameters3D.create(camera.global_position, point, 1, [player.get_rid()])
-			var hit := player.get_world_3d().direct_space_state.intersect_ray(ray)
-			if not hit.is_empty() and hit.collider != candidate and hit.position.distance_to(point) > .16: continue
-		best = candidate; distance = separation
+			points.append(lower)
+			points.append(lower + candidate.lift_offset)
+			for landing in ["lower", "upper"]:
+				var call_anchor: Vector3 = candidate.get_meta(landing + "_use_anchor", anchor)
+				var offset: Vector3 = candidate.lift_offset if landing == "upper" else Vector3.ZERO
+				points.append(candidate.get_parent().to_global(candidate.origin + offset + call_anchor))
+		for use_point in points:
+			var separation: float = player.global_position.distance_to(use_point)
+			if separation >= distance: continue
+			var camera: Camera3D = player.get_node_or_null("Camera3D")
+			if camera != null:
+				var ray := PhysicsRayQueryParameters3D.create(camera.global_position, use_point, 1, [player.get_rid()])
+				var hit := player.get_world_3d().direct_space_state.intersect_ray(ray)
+				if not hit.is_empty() and hit.collider != candidate and hit.position.distance_to(use_point) > .16: continue
+			best = candidate; distance = separation
 	return best
 func try_use(actor: CharacterBody3D = null) -> bool:
 	if actor != null: player = actor
@@ -181,7 +190,10 @@ func try_use(actor: CharacterBody3D = null) -> bool:
 		if flag == "breaker": flags["power"] = true
 		if flag == "exit_control": flags["exit"] = true
 		refresh_objective(); message_changed.emit(String(selected.get_meta("activated_message", "Control engaged"))); return true
-	if selected.has_meta("ward_lift"): return selected.activate()
+	if selected.has_meta("ward_lift"):
+		var accepted: bool = selected.activate()
+		if not accepted and not selected.moving: message_changed.emit("Stand clear of the lift entrance before operating it")
+		return accepted
 	if not selected.activate(flags): return false
 	var id := String(selected.get_meta("stage_door"))
 	if selected.has_meta("secret") and not secrets.has(id): secrets[id] = true; secret_found = true; message_changed.emit("Secret found")

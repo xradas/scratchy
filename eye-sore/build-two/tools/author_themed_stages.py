@@ -112,6 +112,85 @@ class Scene:
         out=re.sub(r'(?<![\w])(-?)\.(\d+)',r'\g<1>0.\2',out)
         (P/path).write_text(out.rstrip()+"\n")
 
+
+def safe_lift(sc, name, start, end, axis, cross, sign, width):
+    """Contain both landings of a physical observation lift and its lower shaft."""
+    lower, upper = start[1], end[1]
+    rise = upper - lower
+    length = abs(end[axis] - start[axis])
+    assert rise > 0 and length >= 6, (name, rise, length)
+    gate_resource = '[ext_resource type="Script" path="res://scripts/lift_landing_gate.gd" id="lift_gate"]'
+    if gate_resource not in sc.ext: sc.ext.append(gate_resource)
+
+    deck = list(end); deck[axis] -= sign * 2; deck[1] = lower - .15
+    approach = list(start); approach[axis] += sign * (length - 4) / 2; approach[1] = lower - .25
+    approach_size = [width, .5, width]; approach_size[axis] = length - 4 + .04
+    sc.box(name + '_Approach', approach, approach_size, 'floor')
+
+    # The painted base and upper back wall remain visible and solid when the
+    # deck is elsewhere. A short tread lets a fallen actor climb back out.
+    shaft_size = [width + .04, .5, width + .04]; shaft_size[axis] = 4.04
+    base = list(deck); base[1] = lower - .55
+    sc.box('LiftShaftBase', base, shaft_size, 'floor')
+    tread = list(deck); tread[axis] -= sign * 1.75; tread[1] = lower - .225
+    tread_size = [width, .15, width]; tread_size[axis] = .5
+    sc.box('LiftShaftEmergencyTread', tread, tread_size, 'stairs', extra='metadata/stage_step = true')
+    back = list(end); back[axis] += sign * .15; back[1] = (lower - .3 + upper) / 2
+    back_size = [width + .04, upper - lower + .3, width + .04]; back_size[axis] = .3
+    sc.box('LiftShaftBackWall', back, back_size, 'steel')
+
+    lower_anchor = [0, 1.1, 0]; lower_anchor[axis] = -sign * 2.7; lower_anchor[cross] = 1.25
+    upper_anchor = [0, 1.1, 0]; upper_anchor[axis] = sign * 2.7; upper_anchor[cross] = 1.25
+    lift_extra = ('script = ExtResource("lift")\nmetadata/ward_lift = true\nmetadata/requires = '
+                  + arr(['clear_final_arena'])
+                  + '\nmetadata/locked_message = "Clear the final arena before operating this lift"'
+                  + '\nmetadata/lift_offset = ' + vec((0, rise, 0))
+                  + '\nmetadata/use_anchor = Vector3(0,1,0)'
+                  + '\nmetadata/lower_use_anchor = ' + vec(lower_anchor)
+                  + '\nmetadata/upper_use_anchor = ' + vec(upper_anchor))
+    sc.box('Lift_Observation', deck, (4, .3, 4), 'steel', typ='AnimatableBody3D', extra=lift_extra)
+
+    for label, side, landing in (('Lower', -1, lower), ('Upper', 1, upper)):
+        guard = list(deck); guard[axis] += sign * side * 2; guard[1] = landing + .7
+        guard_size = [width, 1.4, width]; guard_size[axis] = .18
+        extra = ('script = ExtResource("lift_gate")'
+                 + '\nmetadata/lift_target = NodePath("../Lift_Observation")'
+                 + '\nmetadata/landing_height = ' + str(landing))
+        sc.box('Lift' + label + 'LandingGate', guard, guard_size, 'steel',
+               typ='StaticBody3D', extra=extra, hit_material='armor')
+        for flank in (-1, 1):
+            frame = list(guard); frame[cross] += flank * (width / 2 + .17); frame[1] = landing + 1.1
+            frame_size = [.34, 2.2, .34]
+            sc.box('Lift' + label + 'Frame' + str(flank), frame, frame_size, 'steel')
+        call = list(deck); call[axis] += sign * side * 2.7; call[cross] += 1.25; call[1] = landing + 1.1
+        plate_size = [.08, .55, .52] if axis == 0 else [.52, .55, .08]
+        plate_name = 'Lift' + label + 'CallPlate'
+        sc.box(plate_name, call, plate_size, 'panel', False)
+        indicator = [0, .08, 0]; indicator[axis] = sign * side * .052
+        indicator_size = [.012, .12, .16] if axis == 0 else [.16, .12, .012]
+        sc.box('Indicator', indicator, indicator_size, 'glow', False, plate_name)
+        support = list(call); support[1] = landing + .4
+        support_size = [.12, .8, .16] if axis == 0 else [.16, .8, .12]
+        sc.box('Lift' + label + 'CallSupport', support, support_size, 'steel', False)
+        text_pos = list(call); text_pos[1] += .6
+        facing = (0, 90 if sign * side > 0 else -90, 0) if axis == 0 else (0, 0 if sign * side > 0 else 180, 0)
+        sc.label('Lift' + label + 'CallSign', 'E  CALL LIFT', text_pos, rotation=facing, size=30)
+
+    for flank in (-1, 1):
+        guide = list(deck); guide[cross] += flank * 2.3; guide[1] = lower + 3
+        sc.box('LiftGuide' + str(flank), guide, (.15, 7, .15), 'steel')
+
+
+def exit_stair_wayfinding(sc, start, axis, sign, has_stairs):
+    """Mark the sector-exit approach and identify actual stairs only."""
+    marker = list(start); marker[axis] -= sign * 2.4; marker[1] += 3.4
+    cross = 2 if axis == 0 else 0
+    marker[cross] += 4.5
+    facing = (0, -90 if sign > 0 else 90, 0) if axis == 0 else (0, 180 if sign > 0 else 0, 0)
+    sc.label('ExitStairApproachSign', 'EXIT ↑' if has_stairs else 'SECTOR EXIT', marker, rotation=facing, size=37)
+    light = list(start); light[axis] -= sign * 2.4; light[1] += 4.0
+    sc.downlight('ExitStairApproachLight', light, 5, 9)
+
 # Layout schema is supplied by the art/level coordinator, rather than inferred
 # from image pixels. Keeping authoring separate preserves exact original boards.
 def author(stage, contract):
@@ -156,18 +235,14 @@ def author(stage, contract):
         floor_size=[w,.5,w];floor_size[axis]=length+.04
         lift=p.get('lift',False);rise=bc[1]-ac[1]
         if lift:
-            deck=list(end);deck[axis]-=sign*2;deck[1]=ac[1]-.15
-            approach_len=length-4;fpos=list(middle);fpos[axis]=start[axis]+sign*approach_len/2;fpos[1]=ac[1]-.25
-            fs=list(floor_size);fs[axis]=approach_len+.04;sc.box(name+'_Approach',fpos,fs,'floor')
-            sc.box('Lift_Observation',deck,(4,.3,4),'steel',typ='AnimatableBody3D',extra='script = ExtResource("lift")\nmetadata/ward_lift = true\nmetadata/requires = '+arr(['clear_final_arena'])+'\nmetadata/locked_message = "Clear the final arena before operating this lift"\nmetadata/lift_offset = '+vec((0,rise,0))+'\nmetadata/use_anchor = Vector3(0,1,0)')
-            for signpost in [-1,1]:
-                pp=list(deck);pp[cross]+=signpost*2.3;pp[1]=floor+3
-                sc.box('LiftGuide'+str(signpost),pp,(.15,7,.15),'steel')
+            safe_lift(sc, name, start, end, axis, cross, sign, w)
         elif rise:
             low,high=(start,end) if rise>0 else (end,start)
             sc.stairs('Step_'+str(number)+'_',low,high,w)
         else:
             pp=list(middle);pp[1]=floor-.25;sc.box(name+'_Floor',pp,floor_size,'floor')
+        if p['from']=='final_arena' and p['to']=='exit_gallery':
+            exit_stair_wayfinding(sc, start, axis, sign, bool(rise))
         roof=list(middle);roof[1]=max(ac[1],bc[1])+h+.15;rs=list(floor_size);rs[1]=.3;sc.box(name+'_Roof',roof,rs,'ceiling')
         for side in [-1,1]:
             pp=list(middle);pp[cross]+=side*(w/2+.2);pp[1]=floor+(h+abs(rise))/2

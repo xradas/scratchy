@@ -1,0 +1,78 @@
+{
+  "failures": [
+    "Real swept ordnance stops once on the same closed gate",
+    "Departure never enables its gate through a same-tick moving actor"
+  ],
+  "gate_script_sha256": "ac4d3a4881be1e91f14540a25319e7f628926c5fab0138d59e4379e0a3b890c8",
+  "lift_script_sha256": "d1c55b0f2160fa285db9adb2b9749bc33d582a34a2061811bc6975b1678b4b5d",
+  "records": [
+    {
+      "actor": "(29.39023, 6.85, -210.0)",
+      "hit_body": "LiftUpperLandingGate",
+      "projectile": [],
+      "test": "closed upper gate actor/hitscan/projectile"
+    },
+    {
+      "end": "(26.35667, 6.850827, -210.0)",
+      "grounded": true,
+      "minimum_y": 6.84999990463257,
+      "test": "Actual W passage through docked upper guard onto deck",
+      "ticks": 28
+    },
+    {
+      "end": "(29.32166, 6.850827, -210.0)",
+      "grounded": true,
+      "minimum_y": 6.85082674026489,
+      "test": "Actual W approach to upper opening straddle",
+      "ticks": 27
+    },
+    {
+      "gate_open": true,
+      "moving": false,
+      "position": "(29.32166, 6.850827, -210.0)",
+      "refused": true,
+      "test": "straddle refusal"
+    },
+    {
+      "end": "(26.35667, 6.850827, -210.0)",
+      "grounded": true,
+      "minimum_y": 6.85082674026489,
+      "test": "Clear the entrance onto the actual upper deck",
+      "ticks": 27
+    },
+    {
+      "grounded": true,
+      "position": "(27.0, 2.050423, -210.0)",
+      "selected_lift": true,
+      "test": "inside below-deck call visibility"
+    },
+    {
+      "body_position": "(27.0, 2.050423, -210.0)",
+      "lower_guard_open": true,
+      "obstructed": true,
+      "stopped_height": 3.45415472984314,
+      "test": "under-deck obstruction/emergency egress"
+    },
+    {
+      "end": "(23.38645, 2.350911, -210.0)",
+      "grounded": true,
+      "minimum_y": 2.05042314529419,
+      "test": "Actual W emergency egress up authored low tread",
+      "ticks": 28
+    },
+    {
+      "accepted": true,
+      "actor": "(29.38963, 6.850061, -210.0)",
+      "test": "before-player departure race",
+      "unsafe_enabled_overlap": true
+    },
+    {
+      "arbitrary_live_straddle_reset": "Not an ordinary Main contract; not exercised.",
+      "lower_open": true,
+      "test": "supported fresh-start reset",
+      "upper_open": false
+    }
+  ],
+  "scene_sha256": "a53b3dc3ae106b1a943b9445e4ab48bfdb95b8caa8425f6dd0175f219b5d3a55",
+  "scope": "Isolated authored Ward01 gate physics; actual CharacterBody input, stage use call anchors, native hitscan and original swept ordnance. AI absent and clear_final_arena flag explicitly granted. Supported trial starting poses are fixture setup, not campaign progression or recovery proof."
+}

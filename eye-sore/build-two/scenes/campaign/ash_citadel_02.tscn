@@ -8423,6 +8423,28 @@ mesh = SubResource("m63")
 [node name="Collision" type="CollisionShape3D" parent="Link_9_Floor"]
 shape = SubResource("s63")
 
+[node name="ExitStairApproachSign" type="Label3D" parent="."]
+position = Vector3(-31.012, 4.9, -231.128)
+rotation_degrees = Vector3(0, 0, 0)
+text = "SECTOR EXIT"
+font_size = 37
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="ExitStairApproachLight" type="SpotLight3D" parent="."]
+position = Vector3(-35.512, 5.5, -231.128)
+rotation_degrees = Vector3(-90,0,0)
+light_color = Color(0.9,0.88,0.8,1)
+light_energy = 5
+spot_range = 9
+spot_angle = 62
+shadow_enabled = true
+shadow_bias = 0.025
+shadow_normal_bias = 0.35
+
 [node name="Link_9_Roof" type="StaticBody3D" parent="."]
 position = Vector3(-35.512, 7.65, -238.028)
 

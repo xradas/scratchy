@@ -1,0 +1,110 @@
+{
+  "failures": [],
+  "gate_script_sha256": "6c64a0834938f52d3681deef02ea601bfd265562b532a20e6ff88ad439f3b5bb",
+  "lift_script_sha256": "054b6bdec420592c43893bf9e168ea96014586a668530fc095e83350bed0867a",
+  "records": [
+    {
+      "actor": "(-35.16078, 5.350248, -272.58)",
+      "geometric_penetration": 0.000218063592910767,
+      "grounded": true,
+      "hit_body": "LiftUpperLandingGate",
+      "outside_side": 0.389781951904297,
+      "projectile": [
+        {
+          "at": "(-34.95173, 5.5, -272.58)",
+          "body": "LiftUpperLandingGate",
+          "material": "armor",
+          "shot_id": 901
+        }
+      ],
+      "raw_contact": true,
+      "test": "closed upper gate actor/hitscan/projectile"
+    },
+    {
+      "end": "(-32.12764, 5.350827, -272.58)",
+      "grounded": true,
+      "minimum_y": 5.34999990463257,
+      "test": "Actual W passage through docked upper guard onto deck",
+      "ticks": 28
+    },
+    {
+      "end": "(-35.09266, 5.350827, -272.58)",
+      "grounded": true,
+      "minimum_y": 5.35082674026489,
+      "test": "Actual W approach to upper opening straddle",
+      "ticks": 27
+    },
+    {
+      "gate_open": true,
+      "moving": false,
+      "position": "(-35.09266, 5.350827, -272.58)",
+      "refused": true,
+      "test": "straddle refusal"
+    },
+    {
+      "end": "(-32.12764, 5.350827, -272.58)",
+      "grounded": true,
+      "minimum_y": 5.35082674026489,
+      "test": "Clear the entrance onto the actual upper deck",
+      "ticks": 27
+    },
+    {
+      "grounded": true,
+      "position": "(-32.771, 2.050423, -272.58)",
+      "selected_lift": true,
+      "test": "inside below-deck call visibility"
+    },
+    {
+      "body_position": "(-32.771, 2.050423, -272.58)",
+      "lower_guard_open": true,
+      "obstructed": true,
+      "stopped_height": 3.45416617393494,
+      "test": "under-deck obstruction/emergency egress"
+    },
+    {
+      "end": "(-29.1567, 2.35089, -272.58)",
+      "grounded": true,
+      "minimum_y": 2.05042314529419,
+      "test": "Actual W emergency egress up authored low tread",
+      "ticks": 28
+    },
+    {
+      "accepted": true,
+      "actor": "(-35.16071, 5.350245, -272.58)",
+      "test": "before-player departure race",
+      "timeline": [
+        {
+          "actor": "(-35.28767, 5.35, -272.58)",
+          "enabled": true,
+          "geometric_penetration": -0.126666396856308,
+          "query_overlap": false,
+          "tick": 0
+        },
+        {
+          "actor": "(-35.16071, 5.350216, -272.58)",
+          "enabled": true,
+          "geometric_penetration": 0.000286728143692017,
+          "query_overlap": true,
+          "tick": 1
+        },
+        {
+          "actor": "(-35.16071, 5.350245, -272.58)",
+          "enabled": true,
+          "geometric_penetration": 0.000286728143692017,
+          "query_overlap": true,
+          "tick": 2
+        }
+      ],
+      "unsafe_enabled_overlap": false
+    },
+    {
+      "arbitrary_live_straddle_reset": "Not an ordinary Main contract; not exercised.",
+      "lower_open": true,
+      "test": "supported fresh-start reset",
+      "upper_open": false
+    }
+  ],
+  "scene": "res://scenes/campaign/ash_citadel_03.tscn",
+  "scene_sha256": "9753f5aaebc44f1840d82855554220bdcdffbabe4b867e9fff1f8c2f15f18a96",
+  "scope": "Isolated authored gate physics; actual CharacterBody input, stage use call anchors, native hitscan and original swept ordnance. AI absent and clear_final_arena flag explicitly granted. Supported trial starting poses are fixture setup, not campaign progression or recovery proof."
+}

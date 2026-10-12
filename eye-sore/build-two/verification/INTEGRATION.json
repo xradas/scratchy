@@ -1,6 +1,6 @@
 {
   "checked_utc": "2026-10-12T19:10:30.938642+00:00",
-  "stage": "Campaign-only ammunition economy and combat balance pass; nine connected levels retained.",
+  "stage": "Map safety and exit wayfinding: C3-area observation shaft and all eight current lifts contained.",
   "engine_version": "4.7.2.stable.official.ed1daf0bf",
   "template_version": "4.7.2.stable",
   "renderer": "Compatibility",
@@ -32,7 +32,8 @@
     "arsenal_source_audit": "Independent2515current loaded-resource source checks and2517actual archived embedded pack checks pass. Six weapons, nativegunalpha/regions/sourcepixels, three architecture atlases on actual ShaderMaterials, nine physical pickup/latch/shutter/awake groups,48cueproperties pluspreserved35/38cue/musicfilebytes verified.",
     "campaign": "Both exported full9 normal/light-first and heavy-preference real-combat routes pass finite normal initialloadout, exact Continue carry/caps, nosecrets/reseed, actual E exits andzeroSiege self-hits.",
     "weapon_alignment_v3": "719 actual Main checks at three window sizes;15 accepted shots align bore, muzzle effects and crosshair camera ray; native Rivet receiver poses registered.",
-    "combat_balance_v4": "Both finalsource realcombat9/9 routes pass306 kills/profile, actual E exits, finite normal start/no secrets/reseeding, exact carry/caps andzero Siege self-hits. Resource capacity96/40/160/12; budgeted cache/main supplies and saturation semantics; selected gun capacityHUD."
+    "combat_balance_v4": "Both finalsource realcombat9/9 routes pass306 kills/profile, actual E exits, finite normal start/no secrets/reseeding, exact carry/caps andzero Siege self-hits. Resource capacity96/40/160/12; budgeted cache/main supplies and saturation semantics; selected gun capacityHUD.",
+    "map_safety_v5": "Native actual Main movement across12maps/eightlifts containsall15beforefixcampaignhazards. Solidshaftbase/backwall/tread; two guards; outsidefixedcalls; safeunderdeckwait/emergencyegress; exitstairs/corridor signsandlighting."
   },
   "evidence": [
     "revised-assets.json",
@@ -136,7 +137,16 @@
     "combat-balance-v4/release/breach-recording.json",
     "combat-balance-v4/release/native-frame-review.json",
     "combat-balance-v4/release/final-source-integrity.json",
-    "combat-balance-v4/release/final-release.json"
+    "combat-balance-v4/release/final-release.json",
+    "map-safety-v5/lift-edges-baseline.json",
+    "map-safety-v5/lift-edges-postfix.json",
+    "map-safety-v5/release/source-intake-lift-route.json",
+    "map-safety-v5/release/source-audit.json",
+    "map-safety-v5/gate-comparison.json",
+    "map-safety-v5/gate-final-physics-parity.json",
+    "map-safety-v5/gate-final-freeze.json",
+    "map-safety-v5/art/captures.json",
+    "map-safety-v5/art/visual-inspection.json"
   ],
   "pending": [
     "User review of playable art/environment/gore and existing dry contacts, hurt/death and actual stereo mix.",
@@ -1729,5 +1739,16 @@
     "native_export_smoke": "/home/rikki/Builds/eyesore-pale-ward-level-2026-10-09/smoke.log",
     "actual_screenshots": "level/*.png",
     "result": "All final checks pass. Live bot completed10/11 kills,health90.4,fiveshells; optionalsecretnotused. Source cadence30/60/120: identical stair endpoint and sixpistolshots120physicsticks; cache16poses/twoimages."
+  },
+  "map_safety_v5": {
+    "direction": "../docs/map-safety-v5/direction.json",
+    "baseline": "map-safety-v5/lift-edges-baseline.json",
+    "postfix": "map-safety-v5/lift-edges-postfix.json",
+    "gate_checks": "map-safety-v5/gate-comparison.json",
+    "source_lift_route": "map-safety-v5/release/source-intake-lift-route.json",
+    "native_views": "map-safety-v5/art/captures.json",
+    "export_verification": "pending at source checkpoint",
+    "scope": "Fivecampaignlifts and threestandalone lifts, plus12exitapproachsigns/lights; nolevelgraph/pickup/combatstat edits. Exactuserpathunrecorded; staticC3stairs passedindependentfootprints/actualmovement.",
+    "physics_parity": "map-safety-v5/gate-final-physics-parity.json"
   }
 }
