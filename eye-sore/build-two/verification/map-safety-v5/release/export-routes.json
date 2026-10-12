@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "source_commit": "355d629fb19769758adc38067a69da550e0933cc",
+  "executable": {
+    "bytes": 155771848,
+    "mode": "0755",
+    "path": "eyesore-map-safety-v5.x86_64",
+    "pck": "embedded",
+    "sha256": "0df013bb06ab9bb0496f52798d1196938f9ea6e0b593929d26db0a2a1109cd61"
+  },
+  "ordered_levels": [
+    "pale_ward_01",
+    "pale_ward_02",
+    "pale_ward_03",
+    "ash_citadel_01",
+    "ash_citadel_02",
+    "ash_citadel_03",
+    "occupied_line_01",
+    "occupied_line_02",
+    "occupied_line_03"
+  ],
+  "profiles": {
+    "normal": {
+      "passed": true,
+      "levels_completed": 9,
+      "kills": 306,
+      "exact_carry": true,
+      "peak_ammo": {
+        "pistol": 96,
+        "shells": 37,
+        "rivets": 160,
+        "rockets": 12
+      },
+      "weapon_shots": {
+        "pistol": 500,
+        "shotgun": 274,
+        "rivet_cannon": 345
+      },
+      "weapon_kills": {
+        "pistol": 70,
+        "shotgun": 162,
+        "rivet_cannon": 74
+      },
+      "siege_self_hits": 0,
+      "secret_levels": 0,
+      "raw_receipt": "normal-campaign-all-route.json",
+      "launch": "normal-launch.json",
+      "headless": true,
+      "fixed_render_fps": 60,
+      "engine_arguments_note": "Export raw engine_arguments is empty; exact Popen/proc command is retained separately."
+    },
+    "heavy": {
+      "passed": true,
+      "levels_completed": 9,
+      "kills": 306,
+      "exact_carry": true,
+      "peak_ammo": {
+        "pistol": 96,
+        "shells": 40,
+        "rivets": 40,
+        "rockets": 8
+      },
+      "weapon_shots": {
+        "pistol": 266,
+        "shotgun": 109,
+        "twin_shotgun": 58,
+        "rivet_cannon": 506,
+        "siege_launcher": 48
+      },
+      "weapon_kills": {
+        "pistol": 40,
+        "shotgun": 50,
+        "twin_shotgun": 52,
+        "rivet_cannon": 115,
+        "siege_launcher": 49
+      },
+      "siege_self_hits": 0,
+      "secret_levels": 0,
+      "raw_receipt": "heavy-campaign-all-route.json",
+      "launch": "heavy-launch.json",
+      "headless": true,
+      "fixed_render_fps": 60,
+      "engine_arguments_note": "Export raw engine_arguments is empty; exact Popen/proc command is retained separately."
+    }
+  },
+  "scope": "Genuine shipped ELF launched from/tmp; automated physical real-combat full9 route with finite normal initial ammo, live AI, authoritative fire/damage, actual E exits and exact Main Continue carry. Headless fixed60; separate native Intake lift-detour stereo movie, no human input/pacing/listening acceptance."
+}
