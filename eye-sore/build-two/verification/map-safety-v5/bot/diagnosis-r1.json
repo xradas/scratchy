@@ -1,0 +1,171 @@
+{
+  "status": "r1_export_bot_limitations_preserved",
+  "normal": {
+    "path": "verification/map-safety-v5/bot/r1-export-normal-failure.json",
+    "sha256": "e90df2f3b90fc3cdfb1994875afbe2433da4f9a63efb129bce68294b6ee0dea6",
+    "levels_completed": 8,
+    "failures": [
+      "Authored combat flank final_arena: player died"
+    ],
+    "failure_state": {
+      "ammo": {
+        "pistol": 0,
+        "rivets": 0,
+        "rockets": 7,
+        "shells": 0
+      },
+      "arena_remaining": {
+        "arena_one": 0,
+        "arena_two": 0,
+        "final_arena": 1
+      },
+      "armor": 0.0,
+      "health": 0.0,
+      "last_player_hurt": {
+        "damage": 12.0,
+        "physics_tick": 114481,
+        "source_id": "enemy_surveyor_29"
+      },
+      "living_enemies": [
+        {
+          "arena": "final_arena",
+          "awake": true,
+          "id": "enemy_surveyor_29",
+          "position": "(-2.004053, 0.850091, -263.4183)"
+        },
+        {
+          "arena": "",
+          "awake": false,
+          "id": "enemy_reaver_35",
+          "position": "(43.9288, 0.850072, -177.826)"
+        },
+        {
+          "arena": "",
+          "awake": false,
+          "id": "enemy_reaver_36",
+          "position": "(-56.6544, 0.85, -9.1504)"
+        }
+      ],
+      "player_position": "(-2.896614, 0.850942, -261.5992)",
+      "siege_self_hits": 0,
+      "weapon": "melee"
+    }
+  },
+  "heavy": {
+    "path": "verification/map-safety-v5/bot/r1-export-heavy-failure.json",
+    "sha256": "07c7dda649b4c4ec1c03b678746c3b6bb7f38eb37decc36b6fdc9467e9c6efd5",
+    "levels_completed": 5,
+    "failures": [
+      "Return centre arena_two: traversal stalled at (3.213011, 0.850943, -209.2954)"
+    ],
+    "failure_state": {
+      "ammo": {
+        "pistol": 96,
+        "rivets": 0,
+        "rockets": 1,
+        "shells": 29
+      },
+      "arena_remaining": {
+        "arena_one": 0,
+        "arena_two": 0,
+        "final_arena": 8
+      },
+      "armor": 100.0,
+      "health": 100.0,
+      "last_player_hurt": {
+        "damage": 16.0,
+        "physics_tick": 65170,
+        "source_id": "enemy_censer_23"
+      },
+      "living_enemies": [
+        {
+          "arena": "",
+          "awake": true,
+          "id": "enemy_ironbound_15",
+          "position": "(-21.42057, 0.850942, -100.8671)"
+        },
+        {
+          "arena": "",
+          "awake": false,
+          "id": "enemy_ironbound_25",
+          "position": "(42.96, 0.850091, -209.084)"
+        },
+        {
+          "arena": "final_arena",
+          "awake": false,
+          "id": "enemy_ironbound_26",
+          "position": "(-17.983, 2.350091, -281.58)"
+        },
+        {
+          "arena": "final_arena",
+          "awake": false,
+          "id": "enemy_ironbound_27",
+          "position": "(-17.983, 2.350091, -275.58)"
+        },
+        {
+          "arena": "final_arena",
+          "awake": false,
+          "id": "enemy_censer_28",
+          "position": "(-17.983, 2.350091, -269.58)"
+        },
+        {
+          "arena": "final_arena",
+          "awake": false,
+          "id": "enemy_ironbound_29",
+          "position": "(-17.983, 2.350091, -263.58)"
+        },
+        {
+          "arena": "final_arena",
+          "awake": false,
+          "id": "enemy_ironbound_30",
+          "position": "(17.983, 2.350091, -281.58)"
+        },
+        {
+          "arena": "final_arena",
+          "awake": false,
+          "id": "enemy_censer_31",
+          "position": "(17.983, 2.350091, -275.58)"
+        },
+        {
+          "arena": "final_arena",
+          "awake": false,
+          "id": "enemy_ironbound_32",
+          "position": "(17.983, 2.350091, -269.58)"
+        },
+        {
+          "arena": "final_arena",
+          "awake": false,
+          "id": "enemy_ironbound_33",
+          "position": "(17.983, 2.350091, -263.58)"
+        },
+        {
+          "arena": "",
+          "awake": false,
+          "id": "enemy_ironbound_34",
+          "position": "(-50.562, 0.850072, -179.23)"
+        },
+        {
+          "arena": "",
+          "awake": false,
+          "id": "enemy_ironbound_35",
+          "position": "(42.96, 0.850072, -155.866)"
+        },
+        {
+          "arena": "",
+          "awake": false,
+          "id": "enemy_ironbound_36",
+          "position": "(47.96, 0.85, -9.192)"
+        }
+      ],
+      "player_position": "(3.213011, 0.850943, -209.2954)",
+      "siege_self_hits": 0,
+      "weapon": "shotgun"
+    }
+  },
+  "normal_cause": "In Line03 final arena the bot uses inherited actor-centre +0.28 camera aim, a documented transparent live Surveyor pose gap (live-aim audit 6660 probes, zero collision query mismatches). Finite pistol/shell/rivet ammunition was spent; at 1.8m, Siege remains blast-unsafe and the bot selects melee. Conditional current opaque mesh ray fallback is bot-only.",
+  "heavy_cause": "After the Ash03 arena_two release control, inherited connect_rooms walks diagonally from south x4.5,z-221.2 to north centre x0,z-186.8 through the raised central altar. The same receipt physically traversed authored x4.3 side ring from z-222 to north staging. New connector will follow that ring before inherited portal path.",
+  "scene_sha256": "bd41715c3a0787198b2a39b7bddda8e241c9d147dadeb28bbbd264bef482c688",
+  "route_sha256": "9e160a88f131ecfc21f6e0fb2f774167f17048f14d5380faa5353eacc5bfb8e0",
+  "live_aim_audit": "verification/combat-balance-v4/live-aim.json",
+  "scope": "Read-only failure diagnosis; no claims of map collision change or gameplay immunity."
+}

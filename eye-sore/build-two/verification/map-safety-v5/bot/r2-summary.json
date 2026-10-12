@@ -1,0 +1,99 @@
+{
+  "automated_not_human_pacing": true,
+  "commands": {
+    "heavy": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . -- --campaign-route-test --campaign-all-levels --use-heavy-weapons --release-report-dir=/tmp/eyesore-map-safety-v5-bot-r2-heavy",
+    "normal": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . -- --campaign-route-test --campaign-all-levels --release-report-dir=/tmp/eyesore-map-safety-v5-bot-r2-normal"
+  },
+  "engine": "Godot 4.7.2 stable official ed1daf0bf",
+  "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "fixed_simulation_fps": 60,
+  "isolated_lift": {
+    "bot_visible_chest_fallbacks": 6,
+    "kills": 32,
+    "log": "verification/map-safety-v5/bot/r2-lift.log",
+    "receipt": "verification/map-safety-v5/bot/r2-lift-route.json",
+    "shots": 105,
+    "twin_kills": 7
+  },
+  "profiles": {
+    "heavy": {
+      "bot_visible_chest_fallbacks": 2806,
+      "completed": 9,
+      "exact_carry": true,
+      "final_ammo": {
+        "pistol": 80,
+        "rivets": 0,
+        "rockets": 7,
+        "shells": 20
+      },
+      "final_health": 95.2,
+      "kills": 306,
+      "log": "verification/map-safety-v5/bot/r2-heavy.log",
+      "peak_ammo": {
+        "pistol": 96,
+        "rivets": 40,
+        "rockets": 8,
+        "shells": 40
+      },
+      "receipt": "verification/map-safety-v5/bot/r2-heavy-all9.json",
+      "secret_used": false,
+      "weapon_kills": {
+        "pistol": 40,
+        "rivet_cannon": 115,
+        "shotgun": 50,
+        "siege_launcher": 49,
+        "twin_shotgun": 52
+      },
+      "weapon_shots": {
+        "pistol": 266,
+        "rivet_cannon": 506,
+        "shotgun": 109,
+        "siege_launcher": 48,
+        "twin_shotgun": 58
+      }
+    },
+    "normal": {
+      "bot_visible_chest_fallbacks": 4177,
+      "completed": 9,
+      "exact_carry": true,
+      "final_ammo": {
+        "pistol": 0,
+        "rivets": 128,
+        "rockets": 12,
+        "shells": 0
+      },
+      "final_health": 100.0,
+      "kills": 306,
+      "log": "verification/map-safety-v5/bot/r2-normal.log",
+      "peak_ammo": {
+        "pistol": 96,
+        "rivets": 160,
+        "rockets": 12,
+        "shells": 37
+      },
+      "receipt": "verification/map-safety-v5/bot/r2-normal-all9.json",
+      "secret_used": false,
+      "weapon_kills": {
+        "pistol": 70,
+        "rivet_cannon": 74,
+        "shotgun": 162
+      },
+      "weapon_shots": {
+        "pistol": 500,
+        "rivet_cannon": 345,
+        "shotgun": 274
+      }
+    }
+  },
+  "r1_failure_diagnosis": "verification/map-safety-v5/bot/diagnosis-r1.json",
+  "scope": "Opt-in bot only: current anatomical mesh visible chest fallback and physical south altar side connector; real Main Continue, finite normal start, actual AI/damage/firing/E/physics, no teleport, invulnerability, reseed, secret supplies or completion injection.",
+  "source_sha256": {
+    "resources/campaign/ash_citadel_03-route.json": "9e160a88f131ecfc21f6e0fb2f774167f17048f14d5380faa5353eacc5bfb8e0",
+    "resources/campaign/balance-budget.json": "955de5544c7be20fa4d8f561a9736c65ad5045936f0e62a9387ee9752c81f3f4",
+    "scenes/campaign/ash_citadel_03.tscn": "bd41715c3a0787198b2a39b7bddda8e241c9d147dadeb28bbbd264bef482c688",
+    "scripts/campaign_route_playtest.gd": "91b1950f07335b6bc08480e65dbc9fbcb9582f69cc2b297644ed963926c4be41",
+    "scripts/combat.gd": "84e8b3327b3cd77cbf1ebfeac5a5df6647834217afc0ab27541b3dcae041725f",
+    "scripts/release_stage_playtest.gd": "12fe068e88fb8d62d93d9fbab5aae028f50444d01dd0b9ee511dcc435249cca0"
+  },
+  "status": "passed"
+}

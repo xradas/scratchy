@@ -26,7 +26,14 @@ var upper:Node3D
 var probe:Probe
 var failures:Array[String]=[]
 var records:Array[Dictionary]=[]
-func _initialize()->void:call_deferred("run")
+var requested_cap:=0
+var fixture_process_start:=0
+var fixture_physics_start:=0
+func _initialize()->void:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--fps="):requested_cap=int(argument.trim_prefix("--fps="))
+	if requested_cap>0:Engine.max_fps=requested_cap
+	call_deferred("run")
 func check(value:bool,label:String)->void:
 	if not value:failures.append(label);push_error(label)
 func press(held:bool,direction:Vector3=Vector3.ZERO)->void:
@@ -105,6 +112,7 @@ func native_signature(path:String)->Dictionary:
 	return {"scene_sha256":FileAccess.get_sha256(path),"native_physics_nodes":data.size(),"physics_sha256":JSON.stringify(data).sha256_text(),"data":data}
 func run()->void:
 	Engine.physics_ticks_per_second=60
+	fixture_process_start=Engine.get_process_frames();fixture_physics_start=Engine.get_physics_frames()
 	if "--physics-signature-only" in OS.get_cmdline_user_args():
 		var scene_path:="res://scenes/campaign/pale_ward_01.tscn";var baseline_path:="";var receipt:="gate-physics-parity"
 		for argument in OS.get_cmdline_user_args():
@@ -190,7 +198,7 @@ func run()->void:
 	var stopped_height:float=lift.position.y
 	for _tick in 10:await physics_frame
 	check(absf(lift.position.y-stopped_height)<.002 and player.is_on_floor(),"Obstructed deck stays stationary over supported lower body")
-	records.append({"test":"under-deck obstruction/emergency egress","stopped_height":stopped_height,"body_position":player.position,"lower_guard_open":lower.opened,"obstructed":lift.obstructed})
+	records.append({"test":"under-deck obstruction/emergency egress","process_frame":Engine.get_process_frames(),"physics_frame":Engine.get_physics_frames(),"stopped_height":stopped_height,"body_position":player.position,"lower_guard_open":lower.opened,"obstructed":lift.obstructed})
 	await walk(point(lower,1.0),"Actual W emergency egress up authored low tread")
 	await wait_lift()
 	check(lower.opened and lower.get_node("Collision").disabled and not lift.obstructed,"After egress descent completes and reopens only the docked lower guard")
@@ -209,7 +217,7 @@ func run()->void:
 		var enabled:bool=not upper.get_node("Collision").disabled
 		var overlap:bool=gate_overlap(upper)
 		var penetration:float=gate_penetration(upper)
-		close_timeline.append({"tick":_tick,"enabled":enabled,"query_overlap":overlap,"geometric_penetration":penetration,"actor":player.position})
+		close_timeline.append({"tick":_tick,"process_frame":Engine.get_process_frames(),"physics_frame":Engine.get_physics_frames(),"pending":lift.departure_pending,"moving":lift.moving,"deck_position":lift.position,"enabled":enabled,"query_overlap":overlap,"geometric_penetration":penetration,"actor":player.position})
 		if enabled and overlap and penetration>.003:unsafe=true
 	var departed:bool=departure.accepted
 	press(false);departure.free()
@@ -226,6 +234,6 @@ func run()->void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--receipt="):filename=arg.trim_prefix("--receipt=")
 	var output:=FileAccess.open("res://verification/map-safety-v5/"+filename+".json",FileAccess.WRITE)
-	output.store_string(JSON.stringify({"scene":scene_path,"scene_sha256":FileAccess.get_sha256(scene_path),"gate_script_sha256":FileAccess.get_sha256("res://scripts/lift_landing_gate.gd"),"lift_script_sha256":FileAccess.get_sha256("res://scripts/ward_lift.gd"),"failures":failures,"records":records,"scope":"Isolated authored gate physics; actual CharacterBody input, stage use call anchors, native hitscan and original swept ordnance. AI absent and clear_final_arena flag explicitly granted. Supported trial starting poses are fixture setup, not campaign progression or recovery proof."},"  "));output.close()
+	output.store_string(JSON.stringify({"scene":scene_path,"requested_process_cap":requested_cap,"engine_max_fps":Engine.max_fps,"fixed_physics_hz":Engine.physics_ticks_per_second,"actual_process_frames":Engine.get_process_frames()-fixture_process_start,"actual_physics_frames":Engine.get_physics_frames()-fixture_physics_start,"display_server":DisplayServer.get_name(),"timing_scope":"Headless actual engine process/physics/deferred phases; not a native renderer or measured display FPS claim.","scene_sha256":FileAccess.get_sha256(scene_path),"gate_script_sha256":FileAccess.get_sha256("res://scripts/lift_landing_gate.gd"),"lift_script_sha256":FileAccess.get_sha256("res://scripts/ward_lift.gd"),"failures":failures,"records":records,"scope":"Isolated authored gate physics; actual CharacterBody input, stage use call anchors, native hitscan and original swept ordnance. AI absent and clear_final_arena flag explicitly granted. Supported trial starting poses are fixture setup, not campaign progression or recovery proof."},"  "));output.close()
 	press(false);world.free();world=null;player=null;probe=null;lift=null;lower=null;upper=null;await process_frame
 	print("LIFT_GATE_V5_DONE failures=",failures.size());quit(0 if failures.is_empty() else 1)

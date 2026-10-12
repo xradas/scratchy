@@ -12,6 +12,7 @@ var peak_ammo: Dictionary = {}
 var accepted_ammo: Dictionary = {}
 var siege_self_hits := 0
 var last_player_hurt: Dictionary = {}
+var chest_aim_fallbacks := 0
 
 func ammo_state() -> Dictionary:
 	return {"pistol": combat.ammo_pistol, "shells": combat.ammo_shotgun, "rivets": combat.ammo_rivets, "rockets": combat.ammo_rockets}
@@ -24,6 +25,7 @@ func reset_ammo_ledger() -> void:
 	accepted_ammo = {"pistol": 0, "shells": 0, "rivets": 0, "rockets": 0}
 	siege_self_hits = 0
 	last_player_hurt.clear()
+	chest_aim_fallbacks = 0
 	sample_ammo()
 
 func sample_ammo() -> void:
@@ -49,7 +51,7 @@ func failure_state() -> Dictionary:
 	for enemy in combat.enemies:
 		if enemy.dead: continue
 		living.append({"id": String(enemy.target_id), "position": enemy.global_position, "arena": String(enemy.get_meta("arena_id", "")), "awake": enemy.awake})
-	return {"player_position": player.global_position, "health": combat.health, "armor": combat.armor, "ammo": ammo_state(), "weapon": String(combat.currentweapon), "arena_remaining": world.arena_remaining.duplicate(), "living_enemies": living, "last_player_hurt": last_player_hurt.duplicate(), "siege_self_hits": siege_self_hits}
+	return {"player_position": player.global_position, "health": combat.health, "armor": combat.armor, "ammo": ammo_state(), "weapon": String(combat.currentweapon), "arena_remaining": world.arena_remaining.duplicate(), "living_enemies": living, "last_player_hurt": last_player_hurt.duplicate(), "siege_self_hits": siege_self_hits, "bot_visible_chest_fallbacks": chest_aim_fallbacks}
 
 func siege_has_safe_swept_path(target: CharacterBody3D, distance: float) -> bool:
 	# Match the actual 0.09 m swept projectile, including moving doors, stair
@@ -81,7 +83,42 @@ func siege_has_safe_swept_path(target: CharacterBody3D, distance: float) -> bool
 	var hit_target: Object = collider.get_meta("combat_target") if collider.has_meta("combat_target") else collider
 	return hit_target == target or (hit_target.has_method("apply_damage") and not hit_target.dead)
 
+func aim_ray_hits_target(target: CharacterBody3D, point: Vector3) -> bool:
+	var origin: Vector3 = player.camera.global_position
+	var direction: Vector3 = origin.direction_to(point)
+	var hit: Dictionary = combat.ray(origin, origin + direction * 70.0, combat.anatomical_exclusions(), true)
+	if hit.is_empty(): return false
+	var collider: Object = hit.collider
+	return collider == target or (collider.has_meta("combat_target") and collider.get_meta("combat_target") == target)
+
+func visible_aim_point(target: CharacterBody3D) -> Vector3:
+	# The fixed actor-centre ray crosses transparent gaps in some live pain and
+	# windup sprites. Only when it misses the current anatomical collider, aim
+	# at the closest visible triangle on the existing opaque hurt mesh. This is
+	# bot camera control, using the same geometry and ray as real player fire.
+	var center: Vector3 = target.global_position + Vector3(0, 0.28, 0)
+	if aim_ray_hits_target(target, center): return center
+	var nearest := INF
+	var chest := center
+	for body_value in target.sprite_bodies.values():
+		var body: StaticBody3D = body_value
+		if body.collision_layer & 4 == 0: continue
+		var shape: Shape3D = body.get_node("HitSurface").shape
+		if not shape is ConcavePolygonShape3D: continue
+		var faces: PackedVector3Array = shape.get_faces()
+		for i in range(0, faces.size(), 3):
+			var point: Vector3 = body.to_global((faces[i] + faces[i + 1] + faces[i + 2]) / 3.0)
+			var distance: float = point.distance_squared_to(center)
+			if distance < nearest:
+				nearest = distance
+				chest = point
+	if nearest < INF and aim_ray_hits_target(target, chest):
+		chest_aim_fallbacks += 1
+		return chest
+	return center
+
 func choose_weapon(target: CharacterBody3D, distance: float) -> StringName:
+	player.camera.look_at(visible_aim_point(target))
 	if not heavy_mode:
 		var ordinary: StringName = super.choose_weapon(target, distance)
 		var species := String(target.definition.identifier)
@@ -207,6 +244,20 @@ func return_to_arena_staging(id: String) -> bool:
 			return true
 	return await super.return_to_arena_staging(id)
 
+func connect_rooms(a: String, b: String) -> bool:
+	# The cleared arena_two altar rises across its central diagonal. After the
+	# south release control, traverse the already-authored side ring to the
+	# north staging rim before the inherited portal connector heads west/east.
+	if a == "arena_two":
+		var room: Dictionary = route.rooms[a]
+		var center: Vector3 = vector(room.center)
+		if player.global_position.y < center.y + 1.0 and player.global_position.z < center.z - 4.0:
+			var side := -1.0 if player.global_position.x < center.x else 1.0
+			var lane_x: float = center.x + side * 4.3
+			if not await walk(Vector3(lane_x, center.y, player.global_position.z), "Altar side connector " + a): return false
+			if not await walk(Vector3(lane_x, center.y, room_center(a).z), "Altar north connector " + a): return false
+	return await super.connect_rooms(a, b)
+
 func run() -> void:
 	if all_levels:
 		await run_all_levels()
@@ -323,7 +374,7 @@ func run_all_levels() -> void:
 		print("CAMPAIGN_ROUTE_START ", level_id)
 		await route_run()
 		if not failures.is_empty():
-			campaign_receipts.append({"level": level_id, "chapter": String(app.campaign.current_level().chapter_id), "scene": world.scene_file_path, "route_resource": route_path, "entry_loadout": entry, "active_entry_loadout": active_entry, "entry_ammo": {"pistol": active_entry.ammo_pistol, "shells": active_entry.ammo_shotgun, "rivets": active_entry.ammo_rivets, "rockets": active_entry.ammo_rockets}, "peak_ammo": peak_ammo.duplicate(), "ammo_caps": ammo_caps(), "accepted_ammo": accepted_ammo.duplicate(), "siege_self_hits": siege_self_hits, "use_heavy_weapons": heavy_mode, "completed": false, "health": combat.health, "kills": combat.kills, "shots": combat.shot_counter, "weapon_shots": weapon_shots.duplicate(), "weapon_kills": weapon_kills.duplicate(), "failure_state": failure_state(), "segments": records.duplicate(true), "interactions": interactions.duplicate(true), "flags": world.flags.duplicate()})
+			campaign_receipts.append({"level": level_id, "chapter": String(app.campaign.current_level().chapter_id), "scene": world.scene_file_path, "route_resource": route_path, "entry_loadout": entry, "active_entry_loadout": active_entry, "entry_ammo": {"pistol": active_entry.ammo_pistol, "shells": active_entry.ammo_shotgun, "rivets": active_entry.ammo_rivets, "rockets": active_entry.ammo_rockets}, "peak_ammo": peak_ammo.duplicate(), "ammo_caps": ammo_caps(), "accepted_ammo": accepted_ammo.duplicate(), "siege_self_hits": siege_self_hits, "bot_visible_chest_fallbacks": chest_aim_fallbacks, "use_heavy_weapons": heavy_mode, "completed": false, "health": combat.health, "kills": combat.kills, "shots": combat.shot_counter, "weapon_shots": weapon_shots.duplicate(), "weapon_kills": weapon_kills.duplicate(), "failure_state": failure_state(), "segments": records.duplicate(true), "interactions": interactions.duplicate(true), "flags": world.flags.duplicate()})
 			break
 		var cleared: bool = world.finished and app.level_complete and get_tree().paused
 		require(cleared, "Physical route did not reach Main completion screen: " + level_id)
@@ -337,7 +388,7 @@ func run_all_levels() -> void:
 		var exit_state: Dictionary = app.campaign.capture(combat)
 		sample_ammo()
 		if heavy_mode: require(siege_self_hits == 0, "Heavy bot detonated Siege inside self-damage radius: " + level_id)
-		campaign_receipts.append({"level": level_id, "chapter": String(app.campaign.current_level().chapter_id), "scene": world.scene_file_path, "route_resource": route_path, "entry_loadout": entry, "active_entry_loadout": active_entry, "exit_loadout": exit_state, "entry_ammo": {"pistol": active_entry.ammo_pistol, "shells": active_entry.ammo_shotgun, "rivets": active_entry.ammo_rivets, "rockets": active_entry.ammo_rockets}, "exit_ammo": ammo_state(), "peak_ammo": peak_ammo.duplicate(), "ammo_caps": ammo_caps(), "accepted_ammo": accepted_ammo.duplicate(), "siege_self_hits": siege_self_hits, "use_heavy_weapons": heavy_mode, "completed": cleared, "health": combat.health, "kills": combat.kills, "total_enemies": combat.total_enemies, "shots": combat.shot_counter, "weapon_shots": weapon_shots.duplicate(), "weapon_kills": weapon_kills.duplicate(), "flags": world.flags.duplicate(), "secret_used": world.secret_found, "interactions": interactions.duplicate(true), "segments": records.duplicate(true), "physics_seconds": float(Engine.get_physics_frames() - global_start) / Engine.physics_ticks_per_second})
+		campaign_receipts.append({"level": level_id, "chapter": String(app.campaign.current_level().chapter_id), "scene": world.scene_file_path, "route_resource": route_path, "entry_loadout": entry, "active_entry_loadout": active_entry, "exit_loadout": exit_state, "entry_ammo": {"pistol": active_entry.ammo_pistol, "shells": active_entry.ammo_shotgun, "rivets": active_entry.ammo_rivets, "rockets": active_entry.ammo_rockets}, "exit_ammo": ammo_state(), "peak_ammo": peak_ammo.duplicate(), "ammo_caps": ammo_caps(), "accepted_ammo": accepted_ammo.duplicate(), "siege_self_hits": siege_self_hits, "bot_visible_chest_fallbacks": chest_aim_fallbacks, "use_heavy_weapons": heavy_mode, "completed": cleared, "health": combat.health, "kills": combat.kills, "total_enemies": combat.total_enemies, "shots": combat.shot_counter, "weapon_shots": weapon_shots.duplicate(), "weapon_kills": weapon_kills.duplicate(), "flags": world.flags.duplicate(), "secret_used": world.secret_found, "interactions": interactions.duplicate(true), "segments": records.duplicate(true), "physics_seconds": float(Engine.get_physics_frames() - global_start) / Engine.physics_ticks_per_second})
 		print("CAMPAIGN_ROUTE_LEVEL ", JSON.stringify({"level": level_id, "completed": cleared, "health": combat.health, "kills": combat.kills, "shots": combat.shot_counter}))
 		if not failures.is_empty(): break
 		expected_carry = exit_state
@@ -529,7 +580,7 @@ func route_run() -> void:
 func finish() -> void:
 	stop(); key(KEY_E, false)
 	var receipt_path := report_dir.path_join(level_id + "-campaign-route.json")
-	var report := {"campaign_level": level_id, "theme": String(route.get("theme", "")), "scene": world.scene_file_path if is_instance_valid(world) else "", "route_resource": route_path, "seed_resource": "res://resources/campaign/route-seeds.json", "seed": seed, "source_package_dir": package_dir, "executable": OS.get_executable_path(), "engine_arguments": OS.get_cmdline_args(), "physics_ticks_per_second": Engine.physics_ticks_per_second, "editor_feature": OS.has_feature("editor"), "use_heavy_weapons": heavy_mode, "completed": world.finished if is_instance_valid(world) else false, "completion_menu_paused": app.level_complete and get_tree().paused, "lift_round_trip": lift_returned, "lift_route_requested": "--check-lift-route" in OS.get_cmdline_user_args(), "baseline": baseline, "entry_ammo": {"pistol": baseline.get("pistol", 0), "shells": baseline.get("shells", 0), "rivets": baseline.get("rivets", 0), "rockets": baseline.get("rockets", 0)}, "exit_ammo": ammo_state() if is_instance_valid(combat) else {}, "peak_ammo": peak_ammo, "ammo_caps": ammo_caps() if is_instance_valid(combat) else {}, "accepted_ammo": accepted_ammo, "siege_self_hits": siege_self_hits, "health": combat.health if is_instance_valid(combat) else 0, "armor": combat.armor if is_instance_valid(combat) else 0, "kills": combat.kills if is_instance_valid(combat) else 0, "total_enemies": combat.total_enemies if is_instance_valid(combat) else 0, "shots": combat.shot_counter if is_instance_valid(combat) else 0, "final_ammo": final_ammo() if is_instance_valid(combat) else {}, "weapon_shots": weapon_shots, "weapon_kills": weapon_kills, "flags": world.flags.duplicate() if is_instance_valid(world) else {}, "secret_used": world.secret_found if is_instance_valid(world) else false, "interactions": interactions, "segments": records, "physics_seconds": float(Engine.get_physics_frames() - global_start) / Engine.physics_ticks_per_second if global_start > 0 else 0.0, "failures": failures, "scope": "Opt-in native Main campaign route: finite source-declared loadout; physical CharacterBody movement, AI, ordinary damage, real weapon rays and E-use. No teleport, secret supplies or completion signal injection. Optional heavy-weapon selection is bot policy; combat tuning is unchanged. Fixed simulation rate is explicit in engine arguments when used."}
+	var report := {"campaign_level": level_id, "theme": String(route.get("theme", "")), "scene": world.scene_file_path if is_instance_valid(world) else "", "route_resource": route_path, "seed_resource": "res://resources/campaign/route-seeds.json", "seed": seed, "source_package_dir": package_dir, "executable": OS.get_executable_path(), "engine_arguments": OS.get_cmdline_args(), "physics_ticks_per_second": Engine.physics_ticks_per_second, "editor_feature": OS.has_feature("editor"), "use_heavy_weapons": heavy_mode, "completed": world.finished if is_instance_valid(world) else false, "completion_menu_paused": app.level_complete and get_tree().paused, "lift_round_trip": lift_returned, "lift_route_requested": "--check-lift-route" in OS.get_cmdline_user_args(), "baseline": baseline, "entry_ammo": {"pistol": baseline.get("pistol", 0), "shells": baseline.get("shells", 0), "rivets": baseline.get("rivets", 0), "rockets": baseline.get("rockets", 0)}, "exit_ammo": ammo_state() if is_instance_valid(combat) else {}, "peak_ammo": peak_ammo, "ammo_caps": ammo_caps() if is_instance_valid(combat) else {}, "accepted_ammo": accepted_ammo, "siege_self_hits": siege_self_hits, "bot_visible_chest_fallbacks": chest_aim_fallbacks, "health": combat.health if is_instance_valid(combat) else 0, "armor": combat.armor if is_instance_valid(combat) else 0, "kills": combat.kills if is_instance_valid(combat) else 0, "total_enemies": combat.total_enemies if is_instance_valid(combat) else 0, "shots": combat.shot_counter if is_instance_valid(combat) else 0, "final_ammo": final_ammo() if is_instance_valid(combat) else {}, "weapon_shots": weapon_shots, "weapon_kills": weapon_kills, "flags": world.flags.duplicate() if is_instance_valid(world) else {}, "secret_used": world.secret_found if is_instance_valid(world) else false, "interactions": interactions, "segments": records, "physics_seconds": float(Engine.get_physics_frames() - global_start) / Engine.physics_ticks_per_second if global_start > 0 else 0.0, "failures": failures, "scope": "Opt-in native Main campaign route: finite source-declared loadout; physical CharacterBody movement, AI, ordinary damage, real weapon rays and E-use. No teleport, secret supplies or completion signal injection. Optional heavy-weapon selection is bot policy; combat tuning is unchanged. Fixed simulation rate is explicit in engine arguments when used."}
 	var error := DirAccess.make_dir_recursive_absolute(report_dir)
 	require(error == OK, "Could not create report directory")
 	if error == OK:

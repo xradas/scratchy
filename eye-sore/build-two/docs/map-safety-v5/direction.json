@@ -35,5 +35,17 @@
     "coordinator": "Research/direction, runtime gate integration, source/release verification."
   },
   "human_acceptance": "pending",
-  "standalone_scope": "Apply same physical containment tothreecurrentstandalone maps sharingthisauthor primitive; previouslybuiltpackages remainpreserved."
+  "standalone_scope": "Apply same physical containment tothreecurrentstandalone maps sharingthisauthor primitive; previouslybuiltpackages remainpreserved.",
+  "verification_driver_revision": {
+    "scope": "Opt-in automated campaign test only; ordinary player aiming/movement and gameplay tuning unchanged.",
+    "initial_export_failures": [
+      "Light-first bot died near last Surveyor after transparent-pose aim misses, with seven rockets still carried.",
+      "Heavy bot cut a direct diagonal into the Citadel03 central altar after its release control."
+    ],
+    "corrections": [
+      "Keep original aim when current anatomical ray hits, otherwise validate a current opaque chest triangle and point the bot camera there.",
+      "Walk the authored altar-side lane to staging before the room connector."
+    ],
+    "source_routes": "Both new source full campaigns pass9/9 with306kills, exact carry and no secrets."
+  }
 }
