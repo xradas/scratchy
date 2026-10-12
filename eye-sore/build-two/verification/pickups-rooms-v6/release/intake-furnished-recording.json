@@ -1,0 +1,692 @@
+{
+  "schema_version": 1,
+  "campaign_level": "pale_ward_01",
+  "status": "passed",
+  "source_commit": "9ca0d7d8012bd377c0086a4b2b7d59476df95ff9",
+  "export": {
+    "build": {
+      "path": "/home/rikki/Builds/eyesore-pickups-rooms-2026-10-12/BUILD.json",
+      "sha256": "20422e8698a6e224a9a199ba619a06fd5df99203a47e12f3436ba2490bbe5e01",
+      "bytes": 3846
+    },
+    "executable": {
+      "path": "/home/rikki/Builds/eyesore-pickups-rooms-2026-10-12/eyesore-pickups-rooms-v6.x86_64",
+      "sha256": "3e000ebec794803797bca06f1235250c0e23abd29c2a1dc6058fb476fde96ce0",
+      "bytes": 167703936
+    },
+    "source_commit": "9ca0d7d8012bd377c0086a4b2b7d59476df95ff9",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "source_tree_sha256": "4124ee9cdc1a9384f671a13c375a9c13cb906286718e6a842dd7947ac945778c"
+  },
+  "launch": {
+    "path": "/tmp/eyesore-pickups-rooms-v6-export/native/launch.json",
+    "sha256": "2e3fa54dce5bac9740641dc6ff24605c02d2eb30e6b03e4b2a2d181066a22928",
+    "bytes": 2069,
+    "pid": 115716,
+    "source": "Coordinator subprocess.Popen PID and /proc command observation",
+    "command": [
+      "/home/rikki/Builds/eyesore-pickups-rooms-2026-10-12/eyesore-pickups-rooms-v6.x86_64",
+      "--fixed-fps",
+      "30",
+      "--disable-vsync",
+      "--write-movie",
+      "/home/rikki/Builds/eyesore-pickups-rooms-captures-2026-10-12/intake-furnished.avi",
+      "--log-file",
+      "/tmp/eyesore-pickups-rooms-v6-export/native/engine.log",
+      "--",
+      "--campaign-route-test",
+      "--campaign-level=pale_ward_01",
+      "--use-heavy-weapons",
+      "--check-lift-route",
+      "--release-report-dir=/tmp/eyesore-pickups-rooms-v6-export/native",
+      "--automated-input",
+      "--force-offscreen-draw"
+    ],
+    "observed_proc_cmdline": [
+      "/home/rikki/Builds/eyesore-pickups-rooms-2026-10-12/eyesore-pickups-rooms-v6.x86_64",
+      "--fixed-fps",
+      "30",
+      "--disable-vsync",
+      "--write-movie",
+      "/home/rikki/Builds/eyesore-pickups-rooms-captures-2026-10-12/intake-furnished.avi",
+      "--log-file",
+      "/tmp/eyesore-pickups-rooms-v6-export/native/engine.log",
+      "--",
+      "--campaign-route-test",
+      "--campaign-level=pale_ward_01",
+      "--use-heavy-weapons",
+      "--check-lift-route",
+      "--release-report-dir=/tmp/eyesore-pickups-rooms-v6-export/native",
+      "--automated-input",
+      "--force-offscreen-draw"
+    ],
+    "cwd": "/tmp",
+    "observed_proc_cwd": "/tmp",
+    "exit_code": 0,
+    "note": ""
+  },
+  "route": {
+    "path": "/tmp/eyesore-pickups-rooms-v6-export/native/pale_ward_01-campaign-route.json",
+    "sha256": "1174b71a20809c4487deec80eacd1f1f9138699dfe9a88d381ca158854d42463",
+    "bytes": 45892,
+    "level": "pale_ward_01",
+    "completed": true,
+    "finite_seed": {
+      "health": 100,
+      "armor": 50,
+      "ammo_pistol": 36,
+      "ammo_shotgun": 12,
+      "ammo_rivets": 0,
+      "ammo_rockets": 0,
+      "owned_weapons": [
+        "pistol",
+        "shotgun",
+        "melee"
+      ]
+    },
+    "baseline": {
+      "armor": 50.0,
+      "health": 100.0,
+      "kills": 0,
+      "owned_weapons": [
+        "pistol",
+        "shotgun",
+        "melee"
+      ],
+      "pistol": 36,
+      "rivets": 0,
+      "rockets": 0,
+      "shells": 12,
+      "shots": 0,
+      "total": 36
+    },
+    "kills": 31,
+    "total_enemies": 36,
+    "shots": 101,
+    "health": 100.0,
+    "flags": {
+      "brass": true,
+      "brass_key": true,
+      "breaker": true,
+      "clear_arena_one": true,
+      "clear_arena_two": true,
+      "clear_final_arena": true,
+      "exit": true,
+      "exit_control": true,
+      "power": true,
+      "red": true,
+      "red_key": true,
+      "release": true
+    },
+    "secret_used": false,
+    "accepted_exit_control": true,
+    "lift_route_requested": true,
+    "lift_round_trip": true,
+    "accepted_lift_uses": 2,
+    "physical_route_segments": [
+      "Climb launcher gallery stairs",
+      "Descend launcher gallery under fire",
+      "Lift boarding",
+      "Upper observation",
+      "Lift return boarding",
+      "Lower lift corridor return",
+      "Enabled campaign exit"
+    ],
+    "weapon_shots": {
+      "pistol": 71,
+      "shotgun": 21,
+      "twin_shotgun": 9
+    },
+    "weapon_kills": {
+      "pistol": 13,
+      "shotgun": 9,
+      "twin_shotgun": 9
+    },
+    "entry_ammo": {
+      "pistol": 36,
+      "rivets": 0,
+      "rockets": 0,
+      "shells": 12
+    },
+    "exit_ammo": {
+      "pistol": 10,
+      "rivets": 0,
+      "rockets": 0,
+      "shells": 0
+    },
+    "peak_ammo": {
+      "pistol": 65,
+      "rivets": 0,
+      "rockets": 0,
+      "shells": 21
+    },
+    "ammo_caps": {
+      "pistol": 96,
+      "shells": 40,
+      "rivets": 160,
+      "rockets": 12
+    },
+    "physics_seconds": 223.916666666667,
+    "frozen_source_blobs": [
+      {
+        "blob": "9ca0d7d8012bd377c0086a4b2b7d59476df95ff9:eye-sore/build-two/resources/campaign/catalog.json",
+        "sha256": "165c59561b089bafeddd796c8498431f9d89889559e2a0832c7dffc470a92f4d"
+      },
+      {
+        "blob": "9ca0d7d8012bd377c0086a4b2b7d59476df95ff9:eye-sore/build-two/resources/campaign/route-seeds.json",
+        "sha256": "4258d0690ba1e357463f81470148fec6f675a6482a710adce6e405caba5fe13a"
+      },
+      {
+        "blob": "9ca0d7d8012bd377c0086a4b2b7d59476df95ff9:eye-sore/build-two/resources/campaign/balance-budget.json",
+        "sha256": "955de5544c7be20fa4d8f561a9736c65ad5045936f0e62a9387ee9752c81f3f4"
+      }
+    ],
+    "scope": "Opt-in native Main campaign route: finite source-declared loadout; physical CharacterBody movement, AI, ordinary damage, real weapon rays and E-use. No teleport, secret supplies or completion signal injection. Optional heavy-weapon selection is bot policy; combat tuning is unchanged. Fixed simulation rate is explicit in engine arguments when used."
+  },
+  "native_log": {
+    "path": "/tmp/eyesore-pickups-rooms-v6-export/native/engine.log",
+    "sha256": "65bf798fb72825aecd97b7b3770d00b6a9d10ac46851e2b130395c8f03f23513",
+    "bytes": 388,
+    "successful_campaign_marker": {
+      "failures": [],
+      "level": "pale_ward_01",
+      "receipt": "/tmp/eyesore-pickups-rooms-v6-export/native/pale_ward_01-campaign-route.json"
+    }
+  },
+  "original_avi": {
+    "path": "/home/rikki/Builds/eyesore-pickups-rooms-captures-2026-10-12/intake-furnished.avi",
+    "sha256": "92538074c38be74c5f26954fdd040397acf38cd4d15bac1158590d5c16c9cd91",
+    "bytes": 930936644
+  },
+  "native_video": {
+    "frames": 6755,
+    "seconds": 225.16666666666666,
+    "frame_rate": 30,
+    "video": {
+      "index": 0,
+      "codec_name": "mjpeg",
+      "codec_long_name": "Motion JPEG",
+      "profile": "Baseline",
+      "codec_type": "video",
+      "codec_tag_string": "MJPG",
+      "codec_tag": "0x47504a4d",
+      "width": 1280,
+      "height": 720,
+      "coded_width": 1280,
+      "coded_height": 720,
+      "has_b_frames": 0,
+      "sample_aspect_ratio": "1:1",
+      "display_aspect_ratio": "16:9",
+      "pix_fmt": "yuvj420p",
+      "level": -99,
+      "color_range": "pc",
+      "color_space": "bt470bg",
+      "chroma_location": "center",
+      "refs": 1,
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "time_base": "1/30",
+      "start_pts": 0,
+      "start_time": "0.000000",
+      "duration_ts": 6755,
+      "duration": "225.166667",
+      "bit_rate": "31532605",
+      "bits_per_raw_sample": "8",
+      "nb_frames": "6755",
+      "nb_read_frames": "6755",
+      "disposition": {
+        "default": 0,
+        "dub": 0,
+        "original": 0,
+        "comment": 0,
+        "lyrics": 0,
+        "karaoke": 0,
+        "forced": 0,
+        "hearing_impaired": 0,
+        "visual_impaired": 0,
+        "clean_effects": 0,
+        "attached_pic": 0,
+        "timed_thumbnails": 0,
+        "non_diegetic": 0,
+        "captions": 0,
+        "descriptions": 0,
+        "metadata": 0,
+        "dependent": 0,
+        "still_image": 0,
+        "multilayer": 0
+      }
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "pcm_s16le",
+      "codec_long_name": "PCM signed 16-bit little-endian",
+      "codec_type": "audio",
+      "codec_tag_string": "[1][0][0][0]",
+      "codec_tag": "0x0001",
+      "sample_fmt": "s16",
+      "sample_rate": "48000",
+      "channels": 2,
+      "bits_per_sample": 16,
+      "initial_padding": 0,
+      "r_frame_rate": "0/0",
+      "avg_frame_rate": "0/0",
+      "time_base": "1/48000",
+      "start_pts": 0,
+      "start_time": "0.000000",
+      "bit_rate": "1536000",
+      "nb_frames": "10808000",
+      "nb_read_frames": "13510",
+      "disposition": {
+        "default": 0,
+        "dub": 0,
+        "original": 0,
+        "comment": 0,
+        "lyrics": 0,
+        "karaoke": 0,
+        "forced": 0,
+        "hearing_impaired": 0,
+        "visual_impaired": 0,
+        "clean_effects": 0,
+        "attached_pic": 0,
+        "timed_thumbnails": 0,
+        "non_diegetic": 0,
+        "captions": 0,
+        "descriptions": 0,
+        "metadata": 0,
+        "dependent": 0,
+        "still_image": 0,
+        "multilayer": 0
+      }
+    },
+    "format": {
+      "filename": "/home/rikki/Builds/eyesore-pickups-rooms-captures-2026-10-12/intake-furnished.avi",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "avi",
+      "format_long_name": "AVI (Audio Video Interleaved)",
+      "start_time": "0.000000",
+      "duration": "225.166667",
+      "size": "930936644",
+      "bit_rate": "33075469",
+      "probe_score": 100
+    }
+  },
+  "native_frame_diversity": {
+    "analysis": "24 evenly distributed native full-resolution RGB frames; no image files saved. This tests nonblack/variation only, not art acceptance or scene coverage.",
+    "unique_samples": 24,
+    "nonblack_samples": 24,
+    "samples": [
+      {
+        "frame_index": 0,
+        "native_rgb_sha256": "57e7ca9705b88ba613b28cd9ad71bc77ebb5dff7f3be7ebba2cff750257b2d55",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 27.93034252025463
+      },
+      {
+        "frame_index": 294,
+        "native_rgb_sha256": "8b2ac994be875a65ed9d408e2b5906edee00e009ea30dc6f6bfd3a51de7c8d08",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 59.158612196180556
+      },
+      {
+        "frame_index": 587,
+        "native_rgb_sha256": "1b945ab3b2b377ebed883eb12e022d4a15ab1d2042ec25883d8da59172a80acb",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 36.882505063657405
+      },
+      {
+        "frame_index": 881,
+        "native_rgb_sha256": "7f5e8ddd79c715f55417b515da2f6dcc07a0207dd1dfa04eb7df0d99d33bf4d9",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 21.98989619502315
+      },
+      {
+        "frame_index": 1175,
+        "native_rgb_sha256": "7c4b0d133ecf513dcd5115d7f333eb8d11206ff27353b87ef83328496aa543d2",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 33.06035590277778
+      },
+      {
+        "frame_index": 1468,
+        "native_rgb_sha256": "b960f8c144f32ac332b7ab2463098eaf841e011d022a884eace1ce4a62aebf3f",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 45.880145399305555
+      },
+      {
+        "frame_index": 1762,
+        "native_rgb_sha256": "5f1418f7d342f04b021f26942b8e41c4f214981dfc2324546cd46b99b1ba0664",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 47.77754014756945
+      },
+      {
+        "frame_index": 2056,
+        "native_rgb_sha256": "7e54e8c022bbc8be2183c652508232d145685068c56612eee4809d19200c2151",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 38.43423828125
+      },
+      {
+        "frame_index": 2349,
+        "native_rgb_sha256": "003d6f2f17aca31462bb9e750c46f1da6090395af907ad79857064ead139cc88",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 37.68167896412037
+      },
+      {
+        "frame_index": 2643,
+        "native_rgb_sha256": "61e6ab3c22ad42b73e9ec389ccee937e6305bb23c83b2e54be7f404ba452e9e7",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 50.155431495949074
+      },
+      {
+        "frame_index": 2937,
+        "native_rgb_sha256": "ea8132f8e0ecae621a60aaa95dc97fa9d78ba16cc21677decd007218e63b66e5",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 30.358351417824075
+      },
+      {
+        "frame_index": 3230,
+        "native_rgb_sha256": "91629e3f095b8a2f2a8b9a084299b3a63a3be60fd0cfe7d38a9ceacbe6351e82",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 41.71146737557871
+      },
+      {
+        "frame_index": 3524,
+        "native_rgb_sha256": "2828424debd90689ca2fe4087c909af3faad4b2c0d557bebe579320431e78489",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 32.467140480324076
+      },
+      {
+        "frame_index": 3817,
+        "native_rgb_sha256": "f223537ab08d03708fde338da0a2c1462294492d165f7ca08cfb266f7a36aa6d",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 65.61720124421296
+      },
+      {
+        "frame_index": 4111,
+        "native_rgb_sha256": "7f2b3264c8ebf2a11479010dff4647c77ef72cd8738c5b0957416596fccb17d4",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 29.15172923900463
+      },
+      {
+        "frame_index": 4405,
+        "native_rgb_sha256": "1d1116f4826975ac9ba416b582deb3164e558ca42b00ae8e762fb5aa4b4d3e99",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 32.16807761863426
+      },
+      {
+        "frame_index": 4698,
+        "native_rgb_sha256": "bc3eb07e59b5731092ce5e03a1e8d63b01441820248412ac60fa1274ea091cfc",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 38.37198097511574
+      },
+      {
+        "frame_index": 4992,
+        "native_rgb_sha256": "fac0cd14abc2b4d7611af018c16c0113f93eeaf74ffd390a8d34df10ff2ea00d",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 48.849491102430555
+      },
+      {
+        "frame_index": 5286,
+        "native_rgb_sha256": "c17e051b02e15158dddf8dc1adf3137c45cb5315135a0d0ec916372cd0f6e84b",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 31.796572265625
+      },
+      {
+        "frame_index": 5579,
+        "native_rgb_sha256": "79c9c92b7915365cd0fe26098d5dd9a29a6baa22b18c9db89a6bbd2ffe3cfb94",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 28.94990596064815
+      },
+      {
+        "frame_index": 5873,
+        "native_rgb_sha256": "d60b0ffecc8c8ea3466bc2f49f52e85effa5656f15cef306f1f514673fd4a961",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 32.57318504050926
+      },
+      {
+        "frame_index": 6167,
+        "native_rgb_sha256": "bcae6b8d41e5838b6d65a651f35ad638f54346ff35017a68051a1c43987fb3ce",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 41.18982385706018
+      },
+      {
+        "frame_index": 6460,
+        "native_rgb_sha256": "cf4e3b2375885e7bc0ed480f8367bdb7287c9cd1b3578add3000db22bf0bd993",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 30.69821759259259
+      },
+      {
+        "frame_index": 6754,
+        "native_rgb_sha256": "327e72f6bb243e43d7b61758e03e72eb18d1e2cc93626369fbff8500387581e3",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 96.36047453703704
+      }
+    ]
+  },
+  "master_pcm": {
+    "native_pcm_payload_sha256": "87adc5608473866d7deb5b3171eed228b78b35877ffb558e7a0b15baf81306a7",
+    "native_pcm_payload_bytes": 43232000,
+    "codec": "pcm_s16le",
+    "sample_rate": 48000,
+    "channels": 2,
+    "decoded_frames": 10808000,
+    "seconds": 225.16666666666666,
+    "decode": "Native PCM packet payload, no filters/rate/channel conversion. Integer PCM is intrinsically finite; floating PCM is explicitly checked.",
+    "rms_per_channel": [
+      0.03888418274901765,
+      0.03884433997010605
+    ],
+    "peak_per_channel": [
+      0.59234619140625,
+      0.548187255859375
+    ],
+    "mean_per_channel": [
+      -2.0029806367209185e-05,
+      -1.9686548556335583e-05
+    ],
+    "difference_rms": 0.027427747232178886,
+    "difference_threshold": 3.8884182749017653e-07,
+    "nonfinite_sample_count": 0,
+    "rail_sample_count": 0,
+    "over_full_scale_sample_count": 0,
+    "nonzero_each_channel": true,
+    "stereo_difference_nonzero": true
+  },
+  "master_wav": {
+    "path": "/home/rikki/Builds/eyesore-pickups-rooms-captures-2026-10-12/intake-furnished-master.wav",
+    "sha256": "bd9df4c76e5ce691701f562b1998ec9c0f85060eee4f62e8f93576a257ef405d",
+    "bytes": 43232078,
+    "payload": {
+      "native_pcm_payload_sha256": "87adc5608473866d7deb5b3171eed228b78b35877ffb558e7a0b15baf81306a7",
+      "native_pcm_payload_bytes": 43232000,
+      "codec": "pcm_s16le",
+      "sample_rate": 48000,
+      "channels": 2,
+      "decoded_frames": 10808000,
+      "seconds": 225.16666666666666,
+      "decode": "Native PCM packet payload, no filters/rate/channel conversion. Integer PCM is intrinsically finite; floating PCM is explicitly checked."
+    },
+    "processing": "PCM packet stream copy; exact AVI/WAV payload SHA256, byte and frame equality; no gain, filters or resampling."
+  },
+  "mp4": {
+    "path": "/home/rikki/Builds/eyesore-pickups-rooms-captures-2026-10-12/intake-furnished.mp4",
+    "sha256": "41ef29ec0c46ea89b4cdd8cce3950bb49a6ea4a8d68e9c8d471200123264f836",
+    "bytes": 471518761,
+    "video": {
+      "frames": 6755,
+      "seconds": 225.16666666666666,
+      "frame_rate": 30,
+      "video": {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.64001f",
+        "width": 1280,
+        "height": 720,
+        "coded_width": 1280,
+        "coded_height": 720,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
+        "pix_fmt": "yuvj420p",
+        "level": 31,
+        "color_range": "pc",
+        "color_space": "bt470bg",
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "time_base": "1/15360",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 3458560,
+        "duration": "225.166667",
+        "bit_rate": "16486198",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "6755",
+        "nb_read_frames": "6755",
+        "extradata_size": 49,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "encoder": "Lavc63.1.102 libx264"
+        }
+      },
+      "audio": {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "mime_codec_string": "mp4a.40.2",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 1024,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 10808000,
+        "duration": "225.166667",
+        "bit_rate": "257675",
+        "nb_frames": "10556",
+        "nb_read_frames": "10555",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler"
+        }
+      },
+      "format": {
+        "filename": "/home/rikki/Builds/eyesore-pickups-rooms-captures-2026-10-12/intake-furnished.mp4",
+        "nb_streams": 2,
+        "nb_programs": 0,
+        "nb_stream_groups": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "225.166667",
+        "size": "471518761",
+        "bit_rate": "16752702",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf63.1.102"
+        }
+      }
+    },
+    "decoded_audio": {
+      "decoded_frames": 10808000,
+      "decoded_seconds": 225.16666666666666,
+      "rms_per_channel": [
+        0.038647119447883065,
+        0.038595121465932004
+      ],
+      "peak_per_channel": [
+        0.5881822109222412,
+        0.5447566509246826
+      ],
+      "difference_rms": 0.027163612943515318,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "scope": "Lossy AAC structural decode only; no source-PCM/sample equality claim."
+    },
+    "processing": "Complete source frames; libx264 fast CRF16 yuv420p and AAC256k faststart; no trims, overlays, filters, gain, fades or additional streams. H.264/AAC are lossy."
+  },
+  "verification_log": {
+    "path": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/pickups-rooms-v6/release/intake-furnished-recording.log",
+    "sha256": "db324e5713e48d843de59e6bd037c3bd368baaa7802799cd0060cbd904b5bc36",
+    "bytes": 44085
+  },
+  "helper": {
+    "path": "tools/verify_map_recording.py",
+    "sha256": "684434651ba8c3fbe3e942eb34d0badf59003c9eca2d7d724a1e40cd5edc6a95",
+    "reused_analysis": {
+      "path": "tools/verify_arsenal_recordings.py",
+      "sha256": "f59b8485e709a9873c4796fed3cbcf520da3eabb5f17847d32b83fca68fe1af7"
+    }
+  },
+  "duration_tolerance_seconds": 0.033334333333333334,
+  "scope": "Coordinator-submitted completed native exported Ward Intake MovieMaker capture and matching observed /proc process/log/route evidence. Isolated source-declared normal finite seed with heavy bot weapon selection, actual AI/damage, physical stairs and observation-lift ascent/descent, authoritative Twin shots/kills and E exit; no secrets. Numeric media checks and automated fixed simulation do not prove human visual, listening or pacing acceptance.",
+  "human_acceptance": "pending",
+  "verified_utc": "2026-10-12T22:02:09.180714+00:00"
+}
