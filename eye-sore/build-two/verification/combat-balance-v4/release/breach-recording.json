@@ -1,0 +1,666 @@
+{
+  "schema_version": 1,
+  "campaign_level": "pale_ward_03",
+  "status": "passed",
+  "source_commit": "b9053bdd55634d0f705a82786504cf9932cc0543",
+  "export": {
+    "build": {
+      "path": "/home/rikki/Builds/eyesore-combat-balance-2026-10-12/BUILD.json",
+      "sha256": "654b93f84ae28a31886c92b2806fb77a53d3814ef02c227ebc1607ee929ae882",
+      "bytes": 3812
+    },
+    "executable": {
+      "path": "/home/rikki/Builds/eyesore-combat-balance-2026-10-12/eyesore-combat-balance-v4.x86_64",
+      "sha256": "d71862179e4e6d1d06ff4b84d0b6e96131d20347ae6515fd5d416b5de26a8bba",
+      "bytes": 155715816
+    },
+    "source_commit": "b9053bdd55634d0f705a82786504cf9932cc0543",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "source_tree_sha256": "1eb9903ba9819769fac7c3993590b6351b870d74ced4bbd3d38a6d5eb7c96be8"
+  },
+  "launch": {
+    "path": "/tmp/eyesore-balance-v4-export/native/launch.json",
+    "sha256": "1e75abea9855440f06dba231c34f665f5b2f48c139b61148df528e8932620aee",
+    "bytes": 1941,
+    "pid": 79287,
+    "source": "Coordinator subprocess.Popen PID and /proc command observation",
+    "command": [
+      "/home/rikki/Builds/eyesore-combat-balance-2026-10-12/eyesore-combat-balance-v4.x86_64",
+      "--fixed-fps",
+      "30",
+      "--disable-vsync",
+      "--write-movie",
+      "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach.avi",
+      "--log-file",
+      "/tmp/eyesore-balance-v4-export/native/engine.log",
+      "--",
+      "--campaign-route-test",
+      "--campaign-level=pale_ward_03",
+      "--use-heavy-weapons",
+      "--release-report-dir=/tmp/eyesore-balance-v4-export/native",
+      "--automated-input",
+      "--force-offscreen-draw"
+    ],
+    "note": ""
+  },
+  "route": {
+    "path": "/tmp/eyesore-balance-v4-export/native/pale_ward_03-campaign-route.json",
+    "sha256": "5a109206b1f0a40130b2277dcca4fb13576f1a59b525a0434d3a252aa6d60537",
+    "bytes": 40235,
+    "level": "pale_ward_03",
+    "completed": true,
+    "finite_seed": {
+      "health": 100,
+      "armor": 50,
+      "ammo_pistol": 36,
+      "ammo_shotgun": 12,
+      "ammo_rivets": 12,
+      "ammo_rockets": 0,
+      "owned_weapons": [
+        "pistol",
+        "shotgun",
+        "melee",
+        "twin_shotgun",
+        "rivet_cannon"
+      ]
+    },
+    "baseline": {
+      "armor": 50.0,
+      "health": 100.0,
+      "kills": 0,
+      "owned_weapons": [
+        "pistol",
+        "shotgun",
+        "melee",
+        "twin_shotgun",
+        "rivet_cannon"
+      ],
+      "pistol": 36,
+      "rivets": 12,
+      "rockets": 0,
+      "shells": 12,
+      "shots": 0,
+      "total": 38
+    },
+    "kills": 37,
+    "total_enemies": 38,
+    "shots": 85,
+    "health": 100.0,
+    "flags": {
+      "brass": true,
+      "brass_key": true,
+      "breaker": true,
+      "clear_arena_one": true,
+      "clear_arena_two": true,
+      "clear_final_arena": true,
+      "exit": true,
+      "exit_control": true,
+      "power": true,
+      "red": true,
+      "red_key": true,
+      "release": true
+    },
+    "secret_used": false,
+    "accepted_exit_control": true,
+    "weapon_shots": {
+      "pistol": 7,
+      "rivet_cannon": 45,
+      "shotgun": 16,
+      "siege_launcher": 8,
+      "twin_shotgun": 9
+    },
+    "weapon_kills": {
+      "pistol": 1,
+      "rivet_cannon": 10,
+      "shotgun": 9,
+      "siege_launcher": 8,
+      "twin_shotgun": 9
+    },
+    "entry_ammo": {
+      "pistol": 36,
+      "rivets": 12,
+      "rockets": 0,
+      "shells": 12
+    },
+    "exit_ammo": {
+      "pistol": 72,
+      "rivets": 0,
+      "rockets": 2,
+      "shells": 0
+    },
+    "peak_ammo": {
+      "pistol": 76,
+      "rivets": 22,
+      "rockets": 6,
+      "shells": 21
+    },
+    "ammo_caps": {
+      "pistol": 96,
+      "shells": 40,
+      "rivets": 160,
+      "rockets": 12
+    },
+    "physics_seconds": 214.883333333333,
+    "frozen_source_blobs": [
+      {
+        "blob": "b9053bdd55634d0f705a82786504cf9932cc0543:eye-sore/build-two/resources/campaign/catalog.json",
+        "sha256": "165c59561b089bafeddd796c8498431f9d89889559e2a0832c7dffc470a92f4d"
+      },
+      {
+        "blob": "b9053bdd55634d0f705a82786504cf9932cc0543:eye-sore/build-two/resources/campaign/route-seeds.json",
+        "sha256": "4258d0690ba1e357463f81470148fec6f675a6482a710adce6e405caba5fe13a"
+      },
+      {
+        "blob": "b9053bdd55634d0f705a82786504cf9932cc0543:eye-sore/build-two/resources/campaign/balance-budget.json",
+        "sha256": "955de5544c7be20fa4d8f561a9736c65ad5045936f0e62a9387ee9752c81f3f4"
+      }
+    ],
+    "scope": "Opt-in native Main campaign route: finite source-declared loadout; physical CharacterBody movement, AI, ordinary damage, real weapon rays and E-use. No teleport, secret supplies or completion signal injection. Optional heavy-weapon selection is bot policy; combat tuning is unchanged. Fixed simulation rate is explicit in engine arguments when used."
+  },
+  "native_log": {
+    "path": "/tmp/eyesore-balance-v4-export/native/engine.log",
+    "sha256": "11449ab28d46afdbe28e04efa2a985c006bdd8647f260dbfa910ac15c5501019",
+    "bytes": 382,
+    "successful_campaign_marker": {
+      "failures": [],
+      "level": "pale_ward_03",
+      "receipt": "/tmp/eyesore-balance-v4-export/native/pale_ward_03-campaign-route.json"
+    }
+  },
+  "original_avi": {
+    "path": "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach.avi",
+    "sha256": "2dd3a47c9234c4d773546a4c61b7324648cb412227a5b5c6c14797fba73a346c",
+    "bytes": 851353684
+  },
+  "native_video": {
+    "frames": 6485,
+    "seconds": 216.16666666666666,
+    "frame_rate": 30,
+    "video": {
+      "index": 0,
+      "codec_name": "mjpeg",
+      "codec_long_name": "Motion JPEG",
+      "profile": "Baseline",
+      "codec_type": "video",
+      "codec_tag_string": "MJPG",
+      "codec_tag": "0x47504a4d",
+      "width": 1280,
+      "height": 720,
+      "coded_width": 1280,
+      "coded_height": 720,
+      "has_b_frames": 0,
+      "sample_aspect_ratio": "1:1",
+      "display_aspect_ratio": "16:9",
+      "pix_fmt": "yuvj420p",
+      "level": -99,
+      "color_range": "pc",
+      "color_space": "bt470bg",
+      "chroma_location": "center",
+      "refs": 1,
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "time_base": "1/30",
+      "start_pts": 0,
+      "start_time": "0.000000",
+      "duration_ts": 6485,
+      "duration": "216.166667",
+      "bit_rate": "29964395",
+      "bits_per_raw_sample": "8",
+      "nb_frames": "6485",
+      "nb_read_frames": "6485",
+      "disposition": {
+        "default": 0,
+        "dub": 0,
+        "original": 0,
+        "comment": 0,
+        "lyrics": 0,
+        "karaoke": 0,
+        "forced": 0,
+        "hearing_impaired": 0,
+        "visual_impaired": 0,
+        "clean_effects": 0,
+        "attached_pic": 0,
+        "timed_thumbnails": 0,
+        "non_diegetic": 0,
+        "captions": 0,
+        "descriptions": 0,
+        "metadata": 0,
+        "dependent": 0,
+        "still_image": 0,
+        "multilayer": 0
+      }
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "pcm_s16le",
+      "codec_long_name": "PCM signed 16-bit little-endian",
+      "codec_type": "audio",
+      "codec_tag_string": "[1][0][0][0]",
+      "codec_tag": "0x0001",
+      "sample_fmt": "s16",
+      "sample_rate": "48000",
+      "channels": 2,
+      "bits_per_sample": 16,
+      "initial_padding": 0,
+      "r_frame_rate": "0/0",
+      "avg_frame_rate": "0/0",
+      "time_base": "1/48000",
+      "start_pts": 0,
+      "start_time": "0.000000",
+      "bit_rate": "1536000",
+      "nb_frames": "10376000",
+      "nb_read_frames": "12970",
+      "disposition": {
+        "default": 0,
+        "dub": 0,
+        "original": 0,
+        "comment": 0,
+        "lyrics": 0,
+        "karaoke": 0,
+        "forced": 0,
+        "hearing_impaired": 0,
+        "visual_impaired": 0,
+        "clean_effects": 0,
+        "attached_pic": 0,
+        "timed_thumbnails": 0,
+        "non_diegetic": 0,
+        "captions": 0,
+        "descriptions": 0,
+        "metadata": 0,
+        "dependent": 0,
+        "still_image": 0,
+        "multilayer": 0
+      }
+    },
+    "format": {
+      "filename": "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach.avi",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "avi",
+      "format_long_name": "AVI (Audio Video Interleaved)",
+      "start_time": "0.000000",
+      "duration": "216.166667",
+      "size": "851353684",
+      "bit_rate": "31507306",
+      "probe_score": 100
+    }
+  },
+  "native_frame_diversity": {
+    "analysis": "24 evenly distributed native full-resolution RGB frames; no image files saved. This tests nonblack/variation only, not art acceptance or scene coverage.",
+    "unique_samples": 24,
+    "nonblack_samples": 24,
+    "samples": [
+      {
+        "frame_index": 0,
+        "native_rgb_sha256": "a94ff1905967e19c9fd366d4742e20cb575f017d5531e9ddd2de96cca55302e8",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 27.94569118923611
+      },
+      {
+        "frame_index": 282,
+        "native_rgb_sha256": "50ae7eacd0e6da4ad7de39b038811fc7d844940f24dd9d1d3fd0cff32f5bf35a",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 31.73071144386574
+      },
+      {
+        "frame_index": 564,
+        "native_rgb_sha256": "48b00c578c0d1c582093480e1582e9ec7e5a7eb10b87223ede49e9a60c94efd7",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 26.87174732349537
+      },
+      {
+        "frame_index": 846,
+        "native_rgb_sha256": "7ffa4f0590bdf249d313828c7dbf69e188fbe2f20c796cac597c9eef00ac38e4",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 34.63003833912037
+      },
+      {
+        "frame_index": 1128,
+        "native_rgb_sha256": "b4cc89517aa43a9fab8d9c3a338c675c8f64132bb811d37f403eb038859330e2",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 35.018554325810186
+      },
+      {
+        "frame_index": 1410,
+        "native_rgb_sha256": "768561c2e3ef52037fc55338cef9d11a5c74dcdc1eb6bff2d865cd1cd0ec75b6",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 31.212165075231482
+      },
+      {
+        "frame_index": 1691,
+        "native_rgb_sha256": "036f2a0be56b2211496088d6d23dae81b2f162435a03aee8c06ee1632d4fbfed",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 32.30212528935185
+      },
+      {
+        "frame_index": 1973,
+        "native_rgb_sha256": "735effafa7b9cb78e5d4e8b2971f7f9b244a7aa72b5729925afcbe84160921ef",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 30.25721064814815
+      },
+      {
+        "frame_index": 2255,
+        "native_rgb_sha256": "ebefb91bff222c8803cbae64ef5555a07135b98c58e210ff392d1e7149170b26",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 41.328795211226854
+      },
+      {
+        "frame_index": 2537,
+        "native_rgb_sha256": "fb1067a3143f8220b959080492c789874a2e603df1ff8d10ec6423b23e55c995",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 22.179163411458333
+      },
+      {
+        "frame_index": 2819,
+        "native_rgb_sha256": "decfc3efe4887c7e5564690e5c26ddbb42adecfaa41c6b09e2c37ece6aa1c746",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 32.76791630497685
+      },
+      {
+        "frame_index": 3101,
+        "native_rgb_sha256": "0788c35cf36522f3db625fa2e26153f8dcf12b55a5b71543c34bb7140f3899a7",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 31.10877857349537
+      },
+      {
+        "frame_index": 3383,
+        "native_rgb_sha256": "731dbbd604014a34d8597ca49e50abf3f5ccf45ba6eb63374d93a789ca216aa6",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 34.53469798900463
+      },
+      {
+        "frame_index": 3665,
+        "native_rgb_sha256": "a988dd1f7abfd5cf9c9ba43665639c0c9ce65c4704ce70d47e8fbb4589cc5c6c",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 32.42937608506944
+      },
+      {
+        "frame_index": 3947,
+        "native_rgb_sha256": "f1ebc7c294089e8b0e71bc5f54d152abdae03a09052eb5ddb9f9f1f8329b38e3",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 27.351179470486112
+      },
+      {
+        "frame_index": 4229,
+        "native_rgb_sha256": "dae61aa9b060db4e6c72b59663dbab78377880f437b0e5e3b37041e43c3a2b1c",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 31.08404911747685
+      },
+      {
+        "frame_index": 4511,
+        "native_rgb_sha256": "bb35a1fa4c1ccf5bb320342de55d6d4a49b52be56c9c5baf26899ce3a530bec6",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 26.858520326967593
+      },
+      {
+        "frame_index": 4793,
+        "native_rgb_sha256": "29dc492cf0b8d63d74e85589c9ca76c360e4aebc66558e2d4bcf1d574b0d6ebb",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 35.24444191261574
+      },
+      {
+        "frame_index": 5074,
+        "native_rgb_sha256": "00a27fafd479389190c2c775c021570b61d18b70c68f86e5427187da6264f052",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 27.870203993055554
+      },
+      {
+        "frame_index": 5356,
+        "native_rgb_sha256": "08dd8307b1a7634bc341cb5bc3cc9958b311909134a2a6ff65dfe89ac22d2276",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 26.64153464988426
+      },
+      {
+        "frame_index": 5638,
+        "native_rgb_sha256": "93b8eb56d81e735d1fdda5eaab6e161aba7ff4360d9ee0fe02eeb8b8dea6ffd8",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 25.844052372685184
+      },
+      {
+        "frame_index": 5920,
+        "native_rgb_sha256": "d6515038491aba193bb35ef53b14ae6f58267cff69354203aed835c6fcdfd6a4",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 27.13634765625
+      },
+      {
+        "frame_index": 6202,
+        "native_rgb_sha256": "a435ad5b0b06a6c6b8f2210edbb05a65a2223ae7cfd193cca43f231fa2f0e863",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 24.99845486111111
+      },
+      {
+        "frame_index": 6484,
+        "native_rgb_sha256": "a36f779324c02c9f87230b982f6d92a8a20feaa24aee50258e8c7788cc4ed7ad",
+        "peak_channel_byte": 255,
+        "mean_channel_byte": 95.43686414930555
+      }
+    ]
+  },
+  "master_pcm": {
+    "native_pcm_payload_sha256": "09c9899ab3cc7ca454b029cb15041b3e53d081b948e915c544964e8be300ea89",
+    "native_pcm_payload_bytes": 41504000,
+    "codec": "pcm_s16le",
+    "sample_rate": 48000,
+    "channels": 2,
+    "decoded_frames": 10376000,
+    "seconds": 216.16666666666666,
+    "decode": "Native PCM packet payload, no filters/rate/channel conversion. Integer PCM is intrinsically finite; floating PCM is explicitly checked.",
+    "rms_per_channel": [
+      0.036881576225127215,
+      0.0371314755569383
+    ],
+    "peak_per_channel": [
+      0.46295166015625,
+      0.4818115234375
+    ],
+    "mean_per_channel": [
+      -2.1407054586417875e-05,
+      -2.0965049702475967e-05
+    ],
+    "difference_rms": 0.027419228836789683,
+    "difference_threshold": 3.71314755569383e-07,
+    "nonfinite_sample_count": 0,
+    "rail_sample_count": 0,
+    "over_full_scale_sample_count": 0,
+    "nonzero_each_channel": true,
+    "stereo_difference_nonzero": true
+  },
+  "master_wav": {
+    "path": "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach-master.wav",
+    "sha256": "994772ce1a31ef61550fa1f199092662d2e3a5f9392ff953629e0f986f2e326a",
+    "bytes": 41504078,
+    "payload": {
+      "native_pcm_payload_sha256": "09c9899ab3cc7ca454b029cb15041b3e53d081b948e915c544964e8be300ea89",
+      "native_pcm_payload_bytes": 41504000,
+      "codec": "pcm_s16le",
+      "sample_rate": 48000,
+      "channels": 2,
+      "decoded_frames": 10376000,
+      "seconds": 216.16666666666666,
+      "decode": "Native PCM packet payload, no filters/rate/channel conversion. Integer PCM is intrinsically finite; floating PCM is explicitly checked."
+    },
+    "processing": "PCM packet stream copy; exact AVI/WAV payload SHA256, byte and frame equality; no gain, filters or resampling."
+  },
+  "mp4": {
+    "path": "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach.mp4",
+    "sha256": "50350a0dbd543c5121b710814f2a83fb384714467e0cec0fd19428b8a4be1211",
+    "bytes": 424600238,
+    "video": {
+      "frames": 6485,
+      "seconds": 216.16666666666666,
+      "frame_rate": 30,
+      "video": {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.64001f",
+        "width": 1280,
+        "height": 720,
+        "coded_width": 1280,
+        "coded_height": 720,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
+        "pix_fmt": "yuvj420p",
+        "level": 31,
+        "color_range": "pc",
+        "color_space": "bt470bg",
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "time_base": "1/15360",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 3320320,
+        "duration": "216.166667",
+        "bit_rate": "15447975",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "6485",
+        "nb_read_frames": "6485",
+        "extradata_size": 49,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "encoder": "Lavc63.1.102 libx264"
+        }
+      },
+      "audio": {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "mime_codec_string": "mp4a.40.2",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 1024,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 10376000,
+        "duration": "216.166667",
+        "bit_rate": "256968",
+        "nb_frames": "10134",
+        "nb_read_frames": "10133",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler"
+        }
+      },
+      "format": {
+        "filename": "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach.mp4",
+        "nb_streams": 2,
+        "nb_programs": 0,
+        "nb_stream_groups": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "216.166667",
+        "size": "424600238",
+        "bit_rate": "15713809",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf63.1.102"
+        }
+      }
+    },
+    "decoded_audio": {
+      "decoded_frames": 10376000,
+      "decoded_seconds": 216.16666666666666,
+      "rms_per_channel": [
+        0.03664185252190239,
+        0.036876896723313485
+      ],
+      "peak_per_channel": [
+        0.45057761669158936,
+        0.4554615616798401
+      ],
+      "difference_rms": 0.02714655553573055,
+      "nonfinite_sample_count": 0,
+      "over_full_scale_sample_count": 0,
+      "scope": "Lossy AAC structural decode only; no source-PCM/sample equality claim."
+    },
+    "processing": "Complete source frames; libx264 fast CRF16 yuv420p and AAC256k faststart; no trims, overlays, filters, gain, fades or additional streams. H.264/AAC are lossy."
+  },
+  "verification_log": {
+    "path": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/combat-balance-v4/release/breach-recording.log",
+    "sha256": "ad1ca61d8350714d27bd3a9fdf34480ccc71fe2accd5e96c816ae07d172c8a59",
+    "bytes": 42518
+  },
+  "helper": {
+    "path": "tools/verify_balance_recording.py",
+    "sha256": "343a0b36d2caf4aa94b43cebf6e68efe2521b1d54e1efbda30c8b31b35b18166",
+    "reused_analysis": {
+      "path": "tools/verify_arsenal_recordings.py",
+      "sha256": "f59b8485e709a9873c4796fed3cbcf520da3eabb5f17847d32b83fca68fe1af7"
+    }
+  },
+  "duration_tolerance_seconds": 0.033334333333333334,
+  "scope": "Coordinator-submitted completed native exported Breach MovieMaker capture and matching process/log/route evidence. Isolated source-declared finite seed, heavy bot, actual AI/damage, physical movement, authoritative shots/kills and E exit; no secrets. Numeric media checks and automated fixed simulation do not prove human visual, listening or pacing acceptance.",
+  "human_acceptance": "pending",
+  "verified_utc": "2026-10-12T19:10:07.521899+00:00"
+}

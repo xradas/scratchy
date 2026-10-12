@@ -1,0 +1,50 @@
+{
+  "scope": "Coordinator inspected two unmodified native AVI frame extractions at45and120seconds; selected-gun HUD is readable and current ammo/caps visible. Actual exported game frames, no overlay/gain/asset editing. This is limited visual QA, not human art acceptance or whole-video approval.",
+  "movie": "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach.avi",
+  "frames": [
+    {
+      "path": "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach-frame-45.png",
+      "sha256": "e61e9417d639f63e65d34e73d32ca48c27c1853bbe9d2a5a9b04430a10b0846f",
+      "bytes": 825107,
+      "seconds": 45,
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-loglevel",
+        "error",
+        "-ss",
+        "45",
+        "-i",
+        "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach.avi",
+        "-frames:v",
+        "1",
+        "-update",
+        "1",
+        "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach-frame-45.png"
+      ]
+    },
+    {
+      "path": "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach-frame-120.png",
+      "sha256": "fd2fce4a4484e58e18054975a4f12a0570d36f543474a759d99569d748a25933",
+      "bytes": 765896,
+      "seconds": 120,
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-loglevel",
+        "error",
+        "-ss",
+        "120",
+        "-i",
+        "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach.avi",
+        "-frames:v",
+        "1",
+        "-update",
+        "1",
+        "/home/rikki/Builds/eyesore-combat-balance-captures-2026-10-12/breach-frame-120.png"
+      ]
+    }
+  ]
+}
