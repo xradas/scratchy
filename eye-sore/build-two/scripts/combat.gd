@@ -28,6 +28,9 @@ var weapon_visuals: Dictionary = {}
 var recoil_remaining: float = 0.0
 var gore: Node3D
 var weapon_lighting: Node3D
+@export var supply_policy: Resource = preload("res://resources/campaign/supply_policy.tres")
+const AMMO_KEYS := {&"pistol": &"ammo_pistol", &"shells": &"ammo_shotgun", &"shotgun": &"ammo_shotgun", &"rivets": &"ammo_rivets", &"rockets": &"ammo_rockets"}
+const AMMO_FIELDS := [&"ammo_pistol", &"ammo_shotgun", &"ammo_rivets", &"ammo_rockets"]
 const SWITCH_TIME: float = 0.22
 
 func setup(room: Node3D, actor: CharacterBody3D) -> void:
@@ -61,6 +64,7 @@ func reset() -> void:
 			projectile.resolved = true; projectile.set_physics_process(false); projectile.queue_free()
 	health = 100.0; armor = 50.0; ammo_pistol = 36; ammo_shotgun = 12
 	ammo_rivets = 0; ammo_rockets = 0
+	normalize_ammo()
 	owned_weapons = {&"pistol": true, &"shotgun": true, &"melee": true}
 	currentweapon = &"pistol"; weapon_phase = &"idle"; phase_time = 0.0
 	cooldown = 0.0; empty_cooldown = 0.0; shot_counter = 0; kills = 0; dead = false
@@ -226,19 +230,39 @@ func has_weapon(id: StringName) -> bool:
 
 func grant_weapon(id: StringName, ammo: int = 0) -> bool:
 	if not weapons.has(id) or ammo < 0: return false
+	var newly_owned := not has_weapon(id)
 	owned_weapons[id] = true
 	var definition: WeaponDefinition = weapons[id]
-	if ammo > 0 and definition.ammo_key != &"": add_ammo(definition.ammo_key, ammo)
-	emit_event({"type": &"weapon_granted", "weapon_id": id, "ammo": ammo})
+	var before := ammo_amount(definition.ammo_key)
+	var accepted := ammo > 0 and definition.ammo_key != &"" and add_ammo(definition.ammo_key, ammo)
+	if not newly_owned and not accepted: return false
+	emit_event({"type": &"weapon_granted", "weapon_id": id, "ammo": ammo_amount(definition.ammo_key) - before})
 	return true
+
+func ammo_amount(kind: StringName) -> int:
+	var key: StringName = AMMO_KEYS.get(kind, kind)
+	return int(get(String(key))) if key in AMMO_FIELDS else 0
+
+func ammo_capacity(kind: StringName) -> int:
+	# A level identity is the campaign boundary; themes also exist in standalone maps.
+	if not is_instance_valid(world) or String(world.get_meta("campaign_level_id", "")).is_empty(): return -1
+	return supply_policy.capacity(kind)
+
+func normalize_ammo() -> void:
+	# Restore/carry normalization is silent: it is not a pickup or a firing event.
+	for key in AMMO_FIELDS:
+		var capacity := ammo_capacity(key)
+		if capacity >= 0: set(String(key), clampi(int(get(String(key))), 0, capacity))
 
 func add_ammo(kind: StringName, amount: int) -> bool:
 	if amount <= 0: return false
-	var keys := {&"pistol": &"ammo_pistol", &"shells": &"ammo_shotgun", &"shotgun": &"ammo_shotgun", &"rivets": &"ammo_rivets", &"rockets": &"ammo_rockets"}
-	var key: StringName = keys.get(kind, kind)
-	if key not in [&"ammo_pistol", &"ammo_shotgun", &"ammo_rivets", &"ammo_rockets"]: return false
-	set(String(key), int(get(String(key))) + amount)
-	emit_event({"type": &"ammo_added", "ammo_kind": key, "amount": amount})
+	var key: StringName = AMMO_KEYS.get(kind, kind)
+	if key not in AMMO_FIELDS: return false
+	var capacity := ammo_capacity(key)
+	var accepted := amount if capacity < 0 else mini(amount, maxi(0, capacity - ammo_amount(key)))
+	if accepted <= 0: return false
+	set(String(key), ammo_amount(key) + accepted)
+	emit_event({"type": &"ammo_added", "ammo_kind": key, "amount": accepted})
 	return true
 
 func anatomical_exclusions() -> Array[RID]:

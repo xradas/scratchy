@@ -95,7 +95,7 @@ def provenance_files() -> list[Path]:
              "concepts/sprite-art-v1", "concepts/style-art-v2",
              "concepts/weapon-style-v3", "concepts/expansion-v1", "docs/expansion-v1",
              "concepts/arsenal-architecture-v2", "docs/arsenal-architecture-v2",
-             "concepts/campaign-v3", "docs/campaign-v3",
+             "concepts/campaign-v3", "docs/campaign-v3", "docs/combat-balance-v4",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")
     paths = [PROJECT / "concepts/visual-v2/manifest.json",
@@ -361,6 +361,8 @@ def package(args: argparse.Namespace) -> dict:
             "E uses doors/lift/exit; walk over pickups; Tab shows visited areas.\n"
             "Escape pauses/settings; Retry restores the level-entry loadout. No jump/dash/reload.\n"
             "Continue carries health, armor, weapons and ammunition into the next level.\n"
+            "Campaign capacity: 96 pistol rounds, 40 shells, 160 rivets, 12 rockets.\n"
+            "Full ammo boxes stay available; the selected gun HUD shows ammo/capacity.\n"
             "Ward Intake has a signed Twin cache; Containment introduces Rivet; Breach introduces Siege.\n\n"
             "Clear each arena to enable its marked control. Use the breaker, find\n"
             "the brass key, return through the shortcut, then release the red-key\n"

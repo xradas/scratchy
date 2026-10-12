@@ -1,0 +1,3099 @@
+{
+  "campaign": "Eyesore",
+  "editor_feature": true,
+  "engine_arguments": [],
+  "executable": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+  "expected_levels": 9,
+  "failures": [
+    "Portal arena_one→key_wing: traversal stalled at (33.85636, 2.350941, -110.2409)"
+  ],
+  "finale": "PAUSED",
+  "initial_loadout": {
+    "ammo_pistol": 36,
+    "ammo_rivets": 0,
+    "ammo_rockets": 0,
+    "ammo_shotgun": 12,
+    "armor": 50.0,
+    "currentweapon": "pistol",
+    "health": 100.0,
+    "owned_weapons": {
+      "melee": true,
+      "pistol": true,
+      "shotgun": true
+    }
+  },
+  "levels": [
+    {
+      "accepted_ammo": {
+        "pistol": 45,
+        "rivets": 0,
+        "rockets": 0,
+        "shells": 27
+      },
+      "active_entry_loadout": {
+        "ammo_pistol": 36,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 12,
+        "armor": 50.0,
+        "currentweapon": "pistol",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true
+        }
+      },
+      "ammo_caps": {
+        "pistol": 96,
+        "rivets": 160,
+        "rockets": 12,
+        "shells": 40
+      },
+      "chapter": "pale_ward",
+      "completed": true,
+      "entry_ammo": {
+        "pistol": 36,
+        "rivets": 0,
+        "rockets": 0,
+        "shells": 12
+      },
+      "entry_loadout": {
+        "ammo_pistol": 36,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 12,
+        "armor": 50.0,
+        "currentweapon": "pistol",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true
+        }
+      },
+      "exit_ammo": {
+        "pistol": 0,
+        "rivets": 0,
+        "rockets": 0,
+        "shells": 0
+      },
+      "exit_loadout": {
+        "ammo_pistol": 0,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 0,
+        "armor": 100.0,
+        "currentweapon": "melee",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true,
+          "twin_shotgun": true
+        }
+      },
+      "flags": {
+        "brass": true,
+        "brass_key": true,
+        "breaker": true,
+        "clear_arena_one": true,
+        "clear_arena_two": true,
+        "clear_final_arena": true,
+        "exit": true,
+        "exit_control": true,
+        "power": true,
+        "red": true,
+        "red_key": true,
+        "release": true
+      },
+      "health": 100.0,
+      "interactions": [
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_entry_gate"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Button_breaker"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_breaker"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_brass_gate"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Button_release"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_release"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_red_gate"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Button_exit_control"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_exit_gate"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "ExitControl"
+        }
+      ],
+      "kills": 32,
+      "level": "pale_ward_01",
+      "peak_ammo": {
+        "pistol": 60,
+        "rivets": 0,
+        "rockets": 0,
+        "shells": 21
+      },
+      "physics_seconds": 217.8,
+      "route_resource": "res://resources/campaign/pale_ward_01-route.json",
+      "scene": "res://scenes/campaign/pale_ward_01.tscn",
+      "secret_used": false,
+      "segments": [
+        {
+          "armor": 67.0,
+          "health": 100.0,
+          "kills": 2,
+          "pistol": 49,
+          "position": "(0.0, 0.850638, -0.331656)",
+          "segment": "Return centre entry",
+          "shells": 18,
+          "ticks": 256
+        },
+        {
+          "armor": 67.0,
+          "health": 100.0,
+          "kills": 2,
+          "pistol": 49,
+          "position": "(0.0, 0.975456, -16.30664)",
+          "segment": "Room route entry",
+          "shells": 18,
+          "ticks": 117
+        },
+        {
+          "armor": 67.0,
+          "health": 100.0,
+          "kills": 2,
+          "pistol": 49,
+          "position": "(0.0, 2.202393, -22.5483)",
+          "segment": "Gate entry_gate",
+          "shells": 18,
+          "ticks": 44
+        },
+        {
+          "armor": 67.0,
+          "health": 100.0,
+          "kills": 4,
+          "pistol": 46,
+          "position": "(0.0, 2.35022, -24.28121)",
+          "segment": "Portal entry→service",
+          "shells": 15,
+          "ticks": 131
+        },
+        {
+          "armor": 84.0,
+          "health": 100.0,
+          "kills": 4,
+          "pistol": 52,
+          "position": "(0.0, 2.35022, -38.38944)",
+          "segment": "Room route service",
+          "shells": 16,
+          "ticks": 103
+        },
+        {
+          "armor": 84.0,
+          "health": 100.0,
+          "kills": 4,
+          "pistol": 52,
+          "position": "(-0.0, 2.35022, -37.74778)",
+          "segment": "Return centre service",
+          "shells": 16,
+          "ticks": 16
+        },
+        {
+          "armor": 84.0,
+          "health": 100.0,
+          "kills": 4,
+          "pistol": 52,
+          "position": "(-0.0, 2.3302, -52.31089)",
+          "segment": "Room route service",
+          "shells": 16,
+          "ticks": 117
+        },
+        {
+          "armor": 84.0,
+          "health": 100.0,
+          "kills": 4,
+          "pistol": 52,
+          "position": "(-0.0, -0.149292, -56.29453)",
+          "segment": "Portal service→arena_one",
+          "shells": 16,
+          "ticks": 27
+        },
+        {
+          "armor": 84.0,
+          "health": 100.0,
+          "kills": 4,
+          "pistol": 60,
+          "position": "(-0.0, -0.149292, -58.80283)",
+          "segment": "Entry floor arena_one",
+          "shells": 17,
+          "ticks": 16
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 4,
+          "pistol": 60,
+          "position": "(-0.0, -0.149292, -76.37759)",
+          "segment": "Physical weapon cache arena_one",
+          "shells": 21,
+          "ticks": 129
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 8,
+          "pistol": 60,
+          "position": "(-4.268495, -0.149292, -84.00889)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 12,
+          "ticks": 13
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(-4.297237, -0.149292, -76.37293)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 7,
+          "ticks": 246
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(-4.299982, -0.149292, -75.87705)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 7,
+          "ticks": 15
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(-4.3, -0.149292, -58.12895)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 7,
+          "ticks": 132
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(0.303429, -0.149292, -58.49233)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 7,
+          "ticks": 37
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(4.668417, -0.149292, -58.49233)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 7,
+          "ticks": 30
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(4.303081, -0.149292, -76.33359)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 7,
+          "ticks": 136
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(4.300011, -0.149292, -75.84839)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 7,
+          "ticks": 15
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(4.300001, -0.149292, -58.10456)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 7,
+          "ticks": 132
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(-0.299526, -0.149292, -58.49191)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 7,
+          "ticks": 37
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(4.584374, -0.149292, -58.49984)",
+          "segment": "Arena ring route arena_one",
+          "shells": 7,
+          "ticks": 47
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(4.301439, -0.149292, -92.08208)",
+          "segment": "Arena ring route arena_one",
+          "shells": 7,
+          "ticks": 254
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(4.498735, -0.149292, -91.59832)",
+          "segment": "Arena ring route arena_one",
+          "shells": 7,
+          "ticks": 15
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(4.498735, -0.149292, -91.50156)",
+          "segment": "Control breaker",
+          "shells": 7,
+          "ticks": 0
+        },
+        {
+          "armor": 92.8,
+          "health": 100.0,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(0.009716, -0.149292, -58.20561)",
+          "segment": "Return centre arena_one",
+          "shells": 7,
+          "ticks": 254
+        },
+        {
+          "armor": 92.8,
+          "health": 100.0,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(4.62558, -0.149292, -58.49466)",
+          "segment": "Arena ring route arena_one",
+          "shells": 7,
+          "ticks": 37
+        },
+        {
+          "armor": 92.8,
+          "health": 100.0,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(4.302696, -0.149292, -76.33774)",
+          "segment": "Arena ring route arena_one",
+          "shells": 7,
+          "ticks": 136
+        },
+        {
+          "armor": 92.8,
+          "health": 100.0,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(17.75229, -0.149292, -76.01125)",
+          "segment": "Arena ring route arena_one",
+          "shells": 7,
+          "ticks": 107
+        },
+        {
+          "armor": 92.8,
+          "health": 100.0,
+          "kills": 9,
+          "pistol": 60,
+          "position": "(19.94416, 0.809282, -76.00002)",
+          "segment": "Gate breaker",
+          "shells": 7,
+          "ticks": 25
+        },
+        {
+          "armor": 92.8,
+          "health": 100.0,
+          "kills": 12,
+          "pistol": 53,
+          "position": "(24.30623, 2.350066, -76.0061)",
+          "segment": "Portal arena_one→key_wing",
+          "shells": 3,
+          "ticks": 323
+        },
+        {
+          "armor": 92.8,
+          "health": 100.0,
+          "kills": 13,
+          "pistol": 49,
+          "position": "(38.38409, 2.350066, -76.00014)",
+          "segment": "Room route key_wing",
+          "shells": 3,
+          "ticks": 165
+        },
+        {
+          "armor": 92.8,
+          "health": 100.0,
+          "kills": 13,
+          "pistol": 49,
+          "position": "(37.7423, 2.350066, -76.00001)",
+          "segment": "Return centre key_wing",
+          "shells": 3,
+          "ticks": 16
+        },
+        {
+          "armor": 92.8,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 45,
+          "position": "(37.99548, 2.350066, -85.28461)",
+          "segment": "Room route key_wing",
+          "shells": 3,
+          "ticks": 133
+        },
+        {
+          "armor": 92.8,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 45,
+          "position": "(37.99999, 2.350066, -93.39228)",
+          "segment": "Portal key_wing→key_console",
+          "shells": 3,
+          "ticks": 58
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(38.0, 2.350066, -105.3671)",
+          "segment": "Room route key_console",
+          "shells": 4,
+          "ticks": 87
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(38.0, 2.350066, -108.2753)",
+          "segment": "Acquire brass_key",
+          "shells": 4,
+          "ticks": 19
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(38.0, 2.350066, -104.6237)",
+          "segment": "Return centre key_console",
+          "shells": 4,
+          "ticks": 38
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(38.0, 2.350066, -92.64886)",
+          "segment": "Room route key_console",
+          "shells": 4,
+          "ticks": 87
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(38.0, 2.350066, -84.674)",
+          "segment": "Portal key_console→key_wing",
+          "shells": 4,
+          "ticks": 57
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(38.0, 2.350066, -75.6325)",
+          "segment": "Room route key_wing",
+          "shells": 4,
+          "ticks": 65
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(38.0, 2.350066, -76.11591)",
+          "segment": "Return centre key_wing",
+          "shells": 4,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(23.61524, 2.339568, -76.00047)",
+          "segment": "Room route key_wing",
+          "shells": 4,
+          "ticks": 110
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(17.63386, -0.149182, -76.0)",
+          "segment": "Portal key_wing→arena_one",
+          "shells": 4,
+          "ticks": 42
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(3.926033, -0.149182, -76.0)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 100
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(4.297144, -0.149182, -58.15971)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 136
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(-0.310926, -0.149182, -58.49319)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(0.054408, -0.149182, -58.49996)",
+          "segment": "Return centre arena_one",
+          "shells": 4,
+          "ticks": 14
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(-4.58112, -0.149182, -58.5)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 40
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(-4.301105, -0.149182, -94.3469)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 271
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(0.298977, -0.024292, -96.01938)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 38
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 50,
+          "position": "(0.008882, 0.975423, -102.3822)",
+          "segment": "Gate brass_gate",
+          "shells": 4,
+          "ticks": 50
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 41,
+          "position": "(0.000103, 2.350788, -111.3108)",
+          "segment": "Portal arena_one→spine",
+          "shells": 4,
+          "ticks": 157
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 46,
+          "position": "(0.000001, 2.350788, -123.2855)",
+          "segment": "Room route spine",
+          "shells": 5,
+          "ticks": 87
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 46,
+          "position": "(-0.0, 2.350788, -122.9488)",
+          "segment": "Return centre spine",
+          "shells": 5,
+          "ticks": 14
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 46,
+          "position": "(-0.0, 2.350788, -135.3401)",
+          "segment": "Room route spine",
+          "shells": 5,
+          "ticks": 98
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 46,
+          "position": "(-0.0, 0.850913, -142.3848)",
+          "segment": "Portal spine→arena_two",
+          "shells": 5,
+          "ticks": 50
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 51,
+          "position": "(-0.0, 0.957007, -144.893)",
+          "segment": "Entry floor arena_two",
+          "shells": 6,
+          "ticks": 16
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 51,
+          "position": "(-0.0, 0.97521, -145.1513)",
+          "segment": "Altar stair approach",
+          "shells": 6,
+          "ticks": 0
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 51,
+          "position": "(-0.0, 2.850765, -153.2936)",
+          "segment": "Climb altar stairs",
+          "shells": 6,
+          "ticks": 62
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 51,
+          "position": "(-0.0, 2.850765, -158.3352)",
+          "segment": "Physical weapon cache arena_two",
+          "shells": 10,
+          "ticks": 35
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 20,
+          "pistol": 47,
+          "position": "(-0.000215, 0.850174, -144.6115)",
+          "segment": "Descend cleared altar",
+          "shells": 0,
+          "ticks": 426
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 20,
+          "pistol": 47,
+          "position": "(-4.644381, 0.850174, -144.6067)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 21,
+          "pistol": 39,
+          "position": "(-4.280555, 0.850942, -158.2509)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 246
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 21,
+          "pistol": 39,
+          "position": "(-4.280555, 0.850942, -158.468)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 0
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 21,
+          "pistol": 39,
+          "position": "(-4.299867, 0.850942, -144.1843)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 110
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(0.314228, 0.850942, -144.4928)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 99
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(4.682354, 0.850942, -144.4928)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 30
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(4.304282, 0.850942, -158.3293)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 106
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(4.300013, 0.850942, -157.8426)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(4.300001, 0.850942, -144.0981)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(-0.298326, 0.850942, -144.4918)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(4.586115, 0.850942, -144.4998)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 47
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(4.302001, 0.850942, -170.0776)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 194
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(4.498868, 0.850942, -169.5934)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(4.498868, 0.850942, -169.4966)",
+          "segment": "Control release",
+          "shells": 0,
+          "ticks": 0
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(-0.349945, 0.850241, -144.4651)",
+          "segment": "Return centre arena_two",
+          "shells": 0,
+          "ticks": 228
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(-4.688859, 0.850241, -144.4998)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 30
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(-4.303357, 0.850913, -158.3393)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 106
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(-19.343, 0.975874, -158.0031)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 115
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 35,
+          "position": "(-21.85045, 1.475287, -158.0002)",
+          "segment": "Gate release",
+          "shells": 0,
+          "ticks": 16
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 25,
+          "pistol": 18,
+          "position": "(-27.17606, 2.350202, -157.8033)",
+          "segment": "Portal arena_two→red_wing",
+          "shells": 0,
+          "ticks": 322
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 14,
+          "position": "(-40.30321, 2.350202, -157.9983)",
+          "segment": "Room route red_wing",
+          "shells": 0,
+          "ticks": 160
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 14,
+          "position": "(-39.81942, 2.350202, -158.0)",
+          "segment": "Return centre red_wing",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 14,
+          "position": "(-39.99792, 2.350202, -171.3169)",
+          "segment": "Room route red_wing",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 14,
+          "position": "(-39.99999, 2.350202, -180.3582)",
+          "segment": "Portal red_wing→red_console",
+          "shells": 0,
+          "ticks": 65
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-40.0, 2.350202, -192.3329)",
+          "segment": "Room route red_console",
+          "shells": 0,
+          "ticks": 87
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-40.0, 2.350202, -195.3745)",
+          "segment": "Acquire red_key",
+          "shells": 0,
+          "ticks": 20
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-40.0, 2.350202, -191.7227)",
+          "segment": "Return centre red_console",
+          "shells": 0,
+          "ticks": 38
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-40.0, 2.350202, -179.6146)",
+          "segment": "Room route red_console",
+          "shells": 0,
+          "ticks": 88
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-40.0, 2.350202, -170.7065)",
+          "segment": "Portal red_console→red_wing",
+          "shells": 0,
+          "ticks": 64
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-40.0, 2.350202, -157.6651)",
+          "segment": "Room route red_wing",
+          "shells": 0,
+          "ticks": 95
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-40.0, 2.350202, -158.1486)",
+          "segment": "Return centre red_wing",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-26.68309, 2.350202, -158.0018)",
+          "segment": "Room route red_wing",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-18.70692, 0.85069, -158.0)",
+          "segment": "Portal red_wing→arena_two",
+          "shells": 0,
+          "ticks": 57
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-3.933009, 0.85069, -158.0)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 108
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-4.296163, 0.85069, -144.1635)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 106
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(0.3124, 0.85069, -144.4934)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-0.052628, 0.85069, -144.5)",
+          "segment": "Return centre arena_two",
+          "shells": 0,
+          "ticks": 14
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-4.639101, 0.85069, -144.5)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 34
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(-4.301599, 0.850814, -172.3436)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 211
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(0.297549, 0.975566, -174.0191)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 38
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(0.004515, 1.601043, -180.9168)",
+          "segment": "Gate red_gate",
+          "shells": 0,
+          "ticks": 54
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 16,
+          "position": "(0.000019, 2.350322, -190.3773)",
+          "segment": "Portal arena_two→final_arena",
+          "shells": 0,
+          "ticks": 71
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 17,
+          "position": "(0.0, 2.350322, -192.8853)",
+          "segment": "Entry floor final_arena",
+          "shells": 0,
+          "ticks": 16
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 17,
+          "position": "(-7.315601, 2.47397, -193.3966)",
+          "segment": "Launcher gallery stair approach",
+          "shells": 0,
+          "ticks": 57
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 17,
+          "position": "(-7.005323, 4.850824, -202.7361)",
+          "segment": "Climb launcher gallery stairs",
+          "shells": 0,
+          "ticks": 73
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 17,
+          "position": "(-7.000079, 4.850824, -210.3083)",
+          "segment": "Physical weapon cache final_arena",
+          "shells": 4,
+          "ticks": 54
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(4.485172, 2.350938, -212.5535)",
+          "segment": "Arena ring retreat final_arena",
+          "shells": 0,
+          "ticks": 9
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(4.303713, 2.350938, -209.6476)",
+          "segment": "Arena ring retreat final_arena",
+          "shells": 0,
+          "ticks": 24
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(4.300016, 2.350938, -210.1474)",
+          "segment": "Arena ring retreat final_arena",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(4.300001, 2.350938, -192.2129)",
+          "segment": "Arena ring retreat final_arena",
+          "shells": 0,
+          "ticks": 141
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(-0.315465, 2.350938, -192.4933)",
+          "segment": "Arena ring retreat final_arena",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(4.691885, 2.350938, -192.5)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 48
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(4.301782, 2.350938, -226.0786)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 254
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(4.498839, 2.350938, -225.5945)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(4.498839, 2.350938, -225.4976)",
+          "segment": "Control exit_control",
+          "shells": 0,
+          "ticks": 0
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(0.009684, 2.350938, -192.2054)",
+          "segment": "Return centre final_arena",
+          "shells": 0,
+          "ticks": 254
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(-4.606206, 2.350938, -192.492)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(-4.301302, 2.350938, -228.3367)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 271
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(0.295983, 2.475346, -230.0191)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 38
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(-0.002249, 2.975154, -232.8817)",
+          "segment": "Gate exit_gate",
+          "shells": 0,
+          "ticks": 24
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(-0.000037, 3.84972, -238.3245)",
+          "segment": "Portal final_arena→exit_gallery",
+          "shells": 0,
+          "ticks": 41
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(-0.0, 3.84972, -247.365)",
+          "segment": "Room route exit_gallery",
+          "shells": 0,
+          "ticks": 65
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 32,
+          "pistol": 0,
+          "position": "(-0.0, 3.84972, -253.0726)",
+          "segment": "Enabled campaign exit",
+          "shells": 0,
+          "ticks": 40
+        }
+      ],
+      "shots": 120,
+      "siege_self_hits": 0,
+      "total_enemies": 36,
+      "use_heavy_weapons": true,
+      "weapon_kills": {
+        "melee": 2,
+        "pistol": 14,
+        "shotgun": 7,
+        "twin_shotgun": 9
+      },
+      "weapon_shots": {
+        "melee": 10,
+        "pistol": 81,
+        "shotgun": 19,
+        "twin_shotgun": 10
+      }
+    },
+    {
+      "accepted_ammo": {
+        "pistol": 41,
+        "rivets": 48,
+        "rockets": 0,
+        "shells": 20
+      },
+      "active_entry_loadout": {
+        "ammo_pistol": 0,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 0,
+        "armor": 100.0,
+        "currentweapon": "melee",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true,
+          "twin_shotgun": true
+        }
+      },
+      "ammo_caps": {
+        "pistol": 96,
+        "rivets": 160,
+        "rockets": 12,
+        "shells": 40
+      },
+      "chapter": "pale_ward",
+      "completed": true,
+      "entry_ammo": {
+        "pistol": 0,
+        "rivets": 0,
+        "rockets": 0,
+        "shells": 0
+      },
+      "entry_loadout": {
+        "ammo_pistol": 0,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 0,
+        "armor": 100.0,
+        "currentweapon": "melee",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true,
+          "twin_shotgun": true
+        }
+      },
+      "exit_ammo": {
+        "pistol": 0,
+        "rivets": 0,
+        "rockets": 0,
+        "shells": 0
+      },
+      "exit_loadout": {
+        "ammo_pistol": 0,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 0,
+        "armor": 100.0,
+        "currentweapon": "melee",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "rivet_cannon": true,
+          "shotgun": true,
+          "twin_shotgun": true
+        }
+      },
+      "flags": {
+        "brass": true,
+        "brass_key": true,
+        "breaker": true,
+        "clear_arena_one": true,
+        "clear_arena_two": true,
+        "clear_final_arena": true,
+        "exit": true,
+        "exit_control": true,
+        "power": true,
+        "red": true,
+        "red_key": true,
+        "release": true
+      },
+      "health": 100.0,
+      "interactions": [
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_entry_gate"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Button_breaker"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_breaker"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_brass_gate"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Button_release"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_release"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_red_gate"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Button_exit_control"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_exit_gate"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "ExitControl"
+        }
+      ],
+      "kills": 33,
+      "level": "pale_ward_02",
+      "peak_ammo": {
+        "pistol": 16,
+        "rivets": 16,
+        "rockets": 0,
+        "shells": 7
+      },
+      "physics_seconds": 223.933333333333,
+      "route_resource": "res://resources/campaign/pale_ward_02-route.json",
+      "scene": "res://scenes/campaign/pale_ward_02.tscn",
+      "secret_used": false,
+      "segments": [
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 3,
+          "pistol": 11,
+          "position": "(0.003022, 0.850944, 0.350288)",
+          "segment": "Return centre entry",
+          "shells": 0,
+          "ticks": 624
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 3,
+          "pistol": 11,
+          "position": "(0.000013, 0.974928, -17.45272)",
+          "segment": "Room route entry",
+          "shells": 0,
+          "ticks": 144
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 3,
+          "pistol": 11,
+          "position": "(0.0, 2.224411, -24.22757)",
+          "segment": "Gate entry_gate",
+          "shells": 0,
+          "ticks": 48
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 5,
+          "pistol": 2,
+          "position": "(-0.0, 2.350309, -25.96074)",
+          "segment": "Portal entry→service",
+          "shells": 0,
+          "ticks": 101
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 5,
+          "pistol": 8,
+          "position": "(-0.0, 2.350309, -41.00226)",
+          "segment": "Room route service",
+          "shells": 3,
+          "ticks": 110
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 5,
+          "pistol": 8,
+          "position": "(0.0, 2.350309, -40.51891)",
+          "segment": "Return centre service",
+          "shells": 3,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 5,
+          "pistol": 8,
+          "position": "(0.0, 2.339811, -55.93534)",
+          "segment": "Room route service",
+          "shells": 3,
+          "ticks": 122
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 5,
+          "pistol": 8,
+          "position": "(0.0, -0.149089, -60.31597)",
+          "segment": "Portal service→arena_one",
+          "shells": 3,
+          "ticks": 30
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 5,
+          "pistol": 16,
+          "position": "(0.0, -0.149089, -62.69094)",
+          "segment": "Entry floor arena_one",
+          "shells": 7,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 5,
+          "pistol": 16,
+          "position": "(0.0, -0.149089, -81.599)",
+          "segment": "Physical weapon cache arena_one",
+          "shells": 7,
+          "ticks": 139
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(-4.615746, -0.149089, -89.02995)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 4,
+          "ticks": 21
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(-4.30872, -0.149089, -81.0379)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 4,
+          "ticks": 62
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(-4.300038, -0.149089, -81.37999)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 4,
+          "ticks": 14
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(-4.300001, -0.149089, -62.05956)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 4,
+          "ticks": 150
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(0.305058, -0.149089, -62.41249)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 4,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(4.670337, -0.149089, -62.41991)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 30
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(4.301511, -0.148942, -98.79632)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 275
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(4.498892, -0.148942, -98.31256)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(4.498892, -0.148942, -98.21581)",
+          "segment": "Control breaker",
+          "shells": 4,
+          "ticks": 0
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(0.00671, -0.149186, -62.09952)",
+          "segment": "Return centre arena_one",
+          "shells": 4,
+          "ticks": 275
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(-4.60574, -0.149186, -62.41215)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(-4.304486, -0.149186, -81.59001)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 146
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(-21.21509, 0.037611, -81.32272)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 129
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 14,
+          "position": "(-25.03885, 0.975441, -81.32005)",
+          "segment": "Gate breaker",
+          "shells": 4,
+          "ticks": 26
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 13,
+          "pistol": 6,
+          "position": "(-31.69839, 2.350533, -81.32001)",
+          "segment": "Portal arena_one→key_console",
+          "shells": 4,
+          "ticks": 133
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(-44.47316, 2.350533, -81.31993)",
+          "segment": "Room route key_console",
+          "shells": 4,
+          "ticks": 155
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(-44.05825, 2.350533, -84.69071)",
+          "segment": "Acquire brass_key",
+          "shells": 4,
+          "ticks": 28
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(-44.07975, 2.350533, -80.96833)",
+          "segment": "Return centre key_console",
+          "shells": 4,
+          "ticks": 38
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(-31.0422, 2.350533, -81.3131)",
+          "segment": "Room route key_console",
+          "shells": 4,
+          "ticks": 100
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(-20.53052, -0.149691, -81.31996)",
+          "segment": "Portal key_console→arena_one",
+          "shells": 4,
+          "ticks": 76
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(-4.022683, -0.149691, -81.32)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 121
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(-4.295894, -0.149691, -62.14209)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 146
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(0.321017, -0.149691, -62.41394)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(-0.186599, -0.149691, -62.41999)",
+          "segment": "Return centre arena_one",
+          "shells": 4,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(-4.606198, -0.149691, -62.41999)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 32
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(-4.301048, -0.149691, -101.0684)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 292
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(0.299469, -0.024471, -102.7394)",
+          "segment": "Arena ring route arena_one",
+          "shells": 4,
+          "ticks": 38
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 2,
+          "position": "(0.007426, 0.975693, -109.6377)",
+          "segment": "Gate brass_gate",
+          "shells": 4,
+          "ticks": 54
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 5,
+          "position": "(0.067833, 2.35091, -118.5142)",
+          "segment": "Portal arena_one→spine",
+          "shells": 0,
+          "ticks": 336
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 5,
+          "position": "(0.000074, 2.35091, -132.0108)",
+          "segment": "Room route spine",
+          "shells": 3,
+          "ticks": 110
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 5,
+          "position": "(0.0, 2.35091, -131.369)",
+          "segment": "Return centre spine",
+          "shells": 3,
+          "ticks": 16
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 5,
+          "position": "(9.578671, 2.35091, -131.6051)",
+          "segment": "Room route spine",
+          "shells": 3,
+          "ticks": 74
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 5,
+          "position": "(16.62208, 0.850319, -131.61)",
+          "segment": "Portal spine→arena_two",
+          "shells": 3,
+          "ticks": 50
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 5,
+          "position": "(34.32962, 0.850319, -131.61)",
+          "segment": "Arena ring route arena_two",
+          "shells": 3,
+          "ticks": 130
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 5,
+          "position": "(34.02522, 0.850319, -116.7023)",
+          "segment": "Arena ring route arena_two",
+          "shells": 3,
+          "ticks": 114
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 10,
+          "position": "(38.64083, 0.850319, -116.984)",
+          "segment": "Arena ring route arena_two",
+          "shells": 5,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 10,
+          "position": "(38.21258, 1.047051, -118.9382)",
+          "segment": "Altar stair approach",
+          "shells": 5,
+          "ticks": 18
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 10,
+          "position": "(38.31879, 2.850424, -126.9397)",
+          "segment": "Climb altar stairs",
+          "shells": 5,
+          "ticks": 58
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 16,
+          "pistol": 10,
+          "position": "(38.31999, 2.850424, -131.9812)",
+          "segment": "Physical weapon cache arena_two",
+          "shells": 5,
+          "ticks": 35
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 21,
+          "pistol": 10,
+          "position": "(38.6511, 0.975758, -118.6166)",
+          "segment": "Descend cleared altar",
+          "shells": 0,
+          "ticks": 486
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(42.89183, 0.850195, -118.6135)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 226
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(42.62423, 0.850195, -131.9222)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(42.62001, 0.850195, -131.4366)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(42.62, 0.850195, -116.6265)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 110
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(38.01559, 0.850195, -116.9824)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(33.65055, 0.850195, -116.9824)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 30
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(34.01449, 0.850852, -131.8902)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 114
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(34.01998, 0.850852, -131.5513)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 14
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(34.02, 0.850852, -116.7111)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 111
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(38.63676, 0.850852, -116.9834)",
+          "segment": "Arena ring retreat arena_two",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(43.00426, 0.850852, -116.99)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 30
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(42.62153, 0.850852, -144.8336)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 211
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(42.81812, 0.850852, -144.3493)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(42.81812, 0.850852, -144.2524)",
+          "segment": "Control release",
+          "shells": 0,
+          "ticks": 0
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(38.0894, 0.850533, -116.8431)",
+          "segment": "Return centre arena_two",
+          "shells": 0,
+          "ticks": 232
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(43.00461, 0.850533, -116.989)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 44
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(42.62608, 0.850533, -131.8931)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 114
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(60.73585, 1.020738, -131.6113)",
+          "segment": "Arena ring route arena_two",
+          "shells": 0,
+          "ticks": 138
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 2,
+          "position": "(62.84357, 1.475685, -131.61)",
+          "segment": "Gate release",
+          "shells": 0,
+          "ticks": 13
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 25,
+          "pistol": 0,
+          "position": "(66.99622, 2.350438, -131.5938)",
+          "segment": "Portal arena_two→red_wing",
+          "shells": 0,
+          "ticks": 498
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 25,
+          "pistol": 0,
+          "position": "(82.84213, 2.350809, -131.61)",
+          "segment": "Room route red_wing",
+          "shells": 0,
+          "ticks": 129
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 25,
+          "pistol": 0,
+          "position": "(82.20029, 2.350809, -131.61)",
+          "segment": "Return centre red_wing",
+          "shells": 0,
+          "ticks": 16
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 26,
+          "pistol": 0,
+          "position": "(82.44962, 2.350944, -145.1283)",
+          "segment": "Room route red_wing",
+          "shells": 0,
+          "ticks": 466
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 26,
+          "pistol": 0,
+          "position": "(82.44009, 2.350944, -154.8185)",
+          "segment": "Portal red_wing→red_console",
+          "shells": 0,
+          "ticks": 83
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(82.44001, 2.350944, -167.7266)",
+          "segment": "Room route red_console",
+          "shells": 1,
+          "ticks": 94
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(82.44001, 2.350944, -170.6348)",
+          "segment": "Acquire red_key",
+          "shells": 1,
+          "ticks": 19
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(82.44001, 2.350944, -166.983)",
+          "segment": "Return centre red_console",
+          "shells": 1,
+          "ticks": 38
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(82.44001, 2.350944, -154.2083)",
+          "segment": "Room route red_console",
+          "shells": 1,
+          "ticks": 93
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(82.44001, 2.350944, -145.1669)",
+          "segment": "Portal red_console→red_wing",
+          "shells": 1,
+          "ticks": 65
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(82.44001, 2.350944, -131.3255)",
+          "segment": "Room route red_wing",
+          "shells": 1,
+          "ticks": 101
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(82.44001, 2.350944, -131.6623)",
+          "segment": "Return centre red_wing",
+          "shells": 1,
+          "ticks": 14
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(66.98776, 2.350944, -131.6103)",
+          "segment": "Room route red_wing",
+          "shells": 1,
+          "ticks": 118
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(60.07608, 0.85116, -131.61)",
+          "segment": "Portal red_wing→arena_two",
+          "shells": 1,
+          "ticks": 49
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(42.23572, 0.85116, -131.61)",
+          "segment": "Arena ring route arena_two",
+          "shells": 1,
+          "ticks": 131
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(42.61396, 0.850613, -116.7059)",
+          "segment": "Arena ring route arena_two",
+          "shells": 1,
+          "ticks": 114
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(37.998, 0.850613, -116.9841)",
+          "segment": "Arena ring route arena_two",
+          "shells": 1,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(38.50625, 0.850613, -116.99)",
+          "segment": "Return centre arena_two",
+          "shells": 1,
+          "ticks": 15
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(33.64315, 0.850613, -116.99)",
+          "segment": "Arena ring route arena_two",
+          "shells": 1,
+          "ticks": 43
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(34.01911, 0.850942, -147.1022)",
+          "segment": "Arena ring route arena_two",
+          "shells": 1,
+          "ticks": 228
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(38.6253, 0.975792, -148.7496)",
+          "segment": "Arena ring route arena_two",
+          "shells": 1,
+          "ticks": 38
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(38.32027, 1.600283, -154.1732)",
+          "segment": "Gate red_gate",
+          "shells": 1,
+          "ticks": 43
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(38.32001, 2.350462, -162.0333)",
+          "segment": "Portal arena_two→final_arena",
+          "shells": 1,
+          "ticks": 59
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(38.32, 2.350462, -164.5413)",
+          "segment": "Entry floor final_arena",
+          "shells": 1,
+          "ticks": 16
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(30.96037, 2.475601, -166.0)",
+          "segment": "Launcher gallery stair approach",
+          "shells": 1,
+          "ticks": 58
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(31.31064, 4.850924, -175.2806)",
+          "segment": "Climb launcher gallery stairs",
+          "shells": 1,
+          "ticks": 73
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 3,
+          "position": "(31.31997, 4.850924, -183.5193)",
+          "segment": "Physical weapon cache final_arena",
+          "shells": 1,
+          "ticks": 59
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(51.36731, 2.350158, -183.6755)",
+          "segment": "Arena ring retreat final_arena",
+          "shells": 0,
+          "ticks": 25
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(50.88375, 2.350158, -183.1312)",
+          "segment": "Arena ring retreat final_arena",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(42.34113, 2.350158, -183.13)",
+          "segment": "Arena ring retreat final_arena",
+          "shells": 0,
+          "ticks": 63
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(42.61588, 2.350158, -163.9521)",
+          "segment": "Arena ring retreat final_arena",
+          "shells": 0,
+          "ticks": 146
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(37.9992, 2.350158, -164.2239)",
+          "segment": "Arena ring retreat final_arena",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(43.00583, 2.350158, -164.23)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 48
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(42.62164, 2.350158, -200.6079)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 275
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(42.81886, 2.350158, -200.1239)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(42.81886, 2.350158, -200.0271)",
+          "segment": "Control exit_control",
+          "shells": 0,
+          "ticks": 0
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(38.32705, 2.350158, -163.9123)",
+          "segment": "Return centre final_arena",
+          "shells": 0,
+          "ticks": 275
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(33.71452, 2.350158, -164.2221)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(34.01879, 2.350158, -202.8662)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 292
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(38.61593, 2.475412, -204.5491)",
+          "segment": "Arena ring route final_arena",
+          "shells": 0,
+          "ticks": 38
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(38.31607, 2.974666, -207.9553)",
+          "segment": "Gate exit_gate",
+          "shells": 0,
+          "ticks": 28
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(38.31991, 3.849614, -213.8049)",
+          "segment": "Portal final_arena→exit_gallery",
+          "shells": 0,
+          "ticks": 44
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(38.32, 3.849614, -223.512)",
+          "segment": "Room route exit_gallery",
+          "shells": 0,
+          "ticks": 70
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 33,
+          "pistol": 0,
+          "position": "(38.32, 3.849614, -229.8862)",
+          "segment": "Enabled campaign exit",
+          "shells": 0,
+          "ticks": 45
+        }
+      ],
+      "shots": 139,
+      "siege_self_hits": 0,
+      "total_enemies": 34,
+      "use_heavy_weapons": true,
+      "weapon_kills": {
+        "melee": 6,
+        "pistol": 8,
+        "rivet_cannon": 10,
+        "shotgun": 4,
+        "twin_shotgun": 5
+      },
+      "weapon_shots": {
+        "melee": 36,
+        "pistol": 41,
+        "rivet_cannon": 48,
+        "shotgun": 8,
+        "twin_shotgun": 6
+      }
+    },
+    {
+      "accepted_ammo": {
+        "pistol": 29,
+        "rivets": 19,
+        "rockets": 2,
+        "shells": 4
+      },
+      "active_entry_loadout": {
+        "ammo_pistol": 0,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 0,
+        "armor": 100.0,
+        "currentweapon": "melee",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "rivet_cannon": true,
+          "shotgun": true,
+          "twin_shotgun": true
+        }
+      },
+      "ammo_caps": {
+        "pistol": 96,
+        "rivets": 160,
+        "rockets": 12,
+        "shells": 40
+      },
+      "chapter": "pale_ward",
+      "completed": false,
+      "entry_ammo": {
+        "pistol": 0,
+        "rivets": 0,
+        "rockets": 0,
+        "shells": 0
+      },
+      "entry_loadout": {
+        "ammo_pistol": 0,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 0,
+        "armor": 100.0,
+        "currentweapon": "melee",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "rivet_cannon": true,
+          "shotgun": true,
+          "twin_shotgun": true
+        }
+      },
+      "flags": {
+        "breaker": true,
+        "clear_arena_one": true,
+        "power": true
+      },
+      "health": 76.0,
+      "interactions": [
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_entry_gate"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Button_breaker"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_breaker"
+        }
+      ],
+      "kills": 16,
+      "level": "pale_ward_03",
+      "peak_ammo": {
+        "pistol": 15,
+        "rivets": 14,
+        "rockets": 2,
+        "shells": 4
+      },
+      "route_resource": "res://resources/campaign/pale_ward_03-route.json",
+      "scene": "res://scenes/campaign/pale_ward_03.tscn",
+      "segments": [
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 4,
+          "pistol": 3,
+          "position": "(0.307395, 0.850638, -0.117965)",
+          "segment": "Return centre entry",
+          "shells": 0,
+          "ticks": 418
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 4,
+          "pistol": 3,
+          "position": "(0.001493, 0.850638, -19.23855)",
+          "segment": "Room route entry",
+          "shells": 0,
+          "ticks": 145
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 4,
+          "pistol": 3,
+          "position": "(0.000002, -0.025094, -64.68127)",
+          "segment": "Gate entry_gate",
+          "shells": 0,
+          "ticks": 338
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 4,
+          "pistol": 3,
+          "position": "(0.0, -0.149484, -66.41512)",
+          "segment": "Portal entry→arena_one",
+          "shells": 0,
+          "ticks": 13
+        },
+        {
+          "armor": 92.8,
+          "health": 95.2,
+          "kills": 4,
+          "pistol": 12,
+          "position": "(0.0, -0.149484, -68.92343)",
+          "segment": "Entry floor arena_one",
+          "shells": 4,
+          "ticks": 16
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 4,
+          "pistol": 12,
+          "position": "(0.0, -0.149484, -89.9648)",
+          "segment": "Physical weapon cache arena_one",
+          "shells": 4,
+          "ticks": 155
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(4.301888, -0.149484, -85.3736)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 0,
+          "ticks": 85
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(4.300006, -0.149484, -90.0817)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 0,
+          "ticks": 35
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(4.300001, -0.149484, -89.44002)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 0,
+          "ticks": 16
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(4.300001, -0.149484, -68.27199)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 0,
+          "ticks": 157
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(-0.312853, -0.149484, -68.57315)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(-4.679733, -0.149484, -68.57315)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 0,
+          "ticks": 30
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(-4.302505, -0.149484, -90.01663)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 0,
+          "ticks": 163
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(-4.300009, -0.149484, -89.53196)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(-4.300001, -0.149484, -68.18841)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 0,
+          "ticks": 159
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(0.300148, -0.149484, -68.57198)",
+          "segment": "Arena ring retreat arena_one",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(4.664465, -0.149484, -68.5799)",
+          "segment": "Arena ring route arena_one",
+          "shells": 0,
+          "ticks": 30
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(4.301362, -0.149484, -109.3614)",
+          "segment": "Arena ring route arena_one",
+          "shells": 0,
+          "ticks": 308
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(4.498754, -0.149484, -108.8776)",
+          "segment": "Arena ring route arena_one",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(4.498754, -0.149484, -108.7808)",
+          "segment": "Control breaker",
+          "shells": 0,
+          "ticks": 0
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(0.004714, -0.149484, -68.23592)",
+          "segment": "Return centre arena_one",
+          "shells": 0,
+          "ticks": 308
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(4.613184, -0.149484, -68.57352)",
+          "segment": "Arena ring route arena_one",
+          "shells": 0,
+          "ticks": 37
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(4.30217, -0.149484, -90.01821)",
+          "segment": "Arena ring route arena_one",
+          "shells": 0,
+          "ticks": 163
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(19.20877, -0.024666, -89.68459)",
+          "segment": "Arena ring route arena_one",
+          "shells": 0,
+          "ticks": 114
+        },
+        {
+          "armor": 71.2,
+          "health": 80.8,
+          "kills": 11,
+          "pistol": 4,
+          "position": "(23.44957, 0.975548, -89.68011)",
+          "segment": "Gate breaker",
+          "shells": 0,
+          "ticks": 29
+        }
+      ],
+      "shots": 71,
+      "siege_self_hits": 0,
+      "use_heavy_weapons": true,
+      "weapon_kills": {
+        "melee": 3,
+        "pistol": 6,
+        "rivet_cannon": 3,
+        "siege_launcher": 2,
+        "twin_shotgun": 2
+      },
+      "weapon_shots": {
+        "melee": 19,
+        "pistol": 29,
+        "rivet_cannon": 19,
+        "siege_launcher": 2,
+        "twin_shotgun": 2
+      }
+    }
+  ],
+  "levels_completed": 2,
+  "physics_ticks_per_second": 60,
+  "scope": "Single continuous native Main campaign: normal starting loadout, actual exit health/ammo/ownership carried by Continue through all nine physical routes; real CharacterBody movement, AI, damage, weapon rays and E-use. No reseed, teleport, secret supply or completion signal injection. Optional heavy-weapon selection is bot policy; combat tuning is unchanged. Fixed simulation rate is explicit in engine arguments when used; this is automated gameplay, not a human duration.",
+  "source_package_dir": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+  "use_heavy_weapons": true
+}

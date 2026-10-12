@@ -1,4 +1,4 @@
-[gd_scene load_steps=1806 format=3]
+[gd_scene load_steps=1817 format=3]
 
 [ext_resource type="Script" path="res://scripts/stage_level.gd" id="level"]
 [ext_resource type="Script" path="res://scripts/stage_door.gd" id="door"]
@@ -6369,12 +6369,15 @@ size = Vector3(0.38, 0.13, 0.37)
 material = SubResource("panel")
 
 [sub_resource type="BoxMesh" id="m1036"]
-size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("ammo")
+size = Vector3(1.1, 1.5, 0.5)
+material = SubResource("steel")
+
+[sub_resource type="BoxShape3D" id="s1036"]
+size = Vector3(1.1, 1.5, 0.5)
 
 [sub_resource type="BoxMesh" id="m1037"]
-size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("ammo")
+size = Vector3(0.55, 0.48, 0.08)
+material = SubResource("brass")
 
 [sub_resource type="BoxMesh" id="m1038"]
 size = Vector3(1.1, 1.5, 0.5)
@@ -6385,7 +6388,7 @@ size = Vector3(1.1, 1.5, 0.5)
 
 [sub_resource type="BoxMesh" id="m1039"]
 size = Vector3(0.55, 0.48, 0.08)
-material = SubResource("brass")
+material = SubResource("red")
 
 [sub_resource type="BoxMesh" id="m1040"]
 size = Vector3(1.1, 1.5, 0.5)
@@ -6396,26 +6399,23 @@ size = Vector3(1.1, 1.5, 0.5)
 
 [sub_resource type="BoxMesh" id="m1041"]
 size = Vector3(0.55, 0.48, 0.08)
-material = SubResource("red")
-
-[sub_resource type="BoxMesh" id="m1042"]
-size = Vector3(1.1, 1.5, 0.5)
-material = SubResource("steel")
-
-[sub_resource type="BoxShape3D" id="s1042"]
-size = Vector3(1.1, 1.5, 0.5)
-
-[sub_resource type="BoxMesh" id="m1043"]
-size = Vector3(0.55, 0.48, 0.08)
 material = SubResource("glow")
 
-[sub_resource type="BoxMesh" id="m1044"]
+[sub_resource type="BoxMesh" id="m1042"]
 size = Vector3(0.55, 0.34, 0.43)
 material = SubResource("brass")
 
-[sub_resource type="BoxMesh" id="m1045"]
+[sub_resource type="BoxMesh" id="m1043"]
 size = Vector3(0.55, 0.34, 0.43)
 material = SubResource("red")
+
+[sub_resource type="BoxMesh" id="m1044"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("ammo")
+
+[sub_resource type="BoxMesh" id="m1045"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1046"]
 size = Vector3(0.55, 0.34, 0.43)
@@ -6491,79 +6491,79 @@ material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1064"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1065"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1066"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1067"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1068"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1069"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1070"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1071"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1072"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1073"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("armor")
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1074"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("armor")
+material = SubResource("ammo")
 
 [sub_resource type="BoxMesh" id="m1075"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("armor")
+material = SubResource("health")
 
 [sub_resource type="BoxMesh" id="m1076"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("armor")
+material = SubResource("health")
 
 [sub_resource type="BoxMesh" id="m1077"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("armor")
+material = SubResource("health")
 
 [sub_resource type="BoxMesh" id="m1078"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("armor")
+material = SubResource("health")
 
 [sub_resource type="BoxMesh" id="m1079"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("armor")
+material = SubResource("health")
 
 [sub_resource type="BoxMesh" id="m1080"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("armor")
+material = SubResource("health")
 
 [sub_resource type="BoxMesh" id="m1081"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("armor")
+material = SubResource("health")
 
 [sub_resource type="BoxMesh" id="m1082"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("ammo")
+material = SubResource("health")
 
 [sub_resource type="BoxMesh" id="m1083"]
 size = Vector3(0.55, 0.34, 0.43)
@@ -6571,40 +6571,84 @@ material = SubResource("health")
 
 [sub_resource type="BoxMesh" id="m1084"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("ammo")
+material = SubResource("armor")
 
 [sub_resource type="BoxMesh" id="m1085"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("armor")
 
 [sub_resource type="BoxMesh" id="m1086"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("ammo")
+material = SubResource("armor")
 
 [sub_resource type="BoxMesh" id="m1087"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("armor")
 
 [sub_resource type="BoxMesh" id="m1088"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("ammo")
+material = SubResource("armor")
 
 [sub_resource type="BoxMesh" id="m1089"]
 size = Vector3(0.55, 0.34, 0.43)
-material = SubResource("health")
+material = SubResource("armor")
 
 [sub_resource type="BoxMesh" id="m1090"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("armor")
+
+[sub_resource type="BoxMesh" id="m1091"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("armor")
+
+[sub_resource type="BoxMesh" id="m1092"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("armor")
+
+[sub_resource type="BoxMesh" id="m1093"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("ammo")
+
+[sub_resource type="BoxMesh" id="m1094"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("health")
+
+[sub_resource type="BoxMesh" id="m1095"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("ammo")
+
+[sub_resource type="BoxMesh" id="m1096"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("health")
+
+[sub_resource type="BoxMesh" id="m1097"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("ammo")
+
+[sub_resource type="BoxMesh" id="m1098"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("health")
+
+[sub_resource type="BoxMesh" id="m1099"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("ammo")
+
+[sub_resource type="BoxMesh" id="m1100"]
+size = Vector3(0.55, 0.34, 0.43)
+material = SubResource("health")
+
+[sub_resource type="BoxMesh" id="m1101"]
 size = Vector3(1.5, 1.8, 0.5)
 material = SubResource("glow")
 
-[sub_resource type="BoxShape3D" id="s1090"]
+[sub_resource type="BoxShape3D" id="s1101"]
 size = Vector3(1.5, 1.8, 0.5)
 
-[sub_resource type="BoxMesh" id="m1091"]
+[sub_resource type="BoxMesh" id="m1102"]
 size = Vector3(2, 0.08, 22)
 material = SubResource("recess")
 
-[sub_resource type="BoxMesh" id="m1092"]
+[sub_resource type="BoxMesh" id="m1103"]
 size = Vector3(2, 0.08, 22)
 material = SubResource("recess")
 
@@ -18871,7 +18915,7 @@ mesh = SubResource("m1015")
 [node name="Bait_arena_one" type="Node3D" parent="."]
 position = Vector3(0, -0.85, -85.5152)
 metadata/stage_pickup = "twin_shotgun"
-metadata/amount = 18
+metadata/amount = 4
 metadata/bait_arena = "arena_one"
 
 
@@ -18949,7 +18993,7 @@ mesh = SubResource("m1022")
 [node name="Bait_arena_two" type="Node3D" parent="."]
 position = Vector3(0, 1.15, -177.782)
 metadata/stage_pickup = "twin_shotgun"
-metadata/amount = 18
+metadata/amount = 4
 metadata/bait_arena = "arena_two"
 
 
@@ -19027,7 +19071,7 @@ mesh = SubResource("m1029")
 [node name="Bait_final_arena" type="Node3D" parent="."]
 position = Vector3(-7, 3.65, -236.292)
 metadata/stage_pickup = "twin_shotgun"
-metadata/amount = 18
+metadata/amount = 4
 metadata/bait_arena = "final_arena"
 
 
@@ -19096,52 +19140,6 @@ shadow_enabled = true
 shadow_bias = 0.025
 shadow_normal_bias = 0.35
 
-[node name="V2Supply_spine" type="Node3D" parent="."]
-position = Vector3(0, 0.5, -138.4)
-metadata/stage_pickup = "rockets"
-metadata/amount = 2
-
-[node name="Case" type="Node3D" parent="V2Supply_spine"]
-position = Vector3(0, 0, 0)
-
-
-[node name="Visual" type="MeshInstance3D" parent="V2Supply_spine/Case"]
-mesh = SubResource("m1036")
-
-[node name="Mark" type="Label3D" parent="V2Supply_spine"]
-position = Vector3(0, 0.3, 0)
-rotation_degrees = Vector3(0, 0, 0)
-text = "ROCKETS"
-font_size = 28
-pixel_size = 0.008
-outline_size = 0
-modulate = Color(0.82,0.75,0.58,1)
-shaded = true
-
-
-[node name="V2Supply_key_wing" type="Node3D" parent="."]
-position = Vector3(51.5736, 0.5, -85.5152)
-metadata/stage_pickup = "rivets"
-metadata/amount = 48
-
-[node name="Case" type="Node3D" parent="V2Supply_key_wing"]
-position = Vector3(0, 0, 0)
-
-
-[node name="Visual" type="MeshInstance3D" parent="V2Supply_key_wing/Case"]
-mesh = SubResource("m1037")
-
-[node name="Mark" type="Label3D" parent="V2Supply_key_wing"]
-position = Vector3(0, 0.3, 0)
-rotation_degrees = Vector3(0, 0, 0)
-text = "RIVETS"
-font_size = 28
-pixel_size = 0.008
-outline_size = 0
-modulate = Color(0.82,0.75,0.58,1)
-shaded = true
-
-
 [node name="Button_breaker" type="StaticBody3D" parent="."]
 position = Vector3(4.5, -0.45, -105.019)
 metadata/stage_button = "breaker"
@@ -19154,17 +19152,17 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="Button_breaker"]
-mesh = SubResource("m1038")
+mesh = SubResource("m1036")
 
 [node name="Collision" type="CollisionShape3D" parent="Button_breaker"]
-shape = SubResource("s1038")
+shape = SubResource("s1036")
 
 [node name="Face" type="Node3D" parent="Button_breaker"]
 position = Vector3(0, 0.12, 0.29)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Button_breaker/Face"]
-mesh = SubResource("m1039")
+mesh = SubResource("m1037")
 
 [node name="Mark" type="Label3D" parent="Button_breaker"]
 position = Vector3(0, 1.1, 0.28)
@@ -19189,17 +19187,17 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="Button_release"]
-mesh = SubResource("m1040")
+mesh = SubResource("m1038")
 
 [node name="Collision" type="CollisionShape3D" parent="Button_release"]
-shape = SubResource("s1040")
+shape = SubResource("s1038")
 
 [node name="Face" type="Node3D" parent="Button_release"]
 position = Vector3(0, 0.12, 0.29)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Button_release/Face"]
-mesh = SubResource("m1041")
+mesh = SubResource("m1039")
 
 [node name="Mark" type="Label3D" parent="Button_release"]
 position = Vector3(0, 1.1, 0.28)
@@ -19224,17 +19222,17 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="Button_exit_control"]
-mesh = SubResource("m1042")
+mesh = SubResource("m1040")
 
 [node name="Collision" type="CollisionShape3D" parent="Button_exit_control"]
-shape = SubResource("s1042")
+shape = SubResource("s1040")
 
 [node name="Face" type="Node3D" parent="Button_exit_control"]
 position = Vector3(0, 0.12, 0.29)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Button_exit_control/Face"]
-mesh = SubResource("m1043")
+mesh = SubResource("m1041")
 
 [node name="Mark" type="Label3D" parent="Button_exit_control"]
 position = Vector3(0, 1.1, 0.28)
@@ -19257,7 +19255,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Key_brass_key/Case"]
-mesh = SubResource("m1044")
+mesh = SubResource("m1042")
 
 [node name="Mark" type="Label3D" parent="Key_brass_key"]
 position = Vector3(0, 0.3, 0)
@@ -19280,7 +19278,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Key_red_key/Case"]
-mesh = SubResource("m1045")
+mesh = SubResource("m1043")
 
 [node name="Mark" type="Label3D" parent="Key_red_key"]
 position = Vector3(0, 0.3, 0)
@@ -19293,224 +19291,17 @@ modulate = Color(0.82,0.75,0.58,1)
 shaded = true
 
 
-[node name="Supply_shells_entry" type="Node3D" parent="."]
-position = Vector3(-0.8, 0.5, 15.0032)
-metadata/stage_pickup = "shells"
-metadata/amount = 9
-
-[node name="Case" type="Node3D" parent="Supply_shells_entry"]
-position = Vector3(0, 0, 0)
-
-
-[node name="Visual" type="MeshInstance3D" parent="Supply_shells_entry/Case"]
-mesh = SubResource("m1046")
-
-[node name="Mark" type="Label3D" parent="Supply_shells_entry"]
-position = Vector3(0, 0.3, 0)
-rotation_degrees = Vector3(0, 0, 0)
-text = "12G"
-font_size = 28
-pixel_size = 0.008
-outline_size = 0
-modulate = Color(0.82,0.75,0.58,1)
-shaded = true
-
-
-[node name="Supply_shells_arena_one" type="Node3D" parent="."]
-position = Vector3(-0.8, -1, -66.0112)
-metadata/stage_pickup = "shells"
-metadata/amount = 9
-
-[node name="Case" type="Node3D" parent="Supply_shells_arena_one"]
-position = Vector3(0, 0, 0)
-
-
-[node name="Visual" type="MeshInstance3D" parent="Supply_shells_arena_one/Case"]
-mesh = SubResource("m1047")
-
-[node name="Mark" type="Label3D" parent="Supply_shells_arena_one"]
-position = Vector3(0, 0.3, 0)
-rotation_degrees = Vector3(0, 0, 0)
-text = "12G"
-font_size = 28
-pixel_size = 0.008
-outline_size = 0
-modulate = Color(0.82,0.75,0.58,1)
-shaded = true
-
-
-[node name="Supply_shells_key_wing" type="Node3D" parent="."]
-position = Vector3(50.7736, 0.5, -78.3884)
-metadata/stage_pickup = "shells"
-metadata/amount = 9
-
-[node name="Case" type="Node3D" parent="Supply_shells_key_wing"]
-position = Vector3(0, 0, 0)
-
-
-[node name="Visual" type="MeshInstance3D" parent="Supply_shells_key_wing/Case"]
-mesh = SubResource("m1048")
-
-[node name="Mark" type="Label3D" parent="Supply_shells_key_wing"]
-position = Vector3(0, 0.3, 0)
-rotation_degrees = Vector3(0, 0, 0)
-text = "12G"
-font_size = 28
-pixel_size = 0.008
-outline_size = 0
-modulate = Color(0.82,0.75,0.58,1)
-shaded = true
-
-
-[node name="Supply_shells_key_console" type="Node3D" parent="."]
-position = Vector3(50.7736, 0.5, -107.644)
-metadata/stage_pickup = "shells"
-metadata/amount = 9
-
-[node name="Case" type="Node3D" parent="Supply_shells_key_console"]
-position = Vector3(0, 0, 0)
-
-
-[node name="Visual" type="MeshInstance3D" parent="Supply_shells_key_console/Case"]
-mesh = SubResource("m1049")
-
-[node name="Mark" type="Label3D" parent="Supply_shells_key_console"]
-position = Vector3(0, 0.3, 0)
-rotation_degrees = Vector3(0, 0, 0)
-text = "12G"
-font_size = 28
-pixel_size = 0.008
-outline_size = 0
-modulate = Color(0.82,0.75,0.58,1)
-shaded = true
-
-
-[node name="Supply_shells_spine" type="Node3D" parent="."]
-position = Vector3(-0.8, 0.5, -127.897)
-metadata/stage_pickup = "shells"
-metadata/amount = 8
-
-[node name="Case" type="Node3D" parent="Supply_shells_spine"]
-position = Vector3(0, 0, 0)
-
-
-[node name="Visual" type="MeshInstance3D" parent="Supply_shells_spine/Case"]
-mesh = SubResource("m1050")
-
-[node name="Mark" type="Label3D" parent="Supply_shells_spine"]
-position = Vector3(0, 0.3, 0)
-rotation_degrees = Vector3(0, 0, 0)
-text = "12G"
-font_size = 28
-pixel_size = 0.008
-outline_size = 0
-modulate = Color(0.82,0.75,0.58,1)
-shaded = true
-
-
-[node name="Supply_shells_arena_two" type="Node3D" parent="."]
-position = Vector3(-0.8, -1, -160.412)
-metadata/stage_pickup = "shells"
-metadata/amount = 8
-
-[node name="Case" type="Node3D" parent="Supply_shells_arena_two"]
-position = Vector3(0, 0, 0)
-
-
-[node name="Visual" type="MeshInstance3D" parent="Supply_shells_arena_two/Case"]
-mesh = SubResource("m1051")
-
-[node name="Mark" type="Label3D" parent="Supply_shells_arena_two"]
-position = Vector3(0, 0.3, 0)
-rotation_degrees = Vector3(0, 0, 0)
-text = "12G"
-font_size = 28
-pixel_size = 0.008
-outline_size = 0
-modulate = Color(0.82,0.75,0.58,1)
-shaded = true
-
-
-[node name="Supply_shells_red_wing" type="Node3D" parent="."]
-position = Vector3(-55.088, 0.5, -166.154)
-metadata/stage_pickup = "shells"
-metadata/amount = 8
-
-[node name="Case" type="Node3D" parent="Supply_shells_red_wing"]
-position = Vector3(0, 0, 0)
-
-
-[node name="Visual" type="MeshInstance3D" parent="Supply_shells_red_wing/Case"]
-mesh = SubResource("m1052")
-
-[node name="Mark" type="Label3D" parent="Supply_shells_red_wing"]
-position = Vector3(0, 0.3, 0)
-rotation_degrees = Vector3(0, 0, 0)
-text = "12G"
-font_size = 28
-pixel_size = 0.008
-outline_size = 0
-modulate = Color(0.82,0.75,0.58,1)
-shaded = true
-
-
-[node name="Supply_shells_red_console" type="Node3D" parent="."]
-position = Vector3(-55.088, 0.5, -205.536)
-metadata/stage_pickup = "shells"
-metadata/amount = 8
-
-[node name="Case" type="Node3D" parent="Supply_shells_red_console"]
-position = Vector3(0, 0, 0)
-
-
-[node name="Visual" type="MeshInstance3D" parent="Supply_shells_red_console/Case"]
-mesh = SubResource("m1053")
-
-[node name="Mark" type="Label3D" parent="Supply_shells_red_console"]
-position = Vector3(0, 0.3, 0)
-rotation_degrees = Vector3(0, 0, 0)
-text = "12G"
-font_size = 28
-pixel_size = 0.008
-outline_size = 0
-modulate = Color(0.82,0.75,0.58,1)
-shaded = true
-
-
-[node name="Supply_shells_final_arena" type="Node3D" parent="."]
-position = Vector3(-0.8, 0.5, -216.788)
-metadata/stage_pickup = "shells"
-metadata/amount = 8
-
-[node name="Case" type="Node3D" parent="Supply_shells_final_arena"]
-position = Vector3(0, 0, 0)
-
-
-[node name="Visual" type="MeshInstance3D" parent="Supply_shells_final_arena/Case"]
-mesh = SubResource("m1054")
-
-[node name="Mark" type="Label3D" parent="Supply_shells_final_arena"]
-position = Vector3(0, 0.3, 0)
-rotation_degrees = Vector3(0, 0, 0)
-text = "12G"
-font_size = 28
-pixel_size = 0.008
-outline_size = 0
-modulate = Color(0.82,0.75,0.58,1)
-shaded = true
-
-
 [node name="Supply_pistol_entry" type="Node3D" parent="."]
-position = Vector3(0.8, 0.5, 15.0032)
+position = Vector3(-0.8, 0.5, 10.3772)
 metadata/stage_pickup = "pistol"
-metadata/amount = 16
+metadata/amount = 20
 
 [node name="Case" type="Node3D" parent="Supply_pistol_entry"]
 position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_pistol_entry/Case"]
-mesh = SubResource("m1055")
+mesh = SubResource("m1044")
 
 [node name="Mark" type="Label3D" parent="Supply_pistol_entry"]
 position = Vector3(0, 0.3, 0)
@@ -19524,16 +19315,16 @@ shaded = true
 
 
 [node name="Supply_pistol_arena_one" type="Node3D" parent="."]
-position = Vector3(0.8, -1, -66.0112)
+position = Vector3(-0.8, -1, -66.0112)
 metadata/stage_pickup = "pistol"
-metadata/amount = 16
+metadata/amount = 12
 
 [node name="Case" type="Node3D" parent="Supply_pistol_arena_one"]
 position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_pistol_arena_one/Case"]
-mesh = SubResource("m1056")
+mesh = SubResource("m1045")
 
 [node name="Mark" type="Label3D" parent="Supply_pistol_arena_one"]
 position = Vector3(0, 0.3, 0)
@@ -19547,16 +19338,16 @@ shaded = true
 
 
 [node name="Supply_pistol_key_wing" type="Node3D" parent="."]
-position = Vector3(52.3736, 0.5, -78.3884)
+position = Vector3(50.7736, 0.5, -78.3884)
 metadata/stage_pickup = "pistol"
-metadata/amount = 16
+metadata/amount = 4
 
 [node name="Case" type="Node3D" parent="Supply_pistol_key_wing"]
 position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_pistol_key_wing/Case"]
-mesh = SubResource("m1057")
+mesh = SubResource("m1046")
 
 [node name="Mark" type="Label3D" parent="Supply_pistol_key_wing"]
 position = Vector3(0, 0.3, 0)
@@ -19570,16 +19361,16 @@ shaded = true
 
 
 [node name="Supply_pistol_key_console" type="Node3D" parent="."]
-position = Vector3(52.3736, 0.5, -107.644)
+position = Vector3(50.7736, 0.5, -107.644)
 metadata/stage_pickup = "pistol"
-metadata/amount = 16
+metadata/amount = 7
 
 [node name="Case" type="Node3D" parent="Supply_pistol_key_console"]
 position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_pistol_key_console/Case"]
-mesh = SubResource("m1058")
+mesh = SubResource("m1047")
 
 [node name="Mark" type="Label3D" parent="Supply_pistol_key_console"]
 position = Vector3(0, 0.3, 0)
@@ -19593,16 +19384,16 @@ shaded = true
 
 
 [node name="Supply_pistol_spine" type="Node3D" parent="."]
-position = Vector3(0.8, 0.5, -127.897)
+position = Vector3(-0.8, 0.5, -127.897)
 metadata/stage_pickup = "pistol"
-metadata/amount = 16
+metadata/amount = 7
 
 [node name="Case" type="Node3D" parent="Supply_pistol_spine"]
 position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_pistol_spine/Case"]
-mesh = SubResource("m1059")
+mesh = SubResource("m1048")
 
 [node name="Mark" type="Label3D" parent="Supply_pistol_spine"]
 position = Vector3(0, 0.3, 0)
@@ -19616,16 +19407,16 @@ shaded = true
 
 
 [node name="Supply_pistol_arena_two" type="Node3D" parent="."]
-position = Vector3(0.8, -1, -160.412)
+position = Vector3(-0.8, -1, -160.412)
 metadata/stage_pickup = "pistol"
-metadata/amount = 16
+metadata/amount = 7
 
 [node name="Case" type="Node3D" parent="Supply_pistol_arena_two"]
 position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_pistol_arena_two/Case"]
-mesh = SubResource("m1060")
+mesh = SubResource("m1049")
 
 [node name="Mark" type="Label3D" parent="Supply_pistol_arena_two"]
 position = Vector3(0, 0.3, 0)
@@ -19639,16 +19430,16 @@ shaded = true
 
 
 [node name="Supply_pistol_red_wing" type="Node3D" parent="."]
-position = Vector3(-53.488, 0.5, -166.154)
+position = Vector3(-55.088, 0.5, -166.154)
 metadata/stage_pickup = "pistol"
-metadata/amount = 16
+metadata/amount = 2
 
 [node name="Case" type="Node3D" parent="Supply_pistol_red_wing"]
 position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_pistol_red_wing/Case"]
-mesh = SubResource("m1061")
+mesh = SubResource("m1050")
 
 [node name="Mark" type="Label3D" parent="Supply_pistol_red_wing"]
 position = Vector3(0, 0.3, 0)
@@ -19662,16 +19453,16 @@ shaded = true
 
 
 [node name="Supply_pistol_red_console" type="Node3D" parent="."]
-position = Vector3(-53.488, 0.5, -205.536)
+position = Vector3(-55.088, 0.5, -205.536)
 metadata/stage_pickup = "pistol"
-metadata/amount = 16
+metadata/amount = 4
 
 [node name="Case" type="Node3D" parent="Supply_pistol_red_console"]
 position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_pistol_red_console/Case"]
-mesh = SubResource("m1062")
+mesh = SubResource("m1051")
 
 [node name="Mark" type="Label3D" parent="Supply_pistol_red_console"]
 position = Vector3(0, 0.3, 0)
@@ -19685,21 +19476,527 @@ shaded = true
 
 
 [node name="Supply_pistol_final_arena" type="Node3D" parent="."]
-position = Vector3(0.8, 0.5, -216.788)
+position = Vector3(-0.8, 0.5, -216.788)
 metadata/stage_pickup = "pistol"
-metadata/amount = 16
+metadata/amount = 1
 
 [node name="Case" type="Node3D" parent="Supply_pistol_final_arena"]
 position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_pistol_final_arena/Case"]
-mesh = SubResource("m1063")
+mesh = SubResource("m1052")
 
 [node name="Mark" type="Label3D" parent="Supply_pistol_final_arena"]
 position = Vector3(0, 0.3, 0)
 rotation_degrees = Vector3(0, 0, 0)
 text = "9MM"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_shells_entry" type="Node3D" parent="."]
+position = Vector3(0.8, 0.5, 10.3772)
+metadata/stage_pickup = "shells"
+metadata/amount = 8
+
+[node name="Case" type="Node3D" parent="Supply_shells_entry"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_shells_entry/Case"]
+mesh = SubResource("m1053")
+
+[node name="Mark" type="Label3D" parent="Supply_shells_entry"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "12G"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_shells_arena_one" type="Node3D" parent="."]
+position = Vector3(0.8, -1, -66.0112)
+metadata/stage_pickup = "shells"
+metadata/amount = 4
+
+[node name="Case" type="Node3D" parent="Supply_shells_arena_one"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_shells_arena_one/Case"]
+mesh = SubResource("m1054")
+
+[node name="Mark" type="Label3D" parent="Supply_shells_arena_one"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "12G"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_shells_key_wing" type="Node3D" parent="."]
+position = Vector3(52.3736, 0.5, -78.3884)
+metadata/stage_pickup = "shells"
+metadata/amount = 1
+
+[node name="Case" type="Node3D" parent="Supply_shells_key_wing"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_shells_key_wing/Case"]
+mesh = SubResource("m1055")
+
+[node name="Mark" type="Label3D" parent="Supply_shells_key_wing"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "12G"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_shells_key_console" type="Node3D" parent="."]
+position = Vector3(52.3736, 0.5, -107.644)
+metadata/stage_pickup = "shells"
+metadata/amount = 3
+
+[node name="Case" type="Node3D" parent="Supply_shells_key_console"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_shells_key_console/Case"]
+mesh = SubResource("m1056")
+
+[node name="Mark" type="Label3D" parent="Supply_shells_key_console"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "12G"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_shells_spine" type="Node3D" parent="."]
+position = Vector3(0.8, 0.5, -127.897)
+metadata/stage_pickup = "shells"
+metadata/amount = 3
+
+[node name="Case" type="Node3D" parent="Supply_shells_spine"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_shells_spine/Case"]
+mesh = SubResource("m1057")
+
+[node name="Mark" type="Label3D" parent="Supply_shells_spine"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "12G"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_shells_arena_two" type="Node3D" parent="."]
+position = Vector3(0.8, -1, -160.412)
+metadata/stage_pickup = "shells"
+metadata/amount = 3
+
+[node name="Case" type="Node3D" parent="Supply_shells_arena_two"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_shells_arena_two/Case"]
+mesh = SubResource("m1058")
+
+[node name="Mark" type="Label3D" parent="Supply_shells_arena_two"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "12G"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_shells_red_wing" type="Node3D" parent="."]
+position = Vector3(-53.488, 0.5, -166.154)
+metadata/stage_pickup = "shells"
+metadata/amount = 1
+
+[node name="Case" type="Node3D" parent="Supply_shells_red_wing"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_shells_red_wing/Case"]
+mesh = SubResource("m1059")
+
+[node name="Mark" type="Label3D" parent="Supply_shells_red_wing"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "12G"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_shells_red_console" type="Node3D" parent="."]
+position = Vector3(-53.488, 0.5, -205.536)
+metadata/stage_pickup = "shells"
+metadata/amount = 1
+
+[node name="Case" type="Node3D" parent="Supply_shells_red_console"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_shells_red_console/Case"]
+mesh = SubResource("m1060")
+
+[node name="Mark" type="Label3D" parent="Supply_shells_red_console"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "12G"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rivets_entry" type="Node3D" parent="."]
+position = Vector3(-0.8, 0.5, 9.1772)
+metadata/stage_pickup = "rivets"
+metadata/amount = 23
+
+[node name="Case" type="Node3D" parent="Supply_rivets_entry"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rivets_entry/Case"]
+mesh = SubResource("m1061")
+
+[node name="Mark" type="Label3D" parent="Supply_rivets_entry"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "RIVETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rivets_arena_one" type="Node3D" parent="."]
+position = Vector3(-0.8, -1, -67.2112)
+metadata/stage_pickup = "rivets"
+metadata/amount = 13
+
+[node name="Case" type="Node3D" parent="Supply_rivets_arena_one"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rivets_arena_one/Case"]
+mesh = SubResource("m1062")
+
+[node name="Mark" type="Label3D" parent="Supply_rivets_arena_one"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "RIVETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rivets_key_wing" type="Node3D" parent="."]
+position = Vector3(50.7736, 0.5, -79.5884)
+metadata/stage_pickup = "rivets"
+metadata/amount = 4
+
+[node name="Case" type="Node3D" parent="Supply_rivets_key_wing"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rivets_key_wing/Case"]
+mesh = SubResource("m1063")
+
+[node name="Mark" type="Label3D" parent="Supply_rivets_key_wing"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "RIVETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rivets_key_console" type="Node3D" parent="."]
+position = Vector3(50.7736, 0.5, -108.844)
+metadata/stage_pickup = "rivets"
+metadata/amount = 8
+
+[node name="Case" type="Node3D" parent="Supply_rivets_key_console"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rivets_key_console/Case"]
+mesh = SubResource("m1064")
+
+[node name="Mark" type="Label3D" parent="Supply_rivets_key_console"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "RIVETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rivets_spine" type="Node3D" parent="."]
+position = Vector3(-0.8, 0.5, -129.097)
+metadata/stage_pickup = "rivets"
+metadata/amount = 8
+
+[node name="Case" type="Node3D" parent="Supply_rivets_spine"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rivets_spine/Case"]
+mesh = SubResource("m1065")
+
+[node name="Mark" type="Label3D" parent="Supply_rivets_spine"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "RIVETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rivets_arena_two" type="Node3D" parent="."]
+position = Vector3(-0.8, -1, -161.612)
+metadata/stage_pickup = "rivets"
+metadata/amount = 8
+
+[node name="Case" type="Node3D" parent="Supply_rivets_arena_two"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rivets_arena_two/Case"]
+mesh = SubResource("m1066")
+
+[node name="Mark" type="Label3D" parent="Supply_rivets_arena_two"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "RIVETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rivets_red_wing" type="Node3D" parent="."]
+position = Vector3(-55.088, 0.5, -167.354)
+metadata/stage_pickup = "rivets"
+metadata/amount = 3
+
+[node name="Case" type="Node3D" parent="Supply_rivets_red_wing"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rivets_red_wing/Case"]
+mesh = SubResource("m1067")
+
+[node name="Mark" type="Label3D" parent="Supply_rivets_red_wing"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "RIVETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rivets_red_console" type="Node3D" parent="."]
+position = Vector3(-55.088, 0.5, -206.736)
+metadata/stage_pickup = "rivets"
+metadata/amount = 4
+
+[node name="Case" type="Node3D" parent="Supply_rivets_red_console"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rivets_red_console/Case"]
+mesh = SubResource("m1068")
+
+[node name="Mark" type="Label3D" parent="Supply_rivets_red_console"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "RIVETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rivets_final_arena" type="Node3D" parent="."]
+position = Vector3(-0.8, 0.5, -217.988)
+metadata/stage_pickup = "rivets"
+metadata/amount = 1
+
+[node name="Case" type="Node3D" parent="Supply_rivets_final_arena"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rivets_final_arena/Case"]
+mesh = SubResource("m1069")
+
+[node name="Mark" type="Label3D" parent="Supply_rivets_final_arena"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "RIVETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rockets_entry" type="Node3D" parent="."]
+position = Vector3(0.8, 0.5, 9.1772)
+metadata/stage_pickup = "rockets"
+metadata/amount = 3
+
+[node name="Case" type="Node3D" parent="Supply_rockets_entry"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rockets_entry/Case"]
+mesh = SubResource("m1070")
+
+[node name="Mark" type="Label3D" parent="Supply_rockets_entry"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "ROCKETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rockets_arena_one" type="Node3D" parent="."]
+position = Vector3(0.8, -1, -67.2112)
+metadata/stage_pickup = "rockets"
+metadata/amount = 2
+
+[node name="Case" type="Node3D" parent="Supply_rockets_arena_one"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rockets_arena_one/Case"]
+mesh = SubResource("m1071")
+
+[node name="Mark" type="Label3D" parent="Supply_rockets_arena_one"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "ROCKETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rockets_key_console" type="Node3D" parent="."]
+position = Vector3(52.3736, 0.5, -108.844)
+metadata/stage_pickup = "rockets"
+metadata/amount = 1
+
+[node name="Case" type="Node3D" parent="Supply_rockets_key_console"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rockets_key_console/Case"]
+mesh = SubResource("m1072")
+
+[node name="Mark" type="Label3D" parent="Supply_rockets_key_console"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "ROCKETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rockets_spine" type="Node3D" parent="."]
+position = Vector3(0.8, 0.5, -129.097)
+metadata/stage_pickup = "rockets"
+metadata/amount = 1
+
+[node name="Case" type="Node3D" parent="Supply_rockets_spine"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rockets_spine/Case"]
+mesh = SubResource("m1073")
+
+[node name="Mark" type="Label3D" parent="Supply_rockets_spine"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "ROCKETS"
+font_size = 28
+pixel_size = 0.008
+outline_size = 0
+modulate = Color(0.82,0.75,0.58,1)
+shaded = true
+
+
+[node name="Supply_rockets_arena_two" type="Node3D" parent="."]
+position = Vector3(0.8, -1, -161.612)
+metadata/stage_pickup = "rockets"
+metadata/amount = 1
+
+[node name="Case" type="Node3D" parent="Supply_rockets_arena_two"]
+position = Vector3(0, 0, 0)
+
+
+[node name="Visual" type="MeshInstance3D" parent="Supply_rockets_arena_two/Case"]
+mesh = SubResource("m1074")
+
+[node name="Mark" type="Label3D" parent="Supply_rockets_arena_two"]
+position = Vector3(0, 0.3, 0)
+rotation_degrees = Vector3(0, 0, 0)
+text = "ROCKETS"
 font_size = 28
 pixel_size = 0.008
 outline_size = 0
@@ -19717,7 +20014,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_health_entry/Case"]
-mesh = SubResource("m1064")
+mesh = SubResource("m1075")
 
 [node name="Mark" type="Label3D" parent="Supply_health_entry"]
 position = Vector3(0, 0.3, 0)
@@ -19740,7 +20037,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_health_arena_one/Case"]
-mesh = SubResource("m1065")
+mesh = SubResource("m1076")
 
 [node name="Mark" type="Label3D" parent="Supply_health_arena_one"]
 position = Vector3(0, 0.3, 0)
@@ -19763,7 +20060,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_health_key_wing/Case"]
-mesh = SubResource("m1066")
+mesh = SubResource("m1077")
 
 [node name="Mark" type="Label3D" parent="Supply_health_key_wing"]
 position = Vector3(0, 0.3, 0)
@@ -19786,7 +20083,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_health_key_console/Case"]
-mesh = SubResource("m1067")
+mesh = SubResource("m1078")
 
 [node name="Mark" type="Label3D" parent="Supply_health_key_console"]
 position = Vector3(0, 0.3, 0)
@@ -19809,7 +20106,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_health_spine/Case"]
-mesh = SubResource("m1068")
+mesh = SubResource("m1079")
 
 [node name="Mark" type="Label3D" parent="Supply_health_spine"]
 position = Vector3(0, 0.3, 0)
@@ -19832,7 +20129,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_health_arena_two/Case"]
-mesh = SubResource("m1069")
+mesh = SubResource("m1080")
 
 [node name="Mark" type="Label3D" parent="Supply_health_arena_two"]
 position = Vector3(0, 0.3, 0)
@@ -19855,7 +20152,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_health_red_wing/Case"]
-mesh = SubResource("m1070")
+mesh = SubResource("m1081")
 
 [node name="Mark" type="Label3D" parent="Supply_health_red_wing"]
 position = Vector3(0, 0.3, 0)
@@ -19878,7 +20175,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_health_red_console/Case"]
-mesh = SubResource("m1071")
+mesh = SubResource("m1082")
 
 [node name="Mark" type="Label3D" parent="Supply_health_red_console"]
 position = Vector3(0, 0.3, 0)
@@ -19901,7 +20198,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_health_final_arena/Case"]
-mesh = SubResource("m1072")
+mesh = SubResource("m1083")
 
 [node name="Mark" type="Label3D" parent="Supply_health_final_arena"]
 position = Vector3(0, 0.3, 0)
@@ -19924,7 +20221,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_armor_entry/Case"]
-mesh = SubResource("m1073")
+mesh = SubResource("m1084")
 
 [node name="Mark" type="Label3D" parent="Supply_armor_entry"]
 position = Vector3(0, 0.3, 0)
@@ -19947,7 +20244,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_armor_arena_one/Case"]
-mesh = SubResource("m1074")
+mesh = SubResource("m1085")
 
 [node name="Mark" type="Label3D" parent="Supply_armor_arena_one"]
 position = Vector3(0, 0.3, 0)
@@ -19970,7 +20267,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_armor_key_wing/Case"]
-mesh = SubResource("m1075")
+mesh = SubResource("m1086")
 
 [node name="Mark" type="Label3D" parent="Supply_armor_key_wing"]
 position = Vector3(0, 0.3, 0)
@@ -19993,7 +20290,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_armor_key_console/Case"]
-mesh = SubResource("m1076")
+mesh = SubResource("m1087")
 
 [node name="Mark" type="Label3D" parent="Supply_armor_key_console"]
 position = Vector3(0, 0.3, 0)
@@ -20016,7 +20313,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_armor_spine/Case"]
-mesh = SubResource("m1077")
+mesh = SubResource("m1088")
 
 [node name="Mark" type="Label3D" parent="Supply_armor_spine"]
 position = Vector3(0, 0.3, 0)
@@ -20039,7 +20336,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_armor_arena_two/Case"]
-mesh = SubResource("m1078")
+mesh = SubResource("m1089")
 
 [node name="Mark" type="Label3D" parent="Supply_armor_arena_two"]
 position = Vector3(0, 0.3, 0)
@@ -20062,7 +20359,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_armor_red_wing/Case"]
-mesh = SubResource("m1079")
+mesh = SubResource("m1090")
 
 [node name="Mark" type="Label3D" parent="Supply_armor_red_wing"]
 position = Vector3(0, 0.3, 0)
@@ -20085,7 +20382,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_armor_red_console/Case"]
-mesh = SubResource("m1080")
+mesh = SubResource("m1091")
 
 [node name="Mark" type="Label3D" parent="Supply_armor_red_console"]
 position = Vector3(0, 0.3, 0)
@@ -20108,7 +20405,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Supply_armor_final_arena/Case"]
-mesh = SubResource("m1081")
+mesh = SubResource("m1092")
 
 [node name="Mark" type="Label3D" parent="Supply_armor_final_arena"]
 position = Vector3(0, 0.3, 0)
@@ -20131,7 +20428,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Bonus_supplies/Case"]
-mesh = SubResource("m1082")
+mesh = SubResource("m1093")
 
 [node name="Mark" type="Label3D" parent="Bonus_supplies"]
 position = Vector3(0, 0.3, 0)
@@ -20154,7 +20451,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="BonusHealth_supplies/Case"]
-mesh = SubResource("m1083")
+mesh = SubResource("m1094")
 
 [node name="Mark" type="Label3D" parent="BonusHealth_supplies"]
 position = Vector3(0, 0.3, 0)
@@ -20177,7 +20474,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Bonus_maintenance/Case"]
-mesh = SubResource("m1084")
+mesh = SubResource("m1095")
 
 [node name="Mark" type="Label3D" parent="Bonus_maintenance"]
 position = Vector3(0, 0.3, 0)
@@ -20200,7 +20497,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="BonusHealth_maintenance/Case"]
-mesh = SubResource("m1085")
+mesh = SubResource("m1096")
 
 [node name="Mark" type="Label3D" parent="BonusHealth_maintenance"]
 position = Vector3(0, 0.3, 0)
@@ -20223,7 +20520,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Bonus_armory/Case"]
-mesh = SubResource("m1086")
+mesh = SubResource("m1097")
 
 [node name="Mark" type="Label3D" parent="Bonus_armory"]
 position = Vector3(0, 0.3, 0)
@@ -20246,7 +20543,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="BonusHealth_armory/Case"]
-mesh = SubResource("m1087")
+mesh = SubResource("m1098")
 
 [node name="Mark" type="Label3D" parent="BonusHealth_armory"]
 position = Vector3(0, 0.3, 0)
@@ -20269,7 +20566,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="Bonus_secret_one/Case"]
-mesh = SubResource("m1088")
+mesh = SubResource("m1099")
 
 [node name="Mark" type="Label3D" parent="Bonus_secret_one"]
 position = Vector3(0, 0.3, 0)
@@ -20292,7 +20589,7 @@ position = Vector3(0, 0, 0)
 
 
 [node name="Visual" type="MeshInstance3D" parent="BonusHealth_secret_one/Case"]
-mesh = SubResource("m1089")
+mesh = SubResource("m1100")
 
 [node name="Mark" type="Label3D" parent="BonusHealth_secret_one"]
 position = Vector3(0, 0.3, 0)
@@ -20315,10 +20612,10 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="ExitControl"]
-mesh = SubResource("m1090")
+mesh = SubResource("m1101")
 
 [node name="Collision" type="CollisionShape3D" parent="ExitControl"]
-shape = SubResource("s1090")
+shape = SubResource("s1101")
 
 [node name="ExitMark" type="Label3D" parent="ExitControl"]
 position = Vector3(0, 1.3, 0.29)
@@ -20402,11 +20699,11 @@ position = Vector3(-12, -1.46, -85.5152)
 
 
 [node name="Visual" type="MeshInstance3D" parent="TrackBed-1"]
-mesh = SubResource("m1091")
+mesh = SubResource("m1102")
 
 [node name="TrackBed1" type="Node3D" parent="."]
 position = Vector3(12, -1.46, -85.5152)
 
 
 [node name="Visual" type="MeshInstance3D" parent="TrackBed1"]
-mesh = SubResource("m1092")
+mesh = SubResource("m1103")

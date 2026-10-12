@@ -70,7 +70,7 @@ func reset() -> void:
 			enemy_groups[String(enemy.target_id)] = arena
 func update_player(actor: CharacterBody3D, controller: Node) -> void:
 	player = actor; combat = controller
-	if not is_instance_valid(player) or not is_instance_valid(combat) or finished or combat.dead: return
+	if get_tree().paused or not is_instance_valid(player) or not is_instance_valid(combat) or finished or combat.dead: return
 	current_room = room_at(player.global_position)
 	if not current_room.is_empty():
 		visited[current_room] = true
@@ -189,6 +189,7 @@ func try_use(actor: CharacterBody3D = null) -> bool:
 	return true
 func interact() -> bool: return try_use()
 func collect(item: Node3D) -> void:
+	if get_tree().paused or combat.dead or collected.has(item.get_instance_id()): return
 	var kind := String(item.get_meta("stage_pickup"))
 	var amount := int(item.get_meta("amount", 25))
 	if kind == "health":
@@ -197,10 +198,16 @@ func collect(item: Node3D) -> void:
 	elif kind == "armor":
 		if combat.armor >= 100: return
 		combat.armor = minf(100, combat.armor + amount)
-	elif kind in ["pistol","shells","rivets","rockets"]: combat.add_ammo(StringName(kind),amount)
+	elif kind in ["pistol","shells","rivets","rockets"]:
+		var before: int = combat.ammo_amount(StringName(kind))
+		if not combat.add_ammo(StringName(kind),amount): return
+		amount = combat.ammo_amount(StringName(kind)) - before
 	elif kind in ["twin_shotgun","rivet_cannon","siege_launcher"]:
-		combat.grant_weapon(StringName(kind),amount)
-		trigger_trap(String(item.get_meta("bait_arena","")))
+		var bait_arena := String(item.get_meta("bait_arena",""))
+		var accepted: bool = combat.grant_weapon(StringName(kind),amount)
+		# A full carried weapon can still spring a physical lure on the next level.
+		if not bait_arena.is_empty(): trigger_trap(bait_arena)
+		elif not accepted: return
 	elif kind in ["brass", "red", "brass_key", "red_key"]:
 		if not flags.get("power", false): return
 		flags[kind] = true
@@ -210,7 +217,7 @@ func collect(item: Node3D) -> void:
 	collected[item.get_instance_id()] = true; item.visible = false
 	if kind in ["twin_shotgun","rivet_cannon","siege_launcher"]:
 		var equip_key: int = {"twin_shotgun":4,"rivet_cannon":5,"siege_launcher":6}[kind]
-		message_changed.emit("%s acquired · [%d] equip · AMBUSH" % [kind.replace("_"," ").capitalize(),equip_key])
+		message_changed.emit("%s cache · [%d] equip · AMBUSH" % [kind.replace("_"," ").capitalize(),equip_key])
 	else:
 		message_changed.emit(kind.trim_suffix("_key").capitalize() + " access key acquired" if kind in ["brass", "red", "brass_key", "red_key"] else "%s +%d" % [kind.capitalize(), amount])
 func refresh_objective() -> void:

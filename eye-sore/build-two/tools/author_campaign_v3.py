@@ -10,6 +10,7 @@ from copy import deepcopy
 import json
 import math
 from pathlib import Path
+import re
 import tempfile
 
 import author_themed_stages as base
@@ -58,6 +59,37 @@ EXIT_SIGNS = {
     "occupied_line_02": "TO OCCUPATION ENGINE",
     "occupied_line_03": "ENGINE SHUTDOWN / CAMPAIGN END",
 }
+AMMO_KINDS = ("pistol", "shells", "rivets", "rockets")
+WEAPON_AMMO = {"twin_shotgun": "shells", "rivet_cannon": "rivets", "siege_launcher": "rockets"}
+CAPS = {"pistol": 96, "shells": 40, "rivets": 160, "rockets": 12}
+FIRST_GRANTS = {"twin_shotgun": 8, "rivet_cannon": 36, "siege_launcher": 4}
+BAIT_GRANTS = {"twin_shotgun": 4, "rivet_cannon": 16, "siege_launcher": 2}
+SUPPLY_WEIGHTS = {
+    "entry": 28, "service": 12, "arena_one": 16, "key_wing": 5,
+    "key_console": 10, "spine": 10, "arena_two": 10,
+    "red_wing": 3, "red_console": 5, "final_arena": 1,
+}
+
+
+def allocate(total: int, rooms: list[str], weights: dict[str, int]) -> dict[str, int]:
+    """Distribute exact physical pickup totals, biased toward early fights."""
+    if total == 0:
+        return {}
+    weight_sum = sum(weights[rid] for rid in rooms)
+    quotient = {rid: total * weights[rid] / weight_sum for rid in rooms}
+    result = {rid: int(quotient[rid]) for rid in rooms}
+    spare = total - sum(result.values())
+    order = sorted(rooms, key=lambda rid: (-(quotient[rid] - result[rid]), rooms.index(rid)))
+    for rid in order[:spare]:
+        result[rid] += 1
+    return {rid: amount for rid, amount in result.items() if amount}
+
+
+def ammo_target(level_id: str) -> dict[str, int]:
+    if level_id == "pale_ward_01": return {"pistol": 48, "shells": 28, "rivets": 0, "rockets": 0}
+    if level_id == "pale_ward_02": return {"pistol": 48, "shells": 24, "rivets": 84, "rockets": 0}
+    if level_id == "pale_ward_03": return {"pistol": 48, "shells": 24, "rivets": 36, "rockets": 10}
+    return {"pistol": 64, "shells": 36, "rivets": 72, "rockets": 8}
 
 
 def augment(sc: base.Scene, level_id: str, name: str, weapon: str) -> None:
@@ -69,7 +101,7 @@ def augment(sc: base.Scene, level_id: str, name: str, weapon: str) -> None:
         index = int(level_id[-2:])
         words = {1: "TWIN SHOTGUN", 2: "RIVET CANNON", 3: "SIEGE LAUNCHER"}
         sc.cylinder("FirstGunCachePlinth", (ex, ey + .12, ez + 4), 1.15, .24, "panel", False)
-        sc.pickup("FirstGunCache", weapon, (ex, ey + .65, ez + 4), 18 if index == 1 else 96 if index == 2 else 8)
+        sc.pickup("FirstGunCache", weapon, (ex, ey + .65, ez + 4), FIRST_GRANTS[weapon])
         sc.downlight("FirstGunCacheLight", (ex, ey + entry["size"][1] - .5, ez + 4), 8, 12)
         sc.label("FirstGunCacheSign", "%02d  %s  [%d] TAKE WEAPON" % (index, words[index], index + 3), (ex, ey + 2.6, ez + 4), size=45)
     for rid, text in [("entry", name.upper()), ("key_console", "BRASS KEY / RETURN LOOP"), ("red_console", "RED KEY / RETURN LOOP"), ("exit_gallery", EXIT_SIGNS[level_id])]:
@@ -285,8 +317,6 @@ def author_campaign(stage, contract):
         for index,node in enumerate(sc.nodes):
             if node.startswith('[node name="Bait_'+rid+'" '): sc.nodes[index]=node.rstrip()+'\nmetadata/bait_arena = '+quote(rid)+'\n\n'
         sc.downlight('CacheLight_'+rid,(x,y+r['size'][1]-.5,z),7,14)
-    for rid,kind,amount in [(rid,kind,amount) for rid,kind,amount in [('spine','rockets',2),('key_wing','rivets',48)] if rid in rooms]:
-        r=rooms[rid];x,y,z=r['center'];sc.pickup('V2Supply_'+rid,kind,(x,y+.5,z),amount)
     for b in stage['buttons']:
         r=rooms[b['room']];x,y,z=r['center'];pp=(x+4.5,y+1.05,z-r['size'][2]/2+3)
         sc.box('Button_'+b['id'],pp,(1.1,1.5,.5),'steel',extra='metadata/stage_button = '+quote(b['sets'])+'\nmetadata/requires = '+arr(['clear_'+b['arena']])+'\nmetadata/locked_message = "Clear this arena to enable its control"\nmetadata/label = '+quote(b['label'])+'\nmetadata/activated_message = '+quote(b['label']+' · engaged'))
@@ -294,13 +324,23 @@ def author_campaign(stage, contract):
         sc.label('Mark',b['label'],(0,1.1,.28),'Button_'+b['id'],size=30)
     for k in stage['keys']:
         r=rooms[k['room']];x,y,z=r['center'];sc.pickup('Key_'+k['id'],k['id'],(x,y+.6,z-3))
-    # Required-route supplies match coordinator totals, independent of secrets.
-    supply_rooms=stage.get('supply_rooms', ['entry','service','arena_one','key_wing','key_console','return_store','spine','arena_two','red_wing','red_console','final_arena'])
-    budgets={'shells':stage['supplies']['main_route_shells'],'pistol':stage['supplies']['main_route_pistol'],'health':stage['supplies']['main_route_health'],'armor':stage['supplies']['main_route_armor']}
-    for kind,total in budgets.items():
-        for index,rid in enumerate(supply_rooms):
-            amount=total//len(supply_rooms)+(1 if index<total%len(supply_rooms) else 0);r=rooms[rid];x,y,z=r['center'];k=list(budgets).index(kind)
-            sc.pickup('Supply_'+kind+'_'+rid,kind,(x+(-.8 if k%2==0 else .8),y+.5,z+r['size'][2]/2-3-k//2*1.2),amount)
+    # Each physical cache amount is included in the campaign's main-route
+    # budget. Optional and secret rewards below remain independent bonuses.
+    for k,(kind,by_room) in enumerate(stage['supply_allocation'].items()):
+        for rid,amount in by_room.items():
+            r=rooms[rid];x,y,z=r['center']
+            if rid == 'entry' and kind in AMMO_KINDS:
+                # The player faces north from PlayerStart. These cases sit two
+                # metres ahead, with heavy ammo in the following row.
+                side = -.8 if kind in ('pistol','rivets') else .8
+                row = 0 if kind in ('pistol','shells') else 1
+                pos = (x+side,y+.5,z+stage['spawn_local'][2]-2-row*1.2)
+            else:
+                # Vital cases keep the original campaign placement slots even
+                # though the ammo list now includes two additional kinds.
+                slot = 2 if kind == 'health' else 3 if kind == 'armor' else k
+                pos = (x+(-.8 if slot%2==0 else .8),y+.5,z+r['size'][2]/2-3-slot//2*1.2)
+            sc.pickup('Supply_'+kind+'_'+rid,kind,pos,amount)
     for rid in optional+stage.get('secret_rooms', ['secret_one','secret_two']):
         r=rooms[rid];x,y,z=r['center'];sc.pickup('Bonus_'+rid,'shells',(x,y+.5,z),12);sc.pickup('BonusHealth_'+rid,'health',(x+1,y+.5,z),25)
     r=rooms[stage['exit']['room']];x,y,z=r['center'];sc.box('ExitControl',(x,y+1.05,z-r['size'][2]/2+2),(1.5,1.8,.5),'glow',extra='metadata/stage_exit = true\nmetadata/requires = '+arr(stage['exit']['requires'])+'\nmetadata/locked_message = "Both access keys and exit control required"')
@@ -384,10 +424,28 @@ def make_stage(level):
     stage["enemy_counts"]["entry"] = 1 + chapter_index
     stage["optional_rooms"] = [rid for rid in ("supplies", "maintenance", "pump_room", "armory") if rid not in omitted]
     stage["secret_rooms"] = [rid for rid in ("secret_one", "secret_two") if rid not in omitted]
-    stage["supply_rooms"] = [rid for rid in ("entry", "service", "arena_one", "key_wing", "key_console", "return_store", "spine", "arena_two", "red_wing", "red_console", "final_arena") if rid not in omitted]
+    # Only rooms required by the key/arena route receive budgeted pickups;
+    # return_store and all side/secret chambers remain optional bonuses.
+    stage["supply_rooms"] = [rid for rid in ("entry", "service", "arena_one", "key_wing", "key_console", "spine", "arena_two", "red_wing", "red_console", "final_arena") if rid not in omitted]
+    stage["vital_supply_rooms"] = [rid for rid in ("entry", "service", "arena_one", "key_wing", "key_console", "return_store", "spine", "arena_two", "red_wing", "red_console", "final_arena") if rid not in omitted]
     # Three bait traps remain active on each map. The chapter's first owned gun
     # is refreshed with ammo; acquisition of new guns follows the Ward arc.
-    stage["weapon_cache"] = {rid: {"weapon": weapon, "ammo": 18 if weapon == "twin_shotgun" else 96 if weapon == "rivet_cannon" else 8} for rid in ("arena_one", "arena_two", "final_arena")}
+    stage["weapon_cache"] = {rid: {"weapon": weapon, "ammo": BAIT_GRANTS[weapon]} for rid in ("arena_one", "arena_two", "final_arena")}
+    targets = ammo_target(level_id)
+    residual = dict(targets)
+    grant_kind = WEAPON_AMMO[weapon]
+    residual[grant_kind] -= 3 * BAIT_GRANTS[weapon]
+    if theme == "pale_ward": residual[grant_kind] -= FIRST_GRANTS[weapon]
+    assert all(amount >= 0 for amount in residual.values()), (level_id, residual)
+    stage["ammo_target"] = targets
+    stage["supply_allocation"] = {
+        kind: allocate(residual[kind], stage["supply_rooms"], SUPPLY_WEIGHTS)
+        for kind in AMMO_KINDS
+    }
+    for kind in ("health", "armor"):
+        total = stage["supplies"]["main_route_" + kind]
+        rooms = stage["vital_supply_rooms"]
+        stage["supply_allocation"][kind] = {rid: total // len(rooms) + (1 if index < total % len(rooms) else 0) for index, rid in enumerate(rooms)}
     stage["rooms"][0]["label"] = signs[0]
     for rid, label in zip(("arena_one", "arena_two", "final_arena"), signs[1:]):
         next(r for r in stage["rooms"] if r["id"] == rid)["label"] = label
@@ -400,9 +458,68 @@ def make_stage(level):
     return stage, contract
 
 
+def balance_receipt(level_id: str, stage: dict, scene_text: str) -> dict:
+    pickup_blocks = re.finditer(r'\[node name="([^"]+)"[^\n]*\]\n(.*?)(?=\n\[node |\Z)', scene_text, re.S)
+    main = {kind: 0 for kind in AMMO_KINDS}
+    optional = {"shells": 0, "health": 0}
+    secret = {"shells": 0, "health": 0}
+    vitals = {"health": 0, "armor": 0}
+    return_store_vitals = {"health": 0, "armor": 0}
+    sources = {"first_weapon": None, "arena_baits": {}, "supply_cases": {}}
+    seen = set()
+    for match in pickup_blocks:
+        name, body = match.groups()
+        kind_match = re.search(r'^metadata/stage_pickup = "([^"]+)"$', body, re.M)
+        if not kind_match: continue
+        kind = kind_match.group(1)
+        amount_match = re.search(r'^metadata/amount = (\d+)$', body, re.M)
+        assert amount_match, (level_id, name, "missing pickup amount")
+        amount = int(amount_match.group(1)); assert name not in seen, (level_id, name)
+        seen.add(name)
+        if name == "FirstGunCache":
+            ammo = WEAPON_AMMO[kind]; main[ammo] += amount
+            sources["first_weapon"] = {"weapon": kind, "ammo": ammo, "amount": amount}
+        elif name.startswith("Bait_"):
+            ammo = WEAPON_AMMO[kind]; main[ammo] += amount
+            sources["arena_baits"][name.removeprefix("Bait_")] = {"weapon": kind, "ammo": ammo, "amount": amount}
+        elif name.startswith("Supply_"):
+            assert kind in AMMO_KINDS or kind in ("health", "armor"), (level_id, name, kind)
+            if kind in AMMO_KINDS: main[kind] += amount
+            else:
+                vitals[kind] += amount
+                if name.endswith("_return_store"): return_store_vitals[kind] += amount
+            sources["supply_cases"][name] = {"kind": kind, "amount": amount}
+        elif name.startswith("Bonus_") or name.startswith("BonusHealth_"):
+            room = name.removeprefix("BonusHealth_").removeprefix("Bonus_")
+            bucket = optional if room in stage["optional_rooms"] else secret if room in stage["secret_rooms"] else None
+            assert bucket is not None and kind in bucket, (level_id, name, kind)
+            bucket[kind] += amount
+        else:
+            assert name.startswith("Key_"), (level_id, "uncategorized pickup", name)
+    assert main == stage["ammo_target"], (level_id, main, stage["ammo_target"])
+    assert vitals == {kind: stage["supplies"]["main_route_" + kind] for kind in ("health", "armor")}, (level_id, vitals)
+    assert len(sources["arena_baits"]) == 3, level_id
+    assert (sources["first_weapon"] is not None) == level_id.startswith("pale_ward"), level_id
+    assert optional == {"shells": 12 * len(stage["optional_rooms"]), "health": 25 * len(stage["optional_rooms"])}, level_id
+    assert secret == {"shells": 12 * len(stage["secret_rooms"]), "health": 25 * len(stage["secret_rooms"])}, level_id
+    return {
+        "id": level_id,
+        "main_route_target": stage["ammo_target"],
+        "main_route_actual": main,
+        "main_route_health": vitals["health"] - return_store_vitals["health"],
+        "main_route_armor": vitals["armor"] - return_store_vitals["armor"],
+        "placed_health_total": vitals["health"],
+        "placed_armor_total": vitals["armor"],
+        "sources": sources,
+        "optional": {"rooms": stage["optional_rooms"], "bonus": optional, "return_store_supply": return_store_vitals},
+        "secret": {"rooms": stage["secret_rooms"], "bonus": secret},
+    }
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True); SCENES.mkdir(parents=True, exist_ok=True)
     catalog = {"chapters": []}
+    balances = []
     for theme, heading in (("pale_ward", "Pale Ward"), ("ash_citadel", "Ash Citadel"), ("occupied_line", "Occupied Line")):
         catalog["chapters"].append({"id": theme, "title": heading, "levels": []})
     original_scene = Scene
@@ -435,6 +552,7 @@ def main():
                 author_campaign(stage, contract)
                 scene_text = (staging / contract["scene"].removeprefix("res://")).read_text()
                 scene_text = scene_text.replace('metadata/stage_title = ' + json.dumps(title), 'metadata/stage_title = ' + json.dumps(title) + '\nmetadata/campaign_level_id = ' + json.dumps(level_id) + '\nmetadata/campaign_chapter = ' + json.dumps(theme), 1)
+                balances.append(balance_receipt(level_id, stage, scene_text))
                 (SCENES / (level_id + ".tscn")).write_text(scene_text)
                 route = json.loads((staging / "resources/stages" / (theme + "-route.json")).read_text())
                 route["id"] = level_id; route["theme"] = theme
@@ -458,6 +576,7 @@ def main():
     finally:
         globals()["Scene"] = original_scene; globals()["P"] = original_root; base.P = original_base_root
     (OUT / "catalog.json").write_text(json.dumps(catalog, indent=2) + "\n")
+    (OUT / "balance-budget.json").write_text(json.dumps({"ammo_caps": CAPS, "scope": "Physical main-route pickups only; starting combat inventory and optional/secret bonuses are separate.", "levels": balances}, indent=2) + "\n")
 
 
 if __name__ == "__main__": main()

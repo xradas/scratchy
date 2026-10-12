@@ -69,6 +69,9 @@ func restore(combat: Node, snapshot: Dictionary) -> void:
 		if snapshot.has(field):
 			var value: Variant = snapshot[field]
 			combat.set(field, value.duplicate(true) if value is Dictionary else value)
+	# The new campaign world is already bound to combat here. Clamp carried
+	# ammunition before Main records this level's retry snapshot.
+	if combat.has_method("normalize_ammo"): combat.normalize_ammo()
 	combat.dead = false
 	combat.weapon_phase = &"idle"
 	combat.phase_time = 0.0

@@ -409,15 +409,15 @@
   "weapon_cache": {
     "arena_one": {
       "weapon": "siege_launcher",
-      "ammo": 8
+      "ammo": 2
     },
     "arena_two": {
       "weapon": "siege_launcher",
-      "ammo": 8
+      "ammo": 2
     },
     "final_arena": {
       "weapon": "siege_launcher",
-      "ammo": 8
+      "ammo": 2
     }
   },
   "optional_rooms": [
@@ -436,6 +436,77 @@
     "red_console",
     "final_arena"
   ],
+  "vital_supply_rooms": [
+    "entry",
+    "service",
+    "arena_one",
+    "key_console",
+    "spine",
+    "arena_two",
+    "red_console",
+    "final_arena"
+  ],
+  "ammo_target": {
+    "pistol": 64,
+    "shells": 36,
+    "rivets": 72,
+    "rockets": 8
+  },
+  "supply_allocation": {
+    "pistol": {
+      "entry": 20,
+      "service": 8,
+      "arena_one": 11,
+      "key_console": 7,
+      "spine": 7,
+      "arena_two": 7,
+      "red_console": 3,
+      "final_arena": 1
+    },
+    "shells": {
+      "entry": 11,
+      "service": 5,
+      "arena_one": 6,
+      "key_console": 4,
+      "spine": 4,
+      "arena_two": 4,
+      "red_console": 2
+    },
+    "rivets": {
+      "entry": 22,
+      "service": 9,
+      "arena_one": 12,
+      "key_console": 8,
+      "spine": 8,
+      "arena_two": 8,
+      "red_console": 4,
+      "final_arena": 1
+    },
+    "rockets": {
+      "entry": 1,
+      "arena_one": 1
+    },
+    "health": {
+      "entry": 28,
+      "service": 28,
+      "arena_one": 28,
+      "key_console": 28,
+      "spine": 27,
+      "arena_two": 27,
+      "red_console": 27,
+      "final_arena": 27
+    },
+    "armor": {
+      "entry": 23,
+      "service": 23,
+      "arena_one": 23,
+      "key_console": 23,
+      "spine": 22,
+      "arena_two": 22,
+      "red_console": 22,
+      "final_arena": 22
+    }
+  },
   "campaign_level_id": "occupied_line_03",
   "theme": "occupied_line",
   "title": "Occupation Engine",

@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "render_caps": [
+    30,
+    60,
+    120
+  ],
+  "measured_fps": [
+    30.0000320225061,
+    60.0013815444154,
+    120.002702581873
+  ],
+  "fixed_physics_hz": 60,
+  "identical_signatures": true,
+  "weapon_signature": [
+    [
+      "twin_shotgun",
+      2,
+      4,
+      [
+        0,
+        72
+      ],
+      120
+    ],
+    [
+      "rivet_cannon",
+      12,
+      12,
+      [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+        110
+      ],
+      120
+    ],
+    [
+      "siege_launcher",
+      2,
+      2,
+      [
+        0,
+        60
+      ],
+      120
+    ]
+  ],
+  "accepted_and_visible": [
+    16,
+    16,
+    16
+  ],
+  "ammo_grants_each": 3,
+  "siege_explosions_each": 2,
+  "final_ammo_each": {
+    "ammo_pistol": 36,
+    "ammo_rivets": 60,
+    "ammo_rockets": 4,
+    "ammo_shotgun": 20
+  },
+  "historical_four_receipts_restored_byte_exact": true,
+  "historical_sha256": {
+    "30.json": "d6eb99be152ee300ea7b5a6d195db7007cd78def662dc1632c8783711752f604",
+    "60.json": "7cda53aa3157ca9f6a968ed78021de57168ecdbaee584dcad0bca76a152554c8",
+    "120.json": "db1047c61449bdca59d9b13aab48c21954848960207f116ee3b2927ff378ae84",
+    "comparison.json": "e7e4ec15716aa2301f4a892f2766c1397b69a44e07f62aacc3209e9de854f132"
+  },
+  "source_sha256": {
+    "scripts/combat.gd": "84e8b3327b3cd77cbf1ebfeac5a5df6647834217afc0ab27541b3dcae041725f",
+    "scripts/stage_level.gd": "3d74c55e968d6cb0e8fb6bc8588c13dab5b501963c043151a1677926253ef197",
+    "tools/check_supply_policy_v4.gd": "e042432eb4bf0f0105da35c042c6ec1504414199eeccc426cef454714a892af8",
+    "tools/check_arsenal_render_rates.gd": "9e8dba8a9e47667ca80f26a9b292454bb2e0f0a17eab4117c60250f8fe4a3117",
+    "resources/weapons/siege_launcher.tres": "5b0cec50135357b4dba06205600b17a5792ec5c842ea2f559f62290a3e286a89"
+  },
+  "scope": "Native Main calibration wall-shot cadence and muzzle visibility. Two original AI actors removed, stable camera/player fixture placement, declared ammo grants; 60 Hz real engine physics with 30/60/120 render cap. No live-AI, physical mouse feel, or human acceptance claim.",
+  "correction": "Explicit inventory grant/add APIs support paused fixture/setup as before; gameplay paused pickup contact and firing remain blocked. Historical and current unchanged 120-tick windows yield 16 shots, not 18."
+}

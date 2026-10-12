@@ -463,15 +463,15 @@
   "weapon_cache": {
     "arena_one": {
       "weapon": "rivet_cannon",
-      "ammo": 96
+      "ammo": 16
     },
     "arena_two": {
       "weapon": "rivet_cannon",
-      "ammo": 96
+      "ammo": 16
     },
     "final_arena": {
       "weapon": "rivet_cannon",
-      "ammo": 96
+      "ammo": 16
     }
   },
   "optional_rooms": [
@@ -492,6 +492,93 @@
     "red_console",
     "final_arena"
   ],
+  "vital_supply_rooms": [
+    "entry",
+    "service",
+    "arena_one",
+    "key_wing",
+    "key_console",
+    "spine",
+    "arena_two",
+    "red_wing",
+    "red_console",
+    "final_arena"
+  ],
+  "ammo_target": {
+    "pistol": 64,
+    "shells": 36,
+    "rivets": 72,
+    "rockets": 8
+  },
+  "supply_allocation": {
+    "pistol": {
+      "entry": 18,
+      "service": 8,
+      "arena_one": 10,
+      "key_wing": 3,
+      "key_console": 7,
+      "spine": 6,
+      "arena_two": 6,
+      "red_wing": 2,
+      "red_console": 3,
+      "final_arena": 1
+    },
+    "shells": {
+      "entry": 10,
+      "service": 4,
+      "arena_one": 6,
+      "key_wing": 2,
+      "key_console": 4,
+      "spine": 4,
+      "arena_two": 3,
+      "red_wing": 1,
+      "red_console": 2
+    },
+    "rivets": {
+      "entry": 7,
+      "service": 3,
+      "arena_one": 4,
+      "key_wing": 1,
+      "key_console": 3,
+      "spine": 2,
+      "arena_two": 2,
+      "red_wing": 1,
+      "red_console": 1
+    },
+    "rockets": {
+      "entry": 2,
+      "service": 1,
+      "arena_one": 1,
+      "key_wing": 1,
+      "key_console": 1,
+      "spine": 1,
+      "arena_two": 1
+    },
+    "health": {
+      "entry": 22,
+      "service": 22,
+      "arena_one": 22,
+      "key_wing": 22,
+      "key_console": 22,
+      "spine": 22,
+      "arena_two": 22,
+      "red_wing": 22,
+      "red_console": 22,
+      "final_arena": 22
+    },
+    "armor": {
+      "entry": 18,
+      "service": 18,
+      "arena_one": 18,
+      "key_wing": 18,
+      "key_console": 18,
+      "spine": 18,
+      "arena_two": 18,
+      "red_wing": 18,
+      "red_console": 18,
+      "final_arena": 18
+    }
+  },
   "campaign_level_id": "ash_citadel_02",
   "theme": "ash_citadel",
   "title": "Furnace Choir",

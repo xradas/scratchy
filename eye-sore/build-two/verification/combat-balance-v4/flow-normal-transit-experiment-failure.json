@@ -1,0 +1,114 @@
+{
+  "campaign": "Eyesore",
+  "editor_feature": true,
+  "engine_arguments": [],
+  "executable": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+  "expected_levels": 9,
+  "failures": [
+    "Room route entry: player died"
+  ],
+  "finale": "YOU DIED",
+  "initial_loadout": {
+    "ammo_pistol": 36,
+    "ammo_rivets": 0,
+    "ammo_rockets": 0,
+    "ammo_shotgun": 12,
+    "armor": 50.0,
+    "currentweapon": "pistol",
+    "health": 100.0,
+    "owned_weapons": {
+      "melee": true,
+      "pistol": true,
+      "shotgun": true
+    }
+  },
+  "levels": [
+    {
+      "accepted_ammo": {
+        "pistol": 13,
+        "rivets": 0,
+        "rockets": 0,
+        "shells": 10
+      },
+      "active_entry_loadout": {
+        "ammo_pistol": 36,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 12,
+        "armor": 50.0,
+        "currentweapon": "pistol",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true
+        }
+      },
+      "ammo_caps": {
+        "pistol": 96,
+        "rivets": 160,
+        "rockets": 12,
+        "shells": 40
+      },
+      "chapter": "pale_ward",
+      "completed": false,
+      "entry_ammo": {
+        "pistol": 36,
+        "rivets": 0,
+        "rockets": 0,
+        "shells": 12
+      },
+      "entry_loadout": {
+        "ammo_pistol": 36,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 12,
+        "armor": 50.0,
+        "currentweapon": "pistol",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true
+        }
+      },
+      "flags": {},
+      "health": 0.0,
+      "interactions": [],
+      "kills": 0,
+      "level": "pale_ward_01",
+      "peak_ammo": {
+        "pistol": 49,
+        "rivets": 0,
+        "rockets": 0,
+        "shells": 22
+      },
+      "route_resource": "res://resources/campaign/pale_ward_01-route.json",
+      "scene": "res://scenes/campaign/pale_ward_01.tscn",
+      "segments": [
+        {
+          "armor": 67.0,
+          "health": 100.0,
+          "kills": 0,
+          "pistol": 49,
+          "position": "(0.0, 0.850638, 0.103442)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Return centre entry",
+          "shells": 22,
+          "ticks": 87
+        }
+      ],
+      "shots": 0,
+      "siege_self_hits": 0,
+      "use_heavy_weapons": false,
+      "weapon_kills": {},
+      "weapon_shots": {}
+    }
+  ],
+  "levels_completed": 0,
+  "physics_ticks_per_second": 60,
+  "scope": "Single continuous native Main campaign: normal starting loadout, actual exit health/ammo/ownership carried by Continue through all nine physical routes; real CharacterBody movement, AI, damage, weapon rays and E-use. No reseed, teleport, secret supply or completion signal injection. Optional heavy-weapon selection is bot policy; combat tuning is unchanged. Fixed simulation rate is explicit in engine arguments when used; this is automated gameplay, not a human duration.",
+  "source_package_dir": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+  "use_heavy_weapons": false
+}

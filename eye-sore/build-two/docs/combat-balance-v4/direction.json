@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-12",
+  "authority": "User: continue with all specialist roles; selected Campaign combat and balance.",
+  "preserved_release": "6d3dc8b5b984ec3acb9809bbf32e8c65afbbedb5; 2026-10-10 portable nine-level build remains unchanged.",
+  "goal": "An ammunition economy that rewards weapon choice and exploration without requiring secret supplies or repeatedly farming chapters.",
+  "constraints": [
+    "Nine levels and approved chapter order unchanged.",
+    "Preserve original art, six weapon stats, creature health, dry audio and praised music unless a measured bug demands a bounded fix.",
+    "No adaptive spawning/HP, reloads, jumps, dashes, health bars or mandatory secrets.",
+    "Use all eight currently listed specialists in batches of at most3; root owns research/design/integration/provenance/Git.",
+    "Full original-concept visual fidelity and human pacing/listening approval are separate open gates."
+  ],
+  "ammo_capacity": {
+    "pistol": 96,
+    "shells": 40,
+    "rivets": 160,
+    "rockets": 12
+  },
+  "policy_scope": "Campaign only; old standalone/calibration behavior preserved. Ordinary full-ammo pickups remain available. Full bait contact still triggers the arena. Grants and pickup feedback report actual accepted ammunition.",
+  "validation": [
+    "Real six-species weapon/contact/attack fixture.",
+    "Normal starting health/armor/ammo, all9 real Main routes, physical E exits, carry/retry, no secrets/teleports/reseeding.",
+    "A second heavy-weapon route with actual shots/kills for all3 heavy guns.",
+    "Caps and actual pickup acceptance at saturation/partial values, no silent full-bait softlocks.",
+    "Moving-door/lift and geometry support regression where touched; native30/60/120 weapon/collision ownership.",
+    "Genuine exported game outside project and independent source/archive audit; actual stereo capture."
+  ],
+  "workers": [
+    {
+      "name": "arsenal_v2",
+      "role": "Campaign ammo policy and pickup semantics"
+    },
+    {
+      "name": "campaign_levels_v3",
+      "role": "Authored main/optional/secret supply budgets"
+    },
+    {
+      "name": "enemy_expansion",
+      "role": "Actual weapon/enemy matchup evidence"
+    },
+    {
+      "name": "campaign_flow_v3",
+      "role": "Carry/retry/capacity HUD and mixed-weapon route validation"
+    },
+    {
+      "name": "ambush_stages_v2",
+      "role": "Physical full-capacity bait/arena/progression audit"
+    },
+    {
+      "name": "godot_foundation",
+      "role": "Foundation/rate/physics regression"
+    },
+    {
+      "name": "audio_packets",
+      "role": "Actual new pickup/contact voice lifecycle audit, no sourcing"
+    },
+    {
+      "name": "arsenal_art_release_v2",
+      "role": "Native combat previews and independent release audit"
+    }
+  ],
+  "coordinator_reference_research": [
+    {
+      "url": "https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_inter.c",
+      "observations": "Published original interaction implementation caps ammo, refuses already-full ordinary pickups, and distinguishes new weapon ownership from accepted ammo. Our exact capacity and budgets are original design choices; no source or assets copied.",
+      "relevance": "Campaign saturation/partial pickup behavior and duplicate weapon grants."
+    },
+    {
+      "url": "https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_inter.c#L850",
+      "observations": "Original damage handler uses species pain probability; our existing guaranteed interruption differs. Preserve current promised hurt/cancellation behavior for this budget pass; matchup evidence reports its consequences.",
+      "relevance": "Do not silently make hurt enemies release a cancelled attack."
+    }
+  ],
+  "weapon_role_direction": {
+    "pistol": "Precise finite fallback; stable20 damage/.32s, guaranteed hurt interruption retained.",
+    "shotgun": "Seven-pellet general-purpose single-shell gun.",
+    "twin_shotgun": "Two-shell close burst; wider spread, not a universal efficiency upgrade.",
+    "rivet_cannon": "Fast centered36damage suppression/precision; no invented armor penetration multiplier.",
+    "siege_launcher": "Crowd blast with real wall occlusion and self-risk; bot tests must consider nearby cover and clusters.",
+    "melee": "Always-available fallback; no glorykill/dash mechanic."
+  },
+  "unchanged_values": "All weapon damage/cadence/geometry, creature health/pain interruption, dry cues/music, original PNGs, stage graph/doors/lifts. Health/armor original pickup positions and totals must remain exact; only ammunition cases move on approach.",
+  "accepted_budget_iteration": {
+    "ward_main_totals": [
+      {
+        "id": "pale_ward_01",
+        "pistol": 48,
+        "shells": 28,
+        "rivets": 0,
+        "rockets": 0
+      },
+      {
+        "id": "pale_ward_02",
+        "pistol": 48,
+        "shells": 24,
+        "rivets": 84,
+        "rockets": 0
+      },
+      {
+        "id": "pale_ward_03",
+        "pistol": 48,
+        "shells": 24,
+        "rivets": 36,
+        "rockets": 10
+      }
+    ],
+    "citadel_and_line_main_totals": {
+      "pistol": 64,
+      "shells": 36,
+      "rivets": 72,
+      "rockets": 8
+    },
+    "reason": "Both completed-profile source tests exhausted ammo late despite safe ordnance and actual use of owned guns. Add human aiming/overkill headroom while capacity still prevents chapter stockpiling. No secret or optional-room supplies used to establish route acceptance.",
+    "previous_late_budget": {
+      "pistol": 48,
+      "shells": 28,
+      "rivets": 48,
+      "rockets": 6
+    },
+    "included_in_totals": "All arena bait grants; Ward first-gun grants; guaranteed normal supply cases. Optional/secret rewards excluded."
+  }
+}

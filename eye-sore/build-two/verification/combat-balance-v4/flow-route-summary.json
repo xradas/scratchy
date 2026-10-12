@@ -1,0 +1,343 @@
+{
+  "engine": "Godot 4.7.2 stable official ed1daf0bf",
+  "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "launch_command_template": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . -- --campaign-route-test --campaign-all-levels [--use-heavy-weapons] --release-report-dir=/tmp/eyesore-balance-v4-rerun-{profile}",
+  "ordered_levels": [
+    "pale_ward_01",
+    "pale_ward_02",
+    "pale_ward_03",
+    "ash_citadel_01",
+    "ash_citadel_02",
+    "ash_citadel_03",
+    "occupied_line_01",
+    "occupied_line_02",
+    "occupied_line_03"
+  ],
+  "profiles": {
+    "heavy": {
+      "ammo_caps": {
+        "pistol": 96,
+        "rivets": 160,
+        "rockets": 12,
+        "shells": 40
+      },
+      "carry_exact_at_each_transition": true,
+      "entry_ammo_by_level": {
+        "ash_citadel_01": {
+          "pistol": 13,
+          "rivets": 0,
+          "rockets": 4,
+          "shells": 0
+        },
+        "ash_citadel_02": {
+          "pistol": 54,
+          "rivets": 1,
+          "rockets": 2,
+          "shells": 16
+        },
+        "ash_citadel_03": {
+          "pistol": 93,
+          "rivets": 0,
+          "rockets": 3,
+          "shells": 11
+        },
+        "occupied_line_01": {
+          "pistol": 79,
+          "rivets": 0,
+          "rockets": 4,
+          "shells": 8
+        },
+        "occupied_line_02": {
+          "pistol": 58,
+          "rivets": 0,
+          "rockets": 8,
+          "shells": 7
+        },
+        "occupied_line_03": {
+          "pistol": 87,
+          "rivets": 0,
+          "rockets": 9,
+          "shells": 2
+        },
+        "pale_ward_01": {
+          "pistol": 36,
+          "rivets": 0,
+          "rockets": 0,
+          "shells": 12
+        },
+        "pale_ward_02": {
+          "pistol": 10,
+          "rivets": 0,
+          "rockets": 0,
+          "shells": 0
+        },
+        "pale_ward_03": {
+          "pistol": 34,
+          "rivets": 0,
+          "rockets": 0,
+          "shells": 4
+        }
+      },
+      "exit_ammo_by_level": {
+        "ash_citadel_01": {
+          "pistol": 54,
+          "rivets": 1,
+          "rockets": 2,
+          "shells": 16
+        },
+        "ash_citadel_02": {
+          "pistol": 93,
+          "rivets": 0,
+          "rockets": 3,
+          "shells": 11
+        },
+        "ash_citadel_03": {
+          "pistol": 79,
+          "rivets": 0,
+          "rockets": 4,
+          "shells": 8
+        },
+        "occupied_line_01": {
+          "pistol": 58,
+          "rivets": 0,
+          "rockets": 8,
+          "shells": 7
+        },
+        "occupied_line_02": {
+          "pistol": 87,
+          "rivets": 0,
+          "rockets": 9,
+          "shells": 2
+        },
+        "occupied_line_03": {
+          "pistol": 58,
+          "rivets": 0,
+          "rockets": 11,
+          "shells": 0
+        },
+        "pale_ward_01": {
+          "pistol": 10,
+          "rivets": 0,
+          "rockets": 0,
+          "shells": 0
+        },
+        "pale_ward_02": {
+          "pistol": 34,
+          "rivets": 0,
+          "rockets": 0,
+          "shells": 4
+        },
+        "pale_ward_03": {
+          "pistol": 13,
+          "rivets": 0,
+          "rockets": 4,
+          "shells": 0
+        }
+      },
+      "finale": "CAMPAIGN COMPLETE",
+      "levels_completed": 9,
+      "log": "verification/combat-balance-v4/flow-heavy-all9.log",
+      "peak_ammo": {
+        "pistol": 96,
+        "rivets": 40,
+        "rockets": 12,
+        "shells": 34
+      },
+      "receipt": "verification/combat-balance-v4/flow-heavy-all9.json",
+      "secret_levels": 0,
+      "siege_self_hits": 0,
+      "total_kills": 306,
+      "weapon_kills": {
+        "pistol": 39,
+        "rivet_cannon": 98,
+        "shotgun": 64,
+        "siege_launcher": 43,
+        "twin_shotgun": 62
+      },
+      "weapon_shots": {
+        "pistol": 331,
+        "rivet_cannon": 508,
+        "shotgun": 140,
+        "siege_launcher": 43,
+        "twin_shotgun": 67
+      }
+    },
+    "normal": {
+      "ammo_caps": {
+        "pistol": 96,
+        "rivets": 160,
+        "rockets": 12,
+        "shells": 40
+      },
+      "carry_exact_at_each_transition": true,
+      "entry_ammo_by_level": {
+        "ash_citadel_01": {
+          "pistol": 1,
+          "rivets": 41,
+          "rockets": 10,
+          "shells": 0
+        },
+        "ash_citadel_02": {
+          "pistol": 41,
+          "rivets": 1,
+          "rockets": 12,
+          "shells": 21
+        },
+        "ash_citadel_03": {
+          "pistol": 64,
+          "rivets": 0,
+          "rockets": 12,
+          "shells": 15
+        },
+        "occupied_line_01": {
+          "pistol": 57,
+          "rivets": 1,
+          "rockets": 12,
+          "shells": 16
+        },
+        "occupied_line_02": {
+          "pistol": 0,
+          "rivets": 37,
+          "rockets": 12,
+          "shells": 0
+        },
+        "occupied_line_03": {
+          "pistol": 0,
+          "rivets": 0,
+          "rockets": 5,
+          "shells": 0
+        },
+        "pale_ward_01": {
+          "pistol": 36,
+          "rivets": 0,
+          "rockets": 0,
+          "shells": 12
+        },
+        "pale_ward_02": {
+          "pistol": 29,
+          "rivets": 0,
+          "rockets": 0,
+          "shells": 0
+        },
+        "pale_ward_03": {
+          "pistol": 9,
+          "rivets": 53,
+          "rockets": 0,
+          "shells": 0
+        }
+      },
+      "exit_ammo_by_level": {
+        "ash_citadel_01": {
+          "pistol": 41,
+          "rivets": 1,
+          "rockets": 12,
+          "shells": 21
+        },
+        "ash_citadel_02": {
+          "pistol": 64,
+          "rivets": 0,
+          "rockets": 12,
+          "shells": 15
+        },
+        "ash_citadel_03": {
+          "pistol": 57,
+          "rivets": 1,
+          "rockets": 12,
+          "shells": 16
+        },
+        "occupied_line_01": {
+          "pistol": 0,
+          "rivets": 37,
+          "rockets": 12,
+          "shells": 0
+        },
+        "occupied_line_02": {
+          "pistol": 0,
+          "rivets": 0,
+          "rockets": 5,
+          "shells": 0
+        },
+        "occupied_line_03": {
+          "pistol": 0,
+          "rivets": 0,
+          "rockets": 4,
+          "shells": 0
+        },
+        "pale_ward_01": {
+          "pistol": 29,
+          "rivets": 0,
+          "rockets": 0,
+          "shells": 0
+        },
+        "pale_ward_02": {
+          "pistol": 9,
+          "rivets": 53,
+          "rockets": 0,
+          "shells": 0
+        },
+        "pale_ward_03": {
+          "pistol": 1,
+          "rivets": 41,
+          "rockets": 10,
+          "shells": 0
+        }
+      },
+      "finale": "CAMPAIGN COMPLETE",
+      "levels_completed": 9,
+      "log": "verification/combat-balance-v4/flow-normal-all9.log",
+      "peak_ammo": {
+        "pistol": 96,
+        "rivets": 67,
+        "rockets": 12,
+        "shells": 34
+      },
+      "receipt": "verification/combat-balance-v4/flow-normal-all9.json",
+      "secret_levels": 0,
+      "siege_self_hits": 0,
+      "total_kills": 306,
+      "weapon_kills": {
+        "pistol": 58,
+        "rivet_cannon": 89,
+        "shotgun": 146,
+        "siege_launcher": 13
+      },
+      "weapon_shots": {
+        "melee": 29,
+        "pistol": 500,
+        "rivet_cannon": 508,
+        "shotgun": 274,
+        "siege_launcher": 16
+      }
+    }
+  },
+  "scope": "Normal campaign start; actual Main Continue between all nine scenes; finite carry; real movement, AI, damage, aiming, firing, pickups, buttons and exits; no teleport, reseed, secrets, or optional rooms.",
+  "simulation": "headless fixed 60 FPS automated physical route, not human play",
+  "source_sha256": {
+    "resources/campaign/ash_citadel_01-route.json": "873cc469abbf74f021d59b16dd303d019badc4940cdfd116c2c747944df81479",
+    "resources/campaign/ash_citadel_02-route.json": "cf12dc1d9f2cab88a1ed58c9ac5d150c9c87aa4fda3397d88ca57e2e802c6491",
+    "resources/campaign/ash_citadel_03-route.json": "9e160a88f131ecfc21f6e0fb2f774167f17048f14d5380faa5353eacc5bfb8e0",
+    "resources/campaign/balance-budget.json": "955de5544c7be20fa4d8f561a9736c65ad5045936f0e62a9387ee9752c81f3f4",
+    "resources/campaign/catalog.json": "165c59561b089bafeddd796c8498431f9d89889559e2a0832c7dffc470a92f4d",
+    "resources/campaign/occupied_line_01-route.json": "478084606ef41e6a6c4c62b65df747307ac4885bd5fbb62b91e1946805157c81",
+    "resources/campaign/occupied_line_02-route.json": "a2e649102c2c275a3114e314252090234142d464ad83aec593d26bce986a6f28",
+    "resources/campaign/occupied_line_03-route.json": "5082cb2f2ddcd8d70e1e520ad95cdcda9fe6ef065d990e6738dc85037f47ef92",
+    "resources/campaign/pale_ward_01-route.json": "0a5584147f3622f221881790403553dbff8bf0042dfacff27a15d1395208bc30",
+    "resources/campaign/pale_ward_02-route.json": "31e8e93407778947de2444f7be8b7e95b34c25caf001ebb29954108a8ee241f3",
+    "resources/campaign/pale_ward_03-route.json": "5e1ae32f7a3928b7944c9f33493d333a9f4646c5d46a7207b53fe4ec787b736c",
+    "scenes/campaign/ash_citadel_01.tscn": "1b0a04cd55b6eceddbe5ec670bd51ee7fbb4b457fd1a0e9023098910600aa243",
+    "scenes/campaign/ash_citadel_02.tscn": "6741d8c4795a56b10c923d2e9dc56780a98cd04c329899ba79540f9bb640d988",
+    "scenes/campaign/ash_citadel_03.tscn": "0849cf6015674f701b5268e2aeb52a11127c4e0100cc051597757d2583dee61d",
+    "scenes/campaign/occupied_line_01.tscn": "cb5eb7f487981d33a851a9398f4baaf58cd08dc74fce944ad59faf6a1edfb6e7",
+    "scenes/campaign/occupied_line_02.tscn": "074203798eb99d56520347c1fa267fcba85d467b0b55309f5d18d01e79087359",
+    "scenes/campaign/occupied_line_03.tscn": "d5b9c7d86785e5c06cebd79e955ddf01b366db9d8c74b480fa569ffd577bfa8b",
+    "scenes/campaign/pale_ward_01.tscn": "4e67a603435d983c340df1425037d3339e4d1daf88d9acdfb9965e470a8470da",
+    "scenes/campaign/pale_ward_02.tscn": "338f07fba76d50676073a98346ab32684d9bed22fa525f914898e424b9d73c8a",
+    "scenes/campaign/pale_ward_03.tscn": "582e3ef03a5e901e41474bd3d33f7d76bbe2685ecb1bccaf07139c6bd060d10c",
+    "scripts/campaign_route_playtest.gd": "d6bf3676ebff7a1d716a7e84804ab9e152010d4e1f921346fdfb5bb8735b37f1",
+    "scripts/campaign_state.gd": "dae17ca714b7b3315ef876823c272a7e6daee894a0b9d1c80eafbabd53badac3",
+    "scripts/combat.gd": "84e8b3327b3cd77cbf1ebfeac5a5df6647834217afc0ab27541b3dcae041725f",
+    "scripts/main.gd": "46f22f5b9b3a8443172a18e799fb1639d20f3be7d3266365114223153b479133",
+    "scripts/stage_level.gd": "3d74c55e968d6cb0e8fb6bc8588c13dab5b501963c043151a1677926253ef197",
+    "scripts/supply_policy.gd": "bf2a3a4496027a140d9fff64a3db9717c7d44017da049674880b5d5e53ed3486"
+  }
+}

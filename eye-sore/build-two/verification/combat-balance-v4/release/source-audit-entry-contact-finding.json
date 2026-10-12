@@ -1,0 +1,3188 @@
+{
+  "status": "failed",
+  "source_preflight": true,
+  "probe": {
+    "pass": false,
+    "checks": 6569,
+    "failures": [
+      "Continue carries actual vitals and four ammo families"
+    ],
+    "balance": {
+      "caps": {
+        "pistol": 96.0,
+        "rivets": 160.0,
+        "rockets": 12.0,
+        "shells": 40.0
+      },
+      "levels": {
+        "ash_citadel_01": {
+          "actual_main_totals": {
+            "pistol": 64,
+            "rivets": 72,
+            "rockets": 8,
+            "shells": 36
+          },
+          "clamped_entry_and_retry": true,
+          "forward_entry": [
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_pistol_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                9.61600017547607
+              ]
+            },
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_shells_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                9.61600017547607
+              ]
+            },
+            {
+              "forward_distance": 3.19999980926514,
+              "item": "Supply_rivets_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                8.41600036621094
+              ]
+            },
+            {
+              "forward_distance": 3.19999980926514,
+              "item": "Supply_rockets_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                8.41600036621094
+              ]
+            }
+          ],
+          "optional": {
+            "health": 50,
+            "shells": 24
+          },
+          "pickup_acceptance": {
+            "baits": [
+              {
+                "arena": "arena_one",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "twin_shotgun"
+              },
+              {
+                "arena": "arena_two",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "twin_shotgun"
+              },
+              {
+                "arena": "final_arena",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "twin_shotgun"
+              }
+            ],
+            "ordinary": [
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_entry",
+                "kind": "pistol",
+                "offered": 18
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_service",
+                "kind": "pistol",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_one",
+                "kind": "pistol",
+                "offered": 10
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_wing",
+                "kind": "pistol",
+                "offered": 3
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_console",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_spine",
+                "kind": "pistol",
+                "offered": 6
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_two",
+                "kind": "pistol",
+                "offered": 6
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_wing",
+                "kind": "pistol",
+                "offered": 2
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_console",
+                "kind": "pistol",
+                "offered": 3
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_final_arena",
+                "kind": "pistol",
+                "offered": 1
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_entry",
+                "kind": "shells",
+                "offered": 7
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_service",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_one",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_wing",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_console",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_spine",
+                "kind": "shells",
+                "offered": 2
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_two",
+                "kind": "shells",
+                "offered": 2
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_wing",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_console",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_entry",
+                "kind": "rivets",
+                "offered": 20
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_service",
+                "kind": "rivets",
+                "offered": 9
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_one",
+                "kind": "rivets",
+                "offered": 11
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_wing",
+                "kind": "rivets",
+                "offered": 4
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_console",
+                "kind": "rivets",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_spine",
+                "kind": "rivets",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_two",
+                "kind": "rivets",
+                "offered": 7
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_red_wing",
+                "kind": "rivets",
+                "offered": 2
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_red_console",
+                "kind": "rivets",
+                "offered": 4
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_final_arena",
+                "kind": "rivets",
+                "offered": 1
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_entry",
+                "kind": "rockets",
+                "offered": 2
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_service",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_arena_one",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_key_wing",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_key_console",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_spine",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_arena_two",
+                "kind": "rockets",
+                "offered": 1
+              }
+            ]
+          },
+          "prior_vital_pickups": 25,
+          "secret": {
+            "health": 25,
+            "shells": 12
+          },
+          "selected_hud": {
+            "melee": "HEALTH 100    ARMOR 50    KILLS 0/34\nMELEE    READY",
+            "pistol": "HEALTH 100    ARMOR 50    KILLS 0/34\nPISTOL    AMMO 96/96",
+            "rivet_cannon": "HEALTH 100    ARMOR 50    KILLS 0/34\nRIVET CANNON    AMMO 160/160",
+            "shotgun": "HEALTH 100    ARMOR 50    KILLS 0/34\nSHOTGUN    AMMO 40/40",
+            "siege_launcher": "HEALTH 100    ARMOR 50    KILLS 0/34\nSIEGE LAUNCHER    AMMO 12/12",
+            "twin_shotgun": "HEALTH 100    ARMOR 50    KILLS 0/34\nTWIN SHOTGUN    AMMO 40/40"
+          }
+        },
+        "ash_citadel_02": {
+          "actual_main_totals": {
+            "pistol": 64,
+            "rivets": 72,
+            "rockets": 8,
+            "shells": 36
+          },
+          "clamped_entry_and_retry": true,
+          "forward_entry": [
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_pistol_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                11.5520000457764
+              ]
+            },
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_shells_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                11.5520000457764
+              ]
+            },
+            {
+              "forward_distance": 3.19999980926514,
+              "item": "Supply_rivets_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                10.3520002365112
+              ]
+            },
+            {
+              "forward_distance": 3.19999980926514,
+              "item": "Supply_rockets_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                10.3520002365112
+              ]
+            }
+          ],
+          "optional": {
+            "health": 25,
+            "shells": 12
+          },
+          "pickup_acceptance": {
+            "baits": [
+              {
+                "arena": "arena_one",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "rivet_cannon"
+              },
+              {
+                "arena": "arena_two",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "rivet_cannon"
+              },
+              {
+                "arena": "final_arena",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "rivet_cannon"
+              }
+            ],
+            "ordinary": [
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_entry",
+                "kind": "pistol",
+                "offered": 18
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_service",
+                "kind": "pistol",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_one",
+                "kind": "pistol",
+                "offered": 10
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_wing",
+                "kind": "pistol",
+                "offered": 3
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_console",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_spine",
+                "kind": "pistol",
+                "offered": 6
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_two",
+                "kind": "pistol",
+                "offered": 6
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_wing",
+                "kind": "pistol",
+                "offered": 2
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_console",
+                "kind": "pistol",
+                "offered": 3
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_final_arena",
+                "kind": "pistol",
+                "offered": 1
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_entry",
+                "kind": "shells",
+                "offered": 10
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_service",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_one",
+                "kind": "shells",
+                "offered": 6
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_wing",
+                "kind": "shells",
+                "offered": 2
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_console",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_spine",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_two",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_wing",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_console",
+                "kind": "shells",
+                "offered": 2
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_entry",
+                "kind": "rivets",
+                "offered": 7
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_service",
+                "kind": "rivets",
+                "offered": 3
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_one",
+                "kind": "rivets",
+                "offered": 4
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_wing",
+                "kind": "rivets",
+                "offered": 1
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_console",
+                "kind": "rivets",
+                "offered": 3
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_spine",
+                "kind": "rivets",
+                "offered": 2
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_two",
+                "kind": "rivets",
+                "offered": 2
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_red_wing",
+                "kind": "rivets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_red_console",
+                "kind": "rivets",
+                "offered": 1
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_entry",
+                "kind": "rockets",
+                "offered": 2
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_service",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_arena_one",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_key_wing",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_key_console",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_spine",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_arena_two",
+                "kind": "rockets",
+                "offered": 1
+              }
+            ]
+          },
+          "prior_vital_pickups": 22,
+          "secret": {
+            "health": 25,
+            "shells": 12
+          },
+          "selected_hud": {
+            "melee": "HEALTH 100    ARMOR 50    KILLS 0/37\nMELEE    READY",
+            "pistol": "HEALTH 100    ARMOR 50    KILLS 0/37\nPISTOL    AMMO 96/96",
+            "rivet_cannon": "HEALTH 100    ARMOR 50    KILLS 0/37\nRIVET CANNON    AMMO 160/160",
+            "shotgun": "HEALTH 100    ARMOR 50    KILLS 0/37\nSHOTGUN    AMMO 40/40",
+            "siege_launcher": "HEALTH 100    ARMOR 50    KILLS 0/37\nSIEGE LAUNCHER    AMMO 12/12",
+            "twin_shotgun": "HEALTH 100    ARMOR 50    KILLS 0/37\nTWIN SHOTGUN    AMMO 40/40"
+          }
+        },
+        "ash_citadel_03": {
+          "actual_main_totals": {
+            "pistol": 64,
+            "rivets": 72,
+            "rockets": 8,
+            "shells": 36
+          },
+          "clamped_entry_and_retry": true,
+          "forward_entry": [
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_pistol_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                12.2779998779297
+              ]
+            },
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_shells_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                12.2779998779297
+              ]
+            },
+            {
+              "forward_distance": 3.19999980926514,
+              "item": "Supply_rivets_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                11.0780000686646
+              ]
+            },
+            {
+              "forward_distance": 3.19999980926514,
+              "item": "Supply_rockets_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                11.0780000686646
+              ]
+            }
+          ],
+          "optional": {
+            "health": 100,
+            "shells": 48
+          },
+          "pickup_acceptance": {
+            "baits": [
+              {
+                "arena": "arena_one",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "siege_launcher"
+              },
+              {
+                "arena": "arena_two",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "siege_launcher"
+              },
+              {
+                "arena": "final_arena",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "siege_launcher"
+              }
+            ],
+            "ordinary": [
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_entry",
+                "kind": "pistol",
+                "offered": 20
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_service",
+                "kind": "pistol",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_one",
+                "kind": "pistol",
+                "offered": 11
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_console",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_spine",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_two",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_console",
+                "kind": "pistol",
+                "offered": 3
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_final_arena",
+                "kind": "pistol",
+                "offered": 1
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_entry",
+                "kind": "shells",
+                "offered": 11
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_service",
+                "kind": "shells",
+                "offered": 5
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_one",
+                "kind": "shells",
+                "offered": 6
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_console",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_spine",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_two",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_console",
+                "kind": "shells",
+                "offered": 2
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_entry",
+                "kind": "rivets",
+                "offered": 22
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_service",
+                "kind": "rivets",
+                "offered": 9
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_one",
+                "kind": "rivets",
+                "offered": 12
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_console",
+                "kind": "rivets",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_spine",
+                "kind": "rivets",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_two",
+                "kind": "rivets",
+                "offered": 8
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_red_console",
+                "kind": "rivets",
+                "offered": 4
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_final_arena",
+                "kind": "rivets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_entry",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_arena_one",
+                "kind": "rockets",
+                "offered": 1
+              }
+            ]
+          },
+          "prior_vital_pickups": 23,
+          "secret": {
+            "health": 25,
+            "shells": 12
+          },
+          "selected_hud": {
+            "melee": "HEALTH 100    ARMOR 50    KILLS 0/37\nMELEE    READY",
+            "pistol": "HEALTH 100    ARMOR 50    KILLS 0/37\nPISTOL    AMMO 96/96",
+            "rivet_cannon": "HEALTH 100    ARMOR 50    KILLS 0/37\nRIVET CANNON    AMMO 160/160",
+            "shotgun": "HEALTH 100    ARMOR 50    KILLS 0/37\nSHOTGUN    AMMO 40/40",
+            "siege_launcher": "HEALTH 100    ARMOR 50    KILLS 0/37\nSIEGE LAUNCHER    AMMO 12/12",
+            "twin_shotgun": "HEALTH 100    ARMOR 50    KILLS 0/37\nTWIN SHOTGUN    AMMO 40/40"
+          }
+        },
+        "occupied_line_01": {
+          "actual_main_totals": {
+            "pistol": 64,
+            "rivets": 72,
+            "rockets": 8,
+            "shells": 36
+          },
+          "clamped_entry_and_retry": true,
+          "forward_entry": [
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_pistol_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                10.3772001266479
+              ]
+            },
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_shells_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                10.3772001266479
+              ]
+            },
+            {
+              "forward_distance": 3.19999980926514,
+              "item": "Supply_rivets_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                9.17720031738281
+              ]
+            },
+            {
+              "forward_distance": 3.19999980926514,
+              "item": "Supply_rockets_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                9.17720031738281
+              ]
+            }
+          ],
+          "optional": {
+            "health": 75,
+            "shells": 36
+          },
+          "pickup_acceptance": {
+            "baits": [
+              {
+                "arena": "arena_one",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "twin_shotgun"
+              },
+              {
+                "arena": "arena_two",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "twin_shotgun"
+              },
+              {
+                "arena": "final_arena",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "twin_shotgun"
+              }
+            ],
+            "ordinary": [
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_entry",
+                "kind": "pistol",
+                "offered": 20
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_one",
+                "kind": "pistol",
+                "offered": 12
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_wing",
+                "kind": "pistol",
+                "offered": 4
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_console",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_spine",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_two",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_wing",
+                "kind": "pistol",
+                "offered": 2
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_console",
+                "kind": "pistol",
+                "offered": 4
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_final_arena",
+                "kind": "pistol",
+                "offered": 1
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_entry",
+                "kind": "shells",
+                "offered": 8
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_one",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_wing",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_console",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_spine",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_two",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_wing",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_console",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_entry",
+                "kind": "rivets",
+                "offered": 23
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_one",
+                "kind": "rivets",
+                "offered": 13
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_wing",
+                "kind": "rivets",
+                "offered": 4
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_console",
+                "kind": "rivets",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_spine",
+                "kind": "rivets",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_two",
+                "kind": "rivets",
+                "offered": 8
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_red_wing",
+                "kind": "rivets",
+                "offered": 3
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_red_console",
+                "kind": "rivets",
+                "offered": 4
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_final_arena",
+                "kind": "rivets",
+                "offered": 1
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_entry",
+                "kind": "rockets",
+                "offered": 3
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_arena_one",
+                "kind": "rockets",
+                "offered": 2
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_key_console",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_spine",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_arena_two",
+                "kind": "rockets",
+                "offered": 1
+              }
+            ]
+          },
+          "prior_vital_pickups": 22,
+          "secret": {
+            "health": 25,
+            "shells": 12
+          },
+          "selected_hud": {
+            "melee": "HEALTH 100    ARMOR 50    KILLS 0/34\nMELEE    READY",
+            "pistol": "HEALTH 100    ARMOR 50    KILLS 0/34\nPISTOL    AMMO 96/96",
+            "rivet_cannon": "HEALTH 100    ARMOR 50    KILLS 0/34\nRIVET CANNON    AMMO 160/160",
+            "shotgun": "HEALTH 100    ARMOR 50    KILLS 0/34\nSHOTGUN    AMMO 40/40",
+            "siege_launcher": "HEALTH 100    ARMOR 50    KILLS 0/34\nSIEGE LAUNCHER    AMMO 12/12",
+            "twin_shotgun": "HEALTH 100    ARMOR 50    KILLS 0/34\nTWIN SHOTGUN    AMMO 40/40"
+          }
+        },
+        "occupied_line_02": {
+          "actual_main_totals": {
+            "pistol": 64,
+            "rivets": 72,
+            "rockets": 8,
+            "shells": 36
+          },
+          "clamped_entry_and_retry": true,
+          "forward_entry": [
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_pistol_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                12.8016004562378
+              ]
+            },
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_shells_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                12.8016004562378
+              ]
+            },
+            {
+              "forward_distance": 3.20000076293945,
+              "item": "Supply_rivets_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                11.6015996932983
+              ]
+            },
+            {
+              "forward_distance": 3.20000076293945,
+              "item": "Supply_rockets_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                11.6015996932983
+              ]
+            }
+          ],
+          "optional": {
+            "health": 50,
+            "shells": 24
+          },
+          "pickup_acceptance": {
+            "baits": [
+              {
+                "arena": "arena_one",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "rivet_cannon"
+              },
+              {
+                "arena": "arena_two",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "rivet_cannon"
+              },
+              {
+                "arena": "final_arena",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "rivet_cannon"
+              }
+            ],
+            "ordinary": [
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_entry",
+                "kind": "pistol",
+                "offered": 18
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_service",
+                "kind": "pistol",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_one",
+                "kind": "pistol",
+                "offered": 10
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_wing",
+                "kind": "pistol",
+                "offered": 3
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_console",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_spine",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_two",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_console",
+                "kind": "pistol",
+                "offered": 3
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_final_arena",
+                "kind": "pistol",
+                "offered": 1
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_entry",
+                "kind": "shells",
+                "offered": 10
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_service",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_one",
+                "kind": "shells",
+                "offered": 6
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_wing",
+                "kind": "shells",
+                "offered": 2
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_console",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_spine",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_two",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_console",
+                "kind": "shells",
+                "offered": 2
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_entry",
+                "kind": "rivets",
+                "offered": 7
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_service",
+                "kind": "rivets",
+                "offered": 3
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_one",
+                "kind": "rivets",
+                "offered": 4
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_wing",
+                "kind": "rivets",
+                "offered": 1
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_console",
+                "kind": "rivets",
+                "offered": 3
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_spine",
+                "kind": "rivets",
+                "offered": 3
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_two",
+                "kind": "rivets",
+                "offered": 2
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_red_console",
+                "kind": "rivets",
+                "offered": 1
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_entry",
+                "kind": "rockets",
+                "offered": 2
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_service",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_arena_one",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_key_wing",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_key_console",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_spine",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_arena_two",
+                "kind": "rockets",
+                "offered": 1
+              }
+            ]
+          },
+          "prior_vital_pickups": 22,
+          "secret": {
+            "health": 0,
+            "shells": 0
+          },
+          "selected_hud": {
+            "melee": "HEALTH 100    ARMOR 50    KILLS 0/37\nMELEE    READY",
+            "pistol": "HEALTH 100    ARMOR 50    KILLS 0/37\nPISTOL    AMMO 96/96",
+            "rivet_cannon": "HEALTH 100    ARMOR 50    KILLS 0/37\nRIVET CANNON    AMMO 160/160",
+            "shotgun": "HEALTH 100    ARMOR 50    KILLS 0/37\nSHOTGUN    AMMO 40/40",
+            "siege_launcher": "HEALTH 100    ARMOR 50    KILLS 0/37\nSIEGE LAUNCHER    AMMO 12/12",
+            "twin_shotgun": "HEALTH 100    ARMOR 50    KILLS 0/37\nTWIN SHOTGUN    AMMO 40/40"
+          }
+        },
+        "occupied_line_03": {
+          "actual_main_totals": {
+            "pistol": 64,
+            "rivets": 72,
+            "rockets": 8,
+            "shells": 36
+          },
+          "clamped_entry_and_retry": true,
+          "forward_entry": [
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_pistol_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                12.1635999679565
+              ]
+            },
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_shells_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                12.1635999679565
+              ]
+            },
+            {
+              "forward_distance": 3.19999980926514,
+              "item": "Supply_rivets_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                10.9636001586914
+              ]
+            },
+            {
+              "forward_distance": 3.19999980926514,
+              "item": "Supply_rockets_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                10.9636001586914
+              ]
+            }
+          ],
+          "optional": {
+            "health": 25,
+            "shells": 12
+          },
+          "pickup_acceptance": {
+            "baits": [
+              {
+                "arena": "arena_one",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "siege_launcher"
+              },
+              {
+                "arena": "arena_two",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "siege_launcher"
+              },
+              {
+                "arena": "final_arena",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "siege_launcher"
+              }
+            ],
+            "ordinary": [
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_entry",
+                "kind": "pistol",
+                "offered": 20
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_service",
+                "kind": "pistol",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_one",
+                "kind": "pistol",
+                "offered": 11
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_console",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_spine",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_two",
+                "kind": "pistol",
+                "offered": 7
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_console",
+                "kind": "pistol",
+                "offered": 3
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_final_arena",
+                "kind": "pistol",
+                "offered": 1
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_entry",
+                "kind": "shells",
+                "offered": 11
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_service",
+                "kind": "shells",
+                "offered": 5
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_one",
+                "kind": "shells",
+                "offered": 6
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_console",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_spine",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_two",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_console",
+                "kind": "shells",
+                "offered": 2
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_entry",
+                "kind": "rivets",
+                "offered": 22
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_service",
+                "kind": "rivets",
+                "offered": 9
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_one",
+                "kind": "rivets",
+                "offered": 12
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_console",
+                "kind": "rivets",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_spine",
+                "kind": "rivets",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_two",
+                "kind": "rivets",
+                "offered": 8
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_red_console",
+                "kind": "rivets",
+                "offered": 4
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_final_arena",
+                "kind": "rivets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_entry",
+                "kind": "rockets",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rockets_arena_one",
+                "kind": "rockets",
+                "offered": 1
+              }
+            ]
+          },
+          "prior_vital_pickups": 18,
+          "secret": {
+            "health": 25,
+            "shells": 12
+          },
+          "selected_hud": {
+            "melee": "HEALTH 100    ARMOR 50    KILLS 0/37\nMELEE    READY",
+            "pistol": "HEALTH 100    ARMOR 50    KILLS 0/37\nPISTOL    AMMO 96/96",
+            "rivet_cannon": "HEALTH 100    ARMOR 50    KILLS 0/37\nRIVET CANNON    AMMO 160/160",
+            "shotgun": "HEALTH 100    ARMOR 50    KILLS 0/37\nSHOTGUN    AMMO 40/40",
+            "siege_launcher": "HEALTH 100    ARMOR 50    KILLS 0/37\nSIEGE LAUNCHER    AMMO 12/12",
+            "twin_shotgun": "HEALTH 100    ARMOR 50    KILLS 0/37\nTWIN SHOTGUN    AMMO 40/40"
+          }
+        },
+        "pale_ward_01": {
+          "actual_main_totals": {
+            "pistol": 48,
+            "rivets": 0,
+            "rockets": 0,
+            "shells": 28
+          },
+          "clamped_entry_and_retry": true,
+          "forward_entry": [
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_pistol_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                9.0
+              ]
+            },
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_shells_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                9.0
+              ]
+            }
+          ],
+          "optional": {
+            "health": 100,
+            "shells": 48
+          },
+          "pickup_acceptance": {
+            "baits": [
+              {
+                "arena": "arena_one",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "twin_shotgun"
+              },
+              {
+                "arena": "arena_two",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "twin_shotgun"
+              },
+              {
+                "arena": "final_arena",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "twin_shotgun"
+              }
+            ],
+            "ordinary": [
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_entry",
+                "kind": "pistol",
+                "offered": 13
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_service",
+                "kind": "pistol",
+                "offered": 6
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_one",
+                "kind": "pistol",
+                "offered": 8
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_wing",
+                "kind": "pistol",
+                "offered": 2
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_console",
+                "kind": "pistol",
+                "offered": 5
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_spine",
+                "kind": "pistol",
+                "offered": 5
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_two",
+                "kind": "pistol",
+                "offered": 5
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_wing",
+                "kind": "pistol",
+                "offered": 1
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_console",
+                "kind": "pistol",
+                "offered": 2
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_final_arena",
+                "kind": "pistol",
+                "offered": 1
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_entry",
+                "kind": "shells",
+                "offered": 2
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_service",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_one",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_wing",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_console",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_spine",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_two",
+                "kind": "shells",
+                "offered": 1
+              }
+            ]
+          },
+          "prior_vital_pickups": 28,
+          "secret": {
+            "health": 50,
+            "shells": 24
+          },
+          "selected_hud": {
+            "melee": "HEALTH 100    ARMOR 50    KILLS 0/36\nMELEE    READY",
+            "pistol": "HEALTH 100    ARMOR 50    KILLS 0/36\nPISTOL    AMMO 96/96",
+            "rivet_cannon": "HEALTH 100    ARMOR 50    KILLS 0/36\nRIVET CANNON    AMMO 160/160",
+            "shotgun": "HEALTH 100    ARMOR 50    KILLS 0/36\nSHOTGUN    AMMO 40/40",
+            "siege_launcher": "HEALTH 100    ARMOR 50    KILLS 0/36\nSIEGE LAUNCHER    AMMO 12/12",
+            "twin_shotgun": "HEALTH 100    ARMOR 50    KILLS 0/36\nTWIN SHOTGUN    AMMO 40/40"
+          }
+        },
+        "pale_ward_02": {
+          "actual_main_totals": {
+            "pistol": 48,
+            "rivets": 84,
+            "rockets": 0,
+            "shells": 24
+          },
+          "clamped_entry_and_retry": true,
+          "forward_entry": [
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_pistol_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                9.77000045776367
+              ]
+            },
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_shells_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                9.77000045776367
+              ]
+            }
+          ],
+          "optional": {
+            "health": 25,
+            "shells": 12
+          },
+          "pickup_acceptance": {
+            "baits": [
+              {
+                "arena": "arena_one",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "rivet_cannon"
+              },
+              {
+                "arena": "arena_two",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "rivet_cannon"
+              },
+              {
+                "arena": "final_arena",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "rivet_cannon"
+              }
+            ],
+            "ordinary": [
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_entry",
+                "kind": "pistol",
+                "offered": 14
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_service",
+                "kind": "pistol",
+                "offered": 6
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_one",
+                "kind": "pistol",
+                "offered": 8
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_console",
+                "kind": "pistol",
+                "offered": 5
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_spine",
+                "kind": "pistol",
+                "offered": 5
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_two",
+                "kind": "pistol",
+                "offered": 5
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_wing",
+                "kind": "pistol",
+                "offered": 2
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_console",
+                "kind": "pistol",
+                "offered": 3
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_entry",
+                "kind": "shells",
+                "offered": 7
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_service",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_one",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_console",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_spine",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_two",
+                "kind": "shells",
+                "offered": 2
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_wing",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_console",
+                "kind": "shells",
+                "offered": 1
+              }
+            ]
+          },
+          "prior_vital_pickups": 22,
+          "secret": {
+            "health": 25,
+            "shells": 12
+          },
+          "selected_hud": {
+            "melee": "HEALTH 100    ARMOR 50    KILLS 0/34\nMELEE    READY",
+            "pistol": "HEALTH 100    ARMOR 50    KILLS 0/34\nPISTOL    AMMO 96/96",
+            "rivet_cannon": "HEALTH 100    ARMOR 50    KILLS 0/34\nRIVET CANNON    AMMO 160/160",
+            "shotgun": "HEALTH 100    ARMOR 50    KILLS 0/34\nSHOTGUN    AMMO 40/40",
+            "siege_launcher": "HEALTH 100    ARMOR 50    KILLS 0/34\nSIEGE LAUNCHER    AMMO 12/12",
+            "twin_shotgun": "HEALTH 100    ARMOR 50    KILLS 0/34\nTWIN SHOTGUN    AMMO 40/40"
+          }
+        },
+        "pale_ward_03": {
+          "actual_main_totals": {
+            "pistol": 48,
+            "rivets": 36,
+            "rockets": 10,
+            "shells": 24
+          },
+          "clamped_entry_and_retry": true,
+          "forward_entry": [
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_pistol_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                10.9799995422363
+              ]
+            },
+            {
+              "forward_distance": 2.0,
+              "item": "Supply_shells_entry",
+              "position": [
+                0.800000011920929,
+                0.5,
+                10.9799995422363
+              ]
+            },
+            {
+              "forward_distance": 3.19999980926514,
+              "item": "Supply_rivets_entry",
+              "position": [
+                -0.800000011920929,
+                0.5,
+                9.77999973297119
+              ]
+            }
+          ],
+          "optional": {
+            "health": 50,
+            "shells": 24
+          },
+          "pickup_acceptance": {
+            "baits": [
+              {
+                "arena": "arena_one",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "siege_launcher"
+              },
+              {
+                "arena": "arena_two",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "siege_launcher"
+              },
+              {
+                "arena": "final_arena",
+                "false_grants": 0,
+                "state": {
+                  "cleared": false,
+                  "latched": true,
+                  "shutters_open": true,
+                  "triggered": true
+                },
+                "weapon": "siege_launcher"
+              }
+            ],
+            "ordinary": [
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_entry",
+                "kind": "pistol",
+                "offered": 15
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_one",
+                "kind": "pistol",
+                "offered": 9
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_wing",
+                "kind": "pistol",
+                "offered": 3
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_key_console",
+                "kind": "pistol",
+                "offered": 5
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_spine",
+                "kind": "pistol",
+                "offered": 5
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_arena_two",
+                "kind": "pistol",
+                "offered": 5
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_wing",
+                "kind": "pistol",
+                "offered": 2
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_red_console",
+                "kind": "pistol",
+                "offered": 3
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_pistol_final_arena",
+                "kind": "pistol",
+                "offered": 1
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_entry",
+                "kind": "shells",
+                "offered": 8
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_one",
+                "kind": "shells",
+                "offered": 4
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_wing",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_key_console",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_spine",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 3,
+                "deficit": 3,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_arena_two",
+                "kind": "shells",
+                "offered": 3
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_wing",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_shells_red_console",
+                "kind": "shells",
+                "offered": 1
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_entry",
+                "kind": "rivets",
+                "offered": 12
+              },
+              {
+                "accepted": 5,
+                "deficit": 5,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_one",
+                "kind": "rivets",
+                "offered": 7
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_wing",
+                "kind": "rivets",
+                "offered": 2
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_key_console",
+                "kind": "rivets",
+                "offered": 4
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_spine",
+                "kind": "rivets",
+                "offered": 4
+              },
+              {
+                "accepted": 4,
+                "deficit": 4,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_arena_two",
+                "kind": "rivets",
+                "offered": 4
+              },
+              {
+                "accepted": 1,
+                "deficit": 1,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_red_wing",
+                "kind": "rivets",
+                "offered": 1
+              },
+              {
+                "accepted": 2,
+                "deficit": 2,
+                "events": 1,
+                "full_retained": true,
+                "item": "Supply_rivets_red_console",
+                "kind": "rivets",
+                "offered": 2
+              }
+            ]
+          },
+          "prior_vital_pickups": 21,
+          "secret": {
+            "health": 25,
+            "shells": 12
+          },
+          "selected_hud": {
+            "melee": "HEALTH 100    ARMOR 50    KILLS 0/38\nMELEE    READY",
+            "pistol": "HEALTH 100    ARMOR 50    KILLS 0/38\nPISTOL    AMMO 96/96",
+            "rivet_cannon": "HEALTH 100    ARMOR 50    KILLS 0/38\nRIVET CANNON    AMMO 160/160",
+            "shotgun": "HEALTH 100    ARMOR 50    KILLS 0/38\nSHOTGUN    AMMO 40/40",
+            "siege_launcher": "HEALTH 100    ARMOR 50    KILLS 0/38\nSIEGE LAUNCHER    AMMO 12/12",
+            "twin_shotgun": "HEALTH 100    ARMOR 50    KILLS 0/38\nTWIN SHOTGUN    AMMO 40/40"
+          }
+        }
+      },
+      "preserved_files": 79.0,
+      "preserved_source_commit": "6d3dc8b5b984ec3acb9809bbf32e8c65afbbedb5",
+      "scope": "Loaded actual Main nine-scene budget/Resource/pickup/carry/retry/HUD probes. Declared overfilled owned snapshots, AI/player physics frozen, direct ordinary collect calls and actor teleport bait contacts; native doors advance on physics ticks. Continuous physical routes, ordinary combat and human acceptance are separate."
+    },
+    "campaign": {
+      "chapters": 3,
+      "levels": {
+        "ash_citadel_01": {
+          "portals": 17,
+          "rooms": 16,
+          "species": [
+            "ironbound",
+            "censer"
+          ],
+          "theme": "ash_citadel"
+        },
+        "ash_citadel_02": {
+          "portals": 12,
+          "rooms": 13,
+          "species": [
+            "ironbound",
+            "censer"
+          ],
+          "theme": "ash_citadel"
+        },
+        "ash_citadel_03": {
+          "portals": 17,
+          "rooms": 16,
+          "species": [
+            "ironbound",
+            "censer"
+          ],
+          "theme": "ash_citadel"
+        },
+        "occupied_line_01": {
+          "portals": 15,
+          "rooms": 15,
+          "species": [
+            "reaver",
+            "surveyor"
+          ],
+          "theme": "occupied_line"
+        },
+        "occupied_line_02": {
+          "portals": 14,
+          "rooms": 14,
+          "species": [
+            "reaver",
+            "surveyor"
+          ],
+          "theme": "occupied_line"
+        },
+        "occupied_line_03": {
+          "portals": 10,
+          "rooms": 11,
+          "species": [
+            "reaver",
+            "surveyor"
+          ],
+          "theme": "occupied_line"
+        },
+        "pale_ward_01": {
+          "portals": 20,
+          "rooms": 19,
+          "species": [
+            "unsealed",
+            "vessel"
+          ],
+          "theme": "pale_ward"
+        },
+        "pale_ward_02": {
+          "portals": 13,
+          "rooms": 13,
+          "species": [
+            "unsealed",
+            "vessel"
+          ],
+          "theme": "pale_ward"
+        },
+        "pale_ward_03": {
+          "portals": 12,
+          "rooms": 13,
+          "species": [
+            "unsealed",
+            "vessel"
+          ],
+          "theme": "pale_ward"
+        }
+      },
+      "main": {
+        "carry_vitals_ammo_ownership": true,
+        "continue_next_level": true,
+        "new_game_first_level": true,
+        "retry_entry_snapshot": true
+      },
+      "seed_records": 9
+    },
+    "weapon_count": 6,
+    "engine_version": "4.7.2.stable.official.ed1daf0bf",
+    "exit_code": 1,
+    "packed": false,
+    "probe_log_tail": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nBALANCE_NATIVE_LEVEL_OK: pale_ward_01\nBALANCE_NATIVE_LEVEL_OK: pale_ward_02\nBALANCE_NATIVE_LEVEL_OK: pale_ward_03\nBALANCE_NATIVE_LEVEL_OK: ash_citadel_01\nBALANCE_NATIVE_LEVEL_OK: ash_citadel_02\nBALANCE_NATIVE_LEVEL_OK: ash_citadel_03\nBALANCE_NATIVE_LEVEL_OK: occupied_line_01\nBALANCE_NATIVE_LEVEL_OK: occupied_line_02\nBALANCE_NATIVE_LEVEL_OK: occupied_line_03\nTHEME_PACK_FAILURE: Continue carries actual vitals and four ammo families\nTHEME_PACK_FAILED: 6569 checks; 1 failures; packed=false\n"
+  },
+  "scope": "Current source and external pinned Godot resource/controlled Main checks; no archive or native route claim.",
+  "balance_auditor_sha256": "45cb5e3cde67df0fc688925ab25fd6efbaac907d5c59540cfc77818a7f7be91a",
+  "balance_probe_sha256": "e3b08a0e6e64c9a67e6f37cccfececac17a42d870b9d38b9ec99b4fd227e730f",
+  "preserved_campaign_auditor_sha256": "9b89295291d62885b43af8a220206fb89b3cdf7326d799a7b7401ee9c6b055ee",
+  "preserved_campaign_probe_sha256": "932a583a11b775172306b28639578b27c15beae16ce0f24ea1bde6215d2ac86e",
+  "preservation_baseline_sha256": "e150da64a9f0a711475d8a5b72764cd79b38a825a9ea8281079a068d11364878"
+}

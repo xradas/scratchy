@@ -472,15 +472,15 @@
   "weapon_cache": {
     "arena_one": {
       "weapon": "rivet_cannon",
-      "ammo": 96
+      "ammo": 16
     },
     "arena_two": {
       "weapon": "rivet_cannon",
-      "ammo": 96
+      "ammo": 16
     },
     "final_arena": {
       "weapon": "rivet_cannon",
-      "ammo": 96
+      "ammo": 16
     }
   },
   "optional_rooms": [
@@ -494,6 +494,17 @@
     "service",
     "arena_one",
     "key_console",
+    "spine",
+    "arena_two",
+    "red_wing",
+    "red_console",
+    "final_arena"
+  ],
+  "vital_supply_rooms": [
+    "entry",
+    "service",
+    "arena_one",
+    "key_console",
     "return_store",
     "spine",
     "arena_two",
@@ -501,6 +512,60 @@
     "red_console",
     "final_arena"
   ],
+  "ammo_target": {
+    "pistol": 48,
+    "shells": 24,
+    "rivets": 84,
+    "rockets": 0
+  },
+  "supply_allocation": {
+    "pistol": {
+      "entry": 14,
+      "service": 6,
+      "arena_one": 8,
+      "key_console": 5,
+      "spine": 5,
+      "arena_two": 5,
+      "red_wing": 2,
+      "red_console": 3
+    },
+    "shells": {
+      "entry": 7,
+      "service": 3,
+      "arena_one": 4,
+      "key_console": 3,
+      "spine": 3,
+      "arena_two": 2,
+      "red_wing": 1,
+      "red_console": 1
+    },
+    "rivets": {},
+    "rockets": {},
+    "health": {
+      "entry": 22,
+      "service": 22,
+      "arena_one": 22,
+      "key_console": 22,
+      "return_store": 22,
+      "spine": 22,
+      "arena_two": 22,
+      "red_wing": 22,
+      "red_console": 22,
+      "final_arena": 22
+    },
+    "armor": {
+      "entry": 18,
+      "service": 18,
+      "arena_one": 18,
+      "key_console": 18,
+      "return_store": 18,
+      "spine": 18,
+      "arena_two": 18,
+      "red_wing": 18,
+      "red_console": 18,
+      "final_arena": 18
+    }
+  },
   "campaign_level_id": "pale_ward_02",
   "theme": "pale_ward",
   "title": "Containment",

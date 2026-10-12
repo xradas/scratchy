@@ -642,15 +642,15 @@
   "weapon_cache": {
     "arena_one": {
       "weapon": "twin_shotgun",
-      "ammo": 18
+      "ammo": 4
     },
     "arena_two": {
       "weapon": "twin_shotgun",
-      "ammo": 18
+      "ammo": 4
     },
     "final_arena": {
       "weapon": "twin_shotgun",
-      "ammo": 18
+      "ammo": 4
     }
   },
   "optional_rooms": [
@@ -669,6 +669,18 @@
     "arena_one",
     "key_wing",
     "key_console",
+    "spine",
+    "arena_two",
+    "red_wing",
+    "red_console",
+    "final_arena"
+  ],
+  "vital_supply_rooms": [
+    "entry",
+    "service",
+    "arena_one",
+    "key_wing",
+    "key_console",
     "return_store",
     "spine",
     "arena_two",
@@ -676,6 +688,63 @@
     "red_console",
     "final_arena"
   ],
+  "ammo_target": {
+    "pistol": 48,
+    "shells": 28,
+    "rivets": 0,
+    "rockets": 0
+  },
+  "supply_allocation": {
+    "pistol": {
+      "entry": 13,
+      "service": 6,
+      "arena_one": 8,
+      "key_wing": 2,
+      "key_console": 5,
+      "spine": 5,
+      "arena_two": 5,
+      "red_wing": 1,
+      "red_console": 2,
+      "final_arena": 1
+    },
+    "shells": {
+      "entry": 2,
+      "service": 1,
+      "arena_one": 1,
+      "key_wing": 1,
+      "key_console": 1,
+      "spine": 1,
+      "arena_two": 1
+    },
+    "rivets": {},
+    "rockets": {},
+    "health": {
+      "entry": 20,
+      "service": 20,
+      "arena_one": 20,
+      "key_wing": 20,
+      "key_console": 20,
+      "return_store": 20,
+      "spine": 20,
+      "arena_two": 20,
+      "red_wing": 20,
+      "red_console": 20,
+      "final_arena": 20
+    },
+    "armor": {
+      "entry": 17,
+      "service": 17,
+      "arena_one": 17,
+      "key_wing": 17,
+      "key_console": 16,
+      "return_store": 16,
+      "spine": 16,
+      "arena_two": 16,
+      "red_wing": 16,
+      "red_console": 16,
+      "final_arena": 16
+    }
+  },
   "campaign_level_id": "pale_ward_01",
   "theme": "pale_ward",
   "title": "Intake",

@@ -1,0 +1,2264 @@
+{
+  "ammo_caps": {
+    "pistol": 96,
+    "shells": 40,
+    "rivets": 160,
+    "rockets": 12
+  },
+  "scope": "Physical main-route pickups only; starting combat inventory and optional/secret bonuses are separate.",
+  "levels": [
+    {
+      "id": "pale_ward_01",
+      "main_route_target": {
+        "pistol": 48,
+        "shells": 28,
+        "rivets": 0,
+        "rockets": 0
+      },
+      "main_route_actual": {
+        "pistol": 48,
+        "shells": 28,
+        "rivets": 0,
+        "rockets": 0
+      },
+      "main_route_health": 200,
+      "main_route_armor": 164,
+      "placed_health_total": 220,
+      "placed_armor_total": 180,
+      "sources": {
+        "first_weapon": {
+          "weapon": "twin_shotgun",
+          "ammo": "shells",
+          "amount": 8
+        },
+        "arena_baits": {
+          "arena_one": {
+            "weapon": "twin_shotgun",
+            "ammo": "shells",
+            "amount": 4
+          },
+          "arena_two": {
+            "weapon": "twin_shotgun",
+            "ammo": "shells",
+            "amount": 4
+          },
+          "final_arena": {
+            "weapon": "twin_shotgun",
+            "ammo": "shells",
+            "amount": 4
+          }
+        },
+        "supply_cases": {
+          "Supply_pistol_entry": {
+            "kind": "pistol",
+            "amount": 13
+          },
+          "Supply_pistol_service": {
+            "kind": "pistol",
+            "amount": 6
+          },
+          "Supply_pistol_arena_one": {
+            "kind": "pistol",
+            "amount": 8
+          },
+          "Supply_pistol_key_wing": {
+            "kind": "pistol",
+            "amount": 2
+          },
+          "Supply_pistol_key_console": {
+            "kind": "pistol",
+            "amount": 5
+          },
+          "Supply_pistol_spine": {
+            "kind": "pistol",
+            "amount": 5
+          },
+          "Supply_pistol_arena_two": {
+            "kind": "pistol",
+            "amount": 5
+          },
+          "Supply_pistol_red_wing": {
+            "kind": "pistol",
+            "amount": 1
+          },
+          "Supply_pistol_red_console": {
+            "kind": "pistol",
+            "amount": 2
+          },
+          "Supply_pistol_final_arena": {
+            "kind": "pistol",
+            "amount": 1
+          },
+          "Supply_shells_entry": {
+            "kind": "shells",
+            "amount": 2
+          },
+          "Supply_shells_service": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_arena_one": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_key_wing": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_key_console": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_spine": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_arena_two": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_health_entry": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_service": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_arena_one": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_key_wing": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_key_console": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_return_store": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_spine": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_arena_two": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_red_wing": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_red_console": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_final_arena": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_armor_entry": {
+            "kind": "armor",
+            "amount": 17
+          },
+          "Supply_armor_service": {
+            "kind": "armor",
+            "amount": 17
+          },
+          "Supply_armor_arena_one": {
+            "kind": "armor",
+            "amount": 17
+          },
+          "Supply_armor_key_wing": {
+            "kind": "armor",
+            "amount": 17
+          },
+          "Supply_armor_key_console": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_return_store": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_spine": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_arena_two": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_red_wing": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_red_console": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_final_arena": {
+            "kind": "armor",
+            "amount": 16
+          }
+        }
+      },
+      "optional": {
+        "rooms": [
+          "supplies",
+          "maintenance",
+          "pump_room",
+          "armory"
+        ],
+        "bonus": {
+          "shells": 48,
+          "health": 100
+        },
+        "return_store_supply": {
+          "health": 20,
+          "armor": 16
+        }
+      },
+      "secret": {
+        "rooms": [
+          "secret_one",
+          "secret_two"
+        ],
+        "bonus": {
+          "shells": 24,
+          "health": 50
+        }
+      }
+    },
+    {
+      "id": "pale_ward_02",
+      "main_route_target": {
+        "pistol": 48,
+        "shells": 24,
+        "rivets": 84,
+        "rockets": 0
+      },
+      "main_route_actual": {
+        "pistol": 48,
+        "shells": 24,
+        "rivets": 84,
+        "rockets": 0
+      },
+      "main_route_health": 198,
+      "main_route_armor": 162,
+      "placed_health_total": 220,
+      "placed_armor_total": 180,
+      "sources": {
+        "first_weapon": {
+          "weapon": "rivet_cannon",
+          "ammo": "rivets",
+          "amount": 36
+        },
+        "arena_baits": {
+          "arena_one": {
+            "weapon": "rivet_cannon",
+            "ammo": "rivets",
+            "amount": 16
+          },
+          "arena_two": {
+            "weapon": "rivet_cannon",
+            "ammo": "rivets",
+            "amount": 16
+          },
+          "final_arena": {
+            "weapon": "rivet_cannon",
+            "ammo": "rivets",
+            "amount": 16
+          }
+        },
+        "supply_cases": {
+          "Supply_pistol_entry": {
+            "kind": "pistol",
+            "amount": 14
+          },
+          "Supply_pistol_service": {
+            "kind": "pistol",
+            "amount": 6
+          },
+          "Supply_pistol_arena_one": {
+            "kind": "pistol",
+            "amount": 8
+          },
+          "Supply_pistol_key_console": {
+            "kind": "pistol",
+            "amount": 5
+          },
+          "Supply_pistol_spine": {
+            "kind": "pistol",
+            "amount": 5
+          },
+          "Supply_pistol_arena_two": {
+            "kind": "pistol",
+            "amount": 5
+          },
+          "Supply_pistol_red_wing": {
+            "kind": "pistol",
+            "amount": 2
+          },
+          "Supply_pistol_red_console": {
+            "kind": "pistol",
+            "amount": 3
+          },
+          "Supply_shells_entry": {
+            "kind": "shells",
+            "amount": 7
+          },
+          "Supply_shells_service": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_arena_one": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_key_console": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_spine": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_arena_two": {
+            "kind": "shells",
+            "amount": 2
+          },
+          "Supply_shells_red_wing": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_red_console": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_health_entry": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_service": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_arena_one": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_key_console": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_return_store": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_spine": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_arena_two": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_red_wing": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_red_console": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_final_arena": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_armor_entry": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_service": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_arena_one": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_key_console": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_return_store": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_spine": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_arena_two": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_red_wing": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_red_console": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_final_arena": {
+            "kind": "armor",
+            "amount": 18
+          }
+        }
+      },
+      "optional": {
+        "rooms": [
+          "supplies"
+        ],
+        "bonus": {
+          "shells": 12,
+          "health": 25
+        },
+        "return_store_supply": {
+          "health": 22,
+          "armor": 18
+        }
+      },
+      "secret": {
+        "rooms": [
+          "secret_one"
+        ],
+        "bonus": {
+          "shells": 12,
+          "health": 25
+        }
+      }
+    },
+    {
+      "id": "pale_ward_03",
+      "main_route_target": {
+        "pistol": 48,
+        "shells": 24,
+        "rivets": 36,
+        "rockets": 10
+      },
+      "main_route_actual": {
+        "pistol": 48,
+        "shells": 24,
+        "rivets": 36,
+        "rockets": 10
+      },
+      "main_route_health": 220,
+      "main_route_armor": 180,
+      "placed_health_total": 220,
+      "placed_armor_total": 180,
+      "sources": {
+        "first_weapon": {
+          "weapon": "siege_launcher",
+          "ammo": "rockets",
+          "amount": 4
+        },
+        "arena_baits": {
+          "arena_one": {
+            "weapon": "siege_launcher",
+            "ammo": "rockets",
+            "amount": 2
+          },
+          "arena_two": {
+            "weapon": "siege_launcher",
+            "ammo": "rockets",
+            "amount": 2
+          },
+          "final_arena": {
+            "weapon": "siege_launcher",
+            "ammo": "rockets",
+            "amount": 2
+          }
+        },
+        "supply_cases": {
+          "Supply_pistol_entry": {
+            "kind": "pistol",
+            "amount": 15
+          },
+          "Supply_pistol_arena_one": {
+            "kind": "pistol",
+            "amount": 9
+          },
+          "Supply_pistol_key_wing": {
+            "kind": "pistol",
+            "amount": 3
+          },
+          "Supply_pistol_key_console": {
+            "kind": "pistol",
+            "amount": 5
+          },
+          "Supply_pistol_spine": {
+            "kind": "pistol",
+            "amount": 5
+          },
+          "Supply_pistol_arena_two": {
+            "kind": "pistol",
+            "amount": 5
+          },
+          "Supply_pistol_red_wing": {
+            "kind": "pistol",
+            "amount": 2
+          },
+          "Supply_pistol_red_console": {
+            "kind": "pistol",
+            "amount": 3
+          },
+          "Supply_pistol_final_arena": {
+            "kind": "pistol",
+            "amount": 1
+          },
+          "Supply_shells_entry": {
+            "kind": "shells",
+            "amount": 8
+          },
+          "Supply_shells_arena_one": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_key_wing": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_key_console": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_spine": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_arena_two": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_red_wing": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_red_console": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_rivets_entry": {
+            "kind": "rivets",
+            "amount": 12
+          },
+          "Supply_rivets_arena_one": {
+            "kind": "rivets",
+            "amount": 7
+          },
+          "Supply_rivets_key_wing": {
+            "kind": "rivets",
+            "amount": 2
+          },
+          "Supply_rivets_key_console": {
+            "kind": "rivets",
+            "amount": 4
+          },
+          "Supply_rivets_spine": {
+            "kind": "rivets",
+            "amount": 4
+          },
+          "Supply_rivets_arena_two": {
+            "kind": "rivets",
+            "amount": 4
+          },
+          "Supply_rivets_red_wing": {
+            "kind": "rivets",
+            "amount": 1
+          },
+          "Supply_rivets_red_console": {
+            "kind": "rivets",
+            "amount": 2
+          },
+          "Supply_health_entry": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_arena_one": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_key_wing": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_key_console": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_spine": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_arena_two": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_red_wing": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_red_console": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_final_arena": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_armor_entry": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_arena_one": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_key_wing": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_key_console": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_spine": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_arena_two": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_red_wing": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_red_console": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_final_arena": {
+            "kind": "armor",
+            "amount": 20
+          }
+        }
+      },
+      "optional": {
+        "rooms": [
+          "supplies",
+          "maintenance"
+        ],
+        "bonus": {
+          "shells": 24,
+          "health": 50
+        },
+        "return_store_supply": {
+          "health": 0,
+          "armor": 0
+        }
+      },
+      "secret": {
+        "rooms": [
+          "secret_two"
+        ],
+        "bonus": {
+          "shells": 12,
+          "health": 25
+        }
+      }
+    },
+    {
+      "id": "ash_citadel_01",
+      "main_route_target": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_actual": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_health": 200,
+      "main_route_armor": 164,
+      "placed_health_total": 220,
+      "placed_armor_total": 180,
+      "sources": {
+        "first_weapon": null,
+        "arena_baits": {
+          "arena_one": {
+            "weapon": "twin_shotgun",
+            "ammo": "shells",
+            "amount": 4
+          },
+          "arena_two": {
+            "weapon": "twin_shotgun",
+            "ammo": "shells",
+            "amount": 4
+          },
+          "final_arena": {
+            "weapon": "twin_shotgun",
+            "ammo": "shells",
+            "amount": 4
+          }
+        },
+        "supply_cases": {
+          "Supply_pistol_entry": {
+            "kind": "pistol",
+            "amount": 18
+          },
+          "Supply_pistol_service": {
+            "kind": "pistol",
+            "amount": 8
+          },
+          "Supply_pistol_arena_one": {
+            "kind": "pistol",
+            "amount": 10
+          },
+          "Supply_pistol_key_wing": {
+            "kind": "pistol",
+            "amount": 3
+          },
+          "Supply_pistol_key_console": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_spine": {
+            "kind": "pistol",
+            "amount": 6
+          },
+          "Supply_pistol_arena_two": {
+            "kind": "pistol",
+            "amount": 6
+          },
+          "Supply_pistol_red_wing": {
+            "kind": "pistol",
+            "amount": 2
+          },
+          "Supply_pistol_red_console": {
+            "kind": "pistol",
+            "amount": 3
+          },
+          "Supply_pistol_final_arena": {
+            "kind": "pistol",
+            "amount": 1
+          },
+          "Supply_shells_entry": {
+            "kind": "shells",
+            "amount": 7
+          },
+          "Supply_shells_service": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_arena_one": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_key_wing": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_key_console": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_spine": {
+            "kind": "shells",
+            "amount": 2
+          },
+          "Supply_shells_arena_two": {
+            "kind": "shells",
+            "amount": 2
+          },
+          "Supply_shells_red_wing": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_red_console": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_rivets_entry": {
+            "kind": "rivets",
+            "amount": 20
+          },
+          "Supply_rivets_service": {
+            "kind": "rivets",
+            "amount": 9
+          },
+          "Supply_rivets_arena_one": {
+            "kind": "rivets",
+            "amount": 11
+          },
+          "Supply_rivets_key_wing": {
+            "kind": "rivets",
+            "amount": 4
+          },
+          "Supply_rivets_key_console": {
+            "kind": "rivets",
+            "amount": 7
+          },
+          "Supply_rivets_spine": {
+            "kind": "rivets",
+            "amount": 7
+          },
+          "Supply_rivets_arena_two": {
+            "kind": "rivets",
+            "amount": 7
+          },
+          "Supply_rivets_red_wing": {
+            "kind": "rivets",
+            "amount": 2
+          },
+          "Supply_rivets_red_console": {
+            "kind": "rivets",
+            "amount": 4
+          },
+          "Supply_rivets_final_arena": {
+            "kind": "rivets",
+            "amount": 1
+          },
+          "Supply_rockets_entry": {
+            "kind": "rockets",
+            "amount": 2
+          },
+          "Supply_rockets_service": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_arena_one": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_key_wing": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_key_console": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_spine": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_arena_two": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_health_entry": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_service": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_arena_one": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_key_wing": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_key_console": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_return_store": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_spine": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_arena_two": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_red_wing": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_red_console": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_health_final_arena": {
+            "kind": "health",
+            "amount": 20
+          },
+          "Supply_armor_entry": {
+            "kind": "armor",
+            "amount": 17
+          },
+          "Supply_armor_service": {
+            "kind": "armor",
+            "amount": 17
+          },
+          "Supply_armor_arena_one": {
+            "kind": "armor",
+            "amount": 17
+          },
+          "Supply_armor_key_wing": {
+            "kind": "armor",
+            "amount": 17
+          },
+          "Supply_armor_key_console": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_return_store": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_spine": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_arena_two": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_red_wing": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_red_console": {
+            "kind": "armor",
+            "amount": 16
+          },
+          "Supply_armor_final_arena": {
+            "kind": "armor",
+            "amount": 16
+          }
+        }
+      },
+      "optional": {
+        "rooms": [
+          "supplies",
+          "armory"
+        ],
+        "bonus": {
+          "shells": 24,
+          "health": 50
+        },
+        "return_store_supply": {
+          "health": 20,
+          "armor": 16
+        }
+      },
+      "secret": {
+        "rooms": [
+          "secret_one"
+        ],
+        "bonus": {
+          "shells": 12,
+          "health": 25
+        }
+      }
+    },
+    {
+      "id": "ash_citadel_02",
+      "main_route_target": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_actual": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_health": 220,
+      "main_route_armor": 180,
+      "placed_health_total": 220,
+      "placed_armor_total": 180,
+      "sources": {
+        "first_weapon": null,
+        "arena_baits": {
+          "arena_one": {
+            "weapon": "rivet_cannon",
+            "ammo": "rivets",
+            "amount": 16
+          },
+          "arena_two": {
+            "weapon": "rivet_cannon",
+            "ammo": "rivets",
+            "amount": 16
+          },
+          "final_arena": {
+            "weapon": "rivet_cannon",
+            "ammo": "rivets",
+            "amount": 16
+          }
+        },
+        "supply_cases": {
+          "Supply_pistol_entry": {
+            "kind": "pistol",
+            "amount": 18
+          },
+          "Supply_pistol_service": {
+            "kind": "pistol",
+            "amount": 8
+          },
+          "Supply_pistol_arena_one": {
+            "kind": "pistol",
+            "amount": 10
+          },
+          "Supply_pistol_key_wing": {
+            "kind": "pistol",
+            "amount": 3
+          },
+          "Supply_pistol_key_console": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_spine": {
+            "kind": "pistol",
+            "amount": 6
+          },
+          "Supply_pistol_arena_two": {
+            "kind": "pistol",
+            "amount": 6
+          },
+          "Supply_pistol_red_wing": {
+            "kind": "pistol",
+            "amount": 2
+          },
+          "Supply_pistol_red_console": {
+            "kind": "pistol",
+            "amount": 3
+          },
+          "Supply_pistol_final_arena": {
+            "kind": "pistol",
+            "amount": 1
+          },
+          "Supply_shells_entry": {
+            "kind": "shells",
+            "amount": 10
+          },
+          "Supply_shells_service": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_arena_one": {
+            "kind": "shells",
+            "amount": 6
+          },
+          "Supply_shells_key_wing": {
+            "kind": "shells",
+            "amount": 2
+          },
+          "Supply_shells_key_console": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_spine": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_arena_two": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_red_wing": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_red_console": {
+            "kind": "shells",
+            "amount": 2
+          },
+          "Supply_rivets_entry": {
+            "kind": "rivets",
+            "amount": 7
+          },
+          "Supply_rivets_service": {
+            "kind": "rivets",
+            "amount": 3
+          },
+          "Supply_rivets_arena_one": {
+            "kind": "rivets",
+            "amount": 4
+          },
+          "Supply_rivets_key_wing": {
+            "kind": "rivets",
+            "amount": 1
+          },
+          "Supply_rivets_key_console": {
+            "kind": "rivets",
+            "amount": 3
+          },
+          "Supply_rivets_spine": {
+            "kind": "rivets",
+            "amount": 2
+          },
+          "Supply_rivets_arena_two": {
+            "kind": "rivets",
+            "amount": 2
+          },
+          "Supply_rivets_red_wing": {
+            "kind": "rivets",
+            "amount": 1
+          },
+          "Supply_rivets_red_console": {
+            "kind": "rivets",
+            "amount": 1
+          },
+          "Supply_rockets_entry": {
+            "kind": "rockets",
+            "amount": 2
+          },
+          "Supply_rockets_service": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_arena_one": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_key_wing": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_key_console": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_spine": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_arena_two": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_health_entry": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_service": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_arena_one": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_key_wing": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_key_console": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_spine": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_arena_two": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_red_wing": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_red_console": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_final_arena": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_armor_entry": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_service": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_arena_one": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_key_wing": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_key_console": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_spine": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_arena_two": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_red_wing": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_red_console": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_final_arena": {
+            "kind": "armor",
+            "amount": 18
+          }
+        }
+      },
+      "optional": {
+        "rooms": [
+          "pump_room"
+        ],
+        "bonus": {
+          "shells": 12,
+          "health": 25
+        },
+        "return_store_supply": {
+          "health": 0,
+          "armor": 0
+        }
+      },
+      "secret": {
+        "rooms": [
+          "secret_two"
+        ],
+        "bonus": {
+          "shells": 12,
+          "health": 25
+        }
+      }
+    },
+    {
+      "id": "ash_citadel_03",
+      "main_route_target": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_actual": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_health": 196,
+      "main_route_armor": 160,
+      "placed_health_total": 220,
+      "placed_armor_total": 180,
+      "sources": {
+        "first_weapon": null,
+        "arena_baits": {
+          "arena_one": {
+            "weapon": "siege_launcher",
+            "ammo": "rockets",
+            "amount": 2
+          },
+          "arena_two": {
+            "weapon": "siege_launcher",
+            "ammo": "rockets",
+            "amount": 2
+          },
+          "final_arena": {
+            "weapon": "siege_launcher",
+            "ammo": "rockets",
+            "amount": 2
+          }
+        },
+        "supply_cases": {
+          "Supply_pistol_entry": {
+            "kind": "pistol",
+            "amount": 20
+          },
+          "Supply_pistol_service": {
+            "kind": "pistol",
+            "amount": 8
+          },
+          "Supply_pistol_arena_one": {
+            "kind": "pistol",
+            "amount": 11
+          },
+          "Supply_pistol_key_console": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_spine": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_arena_two": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_red_console": {
+            "kind": "pistol",
+            "amount": 3
+          },
+          "Supply_pistol_final_arena": {
+            "kind": "pistol",
+            "amount": 1
+          },
+          "Supply_shells_entry": {
+            "kind": "shells",
+            "amount": 11
+          },
+          "Supply_shells_service": {
+            "kind": "shells",
+            "amount": 5
+          },
+          "Supply_shells_arena_one": {
+            "kind": "shells",
+            "amount": 6
+          },
+          "Supply_shells_key_console": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_spine": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_arena_two": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_red_console": {
+            "kind": "shells",
+            "amount": 2
+          },
+          "Supply_rivets_entry": {
+            "kind": "rivets",
+            "amount": 22
+          },
+          "Supply_rivets_service": {
+            "kind": "rivets",
+            "amount": 9
+          },
+          "Supply_rivets_arena_one": {
+            "kind": "rivets",
+            "amount": 12
+          },
+          "Supply_rivets_key_console": {
+            "kind": "rivets",
+            "amount": 8
+          },
+          "Supply_rivets_spine": {
+            "kind": "rivets",
+            "amount": 8
+          },
+          "Supply_rivets_arena_two": {
+            "kind": "rivets",
+            "amount": 8
+          },
+          "Supply_rivets_red_console": {
+            "kind": "rivets",
+            "amount": 4
+          },
+          "Supply_rivets_final_arena": {
+            "kind": "rivets",
+            "amount": 1
+          },
+          "Supply_rockets_entry": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_arena_one": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_health_entry": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_service": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_arena_one": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_key_console": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_return_store": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_spine": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_arena_two": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_red_console": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_final_arena": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_armor_entry": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_service": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_arena_one": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_key_console": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_return_store": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_spine": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_arena_two": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_red_console": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_final_arena": {
+            "kind": "armor",
+            "amount": 20
+          }
+        }
+      },
+      "optional": {
+        "rooms": [
+          "supplies",
+          "maintenance",
+          "pump_room",
+          "armory"
+        ],
+        "bonus": {
+          "shells": 48,
+          "health": 100
+        },
+        "return_store_supply": {
+          "health": 24,
+          "armor": 20
+        }
+      },
+      "secret": {
+        "rooms": [
+          "secret_one"
+        ],
+        "bonus": {
+          "shells": 12,
+          "health": 25
+        }
+      }
+    },
+    {
+      "id": "occupied_line_01",
+      "main_route_target": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_actual": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_health": 220,
+      "main_route_armor": 180,
+      "placed_health_total": 220,
+      "placed_armor_total": 180,
+      "sources": {
+        "first_weapon": null,
+        "arena_baits": {
+          "arena_one": {
+            "weapon": "twin_shotgun",
+            "ammo": "shells",
+            "amount": 4
+          },
+          "arena_two": {
+            "weapon": "twin_shotgun",
+            "ammo": "shells",
+            "amount": 4
+          },
+          "final_arena": {
+            "weapon": "twin_shotgun",
+            "ammo": "shells",
+            "amount": 4
+          }
+        },
+        "supply_cases": {
+          "Supply_pistol_entry": {
+            "kind": "pistol",
+            "amount": 20
+          },
+          "Supply_pistol_arena_one": {
+            "kind": "pistol",
+            "amount": 12
+          },
+          "Supply_pistol_key_wing": {
+            "kind": "pistol",
+            "amount": 4
+          },
+          "Supply_pistol_key_console": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_spine": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_arena_two": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_red_wing": {
+            "kind": "pistol",
+            "amount": 2
+          },
+          "Supply_pistol_red_console": {
+            "kind": "pistol",
+            "amount": 4
+          },
+          "Supply_pistol_final_arena": {
+            "kind": "pistol",
+            "amount": 1
+          },
+          "Supply_shells_entry": {
+            "kind": "shells",
+            "amount": 8
+          },
+          "Supply_shells_arena_one": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_key_wing": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_key_console": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_spine": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_arena_two": {
+            "kind": "shells",
+            "amount": 3
+          },
+          "Supply_shells_red_wing": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_shells_red_console": {
+            "kind": "shells",
+            "amount": 1
+          },
+          "Supply_rivets_entry": {
+            "kind": "rivets",
+            "amount": 23
+          },
+          "Supply_rivets_arena_one": {
+            "kind": "rivets",
+            "amount": 13
+          },
+          "Supply_rivets_key_wing": {
+            "kind": "rivets",
+            "amount": 4
+          },
+          "Supply_rivets_key_console": {
+            "kind": "rivets",
+            "amount": 8
+          },
+          "Supply_rivets_spine": {
+            "kind": "rivets",
+            "amount": 8
+          },
+          "Supply_rivets_arena_two": {
+            "kind": "rivets",
+            "amount": 8
+          },
+          "Supply_rivets_red_wing": {
+            "kind": "rivets",
+            "amount": 3
+          },
+          "Supply_rivets_red_console": {
+            "kind": "rivets",
+            "amount": 4
+          },
+          "Supply_rivets_final_arena": {
+            "kind": "rivets",
+            "amount": 1
+          },
+          "Supply_rockets_entry": {
+            "kind": "rockets",
+            "amount": 3
+          },
+          "Supply_rockets_arena_one": {
+            "kind": "rockets",
+            "amount": 2
+          },
+          "Supply_rockets_key_console": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_spine": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_arena_two": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_health_entry": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_arena_one": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_key_wing": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_key_console": {
+            "kind": "health",
+            "amount": 25
+          },
+          "Supply_health_spine": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_arena_two": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_red_wing": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_red_console": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_health_final_arena": {
+            "kind": "health",
+            "amount": 24
+          },
+          "Supply_armor_entry": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_arena_one": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_key_wing": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_key_console": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_spine": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_arena_two": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_red_wing": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_red_console": {
+            "kind": "armor",
+            "amount": 20
+          },
+          "Supply_armor_final_arena": {
+            "kind": "armor",
+            "amount": 20
+          }
+        }
+      },
+      "optional": {
+        "rooms": [
+          "supplies",
+          "maintenance",
+          "armory"
+        ],
+        "bonus": {
+          "shells": 36,
+          "health": 75
+        },
+        "return_store_supply": {
+          "health": 0,
+          "armor": 0
+        }
+      },
+      "secret": {
+        "rooms": [
+          "secret_one"
+        ],
+        "bonus": {
+          "shells": 12,
+          "health": 25
+        }
+      }
+    },
+    {
+      "id": "occupied_line_02",
+      "main_route_target": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_actual": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_health": 198,
+      "main_route_armor": 162,
+      "placed_health_total": 220,
+      "placed_armor_total": 180,
+      "sources": {
+        "first_weapon": null,
+        "arena_baits": {
+          "arena_one": {
+            "weapon": "rivet_cannon",
+            "ammo": "rivets",
+            "amount": 16
+          },
+          "arena_two": {
+            "weapon": "rivet_cannon",
+            "ammo": "rivets",
+            "amount": 16
+          },
+          "final_arena": {
+            "weapon": "rivet_cannon",
+            "ammo": "rivets",
+            "amount": 16
+          }
+        },
+        "supply_cases": {
+          "Supply_pistol_entry": {
+            "kind": "pistol",
+            "amount": 18
+          },
+          "Supply_pistol_service": {
+            "kind": "pistol",
+            "amount": 8
+          },
+          "Supply_pistol_arena_one": {
+            "kind": "pistol",
+            "amount": 10
+          },
+          "Supply_pistol_key_wing": {
+            "kind": "pistol",
+            "amount": 3
+          },
+          "Supply_pistol_key_console": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_spine": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_arena_two": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_red_console": {
+            "kind": "pistol",
+            "amount": 3
+          },
+          "Supply_pistol_final_arena": {
+            "kind": "pistol",
+            "amount": 1
+          },
+          "Supply_shells_entry": {
+            "kind": "shells",
+            "amount": 10
+          },
+          "Supply_shells_service": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_arena_one": {
+            "kind": "shells",
+            "amount": 6
+          },
+          "Supply_shells_key_wing": {
+            "kind": "shells",
+            "amount": 2
+          },
+          "Supply_shells_key_console": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_spine": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_arena_two": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_red_console": {
+            "kind": "shells",
+            "amount": 2
+          },
+          "Supply_rivets_entry": {
+            "kind": "rivets",
+            "amount": 7
+          },
+          "Supply_rivets_service": {
+            "kind": "rivets",
+            "amount": 3
+          },
+          "Supply_rivets_arena_one": {
+            "kind": "rivets",
+            "amount": 4
+          },
+          "Supply_rivets_key_wing": {
+            "kind": "rivets",
+            "amount": 1
+          },
+          "Supply_rivets_key_console": {
+            "kind": "rivets",
+            "amount": 3
+          },
+          "Supply_rivets_spine": {
+            "kind": "rivets",
+            "amount": 3
+          },
+          "Supply_rivets_arena_two": {
+            "kind": "rivets",
+            "amount": 2
+          },
+          "Supply_rivets_red_console": {
+            "kind": "rivets",
+            "amount": 1
+          },
+          "Supply_rockets_entry": {
+            "kind": "rockets",
+            "amount": 2
+          },
+          "Supply_rockets_service": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_arena_one": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_key_wing": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_key_console": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_spine": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_arena_two": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_health_entry": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_service": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_arena_one": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_key_wing": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_key_console": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_return_store": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_spine": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_arena_two": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_red_console": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_health_final_arena": {
+            "kind": "health",
+            "amount": 22
+          },
+          "Supply_armor_entry": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_service": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_arena_one": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_key_wing": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_key_console": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_return_store": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_spine": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_arena_two": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_red_console": {
+            "kind": "armor",
+            "amount": 18
+          },
+          "Supply_armor_final_arena": {
+            "kind": "armor",
+            "amount": 18
+          }
+        }
+      },
+      "optional": {
+        "rooms": [
+          "supplies",
+          "pump_room"
+        ],
+        "bonus": {
+          "shells": 24,
+          "health": 50
+        },
+        "return_store_supply": {
+          "health": 22,
+          "armor": 18
+        }
+      },
+      "secret": {
+        "rooms": [],
+        "bonus": {
+          "shells": 0,
+          "health": 0
+        }
+      }
+    },
+    {
+      "id": "occupied_line_03",
+      "main_route_target": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_actual": {
+        "pistol": 64,
+        "shells": 36,
+        "rivets": 72,
+        "rockets": 8
+      },
+      "main_route_health": 220,
+      "main_route_armor": 180,
+      "placed_health_total": 220,
+      "placed_armor_total": 180,
+      "sources": {
+        "first_weapon": null,
+        "arena_baits": {
+          "arena_one": {
+            "weapon": "siege_launcher",
+            "ammo": "rockets",
+            "amount": 2
+          },
+          "arena_two": {
+            "weapon": "siege_launcher",
+            "ammo": "rockets",
+            "amount": 2
+          },
+          "final_arena": {
+            "weapon": "siege_launcher",
+            "ammo": "rockets",
+            "amount": 2
+          }
+        },
+        "supply_cases": {
+          "Supply_pistol_entry": {
+            "kind": "pistol",
+            "amount": 20
+          },
+          "Supply_pistol_service": {
+            "kind": "pistol",
+            "amount": 8
+          },
+          "Supply_pistol_arena_one": {
+            "kind": "pistol",
+            "amount": 11
+          },
+          "Supply_pistol_key_console": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_spine": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_arena_two": {
+            "kind": "pistol",
+            "amount": 7
+          },
+          "Supply_pistol_red_console": {
+            "kind": "pistol",
+            "amount": 3
+          },
+          "Supply_pistol_final_arena": {
+            "kind": "pistol",
+            "amount": 1
+          },
+          "Supply_shells_entry": {
+            "kind": "shells",
+            "amount": 11
+          },
+          "Supply_shells_service": {
+            "kind": "shells",
+            "amount": 5
+          },
+          "Supply_shells_arena_one": {
+            "kind": "shells",
+            "amount": 6
+          },
+          "Supply_shells_key_console": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_spine": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_arena_two": {
+            "kind": "shells",
+            "amount": 4
+          },
+          "Supply_shells_red_console": {
+            "kind": "shells",
+            "amount": 2
+          },
+          "Supply_rivets_entry": {
+            "kind": "rivets",
+            "amount": 22
+          },
+          "Supply_rivets_service": {
+            "kind": "rivets",
+            "amount": 9
+          },
+          "Supply_rivets_arena_one": {
+            "kind": "rivets",
+            "amount": 12
+          },
+          "Supply_rivets_key_console": {
+            "kind": "rivets",
+            "amount": 8
+          },
+          "Supply_rivets_spine": {
+            "kind": "rivets",
+            "amount": 8
+          },
+          "Supply_rivets_arena_two": {
+            "kind": "rivets",
+            "amount": 8
+          },
+          "Supply_rivets_red_console": {
+            "kind": "rivets",
+            "amount": 4
+          },
+          "Supply_rivets_final_arena": {
+            "kind": "rivets",
+            "amount": 1
+          },
+          "Supply_rockets_entry": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_rockets_arena_one": {
+            "kind": "rockets",
+            "amount": 1
+          },
+          "Supply_health_entry": {
+            "kind": "health",
+            "amount": 28
+          },
+          "Supply_health_service": {
+            "kind": "health",
+            "amount": 28
+          },
+          "Supply_health_arena_one": {
+            "kind": "health",
+            "amount": 28
+          },
+          "Supply_health_key_console": {
+            "kind": "health",
+            "amount": 28
+          },
+          "Supply_health_spine": {
+            "kind": "health",
+            "amount": 27
+          },
+          "Supply_health_arena_two": {
+            "kind": "health",
+            "amount": 27
+          },
+          "Supply_health_red_console": {
+            "kind": "health",
+            "amount": 27
+          },
+          "Supply_health_final_arena": {
+            "kind": "health",
+            "amount": 27
+          },
+          "Supply_armor_entry": {
+            "kind": "armor",
+            "amount": 23
+          },
+          "Supply_armor_service": {
+            "kind": "armor",
+            "amount": 23
+          },
+          "Supply_armor_arena_one": {
+            "kind": "armor",
+            "amount": 23
+          },
+          "Supply_armor_key_console": {
+            "kind": "armor",
+            "amount": 23
+          },
+          "Supply_armor_spine": {
+            "kind": "armor",
+            "amount": 22
+          },
+          "Supply_armor_arena_two": {
+            "kind": "armor",
+            "amount": 22
+          },
+          "Supply_armor_red_console": {
+            "kind": "armor",
+            "amount": 22
+          },
+          "Supply_armor_final_arena": {
+            "kind": "armor",
+            "amount": 22
+          }
+        }
+      },
+      "optional": {
+        "rooms": [
+          "pump_room"
+        ],
+        "bonus": {
+          "shells": 12,
+          "health": 25
+        },
+        "return_store_supply": {
+          "health": 0,
+          "armor": 0
+        }
+      },
+      "secret": {
+        "rooms": [
+          "secret_one"
+        ],
+        "bonus": {
+          "shells": 12,
+          "health": 25
+        }
+      }
+    }
+  ]
+}

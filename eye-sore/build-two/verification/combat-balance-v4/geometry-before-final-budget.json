@@ -1,0 +1,5625 @@
+{
+  "baseline_revision": "6d3dc8b5b984ec3acb9809bbf32e8c65afbbedb5",
+  "comparison": "Native instantiated nodes and runtime-built polygon bodies, shapes, meshes, materials, lights, room/door/lift/spawn metadata. Resource identifiers excluded; resource values and binary native math/packed-array data compared. Only intentional ammo/weapon-pickup subtrees excluded. Health/armor/key/control preserved.",
+  "failures": [],
+  "initial_health_armor_findings": [
+    {
+      "changes": {
+        "Supply_armor_arena_one": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -64.536)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -63.336)"
+          }
+        },
+        "Supply_armor_arena_two": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -155.352)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -154.152)"
+          }
+        },
+        "Supply_armor_entry": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 11.496)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 12.696)"
+          }
+        },
+        "Supply_armor_final_arena": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -206.04)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -204.84)"
+          }
+        },
+        "Supply_armor_key_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-46.434, 0.5, -103.608)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-46.434, 0.5, -102.408)"
+          }
+        },
+        "Supply_armor_key_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-46.434, 0.5, -76.152)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-46.434, 0.5, -74.952)"
+          }
+        },
+        "Supply_armor_red_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(50.52, 0.5, -195.48)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(50.52, 0.5, -194.28)"
+          }
+        },
+        "Supply_armor_red_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(50.52, 0.5, -158.52)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(50.52, 0.5, -157.32)"
+          }
+        },
+        "Supply_armor_return_store": {
+          "new": null,
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-41.462, 0.5, -32.712)"
+          }
+        },
+        "Supply_armor_service": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -30.744)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -29.544)"
+          }
+        },
+        "Supply_armor_spine": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -122.616)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -121.416)"
+          }
+        },
+        "Supply_health_arena_one": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -64.536)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -63.336)"
+          }
+        },
+        "Supply_health_arena_two": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -155.352)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -154.152)"
+          }
+        },
+        "Supply_health_entry": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 11.496)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 12.696)"
+          }
+        },
+        "Supply_health_final_arena": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -206.04)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -204.84)"
+          }
+        },
+        "Supply_health_key_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-48.034, 0.5, -103.608)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-48.034, 0.5, -102.408)"
+          }
+        },
+        "Supply_health_key_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-48.034, 0.5, -76.152)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-48.034, 0.5, -74.952)"
+          }
+        },
+        "Supply_health_red_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(48.92, 0.5, -195.48)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(48.92, 0.5, -194.28)"
+          }
+        },
+        "Supply_health_red_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(48.92, 0.5, -158.52)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(48.92, 0.5, -157.32)"
+          }
+        },
+        "Supply_health_return_store": {
+          "new": null,
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-43.062, 0.5, -32.712)"
+          }
+        },
+        "Supply_health_service": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -30.744)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -29.544)"
+          }
+        },
+        "Supply_health_spine": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -122.616)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -121.416)"
+          }
+        }
+      },
+      "scene": "scenes/campaign/ash_citadel_01.tscn"
+    },
+    {
+      "changes": {
+        "Supply_armor_arena_one": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -74.392)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -73.192)"
+          }
+        },
+        "Supply_armor_arena_two": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-34.712, 0.5, -137.224)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-34.712, 0.5, -136.024)"
+          }
+        },
+        "Supply_armor_entry": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 14.312)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 15.512)"
+          }
+        },
+        "Supply_armor_final_arena": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-34.712, 2, -189.648)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-34.712, 2, -188.448)"
+          }
+        },
+        "Supply_armor_key_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(40.928, 0.5, -119.976)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(40.928, 0.5, -118.776)"
+          }
+        },
+        "Supply_armor_key_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(40.928, 0.5, -87.944)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(40.928, 0.5, -86.744)"
+          }
+        },
+        "Supply_armor_red_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-75.504, 0.5, -181.952)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-75.504, 0.5, -180.752)"
+          }
+        },
+        "Supply_armor_red_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-75.504, 0.5, -140.92)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-75.504, 0.5, -139.72)"
+          }
+        },
+        "Supply_armor_service": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -34.968)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -33.768)"
+          }
+        },
+        "Supply_armor_spine": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -142.152)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -140.952)"
+          }
+        },
+        "Supply_health_arena_one": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -74.392)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -73.192)"
+          }
+        },
+        "Supply_health_arena_two": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-36.312, 0.5, -137.224)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-36.312, 0.5, -136.024)"
+          }
+        },
+        "Supply_health_entry": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 14.312)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 15.512)"
+          }
+        },
+        "Supply_health_final_arena": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-36.312, 2, -189.648)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-36.312, 2, -188.448)"
+          }
+        },
+        "Supply_health_key_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(39.328, 0.5, -119.976)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(39.328, 0.5, -118.776)"
+          }
+        },
+        "Supply_health_key_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(39.328, 0.5, -87.944)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(39.328, 0.5, -86.744)"
+          }
+        },
+        "Supply_health_red_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-77.104, 0.5, -181.952)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-77.104, 0.5, -180.752)"
+          }
+        },
+        "Supply_health_red_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-77.104, 0.5, -140.92)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-77.104, 0.5, -139.72)"
+          }
+        },
+        "Supply_health_service": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -34.968)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -33.768)"
+          }
+        },
+        "Supply_health_spine": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -142.152)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -140.952)"
+          }
+        }
+      },
+      "scene": "scenes/campaign/ash_citadel_02.tscn"
+    },
+    {
+      "changes": {
+        "Supply_armor_arena_one": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -78.088)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -76.888)"
+          }
+        },
+        "Supply_armor_arena_two": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -189.716)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -188.516)"
+          }
+        },
+        "Supply_armor_entry": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 15.368)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 16.568)"
+          }
+        },
+        "Supply_armor_final_arena": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -252.02)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -250.82)"
+          }
+        },
+        "Supply_armor_key_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-44.762, 0.5, -88.472)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-44.762, 0.5, -87.272)"
+          }
+        },
+        "Supply_armor_red_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(48.76, 0.5, -194.908)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(48.76, 0.5, -193.708)"
+          }
+        },
+        "Supply_armor_return_store": {
+          "new": null,
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-39.966, 0.5, -39.246)"
+          }
+        },
+        "Supply_armor_service": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -36.552)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -35.352)"
+          }
+        },
+        "Supply_armor_spine": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -149.478)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -148.278)"
+          }
+        },
+        "Supply_health_arena_one": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -78.088)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -76.888)"
+          }
+        },
+        "Supply_health_arena_two": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -189.716)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -188.516)"
+          }
+        },
+        "Supply_health_entry": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 15.368)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 16.568)"
+          }
+        },
+        "Supply_health_final_arena": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -252.02)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -250.82)"
+          }
+        },
+        "Supply_health_key_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-46.362, 0.5, -88.472)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-46.362, 0.5, -87.272)"
+          }
+        },
+        "Supply_health_red_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(47.16, 0.5, -194.908)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(47.16, 0.5, -193.708)"
+          }
+        },
+        "Supply_health_return_store": {
+          "new": null,
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-41.566, 0.5, -39.246)"
+          }
+        },
+        "Supply_health_service": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -36.552)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -35.352)"
+          }
+        },
+        "Supply_health_spine": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -149.478)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -148.278)"
+          }
+        }
+      },
+      "scene": "scenes/campaign/ash_citadel_03.tscn"
+    },
+    {
+      "changes": {
+        "Supply_armor_arena_one": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -1, -68.4112)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -1, -67.2112)"
+          }
+        },
+        "Supply_armor_arena_two": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -1, -162.812)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -1, -161.612)"
+          }
+        },
+        "Supply_armor_entry": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 12.6032)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 13.8032)"
+          }
+        },
+        "Supply_armor_final_arena": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -219.188)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -217.988)"
+          }
+        },
+        "Supply_armor_key_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(52.3736, 0.5, -110.044)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(52.3736, 0.5, -108.844)"
+          }
+        },
+        "Supply_armor_key_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(52.3736, 0.5, -80.7884)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(52.3736, 0.5, -79.5884)"
+          }
+        },
+        "Supply_armor_red_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-53.488, 0.5, -207.936)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-53.488, 0.5, -206.736)"
+          }
+        },
+        "Supply_armor_red_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-53.488, 0.5, -168.554)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-53.488, 0.5, -167.354)"
+          }
+        },
+        "Supply_armor_spine": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -130.297)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -129.097)"
+          }
+        },
+        "Supply_health_arena_one": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -1, -68.4112)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -1, -67.2112)"
+          }
+        },
+        "Supply_health_arena_two": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -1, -162.812)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -1, -161.612)"
+          }
+        },
+        "Supply_health_entry": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 12.6032)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 13.8032)"
+          }
+        },
+        "Supply_health_final_arena": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -219.188)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -217.988)"
+          }
+        },
+        "Supply_health_key_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(50.7736, 0.5, -110.044)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(50.7736, 0.5, -108.844)"
+          }
+        },
+        "Supply_health_key_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(50.7736, 0.5, -80.7884)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(50.7736, 0.5, -79.5884)"
+          }
+        },
+        "Supply_health_red_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-55.088, 0.5, -207.936)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-55.088, 0.5, -206.736)"
+          }
+        },
+        "Supply_health_red_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-55.088, 0.5, -168.554)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-55.088, 0.5, -167.354)"
+          }
+        },
+        "Supply_health_spine": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -130.297)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -129.097)"
+          }
+        }
+      },
+      "scene": "scenes/campaign/occupied_line_01.tscn"
+    },
+    {
+      "changes": {
+        "Supply_armor_arena_one": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -1, -80.7536)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -1, -79.5536)"
+          }
+        },
+        "Supply_armor_arena_two": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(37.8672, -1, -146.549)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(37.8672, -1, -145.349)"
+          }
+        },
+        "Supply_armor_entry": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 16.1296)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 17.3296)"
+          }
+        },
+        "Supply_armor_final_arena": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(37.8672, 0.5, -208.269)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(37.8672, 0.5, -207.069)"
+          }
+        },
+        "Supply_armor_key_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-41.5168, 0.5, -130.541)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-41.5168, 0.5, -129.341)"
+          }
+        },
+        "Supply_armor_key_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-41.5168, 0.5, -95.5552)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-41.5168, 0.5, -94.3552)"
+          }
+        },
+        "Supply_armor_red_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(78.2752, 0.5, -154.762)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(78.2752, 0.5, -153.562)"
+          }
+        },
+        "Supply_armor_return_store": {
+          "new": null,
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-37.0624, 0.5, -40.5312)"
+          }
+        },
+        "Supply_armor_service": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -37.6944)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -36.4944)"
+          }
+        },
+        "Supply_armor_spine": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -154.762)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -153.562)"
+          }
+        },
+        "Supply_health_arena_one": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -1, -80.7536)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -1, -79.5536)"
+          }
+        },
+        "Supply_health_arena_two": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(36.2672, -1, -146.549)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(36.2672, -1, -145.349)"
+          }
+        },
+        "Supply_health_entry": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 16.1296)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 17.3296)"
+          }
+        },
+        "Supply_health_final_arena": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(36.2672, 0.5, -208.269)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(36.2672, 0.5, -207.069)"
+          }
+        },
+        "Supply_health_key_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-43.1168, 0.5, -130.541)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-43.1168, 0.5, -129.341)"
+          }
+        },
+        "Supply_health_key_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-43.1168, 0.5, -95.5552)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-43.1168, 0.5, -94.3552)"
+          }
+        },
+        "Supply_health_red_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(76.6752, 0.5, -154.762)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(76.6752, 0.5, -153.562)"
+          }
+        },
+        "Supply_health_return_store": {
+          "new": null,
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-38.6624, 0.5, -40.5312)"
+          }
+        },
+        "Supply_health_service": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -37.6944)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -36.4944)"
+          }
+        },
+        "Supply_health_spine": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -154.762)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -153.562)"
+          }
+        }
+      },
+      "scene": "scenes/campaign/occupied_line_02.tscn"
+    },
+    {
+      "changes": {
+        "Supply_armor_arena_one": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -1, -77.5056)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -1, -76.3056)"
+          }
+        },
+        "Supply_armor_arena_two": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -1, -185.531)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -1, -184.331)"
+          }
+        },
+        "Supply_armor_entry": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 15.2016)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 16.4016)"
+          }
+        },
+        "Supply_armor_final_arena": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -250.044)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -248.844)"
+          }
+        },
+        "Supply_armor_key_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(49.7288, 0.5, -87.8064)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(49.7288, 0.5, -86.6064)"
+          }
+        },
+        "Supply_armor_red_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-50.704, 0.5, -193.39)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-50.704, 0.5, -192.19)"
+          }
+        },
+        "Supply_armor_service": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -36.3024)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -35.1024)"
+          }
+        },
+        "Supply_armor_spine": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -148.324)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -147.124)"
+          }
+        },
+        "Supply_health_arena_one": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -1, -77.5056)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -1, -76.3056)"
+          }
+        },
+        "Supply_health_arena_two": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -1, -185.531)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -1, -184.331)"
+          }
+        },
+        "Supply_health_entry": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 15.2016)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 16.4016)"
+          }
+        },
+        "Supply_health_final_arena": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -250.044)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -248.844)"
+          }
+        },
+        "Supply_health_key_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(48.1288, 0.5, -87.8064)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(48.1288, 0.5, -86.6064)"
+          }
+        },
+        "Supply_health_red_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-52.304, 0.5, -193.39)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-52.304, 0.5, -192.19)"
+          }
+        },
+        "Supply_health_service": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -36.3024)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -35.1024)"
+          }
+        },
+        "Supply_health_spine": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -148.324)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -147.124)"
+          }
+        }
+      },
+      "scene": "scenes/campaign/occupied_line_03.tscn"
+    },
+    {
+      "changes": {
+        "Supply_armor_arena_one": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -0.5, -61.4)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -0.5, -60.2)"
+          }
+        },
+        "Supply_armor_arena_two": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -147.4)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -146.2)"
+          }
+        },
+        "Supply_armor_entry": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 10.6)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 11.8)"
+          }
+        },
+        "Supply_armor_final_arena": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -195.4)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -194.2)"
+          }
+        },
+        "Supply_armor_key_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(38.8, 2, -98.4)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(38.8, 2, -97.2)"
+          }
+        },
+        "Supply_armor_key_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(38.8, 2, -72.4)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(38.8, 2, -71.2)"
+          }
+        },
+        "Supply_armor_red_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-39.2, 2, -185.4)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-39.2, 2, -184.2)"
+          }
+        },
+        "Supply_armor_red_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-39.2, 2, -150.4)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-39.2, 2, -149.2)"
+          }
+        },
+        "Supply_armor_return_store": {
+          "new": null,
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(34.8, 2, -31.2)"
+          }
+        },
+        "Supply_armor_service": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -29.4)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -28.2)"
+          }
+        },
+        "Supply_armor_spine": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -116.4)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -115.2)"
+          }
+        },
+        "Supply_health_arena_one": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -0.5, -61.4)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -0.5, -60.2)"
+          }
+        },
+        "Supply_health_arena_two": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -147.4)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -146.2)"
+          }
+        },
+        "Supply_health_entry": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 10.6)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 11.8)"
+          }
+        },
+        "Supply_health_final_arena": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -195.4)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -194.2)"
+          }
+        },
+        "Supply_health_key_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(37.2, 2, -98.4)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(37.2, 2, -97.2)"
+          }
+        },
+        "Supply_health_key_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(37.2, 2, -72.4)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(37.2, 2, -71.2)"
+          }
+        },
+        "Supply_health_red_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-40.8, 2, -185.4)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-40.8, 2, -184.2)"
+          }
+        },
+        "Supply_health_red_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-40.8, 2, -150.4)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-40.8, 2, -149.2)"
+          }
+        },
+        "Supply_health_return_store": {
+          "new": null,
+          "old": {
+            "kind": "health",
+            "position": "Vector3(33.2, 2, -31.2)"
+          }
+        },
+        "Supply_health_service": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -29.4)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -28.2)"
+          }
+        },
+        "Supply_health_spine": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -116.4)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -115.2)"
+          }
+        }
+      },
+      "scene": "scenes/campaign/pale_ward_01.tscn"
+    },
+    {
+      "changes": {
+        "Supply_armor_arena_one": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -0.5, -65.32)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -0.5, -64.12)"
+          }
+        },
+        "Supply_armor_arena_two": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(39.12, 0.5, -119.89)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(39.12, 0.5, -118.69)"
+          }
+        },
+        "Supply_armor_entry": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 11.72)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 12.92)"
+          }
+        },
+        "Supply_armor_final_arena": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(39.12, 2, -167.13)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(39.12, 2, -165.93)"
+          }
+        },
+        "Supply_armor_key_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-43.28, 2, -73.88)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-43.28, 2, -72.68)"
+          }
+        },
+        "Supply_armor_red_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(83.24, 2, -159.92)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(83.24, 2, -158.72)"
+          }
+        },
+        "Supply_armor_red_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(83.24, 2, -123.1)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(83.24, 2, -121.9)"
+          }
+        },
+        "Supply_armor_return_store": {
+          "new": null,
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-38.64, 2, -33.09)"
+          }
+        },
+        "Supply_armor_service": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -31.08)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -29.88)"
+          }
+        },
+        "Supply_armor_spine": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -124.17)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -122.97)"
+          }
+        },
+        "Supply_health_arena_one": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -0.5, -65.32)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -0.5, -64.12)"
+          }
+        },
+        "Supply_health_arena_two": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(37.52, 0.5, -119.89)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(37.52, 0.5, -118.69)"
+          }
+        },
+        "Supply_health_entry": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 11.72)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 12.92)"
+          }
+        },
+        "Supply_health_final_arena": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(37.52, 2, -167.13)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(37.52, 2, -165.93)"
+          }
+        },
+        "Supply_health_key_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-44.88, 2, -73.88)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-44.88, 2, -72.68)"
+          }
+        },
+        "Supply_health_red_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(81.64, 2, -159.92)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(81.64, 2, -158.72)"
+          }
+        },
+        "Supply_health_red_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(81.64, 2, -123.1)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(81.64, 2, -121.9)"
+          }
+        },
+        "Supply_health_return_store": {
+          "new": null,
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-40.24, 2, -33.09)"
+          }
+        },
+        "Supply_health_service": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -31.08)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -29.88)"
+          }
+        },
+        "Supply_health_spine": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -124.17)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -122.97)"
+          }
+        }
+      },
+      "scene": "scenes/campaign/pale_ward_02.tscn"
+    },
+    {
+      "changes": {
+        "Supply_armor_arena_one": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -0.5, -71.48)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, -0.5, -70.28)"
+          }
+        },
+        "Supply_armor_arena_two": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -172.96)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, -171.76)"
+          }
+        },
+        "Supply_armor_entry": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 13.48)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 0.5, 14.68)"
+          }
+        },
+        "Supply_armor_final_arena": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -229.6)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -228.4)"
+          }
+        },
+        "Supply_armor_key_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(45.7, 2, -115.14)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(45.7, 2, -113.94)"
+          }
+        },
+        "Supply_armor_key_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(45.7, 2, -84.46)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(45.7, 2, -83.26)"
+          }
+        },
+        "Supply_armor_red_console": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-41.2, 2, -217.8)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-41.2, 2, -216.6)"
+          }
+        },
+        "Supply_armor_red_wing": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(-41.2, 2, -176.5)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(-41.2, 2, -175.3)"
+          }
+        },
+        "Supply_armor_spine": {
+          "new": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -136.38)"
+          },
+          "old": {
+            "kind": "armor",
+            "position": "Vector3(0.8, 2, -135.18)"
+          }
+        },
+        "Supply_health_arena_one": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -0.5, -71.48)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, -0.5, -70.28)"
+          }
+        },
+        "Supply_health_arena_two": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -172.96)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, -171.76)"
+          }
+        },
+        "Supply_health_entry": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 13.48)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 0.5, 14.68)"
+          }
+        },
+        "Supply_health_final_arena": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -229.6)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -228.4)"
+          }
+        },
+        "Supply_health_key_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(44.1, 2, -115.14)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(44.1, 2, -113.94)"
+          }
+        },
+        "Supply_health_key_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(44.1, 2, -84.46)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(44.1, 2, -83.26)"
+          }
+        },
+        "Supply_health_red_console": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-42.8, 2, -217.8)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-42.8, 2, -216.6)"
+          }
+        },
+        "Supply_health_red_wing": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-42.8, 2, -176.5)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-42.8, 2, -175.3)"
+          }
+        },
+        "Supply_health_spine": {
+          "new": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -136.38)"
+          },
+          "old": {
+            "kind": "health",
+            "position": "Vector3(-0.8, 2, -135.18)"
+          }
+        }
+      },
+      "scene": "scenes/campaign/pale_ward_03.tscn"
+    }
+  ],
+  "reachability_scope": "All authored ammo pickups support checked by physical downward rays; entry supplies reached with actual player W input and no jumping. Actors not spawned; no combat survival claim.",
+  "records": [
+    {
+      "baseline_nodes": 3646,
+      "baseline_sha256": "880d08d9526c153b8cea9ffedeb08c32b3eeda5484399cc4862d7b19afd907e3",
+      "current_nodes": 3646,
+      "current_sha256": "c39f99bfa2aa1cebaf49fddbf6a725a6d04430d72891659f72f5b271d9ae7eb7",
+      "differences": [],
+      "native_resolved_equal": true,
+      "scene": "ash_citadel_01.tscn",
+      "support": {
+        "ammo_support": [
+          {
+            "floor": {
+              "native_bytes": "0900000000000000000000001283a0c2",
+              "type": 9
+            },
+            "kind": "twin_shotgun",
+            "name": "Bait_arena_one",
+            "position": {
+              "native_bytes": "09000000000000006666263f1283a0c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000000000000004017d926c3",
+              "type": 9
+            },
+            "kind": "twin_shotgun",
+            "name": "Bait_arena_two",
+            "position": {
+              "native_bytes": "09000000000000009a99294017d926c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000000e0c00000b0408fc25dc3",
+              "type": 9
+            },
+            "kind": "twin_shotgun",
+            "name": "Bait_final_arena",
+            "position": {
+              "native_bytes": "090000000000e0c0cdccc4408fc25dc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000000023db1941",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f23db1941",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000000083c0e2c1",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_service",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f83c0e2c1",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000448b78c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f448b78c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d12240c200000000068193c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_wing",
+            "position": {
+              "native_bytes": "09000000d12240c20000003f068193c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d12240c2000000007f6acac2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_console",
+            "position": {
+              "native_bytes": "09000000d12240c20000003f7f6acac2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000986ef0c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f986ef0c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000b6f318c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fb6f318c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000014ae434200000000b81e1cc3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_wing",
+            "position": {
+              "native_bytes": "0900000014ae43420000003fb81e1cc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000014ae4342000000007b1441c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_console",
+            "position": {
+              "native_bytes": "0900000014ae43420000003f7b1441c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03fd7a34bc3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_final_arena",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf00000040d7a34bc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000000023db1941",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f23db1941",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000000083c0e2c1",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_service",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f83c0e2c1",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000448b78c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f448b78c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000006abc39c200000000068193c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_wing",
+            "position": {
+              "native_bytes": "090000006abc39c20000003f068193c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000006abc39c2000000007f6acac2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_console",
+            "position": {
+              "native_bytes": "090000006abc39c20000003f7f6acac2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000986ef0c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f986ef0c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000b6f318c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fb6f318c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000007b144a42000000007b1441c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_red_console",
+            "position": {
+              "native_bytes": "090000007b144a420000003f7b1441c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000f0a70641",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003ff0a70641",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf000000001d5aecc1",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_service",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f1d5aecc1",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000000010587dc2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f10587dc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d12240c2000000006de795c2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_key_wing",
+            "position": {
+              "native_bytes": "09000000d12240c20000003f6de795c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d12240c200000000e5d0ccc2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_key_console",
+            "position": {
+              "native_bytes": "09000000d12240c20000003fe5d0ccc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000fed4f2c2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003ffed4f2c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000003ee9261ac3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fe9261ac3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000014ae434200000000ec511dc3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_red_wing",
+            "position": {
+              "native_bytes": "0900000014ae43420000003fec511dc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000014ae434200000000ae4742c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_red_console",
+            "position": {
+              "native_bytes": "0900000014ae43420000003fae4742c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03f0ad74cc3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_final_arena",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000000400ad74cc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000f0a70641",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003ff0a70641",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f000000001d5aecc1",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_service",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f1d5aecc1",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000000010587dc2",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f10587dc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000006abc39c200000000e5d0ccc2",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_key_console",
+            "position": {
+              "native_bytes": "090000006abc39c20000003fe5d0ccc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000fed4f2c2",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003ffed4f2c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000a245014200000000022b87c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_supplies",
+            "position": {
+              "native_bytes": "09000000a24501420000003f022b87c0",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000048e1464200000000a01af7c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_armory",
+            "position": {
+              "native_bytes": "0900000048e146420000003fa01af7c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000f2d2504200000000022b87c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_secret_one",
+            "position": {
+              "native_bytes": "09000000f2d250420000003f022b87c0",
+              "type": 9
+            },
+            "supported": true
+          }
+        ],
+        "entry_actual_movement": [
+          {
+            "distance": 0.419195234775543,
+            "grounded": true,
+            "name": "Supply_pistol_entry",
+            "physics_ticks": 24,
+            "real_input": true
+          },
+          {
+            "distance": 0.41602036356926,
+            "grounded": true,
+            "name": "Supply_shells_entry",
+            "physics_ticks": 14,
+            "real_input": true
+          },
+          {
+            "distance": 0.420267283916473,
+            "grounded": true,
+            "name": "Supply_rivets_entry",
+            "physics_ticks": 21,
+            "real_input": true
+          },
+          {
+            "distance": 0.414206594228745,
+            "grounded": true,
+            "name": "Supply_rockets_entry",
+            "physics_ticks": 19,
+            "real_input": true
+          }
+        ]
+      }
+    },
+    {
+      "baseline_nodes": 3459,
+      "baseline_sha256": "9da1e4a64f885632d9f8e8a8aa54698e16de249dfb775ce06a11229960eb8b9a",
+      "current_nodes": 3459,
+      "current_sha256": "2df2976efd3a56e9658878d4d5afa6f910570f6db2608104b9d877b05c521e5e",
+      "differences": [],
+      "native_resolved_equal": true,
+      "scene": "ash_citadel_02.tscn",
+      "support": {
+        "ammo_support": [
+          {
+            "floor": {
+              "native_bytes": "0900000000000000000000009643bbc2",
+              "type": 9
+            },
+            "kind": "rivet_cannon",
+            "name": "Bait_arena_one",
+            "position": {
+              "native_bytes": "09000000000000006666263f9643bbc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000004a0c0ec200000040378917c3",
+              "type": 9
+            },
+            "kind": "rivet_cannon",
+            "name": "Bait_arena_two",
+            "position": {
+              "native_bytes": "090000004a0c0ec29a992940378917c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000004a0c2ac20000b04054e350c3",
+              "type": 9
+            },
+            "kind": "rivet_cannon",
+            "name": "Bait_final_arena",
+            "position": {
+              "native_bytes": "090000004a0c2ac2cdccc44054e350c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000fed43841",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003ffed43841",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000a24502c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_service",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fa24502c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000e7fb8fc2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fe7fb8fc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000df4f1d42000000008716abc2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_wing",
+            "position": {
+              "native_bytes": "09000000df4f1d420000003f8716abc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000df4f1d4200000000e926ebc2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_console",
+            "position": {
+              "native_bytes": "09000000df4f1d420000003fe926ebc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000000083c00bc3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f83c00bc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000007d3f11c200000000f2d206c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_two",
+            "position": {
+              "native_bytes": "090000007d3f11c20000003ff2d206c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000003f359ac2000000001f850ac3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_wing",
+            "position": {
+              "native_bytes": "090000003f359ac20000003f1f850ac3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000003f359ac200000000508d33c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_console",
+            "position": {
+              "native_bytes": "090000003f359ac20000003f508d33c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000007d3f11c20000c03f7d3f3bc3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_final_arena",
+            "position": {
+              "native_bytes": "090000007d3f11c2000000407d3f3bc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000fed43841",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003ffed43841",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000a24502c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_service",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fa24502c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000e7fb8fc2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fe7fb8fc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000046b62342000000008716abc2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_wing",
+            "position": {
+              "native_bytes": "0900000046b623420000003f8716abc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000046b6234200000000e926ebc2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_console",
+            "position": {
+              "native_bytes": "0900000046b623420000003fe926ebc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000000083c00bc3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f83c00bc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000017d90ac200000000f2d206c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_two",
+            "position": {
+              "native_bytes": "0900000017d90ac20000003ff2d206c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000c0297c2000000001f850ac3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_red_wing",
+            "position": {
+              "native_bytes": "090000000c0297c20000003f1f850ac3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000c0297c200000000508d33c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_red_console",
+            "position": {
+              "native_bytes": "090000000c0297c20000003f508d33c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000cba12541",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fcba12541",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f000000006f1207c2",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_service",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f6f1207c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f000000004e6292c2",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f4e6292c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000046b6234200000000508dedc2",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_key_console",
+            "position": {
+              "native_bytes": "0900000046b623420000003f508dedc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000b6f30cc3",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fb6f30cc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000001283204200000000ec5126c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_pump_room",
+            "position": {
+              "native_bytes": "09000000128320420000003fec5126c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000a4707dc200000000448b6cc3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_secret_two",
+            "position": {
+              "native_bytes": "09000000a4707dc20000003f448b6cc3",
+              "type": 9
+            },
+            "supported": true
+          }
+        ],
+        "entry_actual_movement": [
+          {
+            "distance": 0.419195234775543,
+            "grounded": true,
+            "name": "Supply_pistol_entry",
+            "physics_ticks": 24,
+            "real_input": true
+          },
+          {
+            "distance": 0.41602036356926,
+            "grounded": true,
+            "name": "Supply_shells_entry",
+            "physics_ticks": 14,
+            "real_input": true
+          },
+          {
+            "distance": 0.403770387172699,
+            "grounded": true,
+            "name": "Supply_rockets_entry",
+            "physics_ticks": 11,
+            "real_input": true
+          }
+        ]
+      }
+    },
+    {
+      "baseline_nodes": 3808,
+      "baseline_sha256": "d328b72c684c9359f99c75bd1af30b096b4b130f2a5f8c9d5b8e6b5154ff66b2",
+      "current_nodes": 3808,
+      "current_sha256": "26f5fe7b61182c73965831fe875f3c45e748407b61cc7b487b2eea78e3387dde",
+      "differences": [],
+      "native_resolved_equal": true,
+      "scene": "ash_citadel_03.tscn",
+      "support": {
+        "ammo_support": [
+          {
+            "floor": {
+              "native_bytes": "090000000000000000000000c74bc5c2",
+              "type": 9
+            },
+            "kind": "siege_launcher",
+            "name": "Bait_arena_one",
+            "position": {
+              "native_bytes": "09000000000000006666263fc74bc5c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000000000000004081154dc3",
+              "type": 9
+            },
+            "kind": "siege_launcher",
+            "name": "Bait_arena_two",
+            "position": {
+              "native_bytes": "09000000000000009a99294081154dc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000000e0c00000b0403d4a88c3",
+              "type": 9
+            },
+            "kind": "siege_launcher",
+            "name": "Bait_final_arena",
+            "position": {
+              "native_bytes": "090000000000e0c0cdccc4403d4a88c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000b0724441",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fb0724441",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000a69b08c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_service",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fa69b08c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000426097c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f426097c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000b07239c200000000dd24acc2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_console",
+            "position": {
+              "native_bytes": "09000000b07239c20000003fdd24acc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000f81313c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003ff81313c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000e5503bc3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fe5503bc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d7a33c42000000000c8240c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_console",
+            "position": {
+              "native_bytes": "09000000d7a33c420000003f0c8240c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03fb89e79c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_final_arena",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf00000040b89e79c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000b0724441",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fb0724441",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000a69b08c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_service",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fa69b08c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000426097c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f426097c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000004a0c33c200000000dd24acc2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_console",
+            "position": {
+              "native_bytes": "090000004a0c33c20000003fdd24acc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000f81313c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003ff81313c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000e5503bc3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fe5503bc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000003d0a4342000000000c8240c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_red_console",
+            "position": {
+              "native_bytes": "090000003d0a43420000003f0c8240c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf000000007d3f3141",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f7d3f3141",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000000073680dc2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_service",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f73680dc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000a8c699c2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fa8c699c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000b07239c200000000448baec2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_key_console",
+            "position": {
+              "native_bytes": "09000000b07239c20000003f448baec2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf000000002b4714c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f2b4714c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000000019843cc3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f19843cc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d7a33c42000000003fb541c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_red_console",
+            "position": {
+              "native_bytes": "09000000d7a33c420000003f3fb541c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03fecd17ac3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_final_arena",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf00000040ecd17ac3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000005a64f94100000000dd24a6c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_supplies",
+            "position": {
+              "native_bytes": "090000005a64f9410000003fdd24a6c0",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000ba4906c2000000004c37f940",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_maintenance",
+            "position": {
+              "native_bytes": "09000000ba4906c20000003f4c37f940",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000007d3f36c200000000e13a2fc3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_pump_room",
+            "position": {
+              "native_bytes": "090000007d3f36c20000003fe13a2fc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000ad73f4200000000b2dd17c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_armory",
+            "position": {
+              "native_bytes": "090000000ad73f420000003fb2dd17c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000986e494200000000dd24a6c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_secret_one",
+            "position": {
+              "native_bytes": "09000000986e49420000003fdd24a6c0",
+              "type": 9
+            },
+            "supported": true
+          }
+        ],
+        "entry_actual_movement": [
+          {
+            "distance": 0.419195234775543,
+            "grounded": true,
+            "name": "Supply_pistol_entry",
+            "physics_ticks": 24,
+            "real_input": true
+          },
+          {
+            "distance": 0.41602036356926,
+            "grounded": true,
+            "name": "Supply_shells_entry",
+            "physics_ticks": 14,
+            "real_input": true
+          },
+          {
+            "distance": 0.420267283916473,
+            "grounded": true,
+            "name": "Supply_rivets_entry",
+            "physics_ticks": 21,
+            "real_input": true
+          }
+        ]
+      }
+    },
+    {
+      "baseline_nodes": 3049,
+      "baseline_sha256": "ae028024d044531472ff09ea7083e44a473ce53757a833b94c0a1b184460fdd9",
+      "current_nodes": 3049,
+      "current_sha256": "42ca43acc9c8e61a2245414594b058443e59b90b3c64598811a60bcf858d3040",
+      "differences": [],
+      "native_resolved_equal": true,
+      "scene": "occupied_line_01.tscn",
+      "support": {
+        "ammo_support": [
+          {
+            "floor": {
+              "native_bytes": "09000000000000000000c0bfc807abc2",
+              "type": 9
+            },
+            "kind": "twin_shotgun",
+            "name": "Bait_arena_one",
+            "position": {
+              "native_bytes": "09000000000000009a9959bfc807abc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000000000000003f31c831c3",
+              "type": 9
+            },
+            "kind": "twin_shotgun",
+            "name": "Bait_arena_two",
+            "position": {
+              "native_bytes": "09000000000000003333933f31c831c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000000e0c000004040c14a6cc3",
+              "type": 9
+            },
+            "kind": "twin_shotgun",
+            "name": "Bait_final_arena",
+            "position": {
+              "native_bytes": "090000000000e0c09a996940c14a6cc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000000003092641",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f03092641",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c0bfbc0584c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000080bfbc0584c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000002b184b4200000000dcc69cc2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_wing",
+            "position": {
+              "native_bytes": "090000002b184b420000003fdcc69cc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000002b184b4200000000ba49d7c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_console",
+            "position": {
+              "native_bytes": "090000002b184b420000003fba49d7c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000000044cbffc2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f44cbffc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c0bf796920c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000080bf796920c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000001d5a5cc2000000006d2726c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_wing",
+            "position": {
+              "native_bytes": "090000001d5a5cc20000003f6d2726c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000001d5a5cc20000000037894dc3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_console",
+            "position": {
+              "native_bytes": "090000001d5a5cc20000003f37894dc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000bac958c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_final_arena",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fbac958c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000000003092641",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f03092641",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c0bfbc0584c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000080bfbc0584c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000917e514200000000dcc69cc2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_wing",
+            "position": {
+              "native_bytes": "09000000917e51420000003fdcc69cc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000917e514200000000ba49d7c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_console",
+            "position": {
+              "native_bytes": "09000000917e51420000003fba49d7c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000000044cbffc2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f44cbffc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c0bf796920c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000080bf796920c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000b6f355c20000000037894dc3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_red_console",
+            "position": {
+              "native_bytes": "09000000b6f355c20000003f37894dc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000d0d51241",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fd0d51241",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c0bf226c86c2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000080bf226c86c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000002b184b4200000000432d9fc2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_key_wing",
+            "position": {
+              "native_bytes": "090000002b184b420000003f432d9fc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000002b184b420000000021b0d9c2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_key_console",
+            "position": {
+              "native_bytes": "090000002b184b420000003f21b0d9c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000d51801c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fd51801c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c0bfac9c21c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000080bfac9c21c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000001d5a5cc200000000a05a27c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_red_wing",
+            "position": {
+              "native_bytes": "090000001d5a5cc20000003fa05a27c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000001d5a5cc2000000006abc4ec3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_red_console",
+            "position": {
+              "native_bytes": "090000001d5a5cc20000003f6abc4ec3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000eefc59c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_final_arena",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003feefc59c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000d0d51241",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fd0d51241",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c0bf226c86c2",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000080bf226c86c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000917e51420000000021b0d9c2",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_key_console",
+            "position": {
+              "native_bytes": "09000000917e51420000003f21b0d9c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000d51801c3",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fd51801c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c0bfac9c21c3",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000080bfac9c21c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000018260dc2000000008e0690c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_supplies",
+            "position": {
+              "native_bytes": "0900000018260dc20000003f8e0690c0",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000a301184200000000d509d840",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_maintenance",
+            "position": {
+              "native_bytes": "09000000a30118420000003fd509d840",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000e92659c200000000e3a503c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_armory",
+            "position": {
+              "native_bytes": "09000000e92659c20000003fe3a503c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000750264c2000000008e0690c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_secret_one",
+            "position": {
+              "native_bytes": "09000000750264c20000003f8e0690c0",
+              "type": 9
+            },
+            "supported": true
+          }
+        ],
+        "entry_actual_movement": [
+          {
+            "distance": 0.419195234775543,
+            "grounded": true,
+            "name": "Supply_pistol_entry",
+            "physics_ticks": 24,
+            "real_input": true
+          },
+          {
+            "distance": 0.41602036356926,
+            "grounded": true,
+            "name": "Supply_shells_entry",
+            "physics_ticks": 14,
+            "real_input": true
+          },
+          {
+            "distance": 0.420267283916473,
+            "grounded": true,
+            "name": "Supply_rivets_entry",
+            "physics_ticks": 21,
+            "real_input": true
+          },
+          {
+            "distance": 0.414206594228745,
+            "grounded": true,
+            "name": "Supply_rockets_entry",
+            "physics_ticks": 19,
+            "real_input": true
+          }
+        ]
+      }
+    },
+    {
+      "baseline_nodes": 3152,
+      "baseline_sha256": "87c594752fb8152db579ce851c128659e15093b36e1d3c8e40bdc11961e3eafb",
+      "current_nodes": 3152,
+      "current_sha256": "b3b35360290202151421d4a5dd6ddfc2e7f9821bc0f4fee7c5f5b739b433ad91",
+      "differences": [],
+      "native_resolved_equal": true,
+      "scene": "occupied_line_02.tscn",
+      "support": {
+        "ammo_support": [
+          {
+            "floor": {
+              "native_bytes": "09000000000000000000c0bf3188ccc2",
+              "type": 9
+            },
+            "kind": "rivet_cannon",
+            "name": "Bait_arena_one",
+            "position": {
+              "native_bytes": "09000000000000009a9959bf3188ccc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d04414420000003f4e8225c3",
+              "type": 9
+            },
+            "kind": "rivet_cannon",
+            "name": "Bait_arena_two",
+            "position": {
+              "native_bytes": "09000000d04414423333933f4e8225c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000a089f04100004040f0c765c3",
+              "type": 9
+            },
+            "kind": "rivet_cannon",
+            "name": "Bait_final_arena",
+            "position": {
+              "native_bytes": "09000000a089f0419a996940f0c765c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf000000005bd34c41",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f5bd34c41",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000772d0dc2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_service",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f772d0dc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c0bf0bb59cc2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000080bf0bb59cc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000009a772cc200000000764fbac2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_wing",
+            "position": {
+              "native_bytes": "090000009a772cc20000003f764fbac2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000009a772cc200000000192400c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_console",
+            "position": {
+              "native_bytes": "090000009a772cc20000003f192400c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000ac5c18c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fac5c18c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000009d1111420000c0bf252610c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_two",
+            "position": {
+              "native_bytes": "090000009d111142000080bf252610c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000b459994200000000ac5c18c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_console",
+            "position": {
+              "native_bytes": "09000000b45999420000003fac5c18c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000009d1111420000000077de4dc3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_final_arena",
+            "position": {
+              "native_bytes": "090000009d1111420000003f77de4dc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f000000005bd34c41",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f5bd34c41",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000772d0dc2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_service",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f772d0dc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c0bf0bb59cc2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000080bf0bb59cc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000341126c200000000764fbac2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_wing",
+            "position": {
+              "native_bytes": "09000000341126c20000003f764fbac2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000341126c200000000192400c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_console",
+            "position": {
+              "native_bytes": "09000000341126c20000003f192400c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000ac5c18c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fac5c18c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000037817420000c0bf252610c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_two",
+            "position": {
+              "native_bytes": "0900000003781742000080bf252610c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000e78c9c4200000000ac5c18c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_red_console",
+            "position": {
+              "native_bytes": "09000000e78c9c420000003fac5c18c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000000027a03941",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f27a03941",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000000044fa11c2",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_service",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f44fa11c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c0bf711b9fc2",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000080bf711b9fc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000341126c2000000004c5701c3",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_key_console",
+            "position": {
+              "native_bytes": "09000000341126c20000003f4c5701c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000df8f19c3",
+              "type": 9
+            },
+            "kind": "rockets",
+            "name": "Supply_rockets_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fdf8f19c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000f9a0e741000000009f3cacc0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_supplies",
+            "position": {
+              "native_bytes": "09000000f9a0e7410000003f9f3cacc0",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000674429c200000000f0a735c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_pump_room",
+            "position": {
+              "native_bytes": "09000000674429c20000003ff0a735c3",
+              "type": 9
+            },
+            "supported": true
+          }
+        ],
+        "entry_actual_movement": [
+          {
+            "distance": 0.419195234775543,
+            "grounded": true,
+            "name": "Supply_pistol_entry",
+            "physics_ticks": 24,
+            "real_input": true
+          },
+          {
+            "distance": 0.41602036356926,
+            "grounded": true,
+            "name": "Supply_shells_entry",
+            "physics_ticks": 14,
+            "real_input": true
+          },
+          {
+            "distance": 0.403769969940186,
+            "grounded": true,
+            "name": "Supply_rockets_entry",
+            "physics_ticks": 11,
+            "real_input": true
+          }
+        ]
+      }
+    },
+    {
+      "baseline_nodes": 2951,
+      "baseline_sha256": "59330d0a818df98fb8d1673f4f0a62611f686c0ed3df4d1b422a43bb288811ab",
+      "current_nodes": 2951,
+      "current_sha256": "73e3d63712dee064c6753412c771ad9193c18b0a0681e1940bd44b0878cb20dc",
+      "differences": [],
+      "native_resolved_equal": true,
+      "scene": "occupied_line_03.tscn",
+      "support": {
+        "ammo_support": [
+          {
+            "floor": {
+              "native_bytes": "09000000000000000000c0bf17b7c3c2",
+              "type": 9
+            },
+            "kind": "siege_launcher",
+            "name": "Bait_arena_one",
+            "position": {
+              "native_bytes": "09000000000000009a9959bf17b7c3c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000000000000003fe5704bc3",
+              "type": 9
+            },
+            "kind": "siege_launcher",
+            "name": "Bait_arena_two",
+            "position": {
+              "native_bytes": "09000000000000003333933fe5704bc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000000e0c000004040b03287c3",
+              "type": 9
+            },
+            "kind": "siege_launcher",
+            "name": "Bait_final_arena",
+            "position": {
+              "native_bytes": "090000000000e0c09a996940b03287c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf000000001b9e4241",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f1b9e4241",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf000000000f9c07c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_service",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f0f9c07c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c0bf113696c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000080bf113696c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000e48340420000000014d0aac2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_console",
+            "position": {
+              "native_bytes": "09000000e48340420000003f14d0aac2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf000000008bec11c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f8bec11c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c0bf892137c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000080bf892137c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000004c3751c20000000071fd3ec3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_console",
+            "position": {
+              "native_bytes": "090000004c3751c20000003f71fd3ec3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000dda477c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_final_arena",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fdda477c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f000000001b9e4241",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f1b9e4241",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f000000000f9c07c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_service",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f0f9c07c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c0bf113696c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000080bf113696c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000004bea46420000000014d0aac2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_console",
+            "position": {
+              "native_bytes": "090000004bea46420000003f14d0aac2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f000000008bec11c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f8bec11c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c0bf892137c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000080bf892137c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000e5d04ac20000000071fd3ec3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_red_console",
+            "position": {
+              "native_bytes": "09000000e5d04ac20000003f71fd3ec3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000e86a2f41",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fe86a2f41",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000dc680cc2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_service",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fdc680cc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c0bf789c98c2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000080bf789c98c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000e4834042000000007a36adc2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_key_console",
+            "position": {
+              "native_bytes": "09000000e48340420000003f7a36adc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000be1f13c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fbe1f13c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c0bfbc5438c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000080bfbc5438c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000004c3751c200000000a43040c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_red_console",
+            "position": {
+              "native_bytes": "090000004c3751c20000003fa43040c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000000010d878c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_final_arena",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f10d878c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000017b743420000000075d32dc3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_pump_room",
+            "position": {
+              "native_bytes": "0900000017b743420000003f75d32dc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000001a5158c20000000014d0a4c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_secret_one",
+            "position": {
+              "native_bytes": "090000001a5158c20000003f14d0a4c0",
+              "type": 9
+            },
+            "supported": true
+          }
+        ],
+        "entry_actual_movement": [
+          {
+            "distance": 0.419195234775543,
+            "grounded": true,
+            "name": "Supply_pistol_entry",
+            "physics_ticks": 24,
+            "real_input": true
+          },
+          {
+            "distance": 0.41602036356926,
+            "grounded": true,
+            "name": "Supply_shells_entry",
+            "physics_ticks": 14,
+            "real_input": true
+          },
+          {
+            "distance": 0.420267283916473,
+            "grounded": true,
+            "name": "Supply_rivets_entry",
+            "physics_ticks": 21,
+            "real_input": true
+          }
+        ]
+      }
+    },
+    {
+      "baseline_nodes": 2897,
+      "baseline_sha256": "6f03d137b5be757b1ddcf1583eff745ef106f8929ecbfe78329f57cdab4f82b9",
+      "current_nodes": 2897,
+      "current_sha256": "4e67a603435d983c340df1425037d3339e4d1daf88d9acdfb9965e470a8470da",
+      "differences": [],
+      "native_resolved_equal": true,
+      "scene": "pale_ward_01.tscn",
+      "support": {
+        "ammo_support": [
+          {
+            "floor": {
+              "native_bytes": "0900000000000000000080bf000098c2",
+              "type": 9
+            },
+            "kind": "twin_shotgun",
+            "name": "Bait_arena_one",
+            "position": {
+              "native_bytes": "09000000000000003333b3be000098c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000000000000004000001ec3",
+              "type": 9
+            },
+            "kind": "twin_shotgun",
+            "name": "Bait_arena_two",
+            "position": {
+              "native_bytes": "09000000000000009a99294000001ec3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000000e0c000008040000052c3",
+              "type": 9
+            },
+            "kind": "twin_shotgun",
+            "name": "Bait_final_arena",
+            "position": {
+              "native_bytes": "090000000000e0c0cdcc9440000052c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000000000001041",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f00001041",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03f0000d8c1",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_service",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000000400000d8c1",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d0cc4cbf000080bf00006cc2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000000bf00006cc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc14420000c03f00008cc2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_wing",
+            "position": {
+              "native_bytes": "09000000cdcc14420000004000008cc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc14420000c03f0000c0c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_console",
+            "position": {
+              "native_bytes": "09000000cdcc1442000000400000c0c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03f0000e4c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000000400000e4c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000003e000011c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f000011c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000333323c20000c03f000014c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_wing",
+            "position": {
+              "native_bytes": "09000000333323c200000040000014c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000333323c20000c03f000037c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_console",
+            "position": {
+              "native_bytes": "09000000333323c200000040000037c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03f000041c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_final_arena",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf00000040000041c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000000000001041",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f00001041",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c03f0000d8c1",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_service",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000000400000d8c1",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d0cc4c3f000080bf00006cc2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000000bf00006cc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000033331b420000c03f00008cc2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_wing",
+            "position": {
+              "native_bytes": "0900000033331b420000004000008cc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000033331b420000c03f0000c0c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_console",
+            "position": {
+              "native_bytes": "0900000033331b42000000400000c0c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c03f0000e4c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000000400000e4c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000003e000011c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f000011c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000000d0c100000000000080c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_supplies",
+            "position": {
+              "native_bytes": "090000000000d0c10000003f000080c0",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000000e041000000000000c040",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_maintenance",
+            "position": {
+              "native_bytes": "090000000000e0410000003f0000c040",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000018420000c03f000007c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_pump_room",
+            "position": {
+              "native_bytes": "090000000000184200000040000007c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000020c20000c03f0000eac2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_armory",
+            "position": {
+              "native_bytes": "09000000000020c2000000400000eac2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000028c200000000000080c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_secret_one",
+            "position": {
+              "native_bytes": "09000000000028c20000003f000080c0",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000070c20000c03f000040c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_secret_two",
+            "position": {
+              "native_bytes": "09000000000070c200000040000040c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000000000000000000008040",
+              "type": 9
+            },
+            "kind": "twin_shotgun",
+            "name": "FirstGunCache",
+            "position": {
+              "native_bytes": "09000000000000006666263f00008040",
+              "type": 9
+            },
+            "supported": true
+          }
+        ],
+        "entry_actual_movement": [
+          {
+            "distance": 0.419195234775543,
+            "grounded": true,
+            "name": "Supply_pistol_entry",
+            "physics_ticks": 24,
+            "real_input": true
+          },
+          {
+            "distance": 0.41602036356926,
+            "grounded": true,
+            "name": "Supply_shells_entry",
+            "physics_ticks": 14,
+            "real_input": true
+          }
+        ]
+      }
+    },
+    {
+      "baseline_nodes": 2594,
+      "baseline_sha256": "3ce7ac376bf423ba744e7791dfe9fe29d84781a7ebef13875ebe8ae680afc1ea",
+      "current_nodes": 2594,
+      "current_sha256": "338f07fba76d50676073a98346ab32684d9bed22fa525f914898e424b9d73c8a",
+      "differences": [],
+      "native_resolved_equal": true,
+      "scene": "pale_ward_02.tscn",
+      "support": {
+        "ammo_support": [
+          {
+            "floor": {
+              "native_bytes": "0900000000000000000080bfd7a3a2c2",
+              "type": 9
+            },
+            "kind": "rivet_cannon",
+            "name": "Bait_arena_one",
+            "position": {
+              "native_bytes": "09000000000000003333b3bed7a3a2c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000ae47194200000040299c03c3",
+              "type": 9
+            },
+            "kind": "rivet_cannon",
+            "name": "Bait_arena_two",
+            "position": {
+              "native_bytes": "09000000ae4719429a992940299c03c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000005c8ffa4100008040482137c3",
+              "type": 9
+            },
+            "kind": "rivet_cannon",
+            "name": "Bait_final_arena",
+            "position": {
+              "native_bytes": "090000005c8ffa41cdcc9440482137c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000ec511c41",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fec511c41",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03fa470e5c1",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_service",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf00000040a470e5c1",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d0cc4cbf000080bf14ae7bc2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000000bf14ae7bc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000001f8533c20000c03fc3f58ec2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_console",
+            "position": {
+              "native_bytes": "090000001f8533c200000040c3f58ec2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03f3d8af3c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000000403d8af3c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000007b14164200000000e1faeac2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_two",
+            "position": {
+              "native_bytes": "090000007b1416420000003fe1faeac2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000ae47a3420000c03f6666f1c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_wing",
+            "position": {
+              "native_bytes": "09000000ae47a342000000406666f1c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000ae47a3420000c03f1f851dc3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_console",
+            "position": {
+              "native_bytes": "09000000ae47a342000000401f851dc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f00000000ec511c41",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003fec511c41",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c03fa470e5c1",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_service",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f00000040a470e5c1",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000c8cc4c3f000080bf14ae7bc2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000000bf14ae7bc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000b81e2dc20000c03fc3f58ec2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_console",
+            "position": {
+              "native_bytes": "09000000b81e2dc200000040c3f58ec2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c03f3d8af3c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000000403d8af3c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000e17a1c4200000000e1faeac2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_two",
+            "position": {
+              "native_bytes": "09000000e17a1c420000003fe1faeac2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000e17aa6420000c03f6666f1c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_red_wing",
+            "position": {
+              "native_bytes": "09000000e17aa642000000406666f1c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000e17aa6420000c03f1f851dc3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_red_console",
+            "position": {
+              "native_bytes": "09000000e17aa642000000401f851dc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000ae47f14100000000c3f588c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_supplies",
+            "position": {
+              "native_bytes": "09000000ae47f1410000003fc3f588c0",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000048e1424200000000c3f588c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_secret_one",
+            "position": {
+              "native_bytes": "0900000048e142420000003fc3f588c0",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000000000000000000008040",
+              "type": 9
+            },
+            "kind": "rivet_cannon",
+            "name": "FirstGunCache",
+            "position": {
+              "native_bytes": "09000000000000006666263f00008040",
+              "type": 9
+            },
+            "supported": true
+          }
+        ],
+        "entry_actual_movement": [
+          {
+            "distance": 0.419195234775543,
+            "grounded": true,
+            "name": "Supply_pistol_entry",
+            "physics_ticks": 24,
+            "real_input": true
+          },
+          {
+            "distance": 0.41602036356926,
+            "grounded": true,
+            "name": "Supply_shells_entry",
+            "physics_ticks": 14,
+            "real_input": true
+          }
+        ]
+      }
+    },
+    {
+      "baseline_nodes": 2398,
+      "baseline_sha256": "73f609a1693dec615d982f31c49dfbe405d038d19a822e6bc9f826bc460de884",
+      "current_nodes": 2398,
+      "current_sha256": "582e3ef03a5e901e41474bd3d33f7d76bbe2685ecb1bccaf07139c6bd060d10c",
+      "differences": [],
+      "native_resolved_equal": true,
+      "scene": "pale_ward_03.tscn",
+      "support": {
+        "ammo_support": [
+          {
+            "floor": {
+              "native_bytes": "0900000000000000000080bf295cb3c2",
+              "type": 9
+            },
+            "kind": "siege_launcher",
+            "name": "Bait_arena_one",
+            "position": {
+              "native_bytes": "09000000000000003333b3be295cb3c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000000000000000040a4703ac3",
+              "type": 9
+            },
+            "kind": "siege_launcher",
+            "name": "Bait_arena_two",
+            "position": {
+              "native_bytes": "09000000000000009a992940a4703ac3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000000000e0c000008040cdcc77c3",
+              "type": 9
+            },
+            "kind": "siege_launcher",
+            "name": "Bait_final_arena",
+            "position": {
+              "native_bytes": "090000000000e0c0cdcc9440cdcc77c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000000014ae2f41",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f14ae2f41",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d0cc4cbf000080bff6288ac2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000000bff6288ac2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000666630420000c03fb81ea4c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_wing",
+            "position": {
+              "native_bytes": "090000006666304200000040b81ea4c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000666630420000c03fe17ae1c2",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_key_console",
+            "position": {
+              "native_bytes": "090000006666304200000040e17ae1c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03fe1fa05c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf00000040e1fa05c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf000000005c8f2ac3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f5c8f2ac3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000033332bc20000c03f9a192ec3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_wing",
+            "position": {
+              "native_bytes": "0900000033332bc2000000409a192ec3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000033332bc20000c03f666657c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_red_console",
+            "position": {
+              "native_bytes": "0900000033332bc200000040666657c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03f333363c3",
+              "type": 9
+            },
+            "kind": "pistol",
+            "name": "Supply_pistol_final_arena",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf00000040333363c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000000014ae2f41",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f14ae2f41",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d0cc4c3f000080bff6288ac2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f000000bff6288ac2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc36420000c03fb81ea4c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_wing",
+            "position": {
+              "native_bytes": "09000000cdcc364200000040b81ea4c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc36420000c03fe17ae1c2",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_key_console",
+            "position": {
+              "native_bytes": "09000000cdcc364200000040e17ae1c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f0000c03fe1fa05c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f00000040e1fa05c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4c3f000000005c8f2ac3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4c3f0000003f5c8f2ac3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc24c20000c03f9a192ec3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_red_wing",
+            "position": {
+              "native_bytes": "09000000cdcc24c2000000409a192ec3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc24c20000c03f666657c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Supply_shells_red_console",
+            "position": {
+              "native_bytes": "09000000cdcc24c200000040666657c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf00000000e17a1c41",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_entry",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003fe17a1c41",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000d0cc4cbf000080bf5c8f8cc2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_arena_one",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf000000bf5c8f8cc2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000666630420000c03f1f85a6c2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_key_wing",
+            "position": {
+              "native_bytes": "0900000066663042000000401f85a6c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000666630420000c03f48e1e3c2",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_key_console",
+            "position": {
+              "native_bytes": "09000000666630420000004048e1e3c2",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf0000c03f142e07c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_spine",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf00000040142e07c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000cdcc4cbf000000008fc22bc3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_arena_two",
+            "position": {
+              "native_bytes": "09000000cdcc4cbf0000003f8fc22bc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000033332bc20000c03fcd4c2fc3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_red_wing",
+            "position": {
+              "native_bytes": "0900000033332bc200000040cd4c2fc3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000033332bc20000c03f9a9958c3",
+              "type": 9
+            },
+            "kind": "rivets",
+            "name": "Supply_rivets_red_console",
+            "position": {
+              "native_bytes": "0900000033332bc2000000409a9958c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000006666dac1000000003d0a97c0",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_supplies",
+            "position": {
+              "native_bytes": "090000006666dac10000003f3d0a97c0",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "090000003333eb41000000005c8fe240",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_maintenance",
+            "position": {
+              "native_bytes": "090000003333eb410000003f5c8fe240",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "0900000000007cc20000c03f5c8f62c3",
+              "type": 9
+            },
+            "kind": "shells",
+            "name": "Bonus_secret_two",
+            "position": {
+              "native_bytes": "0900000000007cc2000000405c8f62c3",
+              "type": 9
+            },
+            "supported": true
+          },
+          {
+            "floor": {
+              "native_bytes": "09000000000000000000000000008040",
+              "type": 9
+            },
+            "kind": "siege_launcher",
+            "name": "FirstGunCache",
+            "position": {
+              "native_bytes": "09000000000000006666263f00008040",
+              "type": 9
+            },
+            "supported": true
+          }
+        ],
+        "entry_actual_movement": [
+          {
+            "distance": 0.419195234775543,
+            "grounded": true,
+            "name": "Supply_pistol_entry",
+            "physics_ticks": 24,
+            "real_input": true
+          },
+          {
+            "distance": 0.41602036356926,
+            "grounded": true,
+            "name": "Supply_shells_entry",
+            "physics_ticks": 14,
+            "real_input": true
+          },
+          {
+            "distance": 0.420267283916473,
+            "grounded": true,
+            "name": "Supply_rivets_entry",
+            "physics_ticks": 21,
+            "real_input": true
+          }
+        ]
+      }
+    }
+  ]
+}

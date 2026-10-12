@@ -561,15 +561,15 @@
   "weapon_cache": {
     "arena_one": {
       "weapon": "siege_launcher",
-      "ammo": 8
+      "ammo": 2
     },
     "arena_two": {
       "weapon": "siege_launcher",
-      "ammo": 8
+      "ammo": 2
     },
     "final_arena": {
       "weapon": "siege_launcher",
-      "ammo": 8
+      "ammo": 2
     }
   },
   "optional_rooms": [
@@ -586,12 +586,85 @@
     "service",
     "arena_one",
     "key_console",
+    "spine",
+    "arena_two",
+    "red_console",
+    "final_arena"
+  ],
+  "vital_supply_rooms": [
+    "entry",
+    "service",
+    "arena_one",
+    "key_console",
     "return_store",
     "spine",
     "arena_two",
     "red_console",
     "final_arena"
   ],
+  "ammo_target": {
+    "pistol": 64,
+    "shells": 36,
+    "rivets": 72,
+    "rockets": 8
+  },
+  "supply_allocation": {
+    "pistol": {
+      "entry": 20,
+      "service": 8,
+      "arena_one": 11,
+      "key_console": 7,
+      "spine": 7,
+      "arena_two": 7,
+      "red_console": 3,
+      "final_arena": 1
+    },
+    "shells": {
+      "entry": 11,
+      "service": 5,
+      "arena_one": 6,
+      "key_console": 4,
+      "spine": 4,
+      "arena_two": 4,
+      "red_console": 2
+    },
+    "rivets": {
+      "entry": 22,
+      "service": 9,
+      "arena_one": 12,
+      "key_console": 8,
+      "spine": 8,
+      "arena_two": 8,
+      "red_console": 4,
+      "final_arena": 1
+    },
+    "rockets": {
+      "entry": 1,
+      "arena_one": 1
+    },
+    "health": {
+      "entry": 25,
+      "service": 25,
+      "arena_one": 25,
+      "key_console": 25,
+      "return_store": 24,
+      "spine": 24,
+      "arena_two": 24,
+      "red_console": 24,
+      "final_arena": 24
+    },
+    "armor": {
+      "entry": 20,
+      "service": 20,
+      "arena_one": 20,
+      "key_console": 20,
+      "return_store": 20,
+      "spine": 20,
+      "arena_two": 20,
+      "red_console": 20,
+      "final_arena": 20
+    }
+  },
   "campaign_level_id": "ash_citadel_03",
   "theme": "ash_citadel",
   "title": "Black Reliquary",

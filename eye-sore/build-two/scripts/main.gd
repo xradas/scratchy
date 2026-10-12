@@ -294,6 +294,9 @@ func layout_view() -> void:
 	damage_overlay.position = world_image.position
 	hud.position = world_image.position + Vector2(12, world_image.size.y - 68)
 	hud.size = Vector2(world_image.size.x - 24, 58)
+	# UI stays at native size in normal windows and scales down with a smaller
+	# letterboxed viewport so the two campaign lines never run off the frame.
+	hud.add_theme_font_size_override("font_size", clampi(int(floorf(world_image.size.x * 18.0 / 640.0)), 9, 18))
 	crosshair.size = Vector2(24, 24)
 	crosshair.position = world_image.position + world_image.size * 0.5 - crosshair.size * 0.5
 	if is_instance_valid(automap):
@@ -619,10 +622,23 @@ func _process(delta: float) -> void:
 		if weapon_hint_time > 0.0: status.text += "\n" + weapon_hint
 		if automap.visible:
 			automap.update_map(level_state, player.global_position, player.rotation.y)
-	var heavy_ammo := ""
-	if state.owned_weapons.has("rivet_cannon"): heavy_ammo += "    RIVETS %d" % state.ammo_rivets
-	if state.owned_weapons.has("siege_launcher"): heavy_ammo += "    ROCKETS %d" % state.ammo_rockets
-	hud.text = "HEALTH %d    ARMOR %d    PISTOL %d    SHELLS %d\n%s    KILLS %d/%d%s" % [state.health, state.armor, state.ammo_pistol, state.ammo_shotgun, String(state.weapon_id).replace("_", " ").to_upper(), state.kills, state.total_enemies, heavy_ammo]
+	if campaign_mode:
+		var weapon_id: StringName = state.weapon_id
+		var ammo_kind: StringName = &""
+		var ammo_amount := 0
+		match weapon_id:
+			&"pistol": ammo_kind = &"pistol"; ammo_amount = int(state.ammo_pistol)
+			&"shotgun", &"twin_shotgun": ammo_kind = &"shells"; ammo_amount = int(state.ammo_shotgun)
+			&"rivet_cannon": ammo_kind = &"rivets"; ammo_amount = int(state.ammo_rivets)
+			&"siege_launcher": ammo_kind = &"rockets"; ammo_amount = int(state.ammo_rockets)
+		var weapon_label := String(weapon_id).replace("_", " ").to_upper()
+		var ammo_label := "READY" if ammo_kind == &"" else "AMMO %d/%d" % [ammo_amount, combat.ammo_capacity(ammo_kind)]
+		hud.text = "HEALTH %d    ARMOR %d    KILLS %d/%d\n%s    %s" % [state.health, state.armor, state.kills, state.total_enemies, weapon_label, ammo_label]
+	else:
+		var heavy_ammo := ""
+		if state.owned_weapons.has("rivet_cannon"): heavy_ammo += "    RIVETS %d" % state.ammo_rivets
+		if state.owned_weapons.has("siege_launcher"): heavy_ammo += "    ROCKETS %d" % state.ammo_rockets
+		hud.text = "HEALTH %d    ARMOR %d    PISTOL %d    SHELLS %d\n%s    KILLS %d/%d%s" % [state.health, state.armor, state.ammo_pistol, state.ammo_shotgun, String(state.weapon_id).replace("_", " ").to_upper(), state.kills, state.total_enemies, heavy_ammo]
 	var path: String = state.get("weapon_visual_path", "")
 	var atlas_definition: Dictionary = art_data.get("weapon_atlases", {}).get(String(state.weapon_id), {})
 	if not path.is_empty():

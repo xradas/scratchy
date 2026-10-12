@@ -8,6 +8,204 @@ var route_path := ""
 var current_route_room := "entry"
 var all_levels := "--campaign-all-levels" in OS.get_cmdline_user_args()
 var campaign_receipts: Array[Dictionary] = []
+var peak_ammo: Dictionary = {}
+var accepted_ammo: Dictionary = {}
+var siege_self_hits := 0
+var last_player_hurt: Dictionary = {}
+
+func ammo_state() -> Dictionary:
+	return {"pistol": combat.ammo_pistol, "shells": combat.ammo_shotgun, "rivets": combat.ammo_rivets, "rockets": combat.ammo_rockets}
+
+func ammo_caps() -> Dictionary:
+	return {"pistol": combat.ammo_capacity(&"pistol"), "shells": combat.ammo_capacity(&"shells"), "rivets": combat.ammo_capacity(&"rivets"), "rockets": combat.ammo_capacity(&"rockets")}
+
+func reset_ammo_ledger() -> void:
+	peak_ammo = ammo_state()
+	accepted_ammo = {"pistol": 0, "shells": 0, "rivets": 0, "rockets": 0}
+	siege_self_hits = 0
+	last_player_hurt.clear()
+	sample_ammo()
+
+func sample_ammo() -> void:
+	var values := ammo_state()
+	var capacities := ammo_caps()
+	for kind in values:
+		peak_ammo[kind] = maxi(int(peak_ammo.get(kind, 0)), int(values[kind]))
+		if int(values[kind]) < 0 or int(values[kind]) > int(capacities[kind]):
+			require(false, "Campaign ammo outside capacity: %s=%d/%d" % [kind, values[kind], capacities[kind]])
+
+func observe_weapon_event(event: Dictionary) -> void:
+	super.observe_weapon_event(event)
+	if String(event.get("type", "")) == "ammo_added":
+		var kind := String(event.get("ammo_kind", ""))
+		kind = "shells" if kind == "ammo_shotgun" else kind.trim_prefix("ammo_")
+		if accepted_ammo.has(kind): accepted_ammo[kind] = int(accepted_ammo[kind]) + int(event.get("amount", 0))
+	if String(event.get("type", "")) == "player_hurt" and String(event.get("source_id", "")) == "player_siege_launcher": siege_self_hits += 1
+	if String(event.get("type", "")) == "player_hurt": last_player_hurt = {"source_id": String(event.get("source_id", "")), "damage": float(event.get("damage", 0)), "physics_tick": Engine.get_physics_frames()}
+	if String(event.get("type", "")) in ["ammo_added", "weapon_granted", "shot"]: sample_ammo()
+
+func failure_state() -> Dictionary:
+	var living: Array[Dictionary] = []
+	for enemy in combat.enemies:
+		if enemy.dead: continue
+		living.append({"id": String(enemy.target_id), "position": enemy.global_position, "arena": String(enemy.get_meta("arena_id", "")), "awake": enemy.awake})
+	return {"player_position": player.global_position, "health": combat.health, "armor": combat.armor, "ammo": ammo_state(), "weapon": String(combat.currentweapon), "arena_remaining": world.arena_remaining.duplicate(), "living_enemies": living, "last_player_hurt": last_player_hurt.duplicate(), "siege_self_hits": siege_self_hits}
+
+func siege_has_safe_swept_path(target: CharacterBody3D, distance: float) -> bool:
+	# Match the actual 0.09 m swept projectile, including moving doors, stair
+	# edges and other enemies. A visible target is insufficient if nearby
+	# geometry would detonate the round inside its self-damage radius.
+	var definition: WeaponDefinition = combat.weapons[&"siege_launcher"]
+	var origin: Vector3 = player.camera.global_position
+	var direction: Vector3 = -player.camera.global_basis.z
+	var sweep := SphereShape3D.new()
+	sweep.radius = 0.09
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = sweep
+	query.transform = Transform3D(Basis.IDENTITY, origin)
+	query.motion = direction * minf(distance + 2.0, definition.range_units)
+	query.collision_mask = 15
+	query.exclude = combat.anatomical_exclusions()
+	var space := player.get_world_3d().direct_space_state
+	if not space.intersect_shape(query, 1).is_empty(): return false
+	var fractions: PackedFloat32Array = space.cast_motion(query)
+	if fractions[0] >= 1.0: return false
+	var impact_distance: float = query.motion.length() * fractions[0]
+	if impact_distance <= definition.blast_radius + 2.0: return false
+	query.transform.origin = origin + query.motion * minf(1.0, fractions[1] + 0.002)
+	query.motion = Vector3.ZERO
+	var contact: Dictionary = space.get_rest_info(query)
+	if contact.is_empty(): return false
+	var collider: Object = instance_from_id(int(contact.collider_id))
+	if collider == null: return false
+	var hit_target: Object = collider.get_meta("combat_target") if collider.has_meta("combat_target") else collider
+	return hit_target == target or (hit_target.has_method("apply_damage") and not hit_target.dead)
+
+func choose_weapon(target: CharacterBody3D, distance: float) -> StringName:
+	if not heavy_mode:
+		var ordinary: StringName = super.choose_weapon(target, distance)
+		var species := String(target.definition.identifier)
+		if combat.has_weapon(&"rivet_cannon") and combat.ammo_rivets > 0 and distance > 7.0 and distance < 36.0 and species in ["censer", "vessel", "ironbound"]:
+			return &"rivet_cannon"
+		if ordinary != &"melee": return ordinary
+		# The baseline route conserves specialist ammunition until its carried
+		# pistol and shell pools are empty; it never pretends an owned gun is out
+		# of reach when its real ammunition is still in the pack.
+		if combat.has_weapon(&"rivet_cannon") and combat.ammo_rivets > 0: return &"rivet_cannon"
+		if combat.has_weapon(&"siege_launcher") and combat.ammo_rockets > 0 and distance > 10.0 and distance < 28.0 and target.can_see_player() and siege_has_safe_swept_path(target, distance): return &"siege_launcher"
+		return ordinary
+	var nearby := 0
+	for enemy in combat.enemies:
+		if not enemy.dead and enemy.global_position.distance_to(target.global_position) < 4.8:
+			nearby += 1
+	# Save the scarce launcher for visible groups or a tough ranged threat, and
+	# keep its blast safely away from the player. This is bot policy, not damage.
+	var only_rockets_left: bool = combat.ammo_pistol == 0 and combat.ammo_shotgun == 0 and combat.ammo_rivets == 0
+	if combat.has_weapon(&"siege_launcher") and combat.ammo_rockets > 0 and distance > 10.0 and distance < 28.0 and (nearby >= 2 or only_rockets_left) and target.can_see_player() and siege_has_safe_swept_path(target, distance):
+		return &"siege_launcher"
+	if combat.has_weapon(&"twin_shotgun") and combat.ammo_shotgun >= 2 and distance < 7.0:
+		return &"twin_shotgun"
+	if combat.has_weapon(&"rivet_cannon") and combat.ammo_rivets > 0 and distance >= 8.0 and distance < 36.0:
+		return &"rivet_cannon"
+	if combat.ammo_shotgun > 0 and distance < 17.0: return &"shotgun"
+	if combat.ammo_pistol > 0: return &"pistol"
+	if combat.ammo_shotgun > 0: return &"shotgun"
+	if combat.has_weapon(&"rivet_cannon") and combat.ammo_rivets > 0: return &"rivet_cannon"
+	return &"melee"
+
+func walk(point: Vector3, label: String) -> bool:
+	# Keep physical movement committed to the authored waypoint while the
+	# camera aims and fires at visible threats. The generic walker's combat
+	# strafe can otherwise chase a target indefinitely and abandon the route.
+	# AI, damage, ammunition and real weapon rays remain active throughout.
+	var start := ticks
+	while horizontal(player.global_position, point) > 0.28:
+		if combat.dead or ticks - start > 3600:
+			failures.append(label + (": player died" if combat.dead else ": traversal stalled at " + str(player.global_position)))
+			stop()
+			return false
+		await travel_tick(point)
+	stop()
+	for frame in 5: await get_tree().physics_frame
+	world.update_player(player, combat)
+	records.append({"segment": label, "ticks": ticks - start, "position": player.global_position, "health": combat.health, "armor": combat.armor, "pistol": combat.ammo_pistol, "shells": combat.ammo_shotgun, "rivets": combat.ammo_rivets, "rockets": combat.ammo_rockets, "kills": combat.kills})
+	return true
+
+func travel_tick(destination: Vector3) -> void:
+	stop()
+	var direction: Vector3 = destination - player.global_position
+	var progress := Vector2(direction.x, direction.z).length()
+	player.rotation.y = atan2(-direction.x, -direction.z)
+	var target: CharacterBody3D = closest_enemy()
+	if target != null:
+		player.camera.look_at(target.global_position + Vector3(0, 0.28, 0))
+		var distance := horizontal(target.global_position, player.global_position)
+		var weapon: StringName = choose_weapon(target, distance)
+		if combat.currentweapon != weapon: combat.select_weapon(weapon)
+		else: combat.try_fire()
+	else:
+		player.camera.rotation = Vector3.ZERO
+	key(KEY_W, progress > 0.23)
+	await get_tree().physics_frame
+	ticks += 1
+
+func tick(destination: Vector3, fight := true) -> void:
+	if fight and combat.has_weapon(&"siege_launcher") and combat.ammo_rockets > 0 and combat.ammo_pistol == 0 and combat.ammo_shotgun == 0 and combat.ammo_rivets == 0:
+		var target: CharacterBody3D = closest_enemy()
+		if target != null:
+			var distance := horizontal(target.global_position, player.global_position)
+			if distance < 28.0 and (distance < 11.0 or not siege_has_safe_swept_path(target, distance)):
+				# A loaded but unsafe launcher is not a reason to charge with
+				# melee. Reposition physically until the swept blast lane clears.
+				stop()
+				var offset: Vector3 = target.global_position - player.global_position
+				player.rotation.y = atan2(-offset.x, -offset.z)
+				player.camera.look_at(target.global_position + Vector3(0, 0.28, 0))
+				if distance < 11.0 and not player.test_move(player.global_transform, player.global_basis.z * 0.6):
+					key(KEY_S, true)
+				else:
+					var lateral: Vector3 = player.global_basis.x * avoid_side
+					if player.test_move(player.global_transform, lateral * 0.8): avoid_side *= -1
+					key(KEY_D if avoid_side > 0 else KEY_A, true)
+				await get_tree().physics_frame
+				ticks += 1
+				return
+	await super.tick(destination, fight)
+
+func interior_exposure(id: String) -> bool:
+	# Search the inner floor from the traversable north rim, approaching the
+	# last occluded arena targets from ahead of their live positions. Side
+	# flanks alone cannot see behind some central plinths/gallery supports.
+	var room: Dictionary = route.rooms[id]
+	var center: Vector3 = vector(room.center)
+	var north: Vector3 = room_center(id)
+	if not await return_to_arena_staging(id): return false
+	for enemy in combat.enemies:
+		if enemy.dead or String(enemy.get_meta("arena_id", "")) != id: continue
+		var approach_x := clampf(enemy.global_position.x, center.x - 4.0, center.x + 4.0)
+		var approach_z := clampf(enemy.global_position.z + 4.0, center.z - 8.0, north.z - 2.0)
+		if not await walk(Vector3(approach_x, center.y, north.z), "Interior north lane " + id): return false
+		if not await walk(Vector3(approach_x, center.y, approach_z), "Interior exposure " + id): return false
+		for frame in 180:
+			if enemy.dead or int(world.arena_remaining.get(id, 0)) == 0: break
+			if closest_enemy() == null: break
+			await tick(Vector3(approach_x, center.y, approach_z))
+	return true
+
+func return_to_arena_staging(id: String) -> bool:
+	# The final court's west gallery foot is a physical opening into its north
+	# staging rim. A direct sweep down the outer west lane from that corner runs
+	# into the gallery support in Citadel03; retrace the traversed gallery foot.
+	if id == "final_arena" and route.vertical_routes.has(id + "_gallery"):
+		var room: Dictionary = route.rooms[id]
+		var center: Vector3 = vector(room.center)
+		var north_band: float = center.z + float(room.size[2]) / 2.0 - 12.0
+		if player.global_position.x < center.x - 7.0 and player.global_position.z > north_band:
+			var foot: Vector3 = vector(route.vertical_routes[id + "_gallery"][0])
+			if not await walk(foot, "Gallery-foot retreat " + id): return false
+			if not await walk(room_center(id), "North staging retreat " + id): return false
+			return true
+	return await super.return_to_arena_staging(id)
 
 func run() -> void:
 	if all_levels:
@@ -48,6 +246,7 @@ func run() -> void:
 		await finish()
 		return
 	apply_seed()
+	reset_ammo_ledger()
 	baseline = {"health": combat.health, "armor": combat.armor, "pistol": combat.ammo_pistol, "shells": combat.ammo_shotgun, "rivets": combat.ammo_rivets, "rockets": combat.ammo_rockets, "owned_weapons": combat.owned_weapons.keys(), "kills": combat.kills, "total": combat.total_enemies, "shots": combat.shot_counter}
 	combat.combat_event.connect(observe_weapon_event)
 	var initial: Vector3 = combat.enemies[0].position
@@ -99,7 +298,12 @@ func run_all_levels() -> void:
 		route = parsed
 		if not require(world.scene_file_path == String(app.campaign.current_level().scene) and String(world.get_meta("campaign_level_id", "")) == level_id and String(world.get_meta("stage_id", "")) == String(route.theme), "Wrong campaign scene/theme: " + level_id): break
 		if not require(world.flags.is_empty() and not world.finished and combat.kills == 0 and combat.shot_counter == 0, "Dirty entry state: " + level_id): break
-		var entry: Dictionary = app.campaign.capture(combat)
+		# Main snapshots the exact carry before a new level begins. A live
+		# entry pickup can be contacted on the next process/physics frame, so
+		# distinguish that actual starting state from the pre-contact carry.
+		var entry: Dictionary = app.campaign.entry_snapshot.duplicate(true)
+		var active_entry: Dictionary = app.campaign.capture(combat)
+		reset_ammo_ledger()
 		if index == 0:
 			require(entry.health == 100.0 and entry.armor == 50.0 and entry.ammo_pistol == 36 and entry.ammo_shotgun == 12 and entry.ammo_rivets == 0 and entry.ammo_rockets == 0 and entry.owned_weapons.size() == 3, "Continuous campaign initial loadout is not normal")
 		else:
@@ -119,7 +323,7 @@ func run_all_levels() -> void:
 		print("CAMPAIGN_ROUTE_START ", level_id)
 		await route_run()
 		if not failures.is_empty():
-			campaign_receipts.append({"level": level_id, "chapter": String(app.campaign.current_level().chapter_id), "scene": world.scene_file_path, "route_resource": route_path, "entry_loadout": entry, "completed": false, "health": combat.health, "kills": combat.kills, "shots": combat.shot_counter, "segments": records.duplicate(true), "interactions": interactions.duplicate(true), "flags": world.flags.duplicate()})
+			campaign_receipts.append({"level": level_id, "chapter": String(app.campaign.current_level().chapter_id), "scene": world.scene_file_path, "route_resource": route_path, "entry_loadout": entry, "active_entry_loadout": active_entry, "entry_ammo": {"pistol": active_entry.ammo_pistol, "shells": active_entry.ammo_shotgun, "rivets": active_entry.ammo_rivets, "rockets": active_entry.ammo_rockets}, "peak_ammo": peak_ammo.duplicate(), "ammo_caps": ammo_caps(), "accepted_ammo": accepted_ammo.duplicate(), "siege_self_hits": siege_self_hits, "use_heavy_weapons": heavy_mode, "completed": false, "health": combat.health, "kills": combat.kills, "shots": combat.shot_counter, "weapon_shots": weapon_shots.duplicate(), "weapon_kills": weapon_kills.duplicate(), "failure_state": failure_state(), "segments": records.duplicate(true), "interactions": interactions.duplicate(true), "flags": world.flags.duplicate()})
 			break
 		var cleared: bool = world.finished and app.level_complete and get_tree().paused
 		require(cleared, "Physical route did not reach Main completion screen: " + level_id)
@@ -131,7 +335,9 @@ func run_all_levels() -> void:
 			require(int(world.arena_remaining.get(arena, -1)) == 0, "Arena uncleared in " + level_id + ": " + arena)
 		require(combat.shot_counter > 0 and combat.kills > 0, "No authoritative shots/kills in " + level_id)
 		var exit_state: Dictionary = app.campaign.capture(combat)
-		campaign_receipts.append({"level": level_id, "chapter": String(app.campaign.current_level().chapter_id), "scene": world.scene_file_path, "route_resource": route_path, "entry_loadout": entry, "exit_loadout": exit_state, "completed": cleared, "health": combat.health, "kills": combat.kills, "total_enemies": combat.total_enemies, "shots": combat.shot_counter, "weapon_shots": weapon_shots.duplicate(), "weapon_kills": weapon_kills.duplicate(), "flags": world.flags.duplicate(), "secret_used": world.secret_found, "interactions": interactions.duplicate(true), "segments": records.duplicate(true), "physics_seconds": float(Engine.get_physics_frames() - global_start) / Engine.physics_ticks_per_second})
+		sample_ammo()
+		if heavy_mode: require(siege_self_hits == 0, "Heavy bot detonated Siege inside self-damage radius: " + level_id)
+		campaign_receipts.append({"level": level_id, "chapter": String(app.campaign.current_level().chapter_id), "scene": world.scene_file_path, "route_resource": route_path, "entry_loadout": entry, "active_entry_loadout": active_entry, "exit_loadout": exit_state, "entry_ammo": {"pistol": active_entry.ammo_pistol, "shells": active_entry.ammo_shotgun, "rivets": active_entry.ammo_rivets, "rockets": active_entry.ammo_rockets}, "exit_ammo": ammo_state(), "peak_ammo": peak_ammo.duplicate(), "ammo_caps": ammo_caps(), "accepted_ammo": accepted_ammo.duplicate(), "siege_self_hits": siege_self_hits, "use_heavy_weapons": heavy_mode, "completed": cleared, "health": combat.health, "kills": combat.kills, "total_enemies": combat.total_enemies, "shots": combat.shot_counter, "weapon_shots": weapon_shots.duplicate(), "weapon_kills": weapon_kills.duplicate(), "flags": world.flags.duplicate(), "secret_used": world.secret_found, "interactions": interactions.duplicate(true), "segments": records.duplicate(true), "physics_seconds": float(Engine.get_physics_frames() - global_start) / Engine.physics_ticks_per_second})
 		print("CAMPAIGN_ROUTE_LEVEL ", JSON.stringify({"level": level_id, "completed": cleared, "health": combat.health, "kills": combat.kills, "shots": combat.shot_counter}))
 		if not failures.is_empty(): break
 		expected_carry = exit_state
@@ -150,7 +356,15 @@ func finish_all_levels() -> void:
 	var completed_count := 0
 	for receipt in campaign_receipts:
 		if bool(receipt.get("completed", false)): completed_count += 1
-	var report := {"campaign": "Eyesore", "levels_completed": completed_count, "expected_levels": app.campaign.levels.size() if is_instance_valid(app) else 9, "initial_loadout": campaign_receipts[0].entry_loadout if not campaign_receipts.is_empty() else {}, "levels": campaign_receipts, "finale": app.menu_title.text if is_instance_valid(app) else "", "source_package_dir": package_dir, "executable": OS.get_executable_path(), "engine_arguments": OS.get_cmdline_args(), "physics_ticks_per_second": Engine.physics_ticks_per_second, "editor_feature": OS.has_feature("editor"), "failures": failures, "scope": "Single continuous native Main campaign: normal starting loadout, actual exit health/ammo/ownership carried by Continue through all nine physical routes; real CharacterBody movement, AI, damage, weapon rays and E-use. No reseed, teleport, secret supply or completion signal injection. Fixed simulation rate is explicit in engine arguments when used; this is automated gameplay, not a human duration."}
+	if heavy_mode and completed_count == 9:
+		for weapon in ["twin_shotgun", "rivet_cannon", "siege_launcher"]:
+			var shots := 0
+			var kills := 0
+			for receipt in campaign_receipts:
+				shots += int(receipt.get("weapon_shots", {}).get(weapon, 0))
+				kills += int(receipt.get("weapon_kills", {}).get(weapon, 0))
+			require(shots > 0 and kills > 0, "Heavy route lacked authoritative shots/kills for " + weapon)
+	var report := {"campaign": "Eyesore", "levels_completed": completed_count, "expected_levels": app.campaign.levels.size() if is_instance_valid(app) else 9, "initial_loadout": campaign_receipts[0].entry_loadout if not campaign_receipts.is_empty() else {}, "use_heavy_weapons": heavy_mode, "levels": campaign_receipts, "finale": app.menu_title.text if is_instance_valid(app) else "", "source_package_dir": package_dir, "executable": OS.get_executable_path(), "engine_arguments": OS.get_cmdline_args(), "physics_ticks_per_second": Engine.physics_ticks_per_second, "editor_feature": OS.has_feature("editor"), "failures": failures, "scope": "Single continuous native Main campaign: normal starting loadout, actual exit health/ammo/ownership carried by Continue through all nine physical routes; real CharacterBody movement, AI, damage, weapon rays and E-use. No reseed, teleport, secret supply or completion signal injection. Optional heavy-weapon selection is bot policy; combat tuning is unchanged. Fixed simulation rate is explicit in engine arguments when used; this is automated gameplay, not a human duration."}
 	var error := DirAccess.make_dir_recursive_absolute(report_dir)
 	require(error == OK, "Could not create report directory")
 	if error == OK:
@@ -187,6 +401,7 @@ func apply_seed() -> void:
 	combat.owned_weapons.clear()
 	for id in seed.owned_weapons: combat.owned_weapons[StringName(id)] = true
 	combat.currentweapon = &"pistol"
+	combat.normalize_ammo()
 	app.campaign.entry_snapshot = app.campaign.capture(combat)
 
 func gate_available(portal: Dictionary) -> bool:
@@ -253,6 +468,10 @@ func clear_arena(id: String) -> bool:
 			await tick(player.global_position, false)
 			if world.is_arena_active(id): break
 		if not require(world.is_arena_active(id) or int(world.arena_remaining.get(id, 0)) == 0, id + ": closet opening did not wake enemies"): return false
+		if id == "final_arena" and route.vertical_routes.has(id + "_gallery"):
+			var return_gallery: Array = route.vertical_routes[id + "_gallery"]
+			if not await walk(vector(return_gallery[1]), "Retreat along launcher gallery"): return false
+			if not await walk(vector(return_gallery[0]), "Descend launcher gallery under fire"): return false
 	var start := ticks
 	var patrols := 0
 	while int(world.arena_remaining.get(id, 0)) > 0:
@@ -266,17 +485,23 @@ func clear_arena(id: String) -> bool:
 		if patrols == 0 and not await return_to_arena_staging(id): return false
 		patrols += 1
 		if patrols > 3:
+			if not await interior_exposure(id): return false
+			if int(world.arena_remaining.get(id, 0)) == 0: break
 			var survivors: Array[String] = []
 			for enemy in combat.enemies:
 				if not enemy.dead and String(enemy.get_meta("arena_id", "")) == id:
 					survivors.append("%s at %s awake=%s visible=%s" % [String(enemy.target_id), str(enemy.global_position), str(enemy.awake), str(enemy.can_see_player())])
 			failures.append(id + ": remaining enemies cannot be exposed from authored flanks: " + str(survivors))
 			return false
-		if patrols > 1 and route.combat_flanks[id].size() >= 8:
-			for bridge in [route.combat_flanks[id][7], route.combat_flanks[id][6], route.combat_flanks[id][0]]:
-				if not await walk(vector(bridge), "Combat flank return " + id): return false
-		for waypoint in route.combat_flanks[id]:
+		if patrols > 1 and not await return_to_arena_staging(id): return false
+		for flank_index in route.combat_flanks[id].size():
 			if int(world.arena_remaining.get(id, 0)) == 0: break
+			# Cross sides via the open north staging rim. A straight diagonal
+			# between the final west point and first east point cuts through the
+			# raised altar/stair collision in some campaign layouts.
+			if flank_index == route.combat_flanks[id].size() / 2:
+				if not await return_to_arena_staging(id): return false
+			var waypoint: Array = route.combat_flanks[id][flank_index]
 			if not await walk(vector(waypoint), "Authored combat flank " + id): return false
 	stop()
 	return true
@@ -300,7 +525,7 @@ func route_run() -> void:
 func finish() -> void:
 	stop(); key(KEY_E, false)
 	var receipt_path := report_dir.path_join(level_id + "-campaign-route.json")
-	var report := {"campaign_level": level_id, "theme": String(route.get("theme", "")), "scene": world.scene_file_path if is_instance_valid(world) else "", "route_resource": route_path, "seed_resource": "res://resources/campaign/route-seeds.json", "seed": seed, "source_package_dir": package_dir, "executable": OS.get_executable_path(), "engine_arguments": OS.get_cmdline_args(), "physics_ticks_per_second": Engine.physics_ticks_per_second, "editor_feature": OS.has_feature("editor"), "completed": world.finished if is_instance_valid(world) else false, "completion_menu_paused": app.level_complete and get_tree().paused, "baseline": baseline, "health": combat.health if is_instance_valid(combat) else 0, "armor": combat.armor if is_instance_valid(combat) else 0, "kills": combat.kills if is_instance_valid(combat) else 0, "total_enemies": combat.total_enemies if is_instance_valid(combat) else 0, "shots": combat.shot_counter if is_instance_valid(combat) else 0, "final_ammo": final_ammo() if is_instance_valid(combat) else {}, "weapon_shots": weapon_shots, "weapon_kills": weapon_kills, "flags": world.flags.duplicate() if is_instance_valid(world) else {}, "secret_used": world.secret_found if is_instance_valid(world) else false, "interactions": interactions, "segments": records, "physics_seconds": float(Engine.get_physics_frames() - global_start) / Engine.physics_ticks_per_second if global_start > 0 else 0.0, "failures": failures, "scope": "Opt-in native Main campaign route: finite source-declared loadout; physical CharacterBody movement, AI, ordinary damage, real weapon rays and E-use. No teleport, secret supplies or completion signal injection. Fixed simulation rate is explicit in engine arguments when used."}
+	var report := {"campaign_level": level_id, "theme": String(route.get("theme", "")), "scene": world.scene_file_path if is_instance_valid(world) else "", "route_resource": route_path, "seed_resource": "res://resources/campaign/route-seeds.json", "seed": seed, "source_package_dir": package_dir, "executable": OS.get_executable_path(), "engine_arguments": OS.get_cmdline_args(), "physics_ticks_per_second": Engine.physics_ticks_per_second, "editor_feature": OS.has_feature("editor"), "use_heavy_weapons": heavy_mode, "completed": world.finished if is_instance_valid(world) else false, "completion_menu_paused": app.level_complete and get_tree().paused, "baseline": baseline, "entry_ammo": {"pistol": baseline.get("pistol", 0), "shells": baseline.get("shells", 0), "rivets": baseline.get("rivets", 0), "rockets": baseline.get("rockets", 0)}, "exit_ammo": ammo_state() if is_instance_valid(combat) else {}, "peak_ammo": peak_ammo, "ammo_caps": ammo_caps() if is_instance_valid(combat) else {}, "accepted_ammo": accepted_ammo, "siege_self_hits": siege_self_hits, "health": combat.health if is_instance_valid(combat) else 0, "armor": combat.armor if is_instance_valid(combat) else 0, "kills": combat.kills if is_instance_valid(combat) else 0, "total_enemies": combat.total_enemies if is_instance_valid(combat) else 0, "shots": combat.shot_counter if is_instance_valid(combat) else 0, "final_ammo": final_ammo() if is_instance_valid(combat) else {}, "weapon_shots": weapon_shots, "weapon_kills": weapon_kills, "flags": world.flags.duplicate() if is_instance_valid(world) else {}, "secret_used": world.secret_found if is_instance_valid(world) else false, "interactions": interactions, "segments": records, "physics_seconds": float(Engine.get_physics_frames() - global_start) / Engine.physics_ticks_per_second if global_start > 0 else 0.0, "failures": failures, "scope": "Opt-in native Main campaign route: finite source-declared loadout; physical CharacterBody movement, AI, ordinary damage, real weapon rays and E-use. No teleport, secret supplies or completion signal injection. Optional heavy-weapon selection is bot policy; combat tuning is unchanged. Fixed simulation rate is explicit in engine arguments when used."}
 	var error := DirAccess.make_dir_recursive_absolute(report_dir)
 	require(error == OK, "Could not create report directory")
 	if error == OK:
