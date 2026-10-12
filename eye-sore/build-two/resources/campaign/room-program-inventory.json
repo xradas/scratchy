@@ -1,0 +1,2289 @@
+{
+  "schema_version": 1,
+  "levels": [
+    {
+      "id": "pale_ward_01",
+      "rooms": 19,
+      "furnishing_instances": 70,
+      "furnishing_groups": 55,
+      "progression_objects": 8,
+      "arena_modes": {
+        "arena_one": "bed_bays",
+        "arena_two": "split_isolation",
+        "final_arena": "transfer_bays"
+      },
+      "gated_reachability": {
+        "inventory": {
+          "entry": "entry",
+          "keys": [
+            {
+              "id": "brass_key",
+              "room": "key_console",
+              "label": "BRASS ACCESS KEY"
+            },
+            {
+              "id": "red_key",
+              "room": "red_console",
+              "label": "RED ACCESS KEY"
+            }
+          ],
+          "controls": [
+            {
+              "id": "breaker",
+              "room": "arena_one",
+              "arena": "arena_one",
+              "sets": "breaker",
+              "label": "ENABLE BRASS ACCESS"
+            },
+            {
+              "id": "release",
+              "room": "arena_two",
+              "arena": "arena_two",
+              "sets": "release",
+              "label": "RELEASE RED ACCESS"
+            },
+            {
+              "id": "exit_control",
+              "room": "final_arena",
+              "arena": "final_arena",
+              "sets": "exit_control",
+              "label": "OPEN SECTOR EXIT"
+            }
+          ],
+          "gates": [
+            {
+              "id": "entry_gate",
+              "from": "entry",
+              "to": "service",
+              "requires": []
+            },
+            {
+              "id": "breaker",
+              "from": "arena_one",
+              "to": "key_wing",
+              "requires": [
+                "breaker"
+              ]
+            },
+            {
+              "id": "shortcut_one",
+              "from": "return_store",
+              "to": "service",
+              "requires": []
+            },
+            {
+              "id": "brass_gate",
+              "from": "arena_one",
+              "to": "spine",
+              "requires": [
+                "breaker",
+                "brass_key"
+              ]
+            },
+            {
+              "id": "release",
+              "from": "arena_two",
+              "to": "red_wing",
+              "requires": [
+                "release"
+              ]
+            },
+            {
+              "id": "shortcut_two",
+              "from": "red_wing",
+              "to": "armory",
+              "requires": []
+            },
+            {
+              "id": "red_gate",
+              "from": "arena_two",
+              "to": "final_arena",
+              "requires": [
+                "release",
+                "red_key"
+              ]
+            },
+            {
+              "id": "exit_gate",
+              "from": "final_arena",
+              "to": "exit_gallery",
+              "requires": [
+                "exit_control"
+              ]
+            },
+            {
+              "id": "secret_one",
+              "from": "supplies",
+              "to": "secret_one",
+              "requires": []
+            },
+            {
+              "id": "secret_two",
+              "from": "red_console",
+              "to": "secret_two",
+              "requires": []
+            },
+            {
+              "id": "lift",
+              "from": "final_arena",
+              "to": "observation",
+              "requires": []
+            }
+          ],
+          "arenas": [
+            {
+              "id": "arena_one",
+              "room": "arena_one",
+              "enemies": 5
+            },
+            {
+              "id": "arena_two",
+              "room": "arena_two",
+              "enemies": 5
+            },
+            {
+              "id": "final_arena",
+              "room": "final_arena",
+              "enemies": 6
+            }
+          ],
+          "weapon_caches": [
+            {
+              "room": "arena_one",
+              "weapon": "twin_shotgun",
+              "ammo": 4
+            },
+            {
+              "room": "arena_two",
+              "weapon": "twin_shotgun",
+              "ammo": 4
+            },
+            {
+              "room": "final_arena",
+              "weapon": "twin_shotgun",
+              "ammo": 4
+            }
+          ],
+          "exit": {
+            "room": "exit_gallery",
+            "requires": [
+              "brass_key",
+              "red_key",
+              "exit_control"
+            ]
+          }
+        },
+        "reachable_rooms": [
+          "arena_one",
+          "arena_two",
+          "armory",
+          "entry",
+          "exit_gallery",
+          "final_arena",
+          "key_console",
+          "key_wing",
+          "maintenance",
+          "observation",
+          "pump_room",
+          "red_console",
+          "red_wing",
+          "return_store",
+          "service",
+          "spine",
+          "supplies"
+        ],
+        "obtained_flags": [
+          "brass_key",
+          "breaker",
+          "clear_arena_one",
+          "clear_arena_two",
+          "clear_final_arena",
+          "exit_control",
+          "red_key",
+          "release"
+        ],
+        "waves": [
+          {
+            "new_rooms": [
+              "maintenance",
+              "service",
+              "supplies"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "arena_one",
+              "return_store"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "key_wing"
+            ],
+            "new_flags": [
+              "breaker",
+              "clear_arena_one"
+            ]
+          },
+          {
+            "new_rooms": [
+              "key_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "spine"
+            ],
+            "new_flags": [
+              "brass_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "arena_two",
+              "armory",
+              "pump_room"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "red_wing"
+            ],
+            "new_flags": [
+              "clear_arena_two",
+              "release"
+            ]
+          },
+          {
+            "new_rooms": [
+              "red_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "final_arena"
+            ],
+            "new_flags": [
+              "red_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "exit_gallery",
+              "observation"
+            ],
+            "new_flags": [
+              "clear_final_arena",
+              "exit_control"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "pale_ward_02",
+      "rooms": 13,
+      "furnishing_instances": 52,
+      "furnishing_groups": 37,
+      "progression_objects": 8,
+      "arena_modes": {
+        "arena_one": "reservoir_ring",
+        "arena_two": "surgical_rows",
+        "final_arena": "pump_banks"
+      },
+      "gated_reachability": {
+        "inventory": {
+          "entry": "entry",
+          "keys": [
+            {
+              "id": "brass_key",
+              "room": "key_console",
+              "label": "BRASS ACCESS KEY"
+            },
+            {
+              "id": "red_key",
+              "room": "red_console",
+              "label": "RED ACCESS KEY"
+            }
+          ],
+          "controls": [
+            {
+              "id": "breaker",
+              "room": "arena_one",
+              "arena": "arena_one",
+              "sets": "breaker",
+              "label": "ENABLE BRASS ACCESS"
+            },
+            {
+              "id": "release",
+              "room": "arena_two",
+              "arena": "arena_two",
+              "sets": "release",
+              "label": "RELEASE RED ACCESS"
+            },
+            {
+              "id": "exit_control",
+              "room": "final_arena",
+              "arena": "final_arena",
+              "sets": "exit_control",
+              "label": "OPEN SECTOR EXIT"
+            }
+          ],
+          "gates": [
+            {
+              "id": "entry_gate",
+              "from": "entry",
+              "to": "service",
+              "requires": []
+            },
+            {
+              "id": "shortcut_one",
+              "from": "return_store",
+              "to": "service",
+              "requires": []
+            },
+            {
+              "id": "brass_gate",
+              "from": "arena_one",
+              "to": "spine",
+              "requires": [
+                "breaker",
+                "brass_key"
+              ]
+            },
+            {
+              "id": "release",
+              "from": "arena_two",
+              "to": "red_wing",
+              "requires": [
+                "release"
+              ]
+            },
+            {
+              "id": "red_gate",
+              "from": "arena_two",
+              "to": "final_arena",
+              "requires": [
+                "release",
+                "red_key"
+              ]
+            },
+            {
+              "id": "exit_gate",
+              "from": "final_arena",
+              "to": "exit_gallery",
+              "requires": [
+                "exit_control"
+              ]
+            },
+            {
+              "id": "secret_one",
+              "from": "supplies",
+              "to": "secret_one",
+              "requires": []
+            },
+            {
+              "id": "breaker",
+              "from": "arena_one",
+              "to": "key_console",
+              "requires": [
+                "breaker"
+              ]
+            }
+          ],
+          "arenas": [
+            {
+              "id": "arena_one",
+              "room": "arena_one",
+              "enemies": 6
+            },
+            {
+              "id": "arena_two",
+              "room": "arena_two",
+              "enemies": 6
+            },
+            {
+              "id": "final_arena",
+              "room": "final_arena",
+              "enemies": 7
+            }
+          ],
+          "weapon_caches": [
+            {
+              "room": "arena_one",
+              "weapon": "rivet_cannon",
+              "ammo": 16
+            },
+            {
+              "room": "arena_two",
+              "weapon": "rivet_cannon",
+              "ammo": 16
+            },
+            {
+              "room": "final_arena",
+              "weapon": "rivet_cannon",
+              "ammo": 16
+            }
+          ],
+          "exit": {
+            "room": "exit_gallery",
+            "requires": [
+              "brass_key",
+              "red_key",
+              "exit_control"
+            ]
+          }
+        },
+        "reachable_rooms": [
+          "arena_one",
+          "arena_two",
+          "entry",
+          "exit_gallery",
+          "final_arena",
+          "key_console",
+          "red_console",
+          "red_wing",
+          "return_store",
+          "service",
+          "spine",
+          "supplies"
+        ],
+        "obtained_flags": [
+          "brass_key",
+          "breaker",
+          "clear_arena_one",
+          "clear_arena_two",
+          "clear_final_arena",
+          "exit_control",
+          "red_key",
+          "release"
+        ],
+        "waves": [
+          {
+            "new_rooms": [
+              "service",
+              "supplies"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "arena_one",
+              "return_store"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "key_console"
+            ],
+            "new_flags": [
+              "breaker",
+              "clear_arena_one"
+            ]
+          },
+          {
+            "new_rooms": [
+              "spine"
+            ],
+            "new_flags": [
+              "brass_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "arena_two"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "red_wing"
+            ],
+            "new_flags": [
+              "clear_arena_two",
+              "release"
+            ]
+          },
+          {
+            "new_rooms": [
+              "red_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "final_arena"
+            ],
+            "new_flags": [
+              "red_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "exit_gallery"
+            ],
+            "new_flags": [
+              "clear_final_arena",
+              "exit_control"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "pale_ward_03",
+      "rooms": 13,
+      "furnishing_instances": 52,
+      "furnishing_groups": 37,
+      "progression_objects": 8,
+      "arena_modes": {
+        "arena_one": "tall_silo_clusters",
+        "arena_two": "broken_bays",
+        "final_arena": "excavation_sides"
+      },
+      "gated_reachability": {
+        "inventory": {
+          "entry": "entry",
+          "keys": [
+            {
+              "id": "brass_key",
+              "room": "key_console",
+              "label": "BRASS ACCESS KEY"
+            },
+            {
+              "id": "red_key",
+              "room": "red_console",
+              "label": "RED ACCESS KEY"
+            }
+          ],
+          "controls": [
+            {
+              "id": "breaker",
+              "room": "arena_one",
+              "arena": "arena_one",
+              "sets": "breaker",
+              "label": "ENABLE BRASS ACCESS"
+            },
+            {
+              "id": "release",
+              "room": "arena_two",
+              "arena": "arena_two",
+              "sets": "release",
+              "label": "RELEASE RED ACCESS"
+            },
+            {
+              "id": "exit_control",
+              "room": "final_arena",
+              "arena": "final_arena",
+              "sets": "exit_control",
+              "label": "OPEN SECTOR EXIT"
+            }
+          ],
+          "gates": [
+            {
+              "id": "breaker",
+              "from": "arena_one",
+              "to": "key_wing",
+              "requires": [
+                "breaker"
+              ]
+            },
+            {
+              "id": "brass_gate",
+              "from": "arena_one",
+              "to": "spine",
+              "requires": [
+                "breaker",
+                "brass_key"
+              ]
+            },
+            {
+              "id": "release",
+              "from": "arena_two",
+              "to": "red_wing",
+              "requires": [
+                "release"
+              ]
+            },
+            {
+              "id": "red_gate",
+              "from": "arena_two",
+              "to": "final_arena",
+              "requires": [
+                "release",
+                "red_key"
+              ]
+            },
+            {
+              "id": "exit_gate",
+              "from": "final_arena",
+              "to": "exit_gallery",
+              "requires": [
+                "exit_control"
+              ]
+            },
+            {
+              "id": "secret_two",
+              "from": "red_console",
+              "to": "secret_two",
+              "requires": []
+            },
+            {
+              "id": "entry_gate",
+              "from": "entry",
+              "to": "arena_one",
+              "requires": []
+            }
+          ],
+          "arenas": [
+            {
+              "id": "arena_one",
+              "room": "arena_one",
+              "enemies": 7
+            },
+            {
+              "id": "arena_two",
+              "room": "arena_two",
+              "enemies": 7
+            },
+            {
+              "id": "final_arena",
+              "room": "final_arena",
+              "enemies": 8
+            }
+          ],
+          "weapon_caches": [
+            {
+              "room": "arena_one",
+              "weapon": "siege_launcher",
+              "ammo": 2
+            },
+            {
+              "room": "arena_two",
+              "weapon": "siege_launcher",
+              "ammo": 2
+            },
+            {
+              "room": "final_arena",
+              "weapon": "siege_launcher",
+              "ammo": 2
+            }
+          ],
+          "exit": {
+            "room": "exit_gallery",
+            "requires": [
+              "brass_key",
+              "red_key",
+              "exit_control"
+            ]
+          }
+        },
+        "reachable_rooms": [
+          "arena_one",
+          "arena_two",
+          "entry",
+          "exit_gallery",
+          "final_arena",
+          "key_console",
+          "key_wing",
+          "maintenance",
+          "red_console",
+          "red_wing",
+          "spine",
+          "supplies"
+        ],
+        "obtained_flags": [
+          "brass_key",
+          "breaker",
+          "clear_arena_one",
+          "clear_arena_two",
+          "clear_final_arena",
+          "exit_control",
+          "red_key",
+          "release"
+        ],
+        "waves": [
+          {
+            "new_rooms": [
+              "arena_one",
+              "maintenance",
+              "supplies"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "key_wing"
+            ],
+            "new_flags": [
+              "breaker",
+              "clear_arena_one"
+            ]
+          },
+          {
+            "new_rooms": [
+              "key_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "spine"
+            ],
+            "new_flags": [
+              "brass_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "arena_two"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "red_wing"
+            ],
+            "new_flags": [
+              "clear_arena_two",
+              "release"
+            ]
+          },
+          {
+            "new_rooms": [
+              "red_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "final_arena"
+            ],
+            "new_flags": [
+              "red_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "exit_gallery"
+            ],
+            "new_flags": [
+              "clear_final_arena",
+              "exit_control"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ash_citadel_01",
+      "rooms": 16,
+      "furnishing_instances": 61,
+      "furnishing_groups": 46,
+      "progression_objects": 8,
+      "arena_modes": {
+        "arena_one": "cloister_seating",
+        "arena_two": "forge_banks",
+        "final_arena": "rampart_recesses"
+      },
+      "gated_reachability": {
+        "inventory": {
+          "entry": "entry",
+          "keys": [
+            {
+              "id": "brass_key",
+              "room": "key_console",
+              "label": "BRASS ACCESS KEY"
+            },
+            {
+              "id": "red_key",
+              "room": "red_console",
+              "label": "RED ACCESS KEY"
+            }
+          ],
+          "controls": [
+            {
+              "id": "breaker",
+              "room": "arena_one",
+              "arena": "arena_one",
+              "sets": "breaker",
+              "label": "ENABLE BRASS ACCESS"
+            },
+            {
+              "id": "release",
+              "room": "arena_two",
+              "arena": "arena_two",
+              "sets": "release",
+              "label": "RELEASE RED ACCESS"
+            },
+            {
+              "id": "exit_control",
+              "room": "final_arena",
+              "arena": "final_arena",
+              "sets": "exit_control",
+              "label": "OPEN SECTOR EXIT"
+            }
+          ],
+          "gates": [
+            {
+              "id": "breaker",
+              "from": "arena_one",
+              "to": "key_wing",
+              "requires": [
+                "breaker"
+              ]
+            },
+            {
+              "id": "shortcut_one",
+              "from": "return_store",
+              "to": "service",
+              "requires": []
+            },
+            {
+              "id": "brass_gate",
+              "from": "arena_one",
+              "to": "spine",
+              "requires": [
+                "breaker",
+                "brass_key"
+              ]
+            },
+            {
+              "id": "release",
+              "from": "arena_two",
+              "to": "red_wing",
+              "requires": [
+                "release"
+              ]
+            },
+            {
+              "id": "shortcut_two",
+              "from": "red_wing",
+              "to": "armory",
+              "requires": []
+            },
+            {
+              "id": "red_gate",
+              "from": "arena_two",
+              "to": "final_arena",
+              "requires": [
+                "release",
+                "red_key"
+              ]
+            },
+            {
+              "id": "exit_gate",
+              "from": "final_arena",
+              "to": "exit_gallery",
+              "requires": [
+                "exit_control"
+              ]
+            },
+            {
+              "id": "secret_one",
+              "from": "supplies",
+              "to": "secret_one",
+              "requires": []
+            },
+            {
+              "id": "lift",
+              "from": "final_arena",
+              "to": "observation",
+              "requires": []
+            }
+          ],
+          "arenas": [
+            {
+              "id": "arena_one",
+              "room": "arena_one",
+              "enemies": 5
+            },
+            {
+              "id": "arena_two",
+              "room": "arena_two",
+              "enemies": 5
+            },
+            {
+              "id": "final_arena",
+              "room": "final_arena",
+              "enemies": 6
+            }
+          ],
+          "weapon_caches": [
+            {
+              "room": "arena_one",
+              "weapon": "twin_shotgun",
+              "ammo": 4
+            },
+            {
+              "room": "arena_two",
+              "weapon": "twin_shotgun",
+              "ammo": 4
+            },
+            {
+              "room": "final_arena",
+              "weapon": "twin_shotgun",
+              "ammo": 4
+            }
+          ],
+          "exit": {
+            "room": "exit_gallery",
+            "requires": [
+              "brass_key",
+              "red_key",
+              "exit_control"
+            ]
+          }
+        },
+        "reachable_rooms": [
+          "arena_one",
+          "arena_two",
+          "armory",
+          "entry",
+          "exit_gallery",
+          "final_arena",
+          "key_console",
+          "key_wing",
+          "observation",
+          "red_console",
+          "red_wing",
+          "return_store",
+          "service",
+          "spine",
+          "supplies"
+        ],
+        "obtained_flags": [
+          "brass_key",
+          "breaker",
+          "clear_arena_one",
+          "clear_arena_two",
+          "clear_final_arena",
+          "exit_control",
+          "red_key",
+          "release"
+        ],
+        "waves": [
+          {
+            "new_rooms": [
+              "service",
+              "supplies"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "arena_one",
+              "return_store"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "key_wing"
+            ],
+            "new_flags": [
+              "breaker",
+              "clear_arena_one"
+            ]
+          },
+          {
+            "new_rooms": [
+              "key_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "spine"
+            ],
+            "new_flags": [
+              "brass_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "arena_two",
+              "armory"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "red_wing"
+            ],
+            "new_flags": [
+              "clear_arena_two",
+              "release"
+            ]
+          },
+          {
+            "new_rooms": [
+              "red_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "final_arena"
+            ],
+            "new_flags": [
+              "red_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "exit_gallery",
+              "observation"
+            ],
+            "new_flags": [
+              "clear_final_arena",
+              "exit_control"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ash_citadel_02",
+      "rooms": 13,
+      "furnishing_instances": 52,
+      "furnishing_groups": 37,
+      "progression_objects": 8,
+      "arena_modes": {
+        "arena_one": "choir_stalls",
+        "arena_two": "altar_recesses",
+        "final_arena": "bellows_banks"
+      },
+      "gated_reachability": {
+        "inventory": {
+          "entry": "entry",
+          "keys": [
+            {
+              "id": "brass_key",
+              "room": "key_console",
+              "label": "BRASS ACCESS KEY"
+            },
+            {
+              "id": "red_key",
+              "room": "red_console",
+              "label": "RED ACCESS KEY"
+            }
+          ],
+          "controls": [
+            {
+              "id": "breaker",
+              "room": "arena_one",
+              "arena": "arena_one",
+              "sets": "breaker",
+              "label": "ENABLE BRASS ACCESS"
+            },
+            {
+              "id": "release",
+              "room": "arena_two",
+              "arena": "arena_two",
+              "sets": "release",
+              "label": "RELEASE RED ACCESS"
+            },
+            {
+              "id": "exit_control",
+              "room": "final_arena",
+              "arena": "final_arena",
+              "sets": "exit_control",
+              "label": "OPEN SECTOR EXIT"
+            }
+          ],
+          "gates": [
+            {
+              "id": "breaker",
+              "from": "arena_one",
+              "to": "key_wing",
+              "requires": [
+                "breaker"
+              ]
+            },
+            {
+              "id": "brass_gate",
+              "from": "arena_one",
+              "to": "spine",
+              "requires": [
+                "breaker",
+                "brass_key"
+              ]
+            },
+            {
+              "id": "release",
+              "from": "arena_two",
+              "to": "red_wing",
+              "requires": [
+                "release"
+              ]
+            },
+            {
+              "id": "red_gate",
+              "from": "arena_two",
+              "to": "final_arena",
+              "requires": [
+                "release",
+                "red_key"
+              ]
+            },
+            {
+              "id": "exit_gate",
+              "from": "final_arena",
+              "to": "exit_gallery",
+              "requires": [
+                "exit_control"
+              ]
+            },
+            {
+              "id": "secret_two",
+              "from": "red_console",
+              "to": "secret_two",
+              "requires": []
+            }
+          ],
+          "arenas": [
+            {
+              "id": "arena_one",
+              "room": "arena_one",
+              "enemies": 6
+            },
+            {
+              "id": "arena_two",
+              "room": "arena_two",
+              "enemies": 6
+            },
+            {
+              "id": "final_arena",
+              "room": "final_arena",
+              "enemies": 7
+            }
+          ],
+          "weapon_caches": [
+            {
+              "room": "arena_one",
+              "weapon": "rivet_cannon",
+              "ammo": 16
+            },
+            {
+              "room": "arena_two",
+              "weapon": "rivet_cannon",
+              "ammo": 16
+            },
+            {
+              "room": "final_arena",
+              "weapon": "rivet_cannon",
+              "ammo": 16
+            }
+          ],
+          "exit": {
+            "room": "exit_gallery",
+            "requires": [
+              "brass_key",
+              "red_key",
+              "exit_control"
+            ]
+          }
+        },
+        "reachable_rooms": [
+          "arena_one",
+          "arena_two",
+          "entry",
+          "exit_gallery",
+          "final_arena",
+          "key_console",
+          "key_wing",
+          "pump_room",
+          "red_console",
+          "red_wing",
+          "service",
+          "spine"
+        ],
+        "obtained_flags": [
+          "brass_key",
+          "breaker",
+          "clear_arena_one",
+          "clear_arena_two",
+          "clear_final_arena",
+          "exit_control",
+          "red_key",
+          "release"
+        ],
+        "waves": [
+          {
+            "new_rooms": [
+              "service"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "arena_one"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "key_wing"
+            ],
+            "new_flags": [
+              "breaker",
+              "clear_arena_one"
+            ]
+          },
+          {
+            "new_rooms": [
+              "key_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "spine"
+            ],
+            "new_flags": [
+              "brass_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "arena_two",
+              "pump_room"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "red_wing"
+            ],
+            "new_flags": [
+              "clear_arena_two",
+              "release"
+            ]
+          },
+          {
+            "new_rooms": [
+              "red_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "final_arena"
+            ],
+            "new_flags": [
+              "red_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "exit_gallery"
+            ],
+            "new_flags": [
+              "clear_final_arena",
+              "exit_control"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ash_citadel_03",
+      "rooms": 16,
+      "furnishing_instances": 61,
+      "furnishing_groups": 46,
+      "progression_objects": 8,
+      "arena_modes": {
+        "arena_one": "reliquary_niches",
+        "arena_two": "vault_banks",
+        "final_arena": "conduit_works"
+      },
+      "gated_reachability": {
+        "inventory": {
+          "entry": "entry",
+          "keys": [
+            {
+              "id": "brass_key",
+              "room": "key_console",
+              "label": "BRASS ACCESS KEY"
+            },
+            {
+              "id": "red_key",
+              "room": "red_console",
+              "label": "RED ACCESS KEY"
+            }
+          ],
+          "controls": [
+            {
+              "id": "breaker",
+              "room": "arena_one",
+              "arena": "arena_one",
+              "sets": "breaker",
+              "label": "ENABLE BRASS ACCESS"
+            },
+            {
+              "id": "release",
+              "room": "arena_two",
+              "arena": "arena_two",
+              "sets": "release",
+              "label": "RELEASE RED ACCESS"
+            },
+            {
+              "id": "exit_control",
+              "room": "final_arena",
+              "arena": "final_arena",
+              "sets": "exit_control",
+              "label": "OPEN SECTOR EXIT"
+            }
+          ],
+          "gates": [
+            {
+              "id": "shortcut_one",
+              "from": "return_store",
+              "to": "service",
+              "requires": []
+            },
+            {
+              "id": "brass_gate",
+              "from": "arena_one",
+              "to": "spine",
+              "requires": [
+                "breaker",
+                "brass_key"
+              ]
+            },
+            {
+              "id": "red_gate",
+              "from": "arena_two",
+              "to": "final_arena",
+              "requires": [
+                "release",
+                "red_key"
+              ]
+            },
+            {
+              "id": "exit_gate",
+              "from": "final_arena",
+              "to": "exit_gallery",
+              "requires": [
+                "exit_control"
+              ]
+            },
+            {
+              "id": "secret_one",
+              "from": "supplies",
+              "to": "secret_one",
+              "requires": []
+            },
+            {
+              "id": "lift",
+              "from": "final_arena",
+              "to": "observation",
+              "requires": []
+            },
+            {
+              "id": "breaker",
+              "from": "arena_one",
+              "to": "key_console",
+              "requires": [
+                "breaker"
+              ]
+            },
+            {
+              "id": "release",
+              "from": "arena_two",
+              "to": "red_console",
+              "requires": [
+                "release"
+              ]
+            },
+            {
+              "id": "shortcut_two",
+              "from": "red_console",
+              "to": "armory",
+              "requires": []
+            }
+          ],
+          "arenas": [
+            {
+              "id": "arena_one",
+              "room": "arena_one",
+              "enemies": 7
+            },
+            {
+              "id": "arena_two",
+              "room": "arena_two",
+              "enemies": 7
+            },
+            {
+              "id": "final_arena",
+              "room": "final_arena",
+              "enemies": 8
+            }
+          ],
+          "weapon_caches": [
+            {
+              "room": "arena_one",
+              "weapon": "siege_launcher",
+              "ammo": 2
+            },
+            {
+              "room": "arena_two",
+              "weapon": "siege_launcher",
+              "ammo": 2
+            },
+            {
+              "room": "final_arena",
+              "weapon": "siege_launcher",
+              "ammo": 2
+            }
+          ],
+          "exit": {
+            "room": "exit_gallery",
+            "requires": [
+              "brass_key",
+              "red_key",
+              "exit_control"
+            ]
+          }
+        },
+        "reachable_rooms": [
+          "arena_one",
+          "arena_two",
+          "armory",
+          "entry",
+          "exit_gallery",
+          "final_arena",
+          "key_console",
+          "maintenance",
+          "observation",
+          "pump_room",
+          "red_console",
+          "return_store",
+          "service",
+          "spine",
+          "supplies"
+        ],
+        "obtained_flags": [
+          "brass_key",
+          "breaker",
+          "clear_arena_one",
+          "clear_arena_two",
+          "clear_final_arena",
+          "exit_control",
+          "red_key",
+          "release"
+        ],
+        "waves": [
+          {
+            "new_rooms": [
+              "maintenance",
+              "service",
+              "supplies"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "arena_one",
+              "return_store"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "key_console"
+            ],
+            "new_flags": [
+              "breaker",
+              "clear_arena_one"
+            ]
+          },
+          {
+            "new_rooms": [
+              "spine"
+            ],
+            "new_flags": [
+              "brass_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "arena_two",
+              "armory",
+              "pump_room"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "red_console"
+            ],
+            "new_flags": [
+              "clear_arena_two",
+              "release"
+            ]
+          },
+          {
+            "new_rooms": [
+              "final_arena"
+            ],
+            "new_flags": [
+              "red_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "exit_gallery",
+              "observation"
+            ],
+            "new_flags": [
+              "clear_final_arena",
+              "exit_control"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "occupied_line_01",
+      "rooms": 15,
+      "furnishing_instances": 58,
+      "furnishing_groups": 43,
+      "progression_objects": 8,
+      "arena_modes": {
+        "arena_one": "platform_furniture",
+        "arena_two": "relay_banks",
+        "final_arena": "freight_stacks"
+      },
+      "gated_reachability": {
+        "inventory": {
+          "entry": "entry",
+          "keys": [
+            {
+              "id": "brass_key",
+              "room": "key_console",
+              "label": "BRASS ACCESS KEY"
+            },
+            {
+              "id": "red_key",
+              "room": "red_console",
+              "label": "RED ACCESS KEY"
+            }
+          ],
+          "controls": [
+            {
+              "id": "breaker",
+              "room": "arena_one",
+              "arena": "arena_one",
+              "sets": "breaker",
+              "label": "ENABLE BRASS ACCESS"
+            },
+            {
+              "id": "release",
+              "room": "arena_two",
+              "arena": "arena_two",
+              "sets": "release",
+              "label": "RELEASE RED ACCESS"
+            },
+            {
+              "id": "exit_control",
+              "room": "final_arena",
+              "arena": "final_arena",
+              "sets": "exit_control",
+              "label": "OPEN SECTOR EXIT"
+            }
+          ],
+          "gates": [
+            {
+              "id": "breaker",
+              "from": "arena_one",
+              "to": "key_wing",
+              "requires": [
+                "breaker"
+              ]
+            },
+            {
+              "id": "brass_gate",
+              "from": "arena_one",
+              "to": "spine",
+              "requires": [
+                "breaker",
+                "brass_key"
+              ]
+            },
+            {
+              "id": "release",
+              "from": "arena_two",
+              "to": "red_wing",
+              "requires": [
+                "release"
+              ]
+            },
+            {
+              "id": "shortcut_two",
+              "from": "red_wing",
+              "to": "armory",
+              "requires": []
+            },
+            {
+              "id": "red_gate",
+              "from": "arena_two",
+              "to": "final_arena",
+              "requires": [
+                "release",
+                "red_key"
+              ]
+            },
+            {
+              "id": "exit_gate",
+              "from": "final_arena",
+              "to": "exit_gallery",
+              "requires": [
+                "exit_control"
+              ]
+            },
+            {
+              "id": "secret_one",
+              "from": "supplies",
+              "to": "secret_one",
+              "requires": []
+            },
+            {
+              "id": "lift",
+              "from": "final_arena",
+              "to": "observation",
+              "requires": []
+            }
+          ],
+          "arenas": [
+            {
+              "id": "arena_one",
+              "room": "arena_one",
+              "enemies": 6
+            },
+            {
+              "id": "arena_two",
+              "room": "arena_two",
+              "enemies": 6
+            },
+            {
+              "id": "final_arena",
+              "room": "final_arena",
+              "enemies": 7
+            }
+          ],
+          "weapon_caches": [
+            {
+              "room": "arena_one",
+              "weapon": "twin_shotgun",
+              "ammo": 4
+            },
+            {
+              "room": "arena_two",
+              "weapon": "twin_shotgun",
+              "ammo": 4
+            },
+            {
+              "room": "final_arena",
+              "weapon": "twin_shotgun",
+              "ammo": 4
+            }
+          ],
+          "exit": {
+            "room": "exit_gallery",
+            "requires": [
+              "brass_key",
+              "red_key",
+              "exit_control"
+            ]
+          }
+        },
+        "reachable_rooms": [
+          "arena_one",
+          "arena_two",
+          "armory",
+          "entry",
+          "exit_gallery",
+          "final_arena",
+          "key_console",
+          "key_wing",
+          "maintenance",
+          "observation",
+          "red_console",
+          "red_wing",
+          "spine",
+          "supplies"
+        ],
+        "obtained_flags": [
+          "brass_key",
+          "breaker",
+          "clear_arena_one",
+          "clear_arena_two",
+          "clear_final_arena",
+          "exit_control",
+          "red_key",
+          "release"
+        ],
+        "waves": [
+          {
+            "new_rooms": [
+              "arena_one",
+              "maintenance",
+              "supplies"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "key_wing"
+            ],
+            "new_flags": [
+              "breaker",
+              "clear_arena_one"
+            ]
+          },
+          {
+            "new_rooms": [
+              "key_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "spine"
+            ],
+            "new_flags": [
+              "brass_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "arena_two",
+              "armory"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "red_wing"
+            ],
+            "new_flags": [
+              "clear_arena_two",
+              "release"
+            ]
+          },
+          {
+            "new_rooms": [
+              "red_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "final_arena"
+            ],
+            "new_flags": [
+              "red_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "exit_gallery",
+              "observation"
+            ],
+            "new_flags": [
+              "clear_final_arena",
+              "exit_control"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "occupied_line_02",
+      "rooms": 14,
+      "furnishing_instances": 56,
+      "furnishing_groups": 41,
+      "progression_objects": 8,
+      "arena_modes": {
+        "arena_one": "public_service_bays",
+        "arena_two": "security_desks",
+        "final_arena": "machine_banks"
+      },
+      "gated_reachability": {
+        "inventory": {
+          "entry": "entry",
+          "keys": [
+            {
+              "id": "brass_key",
+              "room": "key_console",
+              "label": "BRASS ACCESS KEY"
+            },
+            {
+              "id": "red_key",
+              "room": "red_console",
+              "label": "RED ACCESS KEY"
+            }
+          ],
+          "controls": [
+            {
+              "id": "breaker",
+              "room": "arena_one",
+              "arena": "arena_one",
+              "sets": "breaker",
+              "label": "ENABLE BRASS ACCESS"
+            },
+            {
+              "id": "release",
+              "room": "arena_two",
+              "arena": "arena_two",
+              "sets": "release",
+              "label": "RELEASE RED ACCESS"
+            },
+            {
+              "id": "exit_control",
+              "room": "final_arena",
+              "arena": "final_arena",
+              "sets": "exit_control",
+              "label": "OPEN SECTOR EXIT"
+            }
+          ],
+          "gates": [
+            {
+              "id": "breaker",
+              "from": "arena_one",
+              "to": "key_wing",
+              "requires": [
+                "breaker"
+              ]
+            },
+            {
+              "id": "shortcut_one",
+              "from": "return_store",
+              "to": "service",
+              "requires": []
+            },
+            {
+              "id": "brass_gate",
+              "from": "arena_one",
+              "to": "spine",
+              "requires": [
+                "breaker",
+                "brass_key"
+              ]
+            },
+            {
+              "id": "red_gate",
+              "from": "arena_two",
+              "to": "final_arena",
+              "requires": [
+                "release",
+                "red_key"
+              ]
+            },
+            {
+              "id": "exit_gate",
+              "from": "final_arena",
+              "to": "exit_gallery",
+              "requires": [
+                "exit_control"
+              ]
+            },
+            {
+              "id": "lift",
+              "from": "final_arena",
+              "to": "observation",
+              "requires": []
+            },
+            {
+              "id": "release",
+              "from": "arena_two",
+              "to": "red_console",
+              "requires": [
+                "release"
+              ]
+            }
+          ],
+          "arenas": [
+            {
+              "id": "arena_one",
+              "room": "arena_one",
+              "enemies": 7
+            },
+            {
+              "id": "arena_two",
+              "room": "arena_two",
+              "enemies": 7
+            },
+            {
+              "id": "final_arena",
+              "room": "final_arena",
+              "enemies": 8
+            }
+          ],
+          "weapon_caches": [
+            {
+              "room": "arena_one",
+              "weapon": "rivet_cannon",
+              "ammo": 16
+            },
+            {
+              "room": "arena_two",
+              "weapon": "rivet_cannon",
+              "ammo": 16
+            },
+            {
+              "room": "final_arena",
+              "weapon": "rivet_cannon",
+              "ammo": 16
+            }
+          ],
+          "exit": {
+            "room": "exit_gallery",
+            "requires": [
+              "brass_key",
+              "red_key",
+              "exit_control"
+            ]
+          }
+        },
+        "reachable_rooms": [
+          "arena_one",
+          "arena_two",
+          "entry",
+          "exit_gallery",
+          "final_arena",
+          "key_console",
+          "key_wing",
+          "observation",
+          "pump_room",
+          "red_console",
+          "return_store",
+          "service",
+          "spine",
+          "supplies"
+        ],
+        "obtained_flags": [
+          "brass_key",
+          "breaker",
+          "clear_arena_one",
+          "clear_arena_two",
+          "clear_final_arena",
+          "exit_control",
+          "red_key",
+          "release"
+        ],
+        "waves": [
+          {
+            "new_rooms": [
+              "service",
+              "supplies"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "arena_one",
+              "return_store"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "key_wing"
+            ],
+            "new_flags": [
+              "breaker",
+              "clear_arena_one"
+            ]
+          },
+          {
+            "new_rooms": [
+              "key_console"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "spine"
+            ],
+            "new_flags": [
+              "brass_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "arena_two",
+              "pump_room"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "red_console"
+            ],
+            "new_flags": [
+              "clear_arena_two",
+              "release"
+            ]
+          },
+          {
+            "new_rooms": [
+              "final_arena"
+            ],
+            "new_flags": [
+              "red_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "exit_gallery",
+              "observation"
+            ],
+            "new_flags": [
+              "clear_final_arena",
+              "exit_control"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "occupied_line_03",
+      "rooms": 11,
+      "furnishing_instances": 46,
+      "furnishing_groups": 31,
+      "progression_objects": 8,
+      "arena_modes": {
+        "arena_one": "turbine_banks",
+        "arena_two": "reactor_banks",
+        "final_arena": "core_service_bays"
+      },
+      "gated_reachability": {
+        "inventory": {
+          "entry": "entry",
+          "keys": [
+            {
+              "id": "brass_key",
+              "room": "key_console",
+              "label": "BRASS ACCESS KEY"
+            },
+            {
+              "id": "red_key",
+              "room": "red_console",
+              "label": "RED ACCESS KEY"
+            }
+          ],
+          "controls": [
+            {
+              "id": "breaker",
+              "room": "arena_one",
+              "arena": "arena_one",
+              "sets": "breaker",
+              "label": "ENABLE BRASS ACCESS"
+            },
+            {
+              "id": "release",
+              "room": "arena_two",
+              "arena": "arena_two",
+              "sets": "release",
+              "label": "RELEASE RED ACCESS"
+            },
+            {
+              "id": "exit_control",
+              "room": "final_arena",
+              "arena": "final_arena",
+              "sets": "exit_control",
+              "label": "OPEN SECTOR EXIT"
+            }
+          ],
+          "gates": [
+            {
+              "id": "brass_gate",
+              "from": "arena_one",
+              "to": "spine",
+              "requires": [
+                "breaker",
+                "brass_key"
+              ]
+            },
+            {
+              "id": "red_gate",
+              "from": "arena_two",
+              "to": "final_arena",
+              "requires": [
+                "release",
+                "red_key"
+              ]
+            },
+            {
+              "id": "exit_gate",
+              "from": "final_arena",
+              "to": "exit_gallery",
+              "requires": [
+                "exit_control"
+              ]
+            },
+            {
+              "id": "breaker",
+              "from": "arena_one",
+              "to": "key_console",
+              "requires": [
+                "breaker"
+              ]
+            },
+            {
+              "id": "release",
+              "from": "arena_two",
+              "to": "red_console",
+              "requires": [
+                "release"
+              ]
+            },
+            {
+              "id": "secret_one",
+              "from": "entry",
+              "to": "secret_one",
+              "requires": []
+            }
+          ],
+          "arenas": [
+            {
+              "id": "arena_one",
+              "room": "arena_one",
+              "enemies": 8
+            },
+            {
+              "id": "arena_two",
+              "room": "arena_two",
+              "enemies": 8
+            },
+            {
+              "id": "final_arena",
+              "room": "final_arena",
+              "enemies": 8
+            }
+          ],
+          "weapon_caches": [
+            {
+              "room": "arena_one",
+              "weapon": "siege_launcher",
+              "ammo": 2
+            },
+            {
+              "room": "arena_two",
+              "weapon": "siege_launcher",
+              "ammo": 2
+            },
+            {
+              "room": "final_arena",
+              "weapon": "siege_launcher",
+              "ammo": 2
+            }
+          ],
+          "exit": {
+            "room": "exit_gallery",
+            "requires": [
+              "brass_key",
+              "red_key",
+              "exit_control"
+            ]
+          }
+        },
+        "reachable_rooms": [
+          "arena_one",
+          "arena_two",
+          "entry",
+          "exit_gallery",
+          "final_arena",
+          "key_console",
+          "pump_room",
+          "red_console",
+          "service",
+          "spine"
+        ],
+        "obtained_flags": [
+          "brass_key",
+          "breaker",
+          "clear_arena_one",
+          "clear_arena_two",
+          "clear_final_arena",
+          "exit_control",
+          "red_key",
+          "release"
+        ],
+        "waves": [
+          {
+            "new_rooms": [
+              "service"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "arena_one"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "key_console"
+            ],
+            "new_flags": [
+              "breaker",
+              "clear_arena_one"
+            ]
+          },
+          {
+            "new_rooms": [
+              "spine"
+            ],
+            "new_flags": [
+              "brass_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "arena_two",
+              "pump_room"
+            ],
+            "new_flags": []
+          },
+          {
+            "new_rooms": [
+              "red_console"
+            ],
+            "new_flags": [
+              "clear_arena_two",
+              "release"
+            ]
+          },
+          {
+            "new_rooms": [
+              "final_arena"
+            ],
+            "new_flags": [
+              "red_key"
+            ]
+          },
+          {
+            "new_rooms": [
+              "exit_gallery"
+            ],
+            "new_flags": [
+              "clear_final_arena",
+              "exit_control"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -36,7 +36,7 @@
   "rooms": [
     {
       "id": "entry",
-      "label": "SILO ACCESS",
+      "label": "Specimen silo reception",
       "center": [
         0.0,
         0,
@@ -48,11 +48,14 @@
         37.76
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "security",
+      "layout_mode": "security_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "arena_one",
-      "label": "CULTURE SHAFT",
+      "label": "Specimen cultivation silo",
       "center": [
         0.0,
         -1.0,
@@ -66,43 +69,52 @@
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 2.0,
-      "encounter": "sealed weapon cache"
+      "encounter": "sealed weapon cache",
+      "function": "specimen_silo",
+      "layout_mode": "tall_silo_clusters",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "key_wing",
-      "label": "Bio Wing",
+      "label": "Research access passage",
       "center": [
         44.9,
         1.5,
         -89.67999999999999
       ],
       "size": [
-        29.400000000000002,
+        12,
         5,
-        21.24
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "diagnostics",
+      "layout_mode": "diagnostics_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "key_console",
-      "label": "Operating Theatre",
+      "label": "Genetic analysis laboratory",
       "center": [
         44.9,
         1.5,
         -123.89999999999999
       ],
       "size": [
-        23.1,
+        12,
         5,
-        28.32
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "pathology",
+      "layout_mode": "pathology_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "spine",
-      "label": "Quarantine Spine",
+      "label": "Emergency sterilisation",
       "center": [
         0.0,
         1.5,
@@ -114,11 +126,14 @@
         28.32
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "decontamination",
+      "layout_mode": "decontamination_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "arena_two",
-      "label": "SPECIMEN BREACH",
+      "label": "Containment rupture hall",
       "center": [
         0.0,
         0.0,
@@ -132,43 +147,52 @@
       "secret": false,
       "arena_id": "arena_two",
       "chamfer": 2.0,
-      "encounter": "raised crossfire bridge"
+      "encounter": "raised crossfire bridge",
+      "function": "breached_lab",
+      "layout_mode": "broken_bays",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "red_wing",
-      "label": "Pathology",
+      "label": "Dead sample archive",
       "center": [
         -42.0,
         1.5,
         -186.44
       ],
       "size": [
-        27.3,
+        12,
         6,
-        30.68
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "specimen_archive",
+      "layout_mode": "specimen_archive_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "red_console",
-      "label": "Red Access Control",
+      "label": "Emergency release office",
       "center": [
         -42.0,
         1.5,
         -226.56
       ],
       "size": [
-        23.1,
+        10,
         6,
-        28.32
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "control_room",
+      "layout_mode": "control_room_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "final_arena",
-      "label": "FISSURE EXIT",
+      "label": "Buried fissure excavation",
       "center": [
         0.0,
         1.5,
@@ -182,11 +206,14 @@
       "secret": false,
       "arena_id": "final_arena",
       "chamfer": 2.0,
-      "encounter": "lower court and upper launcher reward"
+      "encounter": "lower court and upper launcher reward",
+      "function": "breach_works",
+      "layout_mode": "excavation_sides",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "exit_gallery",
-      "label": "BURIED OCCULT GATE / ASH APPROACH",
+      "label": "Buried occult threshold",
       "center": [
         0.0,
         3.0,
@@ -198,43 +225,52 @@
         21.24
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "breach_works",
+      "layout_mode": "breach_works_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "supplies",
-      "label": "Medical Stores",
+      "label": "Emergency surgical store",
       "center": [
         -27.3,
         0,
         -4.72
       ],
       "size": [
-        14.700000000000001,
+        12,
         5,
-        21.24
+        10
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "medical_stores",
+      "layout_mode": "medical_stores_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "maintenance",
-      "label": "Maintenance",
+      "label": "Silo coolant plant",
       "center": [
         29.400000000000002,
         0,
         7.08
       ],
       "size": [
-        18.900000000000002,
+        14,
         5,
-        18.88
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "utility",
+      "layout_mode": "utility_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "secret_two",
-      "label": "Hidden Specimen Room",
+      "label": "Failed culture vault",
       "center": [
         -63.0,
         1.5,
@@ -246,7 +282,10 @@
         11.799999999999999
       ],
       "secret": true,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "specimen_archive",
+      "layout_mode": "specimen_archive_fitted_workstations",
+      "light_family": "clinical_sick_green"
     }
   ],
   "portals": [

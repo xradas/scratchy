@@ -36,7 +36,7 @@
   "rooms": [
     {
       "id": "entry",
-      "label": "TRACK ARRIVAL",
+      "label": "Arrival platform",
       "center": [
         0.0,
         0,
@@ -48,11 +48,14 @@
         36.0064
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "station",
+      "layout_mode": "station_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "arena_one",
-      "label": "DEAD PLATFORM",
+      "label": "Dead interchange",
       "center": [
         0.0,
         -1.5,
@@ -66,43 +69,52 @@
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 2.0,
-      "encounter": "sealed weapon cache"
+      "encounter": "sealed weapon cache",
+      "function": "platform",
+      "layout_mode": "platform_furniture",
+      "light_family": "cold_civic"
     },
     {
       "id": "key_wing",
-      "label": "Ticket Wing",
+      "label": "Ticket concourse",
       "center": [
         51.57359999999999,
         0,
         -85.5152
       ],
       "size": [
-        38.001599999999996,
+        14,
         5,
-        20.2536
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "station",
+      "layout_mode": "station_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "key_console",
-      "label": "Brass Access Office",
+      "label": "Station dispatch",
       "center": [
         51.57359999999999,
         0,
         -118.146
       ],
       "size": [
-        29.858399999999996,
+        12,
         5,
-        27.004799999999996
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "dispatch",
+      "layout_mode": "dispatch_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "spine",
-      "label": "Transfer Spine",
+      "label": "Staff transfer passage",
       "center": [
         0.0,
         0,
@@ -114,11 +126,14 @@
         27.004799999999996
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "station",
+      "layout_mode": "station_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "arena_two",
-      "label": "SIGNAL HOUSE",
+      "label": "Signal house",
       "center": [
         0.0,
         -1.5,
@@ -132,43 +147,52 @@
       "secret": false,
       "arena_id": "arena_two",
       "chamfer": 2.0,
-      "encounter": "raised crossfire bridge"
+      "encounter": "raised crossfire bridge",
+      "function": "signal_works",
+      "layout_mode": "relay_banks",
+      "light_family": "cold_civic"
     },
     {
       "id": "red_wing",
-      "label": "Service Wing",
+      "label": "Control access",
       "center": [
         -54.288,
         0,
         -177.7816
       ],
       "size": [
-        35.28719999999999,
+        12,
         6,
-        29.255199999999995
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "dispatch",
+      "layout_mode": "dispatch_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "red_console",
-      "label": "Red Dispatch Console",
+      "label": "Traction control",
       "center": [
         -54.288,
         0,
         -216.03839999999997
       ],
       "size": [
-        29.858399999999996,
+        14,
         6,
-        27.004799999999996
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "power_works",
+      "layout_mode": "power_works_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "final_arena",
-      "label": "CIVIC EXIT",
+      "label": "Freight crossing",
       "center": [
         0.0,
         0.0,
@@ -182,11 +206,14 @@
       "secret": false,
       "arena_id": "final_arena",
       "chamfer": 2.0,
-      "encounter": "lower court and upper launcher reward"
+      "encounter": "lower court and upper launcher reward",
+      "function": "freight",
+      "layout_mode": "freight_stacks",
+      "light_family": "cold_civic"
     },
     {
       "id": "exit_gallery",
-      "label": "TO CIVIC LOCKDOWN",
+      "label": "Civic concourse access",
       "center": [
         0.0,
         1.5,
@@ -198,59 +225,71 @@
         20.2536
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "station",
+      "layout_mode": "station_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "supplies",
-      "label": "First Aid",
+      "label": "Platform stores",
       "center": [
         -35.28719999999999,
         0,
         -4.5008
       ],
       "size": [
-        19.000799999999998,
+        14,
         5,
-        20.2536
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "freight",
+      "layout_mode": "freight_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "maintenance",
-      "label": "Maintenance Booth",
+      "label": "Track workshop",
       "center": [
         38.001599999999996,
         0,
         6.751199999999999
       ],
       "size": [
-        24.429599999999997,
+        14,
         5,
-        18.0032
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "workshop",
+      "layout_mode": "workshop_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "armory",
-      "label": "Security Locker",
+      "label": "Transit security",
       "center": [
         -54.288,
         0,
         -131.6484
       ],
       "size": [
-        27.144,
+        12,
         5,
-        22.503999999999998
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "security",
+      "layout_mode": "security_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "secret_one",
-      "label": "Hidden Staff Room",
+      "label": "Disused ticket office",
       "center": [
         -57.002399999999994,
         0,
@@ -262,11 +301,14 @@
         9.0016
       ],
       "secret": true,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "dispatch",
+      "layout_mode": "dispatch_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "observation",
-      "label": "Upper Platform",
+      "label": "Signal lookout",
       "center": [
         51.57359999999999,
         4.5,
@@ -278,7 +320,10 @@
         20.2536
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "dispatch",
+      "layout_mode": "dispatch_fitted_workstations",
+      "light_family": "cold_civic"
     }
   ],
   "portals": [

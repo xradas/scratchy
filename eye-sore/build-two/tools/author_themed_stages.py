@@ -5,6 +5,7 @@ No source image processing occurs here; only scene/resource text is authored.
 """
 from pathlib import Path
 import json, math, re
+from pickup_art_v6 import add_pickup_visuals
 P = Path(__file__).resolve().parents[1]
 
 def vec(v): return 'Vector3(' + ', '.join(f'{x:.6g}' for x in v) + ')'
@@ -63,13 +64,14 @@ class Scene:
             h=(k+1)*rise/steps;pp=list(start);pp[axis]+=(end[axis]-start[axis])*(k+.5)/steps;pp[1]+=h/2
             size=[width,h,width];size[axis]=length/steps+.008
             self.box(name+str(k),pp,size,mat,extra='metadata/stage_step = true')
-    def cylinder(self,name,pos,radius,height,mat='steel',solid=True):
+    def cylinder(self,name,pos,radius,height,mat='steel',solid=True,parent='.'):
         self.i+=1;idx=self.i
         self.sub.append(f'[sub_resource type="CylinderMesh" id="m{idx}"]\ntop_radius = {radius}\nbottom_radius = {radius}\nheight = {height}\nradial_segments = 24\nmaterial = SubResource("{mat}")\n')
         if solid:self.sub.append(f'[sub_resource type="CylinderShape3D" id="s{idx}"]\nradius = {radius}\nheight = {height}\n')
-        self.node(name,'StaticBody3D' if solid else 'Node3D',props='position = '+vec(pos)+('\ncollision_layer = 1\ncollision_mask = 3\nmetadata/hit_material = "armor"' if solid else ''))
-        self.node('Visual','MeshInstance3D',name,f'mesh = SubResource("m{idx}")')
-        if solid:self.node('Collision','CollisionShape3D',name,f'shape = SubResource("s{idx}")')
+        self.node(name,'StaticBody3D' if solid else 'Node3D',parent=parent,props='position = '+vec(pos)+('\ncollision_layer = 1\ncollision_mask = 3\nmetadata/hit_material = "armor"' if solid else ''))
+        path=name if parent=='.' else parent+'/'+name
+        self.node('Visual','MeshInstance3D',path,f'mesh = SubResource("m{idx}")')
+        if solid:self.node('Collision','CollisionShape3D',path,f'shape = SubResource("s{idx}")')
     def downlight(self,name,pos,energy=4.0,reach=15):
         self.node(name,'SpotLight3D',props='position = '+vec(pos)+f'\nrotation_degrees = Vector3(-90,0,0)\nlight_color = Color(.9,.88,.8,1)\nlight_energy = {energy}\nspot_range = {reach}\nspot_angle = 62\nshadow_enabled = true\nshadow_bias = .025\nshadow_normal_bias = .35')
     def marker(self,name,pos,meta,parent='.'):
@@ -80,6 +82,7 @@ class Scene:
         self.node(name,'OmniLight3D',props='position = '+vec(pos)+f'\nlight_color = Color({",".join(map(str,c))})\nlight_energy = {energy}\nomni_range = {reach}\n')
     def pickup(self,name,kind,pos,amount=25):
         self.node(name,props='position = '+vec(pos)+'\nmetadata/stage_pickup = '+quote(kind)+f'\nmetadata/amount = {amount}')
+        if add_pickup_visuals(self,name,kind): return
         if kind in ['twin_shotgun','rivet_cannon','siege_launcher']:
             # Readable native world silhouettes match the cache's actual grant.
             self.box('Receiver',(0,.06,.08),(.42,.22,.48),'steel',False,name)

@@ -4,7 +4,7 @@
   "rooms": {
     "entry": {
       "id": "entry",
-      "label": "CIVIC ENTRY",
+      "label": "Civic reception",
       "center": [
         -0.0,
         0,
@@ -16,11 +16,14 @@
         43.0592
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "civic_lobby",
+      "layout_mode": "civic_lobby_fitted_workstations",
+      "light_family": "cold_civic"
     },
     "service": {
       "id": "service",
-      "label": "Platform Approach",
+      "label": "Public records passage",
       "center": [
         -0.0,
         0,
@@ -32,11 +35,14 @@
         37.67679999999999
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "records",
+      "layout_mode": "records_fitted_workstations",
+      "light_family": "cold_civic"
     },
     "arena_one": {
       "id": "arena_one",
-      "label": "ADMIN HUB",
+      "label": "Administration atrium",
       "center": [
         -0.0,
         -1.5,
@@ -50,59 +56,71 @@
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 2.0,
-      "encounter": "sealed weapon cache"
+      "encounter": "sealed weapon cache",
+      "function": "civic_lobby",
+      "layout_mode": "public_service_bays",
+      "light_family": "cold_civic"
     },
     "key_wing": {
       "id": "key_wing",
-      "label": "Ticket Wing",
+      "label": "Records office",
       "center": [
         -42.31679999999999,
         0,
         -102.26559999999999
       ],
       "size": [
-        31.180799999999994,
+        12,
         5,
-        24.220799999999997
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "records",
+      "layout_mode": "records_fitted_workstations",
+      "light_family": "cold_civic"
     },
     "key_console": {
       "id": "key_console",
-      "label": "Brass Access Office",
+      "label": "Permit archive",
       "center": [
         -42.31679999999999,
         0,
         -141.28799999999998
       ],
       "size": [
-        24.4992,
+        12,
         5,
-        32.294399999999996
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "records",
+      "layout_mode": "records_fitted_workstations",
+      "light_family": "cold_civic"
     },
     "return_store": {
       "id": "return_store",
-      "label": "Baggage Return",
+      "label": "Staff document return",
       "center": [
         -37.862399999999994,
         0,
         -51.132799999999996
       ],
       "size": [
-        26.726399999999995,
+        12,
         5,
-        29.603199999999998
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "records",
+      "layout_mode": "records_fitted_workstations",
+      "light_family": "cold_civic"
     },
     "spine": {
       "id": "spine",
-      "label": "Transfer Spine",
+      "label": "Security checkpoint",
       "center": [
         -0.0,
         0,
@@ -114,11 +132,14 @@
         32.294399999999996
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "security",
+      "layout_mode": "security_fitted_workstations",
+      "light_family": "cold_civic"
     },
     "arena_two": {
       "id": "arena_two",
-      "label": "LOCKDOWN MEZZANINE",
+      "label": "Lockdown mezzanine",
       "center": [
         37.0672,
         -1.5,
@@ -132,27 +153,33 @@
       "secret": false,
       "arena_id": "arena_two",
       "chamfer": 2.0,
-      "encounter": "raised crossfire bridge"
+      "encounter": "raised crossfire bridge",
+      "function": "security",
+      "layout_mode": "security_desks",
+      "light_family": "cold_civic"
     },
     "red_console": {
       "id": "red_console",
-      "label": "Red Dispatch Console",
+      "label": "Emergency administration",
       "center": [
         77.4752,
         0,
         -165.50879999999995
       ],
       "size": [
-        24.4992,
+        12,
         6,
-        32.294399999999996
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "dispatch",
+      "layout_mode": "dispatch_fitted_workstations",
+      "light_family": "cold_civic"
     },
     "final_arena": {
       "id": "final_arena",
-      "label": "TRANSIT SEAL",
+      "label": "Transit seal machine hall",
       "center": [
         37.0672,
         0.0,
@@ -166,11 +193,14 @@
       "secret": false,
       "arena_id": "final_arena",
       "chamfer": 2.0,
-      "encounter": "lower court and upper launcher reward"
+      "encounter": "lower court and upper launcher reward",
+      "function": "power_works",
+      "layout_mode": "machine_banks",
+      "light_family": "cold_civic"
     },
     "exit_gallery": {
       "id": "exit_gallery",
-      "label": "TO OCCUPATION ENGINE",
+      "label": "Engine personnel access",
       "center": [
         37.0672,
         1.5,
@@ -182,43 +212,52 @@
         24.220799999999997
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "workshop",
+      "layout_mode": "workshop_fitted_workstations",
+      "light_family": "cold_civic"
     },
     "supplies": {
       "id": "supplies",
-      "label": "First Aid",
+      "label": "Facilities stores",
       "center": [
         28.953599999999994,
         0,
         -5.3824
       ],
       "size": [
-        15.590399999999997,
+        14,
         5,
-        24.220799999999997
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "freight",
+      "layout_mode": "freight_fitted_workstations",
+      "light_family": "cold_civic"
     },
     "pump_room": {
       "id": "pump_room",
-      "label": "Transformer Hall",
+      "label": "Municipal coolant services",
       "center": [
         -42.31679999999999,
         0,
         -181.65599999999998
       ],
       "size": [
-        22.272,
+        14,
         5,
-        24.220799999999997
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "power_works",
+      "layout_mode": "power_works_fitted_workstations",
+      "light_family": "cold_civic"
     },
     "observation": {
       "id": "observation",
-      "label": "Upper Platform",
+      "label": "Atrium control balcony",
       "center": [
         72.0208,
         4.5,
@@ -230,7 +269,10 @@
         24.220799999999997
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "dispatch",
+      "layout_mode": "dispatch_fitted_workstations",
+      "light_family": "cold_civic"
     }
   },
   "portals": [
@@ -306,12 +348,12 @@
         -102.26559999999999
       ],
       "end": [
-        -26.726399999999998,
+        -36.31679999999999,
         0,
         -102.26559999999999
       ],
       "middle": [
-        -23.385599999999997,
+        -28.180799999999998,
         -0.75,
         -102.26559999999999
       ],
@@ -330,17 +372,17 @@
       "start": [
         -42.31679999999999,
         0,
-        -114.37599999999999
+        -109.26559999999999
       ],
       "end": [
         -42.31679999999999,
         0,
-        -125.14079999999998
+        -134.28799999999998
       ],
       "middle": [
         -42.31679999999999,
         0.0,
-        -119.7584
+        -121.77679999999998
       ],
       "axis": 2,
       "door": null
@@ -355,19 +397,19 @@
       "shortcut": false,
       "lift": false,
       "start": [
-        -42.31679999999999,
+        -41.862399999999994,
         0,
-        -90.1552
+        -95.26559999999999
       ],
       "end": [
-        -42.31679999999999,
+        -41.862399999999994,
         0,
-        -65.9344
+        -58.132799999999996
       ],
       "middle": [
-        -42.31679999999999,
+        -41.862399999999994,
         0.0,
-        -78.0448
+        -76.69919999999999
       ],
       "axis": 2,
       "door": null
@@ -382,7 +424,7 @@
       "shortcut": true,
       "lift": false,
       "start": [
-        -24.499199999999995,
+        -31.862399999999994,
         0,
         -51.132799999999996
       ],
@@ -392,7 +434,7 @@
         -51.132799999999996
       ],
       "middle": [
-        -15.590399999999997,
+        -19.271999999999995,
         0.0,
         -51.132799999999996
       ],
@@ -532,12 +574,12 @@
         0.0
       ],
       "end": [
-        21.158399999999997,
+        21.953599999999994,
         0,
         0.0
       ],
       "middle": [
-        17.260799999999996,
+        17.658399999999997,
         0.0,
         0.0
       ],
@@ -556,17 +598,17 @@
       "start": [
         -8.9088,
         0,
-        -171.54559999999998
+        -175.65599999999998
       ],
       "end": [
-        -31.180799999999994,
+        -35.31679999999999,
         0,
-        -171.54559999999998
+        -175.65599999999998
       ],
       "middle": [
-        -20.044799999999995,
+        -22.112799999999996,
         0.0,
-        -171.54559999999998
+        -175.65599999999998
       ],
       "axis": 0,
       "door": null
@@ -615,12 +657,12 @@
         -165.50879999999995
       ],
       "end": [
-        65.2256,
+        71.4752,
         0,
         -165.50879999999995
       ],
       "middle": [
-        61.7256,
+        64.85040000000001,
         -0.75,
         -165.50879999999995
       ],

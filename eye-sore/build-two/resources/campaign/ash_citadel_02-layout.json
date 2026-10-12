@@ -36,7 +36,7 @@
   "rooms": [
     {
       "id": "entry",
-      "label": "CHOIR ENTRY",
+      "label": "Choir vestibule",
       "center": [
         0.0,
         0,
@@ -48,11 +48,14 @@
         39.42400000000001
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "chapel",
+      "layout_mode": "chapel_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "service",
-      "label": "Gate Passage",
+      "label": "Acolyte passage",
       "center": [
         0.0,
         0,
@@ -64,11 +67,14 @@
         34.49600000000001
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "archive",
+      "layout_mode": "archive_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "arena_one",
-      "label": "FURNACE RING",
+      "label": "Furnace choir",
       "center": [
         0.0,
         0.0,
@@ -82,43 +88,52 @@
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 3.0,
-      "encounter": "sealed weapon cache"
+      "encounter": "sealed weapon cache",
+      "function": "choir",
+      "layout_mode": "choir_stalls",
+      "light_family": "ember_warm"
     },
     {
       "id": "key_wing",
-      "label": "Reliquary Wing",
+      "label": "Ember preparation",
       "center": [
         40.128,
         0,
         -93.63200000000002
       ],
       "size": [
-        29.568,
+        14,
         5,
-        22.176000000000002
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "forge",
+      "layout_mode": "forge_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "key_console",
-      "label": "Brass Seal Shrine",
+      "label": "Cantor archive",
       "center": [
         40.128,
         0,
         -129.36000000000004
       ],
       "size": [
-        23.232000000000003,
+        12,
         5,
-        29.568000000000005
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "archive",
+      "layout_mode": "archive_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "spine",
-      "label": "Inner Bastion",
+      "label": "Ash processional",
       "center": [
         0.0,
         0,
@@ -130,11 +145,14 @@
         29.568000000000005
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "cloister",
+      "layout_mode": "cloister_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "arena_two",
-      "label": "EMBER ALTAR",
+      "label": "Ember altar",
       "center": [
         -35.512,
         0.0,
@@ -148,43 +166,52 @@
       "secret": false,
       "arena_id": "arena_two",
       "chamfer": 3.0,
-      "encounter": "raised crossfire bridge"
+      "encounter": "raised crossfire bridge",
+      "function": "chapel",
+      "layout_mode": "altar_recesses",
+      "light_family": "ember_warm"
     },
     {
       "id": "red_wing",
-      "label": "Sacristy",
+      "label": "Ossuary passage",
       "center": [
         -76.304,
         0,
         -151.53600000000003
       ],
       "size": [
-        27.456,
+        14,
         6,
-        32.032000000000004
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "crypt",
+      "layout_mode": "crypt_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "red_console",
-      "label": "Red Seal Altar",
+      "label": "Vesper sacristy",
       "center": [
         -76.304,
         0,
         -191.336
       ],
       "size": [
-        23.232000000000003,
+        12,
         6,
-        29.568000000000005
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "reliquary",
+      "layout_mode": "reliquary_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "final_arena",
-      "label": "VESPER DOOR",
+      "label": "Vesper bell forge",
       "center": [
         -35.512,
         1.5,
@@ -198,11 +225,14 @@
       "secret": false,
       "arena_id": "final_arena",
       "chamfer": 3.0,
-      "encounter": "lower court and upper launcher reward"
+      "encounter": "lower court and upper launcher reward",
+      "function": "forge",
+      "layout_mode": "bellows_banks",
+      "light_family": "ember_warm"
     },
     {
       "id": "exit_gallery",
-      "label": "TO BLACK RELIQUARY",
+      "label": "Reliquary stair landing",
       "center": [
         -35.512,
         1.5,
@@ -214,27 +244,33 @@
         22.176000000000002
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "crypt",
+      "layout_mode": "crypt_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "pump_room",
-      "label": "Bell Chamber",
+      "label": "Bellows works",
       "center": [
         40.128,
         0,
         -166.32000000000002
       ],
       "size": [
-        21.119999999999997,
+        14,
         5,
-        22.176000000000002
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "forge",
+      "layout_mode": "forge_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "secret_two",
-      "label": "Ossuary",
+      "label": "Sealed cantor tomb",
       "center": [
         -63.36,
         0,
@@ -246,7 +282,10 @@
         12.32
       ],
       "secret": true,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "crypt",
+      "layout_mode": "crypt_fitted_workstations",
+      "light_family": "ember_warm"
     }
   ],
   "portals": [

@@ -1,0 +1,224 @@
+{
+  "version": 6,
+  "atlas": "res://assets/pickups/pickup-v6-atlas.png",
+  "source_sha256": "39fba625d0fcce67f4e0ed29d12ae819357dd186a6032aa9b92b77464be1c593",
+  "native_rgba8_sha256": "cf634cbcafdd93d311c261ef20e8f32a3b763c9663ca58869d4db7a57974f21a",
+  "source_canvas": [
+    1254,
+    1254
+  ],
+  "source_layout_sha256": "74595ab927b8961b2c9282679eb6c640485a8a35e06cd31eeb564d0c74ff7003",
+  "sampling": "native AtlasTexture rectangles, nearest, filter_clip; no source image edits",
+  "aliases": {
+    "brass_key": "brass",
+    "red_key": "red"
+  },
+  "items": {
+    "pistol": {
+      "geometry": "box",
+      "regions": {
+        "front": [
+          5,
+          5,
+          303,
+          302
+        ],
+        "side": [
+          5,
+          320,
+          303,
+          250
+        ],
+        "top": [
+          5,
+          581,
+          303,
+          253
+        ]
+      },
+      "size": [
+        0.68,
+        0.6777557755775578,
+        0.48
+      ],
+      "metallic": 0.18,
+      "roughness": 0.86
+    },
+    "shells": {
+      "geometry": "box",
+      "regions": {
+        "front": [
+          320,
+          5,
+          303,
+          302
+        ],
+        "side": [
+          320,
+          320,
+          303,
+          250
+        ],
+        "top": [
+          320,
+          581,
+          303,
+          253
+        ]
+      },
+      "size": [
+        0.72,
+        0.7176237623762376,
+        0.48
+      ],
+      "metallic": 0.18,
+      "roughness": 0.86
+    },
+    "rivets": {
+      "geometry": "box",
+      "regions": {
+        "front": [
+          638,
+          5,
+          302,
+          302
+        ],
+        "side": [
+          638,
+          320,
+          302,
+          250
+        ],
+        "top": [
+          638,
+          581,
+          302,
+          253
+        ]
+      },
+      "size": [
+        0.74,
+        0.74,
+        0.52
+      ],
+      "metallic": 0.18,
+      "roughness": 0.86
+    },
+    "rockets": {
+      "geometry": "box",
+      "regions": {
+        "front": [
+          953,
+          5,
+          296,
+          302
+        ],
+        "side": [
+          953,
+          320,
+          296,
+          250
+        ],
+        "top": [
+          953,
+          581,
+          296,
+          253
+        ]
+      },
+      "size": [
+        0.86,
+        0.8774324324324323,
+        0.5
+      ],
+      "metallic": 0.18,
+      "roughness": 0.86
+    },
+    "brass": {
+      "geometry": "key",
+      "regions": {
+        "metal": [
+          60,
+          878,
+          60,
+          60
+        ]
+      },
+      "metallic": 0.85,
+      "roughness": 0.32
+    },
+    "red": {
+      "geometry": "key",
+      "regions": {
+        "metal": [
+          355,
+          876,
+          60,
+          60
+        ]
+      },
+      "metallic": 0.85,
+      "roughness": 0.32
+    },
+    "health": {
+      "geometry": "box",
+      "regions": {
+        "front": [
+          638,
+          850,
+          302,
+          395
+        ],
+        "side": [
+          638,
+          850,
+          302,
+          395
+        ],
+        "top": [
+          638,
+          850,
+          302,
+          395
+        ]
+      },
+      "size": [
+        0.64,
+        0.8370860927152318,
+        0.48
+      ],
+      "metallic": 0.18,
+      "roughness": 0.86
+    },
+    "armor": {
+      "geometry": "box",
+      "regions": {
+        "front": [
+          953,
+          850,
+          296,
+          395
+        ],
+        "side": [
+          953,
+          850,
+          296,
+          395
+        ],
+        "top": [
+          953,
+          850,
+          296,
+          395
+        ]
+      },
+      "size": [
+        0.66,
+        0.8807432432432432,
+        0.48
+      ],
+      "metallic": 0.18,
+      "roughness": 0.86
+    }
+  }
+}

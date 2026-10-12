@@ -36,7 +36,7 @@
   "rooms": [
     {
       "id": "entry",
-      "label": "RAMPART",
+      "label": "Siege approach",
       "center": [
         -0.0,
         0,
@@ -48,11 +48,14 @@
         33.792
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "rampart",
+      "layout_mode": "rampart_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "service",
-      "label": "Gate Passage",
+      "label": "Gatehouse inspection",
       "center": [
         -0.0,
         0,
@@ -64,11 +67,14 @@
         29.568
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "guardhouse",
+      "layout_mode": "guardhouse_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "arena_one",
-      "label": "CLOISTER COURT",
+      "label": "Cloister courtyard",
       "center": [
         -0.0,
         0.0,
@@ -82,59 +88,71 @@
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 3.0,
-      "encounter": "sealed weapon cache"
+      "encounter": "sealed weapon cache",
+      "function": "cloister",
+      "layout_mode": "cloister_seating",
+      "light_family": "ember_warm"
     },
     {
       "id": "key_wing",
-      "label": "Reliquary Wing",
+      "label": "Monastic cells",
       "center": [
         -47.234,
         0,
         -80.256
       ],
       "size": [
-        34.804,
+        10,
         5,
-        19.008
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "quarters",
+      "layout_mode": "quarters_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "key_console",
-      "label": "Brass Seal Shrine",
+      "label": "Scriptorium",
       "center": [
         -47.234,
         0,
         -110.88000000000001
       ],
       "size": [
-        27.346,
+        12,
         5,
-        25.344
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "archive",
+      "layout_mode": "archive_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "return_store",
-      "label": "Crypt Return",
+      "label": "Cloister stores",
       "center": [
         -42.262,
         0,
         -40.128
       ],
       "size": [
-        29.832,
+        12,
         5,
-        23.232000000000003
+        10
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "stores",
+      "layout_mode": "stores_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "spine",
-      "label": "Inner Bastion",
+      "label": "Processional passage",
       "center": [
         -0.0,
         0,
@@ -146,11 +164,14 @@
         25.344
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "cloister",
+      "layout_mode": "cloister_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "arena_two",
-      "label": "CHAIN HOUSE",
+      "label": "Chain house",
       "center": [
         -0.0,
         0.0,
@@ -164,43 +185,52 @@
       "secret": false,
       "arena_id": "arena_two",
       "chamfer": 3.0,
-      "encounter": "raised crossfire bridge"
+      "encounter": "raised crossfire bridge",
+      "function": "forge",
+      "layout_mode": "forge_banks",
+      "light_family": "ember_warm"
     },
     {
       "id": "red_wing",
-      "label": "Sacristy",
+      "label": "Guard crypt passage",
       "center": [
         49.72,
         0,
         -166.848
       ],
       "size": [
-        32.318,
+        14,
         6,
-        27.456
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "crypt",
+      "layout_mode": "crypt_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "red_console",
-      "label": "Red Seal Altar",
+      "label": "Crypt warden chamber",
       "center": [
         49.72,
         0,
         -202.752
       ],
       "size": [
-        27.346,
+        12,
         6,
-        25.344
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "guardhouse",
+      "layout_mode": "guardhouse_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "final_arena",
-      "label": "ASH GATE",
+      "label": "Ash gate courtyard",
       "center": [
         -0.0,
         1.5,
@@ -214,11 +244,14 @@
       "secret": false,
       "arena_id": "final_arena",
       "chamfer": 3.0,
-      "encounter": "lower court and upper launcher reward"
+      "encounter": "lower court and upper launcher reward",
+      "function": "rampart",
+      "layout_mode": "rampart_recesses",
+      "light_family": "ember_warm"
     },
     {
       "id": "exit_gallery",
-      "label": "TO FURNACE CHOIR",
+      "label": "Furnace approach",
       "center": [
         -0.0,
         1.5,
@@ -230,43 +263,52 @@
         19.008
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "forge",
+      "layout_mode": "forge_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "supplies",
-      "label": "Pilgrim Stores",
+      "label": "Quartermaster stores",
       "center": [
         32.318,
         0,
         -4.224
       ],
       "size": [
-        17.402,
+        12,
         5,
-        19.008
+        10
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "stores",
+      "layout_mode": "stores_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "armory",
-      "label": "Armory",
+      "label": "Siege armory",
       "center": [
         49.72,
         0,
         -123.552
       ],
       "size": [
-        24.86,
+        12,
         5,
-        21.119999999999997
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "guardhouse",
+      "layout_mode": "guardhouse_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "secret_one",
-      "label": "Walled Niche",
+      "label": "Hidden tithe vault",
       "center": [
         52.205999999999996,
         0,
@@ -278,11 +320,14 @@
         8.448
       ],
       "secret": true,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "reliquary",
+      "layout_mode": "reliquary_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "observation",
-      "label": "Upper Battlement",
+      "label": "Rampart watch",
       "center": [
         -47.234,
         4.5,
@@ -294,7 +339,10 @@
         19.008
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "rampart",
+      "layout_mode": "rampart_fitted_workstations",
+      "light_family": "ember_warm"
     }
   ],
   "portals": [

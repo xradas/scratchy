@@ -4,7 +4,7 @@
   "rooms": {
     "entry": {
       "id": "entry",
-      "label": "RESERVOIR",
+      "label": "Reservoir receiving dock",
       "center": [
         -0.0,
         0,
@@ -16,11 +16,14 @@
         34.24
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "utility",
+      "layout_mode": "utility_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     "service": {
       "id": "service",
-      "label": "Service Spine",
+      "label": "Pressure control",
       "center": [
         -0.0,
         1.5,
@@ -32,11 +35,14 @@
         29.96
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "control_room",
+      "layout_mode": "control_room_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     "arena_one": {
       "id": "arena_one",
-      "label": "SURGICAL GALLERY",
+      "label": "Culture reservoir",
       "center": [
         -0.0,
         -1.0,
@@ -50,43 +56,52 @@
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 2.0,
-      "encounter": "sealed weapon cache"
+      "encounter": "sealed weapon cache",
+      "function": "reservoir",
+      "layout_mode": "reservoir_ring",
+      "light_family": "clinical_sick_green"
     },
     "key_console": {
       "id": "key_console",
-      "label": "Operating Theatre",
+      "label": "Culture sampling lab",
       "center": [
         -44.08,
         1.5,
         -81.32000000000001
       ],
       "size": [
-        25.52,
+        12,
         5,
-        25.68
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "pathology",
+      "layout_mode": "pathology_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     "return_store": {
       "id": "return_store",
-      "label": "Supply Return",
+      "label": "Sample dispatch",
       "center": [
         -39.44,
         1.5,
         -40.660000000000004
       ],
       "size": [
-        27.839999999999996,
+        12,
         5,
-        23.540000000000003
+        10
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "medical_stores",
+      "layout_mode": "medical_stores_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     "spine": {
       "id": "spine",
-      "label": "Quarantine Spine",
+      "label": "Sterile transfer",
       "center": [
         -0.0,
         1.5,
@@ -98,11 +113,14 @@
         25.68
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "decontamination",
+      "layout_mode": "decontamination_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     "arena_two": {
       "id": "arena_two",
-      "label": "RIVET CACHE",
+      "label": "Surgical processing gallery",
       "center": [
         38.32,
         0.0,
@@ -116,43 +134,52 @@
       "secret": false,
       "arena_id": "arena_two",
       "chamfer": 2.0,
-      "encounter": "raised crossfire bridge"
+      "encounter": "raised crossfire bridge",
+      "function": "surgery",
+      "layout_mode": "surgical_rows",
+      "light_family": "clinical_sick_green"
     },
     "red_wing": {
       "id": "red_wing",
-      "label": "Pathology",
+      "label": "Cold chain passage",
       "center": [
         82.44,
         1.5,
         -131.61
       ],
       "size": [
-        30.159999999999997,
+        12,
         6,
-        27.82
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "cold_storage",
+      "layout_mode": "cold_storage_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     "red_console": {
       "id": "red_console",
-      "label": "Red Access Control",
+      "label": "Cryogenic control",
       "center": [
         82.44,
         1.5,
         -167.36
       ],
       "size": [
-        25.52,
+        10,
         6,
-        25.68
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "control_room",
+      "layout_mode": "control_room_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     "final_arena": {
       "id": "final_arena",
-      "label": "WET TRANSFER",
+      "label": "Wet transfer pumping hall",
       "center": [
         38.32,
         1.5,
@@ -166,11 +193,14 @@
       "secret": false,
       "arena_id": "final_arena",
       "chamfer": 2.0,
-      "encounter": "lower court and upper launcher reward"
+      "encounter": "lower court and upper launcher reward",
+      "function": "utility",
+      "layout_mode": "pump_banks",
+      "light_family": "clinical_sick_green"
     },
     "exit_gallery": {
       "id": "exit_gallery",
-      "label": "TO SPECIMEN SILO / BREACH",
+      "label": "Silo service airlock",
       "center": [
         38.32,
         3.0,
@@ -182,27 +212,33 @@
         19.26
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "decontamination",
+      "layout_mode": "decontamination_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     "supplies": {
       "id": "supplies",
-      "label": "Medical Stores",
+      "label": "Sterile equipment store",
       "center": [
         30.159999999999997,
         0,
         -4.28
       ],
       "size": [
-        16.24,
+        12,
         5,
-        19.26
+        10
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "medical_stores",
+      "layout_mode": "medical_stores_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     "secret_one": {
       "id": "secret_one",
-      "label": "Sealed Cabinet",
+      "label": "Abandoned sample vault",
       "center": [
         48.72,
         0,
@@ -214,7 +250,10 @@
         8.56
       ],
       "secret": true,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "specimen_archive",
+      "layout_mode": "specimen_archive_fitted_workstations",
+      "light_family": "clinical_sick_green"
     }
   },
   "portals": [
@@ -283,7 +322,7 @@
       "shortcut": true,
       "lift": false,
       "start": [
-        -25.52,
+        -33.44,
         1.5,
         -40.660000000000004
       ],
@@ -293,7 +332,7 @@
         -40.660000000000004
       ],
       "middle": [
-        -16.24,
+        -20.2,
         1.5,
         -40.660000000000004
       ],
@@ -375,12 +414,12 @@
         -131.61
       ],
       "end": [
-        67.36,
+        76.44,
         1.5,
         -131.61
       ],
       "middle": [
-        63.86,
+        68.4,
         0.75,
         -131.61
       ],
@@ -399,17 +438,17 @@
       "start": [
         82.44,
         1.5,
-        -145.52
+        -138.61
       ],
       "end": [
         82.44,
         1.5,
-        -154.52
+        -161.36
       ],
       "middle": [
         82.44,
         1.5,
-        -150.02
+        -149.985
       ],
       "axis": 2,
       "door": null
@@ -486,17 +525,17 @@
       "start": [
         13.919999999999998,
         0,
-        0.0
+        -1.2800000000000002
       ],
       "end": [
-        22.04,
+        24.159999999999997,
         0,
-        0.0
+        -1.2800000000000002
       ],
       "middle": [
-        17.979999999999997,
+        19.04,
         0.0,
-        0.0
+        -1.2800000000000002
       ],
       "axis": 0,
       "door": null
@@ -511,7 +550,7 @@
       "shortcut": false,
       "lift": false,
       "start": [
-        38.279999999999994,
+        36.16,
         0,
         -4.28
       ],
@@ -521,7 +560,7 @@
         -4.28
       ],
       "middle": [
-        41.17999999999999,
+        40.12,
         0.0,
         -4.28
       ],
@@ -545,12 +584,12 @@
         -81.32000000000001
       ],
       "end": [
-        -31.32,
+        -38.08,
         1.5,
         -81.32000000000001
       ],
       "middle": [
-        -26.1,
+        -29.479999999999997,
         0.25,
         -81.32000000000001
       ],
@@ -567,19 +606,19 @@
       "shortcut": false,
       "lift": false,
       "start": [
-        -44.08,
+        -42.839999999999996,
         1.5,
-        -68.48
+        -75.32000000000001
       ],
       "end": [
-        -44.08,
+        -42.839999999999996,
         1.5,
-        -52.43000000000001
+        -45.660000000000004
       ],
       "middle": [
-        -44.08,
+        -42.839999999999996,
         1.5,
-        -60.455000000000005
+        -60.49000000000001
       ],
       "axis": 2,
       "door": null

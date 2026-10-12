@@ -1,0 +1,115 @@
+{
+  "status": "passed",
+  "engine": "Godot4.7.2 stable",
+  "clock": "headless --fixed-fps60; physics60Hz; actual engine physics/input, not native rendering acceptance",
+  "matrix_levels": 12,
+  "matrix_lifts": 8,
+  "matrix_hazards": 0,
+  "matrix_fixture_errors": 0,
+  "scene_freeze_parity": [
+    {
+      "scene": "scenes/campaign/pale_ward_01.tscn",
+      "tested_sha256": "f91e6a3c48a4440d94636489bced7d227763e3dc3720daf125895f2a43e6423f",
+      "freeze_sha256": "f91e6a3c48a4440d94636489bced7d227763e3dc3720daf125895f2a43e6423f",
+      "matches_final_freeze": true
+    },
+    {
+      "scene": "scenes/stages/ash_citadel.tscn",
+      "tested_sha256": "70bd7d1fd8db2e6886cac3ec7fec98c77fbf64766a0a909c61dd5ddf48215b0f",
+      "freeze_sha256": "70bd7d1fd8db2e6886cac3ec7fec98c77fbf64766a0a909c61dd5ddf48215b0f",
+      "matches_final_freeze": true
+    },
+    {
+      "scene": "scenes/campaign/ash_citadel_01.tscn",
+      "tested_sha256": "dcccbf6059eddbbae39449bdcb73a3658d5d98ea61c56de4d6c0723d575656f9",
+      "freeze_sha256": "dcccbf6059eddbbae39449bdcb73a3658d5d98ea61c56de4d6c0723d575656f9",
+      "matches_final_freeze": true
+    },
+    {
+      "scene": "scenes/campaign/ash_citadel_02.tscn",
+      "tested_sha256": "913772698a8deb7eaaf6b177544dc5ac692d14a9f6ba29a789716fb0ce892e9f",
+      "freeze_sha256": "913772698a8deb7eaaf6b177544dc5ac692d14a9f6ba29a789716fb0ce892e9f",
+      "matches_final_freeze": true
+    },
+    {
+      "scene": "scenes/campaign/ash_citadel_03.tscn",
+      "tested_sha256": "f2ade09bd156192156c97b50773685a403d28927b80bd56ef037706b8dbb9c1e",
+      "freeze_sha256": "f2ade09bd156192156c97b50773685a403d28927b80bd56ef037706b8dbb9c1e",
+      "matches_final_freeze": true
+    },
+    {
+      "scene": "scenes/stages/occupied_line.tscn",
+      "tested_sha256": "c18e1e6ed02f66bf316109c0447cf70b2c5f6f23c1fcee61e681a2d728134b36",
+      "freeze_sha256": "c18e1e6ed02f66bf316109c0447cf70b2c5f6f23c1fcee61e681a2d728134b36",
+      "matches_final_freeze": true
+    },
+    {
+      "scene": "scenes/campaign/occupied_line_01.tscn",
+      "tested_sha256": "a6a8a7fd17c618a65904e0ce655beaf33d3cf145a72674f514b3b768bd83b301",
+      "freeze_sha256": "a6a8a7fd17c618a65904e0ce655beaf33d3cf145a72674f514b3b768bd83b301",
+      "matches_final_freeze": true
+    },
+    {
+      "scene": "scenes/campaign/occupied_line_02.tscn",
+      "tested_sha256": "64bce53f8007e72ea956344c0f3d9f979b792700867bc44473681d952c5962bf",
+      "freeze_sha256": "64bce53f8007e72ea956344c0f3d9f979b792700867bc44473681d952c5962bf",
+      "matches_final_freeze": true
+    },
+    {
+      "scene": "scenes/campaign/occupied_line_03.tscn",
+      "tested_sha256": "3deb71ecb97cb42fca55f9206943bffc71abbbeb9a271273e25f857099249c18",
+      "freeze_sha256": "3deb71ecb97cb42fca55f9206943bffc71abbbeb9a271273e25f857099249c18",
+      "matches_final_freeze": true
+    },
+    {
+      "scene": "scenes/stages/pale_ward_expanded.tscn",
+      "tested_sha256": "dd5b0a43353fd1607d125f30bc22a13893dfa30b3b84d47f3b187b0c548481cd",
+      "freeze_sha256": "dd5b0a43353fd1607d125f30bc22a13893dfa30b3b84d47f3b187b0c548481cd",
+      "matches_final_freeze": true
+    },
+    {
+      "scene": "scenes/campaign/pale_ward_02.tscn",
+      "tested_sha256": "7ff1742fad6b8a28a31bd49dc1b2ca26aec82324e2b0258a177cda324b3c54fa",
+      "freeze_sha256": "7ff1742fad6b8a28a31bd49dc1b2ca26aec82324e2b0258a177cda324b3c54fa",
+      "matches_final_freeze": true
+    },
+    {
+      "scene": "scenes/campaign/pale_ward_03.tscn",
+      "tested_sha256": "e17d4ec64fe1740c1097d1d368364341331b44b4cacca0559e637d6271164214",
+      "freeze_sha256": "e17d4ec64fe1740c1097d1d368364341331b44b4cacca0559e637d6271164214",
+      "matches_final_freeze": true
+    }
+  ],
+  "resolved_prop_parts": 1087,
+  "shape_mismatches": 0,
+  "near_surface_rays": 146,
+  "exact_body_rays": 144,
+  "impact_materials": [
+    "armor",
+    "hard"
+  ],
+  "initial_candidate_contact_runs": 118,
+  "final_candidate_contact_runs": 8,
+  "actual_contact_crossings": 8,
+  "all_contact_crossings_grounded_and_passed": true,
+  "all_walk_scene_shas_match_freeze": false,
+  "standalone_stub_initial_failure_preserved": true,
+  "standalone_stub_clean_failures": [],
+  "historical_standalone_receipt_byte_restored": true,
+  "initial_unfixed_clock_classification": "synthetic input timing failure; not containment defect",
+  "limits": [
+    "Probe setup freezes AI and declares controls cleared; not full combat survival.",
+    "Bounded sampled connectors and actual eight contact crossings supplement full Main lift/exit tests; not exhaustive all room paths.",
+    "Two146 near-surface rays hit adjacent parts of same authored prop, as recorded; all material keys hard/armor."
+  ],
+  "source_sha256": {
+    "tools/check_lift_edges_v5.gd": "ed3d689d774e214aa964d4bea7da54a10005b2fd2eb72a9b87c7a42b3b910fc7",
+    "tools/check_expanded_stages.gd": "8c7a19fc0fc64982b8db85eeeb0fbf82c804f55121250dc3bb7c304975f22b30",
+    "tools/check_room_clearance_v6.gd": "4245b672bd2e9f2fef8e758d5cdecd73c2856e171a41547f8c9e16f22bc3f07e",
+    "tools/check_room_connector_walk_v6.gd": "d3c8b148402da0e82673045e90232eaaf1e1dd3fcfa68be1dca283b2660f6f97",
+    "scripts/player.gd": "8b1107491fa24cd6dd637431788e7724175394f701101798e8a9d3c0a4ea8600",
+    "scripts/ward_lift.gd": "054b6bdec420592c43893bf9e168ea96014586a668530fc095e83350bed0867a",
+    "scripts/lift_landing_gate.gd": "6c64a0834938f52d3681deef02ea601bfd265562b532a20e6ff88ad439f3b5bb",
+    "resources/campaign/room-program-freeze-v6.json": "b5bd39d139acb0426d241000fe4885ca3b59a393ac5afa31d2e8a3927e32bc99"
+  }
+}

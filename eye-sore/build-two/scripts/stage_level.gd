@@ -204,29 +204,53 @@ func collect(item: Node3D) -> void:
 	if get_tree().paused or combat.dead or collected.has(item.get_instance_id()): return
 	var kind := String(item.get_meta("stage_pickup"))
 	var amount := int(item.get_meta("amount", 25))
+	var receipt_kind := kind
+	var accepted_amount: Variant = amount
+	var receipt_accepted := true
+	var new_weapon := false
 	if kind == "health":
 		if combat.health >= 100: return
+		var before: float = combat.health
 		combat.health = minf(100, combat.health + amount)
+		accepted_amount = combat.health - before
+		receipt_accepted = accepted_amount > 0
 	elif kind == "armor":
 		if combat.armor >= 100: return
+		var before: float = combat.armor
 		combat.armor = minf(100, combat.armor + amount)
+		accepted_amount = combat.armor - before
+		receipt_accepted = accepted_amount > 0
 	elif kind in ["pistol","shells","rivets","rockets"]:
 		var before: int = combat.ammo_amount(StringName(kind))
 		if not combat.add_ammo(StringName(kind),amount): return
 		amount = combat.ammo_amount(StringName(kind)) - before
+		accepted_amount = amount
 	elif kind in ["twin_shotgun","rivet_cannon","siege_launcher"]:
 		var bait_arena := String(item.get_meta("bait_arena",""))
+		receipt_kind = "weapon"
+		new_weapon = not combat.has_weapon(StringName(kind))
+		var ammo_key: StringName = combat.weapons[StringName(kind)].ammo_key
+		var before: int = combat.ammo_amount(ammo_key)
 		var accepted: bool = combat.grant_weapon(StringName(kind),amount)
+		accepted_amount = combat.ammo_amount(ammo_key) - before
+		receipt_accepted = accepted
 		# A full carried weapon can still spring a physical lure on the next level.
 		if not bait_arena.is_empty(): trigger_trap(bait_arena)
 		elif not accepted: return
 	elif kind in ["brass", "red", "brass_key", "red_key"]:
 		if not flags.get("power", false): return
+		receipt_kind = kind.trim_suffix("_key") + "_key"
+		receipt_accepted = not flags.get(kind.trim_suffix("_key"), false)
+		accepted_amount = 1
 		flags[kind] = true
 		flags[kind.trim_suffix("_key")] = true
 		refresh_objective()
 	else: return
 	collected[item.get_instance_id()] = true; item.visible = false
+	# One authoritative receipt follows actual accepted mutation. Inventory events
+	# remain separate; saturated owned bait may still trigger its trap silently.
+	if receipt_accepted:
+		combat.emit_event({"type": &"item_collected", "item_kind": StringName(receipt_kind), "pickup_id": item.get_instance_id(), "amount": accepted_amount, "new_weapon": new_weapon, "position": item.global_position})
 	if kind in ["twin_shotgun","rivet_cannon","siege_launcher"]:
 		var equip_key: int = {"twin_shotgun":4,"rivet_cannon":5,"siege_launcher":6}[kind]
 		message_changed.emit("%s cache · [%d] equip · AMBUSH" % [kind.replace("_"," ").capitalize(),equip_key])

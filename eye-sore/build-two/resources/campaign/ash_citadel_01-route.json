@@ -4,7 +4,7 @@
   "rooms": {
     "entry": {
       "id": "entry",
-      "label": "RAMPART",
+      "label": "Siege approach",
       "center": [
         -0.0,
         0,
@@ -16,11 +16,14 @@
         33.792
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "rampart",
+      "layout_mode": "rampart_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "service": {
       "id": "service",
-      "label": "Gate Passage",
+      "label": "Gatehouse inspection",
       "center": [
         -0.0,
         0,
@@ -32,11 +35,14 @@
         29.568
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "guardhouse",
+      "layout_mode": "guardhouse_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "arena_one": {
       "id": "arena_one",
-      "label": "CLOISTER COURT",
+      "label": "Cloister courtyard",
       "center": [
         -0.0,
         0.0,
@@ -50,59 +56,71 @@
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 3.0,
-      "encounter": "sealed weapon cache"
+      "encounter": "sealed weapon cache",
+      "function": "cloister",
+      "layout_mode": "cloister_seating",
+      "light_family": "ember_warm"
     },
     "key_wing": {
       "id": "key_wing",
-      "label": "Reliquary Wing",
+      "label": "Monastic cells",
       "center": [
         -47.234,
         0,
         -80.256
       ],
       "size": [
-        34.804,
+        10,
         5,
-        19.008
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "quarters",
+      "layout_mode": "quarters_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "key_console": {
       "id": "key_console",
-      "label": "Brass Seal Shrine",
+      "label": "Scriptorium",
       "center": [
         -47.234,
         0,
         -110.88000000000001
       ],
       "size": [
-        27.346,
+        12,
         5,
-        25.344
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "archive",
+      "layout_mode": "archive_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "return_store": {
       "id": "return_store",
-      "label": "Crypt Return",
+      "label": "Cloister stores",
       "center": [
         -42.262,
         0,
         -40.128
       ],
       "size": [
-        29.832,
+        12,
         5,
-        23.232000000000003
+        10
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "stores",
+      "layout_mode": "stores_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "spine": {
       "id": "spine",
-      "label": "Inner Bastion",
+      "label": "Processional passage",
       "center": [
         -0.0,
         0,
@@ -114,11 +132,14 @@
         25.344
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "cloister",
+      "layout_mode": "cloister_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "arena_two": {
       "id": "arena_two",
-      "label": "CHAIN HOUSE",
+      "label": "Chain house",
       "center": [
         -0.0,
         0.0,
@@ -132,43 +153,52 @@
       "secret": false,
       "arena_id": "arena_two",
       "chamfer": 3.0,
-      "encounter": "raised crossfire bridge"
+      "encounter": "raised crossfire bridge",
+      "function": "forge",
+      "layout_mode": "forge_banks",
+      "light_family": "ember_warm"
     },
     "red_wing": {
       "id": "red_wing",
-      "label": "Sacristy",
+      "label": "Guard crypt passage",
       "center": [
         49.72,
         0,
         -166.848
       ],
       "size": [
-        32.318,
+        14,
         6,
-        27.456
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "crypt",
+      "layout_mode": "crypt_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "red_console": {
       "id": "red_console",
-      "label": "Red Seal Altar",
+      "label": "Crypt warden chamber",
       "center": [
         49.72,
         0,
         -202.752
       ],
       "size": [
-        27.346,
+        12,
         6,
-        25.344
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "guardhouse",
+      "layout_mode": "guardhouse_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "final_arena": {
       "id": "final_arena",
-      "label": "ASH GATE",
+      "label": "Ash gate courtyard",
       "center": [
         -0.0,
         1.5,
@@ -182,11 +212,14 @@
       "secret": false,
       "arena_id": "final_arena",
       "chamfer": 3.0,
-      "encounter": "lower court and upper launcher reward"
+      "encounter": "lower court and upper launcher reward",
+      "function": "rampart",
+      "layout_mode": "rampart_recesses",
+      "light_family": "ember_warm"
     },
     "exit_gallery": {
       "id": "exit_gallery",
-      "label": "TO FURNACE CHOIR",
+      "label": "Furnace approach",
       "center": [
         -0.0,
         1.5,
@@ -198,43 +231,52 @@
         19.008
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "forge",
+      "layout_mode": "forge_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "supplies": {
       "id": "supplies",
-      "label": "Pilgrim Stores",
+      "label": "Quartermaster stores",
       "center": [
         32.318,
         0,
         -4.224
       ],
       "size": [
-        17.402,
+        12,
         5,
-        19.008
+        10
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "stores",
+      "layout_mode": "stores_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "armory": {
       "id": "armory",
-      "label": "Armory",
+      "label": "Siege armory",
       "center": [
         49.72,
         0,
         -123.552
       ],
       "size": [
-        24.86,
+        12,
         5,
-        21.119999999999997
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "guardhouse",
+      "layout_mode": "guardhouse_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "secret_one": {
       "id": "secret_one",
-      "label": "Walled Niche",
+      "label": "Hidden tithe vault",
       "center": [
         52.205999999999996,
         0,
@@ -246,11 +288,14 @@
         8.448
       ],
       "secret": true,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "reliquary",
+      "layout_mode": "reliquary_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "observation": {
       "id": "observation",
-      "label": "Upper Battlement",
+      "label": "Rampart watch",
       "center": [
         -47.234,
         4.5,
@@ -262,7 +307,10 @@
         19.008
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "rampart",
+      "layout_mode": "rampart_fitted_workstations",
+      "light_family": "ember_warm"
     }
   },
   "portals": [
@@ -338,12 +386,12 @@
         -80.256
       ],
       "end": [
-        -29.832,
+        -42.234,
         0,
         -80.256
       ],
       "middle": [
-        -26.103,
+        -32.304,
         0.0,
         -80.256
       ],
@@ -362,17 +410,17 @@
       "start": [
         -47.234,
         0,
-        -89.76
+        -86.256
       ],
       "end": [
         -47.234,
         0,
-        -98.20800000000001
+        -103.88000000000001
       ],
       "middle": [
         -47.234,
         0.0,
-        -93.98400000000001
+        -95.06800000000001
       ],
       "axis": 2,
       "door": null
@@ -387,19 +435,19 @@
       "shortcut": false,
       "lift": false,
       "start": [
-        -47.234,
+        -46.262,
         0,
-        -70.752
+        -74.256
       ],
       "end": [
-        -47.234,
+        -46.262,
         0,
-        -51.744
+        -45.128
       ],
       "middle": [
-        -47.234,
+        -46.262,
         0.0,
-        -61.248
+        -59.692
       ],
       "axis": 2,
       "door": null
@@ -414,7 +462,7 @@
       "shortcut": true,
       "lift": false,
       "start": [
-        -27.346,
+        -36.262,
         0,
         -40.128
       ],
@@ -424,7 +472,7 @@
         -40.128
       ],
       "middle": [
-        -17.402,
+        -21.86,
         0.0,
         -40.128
       ],
@@ -506,12 +554,12 @@
         -166.848
       ],
       "end": [
-        33.561,
+        42.72,
         0,
         -166.848
       ],
       "middle": [
-        28.589,
+        33.1685,
         0.0,
         -166.848
       ],
@@ -530,17 +578,17 @@
       "start": [
         49.72,
         0,
-        -180.57600000000002
+        -173.848
       ],
       "end": [
         49.72,
         0,
-        -190.08
+        -195.752
       ],
       "middle": [
         49.72,
         0.0,
-        -185.32800000000003
+        -184.8
       ],
       "axis": 2,
       "door": null
@@ -557,17 +605,17 @@
       "start": [
         49.72,
         0,
-        -153.12
+        -159.848
       ],
       "end": [
         49.72,
         0,
-        -134.112
+        -130.55200000000002
       ],
       "middle": [
         49.72,
         0.0,
-        -143.61599999999999
+        -145.20000000000002
       ],
       "axis": 2,
       "door": "Door_shortcut_two"
@@ -582,7 +630,7 @@
       "shortcut": false,
       "lift": false,
       "start": [
-        37.29,
+        43.72,
         0,
         -123.552
       ],
@@ -592,7 +640,7 @@
         -123.552
       ],
       "middle": [
-        23.616999999999997,
+        26.832,
         0.0,
         -123.552
       ],
@@ -671,17 +719,17 @@
       "start": [
         14.916,
         0,
-        0.0
+        -1.2240000000000002
       ],
       "end": [
-        23.616999999999997,
+        26.317999999999998,
         0,
-        0.0
+        -1.2240000000000002
       ],
       "middle": [
-        19.2665,
+        20.616999999999997,
         0.0,
-        0.0
+        -1.2240000000000002
       ],
       "axis": 0,
       "door": null
@@ -696,7 +744,7 @@
       "shortcut": false,
       "lift": false,
       "start": [
-        41.019,
+        38.318,
         0,
         -4.224
       ],
@@ -706,7 +754,7 @@
         -4.224
       ],
       "middle": [
-        44.12649999999999,
+        42.775999999999996,
         0.0,
         -4.224
       ],

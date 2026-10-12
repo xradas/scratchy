@@ -1,0 +1,72 @@
+{
+  "scope": "Exact Ash Citadel 02 native physical body source signature comparison around the optional angled secret passage; pre-fix scene preserved outside project. Shape dimensions, transform, collision layers/masks and hit metadata compared for every body.",
+  "baseline_scene_sha256": "50f1d90dffb0cb7c4f699b13f2f019d9331bb6edfb1b118d6b296f24323c2d6e",
+  "final_scene_sha256": "61c3c8407ad28d61b6cedf3601c930f71b2949970584716ab3f4d882754f2f0e",
+  "baseline_physical_bodies": 845,
+  "final_physical_bodies": 847,
+  "changed_existing": {
+    "Link_11_Floor": {
+      "before": {
+        "type": "StaticBody3D",
+        "position": "Vector3(-69.832, -0.25, -214.36)",
+        "rotation_degrees": "Vector3(0, 158.007, 0)",
+        "shape": [
+          "BoxShape3D",
+          [
+            "Vector3(2.44, 0.5, 34.6033)"
+          ]
+        ],
+        "collision_layer": null,
+        "collision_mask": null,
+        "hit_material": null
+      },
+      "after": {
+        "type": "StaticBody3D",
+        "position": "Vector3(-69.832, -0.262, -214.36)",
+        "rotation_degrees": "Vector3(0, 158.007, 0)",
+        "shape": [
+          "BoxShape3D",
+          [
+            "Vector3(2.44, 0.5, 35.4033)"
+          ]
+        ],
+        "collision_layer": null,
+        "collision_mask": null,
+        "hit_material": null
+      }
+    }
+  },
+  "added": {
+    "Link_11_MouthFloorFrom": {
+      "type": "StaticBody3D",
+      "position": "Vector3(-76.304, -0.262, -198.336)",
+      "rotation_degrees": "Vector3(0, 158.007, 0)",
+      "shape": [
+        "BoxShape3D",
+        [
+          "Vector3(3, 0.5, 1.6)"
+        ]
+      ],
+      "collision_layer": null,
+      "collision_mask": null,
+      "hit_material": null
+    },
+    "Link_11_MouthFloorTo": {
+      "type": "StaticBody3D",
+      "position": "Vector3(-63.36, -0.262, -230.384)",
+      "rotation_degrees": "Vector3(0, 158.007, 0)",
+      "shape": [
+        "BoxShape3D",
+        [
+          "Vector3(3, 0.5, 1.6)"
+        ]
+      ],
+      "collision_layer": null,
+      "collision_mask": null,
+      "hit_material": null
+    }
+  },
+  "deleted": {},
+  "prior_edge_gap_coordinates_replayed": 18,
+  "unsupported_after_fix": 0
+}

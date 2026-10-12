@@ -52,6 +52,16 @@
 [ext_resource type="AudioStream" path="res://assets/audio/music/level_music_biotech_candidate.ogg" id="50_lyc2n"]
 [ext_resource type="Script" path="res://scripts/combat_audio_profile.gd" id="51_jwtui"]
 
+[ext_resource type="AudioStream" path="res://assets/audio/pickups-v6/pickup_pistol.ogg" id="pickup_pistol"]
+[ext_resource type="AudioStream" path="res://assets/audio/pickups-v6/pickup_shells.ogg" id="pickup_shells"]
+[ext_resource type="AudioStream" path="res://assets/audio/pickups-v6/pickup_rivets.ogg" id="pickup_rivets"]
+[ext_resource type="AudioStream" path="res://assets/audio/pickups-v6/pickup_rockets.ogg" id="pickup_rockets"]
+[ext_resource type="AudioStream" path="res://assets/audio/pickups-v6/pickup_health.ogg" id="pickup_health"]
+[ext_resource type="AudioStream" path="res://assets/audio/pickups-v6/pickup_armor.ogg" id="pickup_armor"]
+[ext_resource type="AudioStream" path="res://assets/audio/pickups-v6/pickup_brass_key.ogg" id="pickup_brass_key"]
+[ext_resource type="AudioStream" path="res://assets/audio/pickups-v6/pickup_red_key.ogg" id="pickup_red_key"]
+[ext_resource type="AudioStream" path="res://assets/audio/pickups-v6/pickup_weapon.ogg" id="pickup_weapon"]
+
 [sub_resource type="Resource" id="Resource_kqw2p"]
 script = ExtResource("1_ch4yb")
 identifier = &"pistol_fire"
@@ -326,7 +336,70 @@ script = ExtResource("1_ch4yb")
 identifier = &"siege_launcher_hard"
 variations = Array[AudioStream]([ExtResource("49_bsp3v")])
 
+[sub_resource type="Resource" id="Pickup_pistol"]
+script = ExtResource("1_ch4yb")
+identifier = &"pickup_pistol"
+bus = &"UI"
+variations = Array[AudioStream]([ExtResource("pickup_pistol")])
+spatial = false
+
+[sub_resource type="Resource" id="Pickup_shells"]
+script = ExtResource("1_ch4yb")
+identifier = &"pickup_shells"
+bus = &"UI"
+variations = Array[AudioStream]([ExtResource("pickup_shells")])
+spatial = false
+
+[sub_resource type="Resource" id="Pickup_rivets"]
+script = ExtResource("1_ch4yb")
+identifier = &"pickup_rivets"
+bus = &"UI"
+variations = Array[AudioStream]([ExtResource("pickup_rivets")])
+spatial = false
+
+[sub_resource type="Resource" id="Pickup_rockets"]
+script = ExtResource("1_ch4yb")
+identifier = &"pickup_rockets"
+bus = &"UI"
+variations = Array[AudioStream]([ExtResource("pickup_rockets")])
+spatial = false
+
+[sub_resource type="Resource" id="Pickup_health"]
+script = ExtResource("1_ch4yb")
+identifier = &"pickup_health"
+bus = &"UI"
+variations = Array[AudioStream]([ExtResource("pickup_health")])
+spatial = false
+
+[sub_resource type="Resource" id="Pickup_armor"]
+script = ExtResource("1_ch4yb")
+identifier = &"pickup_armor"
+bus = &"UI"
+variations = Array[AudioStream]([ExtResource("pickup_armor")])
+spatial = false
+
+[sub_resource type="Resource" id="Pickup_brass_key"]
+script = ExtResource("1_ch4yb")
+identifier = &"pickup_brass_key"
+bus = &"UI"
+variations = Array[AudioStream]([ExtResource("pickup_brass_key")])
+spatial = false
+
+[sub_resource type="Resource" id="Pickup_red_key"]
+script = ExtResource("1_ch4yb")
+identifier = &"pickup_red_key"
+bus = &"UI"
+variations = Array[AudioStream]([ExtResource("pickup_red_key")])
+spatial = false
+
+[sub_resource type="Resource" id="Pickup_weapon"]
+script = ExtResource("1_ch4yb")
+identifier = &"pickup_weapon"
+bus = &"UI"
+variations = Array[AudioStream]([ExtResource("pickup_weapon")])
+spatial = false
+
 [resource]
 script = ExtResource("51_jwtui")
-cues = Array[ExtResource("1_ch4yb")]([SubResource("Resource_kqw2p"), SubResource("Resource_dvwsd"), SubResource("Resource_e4pat"), SubResource("Resource_ak6cj"), SubResource("Resource_rin0i"), SubResource("Resource_vjjp8"), SubResource("Resource_c3xjg"), SubResource("Resource_idrf5"), SubResource("Resource_xh7nf"), SubResource("Resource_hbneu"), SubResource("Resource_8dkui"), SubResource("Resource_g166v"), SubResource("Resource_k6p0o"), SubResource("Resource_d5clj"), SubResource("Resource_oekpy"), SubResource("Resource_rogqo"), SubResource("Resource_jrvti"), SubResource("Resource_adyuf"), SubResource("Resource_tf742"), SubResource("Resource_7xc8h"), SubResource("Resource_3smh4"), SubResource("Resource_80hdo"), SubResource("Resource_75re4"), SubResource("Resource_4mri0"), SubResource("Resource_boqk7"), SubResource("Resource_fwjb6"), SubResource("Resource_nldr1"), SubResource("Resource_0jqgm"), SubResource("Resource_o87ax"), SubResource("Resource_j6aom"), SubResource("Resource_01giq"), SubResource("Resource_gqh7u"), SubResource("Resource_1ea5q"), SubResource("Resource_cd8wq"), SubResource("Resource_s5agc"), SubResource("Resource_rw7yo"), SubResource("Resource_6itos"), SubResource("Resource_bk1if"), SubResource("Resource_mvtw6"), SubResource("Resource_tqjsv"), SubResource("Resource_qulq2"), SubResource("Resource_7rb25"), SubResource("Resource_ip82e"), SubResource("Resource_yxw5b"), SubResource("Resource_bsdfb"), SubResource("Resource_p7rav"), SubResource("Resource_56l4j"), SubResource("Resource_7yw7w")])
+cues = Array[ExtResource("1_ch4yb")]([SubResource("Resource_kqw2p"), SubResource("Resource_dvwsd"), SubResource("Resource_e4pat"), SubResource("Resource_ak6cj"), SubResource("Resource_rin0i"), SubResource("Resource_vjjp8"), SubResource("Resource_c3xjg"), SubResource("Resource_idrf5"), SubResource("Resource_xh7nf"), SubResource("Resource_hbneu"), SubResource("Resource_8dkui"), SubResource("Resource_g166v"), SubResource("Resource_k6p0o"), SubResource("Resource_d5clj"), SubResource("Resource_oekpy"), SubResource("Resource_rogqo"), SubResource("Resource_jrvti"), SubResource("Resource_adyuf"), SubResource("Resource_tf742"), SubResource("Resource_7xc8h"), SubResource("Resource_3smh4"), SubResource("Resource_80hdo"), SubResource("Resource_75re4"), SubResource("Resource_4mri0"), SubResource("Resource_boqk7"), SubResource("Resource_fwjb6"), SubResource("Resource_nldr1"), SubResource("Resource_0jqgm"), SubResource("Resource_o87ax"), SubResource("Resource_j6aom"), SubResource("Resource_01giq"), SubResource("Resource_gqh7u"), SubResource("Resource_1ea5q"), SubResource("Resource_cd8wq"), SubResource("Resource_s5agc"), SubResource("Resource_rw7yo"), SubResource("Resource_6itos"), SubResource("Resource_bk1if"), SubResource("Resource_mvtw6"), SubResource("Resource_tqjsv"), SubResource("Resource_qulq2"), SubResource("Resource_7rb25"), SubResource("Resource_ip82e"), SubResource("Resource_yxw5b"), SubResource("Resource_bsdfb"), SubResource("Resource_p7rav"), SubResource("Resource_56l4j"), SubResource("Resource_7yw7w"), SubResource("Pickup_pistol"), SubResource("Pickup_shells"), SubResource("Pickup_rivets"), SubResource("Pickup_rockets"), SubResource("Pickup_health"), SubResource("Pickup_armor"), SubResource("Pickup_brass_key"), SubResource("Pickup_red_key"), SubResource("Pickup_weapon")])
 music = ExtResource("50_lyc2n")

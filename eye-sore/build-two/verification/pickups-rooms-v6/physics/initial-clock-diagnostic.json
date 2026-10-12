@@ -1,0 +1,17 @@
+{
+  "invocation": [
+    "./tools/godot.sh",
+    "--headless",
+    "--script",
+    "tools/check_lift_edges_v5.gd",
+    "--",
+    "--postfix",
+    "--include-standalone",
+    "--automated-input",
+    "--receipt=lift-edges-room-v6"
+  ],
+  "classification": "Fixture timing failure under unfixed headless process clock. First six-tick input moved only .0467m and did not reach guard; subsequent refused-straddle criteria cascaded into empty platform departures. Not accepted geometry or containment evidence. Terminated after partial receipt to avoid mixed-source regeneration. Frozen checker unchanged. Final rerun will use explicit --fixed-fps60.",
+  "snapshot": "/tmp/eyesore-v6-physics-initial",
+  "stub_fix": "Only tools/check_expanded_stages.gd StubCombat.emit_event added; event copied to emitted_events and existing combat_event signal emitted. Historical receipt restored byte-original.",
+  "historical_receipt_restored": true
+}

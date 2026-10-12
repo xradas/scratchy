@@ -36,7 +36,7 @@
   "rooms": [
     {
       "id": "entry",
-      "label": "ENGINE ACCESS",
+      "label": "Engine maintenance access",
       "center": [
         0.0,
         0,
@@ -48,11 +48,14 @@
         41.2032
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "workshop",
+      "layout_mode": "workshop_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "service",
-      "label": "Platform Approach",
+      "label": "Turbine service gallery",
       "center": [
         0.0,
         0,
@@ -64,11 +67,14 @@
         36.0528
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "workshop",
+      "layout_mode": "workshop_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "arena_one",
-      "label": "TURBINE COURT",
+      "label": "Turbine court",
       "center": [
         0.0,
         -1.5,
@@ -82,27 +88,33 @@
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 2.0,
-      "encounter": "sealed weapon cache"
+      "encounter": "sealed weapon cache",
+      "function": "power_works",
+      "layout_mode": "turbine_banks",
+      "light_family": "cold_civic"
     },
     {
       "id": "key_console",
-      "label": "Brass Access Office",
+      "label": "Machine safety office",
       "center": [
         48.9288,
         0,
         -97.8576
       ],
       "size": [
-        28.3272,
+        12,
         5,
-        30.9024
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "dispatch",
+      "layout_mode": "dispatch_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "spine",
-      "label": "Transfer Spine",
+      "label": "Power bus passage",
       "center": [
         0.0,
         0,
@@ -114,11 +126,14 @@
         30.9024
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "signal_works",
+      "layout_mode": "signal_works_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "arena_two",
-      "label": "REACTOR RISER",
+      "label": "Reactor riser",
       "center": [
         0.0,
         -1.5,
@@ -132,27 +147,33 @@
       "secret": false,
       "arena_id": "arena_two",
       "chamfer": 2.0,
-      "encounter": "raised crossfire bridge"
+      "encounter": "raised crossfire bridge",
+      "function": "reactor",
+      "layout_mode": "reactor_banks",
+      "light_family": "cold_civic"
     },
     {
       "id": "red_console",
-      "label": "Red Dispatch Console",
+      "label": "Reactor shutdown control",
       "center": [
         -51.504000000000005,
         0,
         -203.44080000000002
       ],
       "size": [
-        28.3272,
+        12,
         6,
-        30.9024
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "dispatch",
+      "layout_mode": "dispatch_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "final_arena",
-      "label": "FINAL PLATFORM",
+      "label": "Occupation engine core",
       "center": [
         0.0,
         0.0,
@@ -166,11 +187,14 @@
       "secret": false,
       "arena_id": "final_arena",
       "chamfer": 2.0,
-      "encounter": "lower court and upper launcher reward"
+      "encounter": "lower court and upper launcher reward",
+      "function": "reactor",
+      "layout_mode": "core_service_bays",
+      "light_family": "cold_civic"
     },
     {
       "id": "exit_gallery",
-      "label": "ENGINE SHUTDOWN / CAMPAIGN END",
+      "label": "Final platform",
       "center": [
         0.0,
         1.5,
@@ -182,27 +206,33 @@
         23.1768
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "platform",
+      "layout_mode": "platform_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "pump_room",
-      "label": "Transformer Hall",
+      "label": "Emergency cooling plant",
       "center": [
         48.9288,
         0,
         -173.82600000000002
       ],
       "size": [
-        25.752000000000002,
+        14,
         5,
-        23.1768
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "power_works",
+      "layout_mode": "power_works_fitted_workstations",
+      "light_family": "cold_civic"
     },
     {
       "id": "secret_one",
-      "label": "Hidden Staff Room",
+      "label": "Abandoned tool cage",
       "center": [
         -54.0792,
         0,
@@ -214,7 +244,10 @@
         10.3008
       ],
       "secret": true,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "workshop",
+      "layout_mode": "workshop_fitted_workstations",
+      "light_family": "cold_civic"
     }
   ],
   "portals": [

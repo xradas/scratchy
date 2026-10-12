@@ -14,6 +14,7 @@ import re
 import tempfile
 
 import author_themed_stages as base
+import room_program_v6 as room_program
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = {stage["id"]: stage for stage in json.loads((ROOT / "docs/expansion-v1/layouts.json").read_text())["stages"]}
@@ -179,6 +180,47 @@ def author_campaign(stage, contract):
         axis=0 if abs(dx)>abs(dz) else 2;cross=2 if axis==0 else 0;sign=1 if bc[axis]>ac[axis] else -1
         lo=max(ac[cross]-asz[cross]/2,bc[cross]-bsz[cross]/2)+w/2
         hi=min(ac[cross]+asz[cross]/2,bc[cross]+bsz[cross]/2)-w/2
+        if lo > hi:
+            # A compact authored side chamber can face a second offset room
+            # without any shared wall-axis span. Connect their existing wall
+            # centres with a real diagonal passage while keeping both world
+            # centres and footprints intact. This only occurs on the optional
+            # red-console → second-secret spoke in Furnace Choir.
+            assert not p.get('lift') and not bc[1]-ac[1], (p['from'],p['to'],'unsupported angled vertical link')
+            start=list(ac);end=list(bc)
+            start[axis]+=sign*asz[axis]/2;end[axis]-=sign*bsz[axis]/2
+            aside=('E' if sign>0 else 'W') if axis==0 else ('S' if sign>0 else 'N')
+            bside={'E':'W','W':'E','N':'S','S':'N'}[aside]
+            tilt=math.degrees(math.atan2(end[0]-start[0],end[2]-start[2]))
+            opening_width=w/max(.7,abs(math.cos(math.radians(tilt))))+.3
+            openings[a['id']][aside].append((start[cross]-opening_width/2,start[cross]+opening_width/2))
+            openings[b['id']][bside].append((end[cross]-opening_width/2,end[cross]+opening_width/2))
+            length=math.hypot(end[0]-start[0],end[2]-start[2])
+            middle=[(start[k]+end[k])/2 for k in range(3)]
+            floor=min(ac[1],bc[1]);height=min(asz[1],bsz[1]);name='Link_'+str(number)
+            # A rotated rectangle meeting an axis-aligned room wall otherwise
+            # leaves triangular gaps beside each mouth. The same visible
+            # collidable floor extends into both rooms; wider short tongues
+            # support the whole turning footprint at each wall opening.
+            # The 12 mm lowered top avoids coplanar overlap with room slabs.
+            floor_y = floor-.262
+            sc.box(name+'_Floor',(middle[0],floor_y,middle[2]),(w+.04,.5,length+.84),'floor',rot=(0,tilt,0))
+            for label,point in (('From',start),('To',end)):
+                sc.box(name+'_MouthFloor'+label,(point[0],floor_y,point[2]),(w+.6,.5,1.6),'floor',rot=(0,tilt,0))
+            sc.box(name+'_Roof',(middle[0],floor+height+.15,middle[2]),(w+.4,.3,length+.04),'ceiling',rot=(0,tilt,0))
+            nx=math.cos(math.radians(tilt));nz=-math.sin(math.radians(tilt))
+            for side in (-1,1):
+                sc.box(name+'_Wall'+str(side),(middle[0]+side*nx*(w/2+.2),floor+height/2,middle[2]+side*nz*(w/2+.2)),(.4,height,length),'wall',rot=(0,tilt,0))
+            gate_name='Door_'+p['gate'] if p.get('gate') else None
+            if gate_name:
+                extra='script = ExtResource("door")\nmetadata/stage_door = '+quote(p['gate'])+'\nmetadata/requires = '+arr(p.get('requires',[]))+'\nmetadata/locked_message = "Secret access required"\nmetadata/label = "open secret gate"\nmetadata/open_offset = Vector3(0,6,0)\nmetadata/use_anchor = Vector3(0,-1.2,0)\nmetadata/secret = true'
+                sc.box(gate_name,(middle[0],floor+2.3,middle[2]),(w,4.6,.3),'door_skin',typ='AnimatableBody3D',extra=extra,rot=(0,tilt,0),hit_material='hard')
+                sc.label('GateMark','SECRET',(0,.7,.18),gate_name)
+            for n,point in enumerate((start,middle,end)):
+                meta='metadata/stage_nav = '+arr([a['id'],b['id']])+(f'\nmetadata/stage_nav_door = NodePath("../{gate_name}")' if gate_name else '')
+                sc.marker('Nav_%d_%d'%(number,n),point,meta)
+            routes.append(dict(p,start=start,end=end,middle=middle,axis=axis,door=gate_name,diagonal=True))
+            continue
         assert lo<=hi,(p['from'],p['to'],'corridor cross span does not overlap')
         c=max(lo,min(hi,ac[cross]));start=list(ac);end=list(bc)
         start[axis]+=sign*asz[axis]/2;end[axis]-=sign*bsz[axis]/2;start[cross]=end[cross]=c
@@ -243,7 +285,7 @@ def author_campaign(stage, contract):
     sc.openings = openings
     optional=stage.get('optional_rooms', ['supplies','maintenance','pump_room','armory'])
     for rid,r in rooms.items():
-        x,y,z=r['center'];sx,h,sz=r['size'];sc.marker('Room_'+rid,(x,y+h/2,z),'metadata/stage_room = '+quote(rid)+'\nmetadata/stage_label = '+quote(r['label'])+'\nmetadata/room_bounds = '+vec((sx/2,h/2+1,sz/2))+'\nmetadata/optional = '+str(rid in optional).lower()+(('\nmetadata/arena_id = '+quote(r['arena_id'])) if r['arena_id'] else ''))
+        x,y,z=r['center'];sx,h,sz=r['size'];sc.marker('Room_'+rid,(x,y+h/2,z),'metadata/stage_room = '+quote(rid)+'\nmetadata/stage_label = '+quote(r['label'])+'\nmetadata/room_function = '+quote(r['function'])+'\nmetadata/layout_mode = '+quote(r['layout_mode'])+'\nmetadata/room_bounds = '+vec((sx/2,h/2+1,sz/2))+'\nmetadata/optional = '+str(rid in optional).lower()+(('\nmetadata/arena_id = '+quote(r['arena_id'])) if r['arena_id'] else ''))
         if stage['id']=='pale_ward' and rid=='arena_one':
             # Real recessed wet sump: four rim slabs and a lower, solid basin.
             # Campaign rooms vary in width. Both full-length rims reach their
@@ -314,7 +356,7 @@ def author_campaign(stage, contract):
             if node.startswith('[node name="Bait_'+rid+'" '): sc.nodes[index]=node.rstrip()+'\nmetadata/bait_arena = '+quote(rid)+'\n\n'
         sc.downlight('CacheLight_'+rid,(x,y+r['size'][1]-.5,z),7,14)
     for b in stage['buttons']:
-        r=rooms[b['room']];x,y,z=r['center'];pp=(x+4.5,y+1.05,z-r['size'][2]/2+3)
+        r=rooms[b['room']];x,y,z=r['center'];pp=(x+min(4.5,r['size'][0]/2-1.0),y+1.05,z-r['size'][2]/2+3)
         sc.box('Button_'+b['id'],pp,(1.1,1.5,.5),'steel',extra='metadata/stage_button = '+quote(b['sets'])+'\nmetadata/requires = '+arr(['clear_'+b['arena']])+'\nmetadata/locked_message = "Clear this arena to enable its control"\nmetadata/label = '+quote(b['label'])+'\nmetadata/activated_message = '+quote(b['label']+' · engaged'))
         sc.box('Face',(0,.12,.29),(.55,.48,.08),'brass' if b['id']=='breaker' else 'red' if b['id']=='release' else 'glow',False,'Button_'+b['id'])
         sc.label('Mark',b['label'],(0,1.1,.28),'Button_'+b['id'],size=30)
@@ -346,6 +388,7 @@ def author_campaign(stage, contract):
     sc.node('CollisionShape3D','CollisionShape3D','Player','shape = SubResource("player_shape")')
     sc.node('Camera3D','Camera3D','Player','position = Vector3(0,.68,0)\ncurrent = true\nfov = 82\nnear = .04\nfar = 700')
     sc.marker('PlayerStart',spawn,'')
+    sc.room_program_routes = routes
     sc.save(contract['scene'].removeprefix('res://'))
     (P/'resources/stages'/f'{stage["id"]}-route.json').write_text(json.dumps(dict(id=stage['id'],architecture_version=2,rooms=rooms,portals=routes,buttons=stage['buttons'],keys=stage['keys'],exit=stage['exit'],weapon_cache=stage['weapon_cache'],vertical_routes=sc.vertical_routes,combat_paths=sc.combat_paths),indent=2))
 
@@ -514,8 +557,29 @@ def balance_receipt(level_id: str, stage: dict, scene_text: str) -> dict:
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True); SCENES.mkdir(parents=True, exist_ok=True)
+    programmes = room_program.load_program()
+    prepared = {}
+    inventories = []
+    for level in LEVELS:
+        level_id = level[0]
+        stage, contract = make_stage(level)
+        programme = programmes[level_id]
+        planned_rooms = {room["id"]:room for room in programme["rooms"]}
+        for room in stage["rooms"]:
+            plan = planned_rooms[room["id"]]
+            room.update({key:plan[key] for key in ("label", "function", "layout_mode", "light_family")})
+            if "authored_size_xz" in plan:
+                room["size"][0], room["size"][2] = plan["authored_size_xz"]
+        inventories.append(room_program.validate_level_program(stage, programme))
+        prepared[level_id] = (stage, contract)
+    assert sum(item["rooms"] for item in inventories) == 130
+    assert sum(item["furnishing_instances"] for item in inventories) == 508
+    # This receipt exists before the first scene is authored. Every object,
+    # key, control, gate and clear-dependent route has been checked here.
+    (OUT / "room-program-inventory.json").write_text(json.dumps({"schema_version": 1, "levels": inventories}, indent=2) + "\n")
     catalog = {"chapters": []}
     balances = []
+    furnishing_reports = []
     for theme, heading in (("pale_ward", "Pale Ward"), ("ash_citadel", "Ash Citadel"), ("occupied_line", "Occupied Line")):
         catalog["chapters"].append({"id": theme, "title": heading, "levels": []})
     original_scene = Scene
@@ -532,7 +596,8 @@ def main():
             for level in LEVELS:
                 level_id, title, subtitle, *_ = level
                 theme = level_id.rsplit("_", 1)[0]
-                stage, contract = make_stage(level)
+                stage, contract = prepared[level_id]
+                programme = programmes[level_id]
                 contract["scene"] = "res://scenes/campaign/" + level_id + ".tscn"
                 contract["title"] = title
                 class CampaignScene(original_scene):
@@ -540,9 +605,32 @@ def main():
                         # Painted track lines are cues, not knee-high barriers.
                         if self.stage['id'] == 'occupied_line' and '_Track' in name:
                             solid = False
+                        if solid and parent == '.' and typ in (None, 'StaticBody3D'):
+                            yaw = math.radians(rot[1]) if rot else 0.0
+                            footprint_x = abs(size[0]*math.cos(yaw)) + abs(size[2]*math.sin(yaw))
+                            footprint_z = abs(size[0]*math.sin(yaw)) + abs(size[2]*math.cos(yaw))
+                            self.__dict__.setdefault('_physical_obstacles', []).append({
+                                'name':name,'x':pos[0],'z':pos[2],'w':footprint_x,'d':footprint_z,
+                                'min_y':pos[1]-size[1]/2,'max_y':pos[1]+size[1]/2})
                         return super().box(name, pos, size, mat, solid, parent, extra, typ, rot, hit_material)
+                    def cylinder(self, name, pos, radius, height, mat='steel', solid=True, parent='.'):
+                        if solid and parent == '.':
+                            self.__dict__.setdefault('_physical_obstacles', []).append({
+                                'name':name,'x':pos[0],'z':pos[2],'w':radius*2,'d':radius*2,
+                                'min_y':pos[1]-height/2,'max_y':pos[1]+height/2})
+                        return super().cylinder(name, pos, radius, height, mat, solid, parent)
+                    def prism(self, name, pos, points, height, mat='wall'):
+                        xs=[point[0] for point in points];zs=[point[1] for point in points]
+                        self.__dict__.setdefault('_physical_obstacles', []).append({
+                            'name':name,'x':pos[0]+(min(xs)+max(xs))/2,
+                            'z':pos[2]+(min(zs)+max(zs))/2,
+                            'w':max(xs)-min(xs),'d':max(zs)-min(zs),
+                            'min_y':pos[1],'max_y':pos[1]+height})
+                        return super().prism(name, pos, points, height, mat)
                     def save(self, path):
                         augment(self, level_id, title, level[6])
+                        furnishing_reports.append(room_program.furnish(self, self.stage, programme,
+                            self.room_program_routes, self.vertical_routes, list(getattr(self, '_physical_obstacles', []))))
                         super().save(path)
                 globals()["Scene"] = CampaignScene
                 author_campaign(stage, contract)
@@ -555,12 +643,7 @@ def main():
                 route["title"] = title; route["subtitle"] = subtitle
                 route["entry_weapon"] = level[6] if level_id.startswith("pale_ward") else None
                 route["combat_flanks"] = {
-                    rid: [
-                        [r["center"][0] + side * lane, r["center"][1], r["center"][2] + offset]
-                        for side in (-1, 1)
-                        for lane, offset in [(4.3, 0), (r["size"][0] / 2 - (5 if theme == 'pale_ward' and rid == 'final_arena' and r["size"][0] < 36 else 7), 0)]
-                        + [(r["size"][0] / 2 - (5 if theme == 'pale_ward' and rid == 'final_arena' and r["size"][0] < 36 else 7), slot) for slot in (-9, -3, 3, 9)]
-                    ]
+                    rid: room_program.combat_flanks_for_room(r, theme)
                     for rid, r in route["rooms"].items() if r["arena_id"]
                 }
                 (OUT / (level_id + "-route.json")).write_text(json.dumps(route, indent=2) + "\n")
@@ -573,6 +656,7 @@ def main():
         globals()["Scene"] = original_scene; globals()["P"] = original_root; base.P = original_base_root
     (OUT / "catalog.json").write_text(json.dumps(catalog, indent=2) + "\n")
     (OUT / "balance-budget.json").write_text(json.dumps({"ammo_caps": CAPS, "scope": "Physical main-route pickups only; starting combat inventory and optional/secret bonuses are separate.", "levels": balances}, indent=2) + "\n")
+    (OUT / "room-fittings-v6.json").write_text(json.dumps({"schema_version": 1, "levels": furnishing_reports}, indent=2) + "\n")
 
 
 if __name__ == "__main__": main()

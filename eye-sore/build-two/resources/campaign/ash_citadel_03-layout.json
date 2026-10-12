@@ -36,7 +36,7 @@
   "rooms": [
     {
       "id": "entry",
-      "label": "LOWER CRYPT",
+      "label": "Lower crypt",
       "center": [
         -0.0,
         0,
@@ -48,11 +48,14 @@
         41.536
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "crypt",
+      "layout_mode": "crypt_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "service",
-      "label": "Gate Passage",
+      "label": "Funerary passage",
       "center": [
         -0.0,
         0,
@@ -64,11 +67,14 @@
         36.344
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "crypt",
+      "layout_mode": "crypt_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "arena_one",
-      "label": "RELIQUARY",
+      "label": "Black reliquary",
       "center": [
         -0.0,
         0.0,
@@ -82,43 +88,52 @@
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 3.0,
-      "encounter": "sealed weapon cache"
+      "encounter": "sealed weapon cache",
+      "function": "reliquary",
+      "layout_mode": "reliquary_niches",
+      "light_family": "ember_warm"
     },
     {
       "id": "key_console",
-      "label": "Brass Seal Shrine",
+      "label": "Mortuary archive",
       "center": [
         -45.562000000000005,
         0,
         -98.64800000000001
       ],
       "size": [
-        26.378000000000004,
+        12,
         5,
-        31.152
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "archive",
+      "layout_mode": "archive_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "return_store",
-      "label": "Crypt Return",
+      "label": "Vault restoration store",
       "center": [
         -40.76600000000001,
         0,
         -49.324000000000005
       ],
       "size": [
-        28.776000000000003,
+        12,
         5,
-        28.556
+        10
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "stores",
+      "layout_mode": "stores_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "spine",
-      "label": "Inner Bastion",
+      "label": "Upper vault approach",
       "center": [
         -0.0,
         0,
@@ -130,11 +145,14 @@
         31.152
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "cloister",
+      "layout_mode": "cloister_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "arena_two",
-      "label": "UPPER VAULT",
+      "label": "Upper vault",
       "center": [
         -0.0,
         0.0,
@@ -148,27 +166,33 @@
       "secret": false,
       "arena_id": "arena_two",
       "chamfer": 3.0,
-      "encounter": "raised crossfire bridge"
+      "encounter": "raised crossfire bridge",
+      "function": "reliquary",
+      "layout_mode": "vault_banks",
+      "light_family": "ember_warm"
     },
     {
       "id": "red_console",
-      "label": "Red Seal Altar",
+      "label": "Vault seal chamber",
       "center": [
         47.96,
         0,
         -205.084
       ],
       "size": [
-        26.378000000000004,
+        14,
         6,
-        31.152
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "chapel",
+      "layout_mode": "chapel_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "final_arena",
-      "label": "CIVIL CONDUIT",
+      "label": "Civil conduit excavation",
       "center": [
         -0.0,
         1.5,
@@ -182,11 +206,14 @@
       "secret": false,
       "arena_id": "final_arena",
       "chamfer": 3.0,
-      "encounter": "lower court and upper launcher reward"
+      "encounter": "lower court and upper launcher reward",
+      "function": "siege_works",
+      "layout_mode": "conduit_works",
+      "light_family": "ember_warm"
     },
     {
       "id": "exit_gallery",
-      "label": "CIVIL CONDUIT / DEAD PLATFORM",
+      "label": "Buried civic access",
       "center": [
         -0.0,
         1.5,
@@ -198,75 +225,90 @@
         23.364
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "siege_works",
+      "layout_mode": "siege_works_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "supplies",
-      "label": "Pilgrim Stores",
+      "label": "Gravekeeper stores",
       "center": [
         31.174000000000003,
         0,
         -5.192
       ],
       "size": [
-        16.786000000000005,
+        12,
         5,
-        23.364
+        10
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "stores",
+      "layout_mode": "stores_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "maintenance",
-      "label": "Watch Post",
+      "label": "Crypt ventilation",
       "center": [
         -33.57200000000001,
         0,
         7.788
       ],
       "size": [
-        21.582,
+        14,
         5,
-        20.768
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "siege_works",
+      "layout_mode": "siege_works_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "pump_room",
-      "label": "Bell Chamber",
+      "label": "Drainage works",
       "center": [
         -45.562000000000005,
         0,
         -175.23
       ],
       "size": [
-        23.98,
+        14,
         5,
-        23.364
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "siege_works",
+      "layout_mode": "siege_works_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "armory",
-      "label": "Armory",
+      "label": "Buried siege cache",
       "center": [
         47.96,
         0,
         -151.866
       ],
       "size": [
-        23.98,
+        12,
         5,
-        25.959999999999997
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "guardhouse",
+      "layout_mode": "guardhouse_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "secret_one",
-      "label": "Walled Niche",
+      "label": "Unmarked noble tomb",
       "center": [
         50.358000000000004,
         0,
@@ -278,11 +320,14 @@
         10.384
       ],
       "secret": true,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "crypt",
+      "layout_mode": "crypt_fitted_workstations",
+      "light_family": "ember_warm"
     },
     {
       "id": "observation",
-      "label": "Upper Battlement",
+      "label": "Vault survey gallery",
       "center": [
         -45.562000000000005,
         4.5,
@@ -294,7 +339,10 @@
         23.364
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "archive",
+      "layout_mode": "archive_fitted_workstations",
+      "light_family": "ember_warm"
     }
   ],
   "portals": [

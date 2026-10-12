@@ -1,0 +1,265 @@
+{
+  "scope": "Pinned Godot 4.7.2 source, headless fixed-fps 60, actual Main/Stage authored physical route with live AI, damage, weapons, pickups, E interactions, continuous campaign carry. Automated bot proof; not a human playthrough or exported binary proof. Pickup UI cue count and item_collected semantics require separate controlled audio fixture, not inferred from these combat receipts.",
+  "engine_path": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+  "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "route_driver_sha256": "91b1950f07335b6bc08480e65dbc9fbcb9582f69cc2b297644ed963926c4be41",
+  "freeze_file": "verification/pickups-rooms-v6/routes/compact-freeze.json",
+  "freeze_file_sha256": "3c20a5dce4e1647b018e4d786d34b3d42975c2490e66ea669c5a138f4ae0a639",
+  "freeze_entries": 21,
+  "freeze_pre_match": true,
+  "freeze_post_mismatches": {},
+  "normal_command": "Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . -- --campaign-route-test --campaign-all-levels --release-report-dir=/tmp/eyesore-pickups-rooms-v6-compact-normal",
+  "heavy_command": "Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . -- --campaign-route-test --campaign-all-levels --use-heavy-weapons --release-report-dir=/tmp/eyesore-pickups-rooms-v6-compact-heavy",
+  "lift_command": "Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . -- --campaign-route-test --campaign-level=pale_ward_01 --use-heavy-weapons --check-lift-route --release-report-dir=/tmp/eyesore-pickups-rooms-v6-compact-lift --automated-input --force-offscreen-draw",
+  "profiles": {
+    "normal": {
+      "passed": true,
+      "problems": [],
+      "levels_completed": 9,
+      "finale": "CAMPAIGN COMPLETE",
+      "failures": [],
+      "initial_loadout": {
+        "ammo_pistol": 36,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 12,
+        "armor": 50.0,
+        "currentweapon": "pistol",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true
+        }
+      },
+      "kills": 304,
+      "shots": 1094,
+      "weapon_shots": {
+        "pistol": 488,
+        "shotgun": 274,
+        "rivet_cannon": 332
+      },
+      "weapon_kills": {
+        "pistol": 75,
+        "shotgun": 161,
+        "rivet_cannon": 68
+      },
+      "secret_levels": [],
+      "accepted_e_by_level": {
+        "pale_ward_01": 10,
+        "pale_ward_02": 10,
+        "pale_ward_03": 10,
+        "ash_citadel_01": 9,
+        "ash_citadel_02": 9,
+        "ash_citadel_03": 9,
+        "occupied_line_01": 9,
+        "occupied_line_02": 9,
+        "occupied_line_03": 9
+      },
+      "entry_exit_carry_pairs": 8,
+      "ammo_caps": {
+        "pistol": 96,
+        "rivets": 160,
+        "rockets": 12,
+        "shells": 40
+      },
+      "peak_ammo_by_level": {
+        "pale_ward_01": {
+          "pistol": 70,
+          "rivets": 0,
+          "rockets": 0,
+          "shells": 22
+        },
+        "pale_ward_02": {
+          "pistol": 61,
+          "rivets": 59,
+          "rockets": 0,
+          "shells": 9
+        },
+        "pale_ward_03": {
+          "pistol": 34,
+          "rivets": 63,
+          "rockets": 10,
+          "shells": 9
+        },
+        "ash_citadel_01": {
+          "pistol": 59,
+          "rivets": 62,
+          "rockets": 12,
+          "shells": 23
+        },
+        "ash_citadel_02": {
+          "pistol": 96,
+          "rivets": 22,
+          "rockets": 12,
+          "shells": 33
+        },
+        "ash_citadel_03": {
+          "pistol": 96,
+          "rivets": 29,
+          "rockets": 12,
+          "shells": 35
+        },
+        "occupied_line_01": {
+          "pistol": 96,
+          "rivets": 66,
+          "rockets": 12,
+          "shells": 31
+        },
+        "occupied_line_02": {
+          "pistol": 85,
+          "rivets": 136,
+          "rockets": 12,
+          "shells": 23
+        },
+        "occupied_line_03": {
+          "pistol": 60,
+          "rivets": 160,
+          "rockets": 12,
+          "shells": 13
+        }
+      },
+      "exit_health": 100.0,
+      "source_receipt": "verification/pickups-rooms-v6/routes/normal-compact.json",
+      "source_log": "verification/pickups-rooms-v6/routes/normal-compact.log"
+    },
+    "heavy": {
+      "passed": true,
+      "problems": [],
+      "levels_completed": 9,
+      "finale": "CAMPAIGN COMPLETE",
+      "failures": [],
+      "initial_loadout": {
+        "ammo_pistol": 36,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 12,
+        "armor": 50.0,
+        "currentweapon": "pistol",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true
+        }
+      },
+      "kills": 304,
+      "shots": 946,
+      "weapon_shots": {
+        "pistol": 240,
+        "shotgun": 79,
+        "twin_shotgun": 75,
+        "rivet_cannon": 506,
+        "siege_launcher": 46
+      },
+      "weapon_kills": {
+        "pistol": 38,
+        "shotgun": 34,
+        "twin_shotgun": 70,
+        "rivet_cannon": 116,
+        "siege_launcher": 46
+      },
+      "secret_levels": [],
+      "accepted_e_by_level": {
+        "pale_ward_01": 10,
+        "pale_ward_02": 10,
+        "pale_ward_03": 10,
+        "ash_citadel_01": 9,
+        "ash_citadel_02": 9,
+        "ash_citadel_03": 9,
+        "occupied_line_01": 9,
+        "occupied_line_02": 9,
+        "occupied_line_03": 9
+      },
+      "entry_exit_carry_pairs": 8,
+      "ammo_caps": {
+        "pistol": 96,
+        "rivets": 160,
+        "rockets": 12,
+        "shells": 40
+      },
+      "peak_ammo_by_level": {
+        "pale_ward_01": {
+          "pistol": 65,
+          "rivets": 0,
+          "rockets": 0,
+          "shells": 21
+        },
+        "pale_ward_02": {
+          "pistol": 47,
+          "rivets": 40,
+          "rockets": 0,
+          "shells": 15
+        },
+        "pale_ward_03": {
+          "pistol": 60,
+          "rivets": 15,
+          "rockets": 6,
+          "shells": 8
+        },
+        "ash_citadel_01": {
+          "pistol": 91,
+          "rivets": 36,
+          "rockets": 4,
+          "shells": 21
+        },
+        "ash_citadel_02": {
+          "pistol": 96,
+          "rivets": 25,
+          "rockets": 5,
+          "shells": 25
+        },
+        "ash_citadel_03": {
+          "pistol": 96,
+          "rivets": 37,
+          "rockets": 4,
+          "shells": 27
+        },
+        "occupied_line_01": {
+          "pistol": 96,
+          "rivets": 33,
+          "rockets": 9,
+          "shells": 30
+        },
+        "occupied_line_02": {
+          "pistol": 96,
+          "rivets": 28,
+          "rockets": 10,
+          "shells": 40
+        },
+        "occupied_line_03": {
+          "pistol": 96,
+          "rivets": 37,
+          "rockets": 10,
+          "shells": 40
+        }
+      },
+      "exit_health": 100.0,
+      "source_receipt": "verification/pickups-rooms-v6/routes/heavy-compact.json",
+      "source_log": "verification/pickups-rooms-v6/routes/heavy-compact.log"
+    }
+  },
+  "lift": {
+    "passed": true,
+    "problems": [],
+    "level": "pale_ward_01",
+    "kills": 31,
+    "shots": 100,
+    "health": 100.0,
+    "lift_route_requested": true,
+    "lift_round_trip": true,
+    "secret_used": false,
+    "weapon_shots": {
+      "pistol": 70,
+      "shotgun": 21,
+      "twin_shotgun": 9
+    },
+    "weapon_kills": {
+      "pistol": 13,
+      "shotgun": 9,
+      "twin_shotgun": 9
+    },
+    "source_receipt": "verification/pickups-rooms-v6/routes/lift-compact.json",
+    "source_log": "verification/pickups-rooms-v6/routes/lift-compact.log"
+  }
+}

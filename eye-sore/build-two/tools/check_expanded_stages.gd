@@ -10,6 +10,10 @@ class StubCombat:
 	var ammo_shotgun := 12
 	var enemies: Array = []
 	var dead := false
+	var emitted_events: Array[Dictionary] = []
+	func emit_event(event: Dictionary) -> void:
+		emitted_events.append(event.duplicate(true))
+		combat_event.emit(event)
 class StubEnemy:
 	extends Node
 	var target_id := ""

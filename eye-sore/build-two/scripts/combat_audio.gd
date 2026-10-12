@@ -43,6 +43,10 @@ func handle_event(event: Dictionary) -> void:
 	var kind := String(event.get("enemy_kind", ""))
 	var key := ""
 	match type:
+		"item_collected":
+			var item_kind := String(event.get("item_kind", ""))
+			if item_kind in ["brass", "red"]: item_kind += "_key"
+			if item_kind in ["pistol", "shells", "rivets", "rockets", "health", "armor", "brass_key", "red_key", "weapon"]: key = "pickup_" + item_kind
 		"shot": key = "melee_swing" if weapon == "melee" else weapon + "_fire"
 		"impact":
 			var material := String(event.get("material", "hard"))
@@ -58,7 +62,9 @@ func handle_event(event: Dictionary) -> void:
 	# A shotgun's valid pellet damage is aggregated by combat before reaching here.
 	# Suppress duplicate presentation only; this code never suppresses gameplay damage.
 	var identity := ""
-	if event.has("shot_id") and int(event.shot_id) > 0:
+	if type == "item_collected" and event.has("pickup_id"):
+		identity = "item_collected:%s" % event.pickup_id
+	elif event.has("shot_id") and int(event.shot_id) > 0:
 		identity = "%s:%s:%s" % [type, event.shot_id, event.get("target_id", "player")]
 	elif event.has("attack_id"):
 		identity = "%s:%s:%s" % [type, event.attack_id, event.get("target_id", kind)]

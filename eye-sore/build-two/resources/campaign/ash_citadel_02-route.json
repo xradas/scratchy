@@ -4,7 +4,7 @@
   "rooms": {
     "entry": {
       "id": "entry",
-      "label": "CHOIR ENTRY",
+      "label": "Choir vestibule",
       "center": [
         0.0,
         0,
@@ -16,11 +16,14 @@
         39.42400000000001
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "chapel",
+      "layout_mode": "chapel_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "service": {
       "id": "service",
-      "label": "Gate Passage",
+      "label": "Acolyte passage",
       "center": [
         0.0,
         0,
@@ -32,11 +35,14 @@
         34.49600000000001
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "archive",
+      "layout_mode": "archive_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "arena_one": {
       "id": "arena_one",
-      "label": "FURNACE RING",
+      "label": "Furnace choir",
       "center": [
         0.0,
         0.0,
@@ -50,43 +56,52 @@
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 3.0,
-      "encounter": "sealed weapon cache"
+      "encounter": "sealed weapon cache",
+      "function": "choir",
+      "layout_mode": "choir_stalls",
+      "light_family": "ember_warm"
     },
     "key_wing": {
       "id": "key_wing",
-      "label": "Reliquary Wing",
+      "label": "Ember preparation",
       "center": [
         40.128,
         0,
         -93.63200000000002
       ],
       "size": [
-        29.568,
+        14,
         5,
-        22.176000000000002
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "forge",
+      "layout_mode": "forge_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "key_console": {
       "id": "key_console",
-      "label": "Brass Seal Shrine",
+      "label": "Cantor archive",
       "center": [
         40.128,
         0,
         -129.36000000000004
       ],
       "size": [
-        23.232000000000003,
+        12,
         5,
-        29.568000000000005
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "archive",
+      "layout_mode": "archive_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "spine": {
       "id": "spine",
-      "label": "Inner Bastion",
+      "label": "Ash processional",
       "center": [
         0.0,
         0,
@@ -98,11 +113,14 @@
         29.568000000000005
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "cloister",
+      "layout_mode": "cloister_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "arena_two": {
       "id": "arena_two",
-      "label": "EMBER ALTAR",
+      "label": "Ember altar",
       "center": [
         -35.512,
         0.0,
@@ -116,43 +134,52 @@
       "secret": false,
       "arena_id": "arena_two",
       "chamfer": 3.0,
-      "encounter": "raised crossfire bridge"
+      "encounter": "raised crossfire bridge",
+      "function": "chapel",
+      "layout_mode": "altar_recesses",
+      "light_family": "ember_warm"
     },
     "red_wing": {
       "id": "red_wing",
-      "label": "Sacristy",
+      "label": "Ossuary passage",
       "center": [
         -76.304,
         0,
         -151.53600000000003
       ],
       "size": [
-        27.456,
+        14,
         6,
-        32.032000000000004
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "crypt",
+      "layout_mode": "crypt_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "red_console": {
       "id": "red_console",
-      "label": "Red Seal Altar",
+      "label": "Vesper sacristy",
       "center": [
         -76.304,
         0,
         -191.336
       ],
       "size": [
-        23.232000000000003,
+        12,
         6,
-        29.568000000000005
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "reliquary",
+      "layout_mode": "reliquary_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "final_arena": {
       "id": "final_arena",
-      "label": "VESPER DOOR",
+      "label": "Vesper bell forge",
       "center": [
         -35.512,
         1.5,
@@ -166,11 +193,14 @@
       "secret": false,
       "arena_id": "final_arena",
       "chamfer": 3.0,
-      "encounter": "lower court and upper launcher reward"
+      "encounter": "lower court and upper launcher reward",
+      "function": "forge",
+      "layout_mode": "bellows_banks",
+      "light_family": "ember_warm"
     },
     "exit_gallery": {
       "id": "exit_gallery",
-      "label": "TO BLACK RELIQUARY",
+      "label": "Reliquary stair landing",
       "center": [
         -35.512,
         1.5,
@@ -182,27 +212,33 @@
         22.176000000000002
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "crypt",
+      "layout_mode": "crypt_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "pump_room": {
       "id": "pump_room",
-      "label": "Bell Chamber",
+      "label": "Bellows works",
       "center": [
         40.128,
         0,
         -166.32000000000002
       ],
       "size": [
-        21.119999999999997,
+        14,
         5,
-        22.176000000000002
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "forge",
+      "layout_mode": "forge_fitted_workstations",
+      "light_family": "ember_warm"
     },
     "secret_two": {
       "id": "secret_two",
-      "label": "Ossuary",
+      "label": "Sealed cantor tomb",
       "center": [
         -63.36,
         0,
@@ -214,7 +250,10 @@
         12.32
       ],
       "secret": true,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "crypt",
+      "layout_mode": "crypt_fitted_workstations",
+      "light_family": "ember_warm"
     }
   },
   "portals": [
@@ -290,12 +329,12 @@
         -93.63200000000002
       ],
       "end": [
-        25.344,
+        33.128,
         0,
         -93.63200000000002
       ],
       "middle": [
-        22.176000000000002,
+        26.067999999999998,
         0.0,
         -93.63200000000002
       ],
@@ -314,17 +353,17 @@
       "start": [
         40.128,
         0,
-        -104.72000000000003
+        -101.63200000000002
       ],
       "end": [
         40.128,
         0,
-        -114.57600000000004
+        -122.36000000000004
       ],
       "middle": [
         40.128,
         0.0,
-        -109.64800000000002
+        -111.99600000000004
       ],
       "axis": 2,
       "door": null
@@ -404,12 +443,12 @@
         -151.53600000000003
       ],
       "end": [
-        -62.576,
+        -69.304,
         0,
         -151.53600000000003
       ],
       "middle": [
-        -59.076,
+        -62.44,
         0.0,
         -151.53600000000003
       ],
@@ -428,17 +467,17 @@
       "start": [
         -76.304,
         0,
-        -167.55200000000002
+        -158.53600000000003
       ],
       "end": [
         -76.304,
         0,
-        -176.55200000000002
+        -184.336
       ],
       "middle": [
         -76.304,
         0.0,
-        -172.05200000000002
+        -171.43600000000004
       ],
       "axis": 2,
       "door": null
@@ -515,17 +554,17 @@
       "start": [
         8.448,
         0,
-        -157.23200000000003
+        -160.32000000000002
       ],
       "end": [
-        29.568,
+        33.128,
         0,
-        -157.23200000000003
+        -160.32000000000002
       ],
       "middle": [
-        19.008000000000003,
+        20.788,
         0.0,
-        -157.23200000000003
+        -160.32000000000002
       ],
       "axis": 0,
       "door": null
@@ -540,22 +579,23 @@
       "shortcut": false,
       "lift": false,
       "start": [
-        -67.44,
+        -76.304,
         0,
-        -206.12
+        -198.336
       ],
       "end": [
-        -67.44,
+        -63.36,
         0,
         -230.38400000000004
       ],
       "middle": [
-        -67.44,
+        -69.832,
         0.0,
-        -218.252
+        -214.36
       ],
       "axis": 2,
-      "door": "Door_secret_two"
+      "door": "Door_secret_two",
+      "diagonal": true
     }
   ],
   "buttons": [

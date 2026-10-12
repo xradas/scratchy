@@ -36,7 +36,7 @@
   "rooms": [
     {
       "id": "entry",
-      "label": "ARRIVALS",
+      "label": "Patient intake",
       "center": [
         0.0,
         0,
@@ -48,11 +48,14 @@
         32.0
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "triage_reception",
+      "layout_mode": "triage_reception_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "service",
-      "label": "Service Spine",
+      "label": "Decontamination",
       "center": [
         0.0,
         1.5,
@@ -64,11 +67,14 @@
         28.0
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "decontamination",
+      "layout_mode": "decontamination_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "arena_one",
-      "label": "TRIAGE SUMP",
+      "label": "Emergency triage",
       "center": [
         0.0,
         -1.0,
@@ -82,59 +88,71 @@
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 2.0,
-      "encounter": "sealed weapon cache"
+      "encounter": "sealed weapon cache",
+      "function": "triage_ward",
+      "layout_mode": "bed_bays",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "key_wing",
-      "label": "Bio Wing",
+      "label": "Diagnostics corridor",
       "center": [
         38.0,
         1.5,
         -76.0
       ],
       "size": [
-        28.0,
+        12,
         5,
-        18.0
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "diagnostics",
+      "layout_mode": "diagnostics_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "key_console",
-      "label": "Operating Theatre",
+      "label": "Operating theatre",
       "center": [
         38.0,
         1.5,
         -105.0
       ],
       "size": [
-        22.0,
+        12,
         5,
-        24.0
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "surgery",
+      "layout_mode": "surgery_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "return_store",
-      "label": "Supply Return",
+      "label": "Sterile supply return",
       "center": [
         34.0,
         1.5,
         -38.0
       ],
       "size": [
-        24.0,
+        12,
         5,
-        22.0
+        10
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "medical_stores",
+      "layout_mode": "medical_stores_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "spine",
-      "label": "Quarantine Spine",
+      "label": "Isolation transfer",
       "center": [
         0.0,
         1.5,
@@ -146,11 +164,14 @@
         24.0
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "decontamination",
+      "layout_mode": "decontamination_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "arena_two",
-      "label": "ISOLATION",
+      "label": "Isolation ward",
       "center": [
         0.0,
         0.0,
@@ -164,43 +185,52 @@
       "secret": false,
       "arena_id": "arena_two",
       "chamfer": 2.0,
-      "encounter": "raised crossfire bridge"
+      "encounter": "raised crossfire bridge",
+      "function": "isolation",
+      "layout_mode": "split_isolation",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "red_wing",
-      "label": "Pathology",
+      "label": "Pathology preparation",
       "center": [
         -40.0,
         1.5,
         -158.0
       ],
       "size": [
-        26.0,
+        12,
         6,
-        26.0
+        12
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "pathology",
+      "layout_mode": "pathology_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "red_console",
-      "label": "Red Access Control",
+      "label": "Pathology office",
       "center": [
         -40.0,
         1.5,
         -192.0
       ],
       "size": [
-        22.0,
+        12,
         6,
-        24.0
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "diagnostics",
+      "layout_mode": "diagnostics_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "final_arena",
-      "label": "C3 EXIT",
+      "label": "C3 quarantine transfer",
       "center": [
         0.0,
         1.5,
@@ -214,11 +244,14 @@
       "secret": false,
       "arena_id": "final_arena",
       "chamfer": 2.0,
-      "encounter": "lower court and upper launcher reward"
+      "encounter": "lower court and upper launcher reward",
+      "function": "quarantine_transfer",
+      "layout_mode": "transfer_bays",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "exit_gallery",
-      "label": "TO RESERVOIR / CONTAINMENT",
+      "label": "Reservoir airlock",
       "center": [
         0.0,
         3.0,
@@ -230,75 +263,90 @@
         18.0
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "decontamination",
+      "layout_mode": "decontamination_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "supplies",
-      "label": "Medical Stores",
+      "label": "Pharmacy",
       "center": [
         -26.0,
         0,
         -4.0
       ],
       "size": [
-        14.0,
+        12,
         5,
-        18.0
+        10
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "medical_stores",
+      "layout_mode": "medical_stores_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "maintenance",
-      "label": "Maintenance",
+      "label": "Air handling plant",
       "center": [
         28.0,
         0,
         6.0
       ],
       "size": [
-        18.0,
+        14,
         5,
-        16.0
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "utility",
+      "layout_mode": "utility_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "pump_room",
-      "label": "Pump Hall",
+      "label": "Quarantine water pumps",
       "center": [
         38.0,
         1.5,
         -135.0
       ],
       "size": [
-        20.0,
+        14,
         5,
-        18.0
+        16
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "utility",
+      "layout_mode": "utility_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "armory",
-      "label": "Security Stores",
+      "label": "Containment security",
       "center": [
         -40.0,
         1.5,
         -117.0
       ],
       "size": [
-        20.0,
+        12,
         5,
-        20.0
+        14
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "security",
+      "layout_mode": "security_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "secret_one",
-      "label": "Sealed Cabinet",
+      "label": "Sealed medication store",
       "center": [
         -42.0,
         0,
@@ -310,11 +358,14 @@
         8.0
       ],
       "secret": true,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "medical_stores",
+      "layout_mode": "medical_stores_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "secret_two",
-      "label": "Hidden Specimen Room",
+      "label": "Discarded specimen archive",
       "center": [
         -60.0,
         1.5,
@@ -326,11 +377,14 @@
         10.0
       ],
       "secret": true,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "specimen_archive",
+      "layout_mode": "specimen_archive_fitted_workstations",
+      "light_family": "clinical_sick_green"
     },
     {
       "id": "observation",
-      "label": "Upper Observation",
+      "label": "C3 monitoring gallery",
       "center": [
         38.0,
         6.0,
@@ -342,7 +396,10 @@
         18.0
       ],
       "secret": false,
-      "arena_id": ""
+      "arena_id": "",
+      "function": "control_room",
+      "layout_mode": "control_room_fitted_workstations",
+      "light_family": "clinical_sick_green"
     }
   ],
   "portals": [
