@@ -16,6 +16,7 @@ import re
 import author_themed_stages as base
 import room_program_v6 as props
 import room_materials_v8 as surfaces
+import ward_shell_v14 as shell
 
 ROOT=Path(__file__).resolve().parents[1]
 INPUT=ROOT/'docs/level-redesign-v13/levels.json'
@@ -47,7 +48,7 @@ def load_level(level_id,path=INPUT):
 class WardScene(base.Scene):
     def __init__(self,level):
         super().__init__({'id':'pale_ward','campaign_level_id':level['id'],'title':level['title']})
-        self.level=level;self.geometry=[];self.lights=[];self.fittings=[]
+        self.level=level;self.geometry=[];self.lights=[];self.fittings=[];self.shell_fits=[];self.shell_room=None
         self.ext.extend([
           '[ext_resource type="Script" path="res://scripts/stage_objective_profile.gd" id="v13_profile_script"]',
           f'[ext_resource type="Resource" path="res://resources/campaign/v13/{level["id"]}-objectives.tres" id="v13_profile"]',
@@ -83,6 +84,14 @@ class WardScene(base.Scene):
         self.node('WorldEnvironment','WorldEnvironment',props='environment = SubResource("environment")')
 
     def box(self,name,pos,size,mat='wall',solid=True,parent='.',extra='',typ=None,rot=None,hit_material=None):
+        room=self.shell_room
+        if room and room.get('outline_xz') and parent=='.' and '_Observation' not in name and '_WindowMullion' not in name and '_LoweredCeiling' not in name:
+            fit=shell.fit_box(room,pos,size)
+            if fit is None:
+                self.shell_fits.append({'room':room['id'],'node':name,'action':'omit_shell_trim','old_position':list(pos),'old_size':list(size),'reason':'Named shell fitting crosses actual outline; no gameplay prop removed.'});return
+            position,extent=fit
+            if position!=list(pos) or extent!=list(size):self.shell_fits.append({'room':room['id'],'node':name,'action':'trim_shell_box','old_position':list(pos),'position':position,'old_size':list(size),'size':extent,'reason':'Fit closed beam/duct/trim to actual outline.'})
+            pos,size=position,extent
         assert all(s>0 for s in size),(name,size)
         if hit_material is None and mat.endswith(('_trim','_door','_panel')):hit_material='armor'
         if solid:self.geometry.append({'name':name,'parent':parent,'position':list(pos),'size':list(size),'rotation':list(rot or [0,0,0]),'type':typ or 'StaticBody3D'})
@@ -99,6 +108,7 @@ class WardScene(base.Scene):
     def serialize(self):
         level=self.level
         root=f'[node name="{level["title"].replace(" ","")}V13" type="Node3D"]\nscript = ExtResource("level")\nobjective_profile = ExtResource("v13_profile")\nmetadata/stage_id = "pale_ward"\nmetadata/campaign_level_id = {quote(level["id"])}\nmetadata/stage_title = {quote(level["title"])}\nmetadata/design_version = 13\n'
+        if level.get('layout_revision'):root+='metadata/layout_revision = '+str(level['layout_revision'])+'\n'
         text=f'[gd_scene load_steps={len(self.ext)+len(self.sub)+1} format=3]\n\n'+'\n'.join(self.ext)+'\n\n'+'\n'.join(self.sub)+'\n'+root+'\n'+'\n'.join(self.nodes)
         return re.sub(r'(?<![\w])(-?)\.(\d+)',r'\g<1>0.\2',text).rstrip()+'\n'
 
@@ -251,9 +261,12 @@ def build_portals(sc,rooms):
 
 def walls(sc,room,cuts):
     x,y,z=room['center'];sx,h,sz=room['size'];m=sc.materials[family(room)]
-    sc.box(room['id']+'_Floor',(x,y-.3,z),(sx+.12,.6,sz+.12),m['floor'])
-    sc.box(room['id']+'_Roof',(x,y+h+.2,z),(sx+.8,.4,sz+.8),m['ceiling'])
-    for side in ['N','S','E','W']:
+    if room.get('outline_xz'):
+        shell.slab(sc,room,room['id']+'_Floor',-.6,.6,m['floor']);shell.slab(sc,room,room['id']+'_Roof',h,.4,m['ceiling']);shell.walls(sc,room,cuts,m['wall'])
+    else:
+        sc.box(room['id']+'_Floor',(x,y-.3,z),(sx+.12,.6,sz+.12),m['floor'])
+        sc.box(room['id']+'_Roof',(x,y+h+.2,z),(sx+.8,.4,sz+.8),m['ceiling'])
+    for side in ([] if room.get('outline_xz') else ['N','S','E','W']):
         axis=0 if side in ['N','S'] else 2;cross=2 if axis==0 else 0;span=room['size'][axis];center=room['center'][axis]
         lo,hi=center-span/2,center+span/2
         openings=cuts[side]
@@ -267,6 +280,7 @@ def walls(sc,room,cuts):
                 sc.box(room['id']+'_Wall_'+side+str(index),at,size,m['wall']);index+=1
     arena=sc.level['encounters'].get(room['id'],{}).get('arena_id','')
     metadata='metadata/stage_room = '+quote(room['id'])+'\nmetadata/stage_label = '+quote(room['label'])+'\nmetadata/room_bounds = '+vec((sx/2,h/2+1,sz/2))+'\nmetadata/district = '+quote(room['district'])+'\nmetadata/room_function = '+quote(room['function'])+'\nmetadata/optional = '+str(room['optional']).lower()+'\nmetadata/arena_id = '+quote(arena)
+    if room.get('outline_xz'):metadata+='\nmetadata/footprint_xz = PackedVector2Array('+', '.join(str(v) for point in room['outline_xz'] for v in point)+')'
     sc.marker('Room_'+room['id'],(x,y+h/2,z),metadata)
     sc.label('RoomSign_'+room['id'],room['label'].upper(),(x,y+2.7,z-sz/2+.23),size=32)
     for i,side in enumerate([-1,1]):sc.lamp('Fixture_'+room['id']+'_'+str(i),(x+side*sx*.22,y+(3.22 if room['id']=='reception' and i==0 else ceiling_height(room)-.18),z+side*sz*.21),room)
@@ -279,7 +293,7 @@ def architecture_cuts(sc,rooms,cuts):
             cuts[aperture['room']][aperture['side']].append((*aperture['span'],*aperture['height']))
     for room in rooms.values():
         if room['function'] in {'diagnostics','surgery'}:
-            x,y,z=room['center'];cuts[room['id']]['E'].append((z+4,z+9,y+1.5,y+4.1))
+            x,y,z=room['center'];lo,hi=shell.observation(room);cuts[room['id']]['E'].append((z+lo,z+hi,y+1.5,y+4.1))
 
 
     if sc.level['id']=='pale_ward_02':
@@ -298,6 +312,14 @@ def ceiling_height(room):
 
 
 def pipe(sc,name,at,length,axis,material='steel',radius=.12,parent='.'):
+    if sc.shell_room and sc.shell_room.get('outline_xz') and parent=='.':
+        size=[radius*2,radius*2,radius*2];size[axis]=length
+        fit=shell.fit_box(sc.shell_room,at,size) if axis in [0,2] else (shell.fit_feature(sc.shell_room,at,size),size)
+        if fit is None:
+            sc.shell_fits.append({'room':sc.shell_room['id'],'node':name,'action':'omit_shell_pipe','reason':'Pipe lies outside actual outline.'});return
+        position,extent=fit
+        if position!=list(at) or extent[axis]!=length:sc.shell_fits.append({'room':sc.shell_room['id'],'node':name,'action':'fit_shell_pipe','old_position':list(at),'position':position,'old_length':length,'length':extent[axis]})
+        at,length=position,extent[axis]
     # Closed cylindrical fittings keep painted ends as well as their sides.
     root=name+'_Mount';rotation=(0,0,90) if axis==0 else (90,0,0) if axis==2 else (0,0,0)
     sc.node(root,props='position = '+vec(at)+'\nrotation_degrees = '+vec(rotation),parent=parent)
@@ -307,7 +329,8 @@ def pipe(sc,name,at,length,axis,material='steel',radius=.12,parent='.'):
 def authored_architecture(sc,room):
     x,y,z=room['center'];sx,h,sz=room['size'];rid=room['id'];m=sc.materials[family(room)];ch=ceiling_height(room)
     if ch<h:
-        sc.box(rid+'_LoweredCeiling',(x,y+ch+.12,z),(sx-.4,.24,sz-.4),m['ceiling'])
+        if room.get('outline_xz'):shell.slab(sc,room,rid+'_LoweredCeiling',ch,.24,m['ceiling'])
+        else:sc.box(rid+'_LoweredCeiling',(x,y+ch+.12,z),(sx-.4,.24,sz-.4),m['ceiling'])
     # Ductwork and exposed ribs are placed above usable capsule height.
     if room['function']!='triage_ward':
         for side in [-1,1]:
@@ -349,13 +372,14 @@ def authored_architecture(sc,room):
     if room['function'] in {'diagnostics','surgery'}:
         # A glazed observation recess has actual depth, side/back/ceiling and
         # a solid transparent pane, rather than exposing the outside void.
-        wx=x+sx/2;wz=z+6.5
-        sc.box(rid+'_ObservationBack',(wx+1.5,y+2.8,wz),(.25,2.8,5.4),m['panel'])
-        for side in [-1,1]:sc.box(rid+'_ObservationSide'+str(side),(wx+.7,y+2.8,wz+side*2.7),(1.6,2.8,.25),m['wall'])
-        for label,yy in [('Base',1.42),('Top',4.18)]:sc.box(rid+'_Observation'+label,(wx+.7,y+yy,wz),(1.6,.18,5.6),m['trim'])
-        sc.box(rid+'_ObservationGlass',(wx-.04,y+2.8,wz),(.08,2.6,5.0),'v13_glass')
-        sc.box(rid+'_ObservationConsole',(wx+1.3,y+2.7,wz),(.12,1.5,2.3),sc.prop_materials['face'],False)
-        for side in [-1,1]:sc.box(rid+'_WindowMullion'+str(side),(wx-.1,y+2.8,wz+side*.9),(.12,2.7,.09),m['trim'],False)
+        lo,hi=shell.observation(room);width=hi-lo;wx=x+sx/2;wz=z+(lo+hi)/2
+        if room.get('outline_xz') and (lo,hi)!=(4,9):sc.shell_fits.append({'room':rid,'node':rid+'_Observation','action':'trim_sealed_alcove','local_z_span':[lo,hi],'reason':'Actual straight east boundary ends at chamfer/notch; closed nontraversable alcove fits its aperture.'})
+        sc.box(rid+'_ObservationBack',(wx+1.5,y+2.8,wz),(.25,2.8,width+.4),m['panel'])
+        for side in [-1,1]:sc.box(rid+'_ObservationSide'+str(side),(wx+.7,y+2.8,wz+side*(width/2+.2)),(1.6,2.8,.25),m['wall'])
+        for label,yy in [('Base',1.42),('Top',4.18)]:sc.box(rid+'_Observation'+label,(wx+.7,y+yy,wz),(1.6,.18,width+.6),m['trim'])
+        sc.box(rid+'_ObservationGlass',(wx-.04,y+2.8,wz),(.08,2.6,width),'v13_glass')
+        sc.box(rid+'_ObservationConsole',(wx+1.3,y+2.7,wz),(.12,1.5,min(2.3,width-.3)),sc.prop_materials['face'],False)
+        for side in [-1,1]:sc.box(rid+'_WindowMullion'+str(side),(wx-.1,y+2.8,wz+side*min(.9,width*.28)),(.12,2.7,.09),m['trim'],False)
         # Broken panel edges expose darker service texture beneath intact tile.
         bx=x-sx*.27;bz=z-sz/2+.23
         sc.box(rid+'_OpenServicePanel',(bx,y+2.6,bz),(2.4,1.65,.12),'recess',False)
@@ -393,6 +417,9 @@ def chapter_architecture(sc,room):
         for side in [-1,1]:
             for end in [-1,1]:
                 px=x+side*(sx/2-1.4);pz=z+end*(sz/2-2)
+                if room.get('outline_xz'):
+                    old=(px,pz);px,_,pz=shell.fit_feature(room,(px,y,pz),(1.2,1,1.2))
+                    if (px,pz)!=old:sc.shell_fits.append({'room':rid,'node':rid+'_ReservoirColumn'+str(side)+str(end),'action':'fit_shell_column','old_xz':old,'xz':[px,pz],'reason':'Keep structural column inside actual L footprint.'})
                 sc.cylinder(rid+'_ReservoirColumn'+str(side)+str(end),(px,y+(h-1.5)/2,pz),.6,h-1.5,'steel')
             pipe(sc,rid+'_ReservoirMain'+str(side),(x,y+h-1.0,z+side*(sz/2-2)),sx-3,0,radius=.24)
             sc.box(rid+'_TankRim'+str(side),(x+side*(sx/2-.25),y+h-1.5,z),(.6,.45,sz-.5),'steel')
@@ -405,6 +432,9 @@ def chapter_architecture(sc,room):
         for side in [-1,1]:
             for end in [-1,1]:
                 px=x+side*(sx/2-1.1);pz=z+end*(sz/2-2)
+                if room.get('outline_xz'):
+                    old=(px,pz);px,_,pz=shell.fit_feature(room,(px,y,pz),(1.3,1,1.3))
+                    if (px,pz)!=old:sc.shell_fits.append({'room':rid,'node':rid+'_SiloButtress'+str(side)+str(end),'action':'fit_shell_buttress','old_xz':old,'xz':[px,pz],'reason':'Inset closed structural rib/feed assembly from actual chamfer.'})
                 sc.box(rid+'_SiloButtress'+str(side)+str(end),(px,y+(h-1)/2,pz),(.9,h-1,1.1),'steel')
                 sc.cylinder(rid+'_SiloFeed'+str(side)+str(end),(px+side*.6,y+(h-1)/2,pz),.18,h-1,'panel',False)
             sc.box(rid+'_SuspendedGantry'+str(side),(x,y+h-1.4,z+side*sz*.27),(sx-1.2,.75,.9),'steel')
@@ -416,6 +446,9 @@ def chapter_architecture(sc,room):
                 sc.box('RuptureFloorVein'+str(side),(x+side*10.2,y+.014,z),(1.5,.028,sz-2),'v13_invasion',False)
                 for end in [-1,1]:
                     px=x+side*(sx/2-2);pz=z+end*(sz/2-2)
+                    if room.get('outline_xz'):
+                        old=(px,pz);px,_,pz=shell.fit_feature(room,(px,y,pz),(2.0,1,1.4))
+                        if (px,pz)!=old:sc.shell_fits.append({'room':rid,'node':'RuptureAngularGrowth'+str(side)+str(end),'action':'fit_shell_growth','old_xz':old,'xz':[px,pz],'reason':'Keep closed organic boundary dressing inside chamfer; no prop inventory/type change.'})
                     sc.prism('RuptureAngularGrowth'+str(side)+str(end),(px,y,pz),[(-.8,-.7),(.7,-.5),(1,.6),(-.5,.9)],1.2,'v13_invasion')
             sc.label('RuptureHeader','BIOLOGICAL SEAL RUPTURE / BURIED TRANSFER',(x,y+5,z-sz/2+.3),size=35,color=(.61,.42,.25,1))
     if sc.level['id']=='pale_ward_03' and rid=='exit':
@@ -472,16 +505,25 @@ def populate(sc,rooms):
             kind=('infected_security' if i%3==2 or room['function']=='security' else 'infected_scientist') if staff else ('vessel' if i%3==2 else 'unsealed')
             x,y,z=room['center'];at=[x+((i%3)-1)*5,y+.87,z-4+(i//3)*4]
             stable=level['id']+'.'+room['id']+'.enemy.'+str(i)
-            for connection in level.get('structural_connections',[]):
+            activation_room=room['id'];arena=level['encounters'].get(room['id'],{}).get('arena_id','')
+            for connection in [*level.get('structural_connections',[]),{'actor_overrides':level.get('actor_overrides',[])}]:
                 for override in connection.get('actor_overrides',[]):
                     if override['stable_id']==stable:
                         assert override['kind']==kind,(stable,'actor type/count must be preserved')
-                        at=override['position']
-            sc.marker('Spawn_'+str(len(enemy_records)),at,'metadata/stable_id = '+quote(stable)+'\nmetadata/kind = '+quote(kind)+'\nmetadata/arena_id = '+quote(level['encounters'].get(room['id'],{}).get('arena_id',''))+'\nmetadata/activate_room = '+quote(room['id']),'EnemySpawns')
-            enemy_records.append({'stable_id':stable,'room':room['id'],'kind':kind,'position':at})
+                        at=override['position'];activation_room=override.get('activation_room',activation_room);arena=override.get('arena_id',arena)
+            actual=next((r['id'] for r in rooms.values() if abs(at[0]-r['center'][0])<=r['size'][0]/2 and abs(at[2]-r['center'][2])<=r['size'][2]/2 and (not r.get('outline_xz') or shell.inside((at[0]-r['center'][0],at[2]-r['center'][2]),r['outline_xz']))),None)
+            sc.marker('Spawn_'+str(len(enemy_records)),at,'metadata/stable_id = '+quote(stable)+'\nmetadata/kind = '+quote(kind)+'\nmetadata/arena_id = '+quote(arena)+'\nmetadata/activate_room = '+quote(activation_room),'EnemySpawns')
+            enemy_records.append({'stable_id':stable,'room':actual or activation_room,'source_room':room['id'],'actual_room':actual,'activation_room':activation_room,'arena_id':arena,'kind':kind,'position':at})
     for item in level['controls']:
         room=rooms[item['room']];x,y,z=room['center'];at=[x+3.5,y+.95,z-4];name='Control_'+item['id'];rules=level['objective_profile']['controls'][item['id']]
         sc.box(name,at,(1.1,1.5,.5),sc.equipment[family(room)]['control'],extra='metadata/stage_button = '+quote(item['id'])+'\nmetadata/stable_id = '+quote(level['id']+'.control.'+item['id'])+'\nmetadata/requires = '+arr(rules.get('requires',[]))+'\nmetadata/label = '+quote(item['id'].replace('_',' '))+'\nmetadata/activated_message = '+quote(item['id'].replace('_',' ')+' engaged'))
+        message=level.get('navigation',{}).get('control_messages',{}).get(item['id'])
+        if message:
+            for index,block in enumerate(sc.nodes):
+                if block.startswith('[node name="'+name+'" '):sc.nodes[index]=re.sub(r'metadata/activated_message = .*', 'metadata/activated_message = '+quote(message),block)
+        if level.get('layout_revision')==14 and level['id']=='pale_ward_02' and item['id'] in ['isolation_a','isolation_b']:
+            for index,block in enumerate(sc.nodes):
+                if block.startswith('[node name="'+name+'" '):sc.nodes[index]=block.rstrip()+'\nmetadata/activated_complete_requires = '+arr(['isolation_a','isolation_b'])+'\nmetadata/activated_complete_message = '+quote('Both feeds isolated · basin drained; return to Overlook for discharge.')+'\n'
         sc.box('ControlFoot',(0,-.85,0),(.8,.2,.45),sc.materials[family(room)]['trim'],True,name);sc.box('ControlFace',(0,.12,.29),(.55,.48,.08),sc.equipment[family(room)]['control'],False,name);sc.node('ControlPresentationV9',parent=name,props='script = ExtResource("v13_control_presentation")\nflag_key = &'+quote(item['id'])+'\nrequired_flags = PackedStringArray('+', '.join(map(quote,rules.get('requires',[])))+')');sc.label('Label',item['id'].replace('_',' ').upper(),(0,1.2,.33),name,size=28);item['node']=name;item['position']=at
     for item in level['keys']:
         room=rooms[item['room']];x,y,z=room['center'];at=[x,y+.65,z-4];name='Key_'+item['kind'];stable_pickup(sc,name,item['kind'],at,1);item['node']=name;item['position']=at
@@ -531,7 +573,7 @@ def objective_resource(level):
     data=deepcopy(level['objective_profile']);data['encounters']=level['encounters']
     header='[gd_resource type="Resource" script_class="StageObjectiveProfile" load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/stage_objective_profile.gd" id="profile_script"]\n[resource]\nscript = ExtResource("profile_script")\n'
     for key,value in data.items():
-        encoded='Array[Dictionary]('+json.dumps(value)+')' if key=='objectives' else arr(value) if key=='exit_requires' else json.dumps(value)
+        encoded='Array[Dictionary]('+json.dumps(value,ensure_ascii=False)+')' if key=='objectives' else arr(value) if key=='exit_requires' else json.dumps(value,ensure_ascii=False)
         header+=key+' = '+encoded+'\n'
     return header
 
@@ -592,6 +634,27 @@ def structural_connections(sc,rooms):
             sc.lamp(prefix+light['id'],light['position'],rooms[light['room']],energy=light['energy'])
 
 
+def optional_reserve(sc,rooms):
+    reserve=sc.level.get('optional_reserve')
+    if not reserve:return
+    room=rooms[reserve['room']];m=sc.materials[family(room)];x0,x1=reserve['x_span'];d0,d1=reserve['door_x_span'];z=reserve['partition_z'];floor=reserve['floor'];height=reserve['partition_height'];prefix='Reserve_'+reserve['arena_id']
+    for name,lo,hi in [('Left',x0,d0),('Right',d1,x1)]:sc.box(prefix+'_'+name,((lo+hi)/2,floor+height/2,z),(hi-lo,height,.3),m['wall'])
+    sc.box(prefix+'_Header',((d0+d1)/2,floor+(reserve['door_height']+height)/2,z),(d1-d0,height-reserve['door_height'],.3),m['trim'])
+    cap=reserve['closet_roof_y']-floor-height
+    sc.box(prefix+'_UpperCap',((x0+x1)/2,floor+height+cap/2,z),(x1-x0,cap,.3),m['wall'])
+    back=room['center'][2]+(1 if reserve.get('closet_side')=='south' else -1)*room['size'][2]/2
+    sc.box(prefix+'_Roof',((x0+x1)/2,reserve['closet_roof_y']+.12,(back+z)/2),(x1-x0+.2,.24,abs(z-back)+.3),m['ceiling'])
+    name=reserve['door_node'];extra='script = ExtResource("door")\nmetadata/stage_door = '+quote(reserve['arena_id'])+'\nmetadata/stable_id = '+quote(reserve['release_door_stable_id'])+'\nmetadata/open_offset = '+vec(reserve['door_open_offset'])+'\nmetadata/requires = '+arr(reserve['requires'])
+    sc.box(name,((d0+d1)/2,floor+reserve['door_height']/2,z),(d1-d0,reserve['door_height'],.3),m['door'],typ='AnimatableBody3D',extra=extra)
+    south=reserve.get('closet_side')=='south'
+    sc.label(prefix+'_Sign',reserve['sign'],((x0+x1)/2,floor+2.85,z+(-.18 if south else .18)),rotation=(0,180 if south else 0,0),size=26,color=(.73,.62,.36,1))
+
+
+def navigation_signs(sc):
+    for index,sign in enumerate(sc.level.get('navigation',{}).get('landmarks',[])):
+        sc.label('NavigationV14_'+str(index),sign['label'],sign['position'],rotation=(0,sign['yaw'],0),size=28,color=(.62,.77,.5,1))
+
+
 def author_selected(level_id,path=INPUT):
     level=load_level(level_id,path);rooms={r['id']:r for r in level['rooms']};sc=WardScene(level)
     protected={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in list((ROOT/'scenes/campaign').glob('*.tscn'))+list((ROOT/'resources/campaign').glob('*-layout.json'))+list((ROOT/'resources/campaign').glob('*-route.json'))+list((ROOT/'assets').rglob('*')) if p.is_file() and not p.name.startswith(level_id)}
@@ -599,7 +662,9 @@ def author_selected(level_id,path=INPUT):
     architecture_cuts(sc,rooms,cuts)
     descent_atrium(sc)
     structural_connections(sc,rooms)
-    for room in rooms.values():walls(sc,room,cuts[room['id']]);authored_architecture(sc,room);chapter_architecture(sc,room);furnishing(sc,room)
+    for room in rooms.values():
+        walls(sc,room,cuts[room['id']]);sc.shell_room=room;authored_architecture(sc,room);chapter_architecture(sc,room);sc.shell_room=None;furnishing(sc,room)
+    optional_reserve(sc,rooms);navigation_signs(sc)
     enemies,supplies=populate(sc,rooms)
     assert len(enemies)==level['enemy_total']
     scene=sc.serialize();layout=deepcopy(level);layout['theme']='pale_ward';layout['geometry_version']=13
@@ -608,6 +673,7 @@ def author_selected(level_id,path=INPUT):
     for output,text in paths.items():output.parent.mkdir(parents=True,exist_ok=True);output.write_text(text)
     assert all(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==digest for p,digest in protected.items()),'Protected scene/art changed'
     report={'level':level_id,'rooms':len(rooms),'portals':len(routes),'enemies':len(enemies),'fittings':len(sc.fittings),'mounted_lights':len(sc.lights),'height_bands':sorted({r['center'][1] for r in rooms.values()}),'protected_scene_art_files':len(protected),'outputs':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},'geometry':sc.geometry,'furnishings':sc.fittings,'light_fixtures':sc.lights,'structural_connections':level.get('structural_connections',[])}
+    report.update(layout_revision=level.get('layout_revision',13),room_outlines={r['id']:{'outline_xz':r['outline_xz'],'convex_floor_cells':shell.cells(r),'floor_y':r['center'][1],'roof_y':r['center'][1]+r['size'][1]} for r in rooms.values() if r.get('outline_xz')},shell_fits=sc.shell_fits,optional_reserve=level.get('optional_reserve'))
     report_path=ROOT/'resources/campaign/v13'/f'{level_id}-author-report.json';report_path.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k not in ['geometry','furnishings','light_fixtures']},indent=2));return report
 
 

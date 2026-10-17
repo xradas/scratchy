@@ -92,6 +92,7 @@ func update_player(actor: CharacterBody3D, controller: Node) -> void:
 		for room in rooms:
 			if String(room.get_meta("stage_room"))!=current_room or not room.has_meta("arena_id"):continue
 			var arena:=String(room.get_meta("arena_id"))
+			if is_pickup_arena(arena):continue
 			var authored_room_entry:=false
 			if objective_profile!=null:
 				for encounter in objective_profile.encounters.values():
@@ -102,8 +103,14 @@ func update_player(actor: CharacterBody3D, controller: Node) -> void:
 			elif not traps.has(arena):activate_arena(arena)
 	for enemy in combat.enemies:
 		if is_instance_valid(enemy) and not enemy.dead and String(enemy.get_meta("activate_room", "")) == current_room and is_arena_active(String(enemy.get_meta("arena_id", ""))): enemy.awake = true
+	# Nearby ordinary bonuses may collect in this same tick. Finish with the
+	# accepted reserve so its authored warning remains the visible message.
+	var encounter_rewards:Array[Node3D]=[]
 	for item in pickups:
-		if not collected.has(pickup_identity(item)) and player.global_position.distance_to(item.global_position) < 1.2: collect(item)
+		if not collected.has(pickup_identity(item)) and player.global_position.distance_to(item.global_position) < 1.2:
+			if objective_profile!=null and not pickup_encounters_for_id(String(pickup_identity(item))).is_empty():encounter_rewards.append(item)
+			else:collect(item)
+	for item in encounter_rewards:collect(item)
 	update_traps()
 	var selected := nearest_mechanism()
 	prompt = describe(selected) if selected != null else ""
@@ -150,6 +157,44 @@ func activate_arena(arena: String) -> void:
 	if objective_profile==null and int(arena_remaining.get(arena, 0)) > 0: objective = "Clear this arena to enable its marked control."
 	for enemy in combat.enemies:
 		if is_instance_valid(enemy) and String(enemy.get_meta("arena_id", "")) == arena: enemy.awake = true
+func is_pickup_arena(arena: String) -> bool:
+	if objective_profile==null or arena.is_empty():return false
+	for encounter in objective_profile.encounters.values():
+		if String(encounter.get("activation",""))=="pickup" and String(encounter.get("arena_id",""))==arena:return true
+	return false
+func is_pickup_release_door(node: Node) -> bool:
+	if objective_profile==null:return false
+	var id:=String(node.get_meta("stable_id",""))
+	if id.is_empty():return false
+	for encounter in objective_profile.encounters.values():
+		if String(encounter.get("activation",""))=="pickup" and encounter.get("release_doors",[]).has(id):return true
+	return false
+func pickup_encounters_for_id(pickup_id: String) -> Array[Dictionary]:
+	var result:Array[Dictionary]=[]
+	if objective_profile!=null:
+		for encounter in objective_profile.encounters.values():
+			if String(encounter.get("activation",""))=="pickup" and String(encounter.get("pickup_id",""))==pickup_id:result.append(encounter)
+	return result
+func activate_pickup_encounters(pickup_id: String) -> String:
+	if objective_profile==null:return ""
+	var warning:=""
+	for encounter in pickup_encounters_for_id(pickup_id):
+		var arena:=String(encounter.get("arena_id",""))
+		if arena.is_empty() or arena_active.get(arena,false) or not objective_profile.unmet(encounter.get("requires",[]),flags).is_empty():continue
+		var release_doors:Array[Node3D]=[]
+		var valid:=true
+		for id in encounter.get("release_doors",[]):
+			var selected:Node3D
+			for mechanism in mechanisms:
+				if String(mechanism.get_meta("stable_id",""))==String(id) and mechanism.has_method("reset_door"):
+					selected=mechanism;break
+			if selected==null or not missing_requirements(selected).is_empty():valid=false;break
+			release_doors.append(selected)
+		if not valid:continue
+		for door in release_doors:door.activate(flags)
+		activate_arena(arena)
+		warning=String(encounter.get("message","Reserve opened · retreat remains clear"))
+	return warning
 func handle_event(event: Dictionary) -> void:
 	if String(event.get("type", "")) == "enemy_death": notify_enemy_death(String(event.get("target_id", "")), String(event.get("arena_id", "")))
 func notify_enemy_death(id: String, arena: String = "") -> void:
@@ -203,7 +248,7 @@ func nearest_mechanism() -> Node3D:
 	var best: Node3D
 	var distance := 2.65
 	for candidate in mechanisms:
-		if candidate.has_method("is_shootable_mechanism") or bool(candidate.get_meta("auto_open",false)): continue
+		if candidate.has_method("is_shootable_mechanism") or bool(candidate.get_meta("auto_open",false)) or is_pickup_release_door(candidate): continue
 		var anchor: Vector3 = candidate.get_meta("use_anchor", Vector3.ZERO)
 		var point: Vector3 = candidate.to_global(anchor)
 		if candidate.has_method("reset_door"): point = candidate.get_parent().to_global(candidate.origin + anchor)
@@ -247,7 +292,12 @@ func try_use(actor: CharacterBody3D = null) -> bool:
 		else:
 			if flag == "breaker": flags["power"] = true
 			if flag == "exit_control": flags["exit"] = true
-		refresh_objective(); message_changed.emit(String(selected.get_meta("activated_message", "Control engaged"))); return true
+		refresh_objective()
+		var activation_message:=String(selected.get_meta("activated_message", "Control engaged"))
+		var complete_requires:Array=selected.get_meta("activated_complete_requires",[])
+		if objective_profile!=null and not complete_requires.is_empty() and objective_profile.unmet(complete_requires,flags).is_empty():
+			activation_message=String(selected.get_meta("activated_complete_message",activation_message))
+		message_changed.emit(activation_message); return true
 	if selected.has_meta("ward_lift"):
 		var accepted: bool = selected.activate()
 		if not accepted and not selected.moving: message_changed.emit("Stand clear of the lift entrance before operating it")
@@ -261,6 +311,9 @@ func interact() -> bool: return try_use()
 func collect(item: Node3D) -> void:
 	if get_tree().paused or combat.dead or collected.has(pickup_identity(item)): return
 	if objective_profile!=null and not missing_requirements(item).is_empty(): return
+	if objective_profile!=null:
+		for encounter in pickup_encounters_for_id(String(pickup_identity(item))):
+			if not objective_profile.unmet(encounter.get("requires",[]),flags).is_empty():return
 	var kind := String(item.get_meta("stage_pickup"))
 	var amount := int(item.get_meta("amount", 25))
 	var receipt_kind := kind
@@ -317,6 +370,8 @@ func collect(item: Node3D) -> void:
 	# remain separate; saturated owned bait may still trigger its trap silently.
 	if receipt_accepted:
 		combat.emit_event({"type": &"item_collected", "item_kind": StringName(receipt_kind), "pickup_id": pickup_identity(item), "amount": accepted_amount, "new_weapon": new_weapon, "position": item.global_position})
+		var encounter_message:=activate_pickup_encounters(String(pickup_identity(item))) if objective_profile!=null else ""
+		if not encounter_message.is_empty():message_changed.emit(encounter_message);return
 	if kind in ["twin_shotgun","rivet_cannon","siege_launcher"]:
 		var equip_key: int = {"twin_shotgun":4,"rivet_cannon":5,"siege_launcher":6}[kind]
 		message_changed.emit("%s cache · [%d] equip · AMBUSH" % [kind.replace("_"," ").capitalize(),equip_key])
@@ -348,6 +403,9 @@ func room_at(point: Vector3) -> String:
 	for room in rooms:
 		var bounds: Vector3 = room.get_meta("room_bounds", Vector3(5, 4, 5))
 		var local := room.to_local(point)
+		if room.has_meta("footprint_xz"):
+			var footprint:PackedVector2Array=room.get_meta("footprint_xz")
+			if footprint.size()<3 or not Geometry2D.is_point_in_polygon(Vector2(local.x,local.z),footprint):continue
 		if absf(local.x) <= bounds.x + .3 and absf(local.z) <= bounds.z + .3 and absf(local.y) <= bounds.y:
 			var score := local.length_squared()
 			if score < best: best = score; result = String(room.get_meta("stage_room"))
@@ -380,6 +438,13 @@ func get_level_state() -> Dictionary:
 		if not visited.has(id): continue
 		var bounds: Vector3 = room.get_meta("room_bounds")
 		map.append({"id": id, "label": room.get_meta("stage_label", id), "rect": Rect2(Vector2(room.global_position.x - bounds.x, room.global_position.z - bounds.z), Vector2(bounds.x * 2, bounds.z * 2)), "visited": true, "position": room.global_position, "bounds": bounds})
+		if room.has_meta("footprint_xz"):
+			var footprint:=PackedVector2Array()
+			for vertex in room.get_meta("footprint_xz"):
+				var world_vertex:Vector3=room.to_global(Vector3(vertex.x,0,vertex.y))
+				footprint.append(Vector2(world_vertex.x,world_vertex.z))
+			map.back().footprint=footprint
+			map.back().rect_is_envelope=true
 	return {"objective": objective, "prompt": prompt, "current_room": current_room, "visited_rooms": visited.keys(), "map_rooms": map, "key": flags.get("brass", false), "brass_key": flags.get("brass", false), "red_key": flags.get("red", false), "power": flags.get("power", false), "arena_remaining": arena_remaining.duplicate(), "traps": traps.duplicate(true), "shortcut_open": shortcut_open, "shortcuts_open": shortcuts.size(), "secret_found": secret_found, "secrets_found": secrets.size(), "exit_ready": flags.get("exit", false) if objective_profile==null else objective_profile.unmet(objective_profile.exit_requires,flags).is_empty(), "completed": finished, "pickups_remaining": pickups.size() - collected.size(), "flags": flags.duplicate()}
 func is_arena_active(arena: String) -> bool:
 	return arena.is_empty() or bool(arena_active.get(arena, false))

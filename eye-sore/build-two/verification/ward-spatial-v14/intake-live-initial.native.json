@@ -1,0 +1,167 @@
+{
+  "checks": [
+    {
+      "check": "Actual v14 world root revision pale_ward_01",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live optional encounter contains two authored actors",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Optional reserve physically accessible from unchanged entry graph",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live unaccepted optional approach arrives at supported elevation",
+      "detail": {
+        "actual": "(0.0, 0.85056, -0.528333)",
+        "crouch": false,
+        "floor": "(0.0, 0.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live unaccepted optional approach arrives at supported elevation",
+      "detail": {
+        "actual": "(-16.44504, 0.85056, -0.002101)",
+        "crouch": false,
+        "floor": "(-16.0, 0.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live unaccepted optional approach arrives at supported elevation",
+      "detail": {
+        "actual": "(-27.49071, 0.85056, -0.0)",
+        "crouch": false,
+        "floor": "(-27.0, 0.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live unaccepted optional approach arrives at supported elevation",
+      "detail": {
+        "actual": "(-40.53725, 0.85056, -0.0)",
+        "crouch": false,
+        "floor": "(-40.0, 0.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Physical optional entry/decline does not activate reward group",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live actual reserve proximity pickup arrives at supported elevation",
+      "detail": {
+        "actual": "(-39.90957, 0.85056, 2.422191)",
+        "crouch": false,
+        "floor": "(-40.0, 0.0, 2.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live movement accepts exactly one twelve-shell supply/release",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live retreat to optional room centre arrives at supported elevation",
+      "detail": {
+        "actual": "(-40.00018, 0.85056, -0.500068)",
+        "crouch": false,
+        "floor": "(-40.0, 0.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live retreat through unchanged entry arrives at supported elevation",
+      "detail": {
+        "actual": "(-26.49091, 0.85056, 0.000996)",
+        "crouch": false,
+        "floor": "(-27.0, 0.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live retreat through unchanged entry arrives at supported elevation",
+      "detail": {
+        "actual": "(-15.44578, 0.85056, -0.000006)",
+        "crouch": false,
+        "floor": "(-16.0, 0.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live retreat through unchanged entry arrives at supported elevation",
+      "detail": {
+        "actual": "(0.534005, 0.85056, 0.0)",
+        "crouch": false,
+        "floor": "(0.0, 0.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live accepted optional reserve leaves retreat to main route open",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live optional group cleared by finite accepted shots after open retreat",
+      "detail": {
+        "accepted_pistol_shots": 3,
+        "health": 100.0,
+        "minima": {
+          "armor": 50.0,
+          "health": 100.0,
+          "pistol": 33,
+          "shells": 24
+        },
+        "moved_actors": 2,
+        "remaining": 1
+      },
+      "passed": false
+    },
+    {
+      "check": "Actual optional group reports clear",
+      "detail": {},
+      "passed": false
+    },
+    {
+      "check": "Optional clear leaves main prerequisite unchanged decon_clear",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live fight never duplicates accepted reward",
+      "detail": {},
+      "passed": true
+    }
+  ],
+  "failures": [
+    "Live optional group cleared by finite accepted shots after open retreat",
+    "Actual optional group reports clear"
+  ],
+  "observations": [
+    {
+      "actual_kills": 1,
+      "actual_shots": 3,
+      "level": "pale_ward_01",
+      "live_optional": "v14_records_reserve",
+      "minima": {
+        "armor": 50.0,
+        "health": 100.0,
+        "pistol": 33,
+        "shells": 24
+      },
+      "scope": "Physical route from actual entry, proximity reward, natural two authored actors, open retreat and finite accepted pistol combat. Unrelated actors frozen; no full-campaign AI acceptance claim."
+    }
+  ],
+  "scope": "Controlled actual Main fixture: independent polygon grid vs actual floor collisions/room ownership, closed actual floor meshes, complete prop mesh bounds, physical cardinal-lane input, accepted/full/declined optional pickup plus real snapshot/Main Continue/Restart. Controlled captures do not prove safe marker acquisition. Initial poses, frozen AI and direct collection isolate state semantics; separate live movement/combat/retreat and full campaign routes required. No human pacing claim.",
+  "status": "failed"
+}

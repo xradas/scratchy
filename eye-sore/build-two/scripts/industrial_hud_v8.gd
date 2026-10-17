@@ -107,7 +107,10 @@ func visible_map_rooms() -> Array[Dictionary]:
 		# Require both the stage's visited identity and positive room declaration.
 		# No secret/flag, enemy, pickup or label data is ever drawn on this map.
 		if not bool(room.get("visited", false)) or not visited.has(room.get("id", "")): continue
-		if room.get("rect") is Rect2: result.append({"id": room.get("id", ""), "rect": room.rect})
+		if room.get("rect") is Rect2:
+			var visible_room := {"id": room.get("id", ""), "rect": room.rect}
+			if room.get("footprint") is PackedVector2Array and room.footprint.size() >= 3: visible_room["footprint"] = room.footprint
+			result.append(visible_room)
 	return result
 
 func layout_snapshot() -> Dictionary:
@@ -302,9 +305,25 @@ func minimap_geometry() -> Array[Rect2]:
 	var actor := Vector2(_actor.x, _actor.z)
 	# Fixed world scale; discovering a room never changes zoom or reveals extents.
 	for room in visible_map_rooms():
+		if room.has("footprint"): continue
 		var source: Rect2 = room.rect
 		var projected := Rect2(center + (source.position - actor) * 2.4, source.size * 2.4)
 		if projected.intersects(screen): result.append(projected.intersection(screen))
+	return result
+
+func minimap_polygons() -> Array[PackedVector2Array]:
+	var result: Array[PackedVector2Array] = []
+	var screen: Rect2 = layout_snapshot().map.grow(-10)
+	screen.position.y += 17; screen.size.y -= 17
+	var center := screen.get_center()
+	var actor := Vector2(_actor.x, _actor.z)
+	var clip := PackedVector2Array([screen.position, Vector2(screen.end.x, screen.position.y), screen.end, Vector2(screen.position.x, screen.end.y)])
+	for room in visible_map_rooms():
+		if not room.has("footprint"): continue
+		var polygon := PackedVector2Array()
+		for point in room.footprint: polygon.append(center + (point - actor) * 2.4)
+		for piece in Geometry2D.intersect_polygons(polygon, clip):
+			if piece.size() >= 3: result.append(piece)
 	return result
 
 func _minimap(rect: Rect2) -> void:
@@ -318,6 +337,10 @@ func _minimap(rect: Rect2) -> void:
 	for room in minimap_geometry():
 		draw_rect(room, Color("202c22"))
 		draw_rect(room.grow(-0.5), Color("7b8961"), false, 1)
+	for polygon in minimap_polygons():
+		draw_colored_polygon(polygon, Color("202c22"))
+		var outline := polygon.duplicate(); outline.append(polygon[0])
+		draw_polyline(outline, Color("7b8961"), 1)
 	var center := screen.get_center().floor()
 	var forward := Vector2(-sin(_heading), -cos(_heading))
 	var side := Vector2(-forward.y, forward.x)

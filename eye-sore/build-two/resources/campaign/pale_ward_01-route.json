@@ -100,12 +100,39 @@
           "position_local": [
             11,
             0,
-            -8
+            -2
           ],
           "heading": -90
         }
       ],
-      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+      "outline_xz": [
+        [
+          -16,
+          -14
+        ],
+        [
+          8,
+          -14
+        ],
+        [
+          8,
+          -6
+        ],
+        [
+          16,
+          -6
+        ],
+        [
+          16,
+          14
+        ],
+        [
+          -16,
+          14
+        ]
+      ],
+      "outline_purpose": "L-shaped admissions counter with clear central route and waiting wing"
     },
     "triage": {
       "id": "triage",
@@ -658,9 +685,9 @@
           "id": "diagnostics.prop.4",
           "type": "specimen_fridge",
           "position_local": [
-            -10,
+            -9,
             0,
-            -10.0
+            -9
           ],
           "heading": 90
         },
@@ -668,9 +695,9 @@
           "id": "diagnostics.prop.5",
           "type": "specimen_fridge",
           "position_local": [
-            10,
+            9,
             0,
-            -10.0
+            -9
           ],
           "heading": -90
         },
@@ -678,7 +705,7 @@
           "id": "diagnostics.prop.6",
           "type": "medical_cabinet",
           "position_local": [
-            -10,
+            -9,
             0,
             9
           ],
@@ -688,14 +715,49 @@
           "id": "diagnostics.prop.7",
           "type": "medical_cabinet",
           "position_local": [
-            10,
+            9,
             0,
             9
           ],
           "heading": -90
         }
       ],
-      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+      "outline_xz": [
+        [
+          -9,
+          -12
+        ],
+        [
+          9,
+          -12
+        ],
+        [
+          13,
+          -8
+        ],
+        [
+          13,
+          8
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          -9,
+          12
+        ],
+        [
+          -13,
+          8
+        ],
+        [
+          -13,
+          -8
+        ]
+      ],
+      "outline_purpose": "Angled imaging junction separates consoles from circulation"
     },
     "imaging": {
       "id": "imaging",
@@ -1188,9 +1250,9 @@
           "id": "recovery.prop.2",
           "type": "medical_bed",
           "position_local": [
-            7,
+            5,
             0,
-            -7
+            2.3
           ],
           "heading": -90
         },
@@ -1198,9 +1260,9 @@
           "id": "recovery.prop.3",
           "type": "medical_bed",
           "position_local": [
-            11,
+            9,
             0,
-            -7
+            2.3
           ],
           "heading": -90
         },
@@ -1228,9 +1290,9 @@
           "id": "recovery.prop.6",
           "type": "medical_bed",
           "position_local": [
-            7,
+            5,
             0,
-            6
+            8
           ],
           "heading": -90
         },
@@ -1238,9 +1300,9 @@
           "id": "recovery.prop.7",
           "type": "medical_bed",
           "position_local": [
-            11,
+            9,
             0,
-            6
+            8
           ],
           "heading": -90
         },
@@ -1270,7 +1332,7 @@
           "position_local": [
             12,
             0,
-            -4
+            2.3
           ],
           "heading": -90
         },
@@ -1310,7 +1372,7 @@
           "position_local": [
             6,
             0,
-            3
+            5
           ],
           "heading": 0
         },
@@ -1320,7 +1382,7 @@
           "position_local": [
             10,
             0,
-            3
+            5
           ],
           "heading": 0
         },
@@ -1338,14 +1400,41 @@
           "id": "recovery.prop.17",
           "type": "medical_cabinet",
           "position_local": [
-            14.0,
+            14,
             0,
-            -10
+            -2
           ],
           "heading": -90
         }
       ],
-      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+      "outline_xz": [
+        [
+          -16,
+          -13
+        ],
+        [
+          8,
+          -13
+        ],
+        [
+          8,
+          -5
+        ],
+        [
+          16,
+          -5
+        ],
+        [
+          16,
+          13
+        ],
+        [
+          -16,
+          13
+        ]
+      ],
+      "outline_purpose": "L-shaped recovery ward with orderly paired bed bays"
     },
     "processing": {
       "id": "processing",
@@ -1882,7 +1971,7 @@
           "position_local": [
             -10.0,
             0,
-            -9.0
+            -4.5
           ],
           "heading": 90
         },
@@ -1902,7 +1991,7 @@
           "position_local": [
             10.0,
             0,
-            -9.0
+            -4.5
           ],
           "heading": -90
         },
@@ -2722,7 +2811,8 @@
           0
         ]
       ],
-      "axis": 2
+      "axis": 2,
+      "structural_connection": "v14_clinical_prep"
     },
     {
       "id": "theatre__sterile",
@@ -3703,7 +3793,7 @@
           "local_power"
         ],
         "complete_flag": "surgical_credential",
-        "text": "Find the surgical credential in the operating theatre."
+        "text": "Follow C3 through Diagnostics to the theatre credential."
       },
       {
         "id": "decon",
@@ -3711,7 +3801,7 @@
           "surgical_credential"
         ],
         "complete_flag": "decon_clear",
-        "text": "Reach the surgical wing and survive decontamination."
+        "text": "Return via Sterile Supply and Reception; follow GREEN EXIT to Decon."
       },
       {
         "id": "leave",
@@ -3719,7 +3809,7 @@
           "decon_clear"
         ],
         "complete_flag": "finished",
-        "text": "Take the transfer lift to Containment."
+        "text": "Decon clear \u00b7 take the signed transfer lift to Containment."
       }
     ],
     "controls": {
@@ -3751,6 +3841,17 @@
         "activation": "room_entry",
         "completion_flag": "decon_clear",
         "seal": true
+      },
+      "v14_records_reserve": {
+        "activation": "pickup",
+        "pickup_id": "pale_ward_01.pickup.Bonus_records",
+        "requires": [],
+        "arena_id": "v14_records_reserve",
+        "release_doors": [
+          "pale_ward_01.door.v14_records_reserve"
+        ],
+        "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+        "completion_message": "Reserve secured \u00b7 main objectives unchanged"
       }
     }
   },
@@ -3854,6 +3955,17 @@
       "activation": "room_entry",
       "completion_flag": "decon_clear",
       "seal": true
+    },
+    "v14_records_reserve": {
+      "activation": "pickup",
+      "pickup_id": "pale_ward_01.pickup.Bonus_records",
+      "requires": [],
+      "arena_id": "v14_records_reserve",
+      "release_doors": [
+        "pale_ward_01.door.v14_records_reserve"
+      ],
+      "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+      "completion_message": "Reserve secured \u00b7 main objectives unchanged"
     }
   },
   "target_human_minutes": [
@@ -4210,8 +4322,371 @@
         "central_ground_passage_width_m": 3.5,
         "enemy_navigation": "Existing centre route; flanks are player choices, not coordinated AI lanes."
       }
+    },
+    {
+      "id": "v14_clinical_prep",
+      "revision": 14,
+      "portal": "imaging__theatre",
+      "rooms": [
+        "imaging",
+        "theatre"
+      ],
+      "bounds_xz": [
+        70,
+        90,
+        -26,
+        -14
+      ],
+      "policy": "Already ungated existing pair; no new graph edge; all milestone gates/checkpoints remain unchanged",
+      "boxes": [
+        {
+          "id": "WestWall",
+          "position": [
+            69.8,
+            4.75,
+            -20.0
+          ],
+          "size": [
+            0.4,
+            5.5,
+            12.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "EastWall",
+          "position": [
+            90.2,
+            4.75,
+            -20.0
+          ],
+          "size": [
+            0.4,
+            5.5,
+            12.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "Floor",
+          "position": [
+            80.0,
+            1.75,
+            -20.0
+          ],
+          "size": [
+            20.4,
+            0.5,
+            12.4
+          ],
+          "role": "floor"
+        },
+        {
+          "id": "Roof",
+          "position": [
+            80.0,
+            7.65,
+            -20.0
+          ],
+          "size": [
+            20.8,
+            0.3,
+            12.8
+          ],
+          "role": "ceiling"
+        },
+        {
+          "id": "OffsetCover",
+          "position": [
+            85,
+            2.75,
+            -20
+          ],
+          "size": [
+            4,
+            1.5,
+            3
+          ],
+          "role": "panel"
+        }
+      ],
+      "stairs": [],
+      "actor_overrides": [
+        {
+          "stable_id": "pale_ward_01.imaging.enemy.2",
+          "kind": "infected_security",
+          "position": [
+            85,
+            2.87,
+            -31
+          ]
+        }
+      ],
+      "apertures": [
+        {
+          "room": "imaging",
+          "side": "S",
+          "plane": -26.0,
+          "span": [
+            70,
+            90
+          ],
+          "height": [
+            2,
+            7.5
+          ]
+        },
+        {
+          "room": "theatre",
+          "side": "N",
+          "plane": -14.0,
+          "span": [
+            70,
+            90
+          ],
+          "height": [
+            2,
+            7.5
+          ]
+        }
+      ],
+      "walk_paths": [
+        {
+          "id": "west_lane",
+          "points": [
+            [
+              75,
+              2,
+              -25
+            ],
+            [
+              75,
+              2,
+              -15
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "east_lane",
+          "points": [
+            [
+              88.5,
+              2,
+              -25
+            ],
+            [
+              88.5,
+              2,
+              -15
+            ]
+          ],
+          "reverse": true
+        }
+      ],
+      "shot_pairs": [
+        {
+          "id": "clinical_diagonal",
+          "a": [
+            85,
+            3.32,
+            -31
+          ],
+          "b": [
+            79,
+            3.17,
+            -19
+          ],
+          "state": "always",
+          "bidirectional": true
+        },
+        {
+          "id": "imaging_theatre_shared_front",
+          "a": [
+            75,
+            3.17,
+            -28
+          ],
+          "b": [
+            75,
+            3.17,
+            -12
+          ],
+          "state": "always",
+          "bidirectional": true
+        }
+      ],
+      "solid_pairs": [
+        {
+          "id": "prep_cover",
+          "a": [
+            82,
+            2.8,
+            -20
+          ],
+          "b": [
+            88,
+            2.8,
+            -20
+          ]
+        }
+      ],
+      "lights": [
+        {
+          "id": "MountedLamp",
+          "position": [
+            80.0,
+            7.25,
+            -20.0
+          ],
+          "room": "imaging",
+          "energy": 3.8
+        }
+      ]
     }
   ],
+  "layout_revision": 14,
+  "optional_reserve": {
+    "room": "records",
+    "partition_z": -6.8,
+    "x_span": [
+      -53,
+      -27
+    ],
+    "door_x_span": [
+      -43,
+      -37
+    ],
+    "floor": 0,
+    "partition_height": 3.6,
+    "door_height": 3.4,
+    "door_open_offset": [
+      0,
+      4,
+      0
+    ],
+    "actor_positions": [
+      [
+        -42,
+        0.87,
+        -9
+      ],
+      [
+        -41.5,
+        0.87,
+        -7.4
+      ]
+    ],
+    "north_prop_moves": {
+      "records.prop.0": [
+        -10.0,
+        0,
+        -4.5
+      ],
+      "records.prop.2": [
+        10.0,
+        0,
+        -4.5
+      ]
+    },
+    "reward_stable_id": "pale_ward_01.pickup.Bonus_records",
+    "reward_kind": "shells",
+    "reward_amount": 12,
+    "health_bonus_unchanged": true,
+    "requires": [],
+    "arena_id": "v14_records_reserve",
+    "release_door_stable_id": "pale_ward_01.door.v14_records_reserve",
+    "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
+    "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+    "completion_message": "Reserve secured \u00b7 main objectives unchanged",
+    "closet_roof_y": 3.8,
+    "door_node": "Door_v14_records_reserve",
+    "actor_ids": [
+      "pale_ward_01.triage.enemy.1",
+      "pale_ward_01.triage.enemy.2"
+    ],
+    "actor_fit_amendment": "Coordinator approved security-only near-front west pose after actual .38m capsule sweep: prior desired nav line clipped partition; new pose clears same6m physical door. Scientist remains[-42,.87,-9]; no AI/door-width change. Natural pursuit/retreat QA required."
+  },
+  "actor_overrides": [
+    {
+      "stable_id": "pale_ward_01.triage.enemy.1",
+      "kind": "infected_scientist",
+      "position": [
+        -42,
+        0.87,
+        -9
+      ],
+      "activation_room": "records",
+      "arena_id": "v14_records_reserve"
+    },
+    {
+      "stable_id": "pale_ward_01.triage.enemy.2",
+      "kind": "infected_security",
+      "position": [
+        -41.5,
+        0.87,
+        -7.4
+      ],
+      "activation_room": "records",
+      "arena_id": "v14_records_reserve"
+    }
+  ],
+  "navigation": {
+    "landmarks": [
+      {
+        "room": "reception",
+        "label": "C3 / DIAGNOSTICS \u2192 THEATRE",
+        "flag": "local_power",
+        "position": [
+          4,
+          2.5,
+          -13.7
+        ],
+        "yaw": 0
+      },
+      {
+        "room": "reception",
+        "label": "GREEN EXIT / SURGICAL ACCESS",
+        "flag": "surgical_credential",
+        "position": [
+          -4,
+          2.5,
+          13.7
+        ],
+        "yaw": 180
+      },
+      {
+        "room": "sterile",
+        "label": "RETURN TO RECEPTION / DECON",
+        "flag": "surgical_credential",
+        "position": [
+          27.3,
+          4.5,
+          4
+        ],
+        "yaw": 90
+      },
+      {
+        "room": "decon",
+        "label": "TRANSFER LIFT / CONTAINMENT",
+        "flag": "decon_clear",
+        "position": [
+          16.7,
+          4.5,
+          84
+        ],
+        "yaw": -90
+      }
+    ],
+    "control_messages": {
+      "local_power": "Power restored \u00b7 return through Triage to the C3 Diagnostics gate."
+    },
+    "objective_text": {
+      "surgical_access": "Follow C3 through Diagnostics to the theatre credential.",
+      "decon": "Return via Sterile Supply and Reception; follow GREEN EXIT to Decon.",
+      "leave": "Decon clear \u00b7 take the signed transfer lift to Containment."
+    }
+  },
   "spawn_position": [
     0,
     0.95,
@@ -4223,6 +4698,10 @@
     {
       "stable_id": "pale_ward_01.triage.enemy.0",
       "room": "triage",
+      "source_room": "triage",
+      "actual_room": "triage",
+      "activation_room": "triage",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -5,
@@ -4232,27 +4711,39 @@
     },
     {
       "stable_id": "pale_ward_01.triage.enemy.1",
-      "room": "triage",
+      "room": "records",
+      "source_room": "triage",
+      "actual_room": "records",
+      "activation_room": "records",
+      "arena_id": "v14_records_reserve",
       "kind": "infected_scientist",
       "position": [
-        0,
+        -42,
         0.87,
-        -44
+        -9
       ]
     },
     {
       "stable_id": "pale_ward_01.triage.enemy.2",
-      "room": "triage",
+      "room": "records",
+      "source_room": "triage",
+      "actual_room": "records",
+      "activation_room": "records",
+      "arena_id": "v14_records_reserve",
       "kind": "infected_security",
       "position": [
-        5,
+        -41.5,
         0.87,
-        -44
+        -7.4
       ]
     },
     {
       "stable_id": "pale_ward_01.triage.enemy.3",
       "room": "triage",
+      "source_room": "triage",
+      "actual_room": "triage",
+      "activation_room": "triage",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -5,
@@ -4263,6 +4754,10 @@
     {
       "stable_id": "pale_ward_01.triage.enemy.4",
       "room": "triage",
+      "source_room": "triage",
+      "actual_room": "triage",
+      "activation_room": "triage",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         0,
@@ -4273,6 +4768,10 @@
     {
       "stable_id": "pale_ward_01.triage.enemy.5",
       "room": "triage",
+      "source_room": "triage",
+      "actual_room": "triage",
+      "activation_room": "triage",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         5,
@@ -4283,6 +4782,10 @@
     {
       "stable_id": "pale_ward_01.triage.enemy.6",
       "room": "triage",
+      "source_room": "triage",
+      "actual_room": "triage",
+      "activation_room": "triage",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -5,
@@ -4293,6 +4796,10 @@
     {
       "stable_id": "pale_ward_01.nurse.enemy.0",
       "room": "nurse",
+      "source_room": "nurse",
+      "actual_room": "nurse",
+      "activation_room": "nurse",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -45,
@@ -4303,6 +4810,10 @@
     {
       "stable_id": "pale_ward_01.nurse.enemy.1",
       "room": "nurse",
+      "source_room": "nurse",
+      "actual_room": "nurse",
+      "activation_room": "nurse",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -40,
@@ -4313,6 +4824,10 @@
     {
       "stable_id": "pale_ward_01.nurse.enemy.2",
       "room": "nurse",
+      "source_room": "nurse",
+      "actual_room": "nurse",
+      "activation_room": "nurse",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         -28.5,
@@ -4323,6 +4838,10 @@
     {
       "stable_id": "pale_ward_01.maintenance.enemy.0",
       "room": "maintenance",
+      "source_room": "maintenance",
+      "actual_room": "maintenance",
+      "activation_room": "maintenance",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -45,
@@ -4333,6 +4852,10 @@
     {
       "stable_id": "pale_ward_01.maintenance.enemy.1",
       "room": "maintenance",
+      "source_room": "maintenance",
+      "actual_room": "maintenance",
+      "activation_room": "maintenance",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -40,
@@ -4343,6 +4866,10 @@
     {
       "stable_id": "pale_ward_01.maintenance.enemy.2",
       "room": "maintenance",
+      "source_room": "maintenance",
+      "actual_room": "maintenance",
+      "activation_room": "maintenance",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         -35,
@@ -4353,6 +4880,10 @@
     {
       "stable_id": "pale_ward_01.maintenance.enemy.3",
       "room": "maintenance",
+      "source_room": "maintenance",
+      "actual_room": "maintenance",
+      "activation_room": "maintenance",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -45,
@@ -4363,6 +4894,10 @@
     {
       "stable_id": "pale_ward_01.generator.enemy.0",
       "room": "generator",
+      "source_room": "generator",
+      "actual_room": "generator",
+      "activation_room": "generator",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4373,6 +4908,10 @@
     {
       "stable_id": "pale_ward_01.generator.enemy.1",
       "room": "generator",
+      "source_room": "generator",
+      "actual_room": "generator",
+      "activation_room": "generator",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         0,
@@ -4383,6 +4922,10 @@
     {
       "stable_id": "pale_ward_01.generator.enemy.2",
       "room": "generator",
+      "source_room": "generator",
+      "actual_room": "generator",
+      "activation_room": "generator",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         5,
@@ -4393,6 +4936,10 @@
     {
       "stable_id": "pale_ward_01.generator.enemy.3",
       "room": "generator",
+      "source_room": "generator",
+      "actual_room": "generator",
+      "activation_room": "generator",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4403,6 +4950,10 @@
     {
       "stable_id": "pale_ward_01.generator.enemy.4",
       "room": "generator",
+      "source_room": "generator",
+      "actual_room": "generator",
+      "activation_room": "generator",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         0,
@@ -4413,6 +4964,10 @@
     {
       "stable_id": "pale_ward_01.diagnostics.enemy.0",
       "room": "diagnostics",
+      "source_room": "diagnostics",
+      "actual_room": "diagnostics",
+      "activation_room": "diagnostics",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         35,
@@ -4423,6 +4978,10 @@
     {
       "stable_id": "pale_ward_01.diagnostics.enemy.1",
       "room": "diagnostics",
+      "source_room": "diagnostics",
+      "actual_room": "diagnostics",
+      "activation_room": "diagnostics",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         40,
@@ -4433,6 +4992,10 @@
     {
       "stable_id": "pale_ward_01.diagnostics.enemy.2",
       "room": "diagnostics",
+      "source_room": "diagnostics",
+      "actual_room": "diagnostics",
+      "activation_room": "diagnostics",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         45,
@@ -4443,6 +5006,10 @@
     {
       "stable_id": "pale_ward_01.imaging.enemy.0",
       "room": "imaging",
+      "source_room": "imaging",
+      "actual_room": "imaging",
+      "activation_room": "imaging",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         75,
@@ -4453,6 +5020,10 @@
     {
       "stable_id": "pale_ward_01.imaging.enemy.1",
       "room": "imaging",
+      "source_room": "imaging",
+      "actual_room": "imaging",
+      "activation_room": "imaging",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         80,
@@ -4463,16 +5034,24 @@
     {
       "stable_id": "pale_ward_01.imaging.enemy.2",
       "room": "imaging",
+      "source_room": "imaging",
+      "actual_room": "imaging",
+      "activation_room": "imaging",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         85,
         2.87,
-        -44
+        -31
       ]
     },
     {
       "stable_id": "pale_ward_01.imaging.enemy.3",
       "room": "imaging",
+      "source_room": "imaging",
+      "actual_room": "imaging",
+      "activation_room": "imaging",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         75,
@@ -4483,6 +5062,10 @@
     {
       "stable_id": "pale_ward_01.imaging.enemy.4",
       "room": "imaging",
+      "source_room": "imaging",
+      "actual_room": "imaging",
+      "activation_room": "imaging",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         80,
@@ -4493,6 +5076,10 @@
     {
       "stable_id": "pale_ward_01.theatre.enemy.0",
       "room": "theatre",
+      "source_room": "theatre",
+      "actual_room": "theatre",
+      "activation_room": "theatre",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         75,
@@ -4503,6 +5090,10 @@
     {
       "stable_id": "pale_ward_01.theatre.enemy.1",
       "room": "theatre",
+      "source_room": "theatre",
+      "actual_room": "theatre",
+      "activation_room": "theatre",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         80,
@@ -4513,6 +5104,10 @@
     {
       "stable_id": "pale_ward_01.theatre.enemy.2",
       "room": "theatre",
+      "source_room": "theatre",
+      "actual_room": "theatre",
+      "activation_room": "theatre",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         85,
@@ -4523,6 +5118,10 @@
     {
       "stable_id": "pale_ward_01.theatre.enemy.3",
       "room": "theatre",
+      "source_room": "theatre",
+      "actual_room": "theatre",
+      "activation_room": "theatre",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         75,
@@ -4533,6 +5132,10 @@
     {
       "stable_id": "pale_ward_01.theatre.enemy.4",
       "room": "theatre",
+      "source_room": "theatre",
+      "actual_room": "theatre",
+      "activation_room": "theatre",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         80,
@@ -4543,6 +5146,10 @@
     {
       "stable_id": "pale_ward_01.sterile.enemy.0",
       "room": "sterile",
+      "source_room": "sterile",
+      "actual_room": "sterile",
+      "activation_room": "sterile",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         35,
@@ -4553,6 +5160,10 @@
     {
       "stable_id": "pale_ward_01.sterile.enemy.1",
       "room": "sterile",
+      "source_room": "sterile",
+      "actual_room": "sterile",
+      "activation_room": "sterile",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         40,
@@ -4563,6 +5174,10 @@
     {
       "stable_id": "pale_ward_01.surgical_access.enemy.0",
       "room": "surgical_access",
+      "source_room": "surgical_access",
+      "actual_room": "surgical_access",
+      "activation_room": "surgical_access",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4573,6 +5188,10 @@
     {
       "stable_id": "pale_ward_01.surgical_access.enemy.1",
       "room": "surgical_access",
+      "source_room": "surgical_access",
+      "actual_room": "surgical_access",
+      "activation_room": "surgical_access",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         0,
@@ -4583,6 +5202,10 @@
     {
       "stable_id": "pale_ward_01.surgical_access.enemy.2",
       "room": "surgical_access",
+      "source_room": "surgical_access",
+      "actual_room": "surgical_access",
+      "activation_room": "surgical_access",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         5,
@@ -4593,6 +5216,10 @@
     {
       "stable_id": "pale_ward_01.surgical_access.enemy.3",
       "room": "surgical_access",
+      "source_room": "surgical_access",
+      "actual_room": "surgical_access",
+      "activation_room": "surgical_access",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4603,6 +5230,10 @@
     {
       "stable_id": "pale_ward_01.recovery.enemy.0",
       "room": "recovery",
+      "source_room": "recovery",
+      "actual_room": "recovery",
+      "activation_room": "recovery",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -45,
@@ -4613,6 +5244,10 @@
     {
       "stable_id": "pale_ward_01.recovery.enemy.1",
       "room": "recovery",
+      "source_room": "recovery",
+      "actual_room": "recovery",
+      "activation_room": "recovery",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -40,
@@ -4623,6 +5258,10 @@
     {
       "stable_id": "pale_ward_01.recovery.enemy.2",
       "room": "recovery",
+      "source_room": "recovery",
+      "actual_room": "recovery",
+      "activation_room": "recovery",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         -35,
@@ -4633,6 +5272,10 @@
     {
       "stable_id": "pale_ward_01.recovery.enemy.3",
       "room": "recovery",
+      "source_room": "recovery",
+      "actual_room": "recovery",
+      "activation_room": "recovery",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -45,
@@ -4643,6 +5286,10 @@
     {
       "stable_id": "pale_ward_01.recovery.enemy.4",
       "room": "recovery",
+      "source_room": "recovery",
+      "actual_room": "recovery",
+      "activation_room": "recovery",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -40,
@@ -4653,6 +5300,10 @@
     {
       "stable_id": "pale_ward_01.recovery.enemy.5",
       "room": "recovery",
+      "source_room": "recovery",
+      "actual_room": "recovery",
+      "activation_room": "recovery",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         -35,
@@ -4663,6 +5314,10 @@
     {
       "stable_id": "pale_ward_01.processing.enemy.0",
       "room": "processing",
+      "source_room": "processing",
+      "actual_room": "processing",
+      "activation_room": "processing",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -45,
@@ -4673,6 +5328,10 @@
     {
       "stable_id": "pale_ward_01.processing.enemy.1",
       "room": "processing",
+      "source_room": "processing",
+      "actual_room": "processing",
+      "activation_room": "processing",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -40,
@@ -4683,6 +5342,10 @@
     {
       "stable_id": "pale_ward_01.processing.enemy.2",
       "room": "processing",
+      "source_room": "processing",
+      "actual_room": "processing",
+      "activation_room": "processing",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         -35,
@@ -4693,6 +5356,10 @@
     {
       "stable_id": "pale_ward_01.decon.enemy.0",
       "room": "decon",
+      "source_room": "decon",
+      "actual_room": "decon",
+      "activation_room": "decon",
+      "arena_id": "decon",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4703,6 +5370,10 @@
     {
       "stable_id": "pale_ward_01.decon.enemy.1",
       "room": "decon",
+      "source_room": "decon",
+      "actual_room": "decon",
+      "activation_room": "decon",
+      "arena_id": "decon",
       "kind": "unsealed",
       "position": [
         0,
@@ -4713,6 +5384,10 @@
     {
       "stable_id": "pale_ward_01.decon.enemy.2",
       "room": "decon",
+      "source_room": "decon",
+      "actual_room": "decon",
+      "activation_room": "decon",
+      "arena_id": "decon",
       "kind": "vessel",
       "position": [
         5,
@@ -4723,6 +5398,10 @@
     {
       "stable_id": "pale_ward_01.decon.enemy.3",
       "room": "decon",
+      "source_room": "decon",
+      "actual_room": "decon",
+      "activation_room": "decon",
+      "arena_id": "decon",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4733,6 +5412,10 @@
     {
       "stable_id": "pale_ward_01.decon.enemy.4",
       "room": "decon",
+      "source_room": "decon",
+      "actual_room": "decon",
+      "activation_room": "decon",
+      "arena_id": "decon",
       "kind": "unsealed",
       "position": [
         0,
@@ -4743,6 +5426,10 @@
     {
       "stable_id": "pale_ward_01.decon.enemy.5",
       "room": "decon",
+      "source_room": "decon",
+      "actual_room": "decon",
+      "activation_room": "decon",
+      "arena_id": "decon",
       "kind": "vessel",
       "position": [
         5,
@@ -4753,6 +5440,10 @@
     {
       "stable_id": "pale_ward_01.decon.enemy.6",
       "room": "decon",
+      "source_room": "decon",
+      "actual_room": "decon",
+      "activation_room": "decon",
+      "arena_id": "decon",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4763,6 +5454,10 @@
     {
       "stable_id": "pale_ward_01.decon.enemy.7",
       "room": "decon",
+      "source_room": "decon",
+      "actual_room": "decon",
+      "activation_room": "decon",
+      "arena_id": "decon",
       "kind": "unsealed",
       "position": [
         0,
@@ -4773,6 +5468,10 @@
     {
       "stable_id": "pale_ward_01.transfer.enemy.0",
       "room": "transfer",
+      "source_room": "transfer",
+      "actual_room": "transfer",
+      "activation_room": "transfer",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -4783,6 +5482,10 @@
     {
       "stable_id": "pale_ward_01.transfer.enemy.1",
       "room": "transfer",
+      "source_room": "transfer",
+      "actual_room": "transfer",
+      "activation_room": "transfer",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         40,
@@ -4793,6 +5496,10 @@
     {
       "stable_id": "pale_ward_01.transfer.enemy.2",
       "room": "transfer",
+      "source_room": "transfer",
+      "actual_room": "transfer",
+      "activation_room": "transfer",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         45,
@@ -4803,6 +5510,10 @@
     {
       "stable_id": "pale_ward_01.lift_lobby.enemy.0",
       "room": "lift_lobby",
+      "source_room": "lift_lobby",
+      "actual_room": "lift_lobby",
+      "activation_room": "lift_lobby",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -4813,6 +5524,10 @@
     {
       "stable_id": "pale_ward_01.lift_lobby.enemy.1",
       "room": "lift_lobby",
+      "source_room": "lift_lobby",
+      "actual_room": "lift_lobby",
+      "activation_room": "lift_lobby",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         40,
@@ -4823,6 +5538,10 @@
     {
       "stable_id": "pale_ward_01.exit.enemy.0",
       "room": "exit",
+      "source_room": "exit",
+      "actual_room": "exit",
+      "activation_room": "exit",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         75,
@@ -4833,6 +5552,10 @@
     {
       "stable_id": "pale_ward_01.exit.enemy.1",
       "room": "exit",
+      "source_room": "exit",
+      "actual_room": "exit",
+      "activation_room": "exit",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         80,
@@ -4843,6 +5566,10 @@
     {
       "stable_id": "pale_ward_01.lockers.enemy.0",
       "room": "lockers",
+      "source_room": "lockers",
+      "actual_room": "lockers",
+      "activation_room": "lockers",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         -85,
@@ -4853,6 +5580,10 @@
     {
       "stable_id": "pale_ward_01.observation.enemy.0",
       "room": "observation",
+      "source_room": "observation",
+      "actual_room": "observation",
+      "activation_room": "observation",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         115,

@@ -1,0 +1,463 @@
+{
+  "checks": [
+    {
+      "check": "Actual v14 world root revision pale_ward_01",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "west_lane forward arrives at supported elevation",
+      "detail": {
+        "actual": "(75.0, 2.850102, -14.53834)",
+        "crouch": false,
+        "floor": "(75.0, 2.0, -15.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "west_lane reverse arrives at supported elevation",
+      "detail": {
+        "actual": "(75.0, 2.850102, -25.46166)",
+        "crouch": false,
+        "floor": "(75.0, 2.0, -25.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "east_lane forward arrives at supported elevation",
+      "detail": {
+        "actual": "(88.5, 2.84998, -14.53834)",
+        "crouch": false,
+        "floor": "(88.5, 2.0, -15.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "east_lane reverse arrives at supported elevation",
+      "detail": {
+        "actual": "(88.5, 2.84998, -25.46166)",
+        "crouch": false,
+        "floor": "(88.5, 2.0, -25.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Exact existing moved actor stable ID pale_ward_01.imaging.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Authored moved actor position pale_ward_01.imaging.enemy.2",
+      "detail": {
+        "actual": "(85.0, 2.87, -31.0)",
+        "expected": [
+          85.0,
+          2.87,
+          -31.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual elevated actor sees cross-area player pale_ward_01.imaging.enemy.2",
+      "detail": {
+        "actor": "(85.0, 2.87, -31.0)",
+        "player": "(79.0, 2.84998, -19.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Cross-area stance is inside actual attack range pale_ward_01.imaging.enemy.2",
+      "detail": {
+        "distance": 13.416407585144,
+        "range": 14.0
+      },
+      "passed": true
+    },
+    {
+      "check": "Natural actual actor emits attack across new opening pale_ward_01.imaging.enemy.2",
+      "detail": {
+        "awake": true,
+        "releases": 4,
+        "state": "recovery"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual natural cross-area attack reaches player pale_ward_01.imaging.enemy.2",
+      "detail": {
+        "player_contacts": 2
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal a→b actual geometry ray",
+      "detail": {
+        "clear_expected": true,
+        "collider": "TemporaryContactReceiver:<StaticBody3D#617804215631>",
+        "position": "(79.11179, 3.172795, -19.22359)"
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal a→b accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal a→b authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "hard",
+            "pellets": 1,
+            "position": "(79.1118, 3.172795, -19.22359)",
+            "shot_id": 1,
+            "target_id": "617804215631",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal a→b actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal a→b actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "hard",
+            "position": "(79.1117, 3.172793, -19.22364)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal a→b actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(79.15295, 3.173825, -19.30578)",
+            "radius": 4.8,
+            "shot_id": 810001,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal b→a actual geometry ray",
+      "detail": {
+        "clear_expected": true,
+        "collider": "TemporaryContactReceiver:<StaticBody3D#622233400649>",
+        "position": "(84.88821, 3.317205, -30.77641)"
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal b→a accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal b→a authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "hard",
+            "pellets": 1,
+            "position": "(84.88821, 3.317205, -30.77641)",
+            "shot_id": 2,
+            "target_id": "622233400649",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal b→a actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal b→a actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "hard",
+            "position": "(84.8883, 3.317207, -30.77636)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 clinical_diagonal b→a actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(84.84705, 3.316175, -30.69422)",
+            "radius": 4.8,
+            "shot_id": 810002,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front a→b actual geometry ray",
+      "detail": {
+        "clear_expected": true,
+        "collider": "TemporaryContactReceiver:<StaticBody3D#626394150204>",
+        "position": "(75.0, 3.17, -12.25)"
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front a→b accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front a→b authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "hard",
+            "pellets": 1,
+            "position": "(75.0, 3.17, -12.25)",
+            "shot_id": 3,
+            "target_id": "626394150204",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front a→b actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front a→b actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "hard",
+            "position": "(75.0, 3.17, -12.25)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front a→b actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(75.0, 3.17, -12.34247)",
+            "radius": 4.8,
+            "shot_id": 810003,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front b→a actual geometry ray",
+      "detail": {
+        "clear_expected": true,
+        "collider": "TemporaryContactReceiver:<StaticBody3D#631158878925>",
+        "position": "(75.0, 3.17, -27.75)"
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front b→a accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front b→a authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "hard",
+            "pellets": 1,
+            "position": "(75.0, 3.17, -27.75)",
+            "shot_id": 4,
+            "target_id": "631158878925",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front b→a actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front b→a actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "hard",
+            "position": "(75.0, 3.17, -27.75)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 imaging_theatre_shared_front b→a actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(75.0, 3.17, -27.65753)",
+            "radius": 4.8,
+            "shot_id": 810004,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 prep_cover actual geometry ray",
+      "detail": {
+        "clear_expected": false,
+        "collider": "Structural_v14_clinical_prep_OffsetCover:<StaticBody3D#456860376614>",
+        "position": "(83.0, 2.8, -20.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 prep_cover accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "v14 prep_cover authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "armor",
+            "pellets": 1,
+            "position": "(83.0, 2.8, -20.0)",
+            "shot_id": 5,
+            "target_id": "456860376614",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 prep_cover actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "v14 prep_cover actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "armor",
+            "position": "(83.0, 2.8, -20.0)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "v14 prep_cover actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(82.90899, 2.8, -20.0)",
+            "radius": 4.8,
+            "shot_id": 810005,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "New shared connection has actual tested walk/contact/boundary paths",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Exact new shared connection authored contract available",
+      "detail": {},
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "observations": [],
+  "scope": "Controlled actual Main fixture: independent polygon grid vs actual floor collisions/room ownership, closed actual floor meshes, complete prop mesh bounds, physical cardinal-lane input, accepted/full/declined optional pickup plus real snapshot/Main Continue/Restart. Controlled captures do not prove safe marker acquisition. Initial poses, frozen AI and direct collection isolate state semantics; separate live movement/combat/retreat and full campaign routes required. No human pacing claim.",
+  "status": "passed"
+}

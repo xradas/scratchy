@@ -1,0 +1,226 @@
+{
+  "passed": true,
+  "baseline": "94c4f265371e5c21c9d4411e5897577799705bd7",
+  "generated_outputs_byte_identical_without_writing": {
+    "scenes/campaign/pale_ward_01.tscn": true,
+    "resources/campaign/pale_ward_01-layout.json": true,
+    "resources/campaign/pale_ward_01-route.json": true,
+    "resources/campaign/v13/pale_ward_01-objectives.tres": true,
+    "resources/campaign/v13/pale_ward_01-author-report.json": true,
+    "scenes/campaign/pale_ward_02.tscn": true,
+    "resources/campaign/pale_ward_02-layout.json": true,
+    "resources/campaign/pale_ward_02-route.json": true,
+    "resources/campaign/v13/pale_ward_02-objectives.tres": true,
+    "resources/campaign/v13/pale_ward_02-author-report.json": true,
+    "scenes/campaign/pale_ward_03.tscn": true,
+    "resources/campaign/pale_ward_03-layout.json": true,
+    "resources/campaign/pale_ward_03-route.json": true,
+    "resources/campaign/v13/pale_ward_03-objectives.tres": true,
+    "resources/campaign/v13/pale_ward_03-author-report.json": true
+  },
+  "protected_baseline_files": 313,
+  "protected_changed": [],
+  "rosters": {
+    "pale_ward_01": {
+      "same_ids_and_types": true,
+      "before_count": 64,
+      "after_count": 64,
+      "relocated": [
+        {
+          "id": "pale_ward_01.triage.enemy.1",
+          "before": [
+            0,
+            0.87,
+            -44
+          ],
+          "after": [
+            -42,
+            0.87,
+            -9
+          ],
+          "actual_room": "records",
+          "activation_room": "records",
+          "arena_id": "v14_records_reserve"
+        },
+        {
+          "id": "pale_ward_01.triage.enemy.2",
+          "before": [
+            5,
+            0.87,
+            -44
+          ],
+          "after": [
+            -41.5,
+            0.87,
+            -7.4
+          ],
+          "actual_room": "records",
+          "activation_room": "records",
+          "arena_id": "v14_records_reserve"
+        },
+        {
+          "id": "pale_ward_01.imaging.enemy.2",
+          "before": [
+            85,
+            2.87,
+            -44
+          ],
+          "after": [
+            85,
+            2.87,
+            -31
+          ],
+          "actual_room": "imaging",
+          "activation_room": "imaging",
+          "arena_id": ""
+        }
+      ]
+    },
+    "pale_ward_02": {
+      "same_ids_and_types": true,
+      "before_count": 76,
+      "after_count": 76,
+      "relocated": [
+        {
+          "id": "pale_ward_02.cultures.enemy.2",
+          "before": [
+            -75,
+            4.87,
+            -4
+          ],
+          "after": [
+            -86,
+            4.87,
+            -10
+          ],
+          "actual_room": "cultures",
+          "activation_room": "cultures",
+          "arena_id": ""
+        },
+        {
+          "id": "pale_ward_02.waste_lab.enemy.2",
+          "before": [
+            85,
+            4.87,
+            -4
+          ],
+          "after": [
+            2,
+            4.87,
+            49
+          ],
+          "actual_room": "pump_store",
+          "activation_room": "pump_store",
+          "arena_id": "v14_pump_store_reserve"
+        },
+        {
+          "id": "pale_ward_02.culture_office.enemy.0",
+          "before": [
+            -125,
+            4.87,
+            -4
+          ],
+          "after": [
+            -2,
+            4.87,
+            49
+          ],
+          "actual_room": "pump_store",
+          "activation_room": "pump_store",
+          "arena_id": "v14_pump_store_reserve"
+        }
+      ]
+    },
+    "pale_ward_03": {
+      "same_ids_and_types": true,
+      "before_count": 84,
+      "after_count": 84,
+      "relocated": [
+        {
+          "id": "pale_ward_03.loading.enemy.1",
+          "before": [
+            0,
+            8.87,
+            -4
+          ],
+          "after": [
+            -42.5,
+            8.87,
+            -7.4
+          ],
+          "actual_room": "security_store",
+          "activation_room": "security_store",
+          "arena_id": "v14_security_store_reserve"
+        },
+        {
+          "id": "pale_ward_03.loading.enemy.3",
+          "before": [
+            -5,
+            8.87,
+            0
+          ],
+          "after": [
+            -41.5,
+            8.87,
+            -7.4
+          ],
+          "actual_room": "security_store",
+          "activation_room": "security_store",
+          "arena_id": "v14_security_store_reserve"
+        },
+        {
+          "id": "pale_ward_03.cultivation.enemy.2",
+          "before": [
+            -35,
+            0.87,
+            76
+          ],
+          "after": [
+            -29,
+            0.87,
+            76
+          ],
+          "actual_room": "cultivation",
+          "activation_room": "cultivation",
+          "arena_id": ""
+        }
+      ]
+    }
+  },
+  "required_dependencies_and_supply_preservation": {
+    "pale_ward_01": {
+      "objectives_ids_requires_completion_exact": true,
+      "controls_keys_exit_initial_exact": true,
+      "existing_encounters_exact": true,
+      "supplies_exact": true
+    },
+    "pale_ward_02": {
+      "objectives_ids_requires_completion_exact": true,
+      "controls_keys_exit_initial_exact": true,
+      "existing_encounters_exact": true,
+      "supplies_exact": true
+    },
+    "pale_ward_03": {
+      "objectives_ids_requires_completion_exact": true,
+      "controls_keys_exit_initial_exact": true,
+      "existing_encounters_exact": true,
+      "supplies_exact": true
+    }
+  },
+  "existing_v13_structural_contracts_unchanged": {
+    "pale_ward_01": true,
+    "pale_ward_02": true,
+    "pale_ward_03": true
+  },
+  "matching_source_copies": {
+    "pale_ward_01": true,
+    "pale_ward_02": true,
+    "pale_ward_03": true
+  },
+  "scene_sha256": {
+    "pale_ward_01": "4807f5a334ac92e050909e2138fb038714f153e5f4c34ed20aa95ba3ccb4aeb5",
+    "pale_ward_02": "e2033eb5467a374d47630efdba8c15051a9def3998c9b533d1bb2b69a4ee14cf",
+    "pale_ward_03": "75713f66e0681ba2281c5087f730d662967b2ee328787b4df02cb4a6babf8fd0"
+  },
+  "scope": "Generator reproducibility/source identity only. New objective text and optional accepted-pickup groups intentional. No physical/combat/human acceptance inferred."
+}

@@ -75,3 +75,37 @@ Risks and unfinished acceptance:
 - Enemy navigation unchanged; these are firing balconies, never an alternate physical path into gated basin.
 
 Exact floor paths, shot/solid test pairs, apertures, closed boxes and actor poses are recorded in `levels.json`, the matching Ward JSON, runtime route and v13 author report. These data are a test contract, not proof that the test passed.
+
+## Spatial construction revision14
+
+Current source keeps design/schema version13 and records `layout_revision: 14`. Plan: [v14 contract](../ward-spatial-v14/plan.json). Actual footprint diagram: [v14 SVG](../ward-spatial-v14/pale_ward_02.svg). The v13 diagrams/images remain historical.
+
+### Landmark footprints
+
+- `overlook` at `[0, 4, 0]`: Clipped central control hub retains both visible basin galleries; local XZ boundary `[[-14, -13], [14, -13], [16, -11], [16, 11], [14, 13], [-14, 13], [-16, 11], [-16, -11]]`. Closed convex floor/roof cells: `[{'kind': 'convex', 'outline_xz': [[-14, -13], [14, -13], [16, -11], [16, 11], [14, 13], [-14, 13], [-16, 11], [-16, -11]]}]`.
+- `cultures` at `[-80, 4, 0]`: L-shaped culture suite with a rear work recess; local XZ boundary `[[-16, -14], [16, -14], [16, 14], [-8, 14], [-8, 6], [-16, 6]]`. Closed convex floor/roof cells: `[{'kind': 'box', 'bounds_xz': [-16, -8, -14, 6]}, {'kind': 'box', 'bounds_xz': [-8, 16, -14, 6]}, {'kind': 'box', 'bounds_xz': [-8, 16, 6, 14]}]`.
+- `waste_lab` at `[80, 4, 0]`: Mirrored L-shaped surgical-waste suite with distinct branch identity; local XZ boundary `[[-16, -14], [16, -14], [16, 6], [8, 6], [8, 14], [-16, 14]]`. Closed convex floor/roof cells: `[{'kind': 'box', 'bounds_xz': [-16, 8, -14, 6]}, {'kind': 'box', 'bounds_xz': [-16, 8, 6, 14]}, {'kind': 'box', 'bounds_xz': [8, 16, -14, 6]}]`.
+
+Concave L footprints use actual closed box-cell unions; convex chamfers use a single closed convex prism per slab. Every outline edge has a closed textured wall/collider, with real cuts at existing cardinal mouths. Concave footprints are never passed to the convex runtime shape helper. Lowered ceilings follow the same cells. Room metadata publishes the exact local footprint; the HUD map rectangle is only its envelope.
+
+Outline-dependent architecture fits: 13 explicit entries in `resources/campaign/v13/pale_ward_02-author-report.json` (`shell_fits`). These trim ducts/ribs/alcoves or inset boundary columns/growths; named semantic prop types/counts remain fixed. All exposed native material faces remain closed.
+
+### Additional shared connection
+
+`v14_culture_steps` replaces `cultures__filters` between ['cultures', 'filters'], bounds `[-90, -70, -28, -14]`. Already ungated existing pair; no new graph edge; all milestone gates/checkpoints remain unchanged Explicit apertures, floor/roof/side supports, offset cover, stairs and native test floor/shot/solid pairs are in the source/runtime route and author report. Original centre route remains clear; flank movement is player choice, not coordinated enemy navigation.
+- Existing ranged `pale_ward_02.cultures.enemy.2` (infected_security) at `[-86, 4.87, -10]`; stable ID/type/count preserved.
+
+### Optional accepted-supply reserve
+
+`pump_store` retains existing `Bonus_pump_store` (12 shells) and unchanged health bonus. Only an accepted reward mutation activates `v14_pump_store_reserve`; full ammo leaves the shell item available and group closed. The physical `Door_v14_pump_store_reserve` is not E-usable; it opens once through the exact stable-ID release contract. No main exit seal, required clear, reward addition or new actor.
+Closet side `south`, partition z=46.8, full X span `[-13, 13]`, six-metre door `[-3, 3]`, door height 3.4m, closed roof at y=7.8. Real side partitions/header/upper cap meet the outer room walls and roof; visual/shot/movement bodies match.
+- `pale_ward_02.culture_office.enemy.0` (infected_scientist) → `[-2, 4.87, 49]` in actual/activation room `pump_store`, arena `v14_pump_store_reserve`; source-room identity retained in report.
+- `pale_ward_02.waste_lab.enemy.2` (infected_security) → `[2, 4.87, 49]` in actual/activation room `pump_store`, arena `v14_pump_store_reserve`; source-room identity retained in report.
+
+Coordinator review found north main entrance entered the unreleased closet. Move closet to south, preserving north entry, reward and retreat.
+
+### Guidance and acceptance
+
+New route signs are static labels. Their flag associations remain explicit source/navigation metadata; existing controls retain their native state indicators. Control/objective text names actual next destinations. Containment second-feed feedback checks both actual feed flags before saying the basin is drained.
+
+Independent real body/crouch/stair/closed-mesh and prop bounds, accepted/full/repeated/restore/reset reward behavior, reciprocal shots/projectiles, real finite combat/retreat, both feed orders and full campaigns remain separately reported evidence. Metadata, controlled views and bot timings do not establish human tactics, exact concept match, navigation comfort or the20–25minute pacing target.

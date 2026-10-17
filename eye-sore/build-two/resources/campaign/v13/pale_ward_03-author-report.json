@@ -16,10 +16,10 @@
   ],
   "protected_scene_art_files": 319,
   "outputs": {
-    "scenes/campaign/pale_ward_03.tscn": "b01aff70fe351caa30fade314857dda0ec678c33119bdebc2df994f6eff79e7e",
-    "resources/campaign/pale_ward_03-layout.json": "5d94d31589aeb604d32de123c2a9e9c467528563e0ca9716c1a4791b01028475",
-    "resources/campaign/pale_ward_03-route.json": "9401ad1c771642ad7382373528df744a112a9d4482dec66ae8992fbe4c04bdc9",
-    "resources/campaign/v13/pale_ward_03-objectives.tres": "78b591ab979b49e922556214087930e62658c1abbed1a7daa8e55aa5f7afb8fa"
+    "scenes/campaign/pale_ward_03.tscn": "75713f66e0681ba2281c5087f730d662967b2ee328787b4df02cb4a6babf8fd0",
+    "resources/campaign/pale_ward_03-layout.json": "9b0ed76bb37cb64bca64626587f18edaba1de2da024a2bc68e1e8f06366ca755",
+    "resources/campaign/pale_ward_03-route.json": "352391e1b81e6a116b6bc9cd6e74bb28183b4209bb6383c2ba9464441d22d371",
+    "resources/campaign/v13/pale_ward_03-objectives.tres": "8d27c7652dbf091f5175c34568289836383e4c606aaad54c5e1453678d08f629"
   },
   "geometry": [
     {
@@ -2214,126 +2214,6 @@
         0.4,
         6.8,
         14.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_cultivation__machinery_0_Floor",
-      "parent": ".",
-      "position": [
-        -19.0,
-        -0.25,
-        80.0
-      ],
-      "size": [
-        12.12,
-        0.5,
-        5.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_cultivation__machinery_0_LandingA",
-      "parent": ".",
-      "position": [
-        -25.0,
-        -0.25,
-        80
-      ],
-      "size": [
-        0.35,
-        0.5,
-        5.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_cultivation__machinery_0_LandingB",
-      "parent": ".",
-      "position": [
-        -13.0,
-        -0.25,
-        80
-      ],
-      "size": [
-        0.35,
-        0.5,
-        5.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_cultivation__machinery_0_Roof",
-      "parent": ".",
-      "position": [
-        -19.0,
-        4.95,
-        80.0
-      ],
-      "size": [
-        12.12,
-        0.3,
-        5.8
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_cultivation__machinery_0_Wall-1",
-      "parent": ".",
-      "position": [
-        -19.0,
-        2.4,
-        77.3
-      ],
-      "size": [
-        12.0,
-        4.8,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_cultivation__machinery_0_Wall1",
-      "parent": ".",
-      "position": [
-        -19.0,
-        2.4,
-        82.7
-      ],
-      "size": [
-        12.0,
-        4.8,
-        0.4
       ],
       "rotation": [
         0,
@@ -8423,17 +8303,117 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "loading_Floor",
+      "name": "Structural_v14_lower_feed_hall_NorthWall",
       "parent": ".",
       "position": [
+        -19.0,
+        3.0,
+        69.8
+      ],
+      "size": [
+        12.4,
+        6,
+        0.4
+      ],
+      "rotation": [
         0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_v14_lower_feed_hall_SouthWall",
+      "parent": ".",
+      "position": [
+        -19.0,
+        3.0,
+        90.2
+      ],
+      "size": [
+        12.4,
+        6,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_v14_lower_feed_hall_Floor",
+      "parent": ".",
+      "position": [
+        -19.0,
+        -0.25,
+        80.0
+      ],
+      "size": [
+        12.4,
+        0.5,
+        20.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_v14_lower_feed_hall_Roof",
+      "parent": ".",
+      "position": [
+        -19.0,
+        6.15,
+        80.0
+      ],
+      "size": [
+        12.8,
+        0.3,
+        20.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_v14_lower_feed_hall_OffsetCover",
+      "parent": ".",
+      "position": [
+        -19,
+        0.75,
+        85
+      ],
+      "size": [
+        2,
+        1.5,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_Floor_Cell0",
+      "parent": ".",
+      "position": [
+        -4.0,
         7.7,
-        0
+        -9.0
       ],
       "size": [
-        32.12,
+        24.02,
         0.6,
-        26.12
+        8.02
       ],
       "rotation": [
         0,
@@ -8443,17 +8423,17 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "loading_Roof",
+      "name": "loading_Floor_Cell1",
       "parent": ".",
       "position": [
-        0,
-        17.2,
-        0
+        -4.0,
+        7.7,
+        4.0
       ],
       "size": [
-        32.8,
-        0.4,
-        26.8
+        24.02,
+        0.6,
+        18.02
       ],
       "rotation": [
         0,
@@ -8463,7 +8443,87 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "loading_Wall_N0",
+      "name": "loading_Floor_Cell2",
+      "parent": ".",
+      "position": [
+        12.0,
+        7.7,
+        4.0
+      ],
+      "size": [
+        8.02,
+        0.6,
+        18.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_Roof_Cell0",
+      "parent": ".",
+      "position": [
+        -4.0,
+        17.2,
+        -9.0
+      ],
+      "size": [
+        24.02,
+        0.4,
+        8.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_Roof_Cell1",
+      "parent": ".",
+      "position": [
+        -4.0,
+        17.2,
+        4.0
+      ],
+      "size": [
+        24.02,
+        0.4,
+        18.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_Roof_Cell2",
+      "parent": ".",
+      "position": [
+        12.0,
+        17.2,
+        4.0
+      ],
+      "size": [
+        8.02,
+        0.4,
+        18.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_OutlineWall_0_0_0",
       "parent": ".",
       "position": [
         -9.25,
@@ -8471,19 +8531,19 @@
         -13.0
       ],
       "size": [
-        13.5,
+        13.515,
         3.8000000000000007,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "loading_Wall_N1",
+      "name": "loading_OutlineWall_0_0_1",
       "parent": ".",
       "position": [
         -9.25,
@@ -8491,19 +8551,19 @@
         -13.0
       ],
       "size": [
-        13.5,
+        13.515,
         5.199999999999999,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "loading_Wall_N2",
+      "name": "loading_OutlineWall_0_1_1",
       "parent": ".",
       "position": [
         0.0,
@@ -8511,59 +8571,119 @@
         -13.0
       ],
       "size": [
-        5.0,
+        5.015,
         5.199999999999999,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "loading_Wall_N3",
+      "name": "loading_OutlineWall_0_2_0",
       "parent": ".",
       "position": [
-        9.25,
+        5.25,
         9.9,
         -13.0
       ],
       "size": [
-        13.5,
+        5.515,
         3.8000000000000007,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "loading_Wall_N4",
+      "name": "loading_OutlineWall_0_2_1",
       "parent": ".",
       "position": [
-        9.25,
+        5.25,
         14.4,
         -13.0
       ],
       "size": [
-        13.5,
+        5.515,
         5.199999999999999,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "loading_Wall_S0",
+      "name": "loading_OutlineWall_1_0_0",
+      "parent": ".",
+      "position": [
+        8.0,
+        12.5,
+        -9.0
+      ],
+      "size": [
+        8.015,
+        9,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_OutlineWall_2_0_0",
+      "parent": ".",
+      "position": [
+        12.0,
+        12.5,
+        -5.0
+      ],
+      "size": [
+        8.015,
+        9,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -0.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_OutlineWall_3_0_0",
+      "parent": ".",
+      "position": [
+        16.0,
+        12.5,
+        4.0
+      ],
+      "size": [
+        18.015,
+        9,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_OutlineWall_4_0_0",
       "parent": ".",
       "position": [
         0.0,
@@ -8571,99 +8691,19 @@
         13.0
       ],
       "size": [
-        32.0,
+        32.015,
         9,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -180.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "loading_Wall_E0",
-      "parent": ".",
-      "position": [
-        16.0,
-        12.5,
-        0.0
-      ],
-      "size": [
-        0.4,
-        9,
-        26.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "loading_Wall_W0",
-      "parent": ".",
-      "position": [
-        -16.0,
-        9.9,
-        -7.75
-      ],
-      "size": [
-        0.4,
-        3.8000000000000007,
-        10.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "loading_Wall_W1",
-      "parent": ".",
-      "position": [
-        -16.0,
-        14.4,
-        -7.75
-      ],
-      "size": [
-        0.4,
-        5.199999999999999,
-        10.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "loading_Wall_W2",
-      "parent": ".",
-      "position": [
-        -16.0,
-        14.4,
-        0.0
-      ],
-      "size": [
-        0.4,
-        5.199999999999999,
-        5.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "loading_Wall_W3",
+      "name": "loading_OutlineWall_5_0_0",
       "parent": ".",
       "position": [
         -16.0,
@@ -8671,19 +8711,19 @@
         7.75
       ],
       "size": [
-        0.4,
+        10.515,
         3.8000000000000007,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "loading_Wall_W4",
+      "name": "loading_OutlineWall_5_0_1",
       "parent": ".",
       "position": [
         -16.0,
@@ -8691,29 +8731,129 @@
         7.75
       ],
       "size": [
-        0.4,
+        10.515,
         5.199999999999999,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "loading_LoweredCeiling",
+      "name": "loading_OutlineWall_5_1_1",
       "parent": ".",
       "position": [
+        -16.0,
+        14.4,
+        0.0
+      ],
+      "size": [
+        5.015,
+        5.199999999999999,
+        0.4
+      ],
+      "rotation": [
         0,
+        90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_OutlineWall_5_2_0",
+      "parent": ".",
+      "position": [
+        -16.0,
+        9.9,
+        -7.75
+      ],
+      "size": [
+        10.515,
+        3.8000000000000007,
+        0.4
+      ],
+      "rotation": [
+        0,
+        90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_OutlineWall_5_2_1",
+      "parent": ".",
+      "position": [
+        -16.0,
+        14.4,
+        -7.75
+      ],
+      "size": [
+        10.515,
+        5.199999999999999,
+        0.4
+      ],
+      "rotation": [
+        0,
+        90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_LoweredCeiling_Cell0",
+      "parent": ".",
+      "position": [
+        -4.0,
         13.92,
-        0
+        -9.0
       ],
       "size": [
-        31.6,
+        24.02,
         0.24,
-        25.6
+        8.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_LoweredCeiling_Cell1",
+      "parent": ".",
+      "position": [
+        -4.0,
+        13.92,
+        4.0
+      ],
+      "size": [
+        24.02,
+        0.24,
+        18.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "loading_LoweredCeiling_Cell2",
+      "parent": ".",
+      "position": [
+        12.0,
+        13.92,
+        4.0
+      ],
+      "size": [
+        8.02,
+        0.24,
+        18.02
       ],
       "rotation": [
         0,
@@ -8726,12 +8866,12 @@
       "name": "loading_CeilingRib0",
       "parent": ".",
       "position": [
-        0,
+        -3.985,
         13.48,
         -7.8
       ],
       "size": [
-        31.5,
+        23.53,
         0.45,
         0.35
       ],
@@ -12853,7 +12993,7 @@
       "size": [
         0.08,
         2.6,
-        5.0
+        5
       ],
       "rotation": [
         0,
@@ -15543,17 +15683,17 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Floor",
+      "name": "cultivation_Floor_Cell0",
       "parent": ".",
       "position": [
-        -40,
+        -51.0,
         -0.3,
-        80
+        84.0
       ],
       "size": [
-        30.12,
+        8.02,
         0.6,
-        28.12
+        20.02
       ],
       "rotation": [
         0,
@@ -15563,17 +15703,17 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Roof",
+      "name": "cultivation_Floor_Cell1",
       "parent": ".",
       "position": [
-        -40,
-        9.2,
-        80
+        -36.0,
+        -0.3,
+        70.0
       ],
       "size": [
-        30.8,
-        0.4,
-        28.8
+        22.02,
+        0.6,
+        8.02
       ],
       "rotation": [
         0,
@@ -15583,47 +15723,127 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Wall_N0",
+      "name": "cultivation_Floor_Cell2",
       "parent": ".",
       "position": [
-        -48.75,
+        -36.0,
+        -0.3,
+        84.0
+      ],
+      "size": [
+        22.02,
+        0.6,
+        20.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_Roof_Cell0",
+      "parent": ".",
+      "position": [
+        -51.0,
+        9.2,
+        84.0
+      ],
+      "size": [
+        8.02,
+        0.4,
+        20.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_Roof_Cell1",
+      "parent": ".",
+      "position": [
+        -36.0,
+        9.2,
+        70.0
+      ],
+      "size": [
+        22.02,
+        0.4,
+        8.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_Roof_Cell2",
+      "parent": ".",
+      "position": [
+        -36.0,
+        9.2,
+        84.0
+      ],
+      "size": [
+        22.02,
+        0.4,
+        20.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_0_0_0",
+      "parent": ".",
+      "position": [
+        -44.75,
         1.9,
         66.0
       ],
       "size": [
-        12.5,
+        4.515,
         3.8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Wall_N1",
+      "name": "cultivation_OutlineWall_0_0_1",
       "parent": ".",
       "position": [
-        -48.75,
+        -44.75,
         6.4,
         66.0
       ],
       "size": [
-        12.5,
+        4.515,
         5.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Wall_N2",
+      "name": "cultivation_OutlineWall_0_1_1",
       "parent": ".",
       "position": [
         -40.0,
@@ -15631,19 +15851,19 @@
         66.0
       ],
       "size": [
-        5.0,
+        5.015,
         5.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Wall_N3",
+      "name": "cultivation_OutlineWall_0_2_0",
       "parent": ".",
       "position": [
         -31.25,
@@ -15651,19 +15871,19 @@
         66.0
       ],
       "size": [
-        12.5,
+        12.515,
         3.8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Wall_N4",
+      "name": "cultivation_OutlineWall_0_2_1",
       "parent": ".",
       "position": [
         -31.25,
@@ -15671,19 +15891,199 @@
         66.0
       ],
       "size": [
-        12.5,
+        12.515,
         5.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Wall_S0",
+      "name": "cultivation_OutlineWall_1_0_0",
+      "parent": ".",
+      "position": [
+        -25.0,
+        1.9,
+        68.0
+      ],
+      "size": [
+        4.015,
+        3.8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_1_0_1",
+      "parent": ".",
+      "position": [
+        -25.0,
+        4.9,
+        68.0
+      ],
+      "size": [
+        4.015,
+        2.2,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_1_0_2",
+      "parent": ".",
+      "position": [
+        -25.0,
+        7.5,
+        68.0
+      ],
+      "size": [
+        4.015,
+        3,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_1_1_2",
+      "parent": ".",
+      "position": [
+        -25.0,
+        7.5,
+        73.75
+      ],
+      "size": [
+        7.515,
+        3,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_1_2_2",
+      "parent": ".",
+      "position": [
+        -25.0,
+        7.5,
+        80.0
+      ],
+      "size": [
+        5.015,
+        3,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_1_3_2",
+      "parent": ".",
+      "position": [
+        -25.0,
+        7.5,
+        86.25
+      ],
+      "size": [
+        7.515,
+        3,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_1_4_0",
+      "parent": ".",
+      "position": [
+        -25.0,
+        1.9,
+        92.0
+      ],
+      "size": [
+        4.015,
+        3.8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_1_4_1",
+      "parent": ".",
+      "position": [
+        -25.0,
+        4.9,
+        92.0
+      ],
+      "size": [
+        4.015,
+        2.2,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_1_4_2",
+      "parent": ".",
+      "position": [
+        -25.0,
+        7.5,
+        92.0
+      ],
+      "size": [
+        4.015,
+        3,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_2_0_0",
       "parent": ".",
       "position": [
         -40.0,
@@ -15691,159 +16091,59 @@
         94.0
       ],
       "size": [
-        30.0,
+        30.015,
         9,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -180.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Wall_E0",
-      "parent": ".",
-      "position": [
-        -25.0,
-        1.9,
-        71.75
-      ],
-      "size": [
-        0.4,
-        3.8,
-        11.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "cultivation_Wall_E1",
-      "parent": ".",
-      "position": [
-        -25.0,
-        6.4,
-        71.75
-      ],
-      "size": [
-        0.4,
-        5.2,
-        11.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "cultivation_Wall_E2",
-      "parent": ".",
-      "position": [
-        -25.0,
-        6.4,
-        80.0
-      ],
-      "size": [
-        0.4,
-        5.2,
-        5.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "cultivation_Wall_E3",
-      "parent": ".",
-      "position": [
-        -25.0,
-        1.9,
-        88.25
-      ],
-      "size": [
-        0.4,
-        3.8,
-        11.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "cultivation_Wall_E4",
-      "parent": ".",
-      "position": [
-        -25.0,
-        6.4,
-        88.25
-      ],
-      "size": [
-        0.4,
-        5.2,
-        11.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "cultivation_Wall_W0",
+      "name": "cultivation_OutlineWall_3_0_0",
       "parent": ".",
       "position": [
         -55.0,
         1.9,
-        71.75
+        88.25
       ],
       "size": [
-        0.4,
+        11.515,
         3.8,
-        11.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Wall_W1",
+      "name": "cultivation_OutlineWall_3_0_1",
       "parent": ".",
       "position": [
         -55.0,
         6.4,
-        71.75
+        88.25
       ],
       "size": [
-        0.4,
+        11.515,
         5.2,
-        11.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Wall_W2",
+      "name": "cultivation_OutlineWall_3_1_1",
       "parent": ".",
       "position": [
         -55.0,
@@ -15851,53 +16151,93 @@
         80.0
       ],
       "size": [
-        0.4,
+        5.015,
         5.2,
-        5.0
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Wall_W3",
+      "name": "cultivation_OutlineWall_3_2_0",
       "parent": ".",
       "position": [
         -55.0,
         1.9,
-        88.25
+        75.75
       ],
       "size": [
-        0.4,
+        3.515,
         3.8,
-        11.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "cultivation_Wall_W4",
+      "name": "cultivation_OutlineWall_3_2_1",
       "parent": ".",
       "position": [
         -55.0,
         6.4,
-        88.25
+        75.75
       ],
       "size": [
-        0.4,
+        3.515,
         5.2,
-        11.5
+        0.4
       ],
       "rotation": [
         0,
+        90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_4_0_0",
+      "parent": ".",
+      "position": [
+        -51.0,
+        4.5,
+        74.0
+      ],
+      "size": [
+        8.015,
+        9,
+        0.4
+      ],
+      "rotation": [
         0,
+        -0.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "cultivation_OutlineWall_5_0_0",
+      "parent": ".",
+      "position": [
+        -47.0,
+        4.5,
+        70.0
+      ],
+      "size": [
+        8.015,
+        9,
+        0.4
+      ],
+      "rotation": [
+        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
@@ -15906,12 +16246,12 @@
       "name": "cultivation_CeilingRib0",
       "parent": ".",
       "position": [
-        -40,
+        -36.015,
         8.68,
         71.6
       ],
       "size": [
-        29.5,
+        21.53,
         0.45,
         0.35
       ],
@@ -15934,26 +16274,6 @@
         29.5,
         0.45,
         0.35
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "cultivation_TankRim-1",
-      "parent": ".",
-      "position": [
-        -54.75,
-        7.5,
-        80
-      ],
-      "size": [
-        0.6,
-        0.45,
-        27.5
       ],
       "rotation": [
         0,
@@ -16328,12 +16648,12 @@
       "position": [
         -13.0,
         1.9,
-        72.75
+        69.0
       ],
       "size": [
         0.4,
         3.8,
-        9.5
+        2.0
       ],
       "rotation": [
         0,
@@ -16347,13 +16667,13 @@
       "parent": ".",
       "position": [
         -13.0,
-        5.4,
-        72.75
+        4.9,
+        69.0
       ],
       "size": [
         0.4,
-        3.2,
-        9.5
+        2.2,
+        2.0
       ],
       "rotation": [
         0,
@@ -16367,13 +16687,13 @@
       "parent": ".",
       "position": [
         -13.0,
-        5.4,
-        80.0
+        6.5,
+        69.0
       ],
       "size": [
         0.4,
-        3.2,
-        5.0
+        1,
+        2.0
       ],
       "rotation": [
         0,
@@ -16387,13 +16707,13 @@
       "parent": ".",
       "position": [
         -13.0,
-        1.9,
-        87.25
+        6.5,
+        73.75
       ],
       "size": [
         0.4,
-        3.8,
-        9.5
+        1,
+        7.5
       ],
       "rotation": [
         0,
@@ -16407,13 +16727,93 @@
       "parent": ".",
       "position": [
         -13.0,
-        5.4,
-        87.25
+        6.5,
+        80.0
       ],
       "size": [
         0.4,
-        3.2,
-        9.5
+        1,
+        5.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "machinery_Wall_W5",
+      "parent": ".",
+      "position": [
+        -13.0,
+        6.5,
+        86.25
+      ],
+      "size": [
+        0.4,
+        1,
+        7.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "machinery_Wall_W6",
+      "parent": ".",
+      "position": [
+        -13.0,
+        1.9,
+        91.0
+      ],
+      "size": [
+        0.4,
+        3.8,
+        2.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "machinery_Wall_W7",
+      "parent": ".",
+      "position": [
+        -13.0,
+        4.9,
+        91.0
+      ],
+      "size": [
+        0.4,
+        2.2,
+        2.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "machinery_Wall_W8",
+      "parent": ".",
+      "position": [
+        -13.0,
+        6.5,
+        91.0
+      ],
+      "size": [
+        0.4,
+        1,
+        2.0
       ],
       "rotation": [
         0,
@@ -17423,87 +17823,47 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Floor",
+      "name": "rupture_OutlineWall_0_0_0",
       "parent": ".",
       "position": [
-        40,
-        -4.3,
-        120
-      ],
-      "size": [
-        34.12,
-        0.6,
-        30.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "rupture_Roof",
-      "parent": ".",
-      "position": [
-        40,
-        8.2,
-        120
-      ],
-      "size": [
-        34.8,
-        0.4,
-        30.8
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "rupture_Wall_N0",
-      "parent": ".",
-      "position": [
-        30.25,
+        32.75,
         -2.1,
         105.0
       ],
       "size": [
-        14.5,
+        9.515,
         3.8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Wall_N1",
+      "name": "rupture_OutlineWall_0_0_1",
       "parent": ".",
       "position": [
-        30.25,
+        32.75,
         3.9,
         105.0
       ],
       "size": [
-        14.5,
+        9.515,
         8.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Wall_N2",
+      "name": "rupture_OutlineWall_0_1_1",
       "parent": ".",
       "position": [
         40.0,
@@ -17511,59 +17871,199 @@
         105.0
       ],
       "size": [
-        5.0,
+        5.015,
         8.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Wall_N3",
+      "name": "rupture_OutlineWall_0_2_0",
       "parent": ".",
       "position": [
-        49.75,
+        47.25,
         -2.1,
         105.0
       ],
       "size": [
-        14.5,
+        9.515,
         3.8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Wall_N4",
+      "name": "rupture_OutlineWall_0_2_1",
       "parent": ".",
       "position": [
-        49.75,
+        47.25,
         3.9,
         105.0
       ],
       "size": [
-        14.5,
+        9.515,
         8.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Wall_S0",
+      "name": "rupture_OutlineWall_1_0_0",
+      "parent": ".",
+      "position": [
+        54.5,
+        2.0,
+        107.5
+      ],
+      "size": [
+        7.086067811865475,
+        12,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -45.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "rupture_OutlineWall_2_0_0",
+      "parent": ".",
+      "position": [
+        57.0,
+        -2.1,
+        113.75
+      ],
+      "size": [
+        7.515,
+        3.8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "rupture_OutlineWall_2_0_1",
+      "parent": ".",
+      "position": [
+        57.0,
+        3.9,
+        113.75
+      ],
+      "size": [
+        7.515,
+        8.2,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "rupture_OutlineWall_2_1_1",
+      "parent": ".",
+      "position": [
+        57.0,
+        3.9,
+        120.0
+      ],
+      "size": [
+        5.015,
+        8.2,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "rupture_OutlineWall_2_2_0",
+      "parent": ".",
+      "position": [
+        57.0,
+        -2.1,
+        126.25
+      ],
+      "size": [
+        7.515,
+        3.8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "rupture_OutlineWall_2_2_1",
+      "parent": ".",
+      "position": [
+        57.0,
+        3.9,
+        126.25
+      ],
+      "size": [
+        7.515,
+        8.2,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "rupture_OutlineWall_3_0_0",
+      "parent": ".",
+      "position": [
+        54.5,
+        2.0,
+        132.5
+      ],
+      "size": [
+        7.086067811865475,
+        12,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -135.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "rupture_OutlineWall_4_0_0",
       "parent": ".",
       "position": [
         40.0,
@@ -17571,159 +18071,79 @@
         135.0
       ],
       "size": [
-        34.0,
+        24.015,
         12,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -180.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Wall_E0",
+      "name": "rupture_OutlineWall_5_0_0",
       "parent": ".",
       "position": [
-        57.0,
-        -2.1,
-        111.25
+        25.5,
+        2.0,
+        132.5
       ],
       "size": [
-        0.4,
-        3.8,
-        12.5
+        7.086067811865475,
+        12,
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        135.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Wall_E1",
-      "parent": ".",
-      "position": [
-        57.0,
-        3.9,
-        111.25
-      ],
-      "size": [
-        0.4,
-        8.2,
-        12.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "rupture_Wall_E2",
-      "parent": ".",
-      "position": [
-        57.0,
-        3.9,
-        120.0
-      ],
-      "size": [
-        0.4,
-        8.2,
-        5.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "rupture_Wall_E3",
-      "parent": ".",
-      "position": [
-        57.0,
-        -2.1,
-        128.75
-      ],
-      "size": [
-        0.4,
-        3.8,
-        12.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "rupture_Wall_E4",
-      "parent": ".",
-      "position": [
-        57.0,
-        3.9,
-        128.75
-      ],
-      "size": [
-        0.4,
-        8.2,
-        12.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "rupture_Wall_W0",
+      "name": "rupture_OutlineWall_6_0_0",
       "parent": ".",
       "position": [
         23.0,
         -2.1,
-        111.25
+        126.25
       ],
       "size": [
-        0.4,
+        7.515,
         3.8,
-        12.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Wall_W1",
+      "name": "rupture_OutlineWall_6_0_1",
       "parent": ".",
       "position": [
         23.0,
         3.9,
-        111.25
+        126.25
       ],
       "size": [
-        0.4,
+        7.515,
         8.2,
-        12.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Wall_W2",
+      "name": "rupture_OutlineWall_6_1_1",
       "parent": ".",
       "position": [
         23.0,
@@ -17731,53 +18151,73 @@
         120.0
       ],
       "size": [
-        0.4,
+        5.015,
         8.2,
-        5.0
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Wall_W3",
+      "name": "rupture_OutlineWall_6_2_0",
       "parent": ".",
       "position": [
         23.0,
         -2.1,
-        128.75
+        113.75
       ],
       "size": [
-        0.4,
+        7.515,
         3.8,
-        12.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "rupture_Wall_W4",
+      "name": "rupture_OutlineWall_6_2_1",
       "parent": ".",
       "position": [
         23.0,
         3.9,
-        128.75
+        113.75
       ],
       "size": [
-        0.4,
+        7.515,
         8.2,
-        12.5
+        0.4
       ],
       "rotation": [
         0,
+        90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "rupture_OutlineWall_7_0_0",
+      "parent": ".",
+      "position": [
+        25.5,
+        2.0,
+        107.5
+      ],
+      "size": [
+        7.086067811865475,
+        12,
+        0.4
+      ],
+      "rotation": [
         0,
+        45.0,
         0
       ],
       "type": "StaticBody3D"
@@ -17826,9 +18266,9 @@
       "name": "rupture_SiloButtress-1-1",
       "parent": ".",
       "position": [
-        24.1,
+        27.13,
         1.5,
-        107.0
+        109.13
       ],
       "size": [
         0.9,
@@ -17846,9 +18286,9 @@
       "name": "rupture_SiloButtress-11",
       "parent": ".",
       "position": [
-        24.1,
+        27.13,
         1.5,
-        133.0
+        130.87
       ],
       "size": [
         0.9,
@@ -17886,9 +18326,9 @@
       "name": "rupture_SiloButtress1-1",
       "parent": ".",
       "position": [
-        55.9,
+        52.87,
         1.5,
-        107.0
+        109.13
       ],
       "size": [
         0.9,
@@ -17906,9 +18346,9 @@
       "name": "rupture_SiloButtress11",
       "parent": ".",
       "position": [
-        55.9,
+        52.87,
         1.5,
-        133.0
+        130.87
       ],
       "size": [
         0.9,
@@ -22003,6 +22443,126 @@
       "type": "StaticBody3D"
     },
     {
+      "name": "Reserve_v14_security_store_reserve_Left",
+      "parent": ".",
+      "position": [
+        -48.0,
+        9.8,
+        -6.8
+      ],
+      "size": [
+        10,
+        3.6,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Reserve_v14_security_store_reserve_Right",
+      "parent": ".",
+      "position": [
+        -32.0,
+        9.8,
+        -6.8
+      ],
+      "size": [
+        10,
+        3.6,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Reserve_v14_security_store_reserve_Header",
+      "parent": ".",
+      "position": [
+        -40.0,
+        11.5,
+        -6.8
+      ],
+      "size": [
+        6,
+        0.20000000000000018,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Reserve_v14_security_store_reserve_UpperCap",
+      "parent": ".",
+      "position": [
+        -40.0,
+        11.7,
+        -6.8
+      ],
+      "size": [
+        26,
+        0.20000000000000062,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Reserve_v14_security_store_reserve_Roof",
+      "parent": ".",
+      "position": [
+        -40.0,
+        11.92,
+        -9.4
+      ],
+      "size": [
+        26.2,
+        0.24,
+        5.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Door_v14_security_store_reserve",
+      "parent": ".",
+      "position": [
+        -40.0,
+        9.7,
+        -6.8
+      ],
+      "size": [
+        6,
+        3.4,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "AnimatableBody3D"
+    },
+    {
       "name": "Anchor_anchor_a",
       "parent": ".",
       "position": [
@@ -22384,9 +22944,9 @@
       "room": "loading",
       "type": "ppe_locker",
       "position_local": [
-        10,
+        13,
         0,
-        -9
+        -2
       ],
       "heading": -90
     },
@@ -23079,7 +23639,7 @@
       "position_local": [
         -11,
         0,
-        -8
+        -3
       ],
       "heading": 0
     },
@@ -23541,7 +24101,7 @@
       "position_local": [
         -10.0,
         0,
-        -9.0
+        -4.5
       ],
       "heading": 90
     },
@@ -23563,7 +24123,7 @@
       "position_local": [
         10.0,
         0,
-        -9.0
+        -4.5
       ],
       "heading": -90
     },
@@ -23897,18 +24457,6 @@
       "damaged": false
     },
     {
-      "id": "Link_cultivation__machinery_0_Fixture",
-      "room": "cultivation",
-      "kind": "tube",
-      "position": [
-        -19.0,
-        4.62,
-        80.0
-      ],
-      "energy": 1.6,
-      "damaged": false
-    },
-    {
       "id": "Link_machinery__anchor_c_0_Fixture",
       "room": "machinery",
       "kind": "tube",
@@ -24086,6 +24634,18 @@
         40
       ],
       "energy": 4,
+      "damaged": false
+    },
+    {
+      "id": "Structural_v14_lower_feed_hall_MountedLamp",
+      "room": "cultivation",
+      "kind": "tube",
+      "position": [
+        -19.0,
+        5.75,
+        80.0
+      ],
+      "energy": 3.8,
       "damaged": false
     },
     {
@@ -24930,6 +25490,884 @@
         "Fresh contact/stair and real combat tests required; ledge changes ordinary encounter exposure but no mandatory all-clear or actor count.",
         "No direct new opening into anchor rooms; anchors/checkpoints/return shortcut requirements unchanged."
       ]
+    },
+    {
+      "id": "v14_lower_feed_hall",
+      "revision": 14,
+      "portal": "cultivation__machinery",
+      "rooms": [
+        "cultivation",
+        "machinery"
+      ],
+      "bounds_xz": [
+        -25,
+        -13,
+        70,
+        90
+      ],
+      "policy": "Already ungated existing pair; no new graph edge; all milestone gates/checkpoints remain unchanged",
+      "boxes": [
+        {
+          "id": "NorthWall",
+          "position": [
+            -19.0,
+            3.0,
+            69.8
+          ],
+          "size": [
+            12.4,
+            6,
+            0.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "SouthWall",
+          "position": [
+            -19.0,
+            3.0,
+            90.2
+          ],
+          "size": [
+            12.4,
+            6,
+            0.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "Floor",
+          "position": [
+            -19.0,
+            -0.25,
+            80.0
+          ],
+          "size": [
+            12.4,
+            0.5,
+            20.4
+          ],
+          "role": "floor"
+        },
+        {
+          "id": "Roof",
+          "position": [
+            -19.0,
+            6.15,
+            80.0
+          ],
+          "size": [
+            12.8,
+            0.3,
+            20.8
+          ],
+          "role": "ceiling"
+        },
+        {
+          "id": "OffsetCover",
+          "position": [
+            -19,
+            0.75,
+            85
+          ],
+          "size": [
+            2,
+            1.5,
+            4
+          ],
+          "role": "panel"
+        }
+      ],
+      "stairs": [],
+      "actor_overrides": [
+        {
+          "stable_id": "pale_ward_03.cultivation.enemy.2",
+          "kind": "vessel",
+          "position": [
+            -29,
+            0.87,
+            76
+          ]
+        }
+      ],
+      "apertures": [
+        {
+          "room": "cultivation",
+          "side": "E",
+          "plane": -25.0,
+          "span": [
+            70,
+            90
+          ],
+          "height": [
+            0,
+            6
+          ]
+        },
+        {
+          "room": "machinery",
+          "side": "W",
+          "plane": -13.0,
+          "span": [
+            70,
+            90
+          ],
+          "height": [
+            0,
+            6
+          ]
+        }
+      ],
+      "walk_paths": [
+        {
+          "id": "north_lane",
+          "points": [
+            [
+              -24,
+              0,
+              74
+            ],
+            [
+              -14,
+              0,
+              74
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "south_lane",
+          "points": [
+            [
+              -24,
+              0,
+              88.5
+            ],
+            [
+              -14,
+              0,
+              88.5
+            ]
+          ],
+          "reverse": true
+        }
+      ],
+      "shot_pairs": [
+        {
+          "id": "lower_feed_diagonal",
+          "a": [
+            -29,
+            1.32,
+            76
+          ],
+          "b": [
+            -17,
+            1.17,
+            78
+          ],
+          "state": "always",
+          "bidirectional": true
+        }
+      ],
+      "solid_pairs": [
+        {
+          "id": "feed_cover",
+          "a": [
+            -22,
+            0.8,
+            85
+          ],
+          "b": [
+            -16,
+            0.8,
+            85
+          ]
+        }
+      ],
+      "lights": [
+        {
+          "id": "MountedLamp",
+          "position": [
+            -19.0,
+            5.75,
+            80.0
+          ],
+          "room": "cultivation",
+          "energy": 3.8
+        }
+      ]
     }
-  ]
+  ],
+  "layout_revision": 14,
+  "room_outlines": {
+    "loading": {
+      "outline_xz": [
+        [
+          -16,
+          -13
+        ],
+        [
+          8,
+          -13
+        ],
+        [
+          8,
+          -5
+        ],
+        [
+          16,
+          -5
+        ],
+        [
+          16,
+          13
+        ],
+        [
+          -16,
+          13
+        ]
+      ],
+      "convex_floor_cells": [
+        {
+          "kind": "box",
+          "bounds_xz": [
+            -16,
+            8,
+            -13,
+            -5
+          ]
+        },
+        {
+          "kind": "box",
+          "bounds_xz": [
+            -16,
+            8,
+            -5,
+            13
+          ]
+        },
+        {
+          "kind": "box",
+          "bounds_xz": [
+            8,
+            16,
+            -5,
+            13
+          ]
+        }
+      ],
+      "floor_y": 8,
+      "roof_y": 17
+    },
+    "cultivation": {
+      "outline_xz": [
+        [
+          -7,
+          -14
+        ],
+        [
+          15,
+          -14
+        ],
+        [
+          15,
+          14
+        ],
+        [
+          -15,
+          14
+        ],
+        [
+          -15,
+          -6
+        ],
+        [
+          -7,
+          -6
+        ]
+      ],
+      "convex_floor_cells": [
+        {
+          "kind": "box",
+          "bounds_xz": [
+            -15,
+            -7,
+            -6,
+            14
+          ]
+        },
+        {
+          "kind": "box",
+          "bounds_xz": [
+            -7,
+            15,
+            -14,
+            -6
+          ]
+        },
+        {
+          "kind": "box",
+          "bounds_xz": [
+            -7,
+            15,
+            -6,
+            14
+          ]
+        }
+      ],
+      "floor_y": 0,
+      "roof_y": 9
+    },
+    "rupture": {
+      "outline_xz": [
+        [
+          -12,
+          -15
+        ],
+        [
+          12,
+          -15
+        ],
+        [
+          17,
+          -10
+        ],
+        [
+          17,
+          10
+        ],
+        [
+          12,
+          15
+        ],
+        [
+          -12,
+          15
+        ],
+        [
+          -17,
+          10
+        ],
+        [
+          -17,
+          -10
+        ]
+      ],
+      "convex_floor_cells": [
+        {
+          "kind": "convex",
+          "outline_xz": [
+            [
+              -12,
+              -15
+            ],
+            [
+              12,
+              -15
+            ],
+            [
+              17,
+              -10
+            ],
+            [
+              17,
+              10
+            ],
+            [
+              12,
+              15
+            ],
+            [
+              -12,
+              15
+            ],
+            [
+              -17,
+              10
+            ],
+            [
+              -17,
+              -10
+            ]
+          ]
+        }
+      ],
+      "floor_y": -4,
+      "roof_y": 8
+    }
+  },
+  "shell_fits": [
+    {
+      "room": "loading",
+      "node": "loading_Duct1",
+      "action": "trim_shell_box",
+      "old_position": [
+        14.75,
+        13.25,
+        0
+      ],
+      "position": [
+        14.75,
+        13.25,
+        3.735
+      ],
+      "old_size": [
+        0.7,
+        0.55,
+        24.5
+      ],
+      "size": [
+        0.7,
+        0.55,
+        17.03
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "loading",
+      "node": "loading_DuctFlange1-1",
+      "action": "omit_shell_trim",
+      "old_position": [
+        14.75,
+        13.25,
+        -11.9
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "loading",
+      "node": "loading_CeilingRib0",
+      "action": "trim_shell_box",
+      "old_position": [
+        0,
+        13.48,
+        -7.8
+      ],
+      "position": [
+        -3.985,
+        13.48,
+        -7.8
+      ],
+      "old_size": [
+        31.5,
+        0.45,
+        0.35
+      ],
+      "size": [
+        23.53,
+        0.45,
+        0.35
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "cultivation",
+      "node": "cultivation_Duct-1",
+      "action": "trim_shell_box",
+      "old_position": [
+        -53.75,
+        8.45,
+        80
+      ],
+      "position": [
+        -53.75,
+        8.45,
+        83.735
+      ],
+      "old_size": [
+        0.7,
+        0.55,
+        26.5
+      ],
+      "size": [
+        0.7,
+        0.55,
+        19.03
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "cultivation",
+      "node": "cultivation_DuctFlange-1-1",
+      "action": "omit_shell_trim",
+      "old_position": [
+        -53.75,
+        8.45,
+        67.1
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "cultivation",
+      "node": "cultivation_CeilingRib0",
+      "action": "trim_shell_box",
+      "old_position": [
+        -40,
+        8.68,
+        71.6
+      ],
+      "position": [
+        -36.015,
+        8.68,
+        71.6
+      ],
+      "old_size": [
+        29.5,
+        0.45,
+        0.35
+      ],
+      "size": [
+        21.53,
+        0.45,
+        0.35
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "cultivation",
+      "node": "cultivation_ReservoirColumn-1-1",
+      "action": "fit_shell_column",
+      "old_xz": [
+        -53.6,
+        68.0
+      ],
+      "xz": [
+        -53.6,
+        74.82
+      ],
+      "reason": "Keep structural column inside actual L footprint."
+    },
+    {
+      "room": "cultivation",
+      "node": "cultivation_ReservoirMain-1",
+      "action": "fit_shell_pipe",
+      "old_position": [
+        -40,
+        8.0,
+        68.0
+      ],
+      "position": [
+        -36.64,
+        8.0,
+        68.0
+      ],
+      "old_length": 27,
+      "length": 20.28
+    },
+    {
+      "room": "cultivation",
+      "node": "cultivation_TankRim-1",
+      "action": "omit_shell_trim",
+      "old_position": [
+        -54.75,
+        7.5,
+        80
+      ],
+      "old_size": [
+        0.6,
+        0.45,
+        27.5
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "rupture",
+      "node": "rupture_Duct-1",
+      "action": "trim_shell_box",
+      "old_position": [
+        24.25,
+        7.45,
+        120
+      ],
+      "position": [
+        24.25,
+        7.45,
+        120.0
+      ],
+      "old_size": [
+        0.7,
+        0.55,
+        28.5
+      ],
+      "size": [
+        0.7,
+        0.55,
+        20.920000000000016
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "rupture",
+      "node": "rupture_DuctFlange-1-1",
+      "action": "omit_shell_trim",
+      "old_position": [
+        24.25,
+        7.45,
+        106.1
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "rupture",
+      "node": "rupture_DuctFlange-11",
+      "action": "omit_shell_trim",
+      "old_position": [
+        24.25,
+        7.45,
+        133.9
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "rupture",
+      "node": "rupture_Duct1",
+      "action": "trim_shell_box",
+      "old_position": [
+        55.75,
+        7.45,
+        120
+      ],
+      "position": [
+        55.75,
+        7.45,
+        120.0
+      ],
+      "old_size": [
+        0.7,
+        0.55,
+        28.5
+      ],
+      "size": [
+        0.7,
+        0.55,
+        20.920000000000016
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "rupture",
+      "node": "rupture_DuctFlange1-1",
+      "action": "omit_shell_trim",
+      "old_position": [
+        55.75,
+        7.45,
+        106.1
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "rupture",
+      "node": "rupture_DuctFlange11",
+      "action": "omit_shell_trim",
+      "old_position": [
+        55.75,
+        7.45,
+        133.9
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "rupture",
+      "node": "rupture_SiloButtress-1-1",
+      "action": "fit_shell_buttress",
+      "old_xz": [
+        24.1,
+        107.0
+      ],
+      "xz": [
+        27.13,
+        109.13
+      ],
+      "reason": "Inset closed structural rib/feed assembly from actual chamfer."
+    },
+    {
+      "room": "rupture",
+      "node": "rupture_SiloButtress-11",
+      "action": "fit_shell_buttress",
+      "old_xz": [
+        24.1,
+        133.0
+      ],
+      "xz": [
+        27.13,
+        130.87
+      ],
+      "reason": "Inset closed structural rib/feed assembly from actual chamfer."
+    },
+    {
+      "room": "rupture",
+      "node": "rupture_SiloButtress1-1",
+      "action": "fit_shell_buttress",
+      "old_xz": [
+        55.9,
+        107.0
+      ],
+      "xz": [
+        52.87,
+        109.13
+      ],
+      "reason": "Inset closed structural rib/feed assembly from actual chamfer."
+    },
+    {
+      "room": "rupture",
+      "node": "rupture_SiloButtress11",
+      "action": "fit_shell_buttress",
+      "old_xz": [
+        55.9,
+        133.0
+      ],
+      "xz": [
+        52.87,
+        130.87
+      ],
+      "reason": "Inset closed structural rib/feed assembly from actual chamfer."
+    },
+    {
+      "room": "rupture",
+      "node": "RuptureAngularGrowth-1-1",
+      "action": "fit_shell_growth",
+      "old_xz": [
+        25.0,
+        107.0
+      ],
+      "xz": [
+        26.78,
+        109.08
+      ],
+      "reason": "Keep closed organic boundary dressing inside chamfer; no prop inventory/type change."
+    },
+    {
+      "room": "rupture",
+      "node": "RuptureAngularGrowth-11",
+      "action": "fit_shell_growth",
+      "old_xz": [
+        25.0,
+        133.0
+      ],
+      "xz": [
+        26.78,
+        130.92
+      ],
+      "reason": "Keep closed organic boundary dressing inside chamfer; no prop inventory/type change."
+    },
+    {
+      "room": "rupture",
+      "node": "RuptureAngularGrowth1-1",
+      "action": "fit_shell_growth",
+      "old_xz": [
+        55.0,
+        107.0
+      ],
+      "xz": [
+        53.22,
+        109.08
+      ],
+      "reason": "Keep closed organic boundary dressing inside chamfer; no prop inventory/type change."
+    },
+    {
+      "room": "rupture",
+      "node": "RuptureAngularGrowth11",
+      "action": "fit_shell_growth",
+      "old_xz": [
+        55.0,
+        133.0
+      ],
+      "xz": [
+        53.22,
+        130.92
+      ],
+      "reason": "Keep closed organic boundary dressing inside chamfer; no prop inventory/type change."
+    }
+  ],
+  "optional_reserve": {
+    "room": "security_store",
+    "partition_z": -6.8,
+    "x_span": [
+      -53,
+      -27
+    ],
+    "door_x_span": [
+      -43,
+      -37
+    ],
+    "floor": 8,
+    "partition_height": 3.6,
+    "door_height": 3.4,
+    "door_open_offset": [
+      0,
+      4,
+      0
+    ],
+    "actor_positions": [
+      [
+        -42.5,
+        8.87,
+        -7.4
+      ],
+      [
+        -41.5,
+        8.87,
+        -7.4
+      ]
+    ],
+    "north_prop_moves": {
+      "security_store.prop.0": [
+        -10.0,
+        0,
+        -4.5
+      ],
+      "security_store.prop.2": [
+        10.0,
+        0,
+        -4.5
+      ]
+    },
+    "reward_stable_id": "pale_ward_03.pickup.Bonus_security_store",
+    "reward_kind": "shells",
+    "reward_amount": 12,
+    "health_bonus_unchanged": true,
+    "requires": [],
+    "arena_id": "v14_security_store_reserve",
+    "release_door_stable_id": "pale_ward_03.door.v14_security_store_reserve",
+    "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
+    "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+    "completion_message": "Reserve secured \u00b7 main objectives unchanged",
+    "closet_roof_y": 11.8,
+    "door_node": "Door_v14_security_store_reserve",
+    "actor_ids": [
+      "pale_ward_03.loading.enemy.1",
+      "pale_ward_03.loading.enemy.3"
+    ],
+    "actor_fit_amendment": "Coordinator approved both existing security actors at[-42.5,8.87,-7.4] and[-41.5,8.87,-7.4] after native live body probes showed the original poses pursued into the right partition. Same six-metre door, original kinds/IDs, no AI change; actual natural aggression/retreat proof required."
+  }
 }

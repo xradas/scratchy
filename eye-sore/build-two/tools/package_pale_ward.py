@@ -32,7 +32,7 @@ RESERVED_NAMES = {"BUILD.json", "README.txt", "SHA256SUMS", "SOURCE_SHA256SUMS",
 BAD_OUTPUT = re.compile(r"(?:^|\n)\s*(?:SCRIPT ERROR:|ERROR:|WARNING:)|SMOKE_FAILED:", re.I)
 EXCLUDED = {".godot", ".git", "build", "concepts", "docs", "tools", "verification"}
 STYLE_PASS_LIMITATIONS = [
-    "V13 rebuilds only the three Pale Ward maps; the other six playable maps retain their prior layouts. New Ward human-paced 20–25 minute exploration and visual acceptance remain pending. Session-only checkpoints do not survive title return or closing the game.",
+    "V14 adds nine shaped Ward rooms, three broad connections and optional reserve fights; only the three Pale Ward maps are rebuilt; the other six playable maps retain their prior layouts. New Ward human-paced 20–25 minute exploration and visual acceptance remain pending. Session-only checkpoints do not survive title return or closing the game.",
     "Checkpoint Continue restores logical deaths/corpses and inventory; transient blood and gib fragments are cleared rather than saved.",
     "V12 gore uses bounded cosmetic closed meshes textured from existing painted parts; final human visual review of breakup, settling and blood intensity remains pending.",
     "Current style pass combines world, viewgun and muzzle presentation at a 320 × 180 display grid; human visual acceptance against the approved concept remains pending.",
@@ -112,6 +112,7 @@ def provenance_files() -> list[Path]:
              "docs/production-v11", "concepts/production-v11",
              "docs/production-v12", "concepts/production-v12",
              "docs/level-redesign-v13", "concepts/level-redesign-v13",
+             "docs/ward-spatial-v14", "concepts/ward-spatial-v14",
              "concepts/pickups-rooms-v6",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")
@@ -131,7 +132,7 @@ def provenance_files() -> list[Path]:
     for root in roots:
         paths.extend(p for p in (PROJECT / root).rglob("*")
                      if p.is_file() and (p.suffix in {".json", ".txt", ".md"}
-                         or (root in {"docs/level-redesign-v13", "concepts/level-redesign-v13"}
+                         or (root in {"docs/level-redesign-v13", "concepts/level-redesign-v13", "docs/ward-spatial-v14", "concepts/ward-spatial-v14"}
                              and p.suffix in {".svg", ".html", ".png"}))
                      and not (root in {"concepts/arsenal-architecture-v2", "concepts/campaign-v3"}
                               and "review" in p.relative_to(PROJECT / root).parts))
@@ -394,7 +395,8 @@ def package(args: argparse.Namespace) -> dict:
             "Ward Containment: isolate culture/waste feeds in either order; both drain\n"
             "the basin and open firing balconies. All enemy kills are not required.\n"
             "Ward Breach: destroy three anchors during the descent, then reach rupture.\n"
-            "Shared courts, raised firing positions and return shortcuts join Ward areas.\n"
+            "Shaped clinical rooms, shared halls, raised positions and shortcuts join Ward areas.\n"
+            "Optional shell reserves open staff closets; their retreat remains clear.\n"
             "The six later maps retain the breaker/key/arena progression for now.\n"
             "Side rooms and secrets are optional. Chapters follow in the above order.\n"
             "The previous three standalone stages remain selectable separately.\n\n"

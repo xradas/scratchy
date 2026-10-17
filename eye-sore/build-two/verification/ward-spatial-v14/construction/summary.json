@@ -1,0 +1,142 @@
+{
+  "status": "construction_source_frozen_static_and_repro_pass_independent_live_qa_separate",
+  "layout_revision": 14,
+  "schema_design_version": 13,
+  "baseline": "94c4f265371e5c21c9d4411e5897577799705bd7",
+  "checks": 45174,
+  "lane_samples": 22575,
+  "native_static_reports": {
+    "pale_ward_01": {
+      "checks": 14600,
+      "excluded_operable_bodies": 12,
+      "failures": [],
+      "lane_samples": 7296,
+      "level": "pale_ward_01",
+      "passed": true,
+      "scope": "Actual native .3radius/1.7height capsule overlap and flat upward floor probes on all nonlift portalcenter/\u00b1.65m lanes, every.4m; intentional gates/traps/liftguards excluded from staticclearance only. Real door/lift interactions and live physical walking require separate Main route fixture."
+    },
+    "pale_ward_02": {
+      "checks": 15169,
+      "excluded_operable_bodies": 10,
+      "failures": [],
+      "lane_samples": 7581,
+      "level": "pale_ward_02",
+      "passed": true,
+      "scope": "Actual native .3radius/1.7height capsule overlap and flat upward floor probes on all nonlift portalcenter/\u00b1.65m lanes, every.4m; intentional gates/traps/liftguards excluded from staticclearance only. Real door/lift interactions and live physical walking require separate Main route fixture."
+    },
+    "pale_ward_03": {
+      "checks": 15405,
+      "excluded_operable_bodies": 9,
+      "failures": [],
+      "lane_samples": 7698,
+      "level": "pale_ward_03",
+      "passed": true,
+      "scope": "Actual native .3radius/1.7height capsule overlap and flat upward floor probes on all nonlift portalcenter/\u00b1.65m lanes, every.4m; intentional gates/traps/liftguards excluded from staticclearance only. Real door/lift interactions and live physical walking require separate Main route fixture."
+    }
+  },
+  "scene_sha256": {
+    "pale_ward_01": "4807f5a334ac92e050909e2138fb038714f153e5f4c34ed20aa95ba3ccb4aeb5",
+    "pale_ward_02": "e2033eb5467a374d47630efdba8c15051a9def3998c9b533d1bb2b69a4ee14cf",
+    "pale_ward_03": "e9fb6f1e2835daeb20316942dbaaf19f11071c490442fa46e4054d8290fffc7d"
+  },
+  "source_hashes": {
+    "tools/author_levels_v13.py": "c8823ac1dd78ce6bf6aa94adf89057ba252f83b7bdaffe9a16a24e63270887b2",
+    "tools/ward_shell_v14.py": "e0d57bf74542e1df57c1b78b4de2572ec89ce6ac82586ebf2108c22cdb145890",
+    "docs/level-redesign-v13/levels.json": "11023eb0fd20d840588d3f722e7f7977121e844968f7b269cf1b03071ed6c26a"
+  },
+  "regenerate": [
+    "python tools/author_campaign_v3.py --level pale_ward_01",
+    "python tools/author_campaign_v3.py --level pale_ward_02",
+    "python tools/author_campaign_v3.py --level pale_ward_03"
+  ],
+  "reproducibility": "15/15 outputs generated in memory byte-identically without writes;313 protected files unchanged;64/76/84 actor IDs/types/counts unchanged. Required objective dependencies/control/key/exit/initialflags/v13encounters/mainpickups exact; existing v13 structural connection data exact.",
+  "geometry": "Nine actual room outlines. Concave orthogonal outlines decomposed into closed rectangle floor/roof cells; only convex polygons use existing closed prism mesh/collider helper. New real boundary walls and cardinal cuts match outline. Native world-projected approved surfaces on exposed top/side/underside. Three additional wide ungated shared connections keep centre routes physically clear; no enemy navigation changes.",
+  "fit_reports": "exact-fits.json mirrors final author reports: shell-only notch/chamfer trims, alcove width fits, boundary column/buttress/growth insets;11/13/23 entries. Source named prop relocation IDs/counts preserved.",
+  "amendments": [
+    {
+      "case": "recovery_lane",
+      "finding": "Initial plan beds2/3 localz2 touched actual old+.65m capsule lane (8 contacts); centre clear did not supersede reserve.",
+      "fix": "Root approved beds2/3 +paired monitor10 localz2\u21922.3; source/plan/MD record it; native final lanes pass."
+    },
+    {
+      "case": "unicode_profile",
+      "finding": "Godot Variant resource parsing emitted3 InvalidUTF8 leadingbyteb7 diagnostics from json escaped Unicode middle-dot. Source files themselves decodedUTF8.",
+      "fix": "Resource dictionary/objective JSON serialization ensure_ascii=False now preserves actual UTF8 authored strings; native logs clean. No text/art raster substitution."
+    },
+    {
+      "case": "pump_closet_orientation",
+      "finding": "Original north closet would contain north entry before reward, invalidating optional encounter.",
+      "fix": "Coordinator moved closet SOUTH: partition46.8,back52,roof7.8,actorz49; restorednorth0/2baseline andmovedsouth1/3localz4.5. North entry/reward42/retreat remainclear."
+    },
+    {
+      "case": "intake_security_pursuit_fit",
+      "finding": "Original guard(-38,.87,-9) actual .38\u00d71.7m capsule sweep toward unchanged nav direction across partition clips atfraction.4766. This isolated geometric sweep is not a natural AI trajectory proof.",
+      "fix": "Coordinator approved ONLY guard(-41.5,.87,-7.4), same6mdoor/scientist(-42,.87,-9); same actual capsule sweep clear1.0. Independent naturalfight/retreat acceptance remains separatelytested."
+    }
+  ],
+  "optional_encounters": "Three actual opaque closed closets reuse existing12shell/25health bonuses and2existingactors each. Accepted shell reward alone releases stable-ID physical door/group; no E bypass, main clear, exit seal or new reward/actor. Runtime behavior and snapshots are StageLevel-owned and independently QA-tested.",
+  "navigation": "Static source-labelled signs plus existing stateful control indicators; conditional both-feed activation feedback uses actual flags. No dynamic sign, AI or main prerequisite addition.",
+  "scope_limits": [
+    "Static world floor/capsule probes cover old/new authored portal/structural lanes and simple rays, not complete player/combat acceptance. Operable doors intentionally excluded only from static capsule clearance.",
+    "Independent QA owns actual closed floor mesh/outline grid/complete prop bounds, real standing/crouching/stair movement, reciprocal swept contacts, optional reward/restore/reset/natural combat/retreat and both-order/fullcampaign results. Preserve their failed attempts.",
+    "Controlled Main stills establish construction readability only. Human tactics/navigation/concept match/listening and20\u201325minute pacing remain separate."
+  ],
+  "receipts": [
+    {
+      "source": "/tmp/eyesore-v14-intake-static-guard03.json",
+      "artifact": "pale_ward_01.json",
+      "sha256": "ea15cb7c0a5d8c362e33e3dd93fb5e16bed5bf554ee270e4ed9b1e6a5f40f3a6"
+    },
+    {
+      "source": "/tmp/eyesore-v14-intake-static-guard03.log",
+      "artifact": "pale_ward_01.log",
+      "sha256": "3baa73b39e13a18be67a85b89541119c43142652a9978e6c06e231ce68511f81"
+    },
+    {
+      "source": "/tmp/eyesore-v14-containment-static-south02.json",
+      "artifact": "pale_ward_02.json",
+      "sha256": "36c0e97d3b5c0fff817e2b05db9c30ec38126f3d4b7b142d547ebc75153aacaa"
+    },
+    {
+      "source": "/tmp/eyesore-v14-containment-static-south02.log",
+      "artifact": "pale_ward_02.log",
+      "sha256": "59801c25409823fda4fd8b5c17be6df564ac74d81d35f712debdfbba1fd83898"
+    },
+    {
+      "source": "/tmp/eyesore-v14-breach-static.json",
+      "artifact": "pale_ward_03.json",
+      "sha256": "14c15d571fc98d9fd154f34955b3a5c6b391569179b30ea2b4eb0bc3c0c76055"
+    },
+    {
+      "source": "/tmp/eyesore-v14-breach-static.log",
+      "artifact": "pale_ward_03.log",
+      "sha256": "4b500a4ca85064d6bf5a12cd4145170b0cdd02188f052fcedc446f893380d52f"
+    },
+    {
+      "source": "/tmp/eyesore-v14-author-repro.json",
+      "artifact": "author-repro.json",
+      "sha256": "405bd7872722d5eff2dccda774b242a16b9ed0934c0c03dbca0e5a5773797747"
+    },
+    {
+      "source": "/tmp/check_v14_author.py",
+      "artifact": "author-repro-fixture.py",
+      "sha256": "3d7f4b2e31c55d9e5e4d7b858e7f89570cca4a91661b4675b22eb89aa55e0390"
+    },
+    {
+      "source": "/tmp/check_structural_static_v13.gd",
+      "artifact": "static-fixture.gd",
+      "sha256": "72699d6c401761bc64eb24a5190268a6254e69d2d2b766c3dbe25529e0a94d33"
+    },
+    {
+      "source": "/tmp/probe_reserve_door_v14.gd",
+      "artifact": "reserve-body-probe.gd",
+      "sha256": "722d51247273c119b7105b3ec13c7d5f7870afd48d82d06c3d3b432c177297aa"
+    },
+    {
+      "source": "/tmp/eyesore-v14-reserve-door-fit.log",
+      "artifact": "reserve-body-probe.log",
+      "sha256": "3c8edfde6324e2f5fde2466afa6302fcf4e7fb8f9537783edd6ee3607a32aa6c"
+    }
+  ],
+  "superseded_breach": "Initial e9fb6f1 guard poses caused native pursuitblocked by real partition. Coordinator-authorized Breach-only75713f66 fit02 is in breach-guard-fix02/summary.json, with new actualcapsuleclearance/static/repro receipts and independent natural QA pending. Original rawproof retained unchanged."
+}

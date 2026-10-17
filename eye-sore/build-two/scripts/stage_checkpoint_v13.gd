@@ -53,7 +53,11 @@ static func restore(stage: Node, data: Dictionary) -> bool:
 		var sync:Variant=node.get("sync_to_physics") if node is AnimatableBody3D else null
 		if node is AnimatableBody3D:node.sync_to_physics=false
 		node.transform=state.transform
-		if node is AnimatableBody3D:node.sync_to_physics=sync
+		if node is AnimatableBody3D:
+			node.sync_to_physics=sync
+			# The synchronized body may still own its pre-restore motion target.
+			# Replace that target too, or the next physics sync restores its old pose.
+			PhysicsServer3D.body_set_state(node.get_rid(),PhysicsServer3D.BODY_STATE_TRANSFORM,node.global_transform)
 		if state.has("shootable"):node.restore_mechanism_state(state.shootable)
 	for id in data.get("enemies",{}):
 		var enemy:CharacterBody3D=actors[id];var state:Dictionary=data.enemies[id]

@@ -1,0 +1,1726 @@
+{
+  "pale_ward_01": {
+    "report_sha256": "fb1f060b020931a5baf41be08cca5603d670190a9bb68e5c39404831f685d489",
+    "room_outlines": {
+      "reception": {
+        "outline_xz": [
+          [
+            -16,
+            -14
+          ],
+          [
+            8,
+            -14
+          ],
+          [
+            8,
+            -6
+          ],
+          [
+            16,
+            -6
+          ],
+          [
+            16,
+            14
+          ],
+          [
+            -16,
+            14
+          ]
+        ],
+        "convex_floor_cells": [
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -16,
+              8,
+              -14,
+              -6
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -16,
+              8,
+              -6,
+              14
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              8,
+              16,
+              -6,
+              14
+            ]
+          }
+        ],
+        "floor_y": 0,
+        "roof_y": 8
+      },
+      "diagnostics": {
+        "outline_xz": [
+          [
+            -9,
+            -12
+          ],
+          [
+            9,
+            -12
+          ],
+          [
+            13,
+            -8
+          ],
+          [
+            13,
+            8
+          ],
+          [
+            9,
+            12
+          ],
+          [
+            -9,
+            12
+          ],
+          [
+            -13,
+            8
+          ],
+          [
+            -13,
+            -8
+          ]
+        ],
+        "convex_floor_cells": [
+          {
+            "kind": "convex",
+            "outline_xz": [
+              [
+                -9,
+                -12
+              ],
+              [
+                9,
+                -12
+              ],
+              [
+                13,
+                -8
+              ],
+              [
+                13,
+                8
+              ],
+              [
+                9,
+                12
+              ],
+              [
+                -9,
+                12
+              ],
+              [
+                -13,
+                8
+              ],
+              [
+                -13,
+                -8
+              ]
+            ]
+          }
+        ],
+        "floor_y": 2,
+        "roof_y": 9
+      },
+      "recovery": {
+        "outline_xz": [
+          [
+            -16,
+            -13
+          ],
+          [
+            8,
+            -13
+          ],
+          [
+            8,
+            -5
+          ],
+          [
+            16,
+            -5
+          ],
+          [
+            16,
+            13
+          ],
+          [
+            -16,
+            13
+          ]
+        ],
+        "convex_floor_cells": [
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -16,
+              8,
+              -13,
+              -5
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -16,
+              8,
+              -5,
+              13
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              8,
+              16,
+              -5,
+              13
+            ]
+          }
+        ],
+        "floor_y": 2,
+        "roof_y": 10
+      }
+    },
+    "shell_fits": [
+      {
+        "room": "reception",
+        "node": "reception_Duct1",
+        "action": "trim_shell_box",
+        "old_position": [
+          14.75,
+          4.05,
+          0
+        ],
+        "position": [
+          14.75,
+          4.05,
+          3.735
+        ],
+        "old_size": [
+          0.7,
+          0.55,
+          26.5
+        ],
+        "size": [
+          0.7,
+          0.55,
+          19.03
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "reception",
+        "node": "reception_DuctFlange1-1",
+        "action": "omit_shell_trim",
+        "old_position": [
+          14.75,
+          4.05,
+          -12.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "reception",
+        "node": "reception_CeilingRib0",
+        "action": "trim_shell_box",
+        "old_position": [
+          0,
+          4.279999999999999,
+          -8.4
+        ],
+        "position": [
+          -3.985,
+          4.279999999999999,
+          -8.4
+        ],
+        "old_size": [
+          31.5,
+          0.45,
+          0.35
+        ],
+        "size": [
+          23.53,
+          0.45,
+          0.35
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "diagnostics",
+        "node": "diagnostics_Duct-1",
+        "action": "trim_shell_box",
+        "old_position": [
+          28.25,
+          6.65,
+          -40
+        ],
+        "position": [
+          28.25,
+          6.65,
+          -40.0
+        ],
+        "old_size": [
+          0.7,
+          0.55,
+          22.5
+        ],
+        "size": [
+          0.7,
+          0.55,
+          16.92
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "diagnostics",
+        "node": "diagnostics_DuctFlange-1-1",
+        "action": "omit_shell_trim",
+        "old_position": [
+          28.25,
+          6.65,
+          -50.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "diagnostics",
+        "node": "diagnostics_DuctFlange-11",
+        "action": "omit_shell_trim",
+        "old_position": [
+          28.25,
+          6.65,
+          -29.1
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "diagnostics",
+        "node": "diagnostics_Duct1",
+        "action": "trim_shell_box",
+        "old_position": [
+          51.75,
+          6.65,
+          -40
+        ],
+        "position": [
+          51.75,
+          6.65,
+          -40.0
+        ],
+        "old_size": [
+          0.7,
+          0.55,
+          22.5
+        ],
+        "size": [
+          0.7,
+          0.55,
+          16.92
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "diagnostics",
+        "node": "diagnostics_DuctFlange1-1",
+        "action": "omit_shell_trim",
+        "old_position": [
+          51.75,
+          6.65,
+          -50.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "diagnostics",
+        "node": "diagnostics_DuctFlange11",
+        "action": "omit_shell_trim",
+        "old_position": [
+          51.75,
+          6.65,
+          -29.1
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "diagnostics",
+        "node": "diagnostics_Observation",
+        "action": "trim_sealed_alcove",
+        "local_z_span": [
+          4,
+          7.75
+        ],
+        "reason": "Actual straight east boundary ends at chamfer/notch; closed nontraversable alcove fits its aperture."
+      },
+      {
+        "room": "recovery",
+        "node": "recovery_OverheadGantry0",
+        "action": "trim_shell_box",
+        "old_position": [
+          -40,
+          8.65,
+          33.76
+        ],
+        "position": [
+          -43.735,
+          8.65,
+          33.76
+        ],
+        "old_size": [
+          30.5,
+          0.5,
+          0.7
+        ],
+        "size": [
+          23.03,
+          0.5,
+          0.7
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      }
+    ],
+    "optional_reserve": {
+      "room": "records",
+      "partition_z": -6.8,
+      "x_span": [
+        -53,
+        -27
+      ],
+      "door_x_span": [
+        -43,
+        -37
+      ],
+      "floor": 0,
+      "partition_height": 3.6,
+      "door_height": 3.4,
+      "door_open_offset": [
+        0,
+        4,
+        0
+      ],
+      "actor_positions": [
+        [
+          -42,
+          0.87,
+          -9
+        ],
+        [
+          -41.5,
+          0.87,
+          -7.4
+        ]
+      ],
+      "north_prop_moves": {
+        "records.prop.0": [
+          -10.0,
+          0,
+          -4.5
+        ],
+        "records.prop.2": [
+          10.0,
+          0,
+          -4.5
+        ]
+      },
+      "reward_stable_id": "pale_ward_01.pickup.Bonus_records",
+      "reward_kind": "shells",
+      "reward_amount": 12,
+      "health_bonus_unchanged": true,
+      "requires": [],
+      "arena_id": "v14_records_reserve",
+      "release_door_stable_id": "pale_ward_01.door.v14_records_reserve",
+      "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
+      "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+      "completion_message": "Reserve secured \u00b7 main objectives unchanged",
+      "closet_roof_y": 3.8,
+      "door_node": "Door_v14_records_reserve",
+      "actor_ids": [
+        "pale_ward_01.triage.enemy.1",
+        "pale_ward_01.triage.enemy.2"
+      ],
+      "actor_fit_amendment": "Coordinator approved security-only near-front west pose after actual .38m capsule sweep: prior desired nav line clipped partition; new pose clears same6m physical door. Scientist remains[-42,.87,-9]; no AI/door-width change. Natural pursuit/retreat QA required."
+    }
+  },
+  "pale_ward_02": {
+    "report_sha256": "9a554ded03c18eb1f319a33677bd1d99d67b9ea7c4ca7b299d155fcc0b5e9e2a",
+    "room_outlines": {
+      "overlook": {
+        "outline_xz": [
+          [
+            -14,
+            -13
+          ],
+          [
+            14,
+            -13
+          ],
+          [
+            16,
+            -11
+          ],
+          [
+            16,
+            11
+          ],
+          [
+            14,
+            13
+          ],
+          [
+            -14,
+            13
+          ],
+          [
+            -16,
+            11
+          ],
+          [
+            -16,
+            -11
+          ]
+        ],
+        "convex_floor_cells": [
+          {
+            "kind": "convex",
+            "outline_xz": [
+              [
+                -14,
+                -13
+              ],
+              [
+                14,
+                -13
+              ],
+              [
+                16,
+                -11
+              ],
+              [
+                16,
+                11
+              ],
+              [
+                14,
+                13
+              ],
+              [
+                -14,
+                13
+              ],
+              [
+                -16,
+                11
+              ],
+              [
+                -16,
+                -11
+              ]
+            ]
+          }
+        ],
+        "floor_y": 4,
+        "roof_y": 13
+      },
+      "cultures": {
+        "outline_xz": [
+          [
+            -16,
+            -14
+          ],
+          [
+            16,
+            -14
+          ],
+          [
+            16,
+            14
+          ],
+          [
+            -8,
+            14
+          ],
+          [
+            -8,
+            6
+          ],
+          [
+            -16,
+            6
+          ]
+        ],
+        "convex_floor_cells": [
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -16,
+              -8,
+              -14,
+              6
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -8,
+              16,
+              -14,
+              6
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -8,
+              16,
+              6,
+              14
+            ]
+          }
+        ],
+        "floor_y": 4,
+        "roof_y": 13
+      },
+      "waste_lab": {
+        "outline_xz": [
+          [
+            -16,
+            -14
+          ],
+          [
+            16,
+            -14
+          ],
+          [
+            16,
+            6
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            8,
+            14
+          ],
+          [
+            -16,
+            14
+          ]
+        ],
+        "convex_floor_cells": [
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -16,
+              8,
+              -14,
+              6
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -16,
+              8,
+              6,
+              14
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              8,
+              16,
+              -14,
+              6
+            ]
+          }
+        ],
+        "floor_y": 4,
+        "roof_y": 13
+      }
+    },
+    "shell_fits": [
+      {
+        "room": "overlook",
+        "node": "overlook_Duct-1",
+        "action": "trim_shell_box",
+        "old_position": [
+          -14.75,
+          9.25,
+          0
+        ],
+        "position": [
+          -14.75,
+          9.25,
+          0.0
+        ],
+        "old_size": [
+          0.7,
+          0.55,
+          24.5
+        ],
+        "size": [
+          0.7,
+          0.55,
+          22.919999999999998
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "overlook",
+        "node": "overlook_DuctFlange-1-1",
+        "action": "trim_shell_box",
+        "old_position": [
+          -14.75,
+          9.25,
+          -11.9
+        ],
+        "position": [
+          -14.462499999999999,
+          9.25,
+          -11.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "size": [
+          0.2649999999999988,
+          0.68,
+          0.13
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "overlook",
+        "node": "overlook_DuctFlange-11",
+        "action": "trim_shell_box",
+        "old_position": [
+          -14.75,
+          9.25,
+          11.9
+        ],
+        "position": [
+          -14.462499999999999,
+          9.25,
+          11.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "size": [
+          0.2649999999999988,
+          0.68,
+          0.13
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "overlook",
+        "node": "overlook_Duct1",
+        "action": "trim_shell_box",
+        "old_position": [
+          14.75,
+          9.25,
+          0
+        ],
+        "position": [
+          14.75,
+          9.25,
+          0.0
+        ],
+        "old_size": [
+          0.7,
+          0.55,
+          24.5
+        ],
+        "size": [
+          0.7,
+          0.55,
+          22.919999999999998
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "overlook",
+        "node": "overlook_DuctFlange1-1",
+        "action": "trim_shell_box",
+        "old_position": [
+          14.75,
+          9.25,
+          -11.9
+        ],
+        "position": [
+          14.462499999999999,
+          9.25,
+          -11.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "size": [
+          0.2649999999999988,
+          0.68,
+          0.13
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "overlook",
+        "node": "overlook_DuctFlange11",
+        "action": "trim_shell_box",
+        "old_position": [
+          14.75,
+          9.25,
+          11.9
+        ],
+        "position": [
+          14.462499999999999,
+          9.25,
+          11.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "size": [
+          0.2649999999999988,
+          0.68,
+          0.13
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "cultures",
+        "node": "cultures_Duct-1",
+        "action": "trim_shell_box",
+        "old_position": [
+          -94.75,
+          8.649999999999999,
+          0
+        ],
+        "position": [
+          -94.75,
+          8.649999999999999,
+          -3.735
+        ],
+        "old_size": [
+          0.7,
+          0.55,
+          26.5
+        ],
+        "size": [
+          0.7,
+          0.55,
+          19.03
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "cultures",
+        "node": "cultures_DuctFlange-11",
+        "action": "omit_shell_trim",
+        "old_position": [
+          -94.75,
+          8.649999999999999,
+          12.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "cultures",
+        "node": "cultures_CeilingRib1",
+        "action": "trim_shell_box",
+        "old_position": [
+          -80,
+          8.879999999999999,
+          8.4
+        ],
+        "position": [
+          -76.015,
+          8.879999999999999,
+          8.4
+        ],
+        "old_size": [
+          31.5,
+          0.45,
+          0.35
+        ],
+        "size": [
+          23.53,
+          0.45,
+          0.35
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "waste_lab",
+        "node": "waste_lab_Duct1",
+        "action": "trim_shell_box",
+        "old_position": [
+          94.75,
+          8.649999999999999,
+          0
+        ],
+        "position": [
+          94.75,
+          8.649999999999999,
+          -3.735
+        ],
+        "old_size": [
+          0.7,
+          0.55,
+          26.5
+        ],
+        "size": [
+          0.7,
+          0.55,
+          19.03
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "waste_lab",
+        "node": "waste_lab_DuctFlange11",
+        "action": "omit_shell_trim",
+        "old_position": [
+          94.75,
+          8.649999999999999,
+          12.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "waste_lab",
+        "node": "waste_lab_CeilingRib1",
+        "action": "trim_shell_box",
+        "old_position": [
+          80,
+          8.879999999999999,
+          8.4
+        ],
+        "position": [
+          76.015,
+          8.879999999999999,
+          8.4
+        ],
+        "old_size": [
+          31.5,
+          0.45,
+          0.35
+        ],
+        "size": [
+          23.53,
+          0.45,
+          0.35
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "waste_lab",
+        "node": "waste_lab_Observation",
+        "action": "trim_sealed_alcove",
+        "local_z_span": [
+          4,
+          5.75
+        ],
+        "reason": "Actual straight east boundary ends at chamfer/notch; closed nontraversable alcove fits its aperture."
+      }
+    ],
+    "optional_reserve": {
+      "room": "pump_store",
+      "partition_z": 46.8,
+      "x_span": [
+        -13,
+        13
+      ],
+      "door_x_span": [
+        -3,
+        3
+      ],
+      "floor": 4,
+      "partition_height": 3.6,
+      "door_height": 3.4,
+      "door_open_offset": [
+        0,
+        4,
+        0
+      ],
+      "actor_positions": [
+        [
+          -2,
+          4.87,
+          49
+        ],
+        [
+          2,
+          4.87,
+          49
+        ]
+      ],
+      "north_prop_moves": {},
+      "reward_stable_id": "pale_ward_02.pickup.Bonus_pump_store",
+      "reward_kind": "shells",
+      "reward_amount": 12,
+      "health_bonus_unchanged": true,
+      "requires": [],
+      "arena_id": "v14_pump_store_reserve",
+      "release_door_stable_id": "pale_ward_02.door.v14_pump_store_reserve",
+      "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
+      "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+      "completion_message": "Reserve secured \u00b7 main objectives unchanged",
+      "closet_roof_y": 7.8,
+      "closet_side": "south",
+      "south_prop_moves": {
+        "pump_store.prop.1": [
+          -10,
+          0,
+          4.5
+        ],
+        "pump_store.prop.3": [
+          10,
+          0,
+          4.5
+        ]
+      },
+      "restore_north_props_from_baseline": true,
+      "fit_amendment": "Coordinator review found north main entrance entered the unreleased closet. Move closet to south, preserving north entry, reward and retreat.",
+      "door_node": "Door_v14_pump_store_reserve",
+      "actor_ids": [
+        "pale_ward_02.culture_office.enemy.0",
+        "pale_ward_02.waste_lab.enemy.2"
+      ]
+    }
+  },
+  "pale_ward_03": {
+    "report_sha256": "d0383ea51491978f2b604c40485c745af72f32dc4f9fbd4be7385a6c2be472d1",
+    "room_outlines": {
+      "loading": {
+        "outline_xz": [
+          [
+            -16,
+            -13
+          ],
+          [
+            8,
+            -13
+          ],
+          [
+            8,
+            -5
+          ],
+          [
+            16,
+            -5
+          ],
+          [
+            16,
+            13
+          ],
+          [
+            -16,
+            13
+          ]
+        ],
+        "convex_floor_cells": [
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -16,
+              8,
+              -13,
+              -5
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -16,
+              8,
+              -5,
+              13
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              8,
+              16,
+              -5,
+              13
+            ]
+          }
+        ],
+        "floor_y": 8,
+        "roof_y": 17
+      },
+      "cultivation": {
+        "outline_xz": [
+          [
+            -7,
+            -14
+          ],
+          [
+            15,
+            -14
+          ],
+          [
+            15,
+            14
+          ],
+          [
+            -15,
+            14
+          ],
+          [
+            -15,
+            -6
+          ],
+          [
+            -7,
+            -6
+          ]
+        ],
+        "convex_floor_cells": [
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -15,
+              -7,
+              -6,
+              14
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -7,
+              15,
+              -14,
+              -6
+            ]
+          },
+          {
+            "kind": "box",
+            "bounds_xz": [
+              -7,
+              15,
+              -6,
+              14
+            ]
+          }
+        ],
+        "floor_y": 0,
+        "roof_y": 9
+      },
+      "rupture": {
+        "outline_xz": [
+          [
+            -12,
+            -15
+          ],
+          [
+            12,
+            -15
+          ],
+          [
+            17,
+            -10
+          ],
+          [
+            17,
+            10
+          ],
+          [
+            12,
+            15
+          ],
+          [
+            -12,
+            15
+          ],
+          [
+            -17,
+            10
+          ],
+          [
+            -17,
+            -10
+          ]
+        ],
+        "convex_floor_cells": [
+          {
+            "kind": "convex",
+            "outline_xz": [
+              [
+                -12,
+                -15
+              ],
+              [
+                12,
+                -15
+              ],
+              [
+                17,
+                -10
+              ],
+              [
+                17,
+                10
+              ],
+              [
+                12,
+                15
+              ],
+              [
+                -12,
+                15
+              ],
+              [
+                -17,
+                10
+              ],
+              [
+                -17,
+                -10
+              ]
+            ]
+          }
+        ],
+        "floor_y": -4,
+        "roof_y": 8
+      }
+    },
+    "shell_fits": [
+      {
+        "room": "loading",
+        "node": "loading_Duct1",
+        "action": "trim_shell_box",
+        "old_position": [
+          14.75,
+          13.25,
+          0
+        ],
+        "position": [
+          14.75,
+          13.25,
+          3.735
+        ],
+        "old_size": [
+          0.7,
+          0.55,
+          24.5
+        ],
+        "size": [
+          0.7,
+          0.55,
+          17.03
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "loading",
+        "node": "loading_DuctFlange1-1",
+        "action": "omit_shell_trim",
+        "old_position": [
+          14.75,
+          13.25,
+          -11.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "loading",
+        "node": "loading_CeilingRib0",
+        "action": "trim_shell_box",
+        "old_position": [
+          0,
+          13.48,
+          -7.8
+        ],
+        "position": [
+          -3.985,
+          13.48,
+          -7.8
+        ],
+        "old_size": [
+          31.5,
+          0.45,
+          0.35
+        ],
+        "size": [
+          23.53,
+          0.45,
+          0.35
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "cultivation",
+        "node": "cultivation_Duct-1",
+        "action": "trim_shell_box",
+        "old_position": [
+          -53.75,
+          8.45,
+          80
+        ],
+        "position": [
+          -53.75,
+          8.45,
+          83.735
+        ],
+        "old_size": [
+          0.7,
+          0.55,
+          26.5
+        ],
+        "size": [
+          0.7,
+          0.55,
+          19.03
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "cultivation",
+        "node": "cultivation_DuctFlange-1-1",
+        "action": "omit_shell_trim",
+        "old_position": [
+          -53.75,
+          8.45,
+          67.1
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "cultivation",
+        "node": "cultivation_CeilingRib0",
+        "action": "trim_shell_box",
+        "old_position": [
+          -40,
+          8.68,
+          71.6
+        ],
+        "position": [
+          -36.015,
+          8.68,
+          71.6
+        ],
+        "old_size": [
+          29.5,
+          0.45,
+          0.35
+        ],
+        "size": [
+          21.53,
+          0.45,
+          0.35
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "cultivation",
+        "node": "cultivation_ReservoirColumn-1-1",
+        "action": "fit_shell_column",
+        "old_xz": [
+          -53.6,
+          68.0
+        ],
+        "xz": [
+          -53.6,
+          74.82
+        ],
+        "reason": "Keep structural column inside actual L footprint."
+      },
+      {
+        "room": "cultivation",
+        "node": "cultivation_ReservoirMain-1",
+        "action": "fit_shell_pipe",
+        "old_position": [
+          -40,
+          8.0,
+          68.0
+        ],
+        "position": [
+          -36.64,
+          8.0,
+          68.0
+        ],
+        "old_length": 27,
+        "length": 20.28
+      },
+      {
+        "room": "cultivation",
+        "node": "cultivation_TankRim-1",
+        "action": "omit_shell_trim",
+        "old_position": [
+          -54.75,
+          7.5,
+          80
+        ],
+        "old_size": [
+          0.6,
+          0.45,
+          27.5
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "rupture",
+        "node": "rupture_Duct-1",
+        "action": "trim_shell_box",
+        "old_position": [
+          24.25,
+          7.45,
+          120
+        ],
+        "position": [
+          24.25,
+          7.45,
+          120.0
+        ],
+        "old_size": [
+          0.7,
+          0.55,
+          28.5
+        ],
+        "size": [
+          0.7,
+          0.55,
+          20.920000000000016
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "rupture",
+        "node": "rupture_DuctFlange-1-1",
+        "action": "omit_shell_trim",
+        "old_position": [
+          24.25,
+          7.45,
+          106.1
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "rupture",
+        "node": "rupture_DuctFlange-11",
+        "action": "omit_shell_trim",
+        "old_position": [
+          24.25,
+          7.45,
+          133.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "rupture",
+        "node": "rupture_Duct1",
+        "action": "trim_shell_box",
+        "old_position": [
+          55.75,
+          7.45,
+          120
+        ],
+        "position": [
+          55.75,
+          7.45,
+          120.0
+        ],
+        "old_size": [
+          0.7,
+          0.55,
+          28.5
+        ],
+        "size": [
+          0.7,
+          0.55,
+          20.920000000000016
+        ],
+        "reason": "Fit closed beam/duct/trim to actual outline."
+      },
+      {
+        "room": "rupture",
+        "node": "rupture_DuctFlange1-1",
+        "action": "omit_shell_trim",
+        "old_position": [
+          55.75,
+          7.45,
+          106.1
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "rupture",
+        "node": "rupture_DuctFlange11",
+        "action": "omit_shell_trim",
+        "old_position": [
+          55.75,
+          7.45,
+          133.9
+        ],
+        "old_size": [
+          0.84,
+          0.68,
+          0.13
+        ],
+        "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+      },
+      {
+        "room": "rupture",
+        "node": "rupture_SiloButtress-1-1",
+        "action": "fit_shell_buttress",
+        "old_xz": [
+          24.1,
+          107.0
+        ],
+        "xz": [
+          27.13,
+          109.13
+        ],
+        "reason": "Inset closed structural rib/feed assembly from actual chamfer."
+      },
+      {
+        "room": "rupture",
+        "node": "rupture_SiloButtress-11",
+        "action": "fit_shell_buttress",
+        "old_xz": [
+          24.1,
+          133.0
+        ],
+        "xz": [
+          27.13,
+          130.87
+        ],
+        "reason": "Inset closed structural rib/feed assembly from actual chamfer."
+      },
+      {
+        "room": "rupture",
+        "node": "rupture_SiloButtress1-1",
+        "action": "fit_shell_buttress",
+        "old_xz": [
+          55.9,
+          107.0
+        ],
+        "xz": [
+          52.87,
+          109.13
+        ],
+        "reason": "Inset closed structural rib/feed assembly from actual chamfer."
+      },
+      {
+        "room": "rupture",
+        "node": "rupture_SiloButtress11",
+        "action": "fit_shell_buttress",
+        "old_xz": [
+          55.9,
+          133.0
+        ],
+        "xz": [
+          52.87,
+          130.87
+        ],
+        "reason": "Inset closed structural rib/feed assembly from actual chamfer."
+      },
+      {
+        "room": "rupture",
+        "node": "RuptureAngularGrowth-1-1",
+        "action": "fit_shell_growth",
+        "old_xz": [
+          25.0,
+          107.0
+        ],
+        "xz": [
+          26.78,
+          109.08
+        ],
+        "reason": "Keep closed organic boundary dressing inside chamfer; no prop inventory/type change."
+      },
+      {
+        "room": "rupture",
+        "node": "RuptureAngularGrowth-11",
+        "action": "fit_shell_growth",
+        "old_xz": [
+          25.0,
+          133.0
+        ],
+        "xz": [
+          26.78,
+          130.92
+        ],
+        "reason": "Keep closed organic boundary dressing inside chamfer; no prop inventory/type change."
+      },
+      {
+        "room": "rupture",
+        "node": "RuptureAngularGrowth1-1",
+        "action": "fit_shell_growth",
+        "old_xz": [
+          55.0,
+          107.0
+        ],
+        "xz": [
+          53.22,
+          109.08
+        ],
+        "reason": "Keep closed organic boundary dressing inside chamfer; no prop inventory/type change."
+      },
+      {
+        "room": "rupture",
+        "node": "RuptureAngularGrowth11",
+        "action": "fit_shell_growth",
+        "old_xz": [
+          55.0,
+          133.0
+        ],
+        "xz": [
+          53.22,
+          130.92
+        ],
+        "reason": "Keep closed organic boundary dressing inside chamfer; no prop inventory/type change."
+      }
+    ],
+    "optional_reserve": {
+      "room": "security_store",
+      "partition_z": -6.8,
+      "x_span": [
+        -53,
+        -27
+      ],
+      "door_x_span": [
+        -43,
+        -37
+      ],
+      "floor": 8,
+      "partition_height": 3.6,
+      "door_height": 3.4,
+      "door_open_offset": [
+        0,
+        4,
+        0
+      ],
+      "actor_positions": [
+        [
+          -42,
+          8.87,
+          -9
+        ],
+        [
+          -38,
+          8.87,
+          -9
+        ]
+      ],
+      "north_prop_moves": {
+        "security_store.prop.0": [
+          -10.0,
+          0,
+          -4.5
+        ],
+        "security_store.prop.2": [
+          10.0,
+          0,
+          -4.5
+        ]
+      },
+      "reward_stable_id": "pale_ward_03.pickup.Bonus_security_store",
+      "reward_kind": "shells",
+      "reward_amount": 12,
+      "health_bonus_unchanged": true,
+      "requires": [],
+      "arena_id": "v14_security_store_reserve",
+      "release_door_stable_id": "pale_ward_03.door.v14_security_store_reserve",
+      "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
+      "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+      "completion_message": "Reserve secured \u00b7 main objectives unchanged",
+      "closet_roof_y": 11.8,
+      "door_node": "Door_v14_security_store_reserve",
+      "actor_ids": [
+        "pale_ward_03.loading.enemy.1",
+        "pale_ward_03.loading.enemy.3"
+      ]
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "checks": [
+    {
+      "check": "Initial closed physical collider on translated/rotated stage",
+      "passed": true
+    },
+    {
+      "check": "Real mid-rise collider clears ray before restore paused=false",
+      "passed": true
+    },
+    {
+      "check": "Mid-motion snapshot accepted paused=false",
+      "passed": true
+    },
+    {
+      "check": "Closed logical pose and synchronization restored immediately paused=false",
+      "passed": true
+    },
+    {
+      "check": "Closed body remains aligned and blocks ray after physics paused=false",
+      "passed": true
+    },
+    {
+      "check": "No stale motion target resurrects after later ticks paused=false",
+      "passed": true
+    },
+    {
+      "check": "Real mid-rise collider clears ray before restore paused=true",
+      "passed": true
+    },
+    {
+      "check": "Mid-motion snapshot accepted paused=true",
+      "passed": true
+    },
+    {
+      "check": "Closed logical pose and synchronization restored immediately paused=true",
+      "passed": true
+    },
+    {
+      "check": "Closed body remains aligned and blocks ray after physics paused=true",
+      "passed": true
+    },
+    {
+      "check": "No stale motion target resurrects after later ticks paused=true",
+      "passed": true
+    },
+    {
+      "check": "Fully open real body clears ray",
+      "passed": true
+    },
+    {
+      "check": "Open-to-closed snapshot accepted",
+      "passed": true
+    },
+    {
+      "check": "Open-to-closed body and collision persist",
+      "passed": true
+    },
+    {
+      "check": "Closed-to-open snapshot accepted",
+      "passed": true
+    },
+    {
+      "check": "Closed-to-open body and collision persist",
+      "passed": true
+    },
+    {
+      "check": "Closed snapshot before unsynchronized case accepted",
+      "passed": true
+    },
+    {
+      "check": "Unsynchronized mid-motion snapshot accepted",
+      "passed": true
+    },
+    {
+      "check": "Restore preserves original false synchronization policy",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "scope": "Real production StageLevel/StageDoor/checkpoint helper and physical ray contacts. Empty combat stub; not actual campaign, reward or actor acceptance."
+}

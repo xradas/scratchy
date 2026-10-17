@@ -1,0 +1,273 @@
+{
+  "checks": [
+    {
+      "check": "Actual v14 world root revision pale_ward_03",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live optional encounter contains two authored actors",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Optional reserve physically accessible from unchanged entry graph",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live entry approach beside occupied room centre arrives at supported elevation",
+      "detail": {
+        "actual": "(0.0, 8.850559, 2.005001)",
+        "crouch": false,
+        "floor": "(0.0, 8.0, 2.5)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live unaccepted optional approach arrives at supported elevation",
+      "detail": {
+        "actual": "(-16.49612, 8.850559, -0.004088)",
+        "crouch": false,
+        "floor": "(-16.0, 8.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live unaccepted optional approach arrives at supported elevation",
+      "detail": {
+        "actual": "(-27.537, 8.850559, 0.000017)",
+        "crouch": false,
+        "floor": "(-27.0, 8.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live unaccepted optional approach arrives at supported elevation",
+      "detail": {
+        "actual": "(-40.45021, 8.850559, 0.0)",
+        "crouch": false,
+        "floor": "(-40.0, 8.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Physical optional entry/decline does not activate reward group",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live actual reserve proximity pickup arrives at supported elevation",
+      "detail": {
+        "actual": "(-39.9234, 8.850559, 2.463221)",
+        "crouch": false,
+        "floor": "(-40.0, 8.0, 2.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live movement accepts exactly one twelve-shell supply/release",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live retreat to optional room centre arrives at supported elevation",
+      "detail": {
+        "actual": "(-40.001, 8.850559, -0.550055)",
+        "crouch": false,
+        "floor": "(-40.0, 8.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live retreat through unchanged entry arrives at supported elevation",
+      "detail": {
+        "actual": "(-26.4944, 8.850559, 0.000873)",
+        "crouch": false,
+        "floor": "(-27.0, 8.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live retreat through unchanged entry arrives at supported elevation",
+      "detail": {
+        "actual": "(-15.44932, 8.850559, -0.000005)",
+        "crouch": false,
+        "floor": "(-16.0, 8.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live retreat through unchanged entry arrives at supported elevation",
+      "detail": {
+        "actual": "(0.463014, 8.850559, 2.506322)",
+        "crouch": false,
+        "floor": "(0.0, 8.0, 2.5)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live accepted optional reserve leaves retreat to main route open",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live optional return to exposed fight stance arrives at supported elevation",
+      "detail": {
+        "actual": "(-16.43163, 8.850559, 0.000253)",
+        "crouch": false,
+        "floor": "(-16.0, 8.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live optional return to exposed fight stance arrives at supported elevation",
+      "detail": {
+        "actual": "(-27.46849, 8.850559, 0.000001)",
+        "crouch": false,
+        "floor": "(-27.0, 8.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Live optional return to exposed fight stance arrives at supported elevation",
+      "detail": {
+        "actual": "(-40.51497, 8.850559, -0.0)",
+        "crouch": false,
+        "floor": "(-40.0, 8.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Both reserve actors naturally depart or establish an actual ranged firing position",
+      "detail": {
+        "actors": [
+          {
+            "actual_projectile_releases": 2,
+            "awake": true,
+            "can_see": false,
+            "health": 0.0,
+            "id": "pale_ward_03.loading.enemy.1",
+            "position": "(-36.40876, 8.850071, -7.778425)",
+            "state": "dead"
+          },
+          {
+            "actual_projectile_releases": 2,
+            "awake": true,
+            "can_see": false,
+            "health": 0.0,
+            "id": "pale_ward_03.loading.enemy.3",
+            "position": "(-36.45975, 8.85011, -7.694665)",
+            "state": "dead"
+          }
+        ],
+        "departed": {}
+      },
+      "passed": true
+    },
+    {
+      "check": "Live optional group cleared by finite accepted shots after open retreat",
+      "detail": {
+        "accepted_pistol_shots": 10,
+        "actors": [
+          {
+            "actual_projectile_releases": 2,
+            "awake": true,
+            "can_see": false,
+            "health": 0.0,
+            "id": "pale_ward_03.loading.enemy.1",
+            "position": "(-36.40876, 8.850071, -7.778425)",
+            "state": "dead"
+          },
+          {
+            "actual_projectile_releases": 2,
+            "awake": true,
+            "can_see": false,
+            "health": 0.0,
+            "id": "pale_ward_03.loading.enemy.3",
+            "position": "(-36.45975, 8.85011, -7.694665)",
+            "state": "dead"
+          }
+        ],
+        "health": 100.0,
+        "minima": {
+          "armor": 50.0,
+          "health": 100.0,
+          "pistol": 26,
+          "shells": 24
+        },
+        "moved_actors": 2,
+        "remaining": 0
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual optional group reports clear",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Optional clear leaves main prerequisite unchanged anchor_a",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Optional clear leaves main prerequisite unchanged anchor_b",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Optional clear leaves main prerequisite unchanged anchor_c",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Live fight never duplicates accepted reward",
+      "detail": {},
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "mode": "live",
+  "observations": [
+    {
+      "level": "pale_ward_03",
+      "live_retreat_body_probe": [
+        {
+          "blocked_next_two_metres": true,
+          "can_see": false,
+          "collider": "Reserve_v14_security_store_reserve_Right:<StaticBody3D#557355905968>",
+          "id": "pale_ward_03.loading.enemy.1",
+          "normal": "(0.0, 0.0, -1.0)",
+          "position": "(-33.40477, 8.850071, -7.569619)",
+          "target": "(-14.81336, 8.0, 0.178542)"
+        },
+        {
+          "blocked_next_two_metres": true,
+          "can_see": false,
+          "collider": "Reserve_v14_security_store_reserve_Right:<StaticBody3D#557355905968>",
+          "id": "pale_ward_03.loading.enemy.3",
+          "normal": "(0.0, 0.0, -1.0)",
+          "position": "(-29.76958, 8.850071, -7.637328)",
+          "target": "(-14.81336, 8.0, 0.178542)"
+        }
+      ],
+      "player": "(0.657795, 8.850559, 2.506322)"
+    },
+    {
+      "actual_kills": 2,
+      "actual_shots": 10,
+      "level": "pale_ward_03",
+      "live_optional": "v14_security_store_reserve",
+      "minima": {
+        "armor": 50.0,
+        "health": 100.0,
+        "pistol": 26,
+        "shells": 24
+      },
+      "scope": "Physical route from actual entry, proximity reward, natural two authored actors, open retreat and finite accepted pistol combat. Unrelated actors frozen; no full-campaign AI acceptance claim."
+    }
+  ],
+  "scope": "Actual Main independent spatial fixture. Controlled mode: polygon grid vs actual floor collisions/room ownership, closed floor meshes, prop bounds, physical cardinal-lane input, accepted/full/declined pickups plus snapshot/Main Continue/Restart and Containment feedback. Controlled supported capture uses unchanged checkpoint safety but does not prove actual marker acquisition. Connections mode: physical authored paths, natural moved actor attack and actual pistol plus both swept projectile classes/solid boundaries. Live mode: actual entry/proximity optional pickup/open retreat and finite-ammo two-actor natural encounter; unrelated actors frozen. Initial poses/direct collection only isolate controlled semantics. Full campaign routes remain separate. No human pacing claim.",
+  "status": "passed"
+}

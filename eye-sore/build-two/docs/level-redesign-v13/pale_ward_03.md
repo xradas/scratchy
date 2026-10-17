@@ -77,3 +77,37 @@ Risks and unfinished acceptance:
 - No direct new opening into anchor rooms; anchors/checkpoints/return shortcut requirements unchanged.
 
 Exact floor paths, shot/solid test pairs, apertures, closed boxes and actor poses are recorded in `levels.json`, the matching Ward JSON, runtime route and v13 author report. These data are a test contract, not proof that the test passed.
+
+## Spatial construction revision14
+
+Current source keeps design/schema version13 and records `layout_revision: 14`. Plan: [v14 contract](../ward-spatial-v14/plan.json). Actual footprint diagram: [v14 SVG](../ward-spatial-v14/pale_ward_03.svg). The v13 diagrams/images remain historical.
+
+### Landmark footprints
+
+- `loading` at `[0, 8, 0]`: L-shaped security intake keeps forward route visible; local XZ boundary `[[-16, -13], [8, -13], [8, -5], [16, -5], [16, 13], [-16, 13]]`. Closed convex floor/roof cells: `[{'kind': 'box', 'bounds_xz': [-16, 8, -13, -5]}, {'kind': 'box', 'bounds_xz': [-16, 8, -5, 13]}, {'kind': 'box', 'bounds_xz': [8, 16, -5, 13]}]`.
+- `cultivation` at `[-40, 0, 80]`: L-shaped tank floor wraps pumpwork before the lower feed; local XZ boundary `[[-7, -14], [15, -14], [15, 14], [-15, 14], [-15, -6], [-7, -6]]`. Closed convex floor/roof cells: `[{'kind': 'box', 'bounds_xz': [-15, -7, -6, 14]}, {'kind': 'box', 'bounds_xz': [-7, 15, -14, -6]}, {'kind': 'box', 'bounds_xz': [-7, 15, -6, 14]}]`.
+- `rupture` at `[40, -4, 120]`: Octagonal rupture chamber frames the chapter landmark; local XZ boundary `[[-12, -15], [12, -15], [17, -10], [17, 10], [12, 15], [-12, 15], [-17, 10], [-17, -10]]`. Closed convex floor/roof cells: `[{'kind': 'convex', 'outline_xz': [[-12, -15], [12, -15], [17, -10], [17, 10], [12, 15], [-12, 15], [-17, 10], [-17, -10]]}]`.
+
+Concave L footprints use actual closed box-cell unions; convex chamfers use a single closed convex prism per slab. Every outline edge has a closed textured wall/collider, with real cuts at existing cardinal mouths. Concave footprints are never passed to the convex runtime shape helper. Lowered ceilings follow the same cells. Room metadata publishes the exact local footprint; the HUD map rectangle is only its envelope.
+
+Outline-dependent architecture fits: 23 explicit entries in `resources/campaign/v13/pale_ward_03-author-report.json` (`shell_fits`). These trim ducts/ribs/alcoves or inset boundary columns/growths; named semantic prop types/counts remain fixed. All exposed native material faces remain closed.
+
+### Additional shared connection
+
+`v14_lower_feed_hall` replaces `cultivation__machinery` between ['cultivation', 'machinery'], bounds `[-25, -13, 70, 90]`. Already ungated existing pair; no new graph edge; all milestone gates/checkpoints remain unchanged Explicit apertures, floor/roof/side supports, offset cover, stairs and native test floor/shot/solid pairs are in the source/runtime route and author report. Original centre route remains clear; flank movement is player choice, not coordinated enemy navigation.
+- Existing ranged `pale_ward_03.cultivation.enemy.2` (vessel) at `[-29, 0.87, 76]`; stable ID/type/count preserved.
+
+### Optional accepted-supply reserve
+
+`security_store` retains existing `Bonus_security_store` (12 shells) and unchanged health bonus. Only an accepted reward mutation activates `v14_security_store_reserve`; full ammo leaves the shell item available and group closed. The physical `Door_v14_security_store_reserve` is not E-usable; it opens once through the exact stable-ID release contract. No main exit seal, required clear, reward addition or new actor.
+Closet side `north`, partition z=-6.8, full X span `[-53, -27]`, six-metre door `[-43, -37]`, door height 3.4m, closed roof at y=11.8. Real side partitions/header/upper cap meet the outer room walls and roof; visual/shot/movement bodies match.
+- `pale_ward_03.loading.enemy.1` (infected_security) → `[-42.5, 8.87, -7.4]` in actual/activation room `security_store`, arena `v14_security_store_reserve`; source-room identity retained in report.
+- `pale_ward_03.loading.enemy.3` (infected_security) → `[-41.5, 8.87, -7.4]` in actual/activation room `security_store`, arena `v14_security_store_reserve`; source-room identity retained in report.
+
+Coordinator approved both existing security actors at[-42.5,8.87,-7.4] and[-41.5,8.87,-7.4] after native live body probes showed the original poses pursued into the right partition. Same six-metre door, original kinds/IDs, no AI change; actual natural aggression/retreat proof required.
+
+### Guidance and acceptance
+
+New route signs are static labels. Their flag associations remain explicit source/navigation metadata; existing controls retain their native state indicators. Control/objective text names actual next destinations. Containment second-feed feedback checks both actual feed flags before saying the basin is drained.
+
+Independent real body/crouch/stair/closed-mesh and prop bounds, accepted/full/repeated/restore/reset reward behavior, reciprocal shots/projectiles, real finite combat/retreat, both feed orders and full campaigns remain separately reported evidence. Metadata, controlled views and bot timings do not establish human tactics, exact concept match, navigation comfort or the20–25minute pacing target.

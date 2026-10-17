@@ -14,12 +14,13 @@
   "contracts": {
     "schema": "Keep objective design_version13 compatibility; add layout_revision14 to authored source/report/root metadata, no deceptive replacement of v13 historical evidence.",
     "room_outline": "outline_xz local simple CCW polygon, unchanged centre/floor/bounding size, actual closed floor/roof convex decomposition and boundary walls; never convex-fill concave cutout. Native world-projected materials on every exposed face.",
-    "room_detection": "Room metadata footprint_xz=PackedVector2Array in room-localXZ relativeMarkerCentre; Stage.room_at requires polygon inclusion before AABB tie-break. Existing rectangle path unchanged when absent. Visited map may retain rectangle as bounding envelope, but publish actual polygon for optional accurate map draw; no silent exact-footprint claim.",
+    "room_detection": "Room metadata footprint_xz localPackedVector2Array; Stage.room_at polygon inclusion beforeoldAABB. PublishworldXZ footprint inmap_rooms forshapedrooms. Root implements accuratepolygonfullmap/minimap rendering in ward_automap.gd+industrial_hud_v8.gd; rect isbounding envelope only, existinglegacyrectangularpath unchanged.",
     "mouths": "All existing cardinal centre mouths and mandatory/CP/supply approaches preserved; use actual boundary-edge cuts. No new traversable graph edges or sequence skips.",
     "fitting": "Only named corner prop moves below plus explicitly reported minimal shell-dependent fixture/roof/trim fits. Preserve semantic prop type/count/IDs; complete exact footprint audit. Reject shape if fitting requires unplanned gameplay relocation. New closet requires full-width physical front partition/header with6m door, outerroom walls as sides/back, closed textured roof atfloor+3.8; no transparent/invisible occlusion.",
     "enemy_nav": "Unchanged enemy code; preserve clear original centre routes. Extra flank routes are player choices, not coordinated enemy flanking.",
     "ambush": "Profile encounter activation=pickup, pickup_id exactstableid, requires explicit[], arena_id unique, release_doors list optional; no exit/control prerequisites use completion. Existing two actors assigned authored group/positions/activation_room; release physical closet door only after accepted reward mutation, once. Full ammo item stays uncollected/noactivation. No main exit sealing, no new pickups/supplies/enemy count. Snapshot existingflags/collected/arena_active/doorpose/enemies owns persistence; restore never replays pickup/attack/audio.",
-    "source_ownership": "Construction owns author generator/masterroomdata/scenes/layout/routes/objective text/data and MD/SVG. Runtime owns StageLevel only plus optional new mesh helper if construction requests. QA owns opt-in tests/evidence. Root owns contracts/research/captures/package/Git."
+    "source_ownership": "Construction owns author generator/masterroomdata/scenes/layout/routes/objective text/data and MD/SVG. Runtime owns StageLevel only plus optional new mesh helper if construction requests. QA owns opt-in tests/evidence. Root owns contracts/research/captures/package/Git. Root additionally owns two read-only map renderers toshow actualfootprints; no otherHUDbehavior/style change.",
+    "checkpoint_restore_amendment": "Native optional-door test proved a pending AnimatableBody3D physics pose could overwrite a same-world snapshot teleport on the next tick. Permit only checkpoint restore synchronization of the real physics body transform, preserving schema, safety, logical state and fresh-world Continue ownership."
   },
   "levels": [
     {
@@ -155,12 +156,12 @@
             "recovery.prop.2": [
               5,
               0,
-              2
+              2.3
             ],
             "recovery.prop.3": [
               9,
               0,
-              2
+              2.3
             ],
             "recovery.prop.6": [
               5,
@@ -185,14 +186,15 @@
             "recovery.prop.10": [
               12,
               0,
-              2
+              2.3
             ],
             "recovery.prop.17": [
               14,
               0,
               -2
             ]
-          }
+          },
+          "fit_amendment": "Native capsule sweep found8 contacts with moved bed ends at2m; shift paired right-row beds2/3 and monitor10 tolocalz2.3, preserving original centre+/-0.65m route reserve."
         }
       ],
       "new_shared_connection": {
@@ -262,9 +264,9 @@
             -9
           ],
           [
-            -38,
+            -41.5,
             0.87,
-            -9
+            -7.4
           ]
         ],
         "north_prop_moves": {
@@ -289,7 +291,8 @@
         "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
         "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
         "completion_message": "Reserve secured \u00b7 main objectives unchanged",
-        "closet_roof_y": 3.8
+        "closet_roof_y": 3.8,
+        "fit_amendment": "Native capsule probe along guard pursuit direction clips the partition from original guard pose. Move only existing security guard to[-41.5,.87,-7.4], with unchanged stable ID/kind, other actor and6m door; verify natural aggression/retreat/finite clear separately."
       },
       "reserve_actor_overrides": [
         {
@@ -307,9 +310,9 @@
           "stable_id": "pale_ward_01.triage.enemy.2",
           "kind": "infected_security",
           "position": [
-            -38,
+            -41.5,
             0.87,
-            -9
+            -7.4
           ],
           "activation_room": "records",
           "arena_id": "v14_records_reserve"
@@ -521,7 +524,7 @@
       },
       "optional_reserve": {
         "room": "pump_store",
-        "partition_z": 33.2,
+        "partition_z": 46.8,
         "x_span": [
           -13,
           13
@@ -542,26 +545,15 @@
           [
             -2,
             4.87,
-            31
+            49
           ],
           [
             2,
             4.87,
-            31
+            49
           ]
         ],
-        "north_prop_moves": {
-          "pump_store.prop.0": [
-            -10.0,
-            0,
-            -4.5
-          ],
-          "pump_store.prop.2": [
-            10.0,
-            0,
-            -4.5
-          ]
-        },
+        "north_prop_moves": {},
         "reward_stable_id": "pale_ward_02.pickup.Bonus_pump_store",
         "reward_kind": "shells",
         "reward_amount": 12,
@@ -572,7 +564,22 @@
         "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
         "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
         "completion_message": "Reserve secured \u00b7 main objectives unchanged",
-        "closet_roof_y": 7.8
+        "closet_roof_y": 7.8,
+        "closet_side": "south",
+        "south_prop_moves": {
+          "pump_store.prop.1": [
+            -10,
+            0,
+            4.5
+          ],
+          "pump_store.prop.3": [
+            10,
+            0,
+            4.5
+          ]
+        },
+        "restore_north_props_from_baseline": true,
+        "fit_amendment": "Coordinator review found north main entrance entered the unreleased closet. Move closet to south, preserving north entry, reward and retreat."
       },
       "reserve_actor_overrides": [
         {
@@ -581,7 +588,7 @@
           "position": [
             -2,
             4.87,
-            31
+            49
           ],
           "activation_room": "pump_store",
           "arena_id": "v14_pump_store_reserve"
@@ -592,7 +599,7 @@
           "position": [
             2,
             4.87,
-            31
+            49
           ],
           "activation_room": "pump_store",
           "arena_id": "v14_pump_store_reserve"
@@ -835,14 +842,14 @@
         ],
         "actor_positions": [
           [
-            -42,
+            -42.5,
             8.87,
-            -9
+            -7.4
           ],
           [
-            -38,
+            -41.5,
             8.87,
-            -9
+            -7.4
           ]
         ],
         "north_prop_moves": {
@@ -867,16 +874,17 @@
         "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
         "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
         "completion_message": "Reserve secured \u00b7 main objectives unchanged",
-        "closet_roof_y": 11.8
+        "closet_roof_y": 11.8,
+        "fit_amendment": "Independent actual body probes found both original guards caught behind the partition after retreat. Move both existing guards near front centre to preserve physical release clearance; verify natural player contact and finite clear, not release counts alone."
       },
       "reserve_actor_overrides": [
         {
           "stable_id": "pale_ward_03.loading.enemy.1",
           "kind": "infected_security",
           "position": [
-            -42,
+            -42.5,
             8.87,
-            -9
+            -7.4
           ],
           "activation_room": "security_store",
           "arena_id": "v14_security_store_reserve"
@@ -885,9 +893,9 @@
           "stable_id": "pale_ward_03.loading.enemy.3",
           "kind": "infected_security",
           "position": [
-            -38,
+            -41.5,
             8.87,
-            -9
+            -7.4
           ],
           "activation_room": "security_store",
           "arena_id": "v14_security_store_reserve"

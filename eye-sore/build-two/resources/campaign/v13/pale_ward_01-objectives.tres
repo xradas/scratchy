@@ -4,8 +4,8 @@
 script = ExtResource("profile_script")
 level_id = "pale_ward_01"
 initial_flags = {}
-objectives = Array[Dictionary]([{"id": "restore_power", "requires": [], "complete_flag": "local_power", "text": "Restore local power in the utility generator room."}, {"id": "surgical_access", "requires": ["local_power"], "complete_flag": "surgical_credential", "text": "Find the surgical credential in the operating theatre."}, {"id": "decon", "requires": ["surgical_credential"], "complete_flag": "decon_clear", "text": "Reach the surgical wing and survive decontamination."}, {"id": "leave", "requires": ["decon_clear"], "complete_flag": "finished", "text": "Take the transfer lift to Containment."}])
+objectives = Array[Dictionary]([{"id": "restore_power", "requires": [], "complete_flag": "local_power", "text": "Restore local power in the utility generator room."}, {"id": "surgical_access", "requires": ["local_power"], "complete_flag": "surgical_credential", "text": "Follow C3 through Diagnostics to the theatre credential."}, {"id": "decon", "requires": ["surgical_credential"], "complete_flag": "decon_clear", "text": "Return via Sterile Supply and Reception; follow GREEN EXIT to Decon."}, {"id": "leave", "requires": ["decon_clear"], "complete_flag": "finished", "text": "Decon clear · take the signed transfer lift to Containment."}])
 controls = {"local_power": {"requires": [], "sets": ["local_power"]}}
 keys = {"brass": {"requires": ["local_power"], "sets": ["surgical_credential", "brass", "brass_key"]}}
 exit_requires = Array[String](["decon_clear"])
-encounters = {"decon": {"arena_id": "decon", "activation": "room_entry", "completion_flag": "decon_clear", "seal": true}}
+encounters = {"decon": {"arena_id": "decon", "activation": "room_entry", "completion_flag": "decon_clear", "seal": true}, "v14_records_reserve": {"activation": "pickup", "pickup_id": "pale_ward_01.pickup.Bonus_records", "requires": [], "arena_id": "v14_records_reserve", "release_doors": ["pale_ward_01.door.v14_records_reserve"], "message": "RESERVE BREACHED · staff bay opening; retreat remains clear", "completion_message": "Reserve secured · main objectives unchanged"}}

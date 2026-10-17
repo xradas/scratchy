@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3060 Ti
+
+ERROR: actual automap notch remains background
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_map_footprints_v14.gd:10)
+       [1] run (res://tools/check_map_footprints_v14.gd:53)
+MAP_UI_V14 { "status": "failed", "checks": 103, "failures": ["actual automap notch remains background"], "native_pixels": true, "scope": "Real HUD clipping/read-only privacy and rectangle compatibility, independently specified L arms/notch/outside; native automap rendered pixel boundaries when available. Synthetic display data, no gameplay traversal claim." }

@@ -1,6 +1,6 @@
 # Ward spatial pass — v14
 
-User-approved next milestone after the playable v13 review. The existing v13 source/evidence checkpoint is94c4f265; build source1dfe7ae and its portable package remain preserved. [plan.json](plan.json) is the coordinator-authored contract; existing `docs/level-redesign-v13/levels.json` remains the generator input after the construction worker applies this bounded overlay.
+User-approved next milestone after the playable v13 review. The existing v13 source/evidence checkpoint is 94c4f265; build source 1dfe7ae and its portable package remain preserved. [plan.json](plan.json) is the coordinator-authored contract; existing `docs/level-redesign-v13/levels.json` remains the generator input after the construction worker applies this bounded overlay.
 
 Nine functional room footprints, three new broad shared connections, readable landmark/control guidance and one optional accepted-supply ambush per Ward. Enemy IDs/types/counts and supplies remain unchanged. The original objectives, keys, anchors, checkpoint ownership and later six maps remain intact. Source art/audio/music, player, weapon/enemy tuning and gore remain fixed.
 
@@ -8,8 +8,12 @@ The coordinator owns design/reference research and integration. Construction own
 
 The nine room shapes must govern visible and physical boundaries. Concave notches must stay concave in collision; closed convex floor/roof cells and actual boundary-wall segments retain all native material faces. Existing centre routes/doors must remain usable. New shared spaces replace already ungated corridors, and offset cover preserves the unchanged enemy navigation.
 
-Optional reserves reuse the existing12-shell pickup, unchanged health bonus and two existing relocated actors per map. Full ammo leaves the shell item available and does not release the group. Accepted pickup opens a real closet, activates once and leaves the exit/retreat open. Neither taking nor clearing these encounters is a main-route prerequisite. Checkpoint restore never replays reward, sound or attack releases.
+Optional reserves reuse the existing 12-shell pickup, unchanged health bonus and two existing relocated actors per map. Full ammo leaves the shell item available and does not release the group. Accepted pickup opens a real closet, activates once and leaves the exit/retreat open. Neither taking nor clearing these encounters is a main-route prerequisite. Checkpoint restore never replays reward, sound or attack releases.
 
-No resource nerf is justified just by100HP at exits: v13 segment samples show local pressure and low shell/rivet supplies before later refills. Record actual minima/accepted versus wasted supplies, and review pacing with a human. Bot timings are completion evidence only, never proof of the20–25minute target.
+No resource nerf is justified just by 100HP at exits: v13 segment samples show local pressure and low shell/rivet supplies before later refills. Record sampled route minima and accepted ammunition from existing receipts, plus per-fight-loop minima in isolated optional fights. Continuous full-campaign minima and rejected/wasted pickup opportunities are not instrumented by the unchanged driver; do not infer them from exits. Review pacing with a human. Bot timings are completion evidence only, never proof of the 20–25 minute target.
 
 Before release: exact protected-source/roster audit; native closed-outline/cutout/headroom/stair and pickup/door reachability; reciprocal actual rays/swept projectiles and actor attacks; optional reserve accepted/full/declined/repeated/restore/reset semantics and open retreat; both orders/checkpoints; full campaign without optional supplies; fresh actual game views; clean-source portable export, exact packed/actual-ELF checks and gameplay with real stereo mix. Preserve failures. Human tactics/navigation/concept-match/listening/pacing remain separate acceptance.
+
+The mini-map and full automap render exact visited polygon footprints; legacy rectangular rooms retain their original presentation. New route signs are static; existing control indicators continue to reflect their authored progress flags.
+
+A bounded checkpoint correction synchronizes restored moving mechanisms with their actual physics bodies. Native testing found that a stale pending door pose could otherwise replace a restored closed pose on the following tick; checkpoint schema, safety and session ownership remain unchanged.

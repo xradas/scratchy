@@ -78,14 +78,41 @@
           "id": "loading.prop.5",
           "type": "ppe_locker",
           "position_local": [
-            10,
+            13,
             0,
-            -9
+            -2
           ],
           "heading": -90
         }
       ],
-      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+      "outline_xz": [
+        [
+          -16,
+          -13
+        ],
+        [
+          8,
+          -13
+        ],
+        [
+          8,
+          -5
+        ],
+        [
+          16,
+          -5
+        ],
+        [
+          16,
+          13
+        ],
+        [
+          -16,
+          13
+        ]
+      ],
+      "outline_purpose": "L-shaped security intake keeps forward route visible"
     },
     "upper_intake": {
       "id": "upper_intake",
@@ -908,7 +935,7 @@
           "position_local": [
             -11,
             0,
-            -8
+            -3
           ],
           "heading": 0
         },
@@ -963,7 +990,34 @@
           "heading": -90
         }
       ],
-      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+      "outline_xz": [
+        [
+          -7,
+          -14
+        ],
+        [
+          15,
+          -14
+        ],
+        [
+          15,
+          14
+        ],
+        [
+          -15,
+          14
+        ],
+        [
+          -15,
+          -6
+        ],
+        [
+          -7,
+          -6
+        ]
+      ],
+      "outline_purpose": "L-shaped tank floor wraps pumpwork before the lower feed"
     },
     "machinery": {
       "id": "machinery",
@@ -1249,7 +1303,42 @@
           "heading": -90
         }
       ],
-      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+      "outline_xz": [
+        [
+          -12,
+          -15
+        ],
+        [
+          12,
+          -15
+        ],
+        [
+          17,
+          -10
+        ],
+        [
+          17,
+          10
+        ],
+        [
+          12,
+          15
+        ],
+        [
+          -12,
+          15
+        ],
+        [
+          -17,
+          10
+        ],
+        [
+          -17,
+          -10
+        ]
+      ],
+      "outline_purpose": "Octagonal rupture chamber frames the chapter landmark"
     },
     "bridge": {
       "id": "bridge",
@@ -1460,7 +1549,7 @@
           "position_local": [
             -10.0,
             0,
-            -9.0
+            -4.5
           ],
           "heading": 90
         },
@@ -1480,7 +1569,7 @@
           "position_local": [
             10.0,
             0,
-            -9.0
+            -4.5
           ],
           "heading": -90
         },
@@ -2422,7 +2511,8 @@
           80
         ]
       ],
-      "axis": 0
+      "axis": 0,
+      "structural_connection": "v14_lower_feed_hall"
     },
     {
       "id": "machinery__anchor_c",
@@ -3251,7 +3341,19 @@
       "anchor_b",
       "anchor_c"
     ],
-    "encounters": {}
+    "encounters": {
+      "v14_security_store_reserve": {
+        "activation": "pickup",
+        "pickup_id": "pale_ward_03.pickup.Bonus_security_store",
+        "requires": [],
+        "arena_id": "v14_security_store_reserve",
+        "release_doors": [
+          "pale_ward_03.door.v14_security_store_reserve"
+        ],
+        "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+        "completion_message": "Reserve secured \u00b7 main objectives unchanged"
+      }
+    }
   },
   "controls": [],
   "keys": [],
@@ -3363,7 +3465,19 @@
     "infected_security",
     "vessel"
   ],
-  "encounters": {},
+  "encounters": {
+    "v14_security_store_reserve": {
+      "activation": "pickup",
+      "pickup_id": "pale_ward_03.pickup.Bonus_security_store",
+      "requires": [],
+      "arena_id": "v14_security_store_reserve",
+      "release_doors": [
+        "pale_ward_03.door.v14_security_store_reserve"
+      ],
+      "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+      "completion_message": "Reserve secured \u00b7 main objectives unchanged"
+    }
+  },
   "target_human_minutes": [
     20,
     25
@@ -3707,8 +3821,351 @@
         "Fresh contact/stair and real combat tests required; ledge changes ordinary encounter exposure but no mandatory all-clear or actor count.",
         "No direct new opening into anchor rooms; anchors/checkpoints/return shortcut requirements unchanged."
       ]
+    },
+    {
+      "id": "v14_lower_feed_hall",
+      "revision": 14,
+      "portal": "cultivation__machinery",
+      "rooms": [
+        "cultivation",
+        "machinery"
+      ],
+      "bounds_xz": [
+        -25,
+        -13,
+        70,
+        90
+      ],
+      "policy": "Already ungated existing pair; no new graph edge; all milestone gates/checkpoints remain unchanged",
+      "boxes": [
+        {
+          "id": "NorthWall",
+          "position": [
+            -19.0,
+            3.0,
+            69.8
+          ],
+          "size": [
+            12.4,
+            6,
+            0.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "SouthWall",
+          "position": [
+            -19.0,
+            3.0,
+            90.2
+          ],
+          "size": [
+            12.4,
+            6,
+            0.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "Floor",
+          "position": [
+            -19.0,
+            -0.25,
+            80.0
+          ],
+          "size": [
+            12.4,
+            0.5,
+            20.4
+          ],
+          "role": "floor"
+        },
+        {
+          "id": "Roof",
+          "position": [
+            -19.0,
+            6.15,
+            80.0
+          ],
+          "size": [
+            12.8,
+            0.3,
+            20.8
+          ],
+          "role": "ceiling"
+        },
+        {
+          "id": "OffsetCover",
+          "position": [
+            -19,
+            0.75,
+            85
+          ],
+          "size": [
+            2,
+            1.5,
+            4
+          ],
+          "role": "panel"
+        }
+      ],
+      "stairs": [],
+      "actor_overrides": [
+        {
+          "stable_id": "pale_ward_03.cultivation.enemy.2",
+          "kind": "vessel",
+          "position": [
+            -29,
+            0.87,
+            76
+          ]
+        }
+      ],
+      "apertures": [
+        {
+          "room": "cultivation",
+          "side": "E",
+          "plane": -25.0,
+          "span": [
+            70,
+            90
+          ],
+          "height": [
+            0,
+            6
+          ]
+        },
+        {
+          "room": "machinery",
+          "side": "W",
+          "plane": -13.0,
+          "span": [
+            70,
+            90
+          ],
+          "height": [
+            0,
+            6
+          ]
+        }
+      ],
+      "walk_paths": [
+        {
+          "id": "north_lane",
+          "points": [
+            [
+              -24,
+              0,
+              74
+            ],
+            [
+              -14,
+              0,
+              74
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "south_lane",
+          "points": [
+            [
+              -24,
+              0,
+              88.5
+            ],
+            [
+              -14,
+              0,
+              88.5
+            ]
+          ],
+          "reverse": true
+        }
+      ],
+      "shot_pairs": [
+        {
+          "id": "lower_feed_diagonal",
+          "a": [
+            -29,
+            1.32,
+            76
+          ],
+          "b": [
+            -17,
+            1.17,
+            78
+          ],
+          "state": "always",
+          "bidirectional": true
+        }
+      ],
+      "solid_pairs": [
+        {
+          "id": "feed_cover",
+          "a": [
+            -22,
+            0.8,
+            85
+          ],
+          "b": [
+            -16,
+            0.8,
+            85
+          ]
+        }
+      ],
+      "lights": [
+        {
+          "id": "MountedLamp",
+          "position": [
+            -19.0,
+            5.75,
+            80.0
+          ],
+          "room": "cultivation",
+          "energy": 3.8
+        }
+      ]
     }
   ],
+  "layout_revision": 14,
+  "optional_reserve": {
+    "room": "security_store",
+    "partition_z": -6.8,
+    "x_span": [
+      -53,
+      -27
+    ],
+    "door_x_span": [
+      -43,
+      -37
+    ],
+    "floor": 8,
+    "partition_height": 3.6,
+    "door_height": 3.4,
+    "door_open_offset": [
+      0,
+      4,
+      0
+    ],
+    "actor_positions": [
+      [
+        -42.5,
+        8.87,
+        -7.4
+      ],
+      [
+        -41.5,
+        8.87,
+        -7.4
+      ]
+    ],
+    "north_prop_moves": {
+      "security_store.prop.0": [
+        -10.0,
+        0,
+        -4.5
+      ],
+      "security_store.prop.2": [
+        10.0,
+        0,
+        -4.5
+      ]
+    },
+    "reward_stable_id": "pale_ward_03.pickup.Bonus_security_store",
+    "reward_kind": "shells",
+    "reward_amount": 12,
+    "health_bonus_unchanged": true,
+    "requires": [],
+    "arena_id": "v14_security_store_reserve",
+    "release_door_stable_id": "pale_ward_03.door.v14_security_store_reserve",
+    "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
+    "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+    "completion_message": "Reserve secured \u00b7 main objectives unchanged",
+    "closet_roof_y": 11.8,
+    "door_node": "Door_v14_security_store_reserve",
+    "actor_ids": [
+      "pale_ward_03.loading.enemy.1",
+      "pale_ward_03.loading.enemy.3"
+    ],
+    "actor_fit_amendment": "Coordinator approved both existing security actors at[-42.5,8.87,-7.4] and[-41.5,8.87,-7.4] after native live body probes showed the original poses pursued into the right partition. Same six-metre door, original kinds/IDs, no AI change; actual natural aggression/retreat proof required."
+  },
+  "actor_overrides": [
+    {
+      "stable_id": "pale_ward_03.loading.enemy.1",
+      "kind": "infected_security",
+      "position": [
+        -42.5,
+        8.87,
+        -7.4
+      ],
+      "activation_room": "security_store",
+      "arena_id": "v14_security_store_reserve"
+    },
+    {
+      "stable_id": "pale_ward_03.loading.enemy.3",
+      "kind": "infected_security",
+      "position": [
+        -41.5,
+        8.87,
+        -7.4
+      ],
+      "activation_room": "security_store",
+      "arena_id": "v14_security_store_reserve"
+    }
+  ],
+  "navigation": {
+    "landmarks": [
+      {
+        "room": "loading",
+        "label": "UPPER GALLERY / ANCHOR A",
+        "flag": "anchor_a",
+        "position": [
+          4,
+          10.5,
+          -12.7
+        ],
+        "yaw": 0
+      },
+      {
+        "room": "specimens",
+        "label": "CROSSFIRE / ANCHOR B",
+        "flag": "anchor_b",
+        "position": [
+          64.3,
+          6.5,
+          51
+        ],
+        "yaw": 90
+      },
+      {
+        "room": "machinery",
+        "label": "LOWER FEED / ANCHOR C",
+        "flag": "anchor_c",
+        "position": [
+          12.7,
+          2.5,
+          84
+        ],
+        "yaw": -90
+      },
+      {
+        "room": "rupture",
+        "label": "BURIED PASSAGE / ASH CITADEL",
+        "flag": "",
+        "position": [
+          23.3,
+          -1.5,
+          124
+        ],
+        "yaw": 90
+      }
+    ],
+    "objective_text": {
+      "note": "Keep exact existing objective IDs/order; replace text with actual next destination/anchor label from authored profile, no new visit-based prerequisites."
+    }
+  },
   "spawn_position": [
     0,
     8.95,
@@ -3720,6 +4177,10 @@
     {
       "stable_id": "pale_ward_03.loading.enemy.0",
       "room": "loading",
+      "source_room": "loading",
+      "actual_room": "loading",
+      "activation_room": "loading",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         -5,
@@ -3729,17 +4190,25 @@
     },
     {
       "stable_id": "pale_ward_03.loading.enemy.1",
-      "room": "loading",
+      "room": "security_store",
+      "source_room": "loading",
+      "actual_room": "security_store",
+      "activation_room": "security_store",
+      "arena_id": "v14_security_store_reserve",
       "kind": "infected_security",
       "position": [
-        0,
+        -42.5,
         8.87,
-        -4
+        -7.4
       ]
     },
     {
       "stable_id": "pale_ward_03.loading.enemy.2",
       "room": "loading",
+      "source_room": "loading",
+      "actual_room": "loading",
+      "activation_room": "loading",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         5,
@@ -3749,17 +4218,25 @@
     },
     {
       "stable_id": "pale_ward_03.loading.enemy.3",
-      "room": "loading",
+      "room": "security_store",
+      "source_room": "loading",
+      "actual_room": "security_store",
+      "activation_room": "security_store",
+      "arena_id": "v14_security_store_reserve",
       "kind": "infected_security",
       "position": [
-        -5,
+        -41.5,
         8.87,
-        0
+        -7.4
       ]
     },
     {
       "stable_id": "pale_ward_03.loading.enemy.4",
       "room": "loading",
+      "source_room": "loading",
+      "actual_room": "loading",
+      "activation_room": "loading",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         0,
@@ -3770,6 +4247,10 @@
     {
       "stable_id": "pale_ward_03.upper_intake.enemy.0",
       "room": "upper_intake",
+      "source_room": "upper_intake",
+      "actual_room": "upper_intake",
+      "activation_room": "upper_intake",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -3780,6 +4261,10 @@
     {
       "stable_id": "pale_ward_03.upper_intake.enemy.1",
       "room": "upper_intake",
+      "source_room": "upper_intake",
+      "actual_room": "upper_intake",
+      "activation_room": "upper_intake",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         0,
@@ -3790,6 +4275,10 @@
     {
       "stable_id": "pale_ward_03.upper_intake.enemy.2",
       "room": "upper_intake",
+      "source_room": "upper_intake",
+      "actual_room": "upper_intake",
+      "activation_room": "upper_intake",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         5,
@@ -3800,6 +4289,10 @@
     {
       "stable_id": "pale_ward_03.upper_intake.enemy.3",
       "room": "upper_intake",
+      "source_room": "upper_intake",
+      "actual_room": "upper_intake",
+      "activation_room": "upper_intake",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -3810,6 +4303,10 @@
     {
       "stable_id": "pale_ward_03.upper_intake.enemy.4",
       "room": "upper_intake",
+      "source_room": "upper_intake",
+      "actual_room": "upper_intake",
+      "activation_room": "upper_intake",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         0,
@@ -3820,6 +4317,10 @@
     {
       "stable_id": "pale_ward_03.upper_gallery.enemy.0",
       "room": "upper_gallery",
+      "source_room": "upper_gallery",
+      "actual_room": "upper_gallery",
+      "activation_room": "upper_gallery",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -3830,6 +4331,10 @@
     {
       "stable_id": "pale_ward_03.upper_gallery.enemy.1",
       "room": "upper_gallery",
+      "source_room": "upper_gallery",
+      "actual_room": "upper_gallery",
+      "activation_room": "upper_gallery",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         40,
@@ -3840,6 +4345,10 @@
     {
       "stable_id": "pale_ward_03.upper_gallery.enemy.2",
       "room": "upper_gallery",
+      "source_room": "upper_gallery",
+      "actual_room": "upper_gallery",
+      "activation_room": "upper_gallery",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         45,
@@ -3850,6 +4359,10 @@
     {
       "stable_id": "pale_ward_03.upper_gallery.enemy.3",
       "room": "upper_gallery",
+      "source_room": "upper_gallery",
+      "actual_room": "upper_gallery",
+      "activation_room": "upper_gallery",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -3860,6 +4373,10 @@
     {
       "stable_id": "pale_ward_03.upper_gallery.enemy.4",
       "room": "upper_gallery",
+      "source_room": "upper_gallery",
+      "actual_room": "upper_gallery",
+      "activation_room": "upper_gallery",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         40,
@@ -3870,6 +4387,10 @@
     {
       "stable_id": "pale_ward_03.upper_gallery.enemy.5",
       "room": "upper_gallery",
+      "source_room": "upper_gallery",
+      "actual_room": "upper_gallery",
+      "activation_room": "upper_gallery",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         45,
@@ -3880,6 +4401,10 @@
     {
       "stable_id": "pale_ward_03.upper_gallery.enemy.6",
       "room": "upper_gallery",
+      "source_room": "upper_gallery",
+      "actual_room": "upper_gallery",
+      "activation_room": "upper_gallery",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -3890,6 +4415,10 @@
     {
       "stable_id": "pale_ward_03.anchor_a.enemy.0",
       "room": "anchor_a",
+      "source_room": "anchor_a",
+      "actual_room": "anchor_a",
+      "activation_room": "anchor_a",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         75,
@@ -3900,6 +4429,10 @@
     {
       "stable_id": "pale_ward_03.anchor_a.enemy.1",
       "room": "anchor_a",
+      "source_room": "anchor_a",
+      "actual_room": "anchor_a",
+      "activation_room": "anchor_a",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         80,
@@ -3910,6 +4443,10 @@
     {
       "stable_id": "pale_ward_03.anchor_a.enemy.2",
       "room": "anchor_a",
+      "source_room": "anchor_a",
+      "actual_room": "anchor_a",
+      "activation_room": "anchor_a",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         85,
@@ -3920,6 +4457,10 @@
     {
       "stable_id": "pale_ward_03.anchor_a.enemy.3",
       "room": "anchor_a",
+      "source_room": "anchor_a",
+      "actual_room": "anchor_a",
+      "activation_room": "anchor_a",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         75,
@@ -3930,6 +4471,10 @@
     {
       "stable_id": "pale_ward_03.anchor_a.enemy.4",
       "room": "anchor_a",
+      "source_room": "anchor_a",
+      "actual_room": "anchor_a",
+      "activation_room": "anchor_a",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         80,
@@ -3940,6 +4485,10 @@
     {
       "stable_id": "pale_ward_03.anchor_a.enemy.5",
       "room": "anchor_a",
+      "source_room": "anchor_a",
+      "actual_room": "anchor_a",
+      "activation_room": "anchor_a",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         85,
@@ -3950,6 +4499,10 @@
     {
       "stable_id": "pale_ward_03.anchor_a.enemy.6",
       "room": "anchor_a",
+      "source_room": "anchor_a",
+      "actual_room": "anchor_a",
+      "activation_room": "anchor_a",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         75,
@@ -3960,6 +4513,10 @@
     {
       "stable_id": "pale_ward_03.service_descent.enemy.0",
       "room": "service_descent",
+      "source_room": "service_descent",
+      "actual_room": "service_descent",
+      "activation_room": "service_descent",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         75,
@@ -3970,6 +4527,10 @@
     {
       "stable_id": "pale_ward_03.service_descent.enemy.1",
       "room": "service_descent",
+      "source_room": "service_descent",
+      "actual_room": "service_descent",
+      "activation_room": "service_descent",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         80,
@@ -3980,6 +4541,10 @@
     {
       "stable_id": "pale_ward_03.service_descent.enemy.2",
       "room": "service_descent",
+      "source_room": "service_descent",
+      "actual_room": "service_descent",
+      "activation_room": "service_descent",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         85,
@@ -3990,6 +4555,10 @@
     {
       "stable_id": "pale_ward_03.service_descent.enemy.3",
       "room": "service_descent",
+      "source_room": "service_descent",
+      "actual_room": "service_descent",
+      "activation_room": "service_descent",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         75,
@@ -4000,6 +4569,10 @@
     {
       "stable_id": "pale_ward_03.specimens.enemy.0",
       "room": "specimens",
+      "source_room": "specimens",
+      "actual_room": "specimens",
+      "activation_room": "specimens",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         75,
@@ -4010,6 +4583,10 @@
     {
       "stable_id": "pale_ward_03.specimens.enemy.1",
       "room": "specimens",
+      "source_room": "specimens",
+      "actual_room": "specimens",
+      "activation_room": "specimens",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         80,
@@ -4020,6 +4597,10 @@
     {
       "stable_id": "pale_ward_03.specimens.enemy.2",
       "room": "specimens",
+      "source_room": "specimens",
+      "actual_room": "specimens",
+      "activation_room": "specimens",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         85,
@@ -4030,6 +4611,10 @@
     {
       "stable_id": "pale_ward_03.specimens.enemy.3",
       "room": "specimens",
+      "source_room": "specimens",
+      "actual_room": "specimens",
+      "activation_room": "specimens",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         75,
@@ -4040,6 +4625,10 @@
     {
       "stable_id": "pale_ward_03.specimens.enemy.4",
       "room": "specimens",
+      "source_room": "specimens",
+      "actual_room": "specimens",
+      "activation_room": "specimens",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         80,
@@ -4050,6 +4639,10 @@
     {
       "stable_id": "pale_ward_03.specimens.enemy.5",
       "room": "specimens",
+      "source_room": "specimens",
+      "actual_room": "specimens",
+      "activation_room": "specimens",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         85,
@@ -4060,6 +4653,10 @@
     {
       "stable_id": "pale_ward_03.specimens.enemy.6",
       "room": "specimens",
+      "source_room": "specimens",
+      "actual_room": "specimens",
+      "activation_room": "specimens",
+      "arena_id": "",
       "kind": "infected_scientist",
       "position": [
         75,
@@ -4070,6 +4667,10 @@
     {
       "stable_id": "pale_ward_03.crossfire.enemy.0",
       "room": "crossfire",
+      "source_room": "crossfire",
+      "actual_room": "crossfire",
+      "activation_room": "crossfire",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -4080,6 +4681,10 @@
     {
       "stable_id": "pale_ward_03.crossfire.enemy.1",
       "room": "crossfire",
+      "source_room": "crossfire",
+      "actual_room": "crossfire",
+      "activation_room": "crossfire",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         40,
@@ -4090,6 +4695,10 @@
     {
       "stable_id": "pale_ward_03.crossfire.enemy.2",
       "room": "crossfire",
+      "source_room": "crossfire",
+      "actual_room": null,
+      "activation_room": "crossfire",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         60,
@@ -4100,6 +4709,10 @@
     {
       "stable_id": "pale_ward_03.crossfire.enemy.3",
       "room": "crossfire",
+      "source_room": "crossfire",
+      "actual_room": "crossfire",
+      "activation_room": "crossfire",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -4110,6 +4723,10 @@
     {
       "stable_id": "pale_ward_03.crossfire.enemy.4",
       "room": "crossfire",
+      "source_room": "crossfire",
+      "actual_room": "crossfire",
+      "activation_room": "crossfire",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         40,
@@ -4120,6 +4737,10 @@
     {
       "stable_id": "pale_ward_03.crossfire.enemy.5",
       "room": "crossfire",
+      "source_room": "crossfire",
+      "actual_room": "crossfire",
+      "activation_room": "crossfire",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         45,
@@ -4130,6 +4751,10 @@
     {
       "stable_id": "pale_ward_03.crossfire.enemy.6",
       "room": "crossfire",
+      "source_room": "crossfire",
+      "actual_room": "crossfire",
+      "activation_room": "crossfire",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -4140,6 +4765,10 @@
     {
       "stable_id": "pale_ward_03.crossfire.enemy.7",
       "room": "crossfire",
+      "source_room": "crossfire",
+      "actual_room": "crossfire",
+      "activation_room": "crossfire",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         40,
@@ -4150,6 +4779,10 @@
     {
       "stable_id": "pale_ward_03.crossfire.enemy.8",
       "room": "crossfire",
+      "source_room": "crossfire",
+      "actual_room": "crossfire",
+      "activation_room": "crossfire",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         45,
@@ -4160,6 +4793,10 @@
     {
       "stable_id": "pale_ward_03.anchor_b.enemy.0",
       "room": "anchor_b",
+      "source_room": "anchor_b",
+      "actual_room": "anchor_b",
+      "activation_room": "anchor_b",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4170,6 +4807,10 @@
     {
       "stable_id": "pale_ward_03.anchor_b.enemy.1",
       "room": "anchor_b",
+      "source_room": "anchor_b",
+      "actual_room": "anchor_b",
+      "activation_room": "anchor_b",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         0,
@@ -4180,6 +4821,10 @@
     {
       "stable_id": "pale_ward_03.anchor_b.enemy.2",
       "room": "anchor_b",
+      "source_room": "anchor_b",
+      "actual_room": "anchor_b",
+      "activation_room": "anchor_b",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         5,
@@ -4190,6 +4835,10 @@
     {
       "stable_id": "pale_ward_03.anchor_b.enemy.3",
       "room": "anchor_b",
+      "source_room": "anchor_b",
+      "actual_room": "anchor_b",
+      "activation_room": "anchor_b",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4200,6 +4849,10 @@
     {
       "stable_id": "pale_ward_03.anchor_b.enemy.4",
       "room": "anchor_b",
+      "source_room": "anchor_b",
+      "actual_room": "anchor_b",
+      "activation_room": "anchor_b",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         0,
@@ -4210,6 +4863,10 @@
     {
       "stable_id": "pale_ward_03.anchor_b.enemy.5",
       "room": "anchor_b",
+      "source_room": "anchor_b",
+      "actual_room": "anchor_b",
+      "activation_room": "anchor_b",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         5,
@@ -4220,6 +4877,10 @@
     {
       "stable_id": "pale_ward_03.anchor_b.enemy.6",
       "room": "anchor_b",
+      "source_room": "anchor_b",
+      "actual_room": "anchor_b",
+      "activation_room": "anchor_b",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4230,6 +4891,10 @@
     {
       "stable_id": "pale_ward_03.lower_access.enemy.0",
       "room": "lower_access",
+      "source_room": "lower_access",
+      "actual_room": "lower_access",
+      "activation_room": "lower_access",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -45,
@@ -4240,6 +4905,10 @@
     {
       "stable_id": "pale_ward_03.lower_access.enemy.1",
       "room": "lower_access",
+      "source_room": "lower_access",
+      "actual_room": "lower_access",
+      "activation_room": "lower_access",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -40,
@@ -4250,6 +4919,10 @@
     {
       "stable_id": "pale_ward_03.lower_access.enemy.2",
       "room": "lower_access",
+      "source_room": "lower_access",
+      "actual_room": "lower_access",
+      "activation_room": "lower_access",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         -35,
@@ -4260,6 +4933,10 @@
     {
       "stable_id": "pale_ward_03.lower_access.enemy.3",
       "room": "lower_access",
+      "source_room": "lower_access",
+      "actual_room": "lower_access",
+      "activation_room": "lower_access",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -45,
@@ -4270,6 +4947,10 @@
     {
       "stable_id": "pale_ward_03.cultivation.enemy.0",
       "room": "cultivation",
+      "source_room": "cultivation",
+      "actual_room": "cultivation",
+      "activation_room": "cultivation",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -45,
@@ -4280,6 +4961,10 @@
     {
       "stable_id": "pale_ward_03.cultivation.enemy.1",
       "room": "cultivation",
+      "source_room": "cultivation",
+      "actual_room": "cultivation",
+      "activation_room": "cultivation",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -40,
@@ -4290,9 +4975,13 @@
     {
       "stable_id": "pale_ward_03.cultivation.enemy.2",
       "room": "cultivation",
+      "source_room": "cultivation",
+      "actual_room": "cultivation",
+      "activation_room": "cultivation",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
-        -35,
+        -29,
         0.87,
         76
       ]
@@ -4300,6 +4989,10 @@
     {
       "stable_id": "pale_ward_03.cultivation.enemy.3",
       "room": "cultivation",
+      "source_room": "cultivation",
+      "actual_room": "cultivation",
+      "activation_room": "cultivation",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -45,
@@ -4310,6 +5003,10 @@
     {
       "stable_id": "pale_ward_03.cultivation.enemy.4",
       "room": "cultivation",
+      "source_room": "cultivation",
+      "actual_room": "cultivation",
+      "activation_room": "cultivation",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -40,
@@ -4320,6 +5017,10 @@
     {
       "stable_id": "pale_ward_03.cultivation.enemy.5",
       "room": "cultivation",
+      "source_room": "cultivation",
+      "actual_room": "cultivation",
+      "activation_room": "cultivation",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         -35,
@@ -4330,6 +5031,10 @@
     {
       "stable_id": "pale_ward_03.cultivation.enemy.6",
       "room": "cultivation",
+      "source_room": "cultivation",
+      "actual_room": "cultivation",
+      "activation_room": "cultivation",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -45,
@@ -4340,6 +5045,10 @@
     {
       "stable_id": "pale_ward_03.machinery.enemy.0",
       "room": "machinery",
+      "source_room": "machinery",
+      "actual_room": "machinery",
+      "activation_room": "machinery",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4350,6 +5059,10 @@
     {
       "stable_id": "pale_ward_03.machinery.enemy.1",
       "room": "machinery",
+      "source_room": "machinery",
+      "actual_room": "machinery",
+      "activation_room": "machinery",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         0,
@@ -4360,6 +5073,10 @@
     {
       "stable_id": "pale_ward_03.machinery.enemy.2",
       "room": "machinery",
+      "source_room": "machinery",
+      "actual_room": "machinery",
+      "activation_room": "machinery",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         5,
@@ -4370,6 +5087,10 @@
     {
       "stable_id": "pale_ward_03.machinery.enemy.3",
       "room": "machinery",
+      "source_room": "machinery",
+      "actual_room": "machinery",
+      "activation_room": "machinery",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4380,6 +5101,10 @@
     {
       "stable_id": "pale_ward_03.machinery.enemy.4",
       "room": "machinery",
+      "source_room": "machinery",
+      "actual_room": "machinery",
+      "activation_room": "machinery",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         0,
@@ -4390,6 +5115,10 @@
     {
       "stable_id": "pale_ward_03.anchor_c.enemy.0",
       "room": "anchor_c",
+      "source_room": "anchor_c",
+      "actual_room": "anchor_c",
+      "activation_room": "anchor_c",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -4400,6 +5129,10 @@
     {
       "stable_id": "pale_ward_03.anchor_c.enemy.1",
       "room": "anchor_c",
+      "source_room": "anchor_c",
+      "actual_room": "anchor_c",
+      "activation_room": "anchor_c",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         40,
@@ -4410,6 +5143,10 @@
     {
       "stable_id": "pale_ward_03.anchor_c.enemy.2",
       "room": "anchor_c",
+      "source_room": "anchor_c",
+      "actual_room": "anchor_c",
+      "activation_room": "anchor_c",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         45,
@@ -4420,6 +5157,10 @@
     {
       "stable_id": "pale_ward_03.anchor_c.enemy.3",
       "room": "anchor_c",
+      "source_room": "anchor_c",
+      "actual_room": "anchor_c",
+      "activation_room": "anchor_c",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -4430,6 +5171,10 @@
     {
       "stable_id": "pale_ward_03.anchor_c.enemy.4",
       "room": "anchor_c",
+      "source_room": "anchor_c",
+      "actual_room": "anchor_c",
+      "activation_room": "anchor_c",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         40,
@@ -4440,6 +5185,10 @@
     {
       "stable_id": "pale_ward_03.anchor_c.enemy.5",
       "room": "anchor_c",
+      "source_room": "anchor_c",
+      "actual_room": "anchor_c",
+      "activation_room": "anchor_c",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         45,
@@ -4450,6 +5199,10 @@
     {
       "stable_id": "pale_ward_03.anchor_c.enemy.6",
       "room": "anchor_c",
+      "source_room": "anchor_c",
+      "actual_room": "anchor_c",
+      "activation_room": "anchor_c",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -4460,6 +5213,10 @@
     {
       "stable_id": "pale_ward_03.rupture.enemy.0",
       "room": "rupture",
+      "source_room": "rupture",
+      "actual_room": "rupture",
+      "activation_room": "rupture",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -4470,6 +5227,10 @@
     {
       "stable_id": "pale_ward_03.rupture.enemy.1",
       "room": "rupture",
+      "source_room": "rupture",
+      "actual_room": "rupture",
+      "activation_room": "rupture",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         40,
@@ -4480,6 +5241,10 @@
     {
       "stable_id": "pale_ward_03.rupture.enemy.2",
       "room": "rupture",
+      "source_room": "rupture",
+      "actual_room": "rupture",
+      "activation_room": "rupture",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         45,
@@ -4490,6 +5255,10 @@
     {
       "stable_id": "pale_ward_03.rupture.enemy.3",
       "room": "rupture",
+      "source_room": "rupture",
+      "actual_room": "rupture",
+      "activation_room": "rupture",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         35,
@@ -4500,6 +5269,10 @@
     {
       "stable_id": "pale_ward_03.rupture.enemy.4",
       "room": "rupture",
+      "source_room": "rupture",
+      "actual_room": "rupture",
+      "activation_room": "rupture",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         40,
@@ -4510,6 +5283,10 @@
     {
       "stable_id": "pale_ward_03.rupture.enemy.5",
       "room": "rupture",
+      "source_room": "rupture",
+      "actual_room": "rupture",
+      "activation_room": "rupture",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         45,
@@ -4520,6 +5297,10 @@
     {
       "stable_id": "pale_ward_03.bridge.enemy.0",
       "room": "bridge",
+      "source_room": "bridge",
+      "actual_room": "bridge",
+      "activation_room": "bridge",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         -5,
@@ -4530,6 +5311,10 @@
     {
       "stable_id": "pale_ward_03.bridge.enemy.1",
       "room": "bridge",
+      "source_room": "bridge",
+      "actual_room": "bridge",
+      "activation_room": "bridge",
+      "arena_id": "",
       "kind": "unsealed",
       "position": [
         0,
@@ -4540,6 +5325,10 @@
     {
       "stable_id": "pale_ward_03.bridge.enemy.2",
       "room": "bridge",
+      "source_room": "bridge",
+      "actual_room": "bridge",
+      "activation_room": "bridge",
+      "arena_id": "",
       "kind": "vessel",
       "position": [
         5,
@@ -4550,6 +5339,10 @@
     {
       "stable_id": "pale_ward_03.exit.enemy.0",
       "room": "exit",
+      "source_room": "exit",
+      "actual_room": "exit",
+      "activation_room": "exit",
+      "arena_id": "",
       "kind": "infected_security",
       "position": [
         -45,

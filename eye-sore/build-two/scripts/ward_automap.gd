@@ -22,8 +22,15 @@ func _draw() -> void:
 	var font := ThemeDB.fallback_font
 	for room in rooms:
 		var rect := Rect2(origin + room.rect.position * zoom, room.rect.size * zoom)
-		draw_rect(rect, Color(0.12, 0.14, 0.10))
-		draw_rect(rect, Color(0.62, 0.65, 0.38), false, 2)
+		if room.get("footprint") is PackedVector2Array and room.footprint.size() >= 3:
+			var polygon := PackedVector2Array()
+			for point in room.footprint: polygon.append(origin + point * zoom)
+			draw_colored_polygon(polygon, Color(0.12, 0.14, 0.10))
+			var outline := polygon.duplicate(); outline.append(polygon[0])
+			draw_polyline(outline, Color(0.62, 0.65, 0.38), 2)
+		else:
+			draw_rect(rect, Color(0.12, 0.14, 0.10))
+			draw_rect(rect, Color(0.62, 0.65, 0.38), false, 2)
 		draw_string(font, rect.position + Vector2(5, 20), String(room.label), HORIZONTAL_ALIGNMENT_LEFT, rect.size.x - 10, 14, Color(0.86, 0.85, 0.68))
 	var center := origin + Vector2(actor.x, actor.z) * zoom
 	var forward := Vector2(-sin(heading), -cos(heading))

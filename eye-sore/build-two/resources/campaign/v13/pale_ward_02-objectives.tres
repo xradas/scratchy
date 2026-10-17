@@ -4,8 +4,8 @@
 script = ExtResource("profile_script")
 level_id = "pale_ward_02"
 initial_flags = {}
-objectives = Array[Dictionary]([{"id": "a", "requires": [], "complete_flag": "isolation_a", "text": "Isolate the culture reservoir feed."}, {"id": "b", "requires": [], "complete_flag": "isolation_b", "text": "Isolate the surgical-waste reservoir feed."}, {"id": "discharge", "requires": ["isolation_a", "isolation_b"], "complete_flag": "finished", "text": "Descend into the drained basin and reach specimen transfer."}])
+objectives = Array[Dictionary]([{"id": "a", "requires": [], "complete_flag": "isolation_a", "text": "Isolate CULTURE · follow the west branch from Overlook."}, {"id": "b", "requires": [], "complete_flag": "isolation_b", "text": "Isolate WASTE · follow the east branch from Overlook."}, {"id": "discharge", "requires": ["isolation_a", "isolation_b"], "complete_flag": "finished", "text": "Both feeds isolated · return to Overlook; descend into the drained basin."}])
 controls = {"isolation_a": {"requires": [], "sets": ["isolation_a", "one_isolated"]}, "isolation_b": {"requires": [], "sets": ["isolation_b", "one_isolated"]}}
 keys = {}
 exit_requires = Array[String](["isolation_a", "isolation_b"])
-encounters = {}
+encounters = {"v14_pump_store_reserve": {"activation": "pickup", "pickup_id": "pale_ward_02.pickup.Bonus_pump_store", "requires": [], "arena_id": "v14_pump_store_reserve", "release_doors": ["pale_ward_02.door.v14_pump_store_reserve"], "message": "RESERVE BREACHED · staff bay opening; retreat remains clear", "completion_message": "Reserve secured · main objectives unchanged"}}

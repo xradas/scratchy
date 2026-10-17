@@ -103,12 +103,39 @@
               "position_local": [
                 11,
                 0,
-                -8
+                -2
               ],
               "heading": -90
             }
           ],
-          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+          "outline_xz": [
+            [
+              -16,
+              -14
+            ],
+            [
+              8,
+              -14
+            ],
+            [
+              8,
+              -6
+            ],
+            [
+              16,
+              -6
+            ],
+            [
+              16,
+              14
+            ],
+            [
+              -16,
+              14
+            ]
+          ],
+          "outline_purpose": "L-shaped admissions counter with clear central route and waiting wing"
         },
         {
           "id": "triage",
@@ -661,9 +688,9 @@
               "id": "diagnostics.prop.4",
               "type": "specimen_fridge",
               "position_local": [
-                -10,
+                -9,
                 0,
-                -10.0
+                -9
               ],
               "heading": 90
             },
@@ -671,9 +698,9 @@
               "id": "diagnostics.prop.5",
               "type": "specimen_fridge",
               "position_local": [
-                10,
+                9,
                 0,
-                -10.0
+                -9
               ],
               "heading": -90
             },
@@ -681,7 +708,7 @@
               "id": "diagnostics.prop.6",
               "type": "medical_cabinet",
               "position_local": [
-                -10,
+                -9,
                 0,
                 9
               ],
@@ -691,14 +718,49 @@
               "id": "diagnostics.prop.7",
               "type": "medical_cabinet",
               "position_local": [
-                10,
+                9,
                 0,
                 9
               ],
               "heading": -90
             }
           ],
-          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+          "outline_xz": [
+            [
+              -9,
+              -12
+            ],
+            [
+              9,
+              -12
+            ],
+            [
+              13,
+              -8
+            ],
+            [
+              13,
+              8
+            ],
+            [
+              9,
+              12
+            ],
+            [
+              -9,
+              12
+            ],
+            [
+              -13,
+              8
+            ],
+            [
+              -13,
+              -8
+            ]
+          ],
+          "outline_purpose": "Angled imaging junction separates consoles from circulation"
         },
         {
           "id": "imaging",
@@ -1191,9 +1253,9 @@
               "id": "recovery.prop.2",
               "type": "medical_bed",
               "position_local": [
-                7,
+                5,
                 0,
-                -7
+                2.3
               ],
               "heading": -90
             },
@@ -1201,9 +1263,9 @@
               "id": "recovery.prop.3",
               "type": "medical_bed",
               "position_local": [
-                11,
+                9,
                 0,
-                -7
+                2.3
               ],
               "heading": -90
             },
@@ -1231,9 +1293,9 @@
               "id": "recovery.prop.6",
               "type": "medical_bed",
               "position_local": [
-                7,
+                5,
                 0,
-                6
+                8
               ],
               "heading": -90
             },
@@ -1241,9 +1303,9 @@
               "id": "recovery.prop.7",
               "type": "medical_bed",
               "position_local": [
-                11,
+                9,
                 0,
-                6
+                8
               ],
               "heading": -90
             },
@@ -1273,7 +1335,7 @@
               "position_local": [
                 12,
                 0,
-                -4
+                2.3
               ],
               "heading": -90
             },
@@ -1313,7 +1375,7 @@
               "position_local": [
                 6,
                 0,
-                3
+                5
               ],
               "heading": 0
             },
@@ -1323,7 +1385,7 @@
               "position_local": [
                 10,
                 0,
-                3
+                5
               ],
               "heading": 0
             },
@@ -1341,14 +1403,41 @@
               "id": "recovery.prop.17",
               "type": "medical_cabinet",
               "position_local": [
-                14.0,
+                14,
                 0,
-                -10
+                -2
               ],
               "heading": -90
             }
           ],
-          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+          "outline_xz": [
+            [
+              -16,
+              -13
+            ],
+            [
+              8,
+              -13
+            ],
+            [
+              8,
+              -5
+            ],
+            [
+              16,
+              -5
+            ],
+            [
+              16,
+              13
+            ],
+            [
+              -16,
+              13
+            ]
+          ],
+          "outline_purpose": "L-shaped recovery ward with orderly paired bed bays"
         },
         {
           "id": "processing",
@@ -1885,7 +1974,7 @@
               "position_local": [
                 -10.0,
                 0,
-                -9.0
+                -4.5
               ],
               "heading": 90
             },
@@ -1905,7 +1994,7 @@
               "position_local": [
                 10.0,
                 0,
-                -9.0
+                -4.5
               ],
               "heading": -90
             },
@@ -2503,7 +2592,7 @@
               "local_power"
             ],
             "complete_flag": "surgical_credential",
-            "text": "Find the surgical credential in the operating theatre."
+            "text": "Follow C3 through Diagnostics to the theatre credential."
           },
           {
             "id": "decon",
@@ -2511,7 +2600,7 @@
               "surgical_credential"
             ],
             "complete_flag": "decon_clear",
-            "text": "Reach the surgical wing and survive decontamination."
+            "text": "Return via Sterile Supply and Reception; follow GREEN EXIT to Decon."
           },
           {
             "id": "leave",
@@ -2519,7 +2608,7 @@
               "decon_clear"
             ],
             "complete_flag": "finished",
-            "text": "Take the transfer lift to Containment."
+            "text": "Decon clear \u00b7 take the signed transfer lift to Containment."
           }
         ],
         "controls": {
@@ -2551,6 +2640,17 @@
             "activation": "room_entry",
             "completion_flag": "decon_clear",
             "seal": true
+          },
+          "v14_records_reserve": {
+            "activation": "pickup",
+            "pickup_id": "pale_ward_01.pickup.Bonus_records",
+            "requires": [],
+            "arena_id": "v14_records_reserve",
+            "release_doors": [
+              "pale_ward_01.door.v14_records_reserve"
+            ],
+            "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+            "completion_message": "Reserve secured \u00b7 main objectives unchanged"
           }
         }
       },
@@ -2624,6 +2724,17 @@
           "activation": "room_entry",
           "completion_flag": "decon_clear",
           "seal": true
+        },
+        "v14_records_reserve": {
+          "activation": "pickup",
+          "pickup_id": "pale_ward_01.pickup.Bonus_records",
+          "requires": [],
+          "arena_id": "v14_records_reserve",
+          "release_doors": [
+            "pale_ward_01.door.v14_records_reserve"
+          ],
+          "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+          "completion_message": "Reserve secured \u00b7 main objectives unchanged"
         }
       },
       "target_human_minutes": [
@@ -2980,8 +3091,371 @@
             "central_ground_passage_width_m": 3.5,
             "enemy_navigation": "Existing centre route; flanks are player choices, not coordinated AI lanes."
           }
+        },
+        {
+          "id": "v14_clinical_prep",
+          "revision": 14,
+          "portal": "imaging__theatre",
+          "rooms": [
+            "imaging",
+            "theatre"
+          ],
+          "bounds_xz": [
+            70,
+            90,
+            -26,
+            -14
+          ],
+          "policy": "Already ungated existing pair; no new graph edge; all milestone gates/checkpoints remain unchanged",
+          "boxes": [
+            {
+              "id": "WestWall",
+              "position": [
+                69.8,
+                4.75,
+                -20.0
+              ],
+              "size": [
+                0.4,
+                5.5,
+                12.4
+              ],
+              "role": "wall"
+            },
+            {
+              "id": "EastWall",
+              "position": [
+                90.2,
+                4.75,
+                -20.0
+              ],
+              "size": [
+                0.4,
+                5.5,
+                12.4
+              ],
+              "role": "wall"
+            },
+            {
+              "id": "Floor",
+              "position": [
+                80.0,
+                1.75,
+                -20.0
+              ],
+              "size": [
+                20.4,
+                0.5,
+                12.4
+              ],
+              "role": "floor"
+            },
+            {
+              "id": "Roof",
+              "position": [
+                80.0,
+                7.65,
+                -20.0
+              ],
+              "size": [
+                20.8,
+                0.3,
+                12.8
+              ],
+              "role": "ceiling"
+            },
+            {
+              "id": "OffsetCover",
+              "position": [
+                85,
+                2.75,
+                -20
+              ],
+              "size": [
+                4,
+                1.5,
+                3
+              ],
+              "role": "panel"
+            }
+          ],
+          "stairs": [],
+          "actor_overrides": [
+            {
+              "stable_id": "pale_ward_01.imaging.enemy.2",
+              "kind": "infected_security",
+              "position": [
+                85,
+                2.87,
+                -31
+              ]
+            }
+          ],
+          "apertures": [
+            {
+              "room": "imaging",
+              "side": "S",
+              "plane": -26.0,
+              "span": [
+                70,
+                90
+              ],
+              "height": [
+                2,
+                7.5
+              ]
+            },
+            {
+              "room": "theatre",
+              "side": "N",
+              "plane": -14.0,
+              "span": [
+                70,
+                90
+              ],
+              "height": [
+                2,
+                7.5
+              ]
+            }
+          ],
+          "walk_paths": [
+            {
+              "id": "west_lane",
+              "points": [
+                [
+                  75,
+                  2,
+                  -25
+                ],
+                [
+                  75,
+                  2,
+                  -15
+                ]
+              ],
+              "reverse": true
+            },
+            {
+              "id": "east_lane",
+              "points": [
+                [
+                  88.5,
+                  2,
+                  -25
+                ],
+                [
+                  88.5,
+                  2,
+                  -15
+                ]
+              ],
+              "reverse": true
+            }
+          ],
+          "shot_pairs": [
+            {
+              "id": "clinical_diagonal",
+              "a": [
+                85,
+                3.32,
+                -31
+              ],
+              "b": [
+                79,
+                3.17,
+                -19
+              ],
+              "state": "always",
+              "bidirectional": true
+            },
+            {
+              "id": "imaging_theatre_shared_front",
+              "a": [
+                75,
+                3.17,
+                -28
+              ],
+              "b": [
+                75,
+                3.17,
+                -12
+              ],
+              "state": "always",
+              "bidirectional": true
+            }
+          ],
+          "solid_pairs": [
+            {
+              "id": "prep_cover",
+              "a": [
+                82,
+                2.8,
+                -20
+              ],
+              "b": [
+                88,
+                2.8,
+                -20
+              ]
+            }
+          ],
+          "lights": [
+            {
+              "id": "MountedLamp",
+              "position": [
+                80.0,
+                7.25,
+                -20.0
+              ],
+              "room": "imaging",
+              "energy": 3.8
+            }
+          ]
         }
-      ]
+      ],
+      "layout_revision": 14,
+      "optional_reserve": {
+        "room": "records",
+        "partition_z": -6.8,
+        "x_span": [
+          -53,
+          -27
+        ],
+        "door_x_span": [
+          -43,
+          -37
+        ],
+        "floor": 0,
+        "partition_height": 3.6,
+        "door_height": 3.4,
+        "door_open_offset": [
+          0,
+          4,
+          0
+        ],
+        "actor_positions": [
+          [
+            -42,
+            0.87,
+            -9
+          ],
+          [
+            -41.5,
+            0.87,
+            -7.4
+          ]
+        ],
+        "north_prop_moves": {
+          "records.prop.0": [
+            -10.0,
+            0,
+            -4.5
+          ],
+          "records.prop.2": [
+            10.0,
+            0,
+            -4.5
+          ]
+        },
+        "reward_stable_id": "pale_ward_01.pickup.Bonus_records",
+        "reward_kind": "shells",
+        "reward_amount": 12,
+        "health_bonus_unchanged": true,
+        "requires": [],
+        "arena_id": "v14_records_reserve",
+        "release_door_stable_id": "pale_ward_01.door.v14_records_reserve",
+        "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
+        "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+        "completion_message": "Reserve secured \u00b7 main objectives unchanged",
+        "closet_roof_y": 3.8,
+        "door_node": "Door_v14_records_reserve",
+        "actor_ids": [
+          "pale_ward_01.triage.enemy.1",
+          "pale_ward_01.triage.enemy.2"
+        ],
+        "actor_fit_amendment": "Coordinator approved security-only near-front west pose after actual .38m capsule sweep: prior desired nav line clipped partition; new pose clears same6m physical door. Scientist remains[-42,.87,-9]; no AI/door-width change. Natural pursuit/retreat QA required."
+      },
+      "actor_overrides": [
+        {
+          "stable_id": "pale_ward_01.triage.enemy.1",
+          "kind": "infected_scientist",
+          "position": [
+            -42,
+            0.87,
+            -9
+          ],
+          "activation_room": "records",
+          "arena_id": "v14_records_reserve"
+        },
+        {
+          "stable_id": "pale_ward_01.triage.enemy.2",
+          "kind": "infected_security",
+          "position": [
+            -41.5,
+            0.87,
+            -7.4
+          ],
+          "activation_room": "records",
+          "arena_id": "v14_records_reserve"
+        }
+      ],
+      "navigation": {
+        "landmarks": [
+          {
+            "room": "reception",
+            "label": "C3 / DIAGNOSTICS \u2192 THEATRE",
+            "flag": "local_power",
+            "position": [
+              4,
+              2.5,
+              -13.7
+            ],
+            "yaw": 0
+          },
+          {
+            "room": "reception",
+            "label": "GREEN EXIT / SURGICAL ACCESS",
+            "flag": "surgical_credential",
+            "position": [
+              -4,
+              2.5,
+              13.7
+            ],
+            "yaw": 180
+          },
+          {
+            "room": "sterile",
+            "label": "RETURN TO RECEPTION / DECON",
+            "flag": "surgical_credential",
+            "position": [
+              27.3,
+              4.5,
+              4
+            ],
+            "yaw": 90
+          },
+          {
+            "room": "decon",
+            "label": "TRANSFER LIFT / CONTAINMENT",
+            "flag": "decon_clear",
+            "position": [
+              16.7,
+              4.5,
+              84
+            ],
+            "yaw": -90
+          }
+        ],
+        "control_messages": {
+          "local_power": "Power restored \u00b7 return through Triage to the C3 Diagnostics gate."
+        },
+        "objective_text": {
+          "surgical_access": "Follow C3 through Diagnostics to the theatre credential.",
+          "decon": "Return via Sterile Supply and Reception; follow GREEN EXIT to Decon.",
+          "leave": "Decon clear \u00b7 take the signed transfer lift to Containment."
+        }
+      }
     },
     {
       "id": "pale_ward_02",
@@ -3070,7 +3544,42 @@
               "heading": -90
             }
           ],
-          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+          "outline_xz": [
+            [
+              -14,
+              -13
+            ],
+            [
+              14,
+              -13
+            ],
+            [
+              16,
+              -11
+            ],
+            [
+              16,
+              11
+            ],
+            [
+              14,
+              13
+            ],
+            [
+              -14,
+              13
+            ],
+            [
+              -16,
+              11
+            ],
+            [
+              -16,
+              -11
+            ]
+          ],
+          "outline_purpose": "Clipped central control hub retains both visible basin galleries"
         },
         {
           "id": "culture_access",
@@ -3237,9 +3746,9 @@
               "id": "cultures.prop.4",
               "type": "instrument_bench",
               "position_local": [
-                -10,
+                -5,
                 0,
-                7
+                9
               ],
               "heading": 90
             },
@@ -3294,7 +3803,34 @@
               "heading": -90
             }
           ],
-          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+          "outline_xz": [
+            [
+              -16,
+              -14
+            ],
+            [
+              16,
+              -14
+            ],
+            [
+              16,
+              14
+            ],
+            [
+              -8,
+              14
+            ],
+            [
+              -8,
+              6
+            ],
+            [
+              -16,
+              6
+            ]
+          ],
+          "outline_purpose": "L-shaped culture suite with a rear work recess"
         },
         {
           "id": "filters",
@@ -3655,9 +4191,9 @@
               "id": "waste_lab.prop.5",
               "type": "instrument_bench",
               "position_local": [
-                10,
+                5,
                 0,
-                7
+                9
               ],
               "heading": -90
             },
@@ -3702,7 +4238,34 @@
               "heading": -90
             }
           ],
-          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+          "outline_xz": [
+            [
+              -16,
+              -14
+            ],
+            [
+              16,
+              -14
+            ],
+            [
+              16,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              14
+            ],
+            [
+              -16,
+              14
+            ]
+          ],
+          "outline_purpose": "Mirrored L-shaped surgical-waste suite with distinct branch identity"
         },
         {
           "id": "sterilizer",
@@ -4371,9 +4934,9 @@
               "id": "pump_store.prop.1",
               "type": "pump_rig",
               "position_local": [
-                -10.0,
+                -10,
                 0,
-                9.0
+                4.5
               ],
               "heading": 90
             },
@@ -4391,9 +4954,9 @@
               "id": "pump_store.prop.3",
               "type": "pump_rig",
               "position_local": [
-                10.0,
+                10,
                 0,
-                9.0
+                4.5
               ],
               "heading": -90
             }
@@ -4979,13 +5542,13 @@
             "id": "a",
             "requires": [],
             "complete_flag": "isolation_a",
-            "text": "Isolate the culture reservoir feed."
+            "text": "Isolate CULTURE \u00b7 follow the west branch from Overlook."
           },
           {
             "id": "b",
             "requires": [],
             "complete_flag": "isolation_b",
-            "text": "Isolate the surgical-waste reservoir feed."
+            "text": "Isolate WASTE \u00b7 follow the east branch from Overlook."
           },
           {
             "id": "discharge",
@@ -4994,7 +5557,7 @@
               "isolation_b"
             ],
             "complete_flag": "finished",
-            "text": "Descend into the drained basin and reach specimen transfer."
+            "text": "Both feeds isolated \u00b7 return to Overlook; descend into the drained basin."
           }
         ],
         "controls": {
@@ -5018,7 +5581,19 @@
           "isolation_a",
           "isolation_b"
         ],
-        "encounters": {}
+        "encounters": {
+          "v14_pump_store_reserve": {
+            "activation": "pickup",
+            "pickup_id": "pale_ward_02.pickup.Bonus_pump_store",
+            "requires": [],
+            "arena_id": "v14_pump_store_reserve",
+            "release_doors": [
+              "pale_ward_02.door.v14_pump_store_reserve"
+            ],
+            "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+            "completion_message": "Reserve secured \u00b7 main objectives unchanged"
+          }
+        }
       },
       "controls": [
         {
@@ -5080,7 +5655,19 @@
         "infected_security",
         "vessel"
       ],
-      "encounters": {},
+      "encounters": {
+        "v14_pump_store_reserve": {
+          "activation": "pickup",
+          "pickup_id": "pale_ward_02.pickup.Bonus_pump_store",
+          "requires": [],
+          "arena_id": "v14_pump_store_reserve",
+          "release_doors": [
+            "pale_ward_02.door.v14_pump_store_reserve"
+          ],
+          "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+          "completion_message": "Reserve secured \u00b7 main objectives unchanged"
+        }
+      },
       "target_human_minutes": [
         20,
         25
@@ -5885,8 +6472,361 @@
             "Basin actors are visually submerged until3.5m liquid drains; shutters must block all shots/LOS until actual drain.",
             "Enemy navigation unchanged; these are firing balconies, never an alternate physical path into gated basin."
           ]
+        },
+        {
+          "id": "v14_culture_steps",
+          "revision": 14,
+          "portal": "cultures__filters",
+          "rooms": [
+            "cultures",
+            "filters"
+          ],
+          "bounds_xz": [
+            -90,
+            -70,
+            -28,
+            -14
+          ],
+          "policy": "Already ungated existing pair; no new graph edge; all milestone gates/checkpoints remain unchanged",
+          "boxes": [
+            {
+              "id": "WestWall",
+              "position": [
+                -90.2,
+                5.75,
+                -21.0
+              ],
+              "size": [
+                0.4,
+                7.5,
+                14.4
+              ],
+              "role": "wall"
+            },
+            {
+              "id": "EastWall",
+              "position": [
+                -69.8,
+                5.75,
+                -21.0
+              ],
+              "size": [
+                0.4,
+                7.5,
+                14.4
+              ],
+              "role": "wall"
+            },
+            {
+              "id": "Floor",
+              "position": [
+                -80.0,
+                1.75,
+                -21.0
+              ],
+              "size": [
+                20.4,
+                0.5,
+                14.4
+              ],
+              "role": "floor"
+            },
+            {
+              "id": "Roof",
+              "position": [
+                -80.0,
+                9.65,
+                -21.0
+              ],
+              "size": [
+                20.8,
+                0.3,
+                14.8
+              ],
+              "role": "ceiling"
+            }
+          ],
+          "stairs": [
+            {
+              "id": "BroadSteps",
+              "start": [
+                -80,
+                2,
+                -28
+              ],
+              "end": [
+                -80,
+                4,
+                -14
+              ],
+              "width": 20.12
+            }
+          ],
+          "actor_overrides": [
+            {
+              "stable_id": "pale_ward_02.cultures.enemy.2",
+              "kind": "infected_security",
+              "position": [
+                -86,
+                4.87,
+                -10
+              ]
+            }
+          ],
+          "apertures": [
+            {
+              "room": "cultures",
+              "side": "N",
+              "plane": -14.0,
+              "span": [
+                -90,
+                -70
+              ],
+              "height": [
+                4,
+                9.5
+              ]
+            },
+            {
+              "room": "filters",
+              "side": "S",
+              "plane": -28.0,
+              "span": [
+                -90,
+                -70
+              ],
+              "height": [
+                2,
+                9.5
+              ]
+            }
+          ],
+          "walk_paths": [
+            {
+              "id": "west_step_lane",
+              "points": [
+                [
+                  -86,
+                  2,
+                  -28
+                ],
+                [
+                  -86,
+                  4,
+                  -14
+                ]
+              ],
+              "reverse": true
+            },
+            {
+              "id": "east_step_lane",
+              "points": [
+                [
+                  -74,
+                  2,
+                  -28
+                ],
+                [
+                  -74,
+                  4,
+                  -14
+                ]
+              ],
+              "reverse": true
+            }
+          ],
+          "shot_pairs": [
+            {
+              "id": "culture_to_filters",
+              "a": [
+                -86,
+                5.32,
+                -10
+              ],
+              "b": [
+                -86,
+                3.92,
+                -22
+              ],
+              "state": "always",
+              "bidirectional": true
+            }
+          ],
+          "solid_pairs": [
+            {
+              "id": "hall_side",
+              "a": [
+                -89,
+                5,
+                -20
+              ],
+              "b": [
+                -91,
+                5,
+                -20
+              ]
+            }
+          ],
+          "lights": [
+            {
+              "id": "MountedLamp",
+              "position": [
+                -80.0,
+                9.25,
+                -21.0
+              ],
+              "room": "cultures",
+              "energy": 3.8
+            }
+          ]
         }
-      ]
+      ],
+      "layout_revision": 14,
+      "optional_reserve": {
+        "room": "pump_store",
+        "partition_z": 46.8,
+        "x_span": [
+          -13,
+          13
+        ],
+        "door_x_span": [
+          -3,
+          3
+        ],
+        "floor": 4,
+        "partition_height": 3.6,
+        "door_height": 3.4,
+        "door_open_offset": [
+          0,
+          4,
+          0
+        ],
+        "actor_positions": [
+          [
+            -2,
+            4.87,
+            49
+          ],
+          [
+            2,
+            4.87,
+            49
+          ]
+        ],
+        "north_prop_moves": {},
+        "reward_stable_id": "pale_ward_02.pickup.Bonus_pump_store",
+        "reward_kind": "shells",
+        "reward_amount": 12,
+        "health_bonus_unchanged": true,
+        "requires": [],
+        "arena_id": "v14_pump_store_reserve",
+        "release_door_stable_id": "pale_ward_02.door.v14_pump_store_reserve",
+        "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
+        "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+        "completion_message": "Reserve secured \u00b7 main objectives unchanged",
+        "closet_roof_y": 7.8,
+        "closet_side": "south",
+        "south_prop_moves": {
+          "pump_store.prop.1": [
+            -10,
+            0,
+            4.5
+          ],
+          "pump_store.prop.3": [
+            10,
+            0,
+            4.5
+          ]
+        },
+        "restore_north_props_from_baseline": true,
+        "fit_amendment": "Coordinator review found north main entrance entered the unreleased closet. Move closet to south, preserving north entry, reward and retreat.",
+        "door_node": "Door_v14_pump_store_reserve",
+        "actor_ids": [
+          "pale_ward_02.culture_office.enemy.0",
+          "pale_ward_02.waste_lab.enemy.2"
+        ]
+      },
+      "actor_overrides": [
+        {
+          "stable_id": "pale_ward_02.culture_office.enemy.0",
+          "kind": "infected_scientist",
+          "position": [
+            -2,
+            4.87,
+            49
+          ],
+          "activation_room": "pump_store",
+          "arena_id": "v14_pump_store_reserve"
+        },
+        {
+          "stable_id": "pale_ward_02.waste_lab.enemy.2",
+          "kind": "infected_security",
+          "position": [
+            2,
+            4.87,
+            49
+          ],
+          "activation_room": "pump_store",
+          "arena_id": "v14_pump_store_reserve"
+        }
+      ],
+      "navigation": {
+        "landmarks": [
+          {
+            "room": "overlook",
+            "label": "CULTURE FEED / WEST",
+            "flag": "isolation_a",
+            "position": [
+              -15.7,
+              6.5,
+              4
+            ],
+            "yaw": 90
+          },
+          {
+            "room": "overlook",
+            "label": "WASTE FEED / EAST",
+            "flag": "isolation_b",
+            "position": [
+              15.7,
+              6.5,
+              4
+            ],
+            "yaw": -90
+          },
+          {
+            "room": "overlook",
+            "label": "BASIN OPENS WHEN BOTH FEEDS SHOW GREEN",
+            "flag": "",
+            "position": [
+              0,
+              9,
+              -12.7
+            ],
+            "yaw": 0
+          },
+          {
+            "room": "reservoir",
+            "label": "DISCHARGE / SPECIMEN TRANSFER",
+            "flag": "",
+            "position": [
+              4,
+              2.5,
+              -53.7
+            ],
+            "yaw": 0
+          }
+        ],
+        "control_messages": {
+          "isolation_a": "Culture feed isolated \u00b7 bridge ready; check remaining feed status at Overlook.",
+          "isolation_b": "Waste feed isolated \u00b7 bridge ready; check remaining feed status at Overlook."
+        },
+        "objective_text": {
+          "a": "Isolate CULTURE \u00b7 follow the west branch from Overlook.",
+          "b": "Isolate WASTE \u00b7 follow the east branch from Overlook.",
+          "discharge": "Both feeds isolated \u00b7 return to Overlook; descend into the drained basin."
+        }
+      }
     },
     {
       "id": "pale_ward_03",
@@ -5968,14 +6908,41 @@
               "id": "loading.prop.5",
               "type": "ppe_locker",
               "position_local": [
-                10,
+                13,
                 0,
-                -9
+                -2
               ],
               "heading": -90
             }
           ],
-          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+          "outline_xz": [
+            [
+              -16,
+              -13
+            ],
+            [
+              8,
+              -13
+            ],
+            [
+              8,
+              -5
+            ],
+            [
+              16,
+              -5
+            ],
+            [
+              16,
+              13
+            ],
+            [
+              -16,
+              13
+            ]
+          ],
+          "outline_purpose": "L-shaped security intake keeps forward route visible"
         },
         {
           "id": "upper_intake",
@@ -6798,7 +7765,7 @@
               "position_local": [
                 -11,
                 0,
-                -8
+                -3
               ],
               "heading": 0
             },
@@ -6853,7 +7820,34 @@
               "heading": -90
             }
           ],
-          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+          "outline_xz": [
+            [
+              -7,
+              -14
+            ],
+            [
+              15,
+              -14
+            ],
+            [
+              15,
+              14
+            ],
+            [
+              -15,
+              14
+            ],
+            [
+              -15,
+              -6
+            ],
+            [
+              -7,
+              -6
+            ]
+          ],
+          "outline_purpose": "L-shaped tank floor wraps pumpwork before the lower feed"
         },
         {
           "id": "machinery",
@@ -7139,7 +8133,42 @@
               "heading": -90
             }
           ],
-          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+          "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+          "outline_xz": [
+            [
+              -12,
+              -15
+            ],
+            [
+              12,
+              -15
+            ],
+            [
+              17,
+              -10
+            ],
+            [
+              17,
+              10
+            ],
+            [
+              12,
+              15
+            ],
+            [
+              -12,
+              15
+            ],
+            [
+              -17,
+              10
+            ],
+            [
+              -17,
+              -10
+            ]
+          ],
+          "outline_purpose": "Octagonal rupture chamber frames the chapter landmark"
         },
         {
           "id": "bridge",
@@ -7350,7 +8379,7 @@
               "position_local": [
                 -10.0,
                 0,
-                -9.0
+                -4.5
               ],
               "heading": 90
             },
@@ -7370,7 +8399,7 @@
               "position_local": [
                 10.0,
                 0,
-                -9.0
+                -4.5
               ],
               "heading": -90
             },
@@ -8002,7 +9031,19 @@
           "anchor_b",
           "anchor_c"
         ],
-        "encounters": {}
+        "encounters": {
+          "v14_security_store_reserve": {
+            "activation": "pickup",
+            "pickup_id": "pale_ward_03.pickup.Bonus_security_store",
+            "requires": [],
+            "arena_id": "v14_security_store_reserve",
+            "release_doors": [
+              "pale_ward_03.door.v14_security_store_reserve"
+            ],
+            "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+            "completion_message": "Reserve secured \u00b7 main objectives unchanged"
+          }
+        }
       },
       "controls": [],
       "keys": [],
@@ -8078,7 +9119,19 @@
         "infected_security",
         "vessel"
       ],
-      "encounters": {},
+      "encounters": {
+        "v14_security_store_reserve": {
+          "activation": "pickup",
+          "pickup_id": "pale_ward_03.pickup.Bonus_security_store",
+          "requires": [],
+          "arena_id": "v14_security_store_reserve",
+          "release_doors": [
+            "pale_ward_03.door.v14_security_store_reserve"
+          ],
+          "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+          "completion_message": "Reserve secured \u00b7 main objectives unchanged"
+        }
+      },
       "target_human_minutes": [
         20,
         25
@@ -8422,8 +9475,351 @@
             "Fresh contact/stair and real combat tests required; ledge changes ordinary encounter exposure but no mandatory all-clear or actor count.",
             "No direct new opening into anchor rooms; anchors/checkpoints/return shortcut requirements unchanged."
           ]
+        },
+        {
+          "id": "v14_lower_feed_hall",
+          "revision": 14,
+          "portal": "cultivation__machinery",
+          "rooms": [
+            "cultivation",
+            "machinery"
+          ],
+          "bounds_xz": [
+            -25,
+            -13,
+            70,
+            90
+          ],
+          "policy": "Already ungated existing pair; no new graph edge; all milestone gates/checkpoints remain unchanged",
+          "boxes": [
+            {
+              "id": "NorthWall",
+              "position": [
+                -19.0,
+                3.0,
+                69.8
+              ],
+              "size": [
+                12.4,
+                6,
+                0.4
+              ],
+              "role": "wall"
+            },
+            {
+              "id": "SouthWall",
+              "position": [
+                -19.0,
+                3.0,
+                90.2
+              ],
+              "size": [
+                12.4,
+                6,
+                0.4
+              ],
+              "role": "wall"
+            },
+            {
+              "id": "Floor",
+              "position": [
+                -19.0,
+                -0.25,
+                80.0
+              ],
+              "size": [
+                12.4,
+                0.5,
+                20.4
+              ],
+              "role": "floor"
+            },
+            {
+              "id": "Roof",
+              "position": [
+                -19.0,
+                6.15,
+                80.0
+              ],
+              "size": [
+                12.8,
+                0.3,
+                20.8
+              ],
+              "role": "ceiling"
+            },
+            {
+              "id": "OffsetCover",
+              "position": [
+                -19,
+                0.75,
+                85
+              ],
+              "size": [
+                2,
+                1.5,
+                4
+              ],
+              "role": "panel"
+            }
+          ],
+          "stairs": [],
+          "actor_overrides": [
+            {
+              "stable_id": "pale_ward_03.cultivation.enemy.2",
+              "kind": "vessel",
+              "position": [
+                -29,
+                0.87,
+                76
+              ]
+            }
+          ],
+          "apertures": [
+            {
+              "room": "cultivation",
+              "side": "E",
+              "plane": -25.0,
+              "span": [
+                70,
+                90
+              ],
+              "height": [
+                0,
+                6
+              ]
+            },
+            {
+              "room": "machinery",
+              "side": "W",
+              "plane": -13.0,
+              "span": [
+                70,
+                90
+              ],
+              "height": [
+                0,
+                6
+              ]
+            }
+          ],
+          "walk_paths": [
+            {
+              "id": "north_lane",
+              "points": [
+                [
+                  -24,
+                  0,
+                  74
+                ],
+                [
+                  -14,
+                  0,
+                  74
+                ]
+              ],
+              "reverse": true
+            },
+            {
+              "id": "south_lane",
+              "points": [
+                [
+                  -24,
+                  0,
+                  88.5
+                ],
+                [
+                  -14,
+                  0,
+                  88.5
+                ]
+              ],
+              "reverse": true
+            }
+          ],
+          "shot_pairs": [
+            {
+              "id": "lower_feed_diagonal",
+              "a": [
+                -29,
+                1.32,
+                76
+              ],
+              "b": [
+                -17,
+                1.17,
+                78
+              ],
+              "state": "always",
+              "bidirectional": true
+            }
+          ],
+          "solid_pairs": [
+            {
+              "id": "feed_cover",
+              "a": [
+                -22,
+                0.8,
+                85
+              ],
+              "b": [
+                -16,
+                0.8,
+                85
+              ]
+            }
+          ],
+          "lights": [
+            {
+              "id": "MountedLamp",
+              "position": [
+                -19.0,
+                5.75,
+                80.0
+              ],
+              "room": "cultivation",
+              "energy": 3.8
+            }
+          ]
         }
-      ]
+      ],
+      "layout_revision": 14,
+      "optional_reserve": {
+        "room": "security_store",
+        "partition_z": -6.8,
+        "x_span": [
+          -53,
+          -27
+        ],
+        "door_x_span": [
+          -43,
+          -37
+        ],
+        "floor": 8,
+        "partition_height": 3.6,
+        "door_height": 3.4,
+        "door_open_offset": [
+          0,
+          4,
+          0
+        ],
+        "actor_positions": [
+          [
+            -42.5,
+            8.87,
+            -7.4
+          ],
+          [
+            -41.5,
+            8.87,
+            -7.4
+          ]
+        ],
+        "north_prop_moves": {
+          "security_store.prop.0": [
+            -10.0,
+            0,
+            -4.5
+          ],
+          "security_store.prop.2": [
+            10.0,
+            0,
+            -4.5
+          ]
+        },
+        "reward_stable_id": "pale_ward_03.pickup.Bonus_security_store",
+        "reward_kind": "shells",
+        "reward_amount": 12,
+        "health_bonus_unchanged": true,
+        "requires": [],
+        "arena_id": "v14_security_store_reserve",
+        "release_door_stable_id": "pale_ward_03.door.v14_security_store_reserve",
+        "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
+        "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+        "completion_message": "Reserve secured \u00b7 main objectives unchanged",
+        "closet_roof_y": 11.8,
+        "door_node": "Door_v14_security_store_reserve",
+        "actor_ids": [
+          "pale_ward_03.loading.enemy.1",
+          "pale_ward_03.loading.enemy.3"
+        ],
+        "actor_fit_amendment": "Coordinator approved both existing security actors at[-42.5,8.87,-7.4] and[-41.5,8.87,-7.4] after native live body probes showed the original poses pursued into the right partition. Same six-metre door, original kinds/IDs, no AI change; actual natural aggression/retreat proof required."
+      },
+      "actor_overrides": [
+        {
+          "stable_id": "pale_ward_03.loading.enemy.1",
+          "kind": "infected_security",
+          "position": [
+            -42.5,
+            8.87,
+            -7.4
+          ],
+          "activation_room": "security_store",
+          "arena_id": "v14_security_store_reserve"
+        },
+        {
+          "stable_id": "pale_ward_03.loading.enemy.3",
+          "kind": "infected_security",
+          "position": [
+            -41.5,
+            8.87,
+            -7.4
+          ],
+          "activation_room": "security_store",
+          "arena_id": "v14_security_store_reserve"
+        }
+      ],
+      "navigation": {
+        "landmarks": [
+          {
+            "room": "loading",
+            "label": "UPPER GALLERY / ANCHOR A",
+            "flag": "anchor_a",
+            "position": [
+              4,
+              10.5,
+              -12.7
+            ],
+            "yaw": 0
+          },
+          {
+            "room": "specimens",
+            "label": "CROSSFIRE / ANCHOR B",
+            "flag": "anchor_b",
+            "position": [
+              64.3,
+              6.5,
+              51
+            ],
+            "yaw": 90
+          },
+          {
+            "room": "machinery",
+            "label": "LOWER FEED / ANCHOR C",
+            "flag": "anchor_c",
+            "position": [
+              12.7,
+              2.5,
+              84
+            ],
+            "yaw": -90
+          },
+          {
+            "room": "rupture",
+            "label": "BURIED PASSAGE / ASH CITADEL",
+            "flag": "",
+            "position": [
+              23.3,
+              -1.5,
+              124
+            ],
+            "yaw": 90
+          }
+        ],
+        "objective_text": {
+          "note": "Keep exact existing objective IDs/order; replace text with actual next destination/anchor label from authored profile, no new visit-based prerequisites."
+        }
+      }
     }
   ]
 }

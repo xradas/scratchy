@@ -64,3 +64,14 @@ Run bounded packaging checks with:
 ```bash
 python3 -m unittest discover -s tools -p 'test_package_pale_ward.py'
 ```
+
+The current Ward spatial pass is v14. Use a fresh destination and executable
+name, for example `eyesore-ward-spatial-v14.x86_64`. Its construction contract
+and actual controlled review views under `docs/ward-spatial-v14` and
+`concepts/ward-spatial-v14` are copied as provenance, alongside preserved v13
+materials. Commit and freeze source/provenance before packaging; retain the
+clean status recorded by the exporter. Later verification receipts are kept
+outside the package. Existing v13 route, recording and archive-audit tools are
+format-compatible with v14's unchanged objective/profile interface; identify
+the actual source commit and ELF hashes, rather than inferring a build version
+from the historical tool name.

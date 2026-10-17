@@ -14,10 +14,10 @@
   ],
   "protected_scene_art_files": 319,
   "outputs": {
-    "scenes/campaign/pale_ward_01.tscn": "8ca7771158a0e4f28d97dbe058890cebd7297e9dbcecd0f6edcaad7e1f7aa5a0",
-    "resources/campaign/pale_ward_01-layout.json": "702ca101f89ec994f5b333b66120503360d61c2454acb4be232a8278ba1ca25c",
-    "resources/campaign/pale_ward_01-route.json": "6a2c2ec39d67e724219c8254ea9de22fefcbe8fad4fa29337fd590cdbee65466",
-    "resources/campaign/v13/pale_ward_01-objectives.tres": "532278859e1d55d50223129663b54bddaa77b4251e9881cd05a72304f5979cab"
+    "scenes/campaign/pale_ward_01.tscn": "4807f5a334ac92e050909e2138fb038714f153e5f4c34ed20aa95ba3ccb4aeb5",
+    "resources/campaign/pale_ward_01-layout.json": "4674296ed74be88b20479bd1d575d66558259d1c180c75a0c49b3e442819a5c1",
+    "resources/campaign/pale_ward_01-route.json": "32477a07c873f11dcb20c8f2da454016e79fa4a474cd7f41cf82eef5f2565042",
+    "resources/campaign/v13/pale_ward_01-objectives.tres": "1e3bb243308c01549c616ddb717c47cba9f153a9d43b5e99772cfcbb30804098"
   },
   "geometry": [
     {
@@ -1672,126 +1672,6 @@
         13.0,
         4.8,
         0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_imaging__theatre_0_Floor",
-      "parent": ".",
-      "position": [
-        80.0,
-        1.75,
-        -20.0
-      ],
-      "size": [
-        5.12,
-        0.5,
-        12.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_imaging__theatre_0_LandingA",
-      "parent": ".",
-      "position": [
-        80,
-        1.75,
-        -26.0
-      ],
-      "size": [
-        5.12,
-        0.5,
-        0.35
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_imaging__theatre_0_LandingB",
-      "parent": ".",
-      "position": [
-        80,
-        1.75,
-        -14.0
-      ],
-      "size": [
-        5.12,
-        0.5,
-        0.35
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_imaging__theatre_0_Roof",
-      "parent": ".",
-      "position": [
-        80.0,
-        6.95,
-        -20.0
-      ],
-      "size": [
-        5.8,
-        0.3,
-        12.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_imaging__theatre_0_Wall-1",
-      "parent": ".",
-      "position": [
-        77.3,
-        4.4,
-        -20.0
-      ],
-      "size": [
-        0.4,
-        4.8,
-        12.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_imaging__theatre_0_Wall1",
-      "parent": ".",
-      "position": [
-        82.7,
-        4.4,
-        -20.0
-      ],
-      "size": [
-        0.4,
-        4.8,
-        12.0
       ],
       "rotation": [
         0,
@@ -5561,17 +5441,117 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Floor",
+      "name": "Structural_v14_clinical_prep_WestWall",
       "parent": ".",
       "position": [
+        69.8,
+        4.75,
+        -20.0
+      ],
+      "size": [
+        0.4,
+        5.5,
+        12.4
+      ],
+      "rotation": [
         0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_v14_clinical_prep_EastWall",
+      "parent": ".",
+      "position": [
+        90.2,
+        4.75,
+        -20.0
+      ],
+      "size": [
+        0.4,
+        5.5,
+        12.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_v14_clinical_prep_Floor",
+      "parent": ".",
+      "position": [
+        80.0,
+        1.75,
+        -20.0
+      ],
+      "size": [
+        20.4,
+        0.5,
+        12.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_v14_clinical_prep_Roof",
+      "parent": ".",
+      "position": [
+        80.0,
+        7.65,
+        -20.0
+      ],
+      "size": [
+        20.8,
+        0.3,
+        12.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_v14_clinical_prep_OffsetCover",
+      "parent": ".",
+      "position": [
+        85,
+        2.75,
+        -20
+      ],
+      "size": [
+        4,
+        1.5,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_Floor_Cell0",
+      "parent": ".",
+      "position": [
+        -4.0,
         -0.3,
-        0
+        -10.0
       ],
       "size": [
-        32.12,
+        24.02,
         0.6,
-        28.12
+        8.02
       ],
       "rotation": [
         0,
@@ -5581,17 +5561,57 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Roof",
+      "name": "reception_Floor_Cell1",
       "parent": ".",
       "position": [
+        -4.0,
+        -0.3,
+        4.0
+      ],
+      "size": [
+        24.02,
+        0.6,
+        20.02
+      ],
+      "rotation": [
         0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_Floor_Cell2",
+      "parent": ".",
+      "position": [
+        12.0,
+        -0.3,
+        4.0
+      ],
+      "size": [
+        8.02,
+        0.6,
+        20.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_Roof_Cell0",
+      "parent": ".",
+      "position": [
+        -4.0,
         8.2,
-        0
+        -10.0
       ],
       "size": [
-        32.8,
+        24.02,
         0.4,
-        28.8
+        8.02
       ],
       "rotation": [
         0,
@@ -5601,7 +5621,47 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_N0",
+      "name": "reception_Roof_Cell1",
+      "parent": ".",
+      "position": [
+        -4.0,
+        8.2,
+        4.0
+      ],
+      "size": [
+        24.02,
+        0.4,
+        20.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_Roof_Cell2",
+      "parent": ".",
+      "position": [
+        12.0,
+        8.2,
+        4.0
+      ],
+      "size": [
+        8.02,
+        0.4,
+        20.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_OutlineWall_0_0_0",
       "parent": ".",
       "position": [
         -9.25,
@@ -5609,19 +5669,19 @@
         -14.0
       ],
       "size": [
-        13.5,
+        13.515,
         3.8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_N1",
+      "name": "reception_OutlineWall_0_0_1",
       "parent": ".",
       "position": [
         -9.25,
@@ -5629,19 +5689,19 @@
         -14.0
       ],
       "size": [
-        13.5,
+        13.515,
         4.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_N2",
+      "name": "reception_OutlineWall_0_1_1",
       "parent": ".",
       "position": [
         0.0,
@@ -5649,99 +5709,239 @@
         -14.0
       ],
       "size": [
-        5.0,
+        5.015,
         4.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_N3",
+      "name": "reception_OutlineWall_0_2_0",
       "parent": ".",
       "position": [
-        9.25,
+        5.25,
         1.9,
         -14.0
       ],
       "size": [
-        13.5,
+        5.515,
         3.8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_N4",
+      "name": "reception_OutlineWall_0_2_1",
       "parent": ".",
       "position": [
-        9.25,
+        5.25,
         5.9,
         -14.0
       ],
       "size": [
-        13.5,
+        5.515,
         4.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_S0",
+      "name": "reception_OutlineWall_1_0_0",
       "parent": ".",
       "position": [
-        -9.25,
-        1.9,
-        14.0
+        8.0,
+        4.0,
+        -10.0
       ],
       "size": [
-        13.5,
+        8.015,
+        8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_OutlineWall_2_0_0",
+      "parent": ".",
+      "position": [
+        12.0,
+        4.0,
+        -6.0
+      ],
+      "size": [
+        8.015,
+        8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -0.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_OutlineWall_3_0_0",
+      "parent": ".",
+      "position": [
+        16.0,
+        1.9,
+        -4.25
+      ],
+      "size": [
+        3.515,
         3.8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_S1",
+      "name": "reception_OutlineWall_3_0_1",
       "parent": ".",
       "position": [
-        -9.25,
+        16.0,
         5.9,
-        14.0
+        -4.25
       ],
       "size": [
-        13.5,
+        3.515,
         4.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_S2",
+      "name": "reception_OutlineWall_3_1_1",
+      "parent": ".",
+      "position": [
+        16.0,
+        5.9,
+        0.0
+      ],
+      "size": [
+        5.015,
+        4.2,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_OutlineWall_3_2_0",
+      "parent": ".",
+      "position": [
+        16.0,
+        1.9,
+        8.25
+      ],
+      "size": [
+        11.515,
+        3.8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_OutlineWall_3_2_1",
+      "parent": ".",
+      "position": [
+        16.0,
+        5.9,
+        8.25
+      ],
+      "size": [
+        11.515,
+        4.2,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_OutlineWall_4_0_0",
+      "parent": ".",
+      "position": [
+        9.25,
+        1.9,
+        14.0
+      ],
+      "size": [
+        13.515,
+        3.8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_OutlineWall_4_0_1",
+      "parent": ".",
+      "position": [
+        9.25,
+        5.9,
+        14.0
+      ],
+      "size": [
+        13.515,
+        4.2,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_OutlineWall_4_1_1",
       "parent": ".",
       "position": [
         0.0,
@@ -5749,199 +5949,99 @@
         14.0
       ],
       "size": [
-        5.0,
+        5.015,
         4.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -180.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_S3",
+      "name": "reception_OutlineWall_4_2_0",
       "parent": ".",
       "position": [
-        9.25,
+        -9.25,
         1.9,
         14.0
       ],
       "size": [
-        13.5,
+        13.515,
         3.8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -180.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_S4",
+      "name": "reception_OutlineWall_4_2_1",
       "parent": ".",
       "position": [
-        9.25,
+        -9.25,
         5.9,
         14.0
       ],
       "size": [
-        13.5,
+        13.515,
         4.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -180.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_E0",
-      "parent": ".",
-      "position": [
-        16.0,
-        1.9,
-        -8.25
-      ],
-      "size": [
-        0.4,
-        3.8,
-        11.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "reception_Wall_E1",
-      "parent": ".",
-      "position": [
-        16.0,
-        5.9,
-        -8.25
-      ],
-      "size": [
-        0.4,
-        4.2,
-        11.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "reception_Wall_E2",
-      "parent": ".",
-      "position": [
-        16.0,
-        5.9,
-        0.0
-      ],
-      "size": [
-        0.4,
-        4.2,
-        5.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "reception_Wall_E3",
-      "parent": ".",
-      "position": [
-        16.0,
-        1.9,
-        8.25
-      ],
-      "size": [
-        0.4,
-        3.8,
-        11.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "reception_Wall_E4",
-      "parent": ".",
-      "position": [
-        16.0,
-        5.9,
-        8.25
-      ],
-      "size": [
-        0.4,
-        4.2,
-        11.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "reception_Wall_W0",
+      "name": "reception_OutlineWall_5_0_0",
       "parent": ".",
       "position": [
         -16.0,
         1.9,
-        -8.25
+        8.25
       ],
       "size": [
-        0.4,
+        11.515,
         3.8,
-        11.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_W1",
+      "name": "reception_OutlineWall_5_0_1",
       "parent": ".",
       "position": [
         -16.0,
         5.9,
-        -8.25
+        8.25
       ],
       "size": [
-        0.4,
+        11.515,
         4.2,
-        11.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_W2",
+      "name": "reception_OutlineWall_5_1_1",
       "parent": ".",
       "position": [
         -16.0,
@@ -5949,69 +6049,109 @@
         0.0
       ],
       "size": [
-        0.4,
+        5.015,
         4.2,
-        5.0
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_W3",
+      "name": "reception_OutlineWall_5_2_0",
       "parent": ".",
       "position": [
         -16.0,
         1.9,
-        8.25
+        -8.25
       ],
       "size": [
-        0.4,
+        11.515,
         3.8,
-        11.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_Wall_W4",
+      "name": "reception_OutlineWall_5_2_1",
       "parent": ".",
       "position": [
         -16.0,
         5.9,
-        8.25
+        -8.25
       ],
       "size": [
-        0.4,
+        11.515,
         4.2,
-        11.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "reception_LoweredCeiling",
+      "name": "reception_LoweredCeiling_Cell0",
       "parent": ".",
       "position": [
-        0,
+        -4.0,
         4.72,
-        0
+        -10.0
       ],
       "size": [
-        31.6,
+        24.02,
         0.24,
-        27.6
+        8.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_LoweredCeiling_Cell1",
+      "parent": ".",
+      "position": [
+        -4.0,
+        4.72,
+        4.0
+      ],
+      "size": [
+        24.02,
+        0.24,
+        20.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "reception_LoweredCeiling_Cell2",
+      "parent": ".",
+      "position": [
+        12.0,
+        4.72,
+        4.0
+      ],
+      "size": [
+        8.02,
+        0.24,
+        20.02
       ],
       "rotation": [
         0,
@@ -6024,12 +6164,12 @@
       "name": "reception_CeilingRib0",
       "parent": ".",
       "position": [
-        0,
+        -3.985,
         4.279999999999999,
         -8.4
       ],
       "size": [
-        31.5,
+        23.53,
         0.45,
         0.35
       ],
@@ -10081,47 +10221,7 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "diagnostics_Floor",
-      "parent": ".",
-      "position": [
-        40,
-        1.7,
-        -40
-      ],
-      "size": [
-        26.12,
-        0.6,
-        24.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Roof",
-      "parent": ".",
-      "position": [
-        40,
-        9.2,
-        -40
-      ],
-      "size": [
-        26.8,
-        0.4,
-        24.8
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_N0",
+      "name": "diagnostics_OutlineWall_0_0_0",
       "parent": ".",
       "position": [
         40.0,
@@ -10129,19 +10229,379 @@
         -52.0
       ],
       "size": [
-        26.0,
+        18.015,
         7,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "diagnostics_Wall_S0",
+      "name": "diagnostics_OutlineWall_1_0_0",
+      "parent": ".",
+      "position": [
+        51.0,
+        5.5,
+        -50.0
+      ],
+      "size": [
+        5.67185424949238,
+        7,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -45.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_0_0",
+      "parent": ".",
+      "position": [
+        53.0,
+        2.75,
+        -45.25
+      ],
+      "size": [
+        5.515,
+        1.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_0_1",
+      "parent": ".",
+      "position": [
+        53.0,
+        4.65,
+        -45.25
+      ],
+      "size": [
+        5.515,
+        2.3,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_0_2",
+      "parent": ".",
+      "position": [
+        53.0,
+        5.949999999999999,
+        -45.25
+      ],
+      "size": [
+        5.515,
+        0.2999999999999998,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_0_3",
+      "parent": ".",
+      "position": [
+        53.0,
+        7.55,
+        -45.25
+      ],
+      "size": [
+        5.515,
+        2.9000000000000004,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_1_2",
+      "parent": ".",
+      "position": [
+        53.0,
+        5.949999999999999,
+        -40.0
+      ],
+      "size": [
+        5.015,
+        0.2999999999999998,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_1_3",
+      "parent": ".",
+      "position": [
+        53.0,
+        7.55,
+        -40.0
+      ],
+      "size": [
+        5.015,
+        2.9000000000000004,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_2_0",
+      "parent": ".",
+      "position": [
+        53.0,
+        2.75,
+        -36.75
+      ],
+      "size": [
+        1.515,
+        1.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_2_1",
+      "parent": ".",
+      "position": [
+        53.0,
+        4.65,
+        -36.75
+      ],
+      "size": [
+        1.515,
+        2.3,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_2_2",
+      "parent": ".",
+      "position": [
+        53.0,
+        5.949999999999999,
+        -36.75
+      ],
+      "size": [
+        1.515,
+        0.2999999999999998,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_2_3",
+      "parent": ".",
+      "position": [
+        53.0,
+        7.55,
+        -36.75
+      ],
+      "size": [
+        1.515,
+        2.9000000000000004,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_3_0",
+      "parent": ".",
+      "position": [
+        53.0,
+        2.75,
+        -34.125
+      ],
+      "size": [
+        3.765,
+        1.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_3_3",
+      "parent": ".",
+      "position": [
+        53.0,
+        7.55,
+        -34.125
+      ],
+      "size": [
+        3.765,
+        2.9000000000000004,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_4_0",
+      "parent": ".",
+      "position": [
+        53.0,
+        2.75,
+        -32.125
+      ],
+      "size": [
+        0.265,
+        1.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_4_1",
+      "parent": ".",
+      "position": [
+        53.0,
+        4.65,
+        -32.125
+      ],
+      "size": [
+        0.265,
+        2.3,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_4_2",
+      "parent": ".",
+      "position": [
+        53.0,
+        5.949999999999999,
+        -32.125
+      ],
+      "size": [
+        0.265,
+        0.2999999999999998,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_2_4_3",
+      "parent": ".",
+      "position": [
+        53.0,
+        7.55,
+        -32.125
+      ],
+      "size": [
+        0.265,
+        2.9000000000000004,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_3_0_0",
+      "parent": ".",
+      "position": [
+        51.0,
+        5.5,
+        -30.0
+      ],
+      "size": [
+        5.67185424949238,
+        7,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -135.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "diagnostics_OutlineWall_4_0_0",
       "parent": ".",
       "position": [
         40.0,
@@ -10149,379 +10609,79 @@
         -28.0
       ],
       "size": [
-        26.0,
+        18.015,
         7,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -180.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "diagnostics_Wall_E0",
+      "name": "diagnostics_OutlineWall_5_0_0",
       "parent": ".",
       "position": [
-        53.0,
-        2.75,
-        -47.25
+        29.0,
+        5.5,
+        -30.0
       ],
       "size": [
-        0.4,
-        1.5,
-        9.5
+        5.67185424949238,
+        7,
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        135.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "diagnostics_Wall_E1",
-      "parent": ".",
-      "position": [
-        53.0,
-        4.65,
-        -47.25
-      ],
-      "size": [
-        0.4,
-        2.3,
-        9.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E2",
-      "parent": ".",
-      "position": [
-        53.0,
-        5.949999999999999,
-        -47.25
-      ],
-      "size": [
-        0.4,
-        0.2999999999999998,
-        9.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E3",
-      "parent": ".",
-      "position": [
-        53.0,
-        7.55,
-        -47.25
-      ],
-      "size": [
-        0.4,
-        2.9000000000000004,
-        9.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E4",
-      "parent": ".",
-      "position": [
-        53.0,
-        5.949999999999999,
-        -40.0
-      ],
-      "size": [
-        0.4,
-        0.2999999999999998,
-        5.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E5",
-      "parent": ".",
-      "position": [
-        53.0,
-        7.55,
-        -40.0
-      ],
-      "size": [
-        0.4,
-        2.9000000000000004,
-        5.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E6",
-      "parent": ".",
-      "position": [
-        53.0,
-        2.75,
-        -36.75
-      ],
-      "size": [
-        0.4,
-        1.5,
-        1.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E7",
-      "parent": ".",
-      "position": [
-        53.0,
-        4.65,
-        -36.75
-      ],
-      "size": [
-        0.4,
-        2.3,
-        1.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E8",
-      "parent": ".",
-      "position": [
-        53.0,
-        5.949999999999999,
-        -36.75
-      ],
-      "size": [
-        0.4,
-        0.2999999999999998,
-        1.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E9",
-      "parent": ".",
-      "position": [
-        53.0,
-        7.55,
-        -36.75
-      ],
-      "size": [
-        0.4,
-        2.9000000000000004,
-        1.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E10",
-      "parent": ".",
-      "position": [
-        53.0,
-        2.75,
-        -33.5
-      ],
-      "size": [
-        0.4,
-        1.5,
-        5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E11",
-      "parent": ".",
-      "position": [
-        53.0,
-        7.55,
-        -33.5
-      ],
-      "size": [
-        0.4,
-        2.9000000000000004,
-        5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E12",
-      "parent": ".",
-      "position": [
-        53.0,
-        2.75,
-        -29.5
-      ],
-      "size": [
-        0.4,
-        1.5,
-        3.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E13",
-      "parent": ".",
-      "position": [
-        53.0,
-        4.65,
-        -29.5
-      ],
-      "size": [
-        0.4,
-        2.3,
-        3.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E14",
-      "parent": ".",
-      "position": [
-        53.0,
-        5.949999999999999,
-        -29.5
-      ],
-      "size": [
-        0.4,
-        0.2999999999999998,
-        3.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_E15",
-      "parent": ".",
-      "position": [
-        53.0,
-        7.55,
-        -29.5
-      ],
-      "size": [
-        0.4,
-        2.9000000000000004,
-        3.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "diagnostics_Wall_W0",
+      "name": "diagnostics_OutlineWall_6_0_0",
       "parent": ".",
       "position": [
         27.0,
         3.9,
-        -47.25
+        -34.75
       ],
       "size": [
-        0.4,
+        5.515,
         3.8,
-        9.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "diagnostics_Wall_W1",
+      "name": "diagnostics_OutlineWall_6_0_1",
       "parent": ".",
       "position": [
         27.0,
         7.4,
-        -47.25
+        -34.75
       ],
       "size": [
-        0.4,
+        5.515,
         3.2,
-        9.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "diagnostics_Wall_W2",
+      "name": "diagnostics_OutlineWall_6_1_1",
       "parent": ".",
       "position": [
         27.0,
@@ -10529,73 +10689,73 @@
         -40.0
       ],
       "size": [
-        0.4,
+        5.015,
         3.2,
-        5.0
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "diagnostics_Wall_W3",
+      "name": "diagnostics_OutlineWall_6_2_0",
       "parent": ".",
       "position": [
         27.0,
         3.9,
-        -32.75
+        -45.25
       ],
       "size": [
-        0.4,
+        5.515,
         3.8,
-        9.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "diagnostics_Wall_W4",
+      "name": "diagnostics_OutlineWall_6_2_1",
       "parent": ".",
       "position": [
         27.0,
         7.4,
-        -32.75
+        -45.25
       ],
       "size": [
-        0.4,
+        5.515,
         3.2,
-        9.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "diagnostics_LoweredCeiling",
+      "name": "diagnostics_OutlineWall_7_0_0",
       "parent": ".",
       "position": [
-        40,
-        7.32,
-        -40
+        29.0,
+        5.5,
+        -50.0
       ],
       "size": [
-        25.6,
-        0.24,
-        23.6
+        5.67185424949238,
+        7,
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        45.0,
         0
       ],
       "type": "StaticBody3D"
@@ -10646,12 +10806,12 @@
       "position": [
         54.5,
         4.8,
-        -33.5
+        -34.125
       ],
       "size": [
         0.25,
         2.8,
-        5.4
+        4.15
       ],
       "rotation": [
         0,
@@ -10686,7 +10846,7 @@
       "position": [
         53.7,
         4.8,
-        -30.8
+        -32.05
       ],
       "size": [
         1.6,
@@ -10706,12 +10866,12 @@
       "position": [
         53.7,
         3.42,
-        -33.5
+        -34.125
       ],
       "size": [
         1.6,
         0.18,
-        5.6
+        4.35
       ],
       "rotation": [
         0,
@@ -10726,12 +10886,12 @@
       "position": [
         53.7,
         6.18,
-        -33.5
+        -34.125
       ],
       "size": [
         1.6,
         0.18,
-        5.6
+        4.35
       ],
       "rotation": [
         0,
@@ -10746,12 +10906,12 @@
       "position": [
         52.96,
         4.8,
-        -33.5
+        -34.125
       ],
       "size": [
         0.08,
         2.6,
-        5.0
+        3.75
       ],
       "rotation": [
         0,
@@ -11144,12 +11304,12 @@
       "name": "imaging_Wall_S0",
       "parent": ".",
       "position": [
-        71.75,
+        68.0,
         3.9,
         -26.0
       ],
       "size": [
-        11.5,
+        4.0,
         3.8,
         0.4
       ],
@@ -11164,13 +11324,13 @@
       "name": "imaging_Wall_S1",
       "parent": ".",
       "position": [
-        71.75,
-        7.9,
+        68.0,
+        6.65,
         -26.0
       ],
       "size": [
-        11.5,
-        4.2,
+        4.0,
+        1.7000000000000002,
         0.4
       ],
       "rotation": [
@@ -11184,13 +11344,13 @@
       "name": "imaging_Wall_S2",
       "parent": ".",
       "position": [
-        80.0,
-        7.9,
+        68.0,
+        8.75,
         -26.0
       ],
       "size": [
-        5.0,
-        4.2,
+        4.0,
+        2.5,
         0.4
       ],
       "rotation": [
@@ -11204,13 +11364,13 @@
       "name": "imaging_Wall_S3",
       "parent": ".",
       "position": [
-        88.25,
-        3.9,
+        73.75,
+        8.75,
         -26.0
       ],
       "size": [
-        11.5,
-        3.8,
+        7.5,
+        2.5,
         0.4
       ],
       "rotation": [
@@ -11224,13 +11384,93 @@
       "name": "imaging_Wall_S4",
       "parent": ".",
       "position": [
-        88.25,
-        7.9,
+        80.0,
+        8.75,
         -26.0
       ],
       "size": [
-        11.5,
-        4.2,
+        5.0,
+        2.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "imaging_Wall_S5",
+      "parent": ".",
+      "position": [
+        86.25,
+        8.75,
+        -26.0
+      ],
+      "size": [
+        7.5,
+        2.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "imaging_Wall_S6",
+      "parent": ".",
+      "position": [
+        92.0,
+        3.9,
+        -26.0
+      ],
+      "size": [
+        4.0,
+        3.8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "imaging_Wall_S7",
+      "parent": ".",
+      "position": [
+        92.0,
+        6.65,
+        -26.0
+      ],
+      "size": [
+        4.0,
+        1.7000000000000002,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "imaging_Wall_S8",
+      "parent": ".",
+      "position": [
+        92.0,
+        8.75,
+        -26.0
+      ],
+      "size": [
+        4.0,
+        2.5,
         0.4
       ],
       "rotation": [
@@ -11671,7 +11911,7 @@
       "size": [
         0.08,
         2.6,
-        5.0
+        5
       ],
       "rotation": [
         0,
@@ -11964,12 +12204,12 @@
       "name": "theatre_Wall_N0",
       "parent": ".",
       "position": [
-        71.25,
+        67.5,
         3.9,
         -14.0
       ],
       "size": [
-        12.5,
+        5.0,
         3.8,
         0.4
       ],
@@ -11984,13 +12224,13 @@
       "name": "theatre_Wall_N1",
       "parent": ".",
       "position": [
-        71.25,
-        7.9,
+        67.5,
+        6.65,
         -14.0
       ],
       "size": [
-        12.5,
-        4.2,
+        5.0,
+        1.7000000000000002,
         0.4
       ],
       "rotation": [
@@ -12004,13 +12244,13 @@
       "name": "theatre_Wall_N2",
       "parent": ".",
       "position": [
-        80.0,
-        7.9,
+        67.5,
+        8.75,
         -14.0
       ],
       "size": [
         5.0,
-        4.2,
+        2.5,
         0.4
       ],
       "rotation": [
@@ -12024,13 +12264,13 @@
       "name": "theatre_Wall_N3",
       "parent": ".",
       "position": [
-        88.75,
-        3.9,
+        73.75,
+        8.75,
         -14.0
       ],
       "size": [
-        12.5,
-        3.8,
+        7.5,
+        2.5,
         0.4
       ],
       "rotation": [
@@ -12044,13 +12284,93 @@
       "name": "theatre_Wall_N4",
       "parent": ".",
       "position": [
-        88.75,
-        7.9,
+        80.0,
+        8.75,
         -14.0
       ],
       "size": [
-        12.5,
-        4.2,
+        5.0,
+        2.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "theatre_Wall_N5",
+      "parent": ".",
+      "position": [
+        86.25,
+        8.75,
+        -14.0
+      ],
+      "size": [
+        7.5,
+        2.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "theatre_Wall_N6",
+      "parent": ".",
+      "position": [
+        92.5,
+        3.9,
+        -14.0
+      ],
+      "size": [
+        5.0,
+        3.8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "theatre_Wall_N7",
+      "parent": ".",
+      "position": [
+        92.5,
+        6.65,
+        -14.0
+      ],
+      "size": [
+        5.0,
+        1.7000000000000002,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "theatre_Wall_N8",
+      "parent": ".",
+      "position": [
+        92.5,
+        8.75,
+        -14.0
+      ],
+      "size": [
+        5.0,
+        2.5,
         0.4
       ],
       "rotation": [
@@ -12671,7 +12991,7 @@
       "size": [
         0.08,
         2.6,
-        5.0
+        5
       ],
       "rotation": [
         0,
@@ -14521,17 +14841,17 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "recovery_Floor",
+      "name": "recovery_Floor_Cell0",
       "parent": ".",
       "position": [
-        -40,
+        -44.0,
         1.7,
-        40
+        31.0
       ],
       "size": [
-        32.12,
+        24.02,
         0.6,
-        26.12
+        8.02
       ],
       "rotation": [
         0,
@@ -14541,17 +14861,17 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "recovery_Roof",
+      "name": "recovery_Floor_Cell1",
       "parent": ".",
       "position": [
-        -40,
-        10.2,
-        40
+        -44.0,
+        1.7,
+        44.0
       ],
       "size": [
-        32.8,
-        0.4,
-        26.8
+        24.02,
+        0.6,
+        18.02
       ],
       "rotation": [
         0,
@@ -14561,167 +14881,187 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "recovery_Wall_N0",
+      "name": "recovery_Floor_Cell2",
       "parent": ".",
       "position": [
-        -40.0,
+        -28.0,
+        1.7,
+        44.0
+      ],
+      "size": [
+        8.02,
+        0.6,
+        18.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "recovery_Roof_Cell0",
+      "parent": ".",
+      "position": [
+        -44.0,
+        10.2,
+        31.0
+      ],
+      "size": [
+        24.02,
+        0.4,
+        8.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "recovery_Roof_Cell1",
+      "parent": ".",
+      "position": [
+        -44.0,
+        10.2,
+        44.0
+      ],
+      "size": [
+        24.02,
+        0.4,
+        18.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "recovery_Roof_Cell2",
+      "parent": ".",
+      "position": [
+        -28.0,
+        10.2,
+        44.0
+      ],
+      "size": [
+        8.02,
+        0.4,
+        18.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "recovery_OutlineWall_0_0_0",
+      "parent": ".",
+      "position": [
+        -44.0,
         6.0,
         27.0
       ],
       "size": [
-        32.0,
+        24.015,
         8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "recovery_Wall_S0",
+      "name": "recovery_OutlineWall_1_0_0",
       "parent": ".",
       "position": [
-        -49.25,
-        3.9,
-        53.0
+        -32.0,
+        6.0,
+        31.0
       ],
       "size": [
-        13.5,
-        3.8,
+        8.015,
+        8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "recovery_Wall_S1",
+      "name": "recovery_OutlineWall_2_0_0",
       "parent": ".",
       "position": [
-        -49.25,
-        7.9,
-        53.0
+        -28.0,
+        6.0,
+        35.0
       ],
       "size": [
-        13.5,
-        4.2,
+        8.015,
+        8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "recovery_Wall_S2",
-      "parent": ".",
-      "position": [
-        -40.0,
-        7.9,
-        53.0
-      ],
-      "size": [
-        5.0,
-        4.2,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "recovery_Wall_S3",
-      "parent": ".",
-      "position": [
-        -30.75,
-        3.9,
-        53.0
-      ],
-      "size": [
-        13.5,
-        3.8,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "recovery_Wall_S4",
-      "parent": ".",
-      "position": [
-        -30.75,
-        7.9,
-        53.0
-      ],
-      "size": [
-        13.5,
-        4.2,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "recovery_Wall_E0",
+      "name": "recovery_OutlineWall_3_0_0",
       "parent": ".",
       "position": [
         -24.0,
         3.9,
-        32.25
+        36.25
       ],
       "size": [
-        0.4,
+        2.515,
         3.8,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "recovery_Wall_E1",
+      "name": "recovery_OutlineWall_3_0_1",
       "parent": ".",
       "position": [
         -24.0,
         7.9,
-        32.25
+        36.25
       ],
       "size": [
-        0.4,
+        2.515,
         4.2,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "recovery_Wall_E2",
+      "name": "recovery_OutlineWall_3_1_1",
       "parent": ".",
       "position": [
         -24.0,
@@ -14729,19 +15069,19 @@
         40.0
       ],
       "size": [
-        0.4,
+        5.015,
         4.2,
-        5.0
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "recovery_Wall_E3",
+      "name": "recovery_OutlineWall_3_2_0",
       "parent": ".",
       "position": [
         -24.0,
@@ -14749,19 +15089,19 @@
         47.75
       ],
       "size": [
-        0.4,
+        10.515,
         3.8,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "recovery_Wall_E4",
+      "name": "recovery_OutlineWall_3_2_1",
       "parent": ".",
       "position": [
         -24.0,
@@ -14769,19 +15109,119 @@
         47.75
       ],
       "size": [
-        0.4,
+        10.515,
         4.2,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "recovery_Wall_W0",
+      "name": "recovery_OutlineWall_4_0_0",
+      "parent": ".",
+      "position": [
+        -30.75,
+        3.9,
+        53.0
+      ],
+      "size": [
+        13.515,
+        3.8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "recovery_OutlineWall_4_0_1",
+      "parent": ".",
+      "position": [
+        -30.75,
+        7.9,
+        53.0
+      ],
+      "size": [
+        13.515,
+        4.2,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "recovery_OutlineWall_4_1_1",
+      "parent": ".",
+      "position": [
+        -40.0,
+        7.9,
+        53.0
+      ],
+      "size": [
+        5.015,
+        4.2,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "recovery_OutlineWall_4_2_0",
+      "parent": ".",
+      "position": [
+        -49.25,
+        3.9,
+        53.0
+      ],
+      "size": [
+        13.515,
+        3.8,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "recovery_OutlineWall_4_2_1",
+      "parent": ".",
+      "position": [
+        -49.25,
+        7.9,
+        53.0
+      ],
+      "size": [
+        13.515,
+        4.2,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "recovery_OutlineWall_5_0_0",
       "parent": ".",
       "position": [
         -56.0,
@@ -14789,13 +15229,13 @@
         40.0
       ],
       "size": [
-        0.4,
+        26.015,
         8,
-        26.0
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
@@ -14904,12 +15344,12 @@
       "name": "recovery_OverheadGantry0",
       "parent": ".",
       "position": [
-        -40,
+        -43.735,
         8.65,
         33.76
       ],
       "size": [
-        30.5,
+        23.03,
         0.5,
         0.7
       ],
@@ -21221,6 +21661,126 @@
       "type": "StaticBody3D"
     },
     {
+      "name": "Reserve_v14_records_reserve_Left",
+      "parent": ".",
+      "position": [
+        -48.0,
+        1.8,
+        -6.8
+      ],
+      "size": [
+        10,
+        3.6,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Reserve_v14_records_reserve_Right",
+      "parent": ".",
+      "position": [
+        -32.0,
+        1.8,
+        -6.8
+      ],
+      "size": [
+        10,
+        3.6,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Reserve_v14_records_reserve_Header",
+      "parent": ".",
+      "position": [
+        -40.0,
+        3.5,
+        -6.8
+      ],
+      "size": [
+        6,
+        0.20000000000000018,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Reserve_v14_records_reserve_UpperCap",
+      "parent": ".",
+      "position": [
+        -40.0,
+        3.7,
+        -6.8
+      ],
+      "size": [
+        26,
+        0.19999999999999973,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Reserve_v14_records_reserve_Roof",
+      "parent": ".",
+      "position": [
+        -40.0,
+        3.92,
+        -9.4
+      ],
+      "size": [
+        26.2,
+        0.24,
+        5.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Door_v14_records_reserve",
+      "parent": ".",
+      "position": [
+        -40.0,
+        1.7,
+        -6.8
+      ],
+      "size": [
+        6,
+        3.4,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "AnimatableBody3D"
+    },
+    {
       "name": "Control_local_power",
       "parent": ".",
       "position": [
@@ -21426,7 +21986,7 @@
       "position_local": [
         11,
         0,
-        -8
+        -2
       ],
       "heading": -90
     },
@@ -21919,9 +22479,9 @@
       "room": "diagnostics",
       "type": "specimen_fridge",
       "position_local": [
-        -10,
+        -9,
         0,
-        -10.0
+        -9
       ],
       "heading": 90
     },
@@ -21930,9 +22490,9 @@
       "room": "diagnostics",
       "type": "specimen_fridge",
       "position_local": [
-        10,
+        9,
         0,
-        -10.0
+        -9
       ],
       "heading": -90
     },
@@ -21941,7 +22501,7 @@
       "room": "diagnostics",
       "type": "medical_cabinet",
       "position_local": [
-        -10,
+        -9,
         0,
         9
       ],
@@ -21952,7 +22512,7 @@
       "room": "diagnostics",
       "type": "medical_cabinet",
       "position_local": [
-        10,
+        9,
         0,
         9
       ],
@@ -22381,9 +22941,9 @@
       "room": "recovery",
       "type": "medical_bed",
       "position_local": [
-        7,
+        5,
         0,
-        -7
+        2.3
       ],
       "heading": -90
     },
@@ -22392,9 +22952,9 @@
       "room": "recovery",
       "type": "medical_bed",
       "position_local": [
-        11,
+        9,
         0,
-        -7
+        2.3
       ],
       "heading": -90
     },
@@ -22425,9 +22985,9 @@
       "room": "recovery",
       "type": "medical_bed",
       "position_local": [
-        7,
+        5,
         0,
-        6
+        8
       ],
       "heading": -90
     },
@@ -22436,9 +22996,9 @@
       "room": "recovery",
       "type": "medical_bed",
       "position_local": [
-        11,
+        9,
         0,
-        6
+        8
       ],
       "heading": -90
     },
@@ -22471,7 +23031,7 @@
       "position_local": [
         12,
         0,
-        -4
+        2.3
       ],
       "heading": -90
     },
@@ -22515,7 +23075,7 @@
       "position_local": [
         6,
         0,
-        3
+        5
       ],
       "heading": 0
     },
@@ -22526,7 +23086,7 @@
       "position_local": [
         10,
         0,
-        3
+        5
       ],
       "heading": 0
     },
@@ -22546,9 +23106,9 @@
       "room": "recovery",
       "type": "medical_cabinet",
       "position_local": [
-        14.0,
+        14,
         0,
-        -10
+        -2
       ],
       "heading": -90
     },
@@ -22999,7 +23559,7 @@
       "position_local": [
         -10.0,
         0,
-        -9.0
+        -4.5
       ],
       "heading": 90
     },
@@ -23021,7 +23581,7 @@
       "position_local": [
         10.0,
         0,
-        -9.0
+        -4.5
       ],
       "heading": -90
     },
@@ -23331,18 +23891,6 @@
       "damaged": false
     },
     {
-      "id": "Link_imaging__theatre_0_Fixture",
-      "room": "imaging",
-      "kind": "tube",
-      "position": [
-        80.0,
-        6.62,
-        -20.0
-      ],
-      "energy": 1.6,
-      "damaged": false
-    },
-    {
       "id": "Link_theatre__sterile_0_Fixture",
       "room": "theatre",
       "kind": "tube",
@@ -23530,6 +24078,18 @@
         -22,
         5.25,
         -40
+      ],
+      "energy": 3.8,
+      "damaged": false
+    },
+    {
+      "id": "Structural_v14_clinical_prep_MountedLamp",
+      "room": "imaging",
+      "kind": "tube",
+      "position": [
+        80.0,
+        7.25,
+        -20.0
       ],
       "energy": 3.8,
       "damaged": false
@@ -24445,6 +25005,708 @@
         "central_ground_passage_width_m": 3.5,
         "enemy_navigation": "Existing centre route; flanks are player choices, not coordinated AI lanes."
       }
+    },
+    {
+      "id": "v14_clinical_prep",
+      "revision": 14,
+      "portal": "imaging__theatre",
+      "rooms": [
+        "imaging",
+        "theatre"
+      ],
+      "bounds_xz": [
+        70,
+        90,
+        -26,
+        -14
+      ],
+      "policy": "Already ungated existing pair; no new graph edge; all milestone gates/checkpoints remain unchanged",
+      "boxes": [
+        {
+          "id": "WestWall",
+          "position": [
+            69.8,
+            4.75,
+            -20.0
+          ],
+          "size": [
+            0.4,
+            5.5,
+            12.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "EastWall",
+          "position": [
+            90.2,
+            4.75,
+            -20.0
+          ],
+          "size": [
+            0.4,
+            5.5,
+            12.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "Floor",
+          "position": [
+            80.0,
+            1.75,
+            -20.0
+          ],
+          "size": [
+            20.4,
+            0.5,
+            12.4
+          ],
+          "role": "floor"
+        },
+        {
+          "id": "Roof",
+          "position": [
+            80.0,
+            7.65,
+            -20.0
+          ],
+          "size": [
+            20.8,
+            0.3,
+            12.8
+          ],
+          "role": "ceiling"
+        },
+        {
+          "id": "OffsetCover",
+          "position": [
+            85,
+            2.75,
+            -20
+          ],
+          "size": [
+            4,
+            1.5,
+            3
+          ],
+          "role": "panel"
+        }
+      ],
+      "stairs": [],
+      "actor_overrides": [
+        {
+          "stable_id": "pale_ward_01.imaging.enemy.2",
+          "kind": "infected_security",
+          "position": [
+            85,
+            2.87,
+            -31
+          ]
+        }
+      ],
+      "apertures": [
+        {
+          "room": "imaging",
+          "side": "S",
+          "plane": -26.0,
+          "span": [
+            70,
+            90
+          ],
+          "height": [
+            2,
+            7.5
+          ]
+        },
+        {
+          "room": "theatre",
+          "side": "N",
+          "plane": -14.0,
+          "span": [
+            70,
+            90
+          ],
+          "height": [
+            2,
+            7.5
+          ]
+        }
+      ],
+      "walk_paths": [
+        {
+          "id": "west_lane",
+          "points": [
+            [
+              75,
+              2,
+              -25
+            ],
+            [
+              75,
+              2,
+              -15
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "east_lane",
+          "points": [
+            [
+              88.5,
+              2,
+              -25
+            ],
+            [
+              88.5,
+              2,
+              -15
+            ]
+          ],
+          "reverse": true
+        }
+      ],
+      "shot_pairs": [
+        {
+          "id": "clinical_diagonal",
+          "a": [
+            85,
+            3.32,
+            -31
+          ],
+          "b": [
+            79,
+            3.17,
+            -19
+          ],
+          "state": "always",
+          "bidirectional": true
+        },
+        {
+          "id": "imaging_theatre_shared_front",
+          "a": [
+            75,
+            3.17,
+            -28
+          ],
+          "b": [
+            75,
+            3.17,
+            -12
+          ],
+          "state": "always",
+          "bidirectional": true
+        }
+      ],
+      "solid_pairs": [
+        {
+          "id": "prep_cover",
+          "a": [
+            82,
+            2.8,
+            -20
+          ],
+          "b": [
+            88,
+            2.8,
+            -20
+          ]
+        }
+      ],
+      "lights": [
+        {
+          "id": "MountedLamp",
+          "position": [
+            80.0,
+            7.25,
+            -20.0
+          ],
+          "room": "imaging",
+          "energy": 3.8
+        }
+      ]
     }
-  ]
+  ],
+  "layout_revision": 14,
+  "room_outlines": {
+    "reception": {
+      "outline_xz": [
+        [
+          -16,
+          -14
+        ],
+        [
+          8,
+          -14
+        ],
+        [
+          8,
+          -6
+        ],
+        [
+          16,
+          -6
+        ],
+        [
+          16,
+          14
+        ],
+        [
+          -16,
+          14
+        ]
+      ],
+      "convex_floor_cells": [
+        {
+          "kind": "box",
+          "bounds_xz": [
+            -16,
+            8,
+            -14,
+            -6
+          ]
+        },
+        {
+          "kind": "box",
+          "bounds_xz": [
+            -16,
+            8,
+            -6,
+            14
+          ]
+        },
+        {
+          "kind": "box",
+          "bounds_xz": [
+            8,
+            16,
+            -6,
+            14
+          ]
+        }
+      ],
+      "floor_y": 0,
+      "roof_y": 8
+    },
+    "diagnostics": {
+      "outline_xz": [
+        [
+          -9,
+          -12
+        ],
+        [
+          9,
+          -12
+        ],
+        [
+          13,
+          -8
+        ],
+        [
+          13,
+          8
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          -9,
+          12
+        ],
+        [
+          -13,
+          8
+        ],
+        [
+          -13,
+          -8
+        ]
+      ],
+      "convex_floor_cells": [
+        {
+          "kind": "convex",
+          "outline_xz": [
+            [
+              -9,
+              -12
+            ],
+            [
+              9,
+              -12
+            ],
+            [
+              13,
+              -8
+            ],
+            [
+              13,
+              8
+            ],
+            [
+              9,
+              12
+            ],
+            [
+              -9,
+              12
+            ],
+            [
+              -13,
+              8
+            ],
+            [
+              -13,
+              -8
+            ]
+          ]
+        }
+      ],
+      "floor_y": 2,
+      "roof_y": 9
+    },
+    "recovery": {
+      "outline_xz": [
+        [
+          -16,
+          -13
+        ],
+        [
+          8,
+          -13
+        ],
+        [
+          8,
+          -5
+        ],
+        [
+          16,
+          -5
+        ],
+        [
+          16,
+          13
+        ],
+        [
+          -16,
+          13
+        ]
+      ],
+      "convex_floor_cells": [
+        {
+          "kind": "box",
+          "bounds_xz": [
+            -16,
+            8,
+            -13,
+            -5
+          ]
+        },
+        {
+          "kind": "box",
+          "bounds_xz": [
+            -16,
+            8,
+            -5,
+            13
+          ]
+        },
+        {
+          "kind": "box",
+          "bounds_xz": [
+            8,
+            16,
+            -5,
+            13
+          ]
+        }
+      ],
+      "floor_y": 2,
+      "roof_y": 10
+    }
+  },
+  "shell_fits": [
+    {
+      "room": "reception",
+      "node": "reception_Duct1",
+      "action": "trim_shell_box",
+      "old_position": [
+        14.75,
+        4.05,
+        0
+      ],
+      "position": [
+        14.75,
+        4.05,
+        3.735
+      ],
+      "old_size": [
+        0.7,
+        0.55,
+        26.5
+      ],
+      "size": [
+        0.7,
+        0.55,
+        19.03
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "reception",
+      "node": "reception_DuctFlange1-1",
+      "action": "omit_shell_trim",
+      "old_position": [
+        14.75,
+        4.05,
+        -12.9
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "reception",
+      "node": "reception_CeilingRib0",
+      "action": "trim_shell_box",
+      "old_position": [
+        0,
+        4.279999999999999,
+        -8.4
+      ],
+      "position": [
+        -3.985,
+        4.279999999999999,
+        -8.4
+      ],
+      "old_size": [
+        31.5,
+        0.45,
+        0.35
+      ],
+      "size": [
+        23.53,
+        0.45,
+        0.35
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "diagnostics",
+      "node": "diagnostics_Duct-1",
+      "action": "trim_shell_box",
+      "old_position": [
+        28.25,
+        6.65,
+        -40
+      ],
+      "position": [
+        28.25,
+        6.65,
+        -40.0
+      ],
+      "old_size": [
+        0.7,
+        0.55,
+        22.5
+      ],
+      "size": [
+        0.7,
+        0.55,
+        16.92
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "diagnostics",
+      "node": "diagnostics_DuctFlange-1-1",
+      "action": "omit_shell_trim",
+      "old_position": [
+        28.25,
+        6.65,
+        -50.9
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "diagnostics",
+      "node": "diagnostics_DuctFlange-11",
+      "action": "omit_shell_trim",
+      "old_position": [
+        28.25,
+        6.65,
+        -29.1
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "diagnostics",
+      "node": "diagnostics_Duct1",
+      "action": "trim_shell_box",
+      "old_position": [
+        51.75,
+        6.65,
+        -40
+      ],
+      "position": [
+        51.75,
+        6.65,
+        -40.0
+      ],
+      "old_size": [
+        0.7,
+        0.55,
+        22.5
+      ],
+      "size": [
+        0.7,
+        0.55,
+        16.92
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "diagnostics",
+      "node": "diagnostics_DuctFlange1-1",
+      "action": "omit_shell_trim",
+      "old_position": [
+        51.75,
+        6.65,
+        -50.9
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "diagnostics",
+      "node": "diagnostics_DuctFlange11",
+      "action": "omit_shell_trim",
+      "old_position": [
+        51.75,
+        6.65,
+        -29.1
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "diagnostics",
+      "node": "diagnostics_Observation",
+      "action": "trim_sealed_alcove",
+      "local_z_span": [
+        4,
+        7.75
+      ],
+      "reason": "Actual straight east boundary ends at chamfer/notch; closed nontraversable alcove fits its aperture."
+    },
+    {
+      "room": "recovery",
+      "node": "recovery_OverheadGantry0",
+      "action": "trim_shell_box",
+      "old_position": [
+        -40,
+        8.65,
+        33.76
+      ],
+      "position": [
+        -43.735,
+        8.65,
+        33.76
+      ],
+      "old_size": [
+        30.5,
+        0.5,
+        0.7
+      ],
+      "size": [
+        23.03,
+        0.5,
+        0.7
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    }
+  ],
+  "optional_reserve": {
+    "room": "records",
+    "partition_z": -6.8,
+    "x_span": [
+      -53,
+      -27
+    ],
+    "door_x_span": [
+      -43,
+      -37
+    ],
+    "floor": 0,
+    "partition_height": 3.6,
+    "door_height": 3.4,
+    "door_open_offset": [
+      0,
+      4,
+      0
+    ],
+    "actor_positions": [
+      [
+        -42,
+        0.87,
+        -9
+      ],
+      [
+        -41.5,
+        0.87,
+        -7.4
+      ]
+    ],
+    "north_prop_moves": {
+      "records.prop.0": [
+        -10.0,
+        0,
+        -4.5
+      ],
+      "records.prop.2": [
+        10.0,
+        0,
+        -4.5
+      ]
+    },
+    "reward_stable_id": "pale_ward_01.pickup.Bonus_records",
+    "reward_kind": "shells",
+    "reward_amount": 12,
+    "health_bonus_unchanged": true,
+    "requires": [],
+    "arena_id": "v14_records_reserve",
+    "release_door_stable_id": "pale_ward_01.door.v14_records_reserve",
+    "sign": "EMERGENCY RESERVE / STAFF BAY BEYOND",
+    "message": "RESERVE BREACHED \u00b7 staff bay opening; retreat remains clear",
+    "completion_message": "Reserve secured \u00b7 main objectives unchanged",
+    "closet_roof_y": 3.8,
+    "door_node": "Door_v14_records_reserve",
+    "actor_ids": [
+      "pale_ward_01.triage.enemy.1",
+      "pale_ward_01.triage.enemy.2"
+    ],
+    "actor_fit_amendment": "Coordinator approved security-only near-front west pose after actual .38m capsule sweep: prior desired nav line clipped partition; new pose clears same6m physical door. Scientist remains[-42,.87,-9]; no AI/door-width change. Natural pursuit/retreat QA required."
+  }
 }
