@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "status": "Volumetric gore v12 technically delivered; human visual/play acceptance pending",
+  "source_commit": "8833efc804d67580ea3292d845704d03680606ad",
+  "source_branch": "codex/eyesore-build-two",
+  "source_checkpoint_remote_verified": true,
+  "package_directory": "/home/rikki/Builds/eyesore-volumetric-gore-v12-2026-10-17",
+  "executable": {
+    "bytes": 177698192,
+    "mode": "0755",
+    "path": "eyesore-volumetric-gore-v12.x86_64",
+    "pck": "embedded",
+    "sha256": "3f3cb674c986758a671c4be959ebd2b6a461b96c039311b59aed306ae288f663"
+  },
+  "archive": {
+    "archived_executable_hash_and_mode_verified": true,
+    "bytes": 125582583,
+    "path": "eyesore-volumetric-gore-v12-linux.tar.gz",
+    "sha256": "312387aa9c8b8390751fcbdba9de61bc5011ecd22ab7ee6f6304209adc6441f3"
+  },
+  "source_fingerprint_count": 637,
+  "source_tree_sha256": "4d2c7613f14aff7ab2244e5732c64a77c8ef7721daf3c80471dfdbcacbbafbe8",
+  "current_packaged_fingerprints_still_match": true,
+  "features": {
+    "remains": "Closed beveled meshes reuse existing native painted body parts, tumble in three axes, and persist with actual volume after supported settlement. No chunk gameplay colliders.",
+    "ownership": "Normal deaths keep intact persistent corpses with zero severed parts. Authoritative overkill and postmortem rupture own one breakup; duplicate damage cannot add a second kill or burst.",
+    "blood": "Six weapon-specific blood counts, cone, speed and size profiles; bounded blood pools and splashes. Siege breakup radiates from the authoritative explosion position.",
+    "support": "Swept conservative sphere prevents wall tunneling; actual convex volume and bearing contacts govern floor/stair/edge settlement. Unsupported pieces fall and expire rather than snapping.",
+    "limits": {
+      "flying_particles": 256,
+      "settled_remains": 128,
+      "stains": 384,
+      "maximum_blood_drops_per_event": 96
+    },
+    "preserved": "All nine authored scenes, Main, enemy AI/health, weapons, HUD, lighting, art PNGs, 63 audio cues and audio files remain unchanged from v11b."
+  },
+  "helper_sha256": "42016b9cde998075c5e8eeaa4b67a71cce0aa02aab65c190cfc33e76977f528a",
+  "checks": {
+    "chunk_checks_each_native_and_headless": 60489,
+    "actual_part_specifications": 93,
+    "burst_checks_each_native_and_headless": 98,
+    "actual_main_native": 719,
+    "actual_main_capture_fixture": 734,
+    "packed_actual_main_native": 719,
+    "campaign": {
+      "normal": {
+        "levels_completed": 9,
+        "kills": 305,
+        "shots": 1126,
+        "exact_carry_transitions": 8,
+        "secret_levels": 0,
+        "siege_self_hits": 0,
+        "final_health": 100.0
+      },
+      "heavy": {
+        "levels_completed": 9,
+        "kills": 305,
+        "shots": 936,
+        "exact_carry_transitions": 8,
+        "secret_levels": 0,
+        "siege_self_hits": 0,
+        "final_health": 100.0
+      }
+    },
+    "recording": {
+      "status": "passed",
+      "seconds": 230.7,
+      "frames": 6921,
+      "sample_rate": 48000,
+      "channels": 2,
+      "rail_sample_count": 0,
+      "peak_per_channel": [
+        0.511993408203125,
+        0.5093994140625
+      ],
+      "route_completed": true,
+      "weapon_shots": {
+        "pistol": 66,
+        "shotgun": 25,
+        "twin_shotgun": 7
+      },
+      "lift_round_trip": true,
+      "secret_used": false
+    }
+  },
+  "performance": {
+    "scope": "Controlled native Main diagnostics on current machine; not sustained human performance acceptance or an unchanged-baseline claim.",
+    "cold_shotgun_wall_max_ms": 35.794,
+    "four_scientist_siege_wall_max_ms": 40.488,
+    "mass_settlement_wall_max_ms": 26.749,
+    "retry_sync_ms": 713.461,
+    "finding": "Largest observed ~0.75s wall outlier was Retry world rebuild before combat; no speculative production optimization applied.",
+    "evidence": "../../../docs/production-v12/bursts-performance.json"
+  },
+  "evidence": {
+    "archive": "../archive/export.json",
+    "actual_main": "../gore/main-native-phase-final.json",
+    "chunks": "../chunks/summary.json",
+    "bursts": "../bursts/runtime-native.json",
+    "campaign": "campaign-summary.json",
+    "recording": "recording-verification.json"
+  },
+  "capture_directory": "/home/rikki/Builds/eyesore-volumetric-gore-v12-captures-2026-10-17",
+  "review_video": "/home/rikki/Builds/eyesore-volumetric-gore-v12-captures-2026-10-17/intake-v12.mp4",
+  "review_url": "http://127.0.0.1:8765/production-v12/index.html",
+  "preserved_prior_build": "/home/rikki/Builds/eyesore-staff-lighting-v11b-2026-10-17",
+  "known_limits": [
+    "Remains are coarse beveled extrusions of existing painted anatomy, not bespoke sculpted anatomical models.",
+    "Conservative cosmetic support queries can reject narrow ledges; unsupported pieces expire after their bounded lifetime.",
+    "Controlled screenshots and automated campaign/capture checks do not establish human movement comfort, pacing, visual acceptance or matched-level listening approval.",
+    "Pickup ambush expansion and complete directional creature animation remain later work.",
+    "Original music for every current and future level remains deferred, using present tracks as references."
+  ],
+  "verified_utc": "2026-10-17T13:58:02.890851+00:00"
+}
