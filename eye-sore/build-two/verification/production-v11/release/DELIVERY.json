@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "status": "Intake staff and lighting v11b technically delivered; human playtest/visual acceptance pending",
+  "source_commit": "649eca2ce687788a91370a89000718ba01b74f68",
+  "source_branch": "codex/eyesore-build-two",
+  "source_checkpoint_remote_verified": true,
+  "package_directory": "/home/rikki/Builds/eyesore-staff-lighting-v11b-2026-10-17",
+  "executable": {
+    "bytes": 177679672,
+    "mode": "0755",
+    "path": "eyesore-staff-lighting-v11b.x86_64",
+    "pck": "embedded",
+    "sha256": "da5c7445bad09a09447992c20fb45d0db1b70eb438a03b16680f73c38908088f"
+  },
+  "archive": {
+    "archived_executable_hash_and_mode_verified": true,
+    "bytes": 125530095,
+    "path": "eyesore-staff-lighting-v11b-linux.tar.gz",
+    "sha256": "415acf477b1d81af328924e2b8f53c276c1d48a1bb8160d30fac4445d1f1a315"
+  },
+  "source_fingerprint_count": 627,
+  "source_tree_sha256": "5ebee9be732563b351cf1fec915aae6a15e34810de3d5f5667d33e11d87eae46",
+  "current_packaged_fingerprints_still_match": true,
+  "features": {
+    "infected_scientist": "Four authored Intake replacements; frail45HP committed physical lunge, pain/death cancellation,8view/8state sprite atlas and persistent corpse.",
+    "infected_security": "Two authored checkpoint replacements;100HP,2x7damage projectile burst, distinct round ownership and75ms discharge pose before aimed rest. Flesh/armor regions, flash excluded from hurt queries.",
+    "lighting": "56 mounted fixtures replace90 old lights; broad tube spill, directed surgical/warning fixtures, dim service areas, steady key/stair/exit landmarks. Two mild deterministic damaged-light sags with persisted off toggle.",
+    "placement": "Existing36 actors, positions,5/5/6 arena counts, progression and all8 other maps preserved. No additional pickup ambush waves.",
+    "audio": "Six cue aliases to two existing demonic voice families provide warning/hurt/death; all57 old cue objects, every audio file, accepted v10 gunshots and all music unchanged.",
+    "art": "Two original built-in image_gen1254-square PNGs copied unchanged under assets/enemies/staff-v11. Source rectangles/pivots, hashes and exact prompts in docs/production-v11/staff-art*. No claim of hand-drawn pixel assets."
+  },
+  "checks": {
+    "enemy_runtime_headless": 42,
+    "enemy_runtime_native": 42,
+    "actual_main_native": 1702,
+    "packed_actual_main_native": 1702,
+    "lighting_checks_per_headless_and_native_mode": 20800,
+    "unchanged_constructed_colliders": 1033,
+    "campaign": {
+      "normal": {
+        "levels_completed": 9,
+        "kills": 305,
+        "shots": 1126,
+        "exact_carry_transitions": 8,
+        "secret_levels": 0,
+        "final_health": 100.0
+      },
+      "heavy": {
+        "levels_completed": 9,
+        "kills": 305,
+        "shots": 936,
+        "exact_carry_transitions": 8,
+        "secret_levels": 0,
+        "final_health": 100.0
+      }
+    },
+    "recording": {
+      "status": "passed",
+      "seconds": 230.73333333333332,
+      "sample_rate": 48000,
+      "channels": 2,
+      "rail_sample_count": 0,
+      "peak_per_channel": [
+        0.511993408203125,
+        0.5093994140625
+      ],
+      "route_completed": true,
+      "weapon_shots": {
+        "pistol": 66,
+        "shotgun": 25,
+        "twin_shotgun": 7
+      },
+      "lift_round_trip": true,
+      "secret_used": false
+    }
+  },
+  "evidence": {
+    "archive": "../archive/export-v11b.json",
+    "actual_main": "../staff/main-flash-final.json",
+    "enemy_runtime": "../enemies-release-pose/runtime-native.json",
+    "lighting": "../lighting/summary.json",
+    "campaign": "v11b/campaign-summary.json",
+    "recording": "v11b/recording-verification.json"
+  },
+  "capture_directory": "/home/rikki/Builds/eyesore-staff-lighting-v11b-captures-2026-10-17",
+  "review_video": "/home/rikki/Builds/eyesore-staff-lighting-v11b-captures-2026-10-17/intake-v11b.mp4",
+  "review_url": "http://127.0.0.1:8765/production-v11/index.html",
+  "preserved_initial_v11_package": "/home/rikki/Builds/eyesore-staff-lighting-v11-2026-10-17",
+  "initial_v11_note": "initial-v11-note.json",
+  "known_limits": [
+    "First playable staff art: some directional attack angles and crowded source-cell edges need further visual polish.",
+    "Staff currently reuse existing demonic voice families; no bespoke voice recording or new audio design is claimed.",
+    "Controlled screenshot cameras and automated campaigns do not establish human movement comfort, pacing or visual/listening acceptance.",
+    "New pickup ambush waves, stronger volumetric gibbing and broader level rollout remain later work.",
+    "Original music for every current and future level remains deferred, using the present tracks as references."
+  ],
+  "verified_utc": "2026-10-17T13:13:17.441630+00:00"
+}

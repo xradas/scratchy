@@ -1,0 +1,402 @@
+{
+  "status": "passed",
+  "source_preflight": false,
+  "source_fingerprints_verified": 627,
+  "source_tree_sha256": "5ebee9be732563b351cf1fec915aae6a15e34810de3d5f5667d33e11d87eae46",
+  "source_snapshot_policy": {
+    "collector": "Restricted AST literal policy read from tools/package_pale_ward.py; no packager import/execution",
+    "collector_sha256": "3e6616c15437a4b966a777586746b2f4885343aa2b0aea0667040c10425df555",
+    "packager_sha256": "a6405406652de247dd16c2a39387d24601fde5afba062cc004c26cef8f8375ae",
+    "provenance_roots": [
+      "concepts/environment-art-v1",
+      "concepts/gore-art-v1",
+      "concepts/sprite-art-v1",
+      "concepts/style-art-v2",
+      "concepts/weapon-style-v3",
+      "concepts/expansion-v1",
+      "docs/expansion-v1",
+      "concepts/arsenal-architecture-v2",
+      "docs/arsenal-architecture-v2",
+      "concepts/campaign-v3",
+      "docs/campaign-v3",
+      "docs/combat-balance-v4",
+      "docs/map-safety-v5",
+      "docs/room-program-v6",
+      "docs/pickup-art-v6",
+      "docs/intake-v7",
+      "docs/production-v8",
+      "concepts/production-v8",
+      "docs/production-v9",
+      "concepts/production-v9",
+      "concepts/audio-v9",
+      "docs/production-v10",
+      "concepts/audio-v10",
+      "docs/production-v11",
+      "concepts/production-v11",
+      "concepts/pickups-rooms-v6",
+      "concepts/visual-v2/corrupted-biotech",
+      "concepts/visual-v2/occult-fortress",
+      "concepts/visual-v2/civic-invasion"
+    ],
+    "excluded_directories": [
+      ".git",
+      ".godot",
+      "build",
+      "concepts",
+      "docs",
+      "tools",
+      "verification"
+    ]
+  },
+  "git_checkpoint_blobs_verified": 627,
+  "archival_wav_ignore_git_blob_verified": 1,
+  "protected_source": {
+    "status": "passed",
+    "protected_files": 114,
+    "explicit_existing_code_changes": [
+      "scripts/enemy_definition.gd",
+      "scripts/main.gd",
+      "scripts/combat_enemy.gd"
+    ],
+    "old_cues_preserved": 57,
+    "exact_voice_aliases": {
+      "infected_scientist_attack_warning": "unsealed_attack_warning",
+      "infected_scientist_hurt": "unsealed_hurt",
+      "infected_scientist_death": "unsealed_death",
+      "infected_security_attack_warning": "vessel_attack_warning",
+      "infected_security_hurt": "vessel_hurt",
+      "infected_security_death": "vessel_death"
+    },
+    "native_art_sources": {
+      "infected_scientist": {
+        "sha256": "e8a48d92c1ba8609087bedc93e72ecde359d85704e531b75299d381a0fd8b02e",
+        "source_dimensions": [
+          1254,
+          1254
+        ],
+        "explicit_native_regions": 64,
+        "pixel_processing": "No resizing, repainting, padding, masking, alpha editing or PNG re-encoding. Only byte-for-byte copy. Source rectangle registration samples original pixels."
+      },
+      "infected_security": {
+        "sha256": "3074484ebe3ec4b1c3f6d6eeeb2aa19f25099b9e6efa68561c2e4f6fdc682fc1",
+        "source_dimensions": [
+          1254,
+          1254
+        ],
+        "explicit_native_regions": 64,
+        "pixel_processing": "No resizing, repainting, padding, masking, alpha editing or PNG re-encoding. Only byte-for-byte copy. Source rectangle registration samples original pixels."
+      }
+    },
+    "placements": [
+      {
+        "marker": "Spawn_2",
+        "before_kind": "unsealed",
+        "after_kind": "infected_security",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_9",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_12",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_22",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_25",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_33",
+        "before_kind": "unsealed",
+        "after_kind": "infected_security",
+        "changed": false
+      }
+    ],
+    "actor_total": 36,
+    "arena_counts": {
+      "arena_one": 5,
+      "arena_two": 5,
+      "final_arena": 6
+    },
+    "fixture_sha256": "d90d759e4cf8836012d147b368886fd74c24fd3fa5fdad1532830b144e3a0169",
+    "packed": false,
+    "native_renderer": false,
+    "fixture_mode": "Source resources; temporary user profile."
+  },
+  "frozen_v7_reader": "Not run: frozen57-cue native fixture is incompatible with approved63 cues. Its old expectations are preserved unchanged. New exact57-old+6-alias actual Main checks replace it for this release only.",
+  "geometry_proof": "Separate verification/production-v11/lighting cold geometry proof; no aggregate geometry-equivalence claim from this archive fixture.",
+  "provenance": {
+    "archived_manifests": [
+      "concepts/audio-v3/manifest.json",
+      "concepts/audio-v4/manifest.json",
+      "concepts/audio-v5/manifest.json",
+      "concepts/expansion-v1/provenance.json",
+      "concepts/expansion-v1/gore/provenance.json"
+    ],
+    "creature_design_records": 18,
+    "local_license_evidence": {
+      "concepts/audio-v3/provenance/the-free-firearm-sound-library.html": {
+        "sha256": "e69ddc51c1b8a34a6446f8298486e11a6167a75c4e15b46e704d602976831798",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/swish-bamboo-stick-weapon-swhoshes.html": {
+        "sha256": "923a6b8138c4171aaa9c38a6bd33b6f21168d21971a88c015e3018f01377d0da",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/metal-interactions.html": {
+        "sha256": "38d234526ec6fb567abd5a3c7ef96d7ed1a20e83f5442251c50991f66bf2a170",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/male-gruntyelling-sounds.html": {
+        "sha256": "98b68a5beca05c1970401e5d8ed4019f01ccfc50306d1c07989085123a89ab53",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/punch.html": {
+        "sha256": "d6fb9955d3900ed9cbe587742175cc70b376144611e3bb3efcab1e3ca60e9fbc",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/qubodup-punch-source-53985.html": {
+        "sha256": "ac9c1d46ae1761c8fce61f8ed52a7baff067ac88661e84c3c89fe4a8386b76f3",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/100-cc0-metal-and-wood-sfx.html": {
+        "sha256": "d1b313a5a313b9f2f3763e140eb03297965ad5a5a193150e61b711f6605571e6",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/abelian.html": {
+        "sha256": "c0912a0b3e1c4a768444bc57e7a376aa4595d26db21e3462d381f08b17da6192",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/bestial-paragon-interface.html": {
+        "sha256": "ad64c0c902fc768edbbdb8506469300a1545212fddc5ceb7768b275ed432a15d",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/dragged-through-hellfire-abomination.html": {
+        "sha256": "c9648a9a451009a54dcc29d81f165c53027e9ed4f19e7030f4ea4769048f67ca",
+        "archived": false
+      }
+    },
+    "scope": "Archived license declarations and provided original/evidence hashes verified locally; external license pages were not independently researched."
+  },
+  "packed_main": {
+    "status": "passed",
+    "protected_files": 114,
+    "explicit_existing_code_changes": [
+      "scripts/enemy_definition.gd",
+      "scripts/main.gd",
+      "scripts/combat_enemy.gd"
+    ],
+    "old_cues_preserved": 57,
+    "exact_voice_aliases": {
+      "infected_scientist_attack_warning": "unsealed_attack_warning",
+      "infected_scientist_hurt": "unsealed_hurt",
+      "infected_scientist_death": "unsealed_death",
+      "infected_security_attack_warning": "vessel_attack_warning",
+      "infected_security_hurt": "vessel_hurt",
+      "infected_security_death": "vessel_death"
+    },
+    "native_art_sources": {
+      "infected_scientist": {
+        "sha256": "e8a48d92c1ba8609087bedc93e72ecde359d85704e531b75299d381a0fd8b02e",
+        "source_dimensions": [
+          1254,
+          1254
+        ],
+        "explicit_native_regions": 64,
+        "pixel_processing": "No resizing, repainting, padding, masking, alpha editing or PNG re-encoding. Only byte-for-byte copy. Source rectangle registration samples original pixels."
+      },
+      "infected_security": {
+        "sha256": "3074484ebe3ec4b1c3f6d6eeeb2aa19f25099b9e6efa68561c2e4f6fdc682fc1",
+        "source_dimensions": [
+          1254,
+          1254
+        ],
+        "explicit_native_regions": 64,
+        "pixel_processing": "No resizing, repainting, padding, masking, alpha editing or PNG re-encoding. Only byte-for-byte copy. Source rectangle registration samples original pixels."
+      }
+    },
+    "placements": [
+      {
+        "marker": "Spawn_2",
+        "before_kind": "unsealed",
+        "after_kind": "infected_security",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_9",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_12",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_22",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_25",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_33",
+        "before_kind": "unsealed",
+        "after_kind": "infected_security",
+        "changed": false
+      }
+    ],
+    "actor_total": 36,
+    "arena_counts": {
+      "arena_one": 5,
+      "arena_two": 5,
+      "final_arena": 6
+    },
+    "native": {
+      "checks": 1702,
+      "failures": [],
+      "observations": [
+        {
+          "actual_arena_counts": {
+            "arena_one": 5,
+            "arena_two": 5,
+            "final_arena": 6
+          },
+          "expected_arena_counts": {
+            "arena_one": 5.0,
+            "arena_two": 5.0,
+            "final_arena": 6.0
+          },
+          "phase": "initial"
+        },
+        {
+          "actual_physics_materials": [
+            "flesh"
+          ],
+          "frames_visited": 64,
+          "kind": "infected_scientist",
+          "opaque_flash_noncontact_probes": 0
+        },
+        {
+          "actual_physics_materials": [
+            "flesh",
+            "armor"
+          ],
+          "frames_visited": 64,
+          "kind": "infected_security",
+          "opaque_flash_noncontact_probes": 13
+        },
+        {
+          "boundary_directions_tested": 8,
+          "recovery_rest_column": 3,
+          "security_release_flash_seconds": 0.075
+        },
+        {
+          "actual_mounted_lights": 56,
+          "flicker_persisted": false,
+          "profile_isolation": "Temporary XDG_DATA_HOME supplied by checker wrapper"
+        },
+        {
+          "can_see_room_centre": false,
+          "health": 100.0,
+          "kind": "infected_security",
+          "marker": "Spawn_2",
+          "position": "(-4.5, 2.37, -42.0)",
+          "ranged": true,
+          "room": "service"
+        },
+        {
+          "can_see_room_centre": false,
+          "health": 45.0,
+          "kind": "infected_scientist",
+          "marker": "Spawn_9",
+          "position": "(32.0, 2.37, -80.0)",
+          "ranged": false,
+          "room": "key_wing"
+        },
+        {
+          "can_see_room_centre": false,
+          "health": 45.0,
+          "kind": "infected_scientist",
+          "marker": "Spawn_12",
+          "position": "(57.5, 2.37, -80.0)",
+          "ranged": false,
+          "room": "key_console"
+        },
+        {
+          "can_see_room_centre": false,
+          "health": 45.0,
+          "kind": "infected_scientist",
+          "marker": "Spawn_22",
+          "position": "(-43.0, 2.37, -162.0)",
+          "ranged": false,
+          "room": "red_wing"
+        },
+        {
+          "can_see_room_centre": false,
+          "health": 45.0,
+          "kind": "infected_scientist",
+          "marker": "Spawn_25",
+          "position": "(-43.0, 2.37, -196.0)",
+          "ranged": false,
+          "room": "red_console"
+        },
+        {
+          "can_see_room_centre": false,
+          "health": 100.0,
+          "kind": "infected_security",
+          "marker": "Spawn_33",
+          "position": "(-43.0, 2.37, -121.0)",
+          "ranged": true,
+          "room": "armory"
+        },
+        {
+          "actual_arena_counts": {
+            "arena_one": 5,
+            "arena_two": 5,
+            "final_arena": 6
+          },
+          "expected_arena_counts": {
+            "arena_one": 5.0,
+            "arena_two": 5.0,
+            "final_arena": 6.0
+          },
+          "phase": "Retry"
+        }
+      ],
+      "scope": "Controlled actual Main authored Intake. Native resource/position/capsule/floor/presentation checks; actual room activation/cache shutters and real actor apply_damage/death ownership; Retry. Player repositioned, other physics frozen. No live route traversal, balance, human visual approval or listening claim.",
+      "status": "passed"
+    },
+    "fixture_sha256": "d90d759e4cf8836012d147b368886fd74c24fd3fa5fdad1532830b144e3a0169",
+    "packed": true,
+    "native_renderer": true,
+    "fixture_mode": "Pinned trusted editor reads packaged resources via --main-pack; shipped ELF never executed."
+  },
+  "archive": "/home/rikki/Builds/eyesore-staff-lighting-v11b-2026-10-17/eyesore-staff-lighting-v11b-linux.tar.gz",
+  "archive_sha256": "415acf477b1d81af328924e2b8f53c276c1d48a1bb8160d30fac4445d1f1a315",
+  "executable_sha256": "da5c7445bad09a09447992c20fb45d0db1b70eb438a03b16680f73c38908088f",
+  "source_commit": "649eca2ce687788a91370a89000718ba01b74f68",
+  "portable_archive_pass": true,
+  "scope": "Independent archive integrity, dynamic packaged/current/Git source+provenance identity, exact credits and ELF bytes. Trusted editor --main-pack actual Main validates63 cues/57 preserved, staff128frames/material queries,36 roster/arena/cache/Retry,56 lights/persisted flicker/pause/Retry. Shipped ELF never executed; no human listening, route, visual approval or aggregate geometry proof claim.",
+  "auditor_sha256": "a59ddae331faeb7233fc64a7269358932086c73f7ec151b89aa600ad00501167"
+}

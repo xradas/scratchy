@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "protected_files": 114,
+  "explicit_existing_code_changes": [
+    "scripts/enemy_definition.gd",
+    "scripts/main.gd",
+    "scripts/combat_enemy.gd"
+  ],
+  "old_cues_preserved": 57,
+  "exact_voice_aliases": {
+    "infected_scientist_attack_warning": "unsealed_attack_warning",
+    "infected_scientist_hurt": "unsealed_hurt",
+    "infected_scientist_death": "unsealed_death",
+    "infected_security_attack_warning": "vessel_attack_warning",
+    "infected_security_hurt": "vessel_hurt",
+    "infected_security_death": "vessel_death"
+  },
+  "native_art_sources": {
+    "infected_scientist": {
+      "sha256": "e8a48d92c1ba8609087bedc93e72ecde359d85704e531b75299d381a0fd8b02e",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "explicit_native_regions": 64,
+      "pixel_processing": "No resizing, repainting, padding, masking, alpha editing or PNG re-encoding. Only byte-for-byte copy. Source rectangle registration samples original pixels."
+    },
+    "infected_security": {
+      "sha256": "3074484ebe3ec4b1c3f6d6eeeb2aa19f25099b9e6efa68561c2e4f6fdc682fc1",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "explicit_native_regions": 64,
+      "pixel_processing": "No resizing, repainting, padding, masking, alpha editing or PNG re-encoding. Only byte-for-byte copy. Source rectangle registration samples original pixels."
+    }
+  },
+  "placements": [
+    {
+      "marker": "Spawn_2",
+      "before_kind": "unsealed",
+      "after_kind": "infected_security",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_9",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_12",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_22",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_25",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_33",
+      "before_kind": "unsealed",
+      "after_kind": "infected_security",
+      "changed": false
+    }
+  ],
+  "actor_total": 36,
+  "arena_counts": {
+    "arena_one": 5,
+    "arena_two": 5,
+    "final_arena": 6
+  },
+  "fixture_sha256": "d90d759e4cf8836012d147b368886fd74c24fd3fa5fdad1532830b144e3a0169",
+  "packed": false,
+  "native_renderer": false,
+  "fixture_mode": "Source resources; temporary user profile."
+}
