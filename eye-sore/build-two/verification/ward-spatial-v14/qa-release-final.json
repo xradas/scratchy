@@ -1,0 +1,338 @@
+{
+  "status": "passed_independent_source_and_packed_spatial_gates",
+  "source_commit": "0d1dc8a164d56423747833661ddf094531ca0f44",
+  "baseline_commit": "94c4f265371e5c21c9d4411e5897577799705bd7",
+  "export_identity": {
+    "build": {
+      "path": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/BUILD.json",
+      "sha256": "700b0ba21d1ed01ad2641b04b89671de85e12485d59e163b20bb3cc9c233d2fc",
+      "bytes": 4491
+    },
+    "executable": {
+      "path": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/eyesore-ward-spatial-v14.x86_64",
+      "sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+      "bytes": 180346656
+    },
+    "source_commit": "0d1dc8a164d56423747833661ddf094531ca0f44",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "source_tree_sha256": "2bb803696f9f1be5bcd84f4b0ccae1eaff1d3fddb6540b0198d4d02789e0abd6"
+  },
+  "source_native_summary": {
+    "path": "verification/ward-spatial-v14/qa-source-final.json",
+    "sha256": "7a12946e90f6d6f4c7e9e267cb7dde106eebe615375c9769a5a46aaaa2dbcfd3",
+    "assertions": 416,
+    "scope": "Native source Intake141 and Containment142; Breach107 controlled/shared ordered successful prefix plus final stable live26. Original failed/insufficient probes retained; exact scene-pose and Stage legacy-guard byte reconstructions justify composite scope."
+  },
+  "source_preservation": {
+    "report": "verification/ward-spatial-v14/source-export-final.json",
+    "sha256": "a4beca5be83b5bcf708ddaf0212799b588174e5150cda8f362cf78ee8abd8cf9",
+    "git_blobs": 481,
+    "protected_files": 462,
+    "exact_runtime_roster": 479,
+    "scope": "All original art/audio/music/player/enemy-AI/weapons/gore, six later maps and untouched runtime code exact to Git94c4. Only explicit three Ward outputs and named Stage/map/helper functions differ. Graph prerequisites, all pickups, actor IDs/types/counts and only exact approved placements checked."
+  },
+  "packed_resource_assertions": 417,
+  "packed_resource_fixtures": [
+    {
+      "level": "intake",
+      "report": "verification/ward-spatial-v14/release/packed-intake.json",
+      "sha256": "78d338e86e1a5f6f4939eceab2b5be9e406d9c1b416d7b83fc633388ed3772ae",
+      "native_payload": "verification/ward-spatial-v14/release/packed-intake.native.json",
+      "native_payload_sha256": "d5cbd0e2dbd22b4db2462790652475de59788813e3a68fdcec2f31ad31b0c9e7",
+      "log": "verification/ward-spatial-v14/release/packed-intake.log",
+      "log_sha256": "b50865370b00ac3d29e8984fde53d08989aab67734863308819876fc862e84fb",
+      "assertions": 142,
+      "room_shapes": [
+        {
+          "room": "reception",
+          "inside_samples": 2978,
+          "excluded_samples": 196,
+          "floor_cells": 3,
+          "fitting_meshes": 40
+        },
+        {
+          "room": "diagnostics",
+          "inside_samples": 2121,
+          "excluded_samples": 60,
+          "floor_cells": 1,
+          "fitting_meshes": 44
+        },
+        {
+          "room": "recovery",
+          "inside_samples": 2734,
+          "excluded_samples": 196,
+          "floor_cells": 3,
+          "fitting_meshes": 80
+        }
+      ],
+      "live_optional": {
+        "pistol_shots": 8,
+        "kills": 2,
+        "health": 91.6,
+        "actual_player_contacts": 3,
+        "actors": [
+          {
+            "actual_player_contacts": 0,
+            "actual_projectile_releases": 0,
+            "awake": true,
+            "can_see": false,
+            "health": 0.0,
+            "id": "pale_ward_01.triage.enemy.1",
+            "position": "(-25.96138, 0.850072, -0.275607)",
+            "state": "dead"
+          },
+          {
+            "actual_player_contacts": 3,
+            "actual_projectile_releases": 6,
+            "awake": true,
+            "can_see": false,
+            "health": 0.0,
+            "id": "pale_ward_01.triage.enemy.2",
+            "position": "(-30.93343, 0.850072, -3.77229)",
+            "state": "dead"
+          }
+        ],
+        "minima_fight_loop_only": {
+          "armor": 37.4,
+          "health": 91.6,
+          "pistol": 28,
+          "shells": 24
+        }
+      },
+      "loaded_production_fingerprints": {
+        "resources/campaign/pale_ward_01-route.json": "32477a07c873f11dcb20c8f2da454016e79fa4a474cd7f41cf82eef5f2565042",
+        "resources/campaign/v13/pale_ward_01-objectives.tres": "1e3bb243308c01549c616ddb717c47cba9f153a9d43b5e99772cfcbb30804098",
+        "scenes/campaign/pale_ward_01.tscn": "4807f5a334ac92e050909e2138fb038714f153e5f4c34ed20aa95ba3ccb4aeb5",
+        "scripts/industrial_hud_v8.gd": "0f9db614c9fd19fc9c398b6d7ff333fd08895b67e04f69da40367717e483c756",
+        "scripts/stage_checkpoint_v13.gd": "350a6fde2bbb65779402152db26ac02ce24e9df777985f883d5071e59becfc44",
+        "scripts/stage_level.gd": "e03adda75fb9bb3c726472d04da3d5379e0a15de58275eccaf72e7e0228ae69e",
+        "scripts/ward_automap.gd": "543958d94818080dd34301fa051def493cc7f06761aad4fa4717f6b90e6c3c42"
+      },
+      "command": [
+        "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--audio-driver",
+        "Dummy",
+        "--max-fps",
+        "60",
+        "--path",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+        "--main-pack",
+        "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/eyesore-ward-spatial-v14.x86_64",
+        "--script",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/check_ward_spatial_v14.gd",
+        "--",
+        "--automated-input",
+        "--expected=/tmp/eyesore-spatial-v14-nsxwc6yr/expected.json",
+        "--report=/tmp/eyesore-spatial-v14-nsxwc6yr/native.json"
+      ],
+      "strict_diagnostics": "none"
+    },
+    {
+      "level": "containment",
+      "report": "verification/ward-spatial-v14/release/packed-containment.json",
+      "sha256": "c816f7283d4347c9300f7c10851f4eda85d99c2df3fa7dbef68687ffb9b571d8",
+      "native_payload": "verification/ward-spatial-v14/release/packed-containment.native.json",
+      "native_payload_sha256": "efc054a349e46d22d581123acf28a88f24b3f6b58ae61fa18f65f4c2fc09dc38",
+      "log": "verification/ward-spatial-v14/release/packed-containment.log",
+      "log_sha256": "3ca142be0a813e7d68a7696a2df5ace087fa6fd91da2b0a0e4f6dc92948a3020",
+      "assertions": 143,
+      "room_shapes": [
+        {
+          "room": "overlook",
+          "inside_samples": 2977,
+          "excluded_samples": 4,
+          "floor_cells": 1,
+          "fitting_meshes": 32
+        },
+        {
+          "room": "cultures",
+          "inside_samples": 2978,
+          "excluded_samples": 196,
+          "floor_cells": 3,
+          "fitting_meshes": 60
+        },
+        {
+          "room": "waste_lab",
+          "inside_samples": 2978,
+          "excluded_samples": 196,
+          "floor_cells": 3,
+          "fitting_meshes": 60
+        }
+      ],
+      "live_optional": {
+        "pistol_shots": 8,
+        "kills": 2,
+        "health": 88.8,
+        "actual_player_contacts": 4,
+        "actors": [
+          {
+            "actual_player_contacts": 4,
+            "actual_projectile_releases": 6,
+            "awake": true,
+            "can_see": false,
+            "health": 0.0,
+            "id": "pale_ward_02.waste_lab.enemy.2",
+            "position": "(1.186978, 4.850071, 35.51902)",
+            "state": "dead"
+          },
+          {
+            "actual_player_contacts": 0,
+            "actual_projectile_releases": 0,
+            "awake": true,
+            "can_see": false,
+            "health": 0.0,
+            "id": "pale_ward_02.culture_office.enemy.0",
+            "position": "(-0.081065, 4.850071, 33.20647)",
+            "state": "dead"
+          }
+        ],
+        "minima_fight_loop_only": {
+          "armor": 33.2,
+          "health": 88.8,
+          "pistol": 28,
+          "shells": 24
+        }
+      },
+      "loaded_production_fingerprints": {
+        "resources/campaign/pale_ward_02-route.json": "dc3b90a456e3319e7345ab7669693c132116b9ad2800fdd687e0f89c8e4cbe88",
+        "resources/campaign/v13/pale_ward_02-objectives.tres": "727593dd5dee37dc210d714a53454b3fe61384c71f6f742b586aa2545958061f",
+        "scenes/campaign/pale_ward_02.tscn": "e2033eb5467a374d47630efdba8c15051a9def3998c9b533d1bb2b69a4ee14cf",
+        "scripts/industrial_hud_v8.gd": "0f9db614c9fd19fc9c398b6d7ff333fd08895b67e04f69da40367717e483c756",
+        "scripts/stage_checkpoint_v13.gd": "350a6fde2bbb65779402152db26ac02ce24e9df777985f883d5071e59becfc44",
+        "scripts/stage_level.gd": "e03adda75fb9bb3c726472d04da3d5379e0a15de58275eccaf72e7e0228ae69e",
+        "scripts/ward_automap.gd": "543958d94818080dd34301fa051def493cc7f06761aad4fa4717f6b90e6c3c42"
+      },
+      "command": [
+        "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--audio-driver",
+        "Dummy",
+        "--max-fps",
+        "60",
+        "--path",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+        "--main-pack",
+        "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/eyesore-ward-spatial-v14.x86_64",
+        "--script",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/check_ward_spatial_v14.gd",
+        "--",
+        "--automated-input",
+        "--expected=/tmp/eyesore-spatial-v14-mdrqvg8b/expected.json",
+        "--report=/tmp/eyesore-spatial-v14-mdrqvg8b/native.json"
+      ],
+      "strict_diagnostics": "none"
+    },
+    {
+      "level": "breach",
+      "report": "verification/ward-spatial-v14/release/packed-breach.json",
+      "sha256": "29313fc04a8639e1ea92d43cb9272528f9a744e6729cf1e204107bdc4cde328e",
+      "native_payload": "verification/ward-spatial-v14/release/packed-breach.native.json",
+      "native_payload_sha256": "fd91a9c7b1f13a96c386406568fa68e805f9f2a03dc30a6b83c58f0b921ca7dc",
+      "log": "verification/ward-spatial-v14/release/packed-breach.log",
+      "log_sha256": "53d0236049f9587cbf2b9a6646a4a57b73b82ef448384fab8ff9f10e26ae50af",
+      "assertions": 132,
+      "room_shapes": [
+        {
+          "room": "loading",
+          "inside_samples": 2734,
+          "excluded_samples": 196,
+          "floor_cells": 3,
+          "fitting_meshes": 43
+        },
+        {
+          "room": "cultivation",
+          "inside_samples": 2766,
+          "excluded_samples": 196,
+          "floor_cells": 3,
+          "fitting_meshes": 22
+        },
+        {
+          "room": "rupture",
+          "inside_samples": 3561,
+          "excluded_samples": 112,
+          "floor_cells": 1,
+          "fitting_meshes": 24
+        }
+      ],
+      "live_optional": {
+        "pistol_shots": 10,
+        "kills": 2,
+        "health": 86.0,
+        "actual_player_contacts": 5,
+        "actors": [
+          {
+            "actual_player_contacts": 1,
+            "actual_projectile_releases": 7,
+            "awake": true,
+            "can_see": false,
+            "health": 0.0,
+            "id": "pale_ward_03.loading.enemy.1",
+            "position": "(-30.26338, 8.850361, -3.242779)",
+            "state": "dead"
+          },
+          {
+            "actual_player_contacts": 4,
+            "actual_projectile_releases": 8,
+            "awake": true,
+            "can_see": false,
+            "health": 0.0,
+            "id": "pale_ward_03.loading.enemy.3",
+            "position": "(-31.08238, 8.850071, -3.397796)",
+            "state": "dead"
+          }
+        ],
+        "minima_fight_loop_only": {
+          "armor": 29.0,
+          "health": 86.0,
+          "pistol": 26,
+          "shells": 24
+        }
+      },
+      "loaded_production_fingerprints": {
+        "resources/campaign/pale_ward_03-route.json": "352391e1b81e6a116b6bc9cd6e74bb28183b4209bb6383c2ba9464441d22d371",
+        "resources/campaign/v13/pale_ward_03-objectives.tres": "8d27c7652dbf091f5175c34568289836383e4c606aaad54c5e1453678d08f629",
+        "scenes/campaign/pale_ward_03.tscn": "75713f66e0681ba2281c5087f730d662967b2ee328787b4df02cb4a6babf8fd0",
+        "scripts/industrial_hud_v8.gd": "0f9db614c9fd19fc9c398b6d7ff333fd08895b67e04f69da40367717e483c756",
+        "scripts/stage_checkpoint_v13.gd": "350a6fde2bbb65779402152db26ac02ce24e9df777985f883d5071e59becfc44",
+        "scripts/stage_level.gd": "e03adda75fb9bb3c726472d04da3d5379e0a15de58275eccaf72e7e0228ae69e",
+        "scripts/ward_automap.gd": "543958d94818080dd34301fa051def493cc7f06761aad4fa4717f6b90e6c3c42"
+      },
+      "command": [
+        "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--audio-driver",
+        "Dummy",
+        "--max-fps",
+        "60",
+        "--path",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+        "--main-pack",
+        "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/eyesore-ward-spatial-v14.x86_64",
+        "--script",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/check_ward_spatial_v14.gd",
+        "--",
+        "--automated-input",
+        "--expected=/tmp/eyesore-spatial-v14-pbllq7jx/expected.json",
+        "--report=/tmp/eyesore-spatial-v14-pbllq7jx/native.json"
+      ],
+      "strict_diagnostics": "none"
+    }
+  ],
+  "execution_scope": "Pinned trusted Godot editor in headless mode loads exact exported ELF with --main-pack; external frozen QA script instantiates actual packed Main/resources. These three checks do NOT execute the shipped ELF engine and do not claim native rendering. Native source tests and coordinator actual exported smoke/movie are separate.",
+  "coordinator_owned_gates": "Actual shipped-ELF campaign pair, full9 source pair semantic/launch review, exact portable archive identity and native stereo MovieMaker evidence remain separate coordinator/runtime reports; this report does not substitute for them.",
+  "retained_failures": [
+    "breach-live-insufficient-review.json explicitly rejects release-only false-positive PASS25",
+    "intake-controlled-motion-probe.* shows real pending AnimatableBody restore bug before helper fix",
+    "intake-live-corrected.log.gz and intake-live-initial.log.gz preserve all repeated fixture get_meta diagnostics with byte-identical external raw log receipts",
+    "breach-final-candidate.* preserves exact-centre collision with a fixture-frozen unrelated actor; physical offset path retained all actual bodies",
+    "breach-live-guard-fix.* has26 behavior assertions passed but correctly rejected because Stage changed during the run; stable breach-live-final supersedes it"
+  ],
+  "limits": [
+    "Initial poses, direct collection and temporary geometry receivers isolate controlled cases; live optional proof uses actual input, proximity pickup, natural two-actor AI, finite shots and open retreat, with unrelated AI frozen.",
+    "Controlled campaign capture satisfies unchanged safety at a supported corridor pose; it does not establish physical checkpoint-marker acquisition.",
+    "Minima in optional evidence cover the fight loop; full campaign receipts contain segment samples and accepted pickup amounts. Continuous whole-route minima and wasted/declined supply telemetry remain unmeasured.",
+    "No human pacing, concept-match, physical mouse feel, difficulty/balance or listening acceptance claim."
+  ],
+  "frozen_files": "No source, docs, tools, provenance or package mutation during this audit; verification evidence only."
+}

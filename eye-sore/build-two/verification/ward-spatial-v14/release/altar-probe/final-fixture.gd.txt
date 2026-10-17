@@ -1,0 +1,55 @@
+extends SceneTree
+var app:Control
+var checks:Array=[]
+var observations:Array=[]
+var failed:=0
+func _initialize()->void:call_deferred("run")
+func frames(n:int)->void:
+	for i in n:await physics_frame
+func key(down:bool)->void:
+	var event:=InputEventKey.new();event.physical_keycode=KEY_W;event.keycode=KEY_W;event.pressed=down;Input.parse_input_event(event)
+func check(ok:bool,label:String)->void:
+	checks.append({"check":label,"passed":ok})
+	if not ok:failed+=1;push_error(label)
+func walk(at:Vector3,label:String)->void:
+	var start:Vector3=app.player.global_position
+	for i in 400:
+		var motion:Vector3=at-app.player.global_position;motion.y=0
+		if motion.length()<.2:
+			var arrival:Vector3=app.player.global_position
+			key(false);await frames(6)
+			check(app.player.is_on_floor(),label+" remains supported")
+			observations.append({"segment":label,"start":start,"end":app.player.global_position,"goal":at,"ticks":i,"arrival":arrival,"arrival_distance":motion.length(),"grounded":app.player.is_on_floor()});return
+		app.player.rotation.y=atan2(-motion.x,-motion.z);key(true);await physics_frame
+	key(false);check(false,label+" blocked");observations.append({"segment":label,"start":start,"end":app.player.global_position,"goal":at})
+func run()->void:
+	app=load("res://scenes/main.tscn").instantiate();root.add_child(app);app.enter_combat();await frames(4)
+	for enemy in app.combat.enemies:enemy.set_physics_process(false)
+	var player:CharacterBody3D=app.player
+	var initial:=Vector3(34.76627,-.649852,-170.6331)
+	var target:=Vector3(37.0672,-1.5,-152.5088)
+	player.set_physics_process(false);player.global_position=initial;player.velocity=Vector3.ZERO;player.set_movement_active(true);player.set_physics_process(true);await frames(8)
+	check(app.world.scene_file_path=="res://scenes/campaign/occupied_line_02.tscn","Actual packed OccupiedLine02 scene")
+	check(player.is_on_floor() and player.global_position.distance_to(initial)<.02,"Actual failed pose is grounded and stable")
+	var direction:=target-player.global_position;direction.y=0;direction=direction.normalized()
+	var hit:=KinematicCollision3D.new();var blocked:=player.test_move(player.global_transform,direction*.65,hit)
+	var collider:Node=hit.get_collider() if blocked else null
+	var ancestor:Node=collider.get_parent() if collider!=null else null
+	check(blocked,"Real standing capsule forward sweep is blocked")
+	check(ancestor!=null and ancestor.name=="arena_two_RaisedAltar","Blocking collider is actual solid raised altar")
+	var contact:={"collider":str(collider.get_path()) if collider!=null else "","ancestor":str(ancestor.get_path()) if ancestor!=null else "","normal":hit.get_normal() if blocked else Vector3.ZERO,"position":hit.get_position() if blocked else Vector3.ZERO,"player":player.global_position,"target":target,"motion":direction*.65,"capsule_height":player.get_node("CollisionShape3D").shape.height,"capsule_radius":player.get_node("CollisionShape3D").shape.radius}
+	for i in 12:player.rotation.y=atan2(-direction.x,-direction.z);key(true);await physics_frame
+	key(false);await frames(4)
+	check(player.is_on_floor() and player.global_position.distance_to(initial)<.1,"Actual physical forward approach remains blocked and grounded")
+	await walk(Vector3(32.7672,-1.5,-170.6331),"Move outside altar west edge")
+	await walk(Vector3(32.7672,-1.5,-152.5088),"Walk north along existing4.3m side lane")
+	await walk(target,"Reach original front descent waypoint from side")
+	var finish:Vector3=player.global_position
+	check(float(observations.back().arrival_distance)<.2 and finish.distance_to(initial)>10,"Original goal reachable without teleport or geometry changes")
+	app.combat_audio.stop_all();app.menu_music.stop();app.menu_music.stream=null
+	var at:=Time.get_ticks_msec()
+	while Time.get_ticks_msec()-at<300:await process_frame
+	app.queue_free();paused=false;await frames(6)
+	var result:={"status":"passed" if failed==0 else "failed","checks":checks,"failed":failed,"blocking_contact":contact,"physical_path":observations,"scope":"Trusted pinnededitor loading actual finalembeddedELF via --main-pack. Actual Main/player/capsule/staticworld, onecontrolled start at reportedfailed pose; naturalphysicalW thereafter. EnemyAI frozen to isolate staticgeometry, no actorhealth/collider/weapon/geometry edits. Proves blocked directbotshortcut and safe physicalside route; doesnot repair or accept failedfull9ELFrun."}
+	FileAccess.open("/tmp/eyesore-v14-packed-altar-probe.json",FileAccess.WRITE).store_string(JSON.stringify(result,"  "))
+	print("PACKED_ALTAR_PROBE checks=",checks.size()," failed=",failed);quit(1 if failed else 0)

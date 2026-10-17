@@ -1,0 +1,77 @@
+{
+  "status": "normal_export_campaign_passed_heavy_automation_failed_twice",
+  "source_commit": "0d1dc8a164d56423747833661ddf094531ca0f44",
+  "executable_sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+  "outcomes": [
+    {
+      "mode": "normal-AB",
+      "status": "passed",
+      "levels_completed": 9,
+      "expected_levels": 9,
+      "exact_inventory_carries_observed": 8,
+      "process_exit": 0,
+      "executable_sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+      "semantic": {
+        "path": "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/v13-route.json",
+        "sha256": "4a5e6bd56b402ad1cf6ef9f14458d0157a19e4abdf9bb7df5935c4e5592a5fd0",
+        "levels": 9,
+        "containment_order": "AB",
+        "editor_feature": false,
+        "executable": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/eyesore-ward-spatial-v14.x86_64",
+        "clean_console": "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/console.log",
+        "scope": "Independent semantic audit of driver receipts. Launcher /proc and ELF identity proof are separate; bot times never prove human pacing."
+      },
+      "scope": "Actual exported process receipt, exact source/ELF/proc/args/cwd identity; failed runs remain failed."
+    },
+    {
+      "mode": "heavy-BA",
+      "status": "failed",
+      "levels_completed": 7,
+      "expected_levels": 9,
+      "exact_inventory_carries_observed": 7,
+      "process_exit": 1,
+      "executable_sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+      "semantic": {
+        "status": "failed_not_accepted",
+        "failure": [
+          "Descend cleared altar: traversal stalled at (34.76627, -0.649852, -170.6331)",
+          "Actual exit/menu completion occupied_line_02",
+          "Legacy progression release",
+          "Legacy progression red_key",
+          "Legacy progression exit_control",
+          "Legacy progression exit",
+          "Legacy arena clear final_arena"
+        ],
+        "physical_recovery": "../../altar-probe/final.json"
+      },
+      "scope": "Actual exported process receipt, exact source/ELF/proc/args/cwd identity; failed runs remain failed."
+    },
+    {
+      "mode": "heavy-BA-retry",
+      "status": "failed",
+      "levels_completed": 7,
+      "expected_levels": 9,
+      "exact_inventory_carries_observed": 7,
+      "process_exit": 1,
+      "executable_sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+      "semantic": {
+        "status": "failed_not_accepted",
+        "failure": [
+          "Descend cleared altar: traversal stalled at (34.76627, -0.649852, -170.6331)",
+          "Actual exit/menu completion occupied_line_02",
+          "Legacy progression release",
+          "Legacy progression red_key",
+          "Legacy progression exit_control",
+          "Legacy progression exit",
+          "Legacy arena clear final_arena"
+        ],
+        "physical_recovery": "../../altar-probe/final.json"
+      },
+      "scope": "Actual exported process receipt, exact source/ELF/proc/args/cwd identity; failed runs remain failed."
+    }
+  ],
+  "decision": "Deliver scoped Ward milestone with documented inherited opt-in heavy automation limitation. Normal exported9/9 and sourceboth9/9 pass. Both heavy exported attempts finish allthree Ward maps but stop7/9 on the same legacy altar collision. Packed physical recovery9/9 proves a supported manual walking route. No further blind retries or gameplay changes.",
+  "independent_normal_audit": "../initial-attempt/independent-audit.json (normal1verified; pairedstatusfailedbecauseheavyfailed)",
+  "source_independent_audit": "../../../campaign-source/attempt-03/independent-audit.json",
+  "packed_geometry_recovery": "../../altar-probe/final.json"
+}

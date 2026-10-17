@@ -1,0 +1,426 @@
+{
+  "status": "complete_with_disclosed_automation_failures",
+  "paired_actual_elf_all9_passed": false,
+  "source_pair_all9_passed": true,
+  "normal_actual_elf_all9_passed": true,
+  "heavy_actual_elf_all9_passed": false,
+  "final_clean_source_commit": "0d1dc8a164d56423747833661ddf094531ca0f44",
+  "actual_elf_sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+  "export_identity": {
+    "build": {
+      "path": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/BUILD.json",
+      "sha256": "700b0ba21d1ed01ad2641b04b89671de85e12485d59e163b20bb3cc9c233d2fc",
+      "bytes": 4491
+    },
+    "executable": {
+      "path": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/eyesore-ward-spatial-v14.x86_64",
+      "sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+      "bytes": 180346656
+    },
+    "source_commit": "0d1dc8a164d56423747833661ddf094531ca0f44",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "source_tree_sha256": "2bb803696f9f1be5bcd84f4b0ccae1eaff1d3fddb6540b0198d4d02789e0abd6"
+  },
+  "attempts": [
+    {
+      "attempt": "normal-AB",
+      "status": "passed",
+      "exit_code": 0,
+      "levels_completed": 9,
+      "expected_levels": 9,
+      "observed_identity_verified": true,
+      "requested_cwd": "/tmp",
+      "observed_cwd": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17",
+      "executable_sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+      "source_commit": "0d1dc8a164d56423747833661ddf094531ca0f44",
+      "route_semantic_audit": {
+        "path": "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/v13-route.json",
+        "sha256": "4a5e6bd56b402ad1cf6ef9f14458d0157a19e4abdf9bb7df5935c4e5592a5fd0",
+        "levels": 9,
+        "containment_order": "AB",
+        "editor_feature": false,
+        "executable": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/eyesore-ward-spatial-v14.x86_64",
+        "clean_console": "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/console.log",
+        "scope": "Independent semantic audit of driver receipts. Launcher /proc and ELF identity proof are separate; bot times never prove human pacing."
+      },
+      "exact_carry_boundaries": [
+        [
+          "pale_ward_01",
+          "pale_ward_02"
+        ],
+        [
+          "pale_ward_02",
+          "pale_ward_03"
+        ],
+        [
+          "pale_ward_03",
+          "ash_citadel_01"
+        ],
+        [
+          "ash_citadel_01",
+          "ash_citadel_02"
+        ],
+        [
+          "ash_citadel_02",
+          "ash_citadel_03"
+        ],
+        [
+          "ash_citadel_03",
+          "occupied_line_01"
+        ],
+        [
+          "occupied_line_01",
+          "occupied_line_02"
+        ],
+        [
+          "occupied_line_02",
+          "occupied_line_03"
+        ]
+      ],
+      "completed_prefix_verified": [
+        "pale_ward_01",
+        "pale_ward_02",
+        "pale_ward_03",
+        "ash_citadel_01",
+        "ash_citadel_02",
+        "ash_citadel_03",
+        "occupied_line_01",
+        "occupied_line_02",
+        "occupied_line_03"
+      ],
+      "ward_checkpoints": {
+        "pale_ward_01": [
+          "credential_return",
+          "power_return"
+        ],
+        "pale_ward_02": [
+          "culture_safe",
+          "waste_safe"
+        ],
+        "pale_ward_03": [
+          "middle_anchor_safe",
+          "upper_anchor_safe"
+        ]
+      },
+      "no_optional_ward_room_visits_and_two_reserve_actors": {
+        "pale_ward_01": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2
+        },
+        "pale_ward_02": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2
+        },
+        "pale_ward_03": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2
+        }
+      },
+      "failures": [],
+      "original_root": "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB",
+      "exactcopy_root": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/ward-spatial-v14/release/independent-campaigns/initial-attempt/normal-AB",
+      "log_sha256": {
+        "console.log": {
+          "sha256": "ef4da27e129e1f19b4dd3dc7be0a9ba845c6d76b34bc79b5a142ddc24b3ddfea",
+          "diagnostics": []
+        },
+        "engine.log": {
+          "sha256": "ef4da27e129e1f19b4dd3dc7be0a9ba845c6d76b34bc79b5a142ddc24b3ddfea",
+          "diagnostics": []
+        }
+      }
+    },
+    {
+      "attempt": "heavy-BA",
+      "status": "failed",
+      "exit_code": 1,
+      "levels_completed": 7,
+      "expected_levels": 9,
+      "observed_identity_verified": true,
+      "requested_cwd": "/tmp",
+      "observed_cwd": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17",
+      "executable_sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+      "source_commit": "0d1dc8a164d56423747833661ddf094531ca0f44",
+      "route_semantic_audit": {
+        "status": "rejected_as_required",
+        "reason": "Route receipt explicitly failed /home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA/v13-route.json"
+      },
+      "exact_carry_boundaries": [
+        [
+          "pale_ward_01",
+          "pale_ward_02"
+        ],
+        [
+          "pale_ward_02",
+          "pale_ward_03"
+        ],
+        [
+          "pale_ward_03",
+          "ash_citadel_01"
+        ],
+        [
+          "ash_citadel_01",
+          "ash_citadel_02"
+        ],
+        [
+          "ash_citadel_02",
+          "ash_citadel_03"
+        ],
+        [
+          "ash_citadel_03",
+          "occupied_line_01"
+        ],
+        [
+          "occupied_line_01",
+          "occupied_line_02"
+        ]
+      ],
+      "completed_prefix_verified": [
+        "pale_ward_01",
+        "pale_ward_02",
+        "pale_ward_03",
+        "ash_citadel_01",
+        "ash_citadel_02",
+        "ash_citadel_03",
+        "occupied_line_01"
+      ],
+      "ward_checkpoints": {
+        "pale_ward_01": [
+          "credential_return",
+          "power_return"
+        ],
+        "pale_ward_02": [
+          "culture_safe",
+          "waste_safe"
+        ],
+        "pale_ward_03": [
+          "middle_anchor_safe",
+          "upper_anchor_safe"
+        ]
+      },
+      "no_optional_ward_room_visits_and_two_reserve_actors": {
+        "pale_ward_01": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2
+        },
+        "pale_ward_02": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2
+        },
+        "pale_ward_03": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2
+        }
+      },
+      "failures": [
+        "Descend cleared altar: traversal stalled at (34.76627, -0.649852, -170.6331)",
+        "Actual exit/menu completion occupied_line_02",
+        "Legacy progression release",
+        "Legacy progression red_key",
+        "Legacy progression exit_control",
+        "Legacy progression exit",
+        "Legacy arena clear final_arena"
+      ],
+      "original_root": "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA",
+      "exactcopy_root": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/ward-spatial-v14/release/independent-campaigns/initial-attempt/heavy-BA",
+      "log_sha256": {
+        "console.log": {
+          "sha256": "7a7d402594b045054ea1a42468fdfa1387113414d0eccaa598caa540a08640da",
+          "diagnostics": [
+            "ERROR: RELEASE_STAGE_ROUTE: Actual exit/menu completion occupied_line_02",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression release",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression red_key",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression exit_control",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression exit",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy arena clear final_arena"
+          ]
+        },
+        "engine.log": {
+          "sha256": "5cad97b1941f965b7e4f5b95ec0c51cdb34fdf9ee995a985fc7ab1f4ae6af250",
+          "diagnostics": [
+            "ERROR: RELEASE_STAGE_ROUTE: Actual exit/menu completion occupied_line_02",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression release",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression red_key",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression exit_control",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression exit",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy arena clear final_arena"
+          ]
+        }
+      }
+    },
+    {
+      "attempt": "heavy-BA-retry",
+      "status": "failed",
+      "exit_code": 1,
+      "levels_completed": 7,
+      "expected_levels": 9,
+      "observed_identity_verified": true,
+      "requested_cwd": "/tmp",
+      "observed_cwd": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17",
+      "executable_sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+      "source_commit": "0d1dc8a164d56423747833661ddf094531ca0f44",
+      "route_semantic_audit": {
+        "status": "rejected_as_required",
+        "reason": "Route receipt explicitly failed /home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA-retry/v13-route.json"
+      },
+      "exact_carry_boundaries": [
+        [
+          "pale_ward_01",
+          "pale_ward_02"
+        ],
+        [
+          "pale_ward_02",
+          "pale_ward_03"
+        ],
+        [
+          "pale_ward_03",
+          "ash_citadel_01"
+        ],
+        [
+          "ash_citadel_01",
+          "ash_citadel_02"
+        ],
+        [
+          "ash_citadel_02",
+          "ash_citadel_03"
+        ],
+        [
+          "ash_citadel_03",
+          "occupied_line_01"
+        ],
+        [
+          "occupied_line_01",
+          "occupied_line_02"
+        ]
+      ],
+      "completed_prefix_verified": [
+        "pale_ward_01",
+        "pale_ward_02",
+        "pale_ward_03",
+        "ash_citadel_01",
+        "ash_citadel_02",
+        "ash_citadel_03",
+        "occupied_line_01"
+      ],
+      "ward_checkpoints": {
+        "pale_ward_01": [
+          "credential_return",
+          "power_return"
+        ],
+        "pale_ward_02": [
+          "culture_safe",
+          "waste_safe"
+        ],
+        "pale_ward_03": [
+          "middle_anchor_safe",
+          "upper_anchor_safe"
+        ]
+      },
+      "no_optional_ward_room_visits_and_two_reserve_actors": {
+        "pale_ward_01": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2
+        },
+        "pale_ward_02": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2
+        },
+        "pale_ward_03": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2
+        }
+      },
+      "failures": [
+        "Descend cleared altar: traversal stalled at (34.76627, -0.649852, -170.6331)",
+        "Actual exit/menu completion occupied_line_02",
+        "Legacy progression release",
+        "Legacy progression red_key",
+        "Legacy progression exit_control",
+        "Legacy progression exit",
+        "Legacy arena clear final_arena"
+      ],
+      "original_root": "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA-retry",
+      "exactcopy_root": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/ward-spatial-v14/release/independent-campaigns/heavy-retry",
+      "log_sha256": {
+        "console.log": {
+          "sha256": "7a7d402594b045054ea1a42468fdfa1387113414d0eccaa598caa540a08640da",
+          "diagnostics": [
+            "ERROR: RELEASE_STAGE_ROUTE: Actual exit/menu completion occupied_line_02",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression release",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression red_key",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression exit_control",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression exit",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy arena clear final_arena"
+          ]
+        },
+        "engine.log": {
+          "sha256": "5cad97b1941f965b7e4f5b95ec0c51cdb34fdf9ee995a985fc7ab1f4ae6af250",
+          "diagnostics": [
+            "ERROR: RELEASE_STAGE_ROUTE: Actual exit/menu completion occupied_line_02",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression release",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression red_key",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression exit_control",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy progression exit",
+            "ERROR: RELEASE_STAGE_ROUTE: Legacy arena clear final_arena"
+          ]
+        }
+      }
+    }
+  ],
+  "heavy_repeat_level_receipts_identical": true,
+  "inherited_opt_in_driver_unchanged_since": "94c4f265371e5c21c9d4411e5897577799705bd7",
+  "inherited_driver_sha256": {
+    "scripts/release_stage_playtest.gd": "12fe068e88fb8d62d93d9fbab5aae028f50444d01dd0b9ee511dcc435249cca0",
+    "scripts/campaign_route_playtest.gd": "97b48e3d9618a2079a108e6a07196359c033986c50ca9be945c7fc07165304ab"
+  },
+  "bounded_diagnosis": {
+    "classification": "Inherited opt-in automation navigation limitation; actual worldcollision correctlyblocks directrear/sideentry into2mraisedaltar. Default player can use existing physicalside lane. No geometry/AI/weapon/helper/source changes or furtherretries.",
+    "failed_position": "(34.76627, -0.649852, -170.6331)",
+    "blocked_collider": {
+      "ancestor": "/root/Foundation/@SubViewport@3/OccupiedLine/arena_two_RaisedAltar",
+      "capsule_height": 1.70000004768372,
+      "capsule_radius": 0.300000011920929,
+      "collider": "/root/Foundation/@SubViewport@3/OccupiedLine/arena_two_RaisedAltar/@StaticBody3D@77",
+      "motion": "(0.081862, 0.0, 0.644824)",
+      "normal": "(-0.707041, 0.0, -0.707173)",
+      "player": "(34.76627, -0.649852, -170.6331)",
+      "position": "(34.97807, -0.099154, -170.4203)",
+      "target": "(37.0672, -1.5, -152.5088)"
+    },
+    "packed_physical_recovery": {
+      "path": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/ward-spatial-v14/release/altar-probe/final.json",
+      "sha256": "cb2d3e5e2ac31d878bad259b31cf49cec77f5521c09bec49ae1efb038f0453c8",
+      "checks": 9,
+      "failed": 0
+    },
+    "first_probe_tolerance_failure_preserved": "verification/ward-spatial-v14/release/altar-probe/initial-coasting-tolerance.json"
+  },
+  "source_pair_audit": {
+    "path": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/ward-spatial-v14/campaign-source/attempt-03/independent-audit.json",
+    "sha256": "b001cfb9025a352abc6ee97232daf48ea4c2b33574628acedffac29d5522f579",
+    "final_checkpoint_association": {
+      "status": "passed",
+      "final_clean_checkpoint": "0d1dc8a164d56423747833661ddf094531ca0f44",
+      "launch_git_head": "2958effb6ae5aaa7ca954ad93389024c9ce45869",
+      "files_matched": 485,
+      "failures": [],
+      "scope": "Final source-game launch occurred before coordinator committed the alreadyfrozen workingtree. Every captured runtime/config/driver/authoredinput file fingerprint is independently verified against this finalclean checkpoint Gitblob. End-of-run equality is checked separately."
+    }
+  },
+  "originals_unchanged_sha256": {
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/launch.json": "58164f59acee5435022d29fb2c2f312880857d091a42a25b24b1a95389741bb2",
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/v13-route.json": "4a5e6bd56b402ad1cf6ef9f14458d0157a19e4abdf9bb7df5935c4e5592a5fd0",
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/console.log": "ef4da27e129e1f19b4dd3dc7be0a9ba845c6d76b34bc79b5a142ddc24b3ddfea",
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/engine.log": "ef4da27e129e1f19b4dd3dc7be0a9ba845c6d76b34bc79b5a142ddc24b3ddfea",
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA/launch.json": "0b944921ee9b225dd78b086ac4bbe01319b3cfede9cef256ef6ead788c5cfdc6",
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA/v13-route.json": "32fe12ddba2e115e45cde40469b4778141a9e1d52634345902e20f4e5050c6f4",
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA/console.log": "7a7d402594b045054ea1a42468fdfa1387113414d0eccaa598caa540a08640da",
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA/engine.log": "5cad97b1941f965b7e4f5b95ec0c51cdb34fdf9ee995a985fc7ab1f4ae6af250",
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA-retry/launch.json": "8904c20925012914429ae0cacfe8b8e1895ff516de117fb2c14c582342203fd3",
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA-retry/v13-route.json": "31e2e04087f0c9a29df1b44b44ed1d3ad7a68e0bcd1959436a68412417d1cc61",
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA-retry/console.log": "7a7d402594b045054ea1a42468fdfa1387113414d0eccaa598caa540a08640da",
+    "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/heavy-BA-retry/engine.log": "5cad97b1941f965b7e4f5b95ec0c51cdb34fdf9ee995a985fc7ab1f4ae6af250"
+  },
+  "auditor_sha256": "38717d74676abf607662128330777448ceb0ebe3b50c6abcd99a99c193901601",
+  "scope": "Ward spatialmilestone evidence audited. Normal actualELF9 and both source9 pass; each actualheavy7/9 remains FAILED and neitheris converted into apass. Eight exact carries verified normal; seven exactboundaries includingentryinto failedmap verified eachheavy. All3Ward objectives/checkpoints/nooptional evidence verified across allcompletedWardprefixes. Numeric automated proof doesnot establishhuman tactical/navigation/listening or20\u201325min pacing acceptance."
+}

@@ -1,0 +1,86 @@
+{
+  "blocking_contact": {
+    "ancestor": "/root/Foundation/@SubViewport@3/OccupiedLine/arena_two_RaisedAltar",
+    "capsule_height": 1.70000004768372,
+    "capsule_radius": 0.300000011920929,
+    "collider": "/root/Foundation/@SubViewport@3/OccupiedLine/arena_two_RaisedAltar/@StaticBody3D@77",
+    "motion": "(0.081862, 0.0, 0.644824)",
+    "normal": "(-0.707041, 0.0, -0.707173)",
+    "player": "(34.76627, -0.649852, -170.6331)",
+    "position": "(34.97807, -0.099154, -170.4203)",
+    "target": "(37.0672, -1.5, -152.5088)"
+  },
+  "checks": [
+    {
+      "check": "Actual packed OccupiedLine02 scene",
+      "passed": true
+    },
+    {
+      "check": "Actual failed pose is grounded and stable",
+      "passed": true
+    },
+    {
+      "check": "Real standing capsule forward sweep is blocked",
+      "passed": true
+    },
+    {
+      "check": "Blocking collider is actual solid raised altar",
+      "passed": true
+    },
+    {
+      "check": "Actual physical forward approach remains blocked and grounded",
+      "passed": true
+    },
+    {
+      "check": "Move outside altar west edge remains supported",
+      "passed": true
+    },
+    {
+      "check": "Walk north along existing4.3m side lane remains supported",
+      "passed": true
+    },
+    {
+      "check": "Reach original front descent waypoint from side remains supported",
+      "passed": true
+    },
+    {
+      "check": "Original goal reachable without teleport or geometry changes",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "physical_path": [
+    {
+      "arrival": "(32.92959, -0.649154, -170.6331)",
+      "arrival_distance": 0.162391662597656,
+      "end": "(32.30459, -0.649154, -170.6331)",
+      "goal": "(32.7672, -1.5, -170.6331)",
+      "grounded": true,
+      "segment": "Move outside altar west edge",
+      "start": "(34.76627, -0.649852, -170.6331)",
+      "ticks": 20
+    },
+    {
+      "arrival": "(32.76108, -0.649154, -152.6752)",
+      "arrival_distance": 0.166479051113129,
+      "end": "(32.76598, -0.649154, -152.0507)",
+      "goal": "(32.7672, -1.5, -152.5088)",
+      "grounded": true,
+      "segment": "Walk north along existing4.3m side lane",
+      "start": "(32.30459, -0.649154, -170.6331)",
+      "ticks": 141
+    },
+    {
+      "arrival": "(36.96074, -0.525183, -152.492)",
+      "arrival_distance": 0.107782728970051,
+      "end": "(37.57607, -0.525183, -152.5216)",
+      "goal": "(37.0672, -1.5, -152.5088)",
+      "grounded": true,
+      "segment": "Reach original front descent waypoint from side",
+      "start": "(32.76598, -0.649154, -152.0507)",
+      "ticks": 38
+    }
+  ],
+  "scope": "Trusted pinnededitor loading actual finalembeddedELF via --main-pack. Actual Main/player/capsule/staticworld, onecontrolled start at reportedfailed pose; naturalphysicalW thereafter. EnemyAI frozen to isolate staticgeometry, no actorhealth/collider/weapon/geometry edits. Proves blocked directbotshortcut and safe physicalside route; doesnot repair or accept failedfull9ELFrun.",
+  "status": "passed"
+}

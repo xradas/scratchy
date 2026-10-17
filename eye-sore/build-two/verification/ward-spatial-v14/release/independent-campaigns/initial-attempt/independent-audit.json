@@ -1,0 +1,119 @@
+{
+  "status": "failed",
+  "kind": "elf",
+  "final_checkpoint": "0d1dc8a164d56423747833661ddf094531ca0f44",
+  "campaigns": [
+    {
+      "policy": "normal-AB",
+      "semantic_audit": {
+        "path": "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/v13-route.json",
+        "sha256": "4a5e6bd56b402ad1cf6ef9f14458d0157a19e4abdf9bb7df5935c4e5592a5fd0",
+        "levels": 9,
+        "containment_order": "AB",
+        "editor_feature": false,
+        "executable": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/eyesore-ward-spatial-v14.x86_64",
+        "clean_console": "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/console.log",
+        "scope": "Independent semantic audit of driver receipts. Launcher /proc and ELF identity proof are separate; bot times never prove human pacing."
+      },
+      "launch_sha256": "58164f59acee5435022d29fb2c2f312880857d091a42a25b24b1a95389741bb2",
+      "observed_process": {
+        "pid": 126949,
+        "command_matches_proc": true,
+        "exe": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/eyesore-ward-spatial-v14.x86_64",
+        "cwd": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17",
+        "exit_code": 0
+      },
+      "exact_carries": [
+        [
+          "pale_ward_01",
+          "pale_ward_02"
+        ],
+        [
+          "pale_ward_02",
+          "pale_ward_03"
+        ],
+        [
+          "pale_ward_03",
+          "ash_citadel_01"
+        ],
+        [
+          "ash_citadel_01",
+          "ash_citadel_02"
+        ],
+        [
+          "ash_citadel_02",
+          "ash_citadel_03"
+        ],
+        [
+          "ash_citadel_03",
+          "occupied_line_01"
+        ],
+        [
+          "occupied_line_01",
+          "occupied_line_02"
+        ],
+        [
+          "occupied_line_02",
+          "occupied_line_03"
+        ]
+      ],
+      "ward_checkpoints": {
+        "pale_ward_01": [
+          "power_return",
+          "credential_return"
+        ],
+        "pale_ward_02": [
+          "culture_safe",
+          "waste_safe"
+        ],
+        "pale_ward_03": [
+          "upper_anchor_safe",
+          "middle_anchor_safe"
+        ]
+      },
+      "optional_supplies": {
+        "pale_ward_01": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2,
+          "evidence": "Room visitation precedes proximity pickup detection; untouched reserve room contains its unchanged reward. Two reserve actors remain."
+        },
+        "pale_ward_02": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2,
+          "evidence": "Room visitation precedes proximity pickup detection; untouched reserve room contains its unchanged reward. Two reserve actors remain."
+        },
+        "pale_ward_03": {
+          "optional_rooms_visited": [],
+          "reserve_group_remaining": 2,
+          "evidence": "Room visitation precedes proximity pickup detection; untouched reserve room contains its unchanged reward. Two reserve actors remain."
+        }
+      },
+      "original_sha256": {
+        "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/v13-route.json": "4a5e6bd56b402ad1cf6ef9f14458d0157a19e4abdf9bb7df5935c4e5592a5fd0",
+        "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/launch.json": "58164f59acee5435022d29fb2c2f312880857d091a42a25b24b1a95389741bb2",
+        "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/console.log": "ef4da27e129e1f19b4dd3dc7be0a9ba845c6d76b34bc79b5a142ddc24b3ddfea",
+        "/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17/normal-AB/engine.log": "ef4da27e129e1f19b4dd3dc7be0a9ba845c6d76b34bc79b5a142ddc24b3ddfea"
+      },
+      "copy_root": "verification/ward-spatial-v14/release/independent-campaigns/initial-attempt/normal-AB"
+    }
+  ],
+  "scope": "Independent actual route receipt semantics and observed launch/process identity. Headless automated finite-ammo proof only; no human tactical/pacing/listening acceptance. Source start/end bytes tied to finalcheckpoint separately. ELF immutableBUILD validates embeddedrelease identity.",
+  "export": {
+    "build": {
+      "path": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/BUILD.json",
+      "sha256": "700b0ba21d1ed01ad2641b04b89671de85e12485d59e163b20bb3cc9c233d2fc",
+      "bytes": 4491
+    },
+    "executable": {
+      "path": "/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/eyesore-ward-spatial-v14.x86_64",
+      "sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+      "bytes": 180346656
+    },
+    "source_commit": "0d1dc8a164d56423747833661ddf094531ca0f44",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "source_tree_sha256": "2bb803696f9f1be5bcd84f4b0ccae1eaff1d3fddb6540b0198d4d02789e0abd6"
+  },
+  "error": "Unsuccessful process heavy-BA",
+  "executable_sha256": "bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1",
+  "auditor_sha256": "95b1843d4b900f99082348b78f240164afa5417100079717b21662bc5ff419e2"
+}

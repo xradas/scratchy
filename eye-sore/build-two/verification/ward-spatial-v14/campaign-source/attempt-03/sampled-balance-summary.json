@@ -1,0 +1,1169 @@
+{
+  "scope": "Extraction from unchanged route receipts. Minima are entry/segment/exit SAMPLES, not continuous frame/event minima. Accepted ammo is authoritative aggregate ammo_added telemetry. Unaccepted authored availability is not discarded/wasted pickups; skipped/full/partially consumed items are not distinguished. Health/armor accepted/wasted amounts and continuous minima are not recorded by this driver. No human pacing or balance-nerf conclusion.",
+  "continuous_minima": null,
+  "health_armor_accepted_wasted": null,
+  "campaigns": [
+    {
+      "policy": "normal-AB",
+      "source_receipt_sha256": "0d249e7da87e673d558de79876a2b59c0274b6e233135c67af3419a370b16a0f",
+      "status": "passed",
+      "levels_completed": 9,
+      "levels": [
+        {
+          "level": "pale_ward_01",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 95.2,
+              "sample": "Portal decon\u2192transfer",
+              "sample_count": 124
+            },
+            "armor": {
+              "value": 50.0,
+              "sample": "Entry",
+              "sample_count": 124
+            },
+            "pistol": {
+              "value": 36,
+              "sample": "Entry",
+              "sample_count": 124
+            },
+            "shells": {
+              "value": 11,
+              "sample": "Physical main-route supply Supply_pistol_triage",
+              "sample_count": 124
+            },
+            "rivets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 124
+            },
+            "rockets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 124
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 108,
+            "rivets": 0,
+            "rockets": 0,
+            "shells": 90
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 48,
+            "shells": 72,
+            "rivets": 0,
+            "rockets": 0
+          },
+          "ammo_main_route_authored": {
+            "pistol": 220,
+            "shells": 90,
+            "rivets": 0,
+            "rockets": 0
+          },
+          "ammo_first_cache_authored": {
+            "pistol": 0,
+            "shells": 8,
+            "rivets": 0,
+            "rockets": 0
+          },
+          "ammo_unaccepted_authored_availability": {
+            "pistol": 112,
+            "shells": 8,
+            "rivets": 0,
+            "rockets": 0
+          },
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": {
+            "room": "records",
+            "room_visited": false,
+            "group_remaining": 2,
+            "proof_limit": "Receipt lacks collected and arena_active maps; this records route/remaining evidence only. Independent optional-state fixtures establish accepted/declined semantics."
+          },
+          "checkpoints_secured": [
+            "power_return",
+            "credential_return"
+          ],
+          "physics_seconds_automated_only": 185.8
+        },
+        {
+          "level": "pale_ward_02",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 92.8,
+              "sample": "Portal overlook\u2192culture_access",
+              "sample_count": 92
+            },
+            "armor": {
+              "value": 89.2,
+              "sample": "Portal overlook\u2192culture_access",
+              "sample_count": 92
+            },
+            "pistol": {
+              "value": 88,
+              "sample": "Portal cultures\u2192filters",
+              "sample_count": 92
+            },
+            "shells": {
+              "value": 17,
+              "sample": "Physical main-route supply Supply_pistol_reservoir",
+              "sample_count": 92
+            },
+            "rivets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 92
+            },
+            "rockets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 92
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 44,
+            "rivets": 152,
+            "rockets": 0,
+            "shells": 64
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 44,
+            "shells": 72,
+            "rivets": 8,
+            "rockets": 0
+          },
+          "ammo_main_route_authored": {
+            "pistol": 180,
+            "shells": 80,
+            "rivets": 180,
+            "rockets": 0
+          },
+          "ammo_first_cache_authored": {
+            "pistol": 0,
+            "shells": 0,
+            "rivets": 36,
+            "rockets": 0
+          },
+          "ammo_unaccepted_authored_availability": {
+            "pistol": 136,
+            "shells": 16,
+            "rivets": 64,
+            "rockets": 0
+          },
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": {
+            "room": "pump_store",
+            "room_visited": false,
+            "group_remaining": 2,
+            "proof_limit": "Receipt lacks collected and arena_active maps; this records route/remaining evidence only. Independent optional-state fixtures establish accepted/declined semantics."
+          },
+          "checkpoints_secured": [
+            "culture_safe",
+            "waste_safe"
+          ],
+          "physics_seconds_automated_only": 123.416666666667
+        },
+        {
+          "level": "pale_ward_03",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 80.8,
+              "sample": "Portal cultivation\u2192machinery",
+              "sample_count": 103
+            },
+            "armor": {
+              "value": 71.2,
+              "sample": "Portal cultivation\u2192machinery",
+              "sample_count": 103
+            },
+            "pistol": {
+              "value": 89,
+              "sample": "Gate approach Door_anchor_b__lower_access",
+              "sample_count": 103
+            },
+            "shells": {
+              "value": 11,
+              "sample": "Portal upper_intake\u2192upper_gallery",
+              "sample_count": 103
+            },
+            "rivets": {
+              "value": 143,
+              "sample": "Portal specimens\u2192crossfire",
+              "sample_count": 103
+            },
+            "rockets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 103
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 39,
+            "rivets": 74,
+            "rockets": 12,
+            "shells": 80
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 40,
+            "shells": 81,
+            "rivets": 61,
+            "rockets": 0
+          },
+          "ammo_main_route_authored": {
+            "pistol": 160,
+            "shells": 80,
+            "rivets": 120,
+            "rockets": 20
+          },
+          "ammo_first_cache_authored": {
+            "pistol": 0,
+            "shells": 0,
+            "rivets": 0,
+            "rockets": 4
+          },
+          "ammo_unaccepted_authored_availability": {
+            "pistol": 121,
+            "shells": 0,
+            "rivets": 46,
+            "rockets": 12
+          },
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": {
+            "room": "security_store",
+            "room_visited": false,
+            "group_remaining": 2,
+            "proof_limit": "Receipt lacks collected and arena_active maps; this records route/remaining evidence only. Independent optional-state fixtures establish accepted/declined semantics."
+          },
+          "checkpoints_secured": [
+            "upper_anchor_safe",
+            "middle_anchor_safe"
+          ],
+          "physics_seconds_automated_only": 143.416666666667
+        },
+        {
+          "level": "ash_citadel_01",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 92.8,
+              "sample": "Room route key_wing",
+              "sample_count": 136
+            },
+            "armor": {
+              "value": 89.2,
+              "sample": "Room route key_wing",
+              "sample_count": 136
+            },
+            "pistol": {
+              "value": 95,
+              "sample": "Entry",
+              "sample_count": 136
+            },
+            "shells": {
+              "value": 21,
+              "sample": "Entry",
+              "sample_count": 136
+            },
+            "rivets": {
+              "value": 94,
+              "sample": "Authored combat flank final_arena",
+              "sample_count": 136
+            },
+            "rockets": {
+              "value": 12,
+              "sample": "Entry",
+              "sample_count": 136
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 1,
+            "rivets": 43,
+            "rockets": 0,
+            "shells": 31
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 0,
+            "shells": 15,
+            "rivets": 106,
+            "rockets": 0
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 194.666666666667
+        },
+        {
+          "level": "ash_citadel_02",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 100.0,
+              "sample": "Entry",
+              "sample_count": 142
+            },
+            "armor": {
+              "value": 100.0,
+              "sample": "Entry",
+              "sample_count": 142
+            },
+            "pistol": {
+              "value": 96,
+              "sample": "Entry",
+              "sample_count": 142
+            },
+            "shells": {
+              "value": 37,
+              "sample": "Entry",
+              "sample_count": 142
+            },
+            "rivets": {
+              "value": 23,
+              "sample": "Authored combat flank final_arena",
+              "sample_count": 142
+            },
+            "rockets": {
+              "value": 12,
+              "sample": "Entry",
+              "sample_count": 142
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 0,
+            "rivets": 70,
+            "rockets": 0,
+            "shells": 11
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 0,
+            "shells": 9,
+            "rivets": 141,
+            "rockets": 0
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 218.2
+        },
+        {
+          "level": "ash_citadel_03",
+          "health_exit": 85.6,
+          "armor_exit": 62.4,
+          "sampled_minima": {
+            "health": {
+              "value": 61.6,
+              "sample": "Arena ring retreat arena_two",
+              "sample_count": 104
+            },
+            "armor": {
+              "value": 42.4,
+              "sample": "Arena ring retreat arena_two",
+              "sample_count": 104
+            },
+            "pistol": {
+              "value": 64,
+              "sample": "Gallery-foot retreat final_arena",
+              "sample_count": 104
+            },
+            "shells": {
+              "value": 28,
+              "sample": "Gallery-foot retreat final_arena",
+              "sample_count": 104
+            },
+            "rivets": {
+              "value": 0,
+              "sample": "Portal arena_one\u2192spine",
+              "sample_count": 104
+            },
+            "rockets": {
+              "value": 12,
+              "sample": "Entry",
+              "sample_count": 104
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 12,
+            "rivets": 60,
+            "rockets": 0,
+            "shells": 7
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 44,
+            "shells": 18,
+            "rivets": 82,
+            "rockets": 0
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 203.133333333333
+        },
+        {
+          "level": "occupied_line_01",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 71.2,
+              "sample": "Arena ring retreat arena_one",
+              "sample_count": 125
+            },
+            "armor": {
+              "value": 39.2,
+              "sample": "Arena ring retreat arena_one",
+              "sample_count": 125
+            },
+            "pistol": {
+              "value": 52,
+              "sample": "Arena ring retreat final_arena",
+              "sample_count": 125
+            },
+            "shells": {
+              "value": 21,
+              "sample": "Arena ring retreat final_arena",
+              "sample_count": 125
+            },
+            "rivets": {
+              "value": 1,
+              "sample": "Entry",
+              "sample_count": 125
+            },
+            "rockets": {
+              "value": 12,
+              "sample": "Entry",
+              "sample_count": 125
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 58,
+            "rivets": 65,
+            "rockets": 0,
+            "shells": 33
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 70,
+            "shells": 40,
+            "rivets": 0,
+            "rockets": 0
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 224.933333333333
+        },
+        {
+          "level": "occupied_line_02",
+          "health_exit": 95.2,
+          "armor_exit": 74.8,
+          "sampled_minima": {
+            "health": {
+              "value": 76.0,
+              "sample": "Arena ring retreat arena_one",
+              "sample_count": 127
+            },
+            "armor": {
+              "value": 56.8,
+              "sample": "Gallery-foot retreat final_arena",
+              "sample_count": 127
+            },
+            "pistol": {
+              "value": 44,
+              "sample": "Authored combat flank final_arena",
+              "sample_count": 127
+            },
+            "shells": {
+              "value": 0,
+              "sample": "Gallery-foot retreat final_arena",
+              "sample_count": 127
+            },
+            "rivets": {
+              "value": 66,
+              "sample": "Entry",
+              "sample_count": 127
+            },
+            "rockets": {
+              "value": 12,
+              "sample": "Entry",
+              "sample_count": 127
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 58,
+            "rivets": 70,
+            "rockets": 0,
+            "shells": 32
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 66,
+            "shells": 53,
+            "rivets": 0,
+            "rockets": 0
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 229.583333333333
+        },
+        {
+          "level": "occupied_line_03",
+          "health_exit": 100.0,
+          "armor_exit": 64.4,
+          "sampled_minima": {
+            "health": {
+              "value": 61.6,
+              "sample": "Descend cleared altar",
+              "sample_count": 119
+            },
+            "armor": {
+              "value": 42.4,
+              "sample": "Descend cleared altar",
+              "sample_count": 119
+            },
+            "pistol": {
+              "value": 0,
+              "sample": "Arena ring retreat final_arena",
+              "sample_count": 119
+            },
+            "shells": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 119
+            },
+            "rivets": {
+              "value": 136,
+              "sample": "Entry",
+              "sample_count": 119
+            },
+            "rockets": {
+              "value": 12,
+              "sample": "Entry",
+              "sample_count": 119
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 54,
+            "rivets": 25,
+            "rockets": 0,
+            "shells": 30
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 98,
+            "shells": 30,
+            "rivets": 8,
+            "rockets": 0
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 227.983333333333
+        }
+      ]
+    },
+    {
+      "policy": "heavy-BA",
+      "source_receipt_sha256": "6fd29b3a6770047f45d3bc5222120d1291e2453ac1bb81b4db94decb05795cdb",
+      "status": "passed",
+      "levels_completed": 9,
+      "levels": [
+        {
+          "level": "pale_ward_01",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 85.6,
+              "sample": "Portal processing\u2192decon",
+              "sample_count": 123
+            },
+            "armor": {
+              "value": 50.0,
+              "sample": "Entry",
+              "sample_count": 123
+            },
+            "pistol": {
+              "value": 36,
+              "sample": "Entry",
+              "sample_count": 123
+            },
+            "shells": {
+              "value": 11,
+              "sample": "Physical main-route supply Supply_pistol_triage",
+              "sample_count": 123
+            },
+            "rivets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 123
+            },
+            "rockets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 123
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 112,
+            "rivets": 0,
+            "rockets": 0,
+            "shells": 90
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 54,
+            "shells": 82,
+            "rivets": 0,
+            "rockets": 0
+          },
+          "ammo_main_route_authored": {
+            "pistol": 220,
+            "shells": 90,
+            "rivets": 0,
+            "rockets": 0
+          },
+          "ammo_first_cache_authored": {
+            "pistol": 0,
+            "shells": 8,
+            "rivets": 0,
+            "rockets": 0
+          },
+          "ammo_unaccepted_authored_availability": {
+            "pistol": 108,
+            "shells": 8,
+            "rivets": 0,
+            "rockets": 0
+          },
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": {
+            "room": "records",
+            "room_visited": false,
+            "group_remaining": 2,
+            "proof_limit": "Receipt lacks collected and arena_active maps; this records route/remaining evidence only. Independent optional-state fixtures establish accepted/declined semantics."
+          },
+          "checkpoints_secured": [
+            "power_return",
+            "credential_return"
+          ],
+          "physics_seconds_automated_only": 181.083333333333
+        },
+        {
+          "level": "pale_ward_02",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 100.0,
+              "sample": "Entry",
+              "sample_count": 87
+            },
+            "armor": {
+              "value": 92.8,
+              "sample": "Physical main-route supply Supply_pistol_reservoir",
+              "sample_count": 87
+            },
+            "pistol": {
+              "value": 85,
+              "sample": "Portal overlook\u2192reservoir",
+              "sample_count": 87
+            },
+            "shells": {
+              "value": 19,
+              "sample": "Physical main-route supply FirstGunCache",
+              "sample_count": 87
+            },
+            "rivets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 87
+            },
+            "rockets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 87
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 27,
+            "rivets": 154,
+            "rockets": 0,
+            "shells": 51
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 25,
+            "shells": 31,
+            "rivets": 147,
+            "rockets": 0
+          },
+          "ammo_main_route_authored": {
+            "pistol": 180,
+            "shells": 80,
+            "rivets": 180,
+            "rockets": 0
+          },
+          "ammo_first_cache_authored": {
+            "pistol": 0,
+            "shells": 0,
+            "rivets": 36,
+            "rockets": 0
+          },
+          "ammo_unaccepted_authored_availability": {
+            "pistol": 153,
+            "shells": 29,
+            "rivets": 62,
+            "rockets": 0
+          },
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": {
+            "room": "pump_store",
+            "room_visited": false,
+            "group_remaining": 2,
+            "proof_limit": "Receipt lacks collected and arena_active maps; this records route/remaining evidence only. Independent optional-state fixtures establish accepted/declined semantics."
+          },
+          "checkpoints_secured": [
+            "waste_safe",
+            "culture_safe"
+          ],
+          "physics_seconds_automated_only": 118.766666666667
+        },
+        {
+          "level": "pale_ward_03",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 85.6,
+              "sample": "Portal machinery\u2192anchor_c",
+              "sample_count": 103
+            },
+            "armor": {
+              "value": 78.4,
+              "sample": "Portal machinery\u2192anchor_c",
+              "sample_count": 103
+            },
+            "pistol": {
+              "value": 93,
+              "sample": "Checkpoint approach upper_anchor_safe",
+              "sample_count": 103
+            },
+            "shells": {
+              "value": 27,
+              "sample": "Portal anchor_c\u2192rupture",
+              "sample_count": 103
+            },
+            "rivets": {
+              "value": 0,
+              "sample": "Portal upper_intake\u2192upper_gallery",
+              "sample_count": 103
+            },
+            "rockets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 103
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 12,
+            "rivets": 120,
+            "rockets": 20,
+            "shells": 48
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 12,
+            "shells": 54,
+            "rivets": 103,
+            "rockets": 19
+          },
+          "ammo_main_route_authored": {
+            "pistol": 160,
+            "shells": 80,
+            "rivets": 120,
+            "rockets": 20
+          },
+          "ammo_first_cache_authored": {
+            "pistol": 0,
+            "shells": 0,
+            "rivets": 0,
+            "rockets": 4
+          },
+          "ammo_unaccepted_authored_availability": {
+            "pistol": 148,
+            "shells": 32,
+            "rivets": 0,
+            "rockets": 4
+          },
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": {
+            "room": "security_store",
+            "room_visited": false,
+            "group_remaining": 2,
+            "proof_limit": "Receipt lacks collected and arena_active maps; this records route/remaining evidence only. Independent optional-state fixtures establish accepted/declined semantics."
+          },
+          "checkpoints_secured": [
+            "upper_anchor_safe",
+            "middle_anchor_safe"
+          ],
+          "physics_seconds_automated_only": 143.983333333333
+        },
+        {
+          "level": "ash_citadel_01",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 86.4,
+              "sample": "Room route key_wing",
+              "sample_count": 140
+            },
+            "armor": {
+              "value": 79.6,
+              "sample": "Room route key_wing",
+              "sample_count": 140
+            },
+            "pistol": {
+              "value": 96,
+              "sample": "Entry",
+              "sample_count": 140
+            },
+            "shells": {
+              "value": 32,
+              "sample": "Room route red_wing",
+              "sample_count": 140
+            },
+            "rivets": {
+              "value": 14,
+              "sample": "Authored combat flank final_arena",
+              "sample_count": 140
+            },
+            "rockets": {
+              "value": 0,
+              "sample": "Arena ring retreat final_arena",
+              "sample_count": 140
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 0,
+            "rivets": 66,
+            "rockets": 7,
+            "shells": 21
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 0,
+            "shells": 18,
+            "rivets": 76,
+            "rockets": 8
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 200.266666666667
+        },
+        {
+          "level": "ash_citadel_02",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 100.0,
+              "sample": "Entry",
+              "sample_count": 140
+            },
+            "armor": {
+              "value": 100.0,
+              "sample": "Entry",
+              "sample_count": 140
+            },
+            "pistol": {
+              "value": 94,
+              "sample": "Portal red_wing\u2192red_console",
+              "sample_count": 140
+            },
+            "shells": {
+              "value": 27,
+              "sample": "Arena ring retreat final_arena",
+              "sample_count": 140
+            },
+            "rivets": {
+              "value": 0,
+              "sample": "Descend cleared altar",
+              "sample_count": 140
+            },
+            "rockets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 140
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 3,
+            "rivets": 70,
+            "rockets": 7,
+            "shells": 18
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 4,
+            "shells": 28,
+            "rivets": 84,
+            "rockets": 7
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 216.05
+        },
+        {
+          "level": "ash_citadel_03",
+          "health_exit": 100.0,
+          "armor_exit": 81.6,
+          "sampled_minima": {
+            "health": {
+              "value": 74.4,
+              "sample": "Descend cleared altar",
+              "sample_count": 120
+            },
+            "armor": {
+              "value": 61.6,
+              "sample": "Descend cleared altar",
+              "sample_count": 120
+            },
+            "pistol": {
+              "value": 73,
+              "sample": "Arena ring retreat final_arena",
+              "sample_count": 120
+            },
+            "shells": {
+              "value": 24,
+              "sample": "Authored combat flank final_arena",
+              "sample_count": 120
+            },
+            "rivets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 120
+            },
+            "rockets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 120
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 12,
+            "rivets": 60,
+            "rockets": 8,
+            "shells": 26
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 34,
+            "shells": 29,
+            "rivets": 60,
+            "rockets": 5
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 216.45
+        },
+        {
+          "level": "occupied_line_01",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 100.0,
+              "sample": "Entry",
+              "sample_count": 129
+            },
+            "armor": {
+              "value": 81.6,
+              "sample": "Entry",
+              "sample_count": 129
+            },
+            "pistol": {
+              "value": 73,
+              "sample": "Entry",
+              "sample_count": 129
+            },
+            "shells": {
+              "value": 24,
+              "sample": "Entry",
+              "sample_count": 129
+            },
+            "rivets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 129
+            },
+            "rockets": {
+              "value": 3,
+              "sample": "Entry",
+              "sample_count": 129
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 24,
+            "rivets": 65,
+            "rockets": 8,
+            "shells": 28
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 23,
+            "shells": 17,
+            "rivets": 65,
+            "rockets": 4
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 210.683333333333
+        },
+        {
+          "level": "occupied_line_02",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 90.4,
+              "sample": "Descend cleared altar",
+              "sample_count": 118
+            },
+            "armor": {
+              "value": 85.6,
+              "sample": "Descend cleared altar",
+              "sample_count": 118
+            },
+            "pistol": {
+              "value": 74,
+              "sample": "Entry",
+              "sample_count": 118
+            },
+            "shells": {
+              "value": 35,
+              "sample": "Entry",
+              "sample_count": 118
+            },
+            "rivets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 118
+            },
+            "rockets": {
+              "value": 6,
+              "sample": "Arena ring retreat final_arena",
+              "sample_count": 118
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 38,
+            "rivets": 68,
+            "rockets": 7,
+            "shells": 18
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 17,
+            "shells": 13,
+            "rivets": 68,
+            "rockets": 8
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 211.183333333333
+        },
+        {
+          "level": "occupied_line_03",
+          "health_exit": 100.0,
+          "armor_exit": 100.0,
+          "sampled_minima": {
+            "health": {
+              "value": 85.6,
+              "sample": "Arena ring retreat arena_one",
+              "sample_count": 116
+            },
+            "armor": {
+              "value": 78.4,
+              "sample": "Arena ring retreat arena_one",
+              "sample_count": 116
+            },
+            "pistol": {
+              "value": 76,
+              "sample": "Arena ring retreat final_arena",
+              "sample_count": 116
+            },
+            "shells": {
+              "value": 27,
+              "sample": "Authored combat flank final_arena",
+              "sample_count": 116
+            },
+            "rivets": {
+              "value": 0,
+              "sample": "Entry",
+              "sample_count": 116
+            },
+            "rockets": {
+              "value": 5,
+              "sample": "Portal entry\u2192service",
+              "sample_count": 116
+            }
+          },
+          "ammo_accepted": {
+            "pistol": 4,
+            "rivets": 60,
+            "rockets": 8,
+            "shells": 12
+          },
+          "ammo_spent_inventory_identity": {
+            "pistol": 23,
+            "shells": 25,
+            "rivets": 60,
+            "rockets": 5
+          },
+          "ammo_main_route_authored": null,
+          "ammo_first_cache_authored": null,
+          "ammo_unaccepted_authored_availability": null,
+          "actual_wasted_pickups": null,
+          "optional_reserve_route_evidence": null,
+          "checkpoints_secured": [],
+          "physics_seconds_automated_only": 213.433333333333
+        }
+      ]
+    }
+  ]
+}

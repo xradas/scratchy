@@ -1,0 +1,79 @@
+import pathlib,json,hashlib,shutil,re,sys,subprocess
+P=pathlib.Path('/home/rikki/Projects/eyesore-build-two/eye-sore/build-two');sys.path.insert(0,str(P/'tools'))
+import check_levels_v13 as qa
+import verify_map_recording as identity
+COMMIT='0d1dc8a164d56423747833661ddf094531ca0f44';BASE='94c4f265371e5c21c9d4411e5897577799705bd7'
+EXE=pathlib.Path('/home/rikki/Builds/eyesore-ward-spatial-v14-2026-10-17/eyesore-ward-spatial-v14.x86_64');RAW=pathlib.Path('/home/rikki/Builds/eyesore-ward-spatial-v14-campaign-2026-10-17');OUT=P/'verification/ward-spatial-v14/release/independent-campaigns'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+def require(v,msg):
+ if not v:raise RuntimeError(msg)
+expected=qa.design_contract();designs={x['id']:x for x in expected['levels']};plan=json.loads((P/'docs/ward-spatial-v14/plan.json').read_text());reserves={x['id']:x['optional_reserve'] for x in plan['levels']}
+build=identity.validate_build(EXE.parent/'BUILD.json',EXE,COMMIT);elfsha=sha(EXE)
+require(elfsha=='bb3066d8de6c878af69edb3bcc2dade3cc1e25f151c083dfd91829d708bbb6d1','ELF changed')
+results=[];routes=[];originals={}
+for folder,heavy,order in [('normal-AB',False,'AB'),('heavy-BA',True,'BA'),('heavy-BA-retry',True,'BA')]:
+ raw=RAW/folder;copy=OUT/('initial-attempt/'+folder if folder!='heavy-BA-retry' else 'heavy-retry');copy.mkdir(parents=True,exist_ok=True)
+ for name in ['launch.json','v13-route.json','console.log','engine.log']:
+  src=raw/name;target=copy/name;h=sha(src);originals[str(src)]=h
+  if not target.exists():shutil.copyfile(src,target)
+  require(sha(target)==h and sha(src)==h,'Exactcopy/original differs '+folder+'/'+name)
+ launch=json.loads((raw/'launch.json').read_text());route=json.loads((raw/'v13-route.json').read_text());routes.append(route);cmd=launch['command'];sep=cmd.index('--');args=cmd[sep+1:]
+ require(launch['observed_proc_cmdline']==cmd and pathlib.Path(cmd[0]).resolve()==EXE,'Wrong observed executable command '+folder)
+ require(launch['observed_proc_exe']==str(EXE) and launch['observed_proc_exe_sha256']==launch['executable_sha256']==elfsha and launch['executable_unchanged_after'],'Wrong observed ELF bytes '+folder)
+ require(launch['source_commit']==COMMIT and launch['cwd']=='/tmp' and launch['observed_proc_cwd'] in ['/tmp',str(EXE.parent)],'Wrong source/cwd identity '+folder)
+ require(isinstance(launch['pid'],int) and launch['pid']>0 and not launch.get('error'),'Missingprocess observation '+folder)
+ required=['--v13-route-test','--campaign-level=pale_ward_01','--v13-level-count=9','--containment-order='+order,'--release-report-dir='+str(raw),'--automated-input']+(['--use-heavy-weapons'] if heavy else [])
+ require(args==required==route['user_arguments'],'Wrong actual driver/user/report args '+folder)
+ require('--headless' in cmd[:sep] and identity.command_value(cmd,'--fixed-fps')=='60' and identity.command_value(cmd,'--log-file')==str(raw/'engine.log'),'Wrong headless/fps/log mode '+folder)
+ require(not any(x in cmd[:sep] for x in ['--script','--path','--main-pack']),'Release replaced by source/script '+folder)
+ require(route['editor_feature'] is False and pathlib.Path(route['executable']).resolve()==EXE and pathlib.Path(route['source_package_dir']).resolve()==EXE.parent and route['physics_ticks_per_second']==60,'Wrong actual route process '+folder)
+ require(route['containment_order']==order and route['use_heavy_weapons']==heavy,'Wrong actual botpolicy '+folder)
+ log_records={}
+ for name in ['console.log','engine.log']:
+  text=(raw/name).read_text();diagnostics=[x.strip() for x in re.findall(r'(?m)^\s*(?:SCRIPT ERROR:|ERROR:|WARNING:)[^\n]*',text)]
+  if heavy:require(all(x.startswith('ERROR: RELEASE_STAGE_ROUTE: ') and x.removeprefix('ERROR: RELEASE_STAGE_ROUTE: ') in route['failures'] for x in diagnostics),'Unexpected engine diagnostic '+folder+'/'+name)
+  else:require(not diagnostics,'Normal log diagnostic '+folder+'/'+name)
+  marker='LEVELS_V13_ROUTE '+route['status']+' '+str(route['levels_completed'])+'/9'
+  require(marker in text and 'LEVELS_V13_TEARDOWN' in text,'Wrong completed logmarker '+folder+'/'+name);log_records[name]={'sha256':sha(raw/name),'diagnostics':diagnostics}
+ completed=[l for l in route['levels'] if l['completed']];require(len(completed)==route['levels_completed'],'Wrong completedcount '+folder)
+ carries=[]
+ for left,right in zip(route['levels'],route['levels'][1:]):
+  require(left['exit_loadout']==right['entry_loadout'],'Carry mismatch '+folder+'/'+right['level']);carries.append([left['level'],right['level']])
+ checkpoint_records={};optional={}
+ for l in route['levels']:
+  require(not l['secret_used'] and l['health']>0,'Secret/death '+folder+'/'+l['level'])
+  for key,value in l['peak_ammo'].items():require(0<=value<=l['ammo_caps'][key],'Ammocap '+folder+'/'+l['level'])
+  if not l['completed']:continue
+  id=l['level']
+  if id.startswith('pale_ward_'):
+   for flag in designs[id]['objective_profile']['exit_requires']:require(l['flags'].get(flag,False),'Ward precondition '+folder+'/'+id+'/'+flag)
+   secured={x['checkpoint'] for x in l['interactions'] if x.get('checkpoint') and x.get('accepted')};require(secured=={x['id'] for x in designs[id]['checkpoints']},'Ward checkpoints '+folder+'/'+id)
+   checkpoint_records[id]=sorted(secured)
+   data=json.loads((P/'resources/campaign'/(id+'-route.json')).read_text());visited=sorted(set(l['visited_rooms'])&set(data['optional_rooms']));remaining=l['arena_remaining'].get(reserves[id]['arena_id'])
+   require(not visited and remaining==2,'Optionalreserve disturbed '+folder+'/'+id);optional[id]={'optional_rooms_visited':visited,'reserve_group_remaining':remaining}
+  else:
+   require(all(l['flags'].get(x,False) for x in ['breaker','power','brass_key','release','red_key','exit_control','exit']),'Completedlegacy flags '+folder+'/'+id)
+   require(all(l['arena_remaining'].get(x)==0 for x in ['arena_one','arena_two','final_arena']),'Completedlegacy arenas '+folder+'/'+id)
+  if heavy:require(l['siege_self_hits']==0,'Unsafeheavyselfhit '+folder+'/'+id)
+ if not heavy:
+  require(route['status']=='passed' and route['levels_completed']==route['expected_levels']==len(route['levels'])==9 and launch['exit_code']==0,'Normal fullnine notpassed')
+  semantic=qa.check_route_receipt(raw/'v13-route.json',expected,True)
+ else:
+  require(route['status']=='failed' and route['levels_completed']==7 and route['expected_levels']==9 and launch['exit_code']==1 and len(route['levels'])==8,'Heavyfailure incorrectlycounted')
+  require(route['levels'][-1]['level']=='occupied_line_02' and route['levels'][-1]['failure_state']['player_position']=='(34.76627, -0.649852, -170.6331)','Wrong diagnosed heavyfailure')
+  require(route['failures'][0]=='Descend cleared altar: traversal stalled at (34.76627, -0.649852, -170.6331)','Wrong actualfailure cause')
+  try:qa.check_route_receipt(raw/'v13-route.json',expected,True)
+  except Exception as err:semantic={'status':'rejected_as_required','reason':str(err)}
+  else:raise RuntimeError('Semantic checker incorrectlyaccepted failedheavy')
+ results.append({'attempt':folder,'status':route['status'],'exit_code':launch['exit_code'],'levels_completed':route['levels_completed'],'expected_levels':9,'observed_identity_verified':True,'requested_cwd':'/tmp','observed_cwd':launch['observed_proc_cwd'],'executable_sha256':elfsha,'source_commit':COMMIT,'route_semantic_audit':semantic,'exact_carry_boundaries':carries,'completed_prefix_verified':[x['level'] for x in completed],'ward_checkpoints':checkpoint_records,'no_optional_ward_room_visits_and_two_reserve_actors':optional,'failures':route['failures'],'original_root':str(raw),'exactcopy_root':str(copy),'log_sha256':log_records})
+heavy_levels_identical=routes[1]['levels']==routes[2]['levels']
+unchanged={}
+for path in ['scripts/release_stage_playtest.gd','scripts/campaign_route_playtest.gd']:
+ frozen=subprocess.check_output(['git','show',BASE+':./'+path],cwd=P);require(hashlib.sha256(frozen).hexdigest()==sha(P/path),'Inheriteddriver changed '+path);unchanged[path]=sha(P/path)
+source=P/'verification/ward-spatial-v14/campaign-source/attempt-03';sourceaudit=json.loads((source/'independent-audit.json').read_text());require(sourceaudit['status']=='passed','Final sourcepair notpassed')
+probe=P/'verification/ward-spatial-v14/release/altar-probe/final.json';probedata=json.loads(probe.read_text());require(probedata['status']=='passed' and probedata['failed']==0,'Packedphysicalrecovery notpassed')
+for f,h in originals.items():require(sha(pathlib.Path(f))==h,'Original changed duringaudit '+f)
+result={'status':'complete_with_disclosed_automation_failures','paired_actual_elf_all9_passed':False,'source_pair_all9_passed':True,'normal_actual_elf_all9_passed':True,'heavy_actual_elf_all9_passed':False,'final_clean_source_commit':COMMIT,'actual_elf_sha256':elfsha,'export_identity':build,'attempts':results,'heavy_repeat_level_receipts_identical':heavy_levels_identical,'inherited_opt_in_driver_unchanged_since':BASE,'inherited_driver_sha256':unchanged,'bounded_diagnosis':{'classification':'Inherited opt-in automation navigation limitation; actual worldcollision correctlyblocks directrear/sideentry into2mraisedaltar. Default player can use existing physicalside lane. No geometry/AI/weapon/helper/source changes or furtherretries.','failed_position':'(34.76627, -0.649852, -170.6331)','blocked_collider':probedata['blocking_contact'],'packed_physical_recovery':{'path':str(probe),'sha256':sha(probe),'checks':9,'failed':0},'first_probe_tolerance_failure_preserved':'verification/ward-spatial-v14/release/altar-probe/initial-coasting-tolerance.json'},'source_pair_audit':{'path':str(source/'independent-audit.json'),'sha256':sha(source/'independent-audit.json'),'final_checkpoint_association':json.loads((source/'final-commit-association.json').read_text())},'originals_unchanged_sha256':originals,'auditor_sha256':sha(pathlib.Path(__file__)),'scope':'Ward spatialmilestone evidence audited. Normal actualELF9 and both source9 pass; each actualheavy7/9 remains FAILED and neitheris converted into apass. Eight exact carries verified normal; seven exactboundaries includingentryinto failedmap verified eachheavy. All3Ward objectives/checkpoints/nooptional evidence verified across allcompletedWardprefixes. Numeric automated proof doesnot establishhuman tactical/navigation/listening or20–25min pacing acceptance.'}
+(OUT/'final-audit.json').write_text(json.dumps(result,indent=2)+'\n')
+shutil.copyfile(__file__,OUT/'final-auditor.py.txt')
+print(json.dumps({'audit_complete':True,'normal_actual_elf':9,'source_pair':[9,9],'heavy_actual_elf':[7,7],'paired_actual_elf_all9_passed':False,'heavy_trace_identical':heavy_levels_identical}))
