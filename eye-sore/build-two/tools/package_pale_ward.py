@@ -32,6 +32,7 @@ RESERVED_NAMES = {"BUILD.json", "README.txt", "SHA256SUMS", "SOURCE_SHA256SUMS",
 BAD_OUTPUT = re.compile(r"(?:^|\n)\s*(?:SCRIPT ERROR:|ERROR:|WARNING:)|SMOKE_FAILED:", re.I)
 EXCLUDED = {".godot", ".git", "build", "concepts", "docs", "tools", "verification"}
 STYLE_PASS_LIMITATIONS = [
+    "V12 gore uses bounded cosmetic closed meshes textured from existing painted parts; final human visual review of breakup, settling and blood intensity remains pending.",
     "Current style pass combines world, viewgun and muzzle presentation at a 320 × 180 display grid; human visual acceptance against the approved concept remains pending.",
     "The four new creatures have eight directional stance images and frontal combat/death sequences; the Ward creatures retain frontal sequences. Complete animation in eight directions remains work.",
 ]
@@ -107,6 +108,7 @@ def provenance_files() -> list[Path]:
              "docs/production-v9", "concepts/production-v9", "concepts/audio-v9",
              "docs/production-v10", "concepts/audio-v10",
              "docs/production-v11", "concepts/production-v11",
+             "docs/production-v12", "concepts/production-v12",
              "concepts/pickups-rooms-v6",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")

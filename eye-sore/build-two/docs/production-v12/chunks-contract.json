@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "version": 12,
+  "owner_scope": "Closed volumetric cosmetic mesh/helper only; CombatGore and profile integration are owned separately.",
+  "component": "scripts/gore_chunk_v12.gd",
+  "class": "GoreChunkV12 extends RefCounted",
+  "api": {
+    "create": "static create(part:Dictionary,rng:RandomNumberGenerator)->MeshInstance3D",
+    "part_required": ["texture:Texture2D"],
+    "part_existing_fields": ["name", "material", "columns", "rows", "cell", "size:Vector2", "tint:Color"],
+    "part_optional_fields": ["depth:float", "coat_tint:Color", "exposed_tint:Color"],
+    "sweep": "static sweep(world:PhysicsDirectSpaceState3D,chunk:MeshInstance3D,from:Transform3D,to:Transform3D,mask:int=1)->Dictionary",
+    "sweep_result": "hit:bool,fraction:float,transform:Transform3D; on hit position:Vector3,normal:Vector3,starting_overlap:bool; overlaps also overlap_recovered:bool. transform is conservative safe/recovered pose.",
+    "support_pose": "static support_pose(world:PhysicsDirectSpaceState3D,chunk:MeshInstance3D,at:Vector3,yaw:float,mask:int=1)->Dictionary",
+    "support_result": "supported:bool,reason:String; if supported transform:Transform3D,contacts:PackedVector3Array,support_polygon:PackedVector2Array. False means continue falling or expire through owning budget, never freeze in air.",
+    "cache": "static clear_cache(), static cache_state()->Dictionary"
+  },
+  "geometry": {
+    "native_alpha_threshold": 0.5,
+    "outline": "At most ten native alpha row slices, left/right bounds; <=20 outline vertices. Actual generated semi-transparent haze below .5 is excluded. No source resampling or raster writes.",
+    "closed_volume": "Three rings: front/back 72% silhouette, full-width middle ring; original concave silhouette caps triangulated with explicit +/-Z normals, sides use ring winding. All triangle edges have two opposite owners, including bent limbs.",
+    "maximum_triangles": 196,
+    "thickness_m": [0.085, 0.26],
+    "size_m_clamp": [0.08, 0.7],
+    "source": "Approved existing gore-v2 atlas cells and AtlasTexture native rectangles, with legacy source fallback. No new raster art.",
+    "caps": "Native source texture and precise original cell/AtlasTexture region UVs, nearest sampling and half-texel inset; optional existing tint only.",
+    "sides": "Opaque native 16x16 interior tissue/armor patch, selected by >=.9 alpha center/corner/midpoint samples; no alpha cutout. Optional coat_tint/exposed_tint applies to sides. Flesh/metal roughness/metallic differ.",
+    "metadata": ["anatomical_part", "hit_material", "mesh_closed", "gore_chunk_version", "local_vertices:PackedVector3Array", "bounds_radius", "volume_depth_m", "triangle_count", "source_texture_path", "source_region:Rect2", "source_uv_rect:Rect2", "side_sample_uv:Vector2", "side_patch_half_pixels", "center_of_mass:Vector3", "support_normals:PackedVector3Array", "support_contacts:PackedVector3Array", "query_shape:ConvexPolygonShape3D"],
+    "center_of_mass": "Exact uniform solid volume integral over oriented closed triangle mesh. Cosmetic parts have uniform density; no simulated rigid body."
+  },
+  "physics_and_settlement": {
+    "collision_nodes": 0,
+    "render_layers": 2,
+    "registration": "MeshInstance3D has no descendants. ConvexPolygonShape3D and SphereShape3D are query resources only and never attach to a CollisionObject3D. Queries do not change world collision or hit ownership.",
+    "sweep": "A ceil-rounded radius sphere encloses every orientation of the real mesh. cast_motion prevents translation/rotation wall/floor tunnelling conservatively. Starting overlap is independently checked; when Godot reports deep overlap without rest normal, bounded six-axis exterior rays recover a surface normal before advancement.",
+    "support": "Nearest current tumble face candidates align to downward support; every mesh vertex probes local shared terrain. Maximum-height fit keeps all sampled vertices above floor/tread. >=3 contacts must enclose projected uniform COM; final convex volume overlap query rejects wall/riser penetration.",
+    "local_probe_m": {"above": 0.45, "below": 0.95, "maximum_upward_fit": 0.5, "skin": 0.008},
+    "unsupported": "Edges/empty space without stable bearing return false; owner continues flight or expires. No remote-floor snapping.",
+    "motion_owner": "CombatGore owns actual three-axis angular motion, gravity, bounce, life/budget, pause, reset and persistent remains. Support keeps the SAME closed MeshInstance3D; flat decals remain blood only."
+  },
+  "bounds": {"mesh_cache": 96, "source_image_cache": 4, "query_sphere_cache": 96, "observed_unique_meshes_for_93_authored_specs": 42},
+  "verification": {
+    "tool": "tools/check_chunks_v12.gd",
+    "scope": "All eight species/93 actual part specs; directed closed topology, positive volume, native cell UV bounds/opaque material, side alpha sample, zero collision descendants, <=196 triangles; real native shared-world floor, stair treads, ledge support, unsupported edges/empty fall, volume floor/thin-wall sweep and deep starting overlap recovery.",
+    "limits": [
+      "Low-poly beveled extrusions reuse existing front-painted anatomy; complete bespoke anatomical sculpting is not claimed.",
+      "Existing source haze/art quality is retained within the .5 alpha contour; source pixels are unchanged.",
+      "Conservative query sphere may contact earlier than the exact mesh. Settlement uses the real volume and terrain contacts.",
+      "Local fit is deliberately conservative at difficult stair/ledge combinations and may reject them so the owner continues falling or expires.",
+      "Gallery captures establish bounded component geometry. Actual Main combat, lifecycle and clinical context are independent specialist/root acceptance evidence."
+    ]
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "schema_version": 12,
+  "status": "Technical integration complete:98/98 headless and native checks; original Main gore release smoke passed. Native source/shape visual acceptance remains coordinator-owned.",
+  "weapon_bursts": {
+    "pistol": {
+      "hurt_drops": 16,
+      "death_drops": 26,
+      "armor_sparks": 3,
+      "drop_speed_m_s": [
+        5,
+        9
+      ],
+      "spread_speed_ratio": 0.32,
+      "rupture_chunk_force_m_s": 3.4
+    },
+    "shotgun": {
+      "hurt_drops": 36,
+      "death_drops": 56,
+      "armor_sparks": 7,
+      "drop_speed_m_s": [
+        6,
+        11
+      ],
+      "spread_speed_ratio": 0.48,
+      "rupture_chunk_force_m_s": 4.8
+    },
+    "twin_shotgun": {
+      "hurt_drops": 52,
+      "death_drops": 72,
+      "armor_sparks": 10,
+      "drop_speed_m_s": [
+        7,
+        12
+      ],
+      "spread_speed_ratio": 0.56,
+      "rupture_chunk_force_m_s": 5.8
+    },
+    "rivet_cannon": {
+      "hurt_drops": 24,
+      "death_drops": 38,
+      "armor_sparks": 5,
+      "drop_speed_m_s": [
+        8,
+        13
+      ],
+      "spread_speed_ratio": 0.2,
+      "rupture_chunk_force_m_s": 4.2
+    },
+    "siege_launcher": {
+      "hurt_drops": 64,
+      "death_drops": 80,
+      "armor_sparks": 12,
+      "drop_speed_m_s": [
+        8,
+        14
+      ],
+      "spread_speed_ratio": 0.72,
+      "rupture_chunk_force_m_s": 6.6
+    },
+    "melee": {
+      "hurt_drops": 12,
+      "death_drops": 22,
+      "armor_sparks": 3,
+      "drop_speed_m_s": [
+        3,
+        6
+      ],
+      "spread_speed_ratio": 0.62,
+      "rupture_chunk_force_m_s": 3
+    }
+  },
+  "rupture": {
+    "extra_drops": 24,
+    "maximum_drops_one_burst": 96,
+    "normal_death_bodypiece_count": 0,
+    "species_chunk_counts": {
+      "unsealed": 12,
+      "vessel": 14,
+      "ironbound": 14,
+      "censer": 15,
+      "reaver": 12,
+      "surveyor": 13,
+      "infected_scientist": 12,
+      "infected_security": 14
+    },
+    "overkill_force_bonus": "min(overkill*0.015,1.8)m/s; armor pieces multiply force0.72",
+    "ownership": "Unchanged should_gib thresholds and existing authoritative enemy_death/corpse_gib flags. Bodypieces only on accepted rupture; cosmetic integration never changes damage/health/AI/kills/corpse integrity/ammo."
+  },
+  "geometry": {
+    "pieces": "Closed extruded native-anatomy MeshInstance3D, actual3axis tumble; same node/solid volume remains after settle, no flying billboard or flat settled limb patch.",
+    "stains": "Existing flat ground-conforming shared-world sampled meshes; reject unsupported triangles and split stair risers.",
+    "collision": "World-only mask1. Closed chunks use helper conservative volume sweep; droplets sphere swept with actual size. No cosmetic CollisionObject/actor collider.",
+    "support": "Helper support_pose checks real local support and nearby world geometry; unsupported pieces expire, never snap to arbitrary distant floor.",
+    "lifetime_seconds": 3.2,
+    "volume_depth_m": [
+      0.085,
+      0.26
+    ]
+  },
+  "budgets": {
+    "all_flying_particles_including_chunks": 256,
+    "settled_chunks": 128,
+    "stains": 384,
+    "max_droplet_stains_per_burst": 6,
+    "directional_patches_per_contact": 5,
+    "death_pool_per_accepted_death": 1,
+    "dedupe_history": 2048,
+    "cached_query_shapes": 96,
+    "cached_explosion_origins": 32
+  },
+  "species": {
+    "prior_six": "Existing per-theme gore-v2 atlas pixels and per-part source regions retained.",
+    "infected_scientist": {
+      "source": "assets/enemies/staff-v11/infected_scientist-atlas.png",
+      "regions": {
+        "head": [
+          55,
+          0,
+          44,
+          43
+        ],
+        "ribcage": [
+          49,
+          43,
+          61,
+          54
+        ],
+        "arm": [
+          29,
+          46,
+          31,
+          83
+        ],
+        "leg": [
+          52,
+          95,
+          29,
+          59
+        ]
+      },
+      "sides": "code-material offwhite coat tint; head/flesh native source",
+      "organs": "pale_ward gore-v2 per-part texture override"
+    },
+    "infected_security": {
+      "source": "assets/enemies/staff-v11/infected_security-atlas.png",
+      "regions": {
+        "head": [
+          48,
+          0,
+          48,
+          41
+        ],
+        "ribcage": [
+          44,
+          43,
+          54,
+          58
+        ],
+        "arm": [
+          28,
+          39,
+          31,
+          64
+        ],
+        "leg": [
+          34,
+          92,
+          35,
+          62
+        ]
+      },
+      "materials": "native helmet/bodyarmor source; torso/limb armor metadata with dark armor side tint, exposed head/flesh tissue",
+      "organs": "pale_ward gore-v2 per-part texture override"
+    },
+    "crop_limit": "Coordinator rectangles reviewed against full native atlases. These are anatomy source regions, not a claim of audited tight masks or fresh generated part art."
+  },
+  "lifecycle": "Exact event type/target/shot dedupe and per-target death/corpse rupture guards retained. Pause freezes all cosmetic motion; reset clears particles/stains/remains/caches/dedupe/death records.",
+  "verification": {
+    "command": "tools/godot.sh [--headless] --script tools/check_bursts_v12.gd",
+    "folder": "verification/production-v12/bursts",
+    "scope": "Actual Combat apply_damage/corpse_damage and profile/helper on real flat shared geometry. Independent actualMain accepted shots/native stairs and visual review separate.",
+    "results": {
+      "headless": {
+        "checks": 98,
+        "failed": 0,
+        "performance": {
+          "elapsed_seconds": 0.979848,
+          "mesh_cache": {
+            "images": 0,
+            "maximum_meshes": 96,
+            "meshes": 0,
+            "spheres": 38
+          },
+          "peak_live_particles": 256,
+          "physics_cpu_ms_max": 1.73,
+          "physics_cpu_ms_p50": 1.218,
+          "physics_cpu_ms_p95": 1.51,
+          "physics_ticks": 60,
+          "rendered_frames": 0,
+          "scope": "60 production gore ticks; initial256drops then sustained64drop Siege flesh burst every6ticks; native window960x540 when available. Cosmetic physics timing excludes event creation and completeMain scene."
+        }
+      },
+      "native": {
+        "checks": 98,
+        "failed": 0,
+        "performance": {
+          "elapsed_seconds": 0.966519,
+          "mesh_cache": {
+            "images": 0,
+            "maximum_meshes": 96,
+            "meshes": 0,
+            "spheres": 38
+          },
+          "peak_live_particles": 256,
+          "physics_cpu_ms_max": 1.877,
+          "physics_cpu_ms_p50": 1.204,
+          "physics_cpu_ms_p95": 1.604,
+          "physics_ticks": 60,
+          "rendered_frames": 140,
+          "scope": "60 production gore ticks; initial256drops then sustained64drop Siege flesh burst every6ticks; native window960x540 when available. Cosmetic physics timing excludes event creation and completeMain scene."
+        }
+      }
+    },
+    "release_smoke": {
+      "command": "tools/godot.sh --headless -- --smoke-test --gore-smoke",
+      "log": "verification/production-v12/bursts/main-gore-smoke.log",
+      "result": "passed: actual7pellets112damage,12groundedchunks within4seconds, Retryclears"
+    }
+  },
+  "siege_direction": "Records existing ordnance_explosion shotID+origin before subsequent resolved hurt/death events; Siege alone uses normalized(event.position - blast origin), falling back to provided direction for zero vector/missing origin. Cosmetic cache bounded32 and reset clears; no new damage/audio events.",
+  "native_source_sha256": {
+    "assets/enemies/staff-v11/infected_scientist-atlas.png": "e8a48d92c1ba8609087bedc93e72ecde359d85704e531b75299d381a0fd8b02e",
+    "assets/enemies/staff-v11/infected_security-atlas.png": "3074484ebe3ec4b1c3f6d6eeeb2aa19f25099b9e6efa68561c2e4f6fdc682fc1",
+    "assets/effects/gore-v2/ash_citadel-parts-atlas.png": "bf9fce6eb36c13bfa5f80b913de49532b2155ca8cac2f813c5be76bf293843d7",
+    "assets/effects/gore-v2/occupied_line-parts-atlas.png": "1c751ef8d0de2b8833ea59028e25728a0100ba5a6258d6173b10c2f0beb9f0a9",
+    "assets/effects/gore-v2/pale_ward-parts-atlas.png": "cf6a9ee47d1c9df751493966c5b953cfedcd194420570cfebaf62137015e99f9"
+  }
+}

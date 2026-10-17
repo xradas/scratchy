@@ -1,0 +1,88 @@
+{
+  "status": "passed",
+  "source_preflight": true,
+  "source_fingerprints_verified": 636,
+  "source_tree_sha256": "0688410f2ec93279d557f0454b22f926609a6815b0ad33db9ee49100eff63f17",
+  "source_snapshot_policy": {
+    "collector": "Restricted AST literal policy read from tools/package_pale_ward.py; no packager import/execution",
+    "collector_sha256": "3e6616c15437a4b966a777586746b2f4885343aa2b0aea0667040c10425df555",
+    "packager_sha256": "d98b3b3808aad752d79c984ac0ae733f7e254636b14193c1995c7ed59ffd754f",
+    "provenance_roots": [
+      "concepts/environment-art-v1",
+      "concepts/gore-art-v1",
+      "concepts/sprite-art-v1",
+      "concepts/style-art-v2",
+      "concepts/weapon-style-v3",
+      "concepts/expansion-v1",
+      "docs/expansion-v1",
+      "concepts/arsenal-architecture-v2",
+      "docs/arsenal-architecture-v2",
+      "concepts/campaign-v3",
+      "docs/campaign-v3",
+      "docs/combat-balance-v4",
+      "docs/map-safety-v5",
+      "docs/room-program-v6",
+      "docs/pickup-art-v6",
+      "docs/intake-v7",
+      "docs/production-v8",
+      "concepts/production-v8",
+      "docs/production-v9",
+      "concepts/production-v9",
+      "concepts/audio-v9",
+      "docs/production-v10",
+      "concepts/audio-v10",
+      "docs/production-v11",
+      "concepts/production-v11",
+      "docs/production-v12",
+      "concepts/production-v12",
+      "concepts/pickups-rooms-v6",
+      "concepts/visual-v2/corrupted-biotech",
+      "concepts/visual-v2/occult-fortress",
+      "concepts/visual-v2/civic-invasion"
+    ],
+    "excluded_directories": [
+      ".git",
+      ".godot",
+      "build",
+      "concepts",
+      "docs",
+      "tools",
+      "verification"
+    ]
+  },
+  "git_checkpoint_blobs_verified": null,
+  "archival_wav_ignore_git_blob_verified": null,
+  "protected_source": {
+    "status": "passed",
+    "baseline_commit": "7b2b316313a34dd9928862317bf18a39db24859d",
+    "baseline_git_blobs_verified": 462,
+    "protected_unchanged": 458,
+    "explicit_gore_changes": [
+      "resources/gore_profile.tres",
+      "scripts/combat_gore.gd",
+      "scripts/gore_profile.gd"
+    ],
+    "exact_visual_credits_append_sha256": "9df25d9099030b18cd66299f6230598ea8effd97373db8784536f7ba790181bd",
+    "new_runtime_components": [
+      "scripts/gore_chunk_v12.gd",
+      "scripts/gore_chunk_v12.gd.uid"
+    ],
+    "reviewed_gore_fingerprints": {
+      "resources/gore_profile.tres": "9cf7cc2e87e2d1fa3fe3c491a43c7ead251ebcff7e7a00d28fb8b7e2d74976ed",
+      "scripts/combat_gore.gd": "8ff2a1f18ad0fc1e7910703ebed684a253af657e9835fb5dbc1b7dc1ee31a377",
+      "scripts/gore_chunk_v12.gd": "42016b9cde998075c5e8eeaa4b67a71cce0aa02aab65c190cfc33e76977f528a",
+      "scripts/gore_chunk_v12.gd.uid": "0f624a0ad266b8d6019975923fff61443014b245e02187ebf2162a58f17949b9",
+      "scripts/gore_profile.gd": "00ec4a1f1d5ecea65776196e587741e3e94a0d3168887edb1e40f7bc196d9de4"
+    },
+    "all_nine_scenes_unchanged": true,
+    "all_art_pngs_audio_weapons_enemy_ai_main_lighting_unchanged": true,
+    "original_audio_cues": 63,
+    "packed": false,
+    "native_renderer": false,
+    "auditor_sha256": "d4c0b5ed1b1c9b9ff50a24a4b0d781ed034ce7a4199f4aef205de210fdc258b4"
+  },
+  "frozen_prior_gore_readers": "Not run or changed: previous flat-remains/normal-death fragments assumptions are obsolete. New actual-shot fixture requires intact normal corpses and closed-volume rupture parts.",
+  "geometry_proof": "All nine scene bytes protected against frozen v11b Git baseline. New native gore fixture independently inspects cosmetic closed volume/support/noncollision; no route or aggregate navigation proof claim.",
+  "scope": "Protected source/provenance dynamic snapshot preflight; no export or packed-runtime acceptance claim.",
+  "auditor_sha256": "23e9441d6a87b2817781ca4ec700881925ff9e6ee29318e4fb14a0828d8527d5"
+}

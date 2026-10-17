@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "baseline_commit": "7b2b316313a34dd9928862317bf18a39db24859d",
+  "baseline_git_blobs_verified": 462,
+  "protected_unchanged": 458,
+  "explicit_gore_changes": [
+    "assets/VISUAL_CREDITS.md",
+    "resources/gore_profile.tres",
+    "scripts/combat_gore.gd",
+    "scripts/gore_profile.gd"
+  ],
+  "new_runtime_components": [
+    "scripts/gore_chunk_v12.gd",
+    "scripts/gore_chunk_v12.gd.uid"
+  ],
+  "all_nine_scenes_unchanged": true,
+  "all_art_pngs_audio_weapons_enemy_ai_main_lighting_unchanged": true,
+  "original_audio_cues": 63,
+  "native": {
+    "capture_records": [],
+    "captures": [],
+    "checks": 709,
+    "failures": [],
+    "observations": [
+      {
+        "accepted_shots": 12,
+        "crowd_particle_count": 256,
+        "kills": 15,
+        "resolved_deaths": 15,
+        "scope": "Real accepted shots, corpse query contacts and swept Siege projectiles. Authored actors repositioned into declared intake centre-lane/crowd fixtures; AI/player physics frozen, combat/gore/projectile clocks live."
+      },
+      {
+        "heavy_settled_chunks": 128,
+        "live_particles": 0,
+        "particle_peak": 0,
+        "representative_support_clearance_m": 0.00805217027664185,
+        "stains": 128
+      },
+      {
+        "maximum": 722.129,
+        "p50": 16.665,
+        "p95": 17.995,
+        "performance_metric": "wall_frame_ms",
+        "samples": 1018,
+        "scope": "Actual Main heavy live-shot/cosmetic interval at60FPS cap; CPU monitors and frame-wall intervals, not GPU timing or comparative baseline."
+      },
+      {
+        "maximum": 23.25,
+        "p50": 0.475,
+        "p95": 23.25,
+        "performance_metric": "process_cpu_ms",
+        "samples": 1018,
+        "scope": "Actual Main heavy live-shot/cosmetic interval at60FPS cap; CPU monitors and frame-wall intervals, not GPU timing or comparative baseline."
+      },
+      {
+        "maximum": 705.587,
+        "p50": 5.438,
+        "p95": 21.122,
+        "performance_metric": "physics_cpu_ms",
+        "samples": 1018,
+        "scope": "Actual Main heavy live-shot/cosmetic interval at60FPS cap; CPU monitors and frame-wall intervals, not GPU timing or comparative baseline."
+      },
+      {
+        "contacts": 10,
+        "reason": "volume contacts enclose projected center",
+        "support_fixture": "entry_Floor"
+      },
+      {
+        "contacts": 10,
+        "reason": "volume contacts enclose projected center",
+        "support_fixture": "arena_one_GalleryStairs-10"
+      },
+      {
+        "position": "(-4.9, 1.62, -76.0)",
+        "reason": "no stable local support; continue falling",
+        "support_fixture": "actual gallery outside edge",
+        "supported": false
+      }
+    ],
+    "scope": "Controlled actual Main Intake real accepted hitscan/projectile shots. Player and authored actors repositioned, AI/world movement frozen, real combat/gore clocks and unchanged damage resources. Native cosmetic geometry/pause/mute/Retry; no player traversal, subjective art/listening or unchanged-performance claim.",
+    "status": "passed"
+  },
+  "packed": false,
+  "native_renderer": false,
+  "auditor_sha256": "ea4d5cd02a56f6bf533a7ef7a5335d78771a6bde2b47498bf313c07c048f1a4f"
+}

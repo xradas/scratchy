@@ -1,0 +1,798 @@
+{
+  "display": "X11",
+  "events": [
+    {
+      "flying": 0,
+      "ms": 0.004,
+      "phase": "event",
+      "physics_tick": 18,
+      "settled": 0,
+      "shot_id": 0,
+      "target": "",
+      "type": "weapon_switch"
+    },
+    {
+      "flying": 0,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 34,
+      "settled": 0,
+      "shot_id": 1,
+      "target": "",
+      "type": "shot"
+    },
+    {
+      "flying": 0,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 34,
+      "settled": 0,
+      "shot_id": 1,
+      "target": "enemy_unsealed_0",
+      "type": "impact"
+    },
+    {
+      "flying": 92,
+      "ms": 18.0,
+      "phase": "event",
+      "physics_tick": 34,
+      "settled": 0,
+      "shot_id": 1,
+      "target": "enemy_unsealed_0",
+      "type": "enemy_death"
+    },
+    {
+      "flying": 92,
+      "ms": 0.006,
+      "phase": "event",
+      "physics_tick": 34,
+      "settled": 0,
+      "shot_id": 1,
+      "target": "98582926320",
+      "type": "impact"
+    },
+    {
+      "flying": 0,
+      "ms": 0.004,
+      "phase": "event",
+      "physics_tick": 246,
+      "settled": 12,
+      "shot_id": 0,
+      "target": "",
+      "type": "weapon_switch"
+    },
+    {
+      "flying": 0,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 262,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "",
+      "type": "shot"
+    },
+    {
+      "flying": 0,
+      "ms": 0.004,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "",
+      "type": "ordnance_explosion"
+    },
+    {
+      "flying": 0,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_9",
+      "type": "impact"
+    },
+    {
+      "flying": 108,
+      "ms": 9.521,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_9",
+      "type": "enemy_death"
+    },
+    {
+      "flying": 108,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_25",
+      "type": "impact"
+    },
+    {
+      "flying": 216,
+      "ms": 1.602,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_25",
+      "type": "enemy_death"
+    },
+    {
+      "flying": 216,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_22",
+      "type": "impact"
+    },
+    {
+      "flying": 256,
+      "ms": 1.834,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_22",
+      "type": "enemy_death"
+    },
+    {
+      "flying": 256,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_12",
+      "type": "impact"
+    },
+    {
+      "flying": 256,
+      "ms": 1.892,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_12",
+      "type": "enemy_death"
+    }
+  ],
+  "fixture_failures": [],
+  "helper_sha256": "42016b9cde998075c5e8eeaa4b67a71cce0aa02aab65c190cfc33e76977f528a",
+  "main_sha256": "26f13129d464b1fee7425830b9c6726be3a3374df5ec7f15e584e351acd69084",
+  "observations": [
+    {
+      "accepted": true,
+      "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+      "phase": "setup",
+      "shot_id": 1,
+      "try_fire_sync_ms": 20.305,
+      "weapon": "shotgun"
+    },
+    {
+      "actual_weapon_burst": "shotgun",
+      "expected_blood_drops": 80,
+      "fresh_blood_drops": 80,
+      "fresh_closed_chunks": 12
+    },
+    {
+      "accepted": true,
+      "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+      "phase": "setup",
+      "shot_id": 2,
+      "try_fire_sync_ms": 0.595,
+      "weapon": "siege_launcher"
+    }
+  ],
+  "physics_samples": 500,
+  "scope": "Tool-only inherited productiongore; event/superphysics/settle calls separately timed. No behavior changes.",
+  "slowest_events": [
+    {
+      "flying": 92,
+      "ms": 18.0,
+      "phase": "event",
+      "physics_tick": 34,
+      "settled": 0,
+      "shot_id": 1,
+      "target": "enemy_unsealed_0",
+      "type": "enemy_death"
+    },
+    {
+      "flying": 108,
+      "ms": 9.521,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_9",
+      "type": "enemy_death"
+    },
+    {
+      "flying": 256,
+      "ms": 1.892,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_12",
+      "type": "enemy_death"
+    },
+    {
+      "flying": 256,
+      "ms": 1.834,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_22",
+      "type": "enemy_death"
+    },
+    {
+      "flying": 216,
+      "ms": 1.602,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_25",
+      "type": "enemy_death"
+    },
+    {
+      "flying": 92,
+      "ms": 0.006,
+      "phase": "event",
+      "physics_tick": 34,
+      "settled": 0,
+      "shot_id": 1,
+      "target": "98582926320",
+      "type": "impact"
+    },
+    {
+      "flying": 0,
+      "ms": 0.004,
+      "phase": "event",
+      "physics_tick": 18,
+      "settled": 0,
+      "shot_id": 0,
+      "target": "",
+      "type": "weapon_switch"
+    },
+    {
+      "flying": 0,
+      "ms": 0.004,
+      "phase": "event",
+      "physics_tick": 246,
+      "settled": 12,
+      "shot_id": 0,
+      "target": "",
+      "type": "weapon_switch"
+    },
+    {
+      "flying": 0,
+      "ms": 0.004,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "",
+      "type": "ordnance_explosion"
+    },
+    {
+      "flying": 0,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 34,
+      "settled": 0,
+      "shot_id": 1,
+      "target": "",
+      "type": "shot"
+    },
+    {
+      "flying": 0,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 34,
+      "settled": 0,
+      "shot_id": 1,
+      "target": "enemy_unsealed_0",
+      "type": "impact"
+    },
+    {
+      "flying": 0,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 262,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "",
+      "type": "shot"
+    },
+    {
+      "flying": 0,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_9",
+      "type": "impact"
+    },
+    {
+      "flying": 108,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_25",
+      "type": "impact"
+    },
+    {
+      "flying": 216,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_22",
+      "type": "impact"
+    },
+    {
+      "flying": 256,
+      "ms": 0.003,
+      "phase": "event",
+      "physics_tick": 275,
+      "settled": 12,
+      "shot_id": 2,
+      "target": "enemy_infected_scientist_12",
+      "type": "impact"
+    }
+  ],
+  "slowest_physics": [
+    {
+      "initial_live": 124,
+      "live": 114,
+      "ms": 8.971,
+      "phase": "physics",
+      "physics_tick": 303,
+      "settled": 26,
+      "support_calls": 4,
+      "support_ms": 7.948,
+      "support_successes": 4
+    },
+    {
+      "initial_live": 57,
+      "live": 47,
+      "ms": 8.805,
+      "phase": "physics",
+      "physics_tick": 312,
+      "settled": 50,
+      "support_calls": 7,
+      "support_ms": 7.96,
+      "support_successes": 7
+    },
+    {
+      "initial_live": 84,
+      "live": 72,
+      "ms": 6.189,
+      "phase": "physics",
+      "physics_tick": 308,
+      "settled": 38,
+      "support_calls": 4,
+      "support_ms": 5.389,
+      "support_successes": 4
+    },
+    {
+      "initial_live": 97,
+      "live": 90,
+      "ms": 5.36,
+      "phase": "physics",
+      "physics_tick": 306,
+      "settled": 33,
+      "support_calls": 3,
+      "support_ms": 4.597,
+      "support_successes": 3
+    },
+    {
+      "initial_live": 5,
+      "live": 2,
+      "ms": 5.279,
+      "phase": "physics",
+      "physics_tick": 65,
+      "settled": 10,
+      "support_calls": 3,
+      "support_ms": 5.115,
+      "support_successes": 3
+    },
+    {
+      "initial_live": 163,
+      "live": 154,
+      "ms": 3.862,
+      "phase": "physics",
+      "physics_tick": 296,
+      "settled": 17,
+      "support_calls": 2,
+      "support_ms": 2.787,
+      "support_successes": 2
+    },
+    {
+      "initial_live": 72,
+      "live": 63,
+      "ms": 3.096,
+      "phase": "physics",
+      "physics_tick": 309,
+      "settled": 43,
+      "support_calls": 5,
+      "support_ms": 2.434,
+      "support_successes": 5
+    },
+    {
+      "initial_live": 47,
+      "live": 42,
+      "ms": 3.072,
+      "phase": "physics",
+      "physics_tick": 313,
+      "settled": 53,
+      "support_calls": 3,
+      "support_ms": 2.575,
+      "support_successes": 3
+    },
+    {
+      "initial_live": 10,
+      "live": 9,
+      "ms": 2.933,
+      "phase": "physics",
+      "physics_tick": 61,
+      "settled": 3,
+      "support_calls": 1,
+      "support_ms": 2.759,
+      "support_successes": 1
+    },
+    {
+      "initial_live": 9,
+      "live": 7,
+      "ms": 2.843,
+      "phase": "physics",
+      "physics_tick": 63,
+      "settled": 5,
+      "support_calls": 2,
+      "support_ms": 2.641,
+      "support_successes": 2
+    },
+    {
+      "initial_live": 108,
+      "live": 97,
+      "ms": 2.594,
+      "phase": "physics",
+      "physics_tick": 305,
+      "settled": 30,
+      "support_calls": 3,
+      "support_ms": 1.541,
+      "support_successes": 3
+    },
+    {
+      "initial_live": 197,
+      "live": 182,
+      "ms": 2.251,
+      "phase": "physics",
+      "physics_tick": 292,
+      "settled": 13,
+      "support_calls": 1,
+      "support_ms": 0.595,
+      "support_successes": 1
+    },
+    {
+      "initial_live": 37,
+      "live": 30,
+      "ms": 2.067,
+      "phase": "physics",
+      "physics_tick": 315,
+      "settled": 56,
+      "support_calls": 2,
+      "support_ms": 1.24,
+      "support_successes": 2
+    },
+    {
+      "initial_live": 137,
+      "live": 128,
+      "ms": 1.992,
+      "phase": "physics",
+      "physics_tick": 301,
+      "settled": 21,
+      "support_calls": 2,
+      "support_ms": 0.792,
+      "support_successes": 2
+    },
+    {
+      "initial_live": 245,
+      "live": 234,
+      "ms": 1.841,
+      "phase": "physics",
+      "physics_tick": 286,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    },
+    {
+      "initial_live": 148,
+      "live": 143,
+      "ms": 1.673,
+      "phase": "physics",
+      "physics_tick": 298,
+      "settled": 19,
+      "support_calls": 2,
+      "support_ms": 0.7,
+      "support_successes": 2
+    },
+    {
+      "initial_live": 7,
+      "live": 5,
+      "ms": 1.634,
+      "phase": "physics",
+      "physics_tick": 64,
+      "settled": 7,
+      "support_calls": 2,
+      "support_ms": 1.419,
+      "support_successes": 2
+    },
+    {
+      "initial_live": 255,
+      "live": 249,
+      "ms": 1.589,
+      "phase": "physics",
+      "physics_tick": 284,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    },
+    {
+      "initial_live": 170,
+      "live": 163,
+      "ms": 1.462,
+      "phase": "physics",
+      "physics_tick": 295,
+      "settled": 15,
+      "support_calls": 1,
+      "support_ms": 0.388,
+      "support_successes": 1
+    },
+    {
+      "initial_live": 175,
+      "live": 170,
+      "ms": 1.458,
+      "phase": "physics",
+      "physics_tick": 294,
+      "settled": 14,
+      "support_calls": 1,
+      "support_ms": 0.379,
+      "support_successes": 1
+    },
+    {
+      "initial_live": 211,
+      "live": 206,
+      "ms": 1.44,
+      "phase": "physics",
+      "physics_tick": 289,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    },
+    {
+      "initial_live": 249,
+      "live": 245,
+      "ms": 1.378,
+      "phase": "physics",
+      "physics_tick": 285,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    },
+    {
+      "initial_live": 256,
+      "live": 255,
+      "ms": 1.378,
+      "phase": "physics",
+      "physics_tick": 283,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    },
+    {
+      "initial_live": 234,
+      "live": 223,
+      "ms": 1.36,
+      "phase": "physics",
+      "physics_tick": 287,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    },
+    {
+      "initial_live": 256,
+      "live": 256,
+      "ms": 1.342,
+      "phase": "physics",
+      "physics_tick": 281,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    },
+    {
+      "initial_live": 223,
+      "live": 211,
+      "ms": 1.338,
+      "phase": "physics",
+      "physics_tick": 288,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    },
+    {
+      "initial_live": 256,
+      "live": 256,
+      "ms": 1.337,
+      "phase": "physics",
+      "physics_tick": 277,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    },
+    {
+      "initial_live": 256,
+      "live": 256,
+      "ms": 1.333,
+      "phase": "physics",
+      "physics_tick": 280,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    },
+    {
+      "initial_live": 256,
+      "live": 256,
+      "ms": 1.327,
+      "phase": "physics",
+      "physics_tick": 282,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    },
+    {
+      "initial_live": 256,
+      "live": 256,
+      "ms": 1.31,
+      "phase": "physics",
+      "physics_tick": 278,
+      "settled": 12,
+      "support_calls": 0,
+      "support_ms": 0.0,
+      "support_successes": 0
+    }
+  ],
+  "support_details": [
+    {
+      "age": 0.466666666666667,
+      "bounces": 1,
+      "ms": 2.759,
+      "part": "arm",
+      "physics_tick": 61,
+      "position": "(-0.726494, 0.06878, 3.938188)",
+      "success": true
+    },
+    {
+      "age": 0.5,
+      "bounces": 1,
+      "ms": 2.318,
+      "part": "arm",
+      "physics_tick": 63,
+      "position": "(0.125446, 0.0448, 3.124043)",
+      "success": true
+    },
+    {
+      "age": 0.516666666666667,
+      "bounces": 1,
+      "ms": 1.051,
+      "part": "ribcage",
+      "physics_tick": 64,
+      "position": "(0.469336, 0.190439, 3.443857)",
+      "success": true
+    },
+    {
+      "age": 0.533333333333333,
+      "bounces": 1,
+      "ms": 4.412,
+      "part": "leg",
+      "physics_tick": 65,
+      "position": "(0.229522, 0.0948, 3.746391)",
+      "success": true
+    },
+    {
+      "age": 0.35,
+      "bounces": 1,
+      "ms": 2.413,
+      "part": "leg",
+      "physics_tick": 296,
+      "position": "(-2.022609, 0.0824, 4.237011)",
+      "success": true
+    },
+    {
+      "age": 0.466666666666667,
+      "bounces": 1,
+      "ms": 6.098,
+      "part": "leg",
+      "physics_tick": 303,
+      "position": "(3.678384, 0.0824, 5.768476)",
+      "success": true
+    },
+    {
+      "age": 0.516666666666667,
+      "bounces": 1,
+      "ms": 1.368,
+      "part": "spine",
+      "physics_tick": 306,
+      "position": "(4.440351, 0.069369, 5.805854)",
+      "success": true
+    },
+    {
+      "age": 0.516666666666667,
+      "bounces": 1,
+      "ms": 2.42,
+      "part": "leg",
+      "physics_tick": 306,
+      "position": "(1.406007, 0.0824, 1.954234)",
+      "success": true
+    },
+    {
+      "age": 0.55,
+      "bounces": 1,
+      "ms": 3.715,
+      "part": "leg",
+      "physics_tick": 308,
+      "position": "(3.816824, 0.0824, 6.276752)",
+      "success": true
+    },
+    {
+      "age": 0.616666666666667,
+      "bounces": 1,
+      "ms": 4.532,
+      "part": "leg",
+      "physics_tick": 312,
+      "position": "(-4.829026, 0.0824, 6.923198)",
+      "success": true
+    },
+    {
+      "age": 0.633333333333334,
+      "bounces": 1,
+      "ms": 1.049,
+      "part": "arm",
+      "physics_tick": 313,
+      "position": "(4.442086, 0.095947, 4.775712)",
+      "success": true
+    },
+    {
+      "age": 0.633333333333334,
+      "bounces": 2,
+      "ms": 1.041,
+      "part": "arm",
+      "physics_tick": 313,
+      "position": "(-0.792259, 0.095947, 0.327964)",
+      "success": true
+    }
+  ]
+}

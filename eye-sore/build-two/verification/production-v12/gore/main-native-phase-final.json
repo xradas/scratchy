@@ -1,0 +1,1028 @@
+{
+  "status": "passed",
+  "baseline_commit": "7b2b316313a34dd9928862317bf18a39db24859d",
+  "baseline_git_blobs_verified": 462,
+  "protected_unchanged": 458,
+  "explicit_gore_changes": [
+    "assets/VISUAL_CREDITS.md",
+    "resources/gore_profile.tres",
+    "scripts/combat_gore.gd",
+    "scripts/gore_profile.gd"
+  ],
+  "new_runtime_components": [
+    "scripts/gore_chunk_v12.gd",
+    "scripts/gore_chunk_v12.gd.uid"
+  ],
+  "all_nine_scenes_unchanged": true,
+  "all_art_pngs_audio_weapons_enemy_ai_main_lighting_unchanged": true,
+  "original_audio_cues": 63,
+  "native": {
+    "capture_records": [],
+    "captures": [],
+    "checks": 719,
+    "failures": [],
+    "observations": [
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "normal-pistol",
+        "shot_id": 1,
+        "try_fire_sync_ms": 2.629,
+        "weapon": "pistol"
+      },
+      {
+        "actual_weapon_burst": "pistol",
+        "expected_blood_drops": 16,
+        "fresh_blood_drops": 16,
+        "fresh_closed_chunks": 0
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "normal-pistol",
+        "shot_id": 2,
+        "try_fire_sync_ms": 2.346,
+        "weapon": "pistol"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "normal-pistol",
+        "shot_id": 3,
+        "try_fire_sync_ms": 1.782,
+        "weapon": "pistol"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "normal-pistol",
+        "shot_id": 4,
+        "try_fire_sync_ms": 2.909,
+        "weapon": "pistol"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "postmortem-pistol-first-cold-chunks",
+        "shot_id": 5,
+        "try_fire_sync_ms": 2.111,
+        "weapon": "pistol"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "postmortem-pistol-first-cold-chunks",
+        "shot_id": 6,
+        "try_fire_sync_ms": 18.896,
+        "weapon": "pistol"
+      },
+      {
+        "phase": "retry-reset-cold-resource-boundary",
+        "retry_sync_ms": 713.461,
+        "scope": "World rebuild/old-world teardown; outside accepted combat shots."
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "shotgun-first",
+        "shot_id": 1,
+        "try_fire_sync_ms": 18.265,
+        "weapon": "shotgun"
+      },
+      {
+        "actual_weapon_burst": "shotgun",
+        "expected_blood_drops": 80,
+        "fresh_blood_drops": 80,
+        "fresh_closed_chunks": 12
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "shotgun-warm-1",
+        "shot_id": 2,
+        "try_fire_sync_ms": 4.09,
+        "weapon": "shotgun"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "shotgun-warm-3",
+        "shot_id": 3,
+        "try_fire_sync_ms": 4.469,
+        "weapon": "shotgun"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "shotgun-warm-5",
+        "shot_id": 4,
+        "try_fire_sync_ms": 4.057,
+        "weapon": "shotgun"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "twin_shotgun-first",
+        "shot_id": 5,
+        "try_fire_sync_ms": 4.591,
+        "weapon": "twin_shotgun"
+      },
+      {
+        "actual_weapon_burst": "twin_shotgun",
+        "expected_blood_drops": 96,
+        "fresh_blood_drops": 96,
+        "fresh_closed_chunks": 12
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "twin_shotgun-warm-7",
+        "shot_id": 6,
+        "try_fire_sync_ms": 4.348,
+        "weapon": "twin_shotgun"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "twin_shotgun-warm-8",
+        "shot_id": 7,
+        "try_fire_sync_ms": 4.079,
+        "weapon": "twin_shotgun"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "twin_shotgun-warm-10",
+        "shot_id": 8,
+        "try_fire_sync_ms": 4.106,
+        "weapon": "twin_shotgun"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "siege_launcher-first",
+        "shot_id": 9,
+        "try_fire_sync_ms": 0.731,
+        "weapon": "siege_launcher"
+      },
+      {
+        "actual_weapon_burst": "siege_launcher",
+        "expected_blood_drops": 96,
+        "fresh_blood_drops": 96,
+        "fresh_closed_chunks": 12
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "siege_launcher-warm-14",
+        "shot_id": 10,
+        "try_fire_sync_ms": 0.649,
+        "weapon": "siege_launcher"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "siege_launcher-warm-15",
+        "shot_id": 11,
+        "try_fire_sync_ms": 0.566,
+        "weapon": "siege_launcher"
+      },
+      {
+        "accepted": true,
+        "event_scope": "Synchronous real trigger including hitscan resolution; projectile trigger excludes later swept explosion.",
+        "phase": "siege-crowd-four-scientists-cold-staff-chunks",
+        "shot_id": 12,
+        "try_fire_sync_ms": 0.571,
+        "weapon": "siege_launcher"
+      },
+      {
+        "accepted_shots": 12,
+        "crowd_particle_count": 256,
+        "kills": 15,
+        "resolved_deaths": 15,
+        "scope": "Real accepted shots, corpse query contacts and swept Siege projectiles. Authored actors repositioned into declared intake centre-lane/crowd fixtures; AI/player physics frozen, combat/gore/projectile clocks live."
+      },
+      {
+        "frame_sampled_particle_peak": 256,
+        "heavy_settled_chunks": 128,
+        "live_particles": 0,
+        "representative_support_clearance_m": 0.00805217027664185,
+        "stains": 128
+      },
+      {
+        "maximum": 753.467,
+        "p50": 16.667,
+        "p95": 17.972,
+        "performance_metric": "wall_frame_ms",
+        "samples": 1177,
+        "scope": "Actual Main heavy live-shot/cosmetic interval at60FPS cap; CPU monitors and frame-wall intervals, not GPU timing or comparative baseline."
+      },
+      {
+        "maximum": 210.678,
+        "p50": 6.335,
+        "p95": 31.193,
+        "performance_metric": "process_cpu_ms",
+        "samples": 1177,
+        "scope": "Actual Main heavy live-shot/cosmetic interval at60FPS cap; CPU monitors and frame-wall intervals, not GPU timing or comparative baseline."
+      },
+      {
+        "maximum": 2299.003,
+        "p50": 5.875,
+        "p95": 24.032,
+        "performance_metric": "physics_cpu_ms",
+        "samples": 1177,
+        "scope": "Actual Main heavy live-shot/cosmetic interval at60FPS cap; CPU monitors and frame-wall intervals, not GPU timing or comparative baseline."
+      },
+      {
+        "performance_phase": "initial-world-setup",
+        "physics_cpu_ms": {
+          "maximum": 2299.003,
+          "p50": 0.252,
+          "p95": 2299.003,
+          "samples": 7
+        },
+        "process_cpu_ms": {
+          "maximum": 210.678,
+          "p50": 5.154,
+          "p95": 210.678,
+          "samples": 7
+        },
+        "wall_frame_ms": {
+          "maximum": 211.447,
+          "p50": 16.712,
+          "p95": 211.447,
+          "samples": 7
+        }
+      },
+      {
+        "performance_phase": "normal-pistol",
+        "physics_cpu_ms": {
+          "maximum": 6.316,
+          "p50": 6.316,
+          "p95": 6.316,
+          "samples": 115
+        },
+        "process_cpu_ms": {
+          "maximum": 24.936,
+          "p50": 24.936,
+          "p95": 24.936,
+          "samples": 115
+        },
+        "wall_frame_ms": {
+          "maximum": 25.253,
+          "p50": 16.664,
+          "p95": 18.768,
+          "samples": 115
+        }
+      },
+      {
+        "performance_phase": "postmortem-pistol-first-cold-chunks",
+        "physics_cpu_ms": {
+          "maximum": 6.316,
+          "p50": 3.49,
+          "p95": 6.316,
+          "samples": 24
+        },
+        "process_cpu_ms": {
+          "maximum": 24.936,
+          "p50": 5.274,
+          "p95": 24.936,
+          "samples": 24
+        },
+        "wall_frame_ms": {
+          "maximum": 19.26,
+          "p50": 16.665,
+          "p95": 17.022,
+          "samples": 24
+        }
+      },
+      {
+        "performance_phase": "retry-reset-cold-resource-boundary",
+        "physics_cpu_ms": {
+          "maximum": 736.942,
+          "p50": 736.942,
+          "p95": 736.942,
+          "samples": 8
+        },
+        "process_cpu_ms": {
+          "maximum": 57.409,
+          "p50": 57.409,
+          "p95": 57.409,
+          "samples": 8
+        },
+        "wall_frame_ms": {
+          "maximum": 753.467,
+          "p50": 16.705,
+          "p95": 753.467,
+          "samples": 8
+        }
+      },
+      {
+        "performance_phase": "shotgun-first",
+        "physics_cpu_ms": {
+          "maximum": 736.942,
+          "p50": 736.942,
+          "p95": 736.942,
+          "samples": 48
+        },
+        "process_cpu_ms": {
+          "maximum": 57.409,
+          "p50": 57.409,
+          "p95": 57.409,
+          "samples": 48
+        },
+        "wall_frame_ms": {
+          "maximum": 35.794,
+          "p50": 16.665,
+          "p95": 20.992,
+          "samples": 48
+        }
+      },
+      {
+        "performance_phase": "shotgun-warm-1",
+        "physics_cpu_ms": {
+          "maximum": 19.24,
+          "p50": 19.24,
+          "p95": 19.24,
+          "samples": 29
+        },
+        "process_cpu_ms": {
+          "maximum": 27.835,
+          "p50": 27.835,
+          "p95": 27.835,
+          "samples": 29
+        },
+        "wall_frame_ms": {
+          "maximum": 20.926,
+          "p50": 16.657,
+          "p95": 19.745,
+          "samples": 29
+        }
+      },
+      {
+        "performance_phase": "shotgun-warm-3",
+        "physics_cpu_ms": {
+          "maximum": 19.24,
+          "p50": 19.24,
+          "p95": 19.24,
+          "samples": 53
+        },
+        "process_cpu_ms": {
+          "maximum": 27.835,
+          "p50": 27.835,
+          "p95": 27.835,
+          "samples": 53
+        },
+        "wall_frame_ms": {
+          "maximum": 21.599,
+          "p50": 16.674,
+          "p95": 18.919,
+          "samples": 53
+        }
+      },
+      {
+        "performance_phase": "shotgun-warm-5",
+        "physics_cpu_ms": {
+          "maximum": 6.494,
+          "p50": 6.129,
+          "p95": 6.494,
+          "samples": 53
+        },
+        "process_cpu_ms": {
+          "maximum": 6.335,
+          "p50": 6.335,
+          "p95": 6.335,
+          "samples": 53
+        },
+        "wall_frame_ms": {
+          "maximum": 21.974,
+          "p50": 16.668,
+          "p95": 18.891,
+          "samples": 53
+        }
+      },
+      {
+        "performance_phase": "twin_shotgun-first",
+        "physics_cpu_ms": {
+          "maximum": 6.494,
+          "p50": 5.095,
+          "p95": 6.494,
+          "samples": 85
+        },
+        "process_cpu_ms": {
+          "maximum": 6.013,
+          "p50": 6.013,
+          "p95": 6.013,
+          "samples": 85
+        },
+        "wall_frame_ms": {
+          "maximum": 31.548,
+          "p50": 16.671,
+          "p95": 18.556,
+          "samples": 85
+        }
+      },
+      {
+        "performance_phase": "twin_shotgun-warm-7",
+        "physics_cpu_ms": {
+          "maximum": 7.449,
+          "p50": 7.449,
+          "p95": 7.449,
+          "samples": 56
+        },
+        "process_cpu_ms": {
+          "maximum": 31.193,
+          "p50": 31.193,
+          "p95": 31.193,
+          "samples": 56
+        },
+        "wall_frame_ms": {
+          "maximum": 20.216,
+          "p50": 16.671,
+          "p95": 18.127,
+          "samples": 56
+        }
+      },
+      {
+        "performance_phase": "twin_shotgun-warm-8",
+        "physics_cpu_ms": {
+          "maximum": 7.449,
+          "p50": 5.634,
+          "p95": 7.449,
+          "samples": 74
+        },
+        "process_cpu_ms": {
+          "maximum": 31.193,
+          "p50": 6.811,
+          "p95": 31.193,
+          "samples": 74
+        },
+        "wall_frame_ms": {
+          "maximum": 22.21,
+          "p50": 16.668,
+          "p95": 19.03,
+          "samples": 74
+        }
+      },
+      {
+        "performance_phase": "twin_shotgun-warm-10",
+        "physics_cpu_ms": {
+          "maximum": 6.485,
+          "p50": 5.159,
+          "p95": 6.485,
+          "samples": 74
+        },
+        "process_cpu_ms": {
+          "maximum": 6.811,
+          "p50": 6.113,
+          "p95": 6.811,
+          "samples": 74
+        },
+        "wall_frame_ms": {
+          "maximum": 22.806,
+          "p50": 16.67,
+          "p95": 18.164,
+          "samples": 74
+        }
+      },
+      {
+        "performance_phase": "siege_launcher-first",
+        "physics_cpu_ms": {
+          "maximum": 6.485,
+          "p50": 5.183,
+          "p95": 6.485,
+          "samples": 120
+        },
+        "process_cpu_ms": {
+          "maximum": 26.291,
+          "p50": 6.047,
+          "p95": 26.291,
+          "samples": 120
+        },
+        "wall_frame_ms": {
+          "maximum": 26.557,
+          "p50": 16.666,
+          "p95": 17.972,
+          "samples": 120
+        }
+      },
+      {
+        "performance_phase": "siege_launcher-warm-14",
+        "physics_cpu_ms": {
+          "maximum": 4.967,
+          "p50": 4.967,
+          "p95": 4.967,
+          "samples": 44
+        },
+        "process_cpu_ms": {
+          "maximum": 26.291,
+          "p50": 26.291,
+          "p95": 26.291,
+          "samples": 44
+        },
+        "wall_frame_ms": {
+          "maximum": 22.31,
+          "p50": 16.682,
+          "p95": 18.843,
+          "samples": 44
+        }
+      },
+      {
+        "performance_phase": "siege_launcher-warm-15",
+        "physics_cpu_ms": {
+          "maximum": 5.875,
+          "p50": 5.875,
+          "p95": 5.875,
+          "samples": 62
+        },
+        "process_cpu_ms": {
+          "maximum": 26.291,
+          "p50": 7.416,
+          "p95": 26.291,
+          "samples": 62
+        },
+        "wall_frame_ms": {
+          "maximum": 21.976,
+          "p50": 16.672,
+          "p95": 17.814,
+          "samples": 62
+        }
+      },
+      {
+        "performance_phase": "siege-crowd-four-scientists-cold-staff-chunks",
+        "physics_cpu_ms": {
+          "maximum": 5.875,
+          "p50": 5.508,
+          "p95": 5.875,
+          "samples": 65
+        },
+        "process_cpu_ms": {
+          "maximum": 7.416,
+          "p50": 6.504,
+          "p95": 7.416,
+          "samples": 65
+        },
+        "wall_frame_ms": {
+          "maximum": 40.488,
+          "p50": 16.659,
+          "p95": 18.46,
+          "samples": 65
+        }
+      },
+      {
+        "performance_phase": "mass-settlement-after-final48chunks",
+        "physics_cpu_ms": {
+          "maximum": 24.032,
+          "p50": 0.494,
+          "p95": 24.032,
+          "samples": 260
+        },
+        "process_cpu_ms": {
+          "maximum": 6.652,
+          "p50": 6.114,
+          "p95": 6.652,
+          "samples": 260
+        },
+        "wall_frame_ms": {
+          "maximum": 26.749,
+          "p50": 16.667,
+          "p95": 17.04,
+          "samples": 260
+        }
+      },
+      {
+        "largest_wall_frames": [
+          {
+            "particles": 0,
+            "phase": "retry-reset-cold-resource-boundary",
+            "physics_cpu_ms": 3.49,
+            "process_cpu_ms": 5.274,
+            "remains": 0,
+            "stains": 0,
+            "tick": 155,
+            "time_usec": 6129939,
+            "wall_frame_ms": 753.467
+          },
+          {
+            "particles": 0,
+            "phase": "initial-world-setup",
+            "physics_cpu_ms": 0.0,
+            "process_cpu_ms": 0.0,
+            "remains": 0,
+            "stains": 0,
+            "tick": 9,
+            "time_usec": 2977055,
+            "wall_frame_ms": 211.447
+          },
+          {
+            "particles": 0,
+            "phase": "retry-reset-cold-resource-boundary",
+            "physics_cpu_ms": 3.49,
+            "process_cpu_ms": 5.274,
+            "remains": 0,
+            "stains": 0,
+            "tick": 163,
+            "time_usec": 6188167,
+            "wall_frame_ms": 58.228
+          },
+          {
+            "particles": 256,
+            "phase": "siege-crowd-four-scientists-cold-staff-chunks",
+            "physics_cpu_ms": 5.508,
+            "process_cpu_ms": 6.504,
+            "remains": 128,
+            "stains": 116,
+            "tick": 929,
+            "time_usec": 18965554,
+            "wall_frame_ms": 40.488
+          },
+          {
+            "particles": 92,
+            "phase": "shotgun-first",
+            "physics_cpu_ms": 736.942,
+            "process_cpu_ms": 57.409,
+            "remains": 0,
+            "stains": 3,
+            "tick": 188,
+            "time_usec": 6606829,
+            "wall_frame_ms": 35.794
+          },
+          {
+            "particles": 0,
+            "phase": "twin_shotgun-first",
+            "physics_cpu_ms": 5.095,
+            "process_cpu_ms": 6.013,
+            "remains": 48,
+            "stains": 38,
+            "tick": 405,
+            "time_usec": 10223599,
+            "wall_frame_ms": 31.548
+          },
+          {
+            "particles": 0,
+            "phase": "shotgun-first",
+            "physics_cpu_ms": 736.942,
+            "process_cpu_ms": 57.409,
+            "remains": 0,
+            "stains": 0,
+            "tick": 173,
+            "time_usec": 6349322,
+            "wall_frame_ms": 28.127
+          },
+          {
+            "particles": 49,
+            "phase": "mass-settlement-after-final48chunks",
+            "physics_cpu_ms": 24.032,
+            "process_cpu_ms": 5.724,
+            "remains": 128,
+            "stains": 124,
+            "tick": 964,
+            "time_usec": 19535724,
+            "wall_frame_ms": 26.749
+          },
+          {
+            "particles": 0,
+            "phase": "siege_launcher-first",
+            "physics_cpu_ms": 5.183,
+            "process_cpu_ms": 6.047,
+            "remains": 96,
+            "stains": 71,
+            "tick": 715,
+            "time_usec": 15385658,
+            "wall_frame_ms": 26.557
+          },
+          {
+            "particles": 16,
+            "phase": "normal-pistol",
+            "physics_cpu_ms": 0.252,
+            "process_cpu_ms": 5.154,
+            "remains": 0,
+            "stains": 1,
+            "tick": 21,
+            "time_usec": 3172928,
+            "wall_frame_ms": 25.253
+          },
+          {
+            "particles": 6,
+            "phase": "twin_shotgun-warm-10",
+            "physics_cpu_ms": 5.159,
+            "process_cpu_ms": 6.113,
+            "remains": 78,
+            "stains": 63,
+            "tick": 599,
+            "time_usec": 13448216,
+            "wall_frame_ms": 22.806
+          },
+          {
+            "particles": 0,
+            "phase": "normal-pistol",
+            "physics_cpu_ms": 0.252,
+            "process_cpu_ms": 5.154,
+            "remains": 0,
+            "stains": 0,
+            "tick": 16,
+            "time_usec": 3082738,
+            "wall_frame_ms": 22.718
+          }
+        ],
+        "scope": "Process-frame phase tags bracket real callback work; TIME_* CPU monitors may report prior frame. Exact synchronous try_fire and event timestamps separately identify construction."
+      },
+      {
+        "contacts": 10,
+        "reason": "volume contacts enclose projected center",
+        "support_fixture": "entry_Floor"
+      },
+      {
+        "contacts": 10,
+        "reason": "volume contacts enclose projected center",
+        "support_fixture": "arena_one_GalleryStairs-10"
+      },
+      {
+        "position": "(-4.9, 1.62, -76.0)",
+        "reason": "no stable local support; continue falling",
+        "support_fixture": "actual gallery outside edge",
+        "supported": false
+      }
+    ],
+    "resolved_event_trace": [
+      {
+        "observed_usec": 3145252,
+        "phase": "normal-pistol",
+        "shot_id": 1,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 3510706,
+        "phase": "normal-pistol",
+        "shot_id": 2,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 3877116,
+        "phase": "normal-pistol",
+        "shot_id": 3,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 4243765,
+        "phase": "normal-pistol",
+        "shot_id": 4,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 4246174,
+        "phase": "normal-pistol",
+        "shot_id": 4,
+        "target_id": "enemy_unsealed_0",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 5027208,
+        "phase": "postmortem-pistol-first-cold-chunks",
+        "shot_id": 5,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 5393712,
+        "phase": "postmortem-pistol-first-cold-chunks",
+        "shot_id": 6,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 5412094,
+        "phase": "postmortem-pistol-first-cold-chunks",
+        "shot_id": 6,
+        "target_id": "enemy_unsealed_0",
+        "type": "corpse_gib"
+      },
+      {
+        "observed_usec": 6588325,
+        "phase": "shotgun-first",
+        "shot_id": 1,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 6605570,
+        "phase": "shotgun-first",
+        "shot_id": 1,
+        "target_id": "enemy_unsealed_0",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 7576070,
+        "phase": "shotgun-warm-1",
+        "shot_id": 2,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 7579192,
+        "phase": "shotgun-warm-1",
+        "shot_id": 2,
+        "target_id": "enemy_unsealed_1",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 8459332,
+        "phase": "shotgun-warm-3",
+        "shot_id": 3,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 8462823,
+        "phase": "shotgun-warm-3",
+        "shot_id": 3,
+        "target_id": "enemy_unsealed_3",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 9342665,
+        "phase": "shotgun-warm-5",
+        "shot_id": 4,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 9345752,
+        "phase": "shotgun-warm-5",
+        "shot_id": 4,
+        "target_id": "enemy_unsealed_5",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 10459498,
+        "phase": "twin_shotgun-first",
+        "shot_id": 5,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 10462938,
+        "phase": "twin_shotgun-first",
+        "shot_id": 5,
+        "target_id": "enemy_unsealed_6",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 11692570,
+        "phase": "twin_shotgun-warm-7",
+        "shot_id": 6,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 11695873,
+        "phase": "twin_shotgun-warm-7",
+        "shot_id": 6,
+        "target_id": "enemy_unsealed_7",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 12925823,
+        "phase": "twin_shotgun-warm-8",
+        "shot_id": 7,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 12928929,
+        "phase": "twin_shotgun-warm-8",
+        "shot_id": 7,
+        "target_id": "enemy_unsealed_8",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 14159102,
+        "phase": "twin_shotgun-warm-10",
+        "shot_id": 8,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 14162240,
+        "phase": "twin_shotgun-warm-10",
+        "shot_id": 8,
+        "target_id": "enemy_unsealed_10",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 15625778,
+        "phase": "siege_launcher-first",
+        "shot_id": 9,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 15842648,
+        "phase": "siege_launcher-first",
+        "shot_id": 9,
+        "target_id": "",
+        "type": "ordnance_explosion"
+      },
+      {
+        "observed_usec": 15846317,
+        "phase": "siege_launcher-first",
+        "shot_id": 9,
+        "target_id": "enemy_unsealed_13",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 16659286,
+        "phase": "siege_launcher-warm-14",
+        "shot_id": 10,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 16875858,
+        "phase": "siege_launcher-warm-14",
+        "shot_id": 10,
+        "target_id": "",
+        "type": "ordnance_explosion"
+      },
+      {
+        "observed_usec": 16879486,
+        "phase": "siege_launcher-warm-14",
+        "shot_id": 10,
+        "target_id": "enemy_unsealed_14",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 17692320,
+        "phase": "siege_launcher-warm-15",
+        "shot_id": 11,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 17909112,
+        "phase": "siege_launcher-warm-15",
+        "shot_id": 11,
+        "target_id": "",
+        "type": "ordnance_explosion"
+      },
+      {
+        "observed_usec": 17912694,
+        "phase": "siege_launcher-warm-15",
+        "shot_id": 11,
+        "target_id": "enemy_unsealed_15",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 18725879,
+        "phase": "siege-crowd-four-scientists-cold-staff-chunks",
+        "shot_id": 12,
+        "target_id": "",
+        "type": "shot"
+      },
+      {
+        "observed_usec": 18942859,
+        "phase": "siege-crowd-four-scientists-cold-staff-chunks",
+        "shot_id": 12,
+        "target_id": "",
+        "type": "ordnance_explosion"
+      },
+      {
+        "observed_usec": 18954538,
+        "phase": "siege-crowd-four-scientists-cold-staff-chunks",
+        "shot_id": 12,
+        "target_id": "enemy_infected_scientist_9",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 18958212,
+        "phase": "siege-crowd-four-scientists-cold-staff-chunks",
+        "shot_id": 12,
+        "target_id": "enemy_infected_scientist_25",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 18961198,
+        "phase": "siege-crowd-four-scientists-cold-staff-chunks",
+        "shot_id": 12,
+        "target_id": "enemy_infected_scientist_22",
+        "type": "enemy_death"
+      },
+      {
+        "observed_usec": 18964269,
+        "phase": "siege-crowd-four-scientists-cold-staff-chunks",
+        "shot_id": 12,
+        "target_id": "enemy_infected_scientist_12",
+        "type": "enemy_death"
+      }
+    ],
+    "scope": "Controlled actual Main Intake real accepted hitscan/projectile shots. Player and authored actors repositioned, AI/world movement frozen, real combat/gore clocks and unchanged damage resources. Native cosmetic geometry/pause/mute/Retry; no player traversal, subjective art/listening or unchanged-performance claim.",
+    "status": "passed"
+  },
+  "packed": false,
+  "native_renderer": true,
+  "auditor_sha256": "ea4d5cd02a56f6bf533a7ef7a5335d78771a6bde2b47498bf313c07c048f1a4f"
+}

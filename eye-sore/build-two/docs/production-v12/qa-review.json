@@ -1,0 +1,82 @@
+{
+  "version": "gore-v12-independent-qa",
+  "status": "source-native-passed-awaiting-export",
+  "baseline_commit": "7b2b316313a34dd9928862317bf18a39db24859d",
+  "source_scope": "462 sealed baseline Git blobs. All9maps, Main/player/enemyAI/lighting/weapons/artPNG/audio streams and63cue profile unchanged. Only3gore files, new closed-mesh helper+UID and exact known visual-credits appendix allowed.",
+  "geometry_helper_sha256": "42016b9cde998075c5e8eeaa4b67a71cce0aa02aab65c190cfc33e76977f528a",
+  "actual_main_native_report": "verification/production-v12/gore/main-native-phase-final.json",
+  "actual_main_native_checks": 719,
+  "capture_report": "verification/production-v12/gore/main-native.json",
+  "native_capture_checks": 734,
+  "capture_directory": "verification/production-v12/gore/native-views",
+  "capture_labels": [
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/normal-intact-corpse.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/shotgun-burst-00.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/shotgun-burst-06.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/shotgun-burst-12.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/shotgun-burst-18.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/twin_shotgun-burst-00.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/twin_shotgun-burst-06.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/twin_shotgun-burst-12.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/twin_shotgun-burst-18.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/siege_launcher-burst-00.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/siege_launcher-burst-06.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/siege_launcher-burst-12.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/siege_launcher-burst-18.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/siege-heavy-live.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/heavy-settled-side.png",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v12/gore/native-views/heavy-settled-low-angle.png"
+  ],
+  "actual_runtime_outcomes": {
+    "normal_death": "Full-health authored Unsealed,4 real pistol hits: intact visible final corpse, blood pool,0detachedchunks. Subsequent real corpse contacts rupture once without another kill.",
+    "heavy": "12 real accepted SG/Twin/Siege shots yield15unique deaths. Finite sampled blood P16hurt/SG80rupture/Twin96rupture/Siege96rupture;12closedparts per Unsealed rupture. Four-scientist swept Siege blast reaches256flying cap; settled scene reaches128chunks,128stains,0liveparticles.",
+    "geometry": "Every settled chunk has3positive mesh axes, no collision descendants. Three representative actual meshes have closed triangle-edge topology; floor and authored stair tread supply10real contacts each; unsupported gallery edge rejected. Approx8mm representative ground clearance.",
+    "lifecycle": "Real pause freezes particle positions+ages and rejects trigger; Master mute permits cosmetic motion without new gameplay ownership. Retry destroys old owner and clears nodes/dedup/deaths, restoring36actors."
+  },
+  "performance": {
+    "method": "Native real Main at60FPS cap; frame-wall timings and exact synchronous trigger/event timestamps. CPU Performance monitors can carry old values across phases; direct inherited-super timings owned by runtime worker corroborate. No GPU timing or comparative60FPS guarantee.",
+    "retry_world_rebuild_ms": 713.461,
+    "retry_wall_ms": {
+      "maximum": 753.467,
+      "p50": 16.705,
+      "p95": 753.467,
+      "samples": 8
+    },
+    "first_cold_shotgun_wall_ms": {
+      "maximum": 35.794,
+      "p50": 16.665,
+      "p95": 20.992,
+      "samples": 48
+    },
+    "mass48chunk_settlement_wall_ms": {
+      "maximum": 26.749,
+      "p50": 16.667,
+      "p95": 17.04,
+      "samples": 260
+    },
+    "four_scientist_siege_wall_ms": {
+      "maximum": 40.488,
+      "p50": 16.659,
+      "p95": 18.46,
+      "samples": 65
+    },
+    "conclusion": "The initial aggregate~0.75s maximum is synchronous Retry/world reconstruction with0gore nodes before first SG shot, not a gore combat stall. Measured live coldSGmax35.8ms, warmSG~22ms, masssettlement26.75ms,4staffblast40.49ms. No gameplay/runtime optimization was introduced from the misleading aggregate monitor."
+  },
+  "retained_failures": [
+    "main-initial.*: fixture mishandled intentional SpriteQueryOwner sentinel; narrowly fixed, no runtime change.",
+    "main-contact-corrected.*: fixture parse correction.",
+    "main-contact-final.*: initial opaque centre aim failed; corrected via actual triangle contacts in the same2m proven lane, no health/damage override."
+  ],
+  "fixture_limits": [
+    "Authored actors and frozen player are repositioned into declared Intake centre-lane/crowd cases. AI/world physics frozen; actual combat/gore/projectile clocks and unchanged damage resources live.",
+    "Native screenshots are controlled fixture views; no traversal, balance or subjective listening claim.",
+    "World-geometry support helper test is explicitly controlled; all9scene byte identity is protected independently.",
+    "Packaged archive/PCK checks await clean root export; archived ELF is never executed by this auditor."
+  ],
+  "tools": [
+    "tools/check_gore_v12.py",
+    "tools/check_gore_v12.gd",
+    "tools/capture_gore_v12.gd",
+    "tools/check_gore_archive_v12.py"
+  ]
+}
