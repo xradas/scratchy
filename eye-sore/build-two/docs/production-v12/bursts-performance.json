@@ -1,0 +1,57 @@
+{
+  "schema_version": 12,
+  "decision": "No production optimization applied: phase timing locates the ~0.75s outlier in Retry world rebuild before combat, not gore construction or settling.",
+  "production_unchanged_since_final_runtime_proof": true,
+  "helper_sha256": "42016b9cde998075c5e8eeaa4b67a71cce0aa02aab65c190cfc33e76977f528a",
+  "scope": [
+    "Actual native Main Intake accepted shotgun rupture and one actual swept Siege blast rupturing four authored scientists, using tool-only GorePhaseProbe subclass. All measured behavior delegates unchanged to production super methods.",
+    "Separate independent full Main phase report brackets initial world setup and Retry; per-frame wall times distinguish these from combat.",
+    "This is bounded diagnostic evidence on the current machine; no claim of unchanged baseline performance, GPU frame cost or complete campaign performance. TIME_* CPU monitors can retain prior interval values and must not be attributed to a shot without direct timing/phase tags."
+  ],
+  "actual_main_direct_probe": {
+    "report": "verification/production-v12/bursts-performance/main-phase-native.json",
+    "fixture_failures": [],
+    "largest_event_ms": 18.0,
+    "largest_gore_physics_ms": 8.971,
+    "largest_support_cpu_in_one_tick_ms": 7.96,
+    "cold_scientist_event_ms": 9.521
+  },
+  "independent_full_main": {
+    "report": "verification/production-v12/gore/main-native-phase-final.native.json",
+    "status": "passed",
+    "checks": 719,
+    "retry_sync_ms": 713.461,
+    "retry_wall_max_ms": 753.467,
+    "cold_shotgun_wall": {
+      "maximum": 35.794,
+      "p50": 16.665,
+      "p95": 20.992,
+      "samples": 48
+    },
+    "four_scientist_siege_wall": {
+      "maximum": 40.488,
+      "p50": 16.659,
+      "p95": 18.46,
+      "samples": 65
+    },
+    "mass_settlement_wall": {
+      "maximum": 26.749,
+      "p50": 16.667,
+      "p95": 17.04,
+      "samples": 260
+    }
+  },
+  "mesh_construction_microbenchmark": {
+    "report": "verification/production-v12/bursts-performance/build-native.json",
+    "scope": "Production profile/part_spec and Chunk.create cold/warm resource construction only; noCombat damage/settlement/scene work. Main phase profiler separate.",
+    "cold_species_total_ms_range": [
+      4.927,
+      18.791
+    ],
+    "warm_species_total_ms_range": [
+      0.409,
+      0.523
+    ]
+  },
+  "retained_functional_proof": "verification/production-v12/bursts/runtime-{headless,native}.json:98/98 each on exact42016helper; unchanged Main seven-pellet/12-grounded-part/four-second/Retry smoke passes."
+}
