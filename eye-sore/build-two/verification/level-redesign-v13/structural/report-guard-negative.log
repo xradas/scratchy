@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: RELEASE_STAGE_ROUTE: Report directory must be absolute and outside the source/package directory
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (res://scripts/release_stage_playtest.gd:42)
+       [1] configure_v13 (res://scripts/level_route_playtest_v13.gd:26)
+       [2] run (res://scripts/level_route_playtest_v13.gd:30)
+LEVELS_V13_ROUTE failed 0/1 ["Report directory must be absolute and outside the source/package directory"]
+LEVELS_V13_TEARDOWN {"complete":true,"freed_main_drain_wall_ms":255,"gameplay_changed":false,"stopped_audio_wall_ms":305}

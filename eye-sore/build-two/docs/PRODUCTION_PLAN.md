@@ -1,5 +1,7 @@
 # Eyesore build two
 
+Historical foundation plan from the initial build-two milestone. Later user decisions expanded the arsenal and nine-level campaign. Current construction scope, progression contracts and acceptance gates are in [level-redesign-v13/README.md](level-redesign-v13/README.md), [contracts.json](level-redesign-v13/contracts.json) and the [structural review](level-redesign-v13/structural-proposals.md); their explicit later decisions supersede the original one-level/weapon scope below. Original per-level music remains deferred.
+
 Target: a new standalone Linux game in Godot 4.7.2, GDScript, Compatibility renderer. One polished 5–8 minute level with classic Doom-inspired combat and exploration, mouse free look, original hand-authored pixel artwork, recorded physical gun sounds, and aggressive library music.
 
 ## Review gates

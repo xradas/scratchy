@@ -33,6 +33,7 @@ BAD_OUTPUT = re.compile(r"(?:^|\n)\s*(?:SCRIPT ERROR:|ERROR:|WARNING:)|SMOKE_FAI
 EXCLUDED = {".godot", ".git", "build", "concepts", "docs", "tools", "verification"}
 STYLE_PASS_LIMITATIONS = [
     "V13 rebuilds only the three Pale Ward maps; the other six playable maps retain their prior layouts. New Ward human-paced 20–25 minute exploration and visual acceptance remain pending. Session-only checkpoints do not survive title return or closing the game.",
+    "Checkpoint Continue restores logical deaths/corpses and inventory; transient blood and gib fragments are cleared rather than saved.",
     "V12 gore uses bounded cosmetic closed meshes textured from existing painted parts; final human visual review of breakup, settling and blood intensity remains pending.",
     "Current style pass combines world, viewgun and muzzle presentation at a 320 × 180 display grid; human visual acceptance against the approved concept remains pending.",
     "The four new creatures have eight directional stance images and frontal combat/death sequences; the Ward creatures retain frontal sequences. Complete animation in eight directions remains work.",
@@ -380,15 +381,22 @@ def package(args: argparse.Namespace) -> dict:
             "Find heavy weapons: 4 twin shotgun, 5 rivet cannon, 6 siege launcher.\n"
             "Weapon caches spring ambushes; clear the fight to reopen retreat.\n"
             "E uses doors/lift/exit; walk over pickups; Tab shows visited areas.\n"
-            "Escape pauses/settings; Retry restores the level-entry loadout. No jump/dash/reload.\n"
+            "Ctrl crouches, Shift sprints; Escape pauses/settings. No jump/dash/reload.\n"
+            "Ward checkpoint stations retain the latest safe milestone this session.\n"
+            "Death: Continue restores that checkpoint; Restart Level uses level entry.\n"
+            "Title, New Game, transition and closing clear checkpoints; no disk save.\n"
             "Continue carries health, armor, weapons and ammunition into the next level.\n"
             "Campaign capacity: 96 pistol rounds, 40 shells, 160 rivets, 12 rockets.\n"
             "Full ammo boxes stay available; the selected gun HUD shows ammo/capacity.\n"
             "Ward Intake has a signed Twin cache; Containment introduces Rivet; Breach introduces Siege.\n\n"
-            "Clear each arena to enable its marked control. Use the breaker, find\n"
-            "the brass key, return through the shortcut, then release the red-key\n"
-            "wing. Clear the final arena and enable its exit control. Side rooms\n"
-            "and secrets are optional. The three chapters follow in that order.\n"
+            "Ward Intake: restore power, retrieve surgical credential, return through\n"
+            "sterile supply, survive decontamination and take the transfer lift.\n"
+            "Ward Containment: isolate culture/waste feeds in either order; both drain\n"
+            "the basin and open firing balconies. All enemy kills are not required.\n"
+            "Ward Breach: destroy three anchors during the descent, then reach rupture.\n"
+            "Shared courts, raised firing positions and return shortcuts join Ward areas.\n"
+            "The six later maps retain the breaker/key/arena progression for now.\n"
+            "Side rooms and secrets are optional. Chapters follow in the above order.\n"
             "The previous three standalone stages remain selectable separately.\n\n"
             "Linux x86_64 graphics/audio/system libraries required. Assets are embedded.\n"
             "Native release smoke passed from /tmp; see smoke.log and BUILD.json.\n"

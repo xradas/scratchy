@@ -14,9 +14,9 @@
   ],
   "protected_scene_art_files": 319,
   "outputs": {
-    "scenes/campaign/pale_ward_01.tscn": "a4033335a6aaae0cd5847dd2968ee440c3d6620f9beb9c85fc15e9247050274a",
-    "resources/campaign/pale_ward_01-layout.json": "55cacdcaefb2fbe1bac32deb16d2b84c5c64e514ab8d87892ede331a4ae0c360",
-    "resources/campaign/pale_ward_01-route.json": "c928585bc941668f695ded662dcb9ce7542458787ca0875eee83fd4a648e7efd",
+    "scenes/campaign/pale_ward_01.tscn": "8ca7771158a0e4f28d97dbe058890cebd7297e9dbcecd0f6edcaad7e1f7aa5a0",
+    "resources/campaign/pale_ward_01-layout.json": "702ca101f89ec994f5b333b66120503360d61c2454acb4be232a8278ba1ca25c",
+    "resources/campaign/pale_ward_01-route.json": "6a2c2ec39d67e724219c8254ea9de22fefcbe8fad4fa29337fd590cdbee65466",
     "resources/campaign/v13/pale_ward_01-objectives.tres": "532278859e1d55d50223129663b54bddaa77b4251e9881cd05a72304f5979cab"
   },
   "geometry": [
@@ -132,126 +132,6 @@
         0.4,
         4.8,
         12.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_triage__nurse_0_Floor",
-      "parent": ".",
-      "position": [
-        -22.0,
-        -0.25,
-        -40.0
-      ],
-      "size": [
-        10.12,
-        0.5,
-        5.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_triage__nurse_0_LandingA",
-      "parent": ".",
-      "position": [
-        -17.0,
-        -0.25,
-        -40
-      ],
-      "size": [
-        0.35,
-        0.5,
-        5.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_triage__nurse_0_LandingB",
-      "parent": ".",
-      "position": [
-        -27.0,
-        -0.25,
-        -40
-      ],
-      "size": [
-        0.35,
-        0.5,
-        5.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_triage__nurse_0_Roof",
-      "parent": ".",
-      "position": [
-        -22.0,
-        4.95,
-        -40.0
-      ],
-      "size": [
-        10.12,
-        0.3,
-        5.8
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_triage__nurse_0_Wall-1",
-      "parent": ".",
-      "position": [
-        -22.0,
-        2.4,
-        -42.7
-      ],
-      "size": [
-        10.0,
-        4.8,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "Link_triage__nurse_0_Wall1",
-      "parent": ".",
-      "position": [
-        -22.0,
-        2.4,
-        -37.3
-      ],
-      "size": [
-        10.0,
-        4.8,
-        0.4
       ],
       "rotation": [
         0,
@@ -5121,6 +5001,566 @@
       "type": "AnimatableBody3D"
     },
     {
+      "name": "Structural_triage_nurse_court_CourtFloor",
+      "parent": ".",
+      "position": [
+        -22,
+        -0.25,
+        -40
+      ],
+      "size": [
+        10.4,
+        0.5,
+        18.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_CourtRoof",
+      "parent": ".",
+      "position": [
+        -22,
+        5.65,
+        -40
+      ],
+      "size": [
+        10.8,
+        0.3,
+        18.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_CourtNorth",
+      "parent": ".",
+      "position": [
+        -22,
+        2.75,
+        -49.2
+      ],
+      "size": [
+        10.4,
+        5.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_CourtSouth",
+      "parent": ".",
+      "position": [
+        -22,
+        2.75,
+        -30.8
+      ],
+      "size": [
+        10.4,
+        5.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthCover",
+      "parent": ".",
+      "position": [
+        -22,
+        0.7,
+        -45
+      ],
+      "size": [
+        2.5,
+        1.4,
+        1.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthCover",
+      "parent": ".",
+      "position": [
+        -22,
+        0.7,
+        -35
+      ],
+      "size": [
+        2.5,
+        1.4,
+        1.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthLedge",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.625,
+        -44.125
+      ],
+      "size": [
+        3,
+        1.25,
+        4.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthLedge",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.625,
+        -35.875
+      ],
+      "size": [
+        3,
+        1.25,
+        4.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthStair_0",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.0625,
+        -51.25
+      ],
+      "size": [
+        3,
+        0.125,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthStair_1",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.125,
+        -50.75
+      ],
+      "size": [
+        3,
+        0.25,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthStair_2",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.1875,
+        -50.25
+      ],
+      "size": [
+        3,
+        0.375,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthStair_3",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.25,
+        -49.75
+      ],
+      "size": [
+        3,
+        0.5,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthStair_4",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.3125,
+        -49.25
+      ],
+      "size": [
+        3,
+        0.625,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthStair_5",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.375,
+        -48.75
+      ],
+      "size": [
+        3,
+        0.75,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthStair_6",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.4375,
+        -48.25
+      ],
+      "size": [
+        3,
+        0.875,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthStair_7",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.5,
+        -47.75
+      ],
+      "size": [
+        3,
+        1.0,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthStair_8",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.5625,
+        -47.25
+      ],
+      "size": [
+        3,
+        1.125,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_NorthStair_9",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.625,
+        -46.75
+      ],
+      "size": [
+        3,
+        1.25,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthStair_0",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.0625,
+        -28.75
+      ],
+      "size": [
+        3,
+        0.125,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthStair_1",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.125,
+        -29.25
+      ],
+      "size": [
+        3,
+        0.25,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthStair_2",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.1875,
+        -29.75
+      ],
+      "size": [
+        3,
+        0.375,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthStair_3",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.25,
+        -30.25
+      ],
+      "size": [
+        3,
+        0.5,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthStair_4",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.3125,
+        -30.75
+      ],
+      "size": [
+        3,
+        0.625,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthStair_5",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.375,
+        -31.25
+      ],
+      "size": [
+        3,
+        0.75,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthStair_6",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.4375,
+        -31.75
+      ],
+      "size": [
+        3,
+        0.875,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthStair_7",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.5,
+        -32.25
+      ],
+      "size": [
+        3,
+        1.0,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthStair_8",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.5625,
+        -32.75
+      ],
+      "size": [
+        3,
+        1.125,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "Structural_triage_nurse_court_SouthStair_9",
+      "parent": ".",
+      "position": [
+        -28.5,
+        0.625,
+        -33.25
+      ],
+      "size": [
+        3,
+        1.25,
+        0.508
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
       "name": "reception_Floor",
       "parent": ".",
       "position": [
@@ -6466,12 +6906,12 @@
       "position": [
         -17.0,
         1.9,
-        -48.25
+        -51.5
       ],
       "size": [
         0.4,
         3.8,
-        11.5
+        5.0
       ],
       "rotation": [
         0,
@@ -6485,13 +6925,13 @@
       "parent": ".",
       "position": [
         -17.0,
-        6.4,
-        -48.25
+        4.65,
+        -51.5
       ],
       "size": [
         0.4,
-        5.2,
-        11.5
+        1.7000000000000002,
+        5.0
       ],
       "rotation": [
         0,
@@ -6505,12 +6945,12 @@
       "parent": ".",
       "position": [
         -17.0,
-        6.4,
-        -40.0
+        7.25,
+        -51.5
       ],
       "size": [
         0.4,
-        5.2,
+        3.5,
         5.0
       ],
       "rotation": [
@@ -6525,13 +6965,13 @@
       "parent": ".",
       "position": [
         -17.0,
-        1.9,
-        -31.75
+        7.25,
+        -45.75
       ],
       "size": [
         0.4,
-        3.8,
-        11.5
+        3.5,
+        6.5
       ],
       "rotation": [
         0,
@@ -6545,13 +6985,93 @@
       "parent": ".",
       "position": [
         -17.0,
-        6.4,
-        -31.75
+        7.25,
+        -40.0
       ],
       "size": [
         0.4,
-        5.2,
-        11.5
+        3.5,
+        5.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "triage_Wall_W5",
+      "parent": ".",
+      "position": [
+        -17.0,
+        7.25,
+        -34.25
+      ],
+      "size": [
+        0.4,
+        3.5,
+        6.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "triage_Wall_W6",
+      "parent": ".",
+      "position": [
+        -17.0,
+        1.9,
+        -28.5
+      ],
+      "size": [
+        0.4,
+        3.8,
+        5.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "triage_Wall_W7",
+      "parent": ".",
+      "position": [
+        -17.0,
+        4.65,
+        -28.5
+      ],
+      "size": [
+        0.4,
+        1.7000000000000002,
+        5.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "triage_Wall_W8",
+      "parent": ".",
+      "position": [
+        -17.0,
+        7.25,
+        -28.5
+      ],
+      "size": [
+        0.4,
+        3.5,
+        5.0
       ],
       "rotation": [
         0,
@@ -7746,12 +8266,12 @@
       "position": [
         -27.0,
         1.9,
-        -47.25
+        -50.5
       ],
       "size": [
         0.4,
         3.8,
-        9.5
+        3.0
       ],
       "rotation": [
         0,
@@ -7765,13 +8285,13 @@
       "parent": ".",
       "position": [
         -27.0,
-        5.4,
-        -47.25
+        4.65,
+        -50.5
       ],
       "size": [
         0.4,
-        3.2,
-        9.5
+        1.7000000000000002,
+        3.0
       ],
       "rotation": [
         0,
@@ -7785,13 +8305,13 @@
       "parent": ".",
       "position": [
         -27.0,
-        5.4,
-        -40.0
+        6.25,
+        -50.5
       ],
       "size": [
         0.4,
-        3.2,
-        5.0
+        1.5,
+        3.0
       ],
       "rotation": [
         0,
@@ -7805,13 +8325,13 @@
       "parent": ".",
       "position": [
         -27.0,
-        1.9,
-        -32.75
+        6.25,
+        -45.75
       ],
       "size": [
         0.4,
-        3.8,
-        9.5
+        1.5,
+        6.5
       ],
       "rotation": [
         0,
@@ -7825,13 +8345,93 @@
       "parent": ".",
       "position": [
         -27.0,
-        5.4,
-        -32.75
+        6.25,
+        -40.0
       ],
       "size": [
         0.4,
-        3.2,
-        9.5
+        1.5,
+        5.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "nurse_Wall_E5",
+      "parent": ".",
+      "position": [
+        -27.0,
+        6.25,
+        -34.25
+      ],
+      "size": [
+        0.4,
+        1.5,
+        6.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "nurse_Wall_E6",
+      "parent": ".",
+      "position": [
+        -27.0,
+        1.9,
+        -29.5
+      ],
+      "size": [
+        0.4,
+        3.8,
+        3.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "nurse_Wall_E7",
+      "parent": ".",
+      "position": [
+        -27.0,
+        4.65,
+        -29.5
+      ],
+      "size": [
+        0.4,
+        1.7000000000000002,
+        3.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "nurse_Wall_E8",
+      "parent": ".",
+      "position": [
+        -27.0,
+        6.25,
+        -29.5
+      ],
+      "size": [
+        0.4,
+        1.5,
+        3.0
       ],
       "rotation": [
         0,
@@ -21088,9 +21688,9 @@
       "room": "nurse",
       "type": "records_cabinet",
       "position_local": [
-        10,
+        7,
         0,
-        -9
+        -10
       ],
       "heading": -90
     },
@@ -22671,18 +23271,6 @@
       "damaged": false
     },
     {
-      "id": "Link_triage__nurse_0_Fixture",
-      "room": "triage",
-      "kind": "tube",
-      "position": [
-        -22.0,
-        4.62,
-        -40.0
-      ],
-      "energy": 1.6,
-      "damaged": false
-    },
-    {
       "id": "Link_nurse__maintenance_0_Fixture",
       "room": "nurse",
       "kind": "tube",
@@ -22932,6 +23520,18 @@
         80.0
       ],
       "energy": 1.6,
+      "damaged": false
+    },
+    {
+      "id": "Structural_triage_nurse_court_CourtLamp",
+      "room": "nurse",
+      "kind": "tube",
+      "position": [
+        -22,
+        5.25,
+        -40
+      ],
+      "energy": 3.8,
       "damaged": false
     },
     {
@@ -23509,6 +24109,342 @@
       ],
       "energy": 3.8,
       "damaged": false
+    }
+  ],
+  "structural_connections": [
+    {
+      "id": "triage_nurse_court",
+      "portal": "triage__nurse",
+      "rooms": [
+        "triage",
+        "nurse"
+      ],
+      "policy": "Ungated shared combat court replaces existing ungated connector; no new graph edge. Split ledge preserves3.5m ground axis.",
+      "apertures": [
+        {
+          "room": "triage",
+          "side": "W",
+          "plane": -17,
+          "span": [
+            -49,
+            -31
+          ],
+          "height": [
+            0,
+            5.5
+          ]
+        },
+        {
+          "room": "nurse",
+          "side": "E",
+          "plane": -27,
+          "span": [
+            -49,
+            -31
+          ],
+          "height": [
+            0,
+            5.5
+          ]
+        }
+      ],
+      "boxes": [
+        {
+          "id": "CourtFloor",
+          "position": [
+            -22,
+            -0.25,
+            -40
+          ],
+          "size": [
+            10.4,
+            0.5,
+            18.4
+          ],
+          "role": "floor"
+        },
+        {
+          "id": "CourtRoof",
+          "position": [
+            -22,
+            5.65,
+            -40
+          ],
+          "size": [
+            10.8,
+            0.3,
+            18.8
+          ],
+          "role": "ceiling"
+        },
+        {
+          "id": "CourtNorth",
+          "position": [
+            -22,
+            2.75,
+            -49.2
+          ],
+          "size": [
+            10.4,
+            5.5,
+            0.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "CourtSouth",
+          "position": [
+            -22,
+            2.75,
+            -30.8
+          ],
+          "size": [
+            10.4,
+            5.5,
+            0.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "NorthCover",
+          "position": [
+            -22,
+            0.7,
+            -45
+          ],
+          "size": [
+            2.5,
+            1.4,
+            1.8
+          ],
+          "role": "panel"
+        },
+        {
+          "id": "SouthCover",
+          "position": [
+            -22,
+            0.7,
+            -35
+          ],
+          "size": [
+            2.5,
+            1.4,
+            1.8
+          ],
+          "role": "panel"
+        },
+        {
+          "id": "NorthLedge",
+          "position": [
+            -28.5,
+            0.625,
+            -44.125
+          ],
+          "size": [
+            3,
+            1.25,
+            4.75
+          ],
+          "role": "floor"
+        },
+        {
+          "id": "SouthLedge",
+          "position": [
+            -28.5,
+            0.625,
+            -35.875
+          ],
+          "size": [
+            3,
+            1.25,
+            4.75
+          ],
+          "role": "floor"
+        }
+      ],
+      "stairs": [
+        {
+          "id": "NorthStair",
+          "start": [
+            -28.5,
+            0,
+            -51.5
+          ],
+          "end": [
+            -28.5,
+            1.25,
+            -46.5
+          ],
+          "width": 3
+        },
+        {
+          "id": "SouthStair",
+          "start": [
+            -28.5,
+            0,
+            -28.5
+          ],
+          "end": [
+            -28.5,
+            1.25,
+            -33.5
+          ],
+          "width": 3
+        }
+      ],
+      "actor_overrides": [
+        {
+          "stable_id": "pale_ward_01.nurse.enemy.2",
+          "kind": "infected_security",
+          "position": [
+            -28.5,
+            2.12,
+            -43
+          ],
+          "reason": "Supported elevated cross-area angle;13.51m horizontal to triage test stance."
+        }
+      ],
+      "shot_pairs": [
+        {
+          "id": "elevated_nurse_to_triage",
+          "a": [
+            -28.5,
+            2.57,
+            -43
+          ],
+          "b": [
+            -15,
+            1.17,
+            -42.5
+          ],
+          "state": "always",
+          "bidirectional": true
+        }
+      ],
+      "solid_pairs": [
+        {
+          "id": "court_north_wall",
+          "a": [
+            -22,
+            1.6,
+            -48
+          ],
+          "b": [
+            -22,
+            1.6,
+            -50
+          ]
+        }
+      ],
+      "walk_paths": [
+        {
+          "id": "north_ledge",
+          "points": [
+            [
+              -28.5,
+              0,
+              -51.35
+            ],
+            [
+              -28.5,
+              1.25,
+              -46.5
+            ],
+            [
+              -28.5,
+              1.25,
+              -43
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "south_ledge",
+          "points": [
+            [
+              -28.5,
+              0,
+              -28.65
+            ],
+            [
+              -28.5,
+              1.25,
+              -33.5
+            ],
+            [
+              -28.5,
+              1.25,
+              -35.5
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "north_flank",
+          "points": [
+            [
+              -16,
+              0,
+              -47.5
+            ],
+            [
+              -22,
+              0,
+              -47.5
+            ],
+            [
+              -26,
+              0,
+              -47.5
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "south_flank",
+          "points": [
+            [
+              -16,
+              0,
+              -32.5
+            ],
+            [
+              -22,
+              0,
+              -32.5
+            ],
+            [
+              -26,
+              0,
+              -32.5
+            ]
+          ],
+          "reverse": true
+        }
+      ],
+      "lights": [
+        {
+          "id": "CourtLamp",
+          "position": [
+            -22,
+            5.25,
+            -40
+          ],
+          "room": "nurse",
+          "energy": 3.8
+        }
+      ],
+      "risks": [
+        "Ten existing actors may now share early engagement; gameplay fairness and checkpoint safety require fresh evidence.",
+        "No collision-only anti-bypass; every solid is a matching visible closed mesh."
+      ],
+      "lane_clearance": {
+        "north_south_physical_width_m": 3.1,
+        "actual_capsule_diameter_m": 0.6,
+        "usable_capsule_center_width_m": 2.5,
+        "central_ground_passage_width_m": 3.5,
+        "enemy_navigation": "Existing centre route; flanks are player choices, not coordinated AI lanes."
+      }
     }
   ]
 }

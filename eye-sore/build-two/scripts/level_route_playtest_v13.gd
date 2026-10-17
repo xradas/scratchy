@@ -23,9 +23,12 @@ func configure_v13() -> void:
 		if arg.begins_with("--release-report-dir="):report_dir=arg.trim_prefix("--release-report-dir=").simplify_path()
 	if report_dir.is_empty():report_dir=OS.get_user_data_dir().path_join("levels-v13-route")
 	package_dir=(ProjectSettings.globalize_path("res://") if OS.has_feature("editor") else OS.get_executable_path().get_base_dir()).simplify_path().trim_suffix("/")
+	if not require(report_dir.is_absolute_path() and not report_dir.begins_with("res://") and report_dir.length()>1 and package_dir.is_absolute_path() and package_dir.length()>1 and report_dir!=package_dir and not report_dir.begins_with(package_dir+"/"),"Report directory must be absolute and outside the source/package directory"):
+		report_dir=OS.get_user_data_dir().path_join("levels-v13-route")
 	require(branch_order in ["AB","BA"],"Containment branch order must be AB or BA")
 func run() -> void:
 	configure_v13()
+	if not failures.is_empty():await finish_v13();return
 	if not require(app.campaign_mode and not app.campaign.current_level().is_empty(),"Actual Main campaign required"):
 		await finish_v13();return
 	var expected_carry := {}
@@ -273,6 +276,7 @@ func finish_v13() -> void:
 	for receipt in level_receipts:
 		if receipt.completed:completed+=1
 	var report := {"status":"passed" if failures.is_empty() and completed==requested_levels else "failed","levels_completed":completed,"expected_levels":requested_levels,"containment_order":branch_order,"use_heavy_weapons":heavy_mode,"levels":level_receipts,"failures":failures,"executable":OS.get_executable_path(),"editor_feature":OS.has_feature("editor"),"engine_arguments":OS.get_cmdline_args(),"physics_ticks_per_second":Engine.physics_ticks_per_second,"source_package_dir":package_dir,"scope":"Opt-in actual Main physical CharacterBody movement, live enemies/damage/finite ammo, real weapon rays and E-use. Ward objective contracts; legacy sequence only six unchanged maps. Exact Continue carry, no seed/teleport/death/flag injection or secret supplies. Bot simulation timings do not establish20–25minute human pacing."}
+	report.user_arguments=OS.get_cmdline_user_args()
 	report.capture_policy={"native":DisplayServer.get_name()!="headless","no_focus":get_tree().root.get_flag(Window.FLAG_NO_FOCUS),"minimized":get_tree().root.mode==Window.MODE_MINIMIZED,"force_offscreen_requested":force_offscreen_v13,"forced_draw_frames":forced_draw_frames_v13}
 	DirAccess.make_dir_recursive_absolute(report_dir)
 	FileAccess.open(report_dir.path_join("v13-route.json"),FileAccess.WRITE).store_string(JSON.stringify(report,"  ")+"\n")

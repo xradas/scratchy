@@ -3291,6 +3291,795 @@
   "architectural_direction": {
     "all": "Distinct district architecture: exposed reservoir/bridge and piping for Containment; stacked specimen machinery/gantries and rupture framing for Breach."
   },
+  "structural_connections": [
+    {
+      "id": "reservoir_fighting_balconies",
+      "rooms": [
+        "overlook",
+        "reservoir"
+      ],
+      "policy": "Two accessible upper balconies; firing shutters open only after both feed flags and actual drain. Physical slotted parapets prevent passage; central both-feeds gate unchanged.",
+      "apertures": [
+        {
+          "room": "overlook",
+          "side": "N",
+          "plane": -13,
+          "span": [
+            -13.0,
+            -4.0
+          ],
+          "height": [
+            4,
+            8.3
+          ]
+        },
+        {
+          "room": "overlook",
+          "side": "N",
+          "plane": -13,
+          "span": [
+            4.0,
+            13.0
+          ],
+          "height": [
+            4,
+            8.3
+          ]
+        },
+        {
+          "room": "reservoir",
+          "side": "S",
+          "plane": -26,
+          "span": [
+            -13.0,
+            -4.0
+          ],
+          "height": [
+            4,
+            8.3
+          ]
+        },
+        {
+          "room": "reservoir",
+          "side": "S",
+          "plane": -26,
+          "span": [
+            4.0,
+            13.0
+          ],
+          "height": [
+            4,
+            8.3
+          ]
+        }
+      ],
+      "boxes": [
+        {
+          "id": "WestParapetBase",
+          "position": [
+            -8.5,
+            4.2,
+            -26
+          ],
+          "size": [
+            9,
+            0.4,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost0",
+          "position": [
+            -13.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost1",
+          "position": [
+            -12.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost2",
+          "position": [
+            -12.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost3",
+          "position": [
+            -11.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost4",
+          "position": [
+            -11.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost5",
+          "position": [
+            -10.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost6",
+          "position": [
+            -10.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost7",
+          "position": [
+            -9.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost8",
+          "position": [
+            -9.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost9",
+          "position": [
+            -8.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost10",
+          "position": [
+            -8.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost11",
+          "position": [
+            -7.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost12",
+          "position": [
+            -7.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost13",
+          "position": [
+            -6.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost14",
+          "position": [
+            -6.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost15",
+          "position": [
+            -5.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost16",
+          "position": [
+            -5.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost17",
+          "position": [
+            -4.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "WestParapetPost18",
+          "position": [
+            -4.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetBase",
+          "position": [
+            8.5,
+            4.2,
+            -26
+          ],
+          "size": [
+            9,
+            0.4,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost0",
+          "position": [
+            4.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost1",
+          "position": [
+            4.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost2",
+          "position": [
+            5.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost3",
+          "position": [
+            5.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost4",
+          "position": [
+            6.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost5",
+          "position": [
+            6.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost6",
+          "position": [
+            7.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost7",
+          "position": [
+            7.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost8",
+          "position": [
+            8.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost9",
+          "position": [
+            8.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost10",
+          "position": [
+            9.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost11",
+          "position": [
+            9.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost12",
+          "position": [
+            10.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost13",
+          "position": [
+            10.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost14",
+          "position": [
+            11.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost15",
+          "position": [
+            11.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost16",
+          "position": [
+            12.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost17",
+          "position": [
+            12.5,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        },
+        {
+          "id": "EastParapetPost18",
+          "position": [
+            13.0,
+            4.9,
+            -26
+          ],
+          "size": [
+            0.1,
+            1.0,
+            0.3
+          ],
+          "role": "trim"
+        }
+      ],
+      "stairs": [],
+      "shutters": [
+        {
+          "id": "ReservoirBalconyWest",
+          "stage_door": "reservoir_balcony_west",
+          "stable_id": "pale_ward_02.shutter.reservoir_balcony_west",
+          "position": [
+            -8.5,
+            6.15,
+            -26.18
+          ],
+          "size": [
+            9,
+            4.3,
+            0.22
+          ],
+          "open_offset": [
+            0,
+            5,
+            0
+          ],
+          "requires": [
+            "isolation_a",
+            "isolation_b"
+          ],
+          "auto_open": true,
+          "drain_controller": "ReservoirLiquid"
+        },
+        {
+          "id": "ReservoirBalconyEast",
+          "stage_door": "reservoir_balcony_east",
+          "stable_id": "pale_ward_02.shutter.reservoir_balcony_east",
+          "position": [
+            8.5,
+            6.15,
+            -26.18
+          ],
+          "size": [
+            9,
+            4.3,
+            0.22
+          ],
+          "open_offset": [
+            0,
+            5,
+            0
+          ],
+          "requires": [
+            "isolation_a",
+            "isolation_b"
+          ],
+          "auto_open": true,
+          "drain_controller": "ReservoirLiquid"
+        }
+      ],
+      "actor_overrides": [
+        {
+          "stable_id": "pale_ward_02.reservoir.enemy.2",
+          "kind": "vessel",
+          "position": [
+            5.25,
+            0.87,
+            -32
+          ],
+          "reason": "After drain: reciprocal ranged attack through actual .4m parapet slot from6.6m horizontal; blocked by shutter beforeboth."
+        }
+      ],
+      "shot_pairs": [
+        {
+          "id": "east_slot_basin_to_balcony",
+          "a": [
+            5.25,
+            1.32,
+            -32
+          ],
+          "b": [
+            5.25,
+            5.17,
+            -25.4
+          ],
+          "state": "both_flags_and_drained_shutters_fully_open",
+          "bidirectional": true
+        }
+      ],
+      "solid_pairs": [
+        {
+          "id": "east_parapet_base",
+          "a": [
+            5.25,
+            4.2,
+            -25
+          ],
+          "b": [
+            5.25,
+            4.2,
+            -27
+          ]
+        },
+        {
+          "id": "east_slot_post",
+          "a": [
+            5,
+            5,
+            -25
+          ],
+          "b": [
+            5,
+            5,
+            -27
+          ]
+        }
+      ],
+      "walk_paths": [
+        {
+          "id": "east_balcony",
+          "points": [
+            [
+              8.5,
+              4,
+              -11
+            ],
+            [
+              8.5,
+              4,
+              -24.5
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "west_balcony",
+          "points": [
+            [
+              -8.5,
+              4,
+              -11
+            ],
+            [
+              -8.5,
+              4,
+              -24.5
+            ]
+          ],
+          "reverse": true
+        }
+      ],
+      "parapet": {
+        "floor": 4,
+        "base_height": 0.4,
+        "total_height": 1.4,
+        "post_width": 0.1,
+        "pitch": 0.5,
+        "clear_slot_width": 0.4,
+        "player_capsule_diameter": 0.6,
+        "depth": 0.3,
+        "deviation": "Root approved real .4m firing slots rather than a full1.4m wall, which blocks actual standing-player enemy LOS. Actual swept .12m enemy/.09m player projectiles then clipped the initial .65m base despite thin ray clearance; lowered visible base to.4m and extended posts down, retaining total1.4m barrier and.4m clear widths. Actual contact and anti-bypass reruns required; no projectile exemptions or invisible body."
+      },
+      "nearby_props": "Existing overlook fittings stay inside room z>=-13; nearest basin tanks x\u00b111,z-32 and columns x\u00b116.4,z-28; no new climbable items beside gallery ends.",
+      "risks": [
+        "Stand/crouch/diagonal and projectile diameter proofs required; .4m slots are smaller than .6m capsule, but metadata alone does not prove anti-bypass.",
+        "Basin actors are visually submerged until3.5m liquid drains; shutters must block all shots/LOS until actual drain.",
+        "Enemy navigation unchanged; these are firing balconies, never an alternate physical path into gated basin."
+      ]
+    }
+  ],
   "spawn_position": [
     0,
     4.95,
@@ -3854,9 +4643,9 @@
       "room": "reservoir",
       "kind": "vessel",
       "position": [
-        5,
+        5.25,
         0.87,
-        -44
+        -32
       ]
     },
     {

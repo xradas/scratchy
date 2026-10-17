@@ -48,3 +48,35 @@ Encounter roster: 64 existing Ward enemies. Main-route ammunition pickups: {'pis
 | Sealed isolation stores (secret) | 2m | medical_stores | medical_cabinet, medical_cabinet, medical_cabinet, medical_cabinet |
 
 Machine-readable positions, connections, requirements and inventory: `pale_ward_01.json`.
+
+## Structural combat connection — construction revision
+
+`triage_nurse_court`: Ungated shared combat court replaces existing ungated connector; no new graph edge. Split ledge preserves3.5m ground axis.
+
+Constructed geometry remains subject to independent physical, contact, order, checkpoint and gameplay review. Existing objectives, checkpoints and actor budgets/IDs are preserved.
+
+| Aperture | Plane | Horizontal span | Absolute height |
+|---|---:|---|---|
+| triage W | -17m | [-49, -31]m | [0, 5.5]m |
+| nurse E | -27m | [-49, -31]m | [0, 5.5]m |
+
+Closed structural volumes and physical cover:
+- `CourtFloor`: centre `[-22, -0.25, -40]`, size `[10.4, 0.5, 18.4]`m, native floor surfaces.
+- `CourtRoof`: centre `[-22, 5.65, -40]`, size `[10.8, 0.3, 18.8]`m, native ceiling surfaces.
+- `CourtNorth`: centre `[-22, 2.75, -49.2]`, size `[10.4, 5.5, 0.4]`m, native wall surfaces.
+- `CourtSouth`: centre `[-22, 2.75, -30.8]`, size `[10.4, 5.5, 0.4]`m, native wall surfaces.
+- `NorthCover`: centre `[-22, 0.7, -45]`, size `[2.5, 1.4, 1.8]`m, native panel surfaces.
+- `SouthCover`: centre `[-22, 0.7, -35]`, size `[2.5, 1.4, 1.8]`m, native panel surfaces.
+- `NorthLedge`: centre `[-28.5, 0.625, -44.125]`, size `[3, 1.25, 4.75]`m, native floor surfaces.
+- `SouthLedge`: centre `[-28.5, 0.625, -35.875]`, size `[3, 1.25, 4.75]`m, native floor surfaces.
+- `NorthStair`: floor `[-28.5, 0, -51.5]` to `[-28.5, 1.25, -46.5]`, width 3m; ten0.125m risers over5m run (0.5m tread). Actual ascent/descent is a separate evidence gate.
+- `SouthStair`: floor `[-28.5, 0, -28.5]` to `[-28.5, 1.25, -33.5]`, width 3m; ten0.125m risers over5m run (0.5m tread). Actual ascent/descent is a separate evidence gate.
+- Existing actor `pale_ward_01.nurse.enemy.2` (infected_security) moved to `[-28.5, 2.12, -43]`; Supported elevated cross-area angle;13.51m horizontal to triage test stance.
+
+Lane contract: `{"north_south_physical_width_m": 3.1, "actual_capsule_diameter_m": 0.6, "usable_capsule_center_width_m": 2.5, "central_ground_passage_width_m": 3.5, "enemy_navigation": "Existing centre route; flanks are player choices, not coordinated AI lanes."}`.
+
+Risks and unfinished acceptance:
+- Ten existing actors may now share early engagement; gameplay fairness and checkpoint safety require fresh evidence.
+- No collision-only anti-bypass; every solid is a matching visible closed mesh.
+
+Exact floor paths, shot/solid test pairs, apertures, closed boxes and actor poses are recorded in `levels.json`, the matching Ward JSON, runtime route and v13 author report. These data are a test contract, not proof that the test passed.

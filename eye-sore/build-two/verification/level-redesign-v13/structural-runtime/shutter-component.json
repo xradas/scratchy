@@ -1,0 +1,82 @@
+{
+  "checks": [
+    {
+      "check": "Undrained actual surface for {  }",
+      "passed": true
+    },
+    {
+      "check": "Both physical shutters stay closed for {  }",
+      "passed": true
+    },
+    {
+      "check": "Undrained actual surface for { \"isolation_a\": true }",
+      "passed": true
+    },
+    {
+      "check": "Both physical shutters stay closed for { \"isolation_a\": true }",
+      "passed": true
+    },
+    {
+      "check": "Undrained actual surface for { \"isolation_b\": true }",
+      "passed": true
+    },
+    {
+      "check": "Both physical shutters stay closed for { \"isolation_b\": true }",
+      "passed": true
+    },
+    {
+      "check": "Automatic shutters omitted from E interaction",
+      "passed": true
+    },
+    {
+      "check": "Actual liquid synchronously drained on second flag",
+      "passed": true
+    },
+    {
+      "check": "Both shutters authorized without teleporting motion",
+      "passed": true
+    },
+    {
+      "check": "Solid shutter blocks shot at release start",
+      "passed": true
+    },
+    {
+      "check": "Paused automatic shutter does not move",
+      "passed": true
+    },
+    {
+      "check": "Both solid shutters complete ordinary physical motion",
+      "passed": true
+    },
+    {
+      "check": "Shot aperture clears only after physical movement",
+      "passed": true
+    },
+    {
+      "check": "Closed snapshot restores",
+      "passed": true
+    },
+    {
+      "check": "Closed restore immediately reinstates liquid and shutters",
+      "passed": true
+    },
+    {
+      "check": "Open snapshot restores",
+      "passed": true
+    },
+    {
+      "check": "Open restore immediately reinstates drained liquid and physical shutter pose",
+      "passed": true
+    },
+    {
+      "check": "Reset immediately reinstates original liquid and physical shutter pose",
+      "passed": true
+    },
+    {
+      "check": "Missing drain controller fails closed",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "scope": "Isolated real Stage/Reservoir/StageDoor component solids; empty combat stub, not actual Main/geometry acceptance. Production QA independently covers constructed scene."
+}

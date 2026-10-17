@@ -1,0 +1,50 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3060 Ti
+
+ERROR: STRUCTURE_V13 Shutter state ["isolation_a", "isolation_b"] basin→balcony actual swept enemy projectile contact {"hits":[{"enemy_kind":"infected_security","material":"armor","position":"(5.25, 4.65, -26.15)","shot_id":0,"target_id":"","type":"projectile_impact","weapon_id":""}]}
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_structures_v13.gd:21)
+       [1] contacts (res://tools/check_structures_v13.gd:91)
+ERROR: STRUCTURE_V13 Shutter state ["isolation_a", "isolation_b"] basin→balcony actual swept player ordnance contact {"explosions":[{"damage":90.0,"material":"","position":"(5.25, 4.683865, -26.23338)","radius":4.8,"shot_id":810004,"target_id":"","type":"ordnance_explosion","weapon_id":"siege_launcher"}]}
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_structures_v13.gd:21)
+       [1] contacts (res://tools/check_structures_v13.gd:102)
+ERROR: STRUCTURE_V13 Open shutter balcony→basin actual swept enemy projectile contact {"hits":[{"enemy_kind":"infected_security","material":"armor","position":"(5.25, 4.65, -26.08593)","shot_id":0,"target_id":"","type":"projectile_impact","weapon_id":""}]}
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_structures_v13.gd:21)
+       [1] contacts (res://tools/check_structures_v13.gd:91)
+ERROR: STRUCTURE_V13 Open shutter balcony→basin actual swept player ordnance contact {"explosions":[{"damage":90.0,"material":"","position":"(5.25, 4.740561, -26.13618)","radius":4.8,"shot_id":810005,"target_id":"","type":"ordnance_explosion","weapon_id":"siege_launcher"}]}
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_structures_v13.gd:21)
+       [1] contacts (res://tools/check_structures_v13.gd:102)
+ERROR: STRUCTURE_V13 Actual natural cross-area attack reaches player pale_ward_02.reservoir.enemy.2 {"player_contacts":0}
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_structures_v13.gd:21)
+       [1] actor_angle (res://tools/check_structures_v13.gd:192)
+       [2] frames (res://tools/check_structures_v13.gd:23)
+ERROR: STRUCTURE_V13 east_slot_basin_to_balcony a→b actual swept enemy projectile contact {"hits":[{"enemy_kind":"infected_security","material":"armor","position":"(5.25, 4.65, -26.15)","shot_id":0,"target_id":"","type":"projectile_impact","weapon_id":""}]}
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_structures_v13.gd:21)
+       [1] contacts (res://tools/check_structures_v13.gd:91)
+ERROR: STRUCTURE_V13 east_slot_basin_to_balcony a→b actual swept player ordnance contact {"explosions":[{"damage":90.0,"material":"","position":"(5.25, 4.683865, -26.23338)","radius":4.8,"shot_id":810006,"target_id":"","type":"ordnance_explosion","weapon_id":"siege_launcher"}]}
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_structures_v13.gd:21)
+       [1] contacts (res://tools/check_structures_v13.gd:102)
+ERROR: STRUCTURE_V13 east_slot_basin_to_balcony b→a actual swept enemy projectile contact {"hits":[{"enemy_kind":"infected_security","material":"armor","position":"(5.25, 4.65, -26.08593)","shot_id":0,"target_id":"","type":"projectile_impact","weapon_id":""}]}
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_structures_v13.gd:21)
+       [1] contacts (res://tools/check_structures_v13.gd:91)
+ERROR: STRUCTURE_V13 east_slot_basin_to_balcony b→a actual swept player ordnance contact {"explosions":[{"damage":90.0,"material":"","position":"(5.25, 4.740561, -26.13618)","radius":4.8,"shot_id":810007,"target_id":"","type":"ordnance_explosion","weapon_id":"siege_launcher"}]}
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_structures_v13.gd:21)
+       [1] contacts (res://tools/check_structures_v13.gd:102)
+STRUCTURE_V13 pale_ward_02 failed 114 ["Shutter state [\"isolation_a\", \"isolation_b\"] basin→balcony actual swept enemy projectile contact", "Shutter state [\"isolation_a\", \"isolation_b\"] basin→balcony actual swept player ordnance contact", "Open shutter balcony→basin actual swept enemy projectile contact", "Open shutter balcony→basin actual swept player ordnance contact", "Actual natural cross-area attack reaches player pale_ward_02.reservoir.enemy.2", "east_slot_basin_to_balcony a→b actual swept enemy projectile contact", "east_slot_basin_to_balcony a→b actual swept player ordnance contact", "east_slot_basin_to_balcony b→a actual swept enemy projectile contact", "east_slot_basin_to_balcony b→a actual swept player ordnance contact"]

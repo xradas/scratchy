@@ -1,0 +1,63 @@
+{
+  "status": "constructed_static_checks_pass_live_qa_separate",
+  "baseline_candidate": "0032b97513ce97cafc5284b3fae9531f2f2b2d8f",
+  "checks": 44111,
+  "lane_samples": 22047,
+  "reports": {
+    "pale_ward_01": {
+      "checks": 14285,
+      "excluded_operable_bodies": 11,
+      "failures": [],
+      "lane_samples": 7140,
+      "level": "pale_ward_01",
+      "passed": true,
+      "scope": "Actual native .3radius/1.7height capsule overlap and flat upward floor probes on all nonlift portalcenter/\u00b1.65m lanes, every.4m; intentional gates/traps/liftguards excluded from staticclearance only. Real door/lift interactions and live physical walking require separate Main route fixture."
+    },
+    "pale_ward_02": {
+      "checks": 14735,
+      "excluded_operable_bodies": 9,
+      "failures": [],
+      "lane_samples": 7365,
+      "level": "pale_ward_02",
+      "passed": true,
+      "scope": "Actual native .3radius/1.7height capsule overlap and flat upward floor probes on all nonlift portalcenter/\u00b1.65m lanes, every.4m; intentional gates/traps/liftguards excluded from staticclearance only. Real door/lift interactions and live physical walking require separate Main route fixture."
+    },
+    "pale_ward_03": {
+      "checks": 15091,
+      "excluded_operable_bodies": 8,
+      "failures": [],
+      "lane_samples": 7542,
+      "level": "pale_ward_03",
+      "passed": true,
+      "scope": "Actual native .3radius/1.7height capsule overlap and flat upward floor probes on all nonlift portalcenter/\u00b1.65m lanes, every.4m; intentional gates/traps/liftguards excluded from staticclearance only. Real door/lift interactions and live physical walking require separate Main route fixture."
+    }
+  },
+  "scene_sha256": {
+    "pale_ward_01": "8ca7771158a0e4f28d97dbe058890cebd7297e9dbcecd0f6edcaad7e1f7aa5a0",
+    "pale_ward_02": "95a9908fb51711500be09eb996f1e7fd3d7c9de6e08718b616c7b95fa98ab95d",
+    "pale_ward_03": "b01aff70fe351caa30fade314857dda0ec678c33119bdebc2df994f6eff79e7e"
+  },
+  "author_check": "author-check.json",
+  "generator": "tools/author_levels_v13.py",
+  "regenerate": [
+    "python tools/author_campaign_v3.py --level pale_ward_01",
+    "python tools/author_campaign_v3.py --level pale_ward_02",
+    "python tools/author_campaign_v3.py --level pale_ward_03"
+  ],
+  "aperture_cover_stair_shutter_contract": "docs/level-redesign-v13/levels.json structural_connections; exact copied to matching Ward JSON, runtime routes and v13 author reports.",
+  "static_fixture": "static-fixture.gd is exact executed native harness. It extends prior all-portal capsule/floor checks with authored structural walk_paths, always-open straight shot pairs and solid boundary rays. Containment after-drain dynamic clear-ray pair is deliberately skipped; independent runtime/live QA must test it. Raw scope text inherited from the earlier portal checker; the fixture source defines additional checks. Gates/shutters excluded ONLY from static floor/capsule lane queries, not from world shot rays.",
+  "identity_and_content": "All64/76/84 IDs/types preserved; exactly one existing ranged actor pose moved per map. All three objective resources byte-identical to0032b975;313 protected baseline files unchanged;15 generated outputs reproduce byte-identically in memory without production writes.",
+  "fit_driven_deviations": [
+    "Intake nurse ledge split around3.5m central ground passage; continuous ledge would block existing portal. Coverdepth1.8m yields physicalouterlanes3.1m and capsule-centre width2.5m.",
+    "Containment full1.4m parapet would block actual enemy LoS to standing player y5.17m. Root approved real firing slots: solid .65m base,.1m posts to1.4m at.5m pitch,.4m actual clear slots; no invisible collisionplane. Dynamic shutters require both existing feed flags and actual drained liquid.",
+    "Breach central cover offset/shrunk to2\u00d71.5\u00d74 at[60,4.75,43.25], preserving original z40 enemy/route axis. Flank lanes are player choices; no claim of coordinated enemy flanking and no special fake navmarkers."
+  ],
+  "visual_review": "Root reviewed actual controlled Main native stills of shared Intake court, sealed/drained Containment balconies and two Breach perspectives. Construction fit/readability accepted pending independent live QA. AI/movement frozen captures do not prove physical movement, contact fairness, pacing or final concept match.",
+  "remaining_acceptance": [
+    "Independent real ascent/descent and standing/crouching/diagonal anti-bypass; actual swept projectiles/bidirectional hitscan and reciprocal enemy attack contacts.",
+    "Both Containment orders, shutter/liquid pause/reset/Continue synchronization, all objective/checkpoint/shortcut/full campaign regressions.",
+    "Human tactical fairness, navigation, visual matching and20\u201325min pacing remain separate from deterministic tests."
+  ],
+  "production_scope_frozen": true,
+  "superseded_containment": "Containment95a9908f here is the initial structural build. Actual swept-base failure required Containment-only73521835 fix02; see containment-fix02/summary.json. Initial raw static proof retained unchanged; dynamic contacts are independently assessed."
+}

@@ -1,0 +1,82 @@
+{
+  "status": "source_structural_contracts_passed_campaign_export_gates_pending",
+  "preserved_candidate": "0032b97513ce97cafc5284b3fae9531f2f2b2d8f",
+  "scene_sha256": {
+    "pale_ward_01": "8ca7771158a0e4f28d97dbe058890cebd7297e9dbcecd0f6edcaad7e1f7aa5a0",
+    "pale_ward_02": "7352183510ff81b390f75a926779ebfc14686316f00069bdf2465fdc007f72c8",
+    "pale_ward_03": "b01aff70fe351caa30fade314857dda0ec678c33119bdebc2df994f6eff79e7e"
+  },
+  "native_structural": {
+    "Intake": {
+      "report": "verification/level-redesign-v13/structural/intake-contacts-final-v2.json",
+      "checks": 41,
+      "natural_player_contacts": 2
+    },
+    "Containment": {
+      "report": "verification/level-redesign-v13/structural/containment-contacts-base-fix.json",
+      "checks": 114,
+      "natural_player_contacts": 1
+    },
+    "Breach": {
+      "report": "verification/level-redesign-v13/structural/breach-contacts-initial.json",
+      "checks": 53,
+      "natural_player_contacts": 1
+    },
+    "total_checks": 208,
+    "main_inspection": {
+      "report": "verification/level-redesign-v13/structural/ward-main-final.json",
+      "checks": 275
+    }
+  },
+  "runtime_regression": "verification/level-redesign-v13/structural-runtime/progression-final-basefix-* (206 native and206 headless; runtime worker ownership).",
+  "protected_source_policy": {
+    "baseline_runtime_git_blobs": 479,
+    "protected_runtime_files": 465,
+    "allowed_existing_changes": "Exactly three Ward scenes/layouts/routes/author receipts plus StageLevel/reservoir shutter integration. The opt-in adapter is matched to its exact frozen baseline plus only approved report guard and user_arguments insertions. Main/player/AI/weapons/audio/art/gore unchanged; exact runtime roster."
+  },
+  "physical_campaigns": {
+    "initial_individual_audit": "verification/level-redesign-v13/structural/routes/individual-pre-base-fix-audit.json",
+    "scope": "All four initial live routes completed clean; Containment receipts explicitly predate the swept-projectile base fix. These are not substituted for final full-campaign proof.",
+    "pending_final_source": [
+      "/tmp/eyesore-v13-structural-final-all9-normal-AB-route/v13-route.json",
+      "/tmp/eyesore-v13-structural-final-all9-heavy-BA-route/v13-route.json"
+    ],
+    "final_source_status": "Running read-only while immutable source is packaged; must pass independently before delivery."
+  },
+  "retained_failures": [
+    {
+      "report": "verification/level-redesign-v13/structural/containment-contacts-initial.json",
+      "finding": "Nine failures: .65m parapet base passed centre rays but blocked actual .12m enemy/.09m player swept projectiles; natural Vessel released but could not damage player.",
+      "fix": "Root-authorized visible base reduced to.4m; posts extended to same1.4m total height with .4m slots. No invisible plane, projectile/range/stat/collision exemptions. Final114 checks pass."
+    },
+    {
+      "report": "verification/level-redesign-v13/structural/intake-contacts-initial.json",
+      "finding": "Fixture moved controlled player away and launched before the physics transform synchronized; two projectile contacts hit old player pose. Corrected with two real physics frames."
+    },
+    {
+      "report": "verification/level-redesign-v13/structural/intake-contacts-final.json",
+      "finding": "Longer natural burst probe left accepted rounds in flight that contaminated the next temporary-receiver case. Isolated case boundary retires old projectiles; no production change. Final41 checks pass."
+    }
+  ],
+  "scope_limits": [
+    "Controlled construction fixture repositions initial player/emitter poses and uses temporary physical endpoint receivers; unrelated actors/query bodies isolated during pure geometry probes. These are not live campaign route receipts.",
+    "Physical stair/flank proofs use the real player CharacterBody and ordinary inputs. No new enemy ledge/flank navigation capability is claimed.",
+    "Natural moved-actor probes restore authored actors, use real LOS/range/releases, and require actual player damage.",
+    "Containment tests none/A/B/both states, actual liquid and shutter collision, no early attacks, pause, synchronous closed/open restore, and twelve representative standing/crouching/diagonal attempts across both balconies with shutters open. Not exhaustive climb-path search.",
+    "Player ordnance direct launch tests actual swept collision only; finite accepted ammo/cadence and live AI are proved separately by campaign runs.",
+    "Human tactical quality, human20\u201325minute pacing, subjective art/listening and actual exported execution remain separate."
+  ],
+  "opt_in_guard": {
+    "negative_proof": "verification/level-redesign-v13/structural/report-guard-negative-v2.route.json",
+    "result": "Source-contained report destination rejected before any route; safe external fallback; exact OS user arguments recorded."
+  },
+  "focus_policy": {
+    "proof": "verification/level-redesign-v13/structural/window-focus-cli-api-delayed.json",
+    "result": "Pinned native4.7.2 ignores unsupported --no-focus. Actual Window/DisplayServer NO_FOCUS false before explicit API and true after; minimized readback true after200ms. Offscreen position and API are real controls; no claim of CLI startup-focus prevention."
+  },
+  "release_pending": [
+    "Fresh final source all-nine normalAB/heavyBA complete logs and independent carry/order/objective audit.",
+    "Clean source checkpoint/export identity and packed actual Main275.",
+    "Actual exported all-nine pair and native movie; packed structural fixture supported with --main-pack."
+  ]
+}

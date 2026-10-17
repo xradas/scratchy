@@ -1,0 +1,707 @@
+{
+  "baseline_commit": "5f68f5c5ee51eec0997113e977bd48e4277222bf",
+  "sealed_git_blobs": 464,
+  "protected_current_files": 399,
+  "supplemental_unchanged_resources": 32,
+  "asset_resource_roster": "Exact baseline; new v13 resources limited to three Ward objective resources, three author receipts and availability budget.",
+  "catalog_policy": "Exact baseline JSON plus only three approved Ward subtitle substitutions; every other field and all six later entries identical.",
+  "six_legacy_scene_sha256": {
+    "scenes/campaign/ash_citadel_01.tscn": "70d6f39cafebdeae6dce7ccd8ad0ef88fd3c99ddb222c4d2ea217d40da936ab9",
+    "scenes/campaign/ash_citadel_02.tscn": "61c3c8407ad28d61b6cedf3601c930f71b2949970584716ab3f4d882754f2f0e",
+    "scenes/campaign/ash_citadel_03.tscn": "f46843adc3a5d88e66438734531a941dd1b2c9e06a3fa5f4bcd07c60e995bd9a",
+    "scenes/campaign/occupied_line_01.tscn": "9dd873050a6cef81ce588d02b8b60f3e55b80a248737434360e1951743dfb760",
+    "scenes/campaign/occupied_line_02.tscn": "199d7df904c5ce7048d87929d175585b6f0820b199cb0ffec3f1cec53ef51791",
+    "scenes/campaign/occupied_line_03.tscn": "f6bd25f4272460b97afeeb8a33fc9cebafb8d714a3998728e9ffd94051e382ee"
+  },
+  "scope": "Baseline identity only. Six non-Ward scenes and their route/layout resources, all original art/audio/weapons/AI/player/gore/lighting components protected; no redesigned geometry, checkpoint, route or human-duration acceptance claim.",
+  "status": "passed",
+  "baseline_only": false,
+  "design": {
+    "ward": {
+      "pale_ward_01": {
+        "rooms": 22,
+        "enemies": 64,
+        "districts": [
+          "admissions",
+          "clinical",
+          "transfer",
+          "utilities"
+        ],
+        "elevations": [
+          -2,
+          0,
+          2,
+          4,
+          6
+        ],
+        "shortcuts": 2,
+        "plans": {
+          "default": {
+            "state_count": 153,
+            "steps": [
+              {
+                "action": "travel",
+                "portal": "reception__triage",
+                "from": "reception",
+                "to": "triage"
+              },
+              {
+                "action": "travel",
+                "portal": "triage__nurse",
+                "from": "triage",
+                "to": "nurse"
+              },
+              {
+                "action": "travel",
+                "portal": "nurse__maintenance",
+                "from": "nurse",
+                "to": "maintenance"
+              },
+              {
+                "action": "travel",
+                "portal": "maintenance__generator",
+                "from": "maintenance",
+                "to": "generator"
+              },
+              {
+                "action": "use",
+                "id": "local_power",
+                "room": "generator",
+                "sets": [
+                  "local_power"
+                ]
+              },
+              {
+                "action": "travel",
+                "portal": "generator__triage",
+                "from": "generator",
+                "to": "triage"
+              },
+              {
+                "action": "travel",
+                "portal": "triage__diagnostics",
+                "from": "triage",
+                "to": "diagnostics"
+              },
+              {
+                "action": "travel",
+                "portal": "diagnostics__imaging",
+                "from": "diagnostics",
+                "to": "imaging"
+              },
+              {
+                "action": "travel",
+                "portal": "imaging__theatre",
+                "from": "imaging",
+                "to": "theatre"
+              },
+              {
+                "action": "collect",
+                "id": "brass",
+                "room": "theatre",
+                "sets": [
+                  "surgical_credential",
+                  "brass",
+                  "brass_key"
+                ]
+              },
+              {
+                "action": "travel",
+                "portal": "theatre__sterile",
+                "from": "theatre",
+                "to": "sterile"
+              },
+              {
+                "action": "travel",
+                "portal": "sterile__reception",
+                "from": "sterile",
+                "to": "reception"
+              },
+              {
+                "action": "travel",
+                "portal": "reception__surgical_access",
+                "from": "reception",
+                "to": "surgical_access"
+              },
+              {
+                "action": "travel",
+                "portal": "surgical_access__recovery",
+                "from": "surgical_access",
+                "to": "recovery"
+              },
+              {
+                "action": "travel",
+                "portal": "recovery__processing",
+                "from": "recovery",
+                "to": "processing"
+              },
+              {
+                "action": "travel",
+                "portal": "processing__decon",
+                "from": "processing",
+                "to": "decon"
+              },
+              {
+                "action": "survive",
+                "id": "decon",
+                "room": "decon",
+                "sets": [
+                  "decon_clear"
+                ]
+              },
+              {
+                "action": "travel",
+                "portal": "decon__transfer",
+                "from": "decon",
+                "to": "transfer"
+              },
+              {
+                "action": "travel",
+                "portal": "transfer__lift_lobby",
+                "from": "transfer",
+                "to": "lift_lobby"
+              },
+              {
+                "action": "travel",
+                "portal": "lift_lobby__exit",
+                "from": "lift_lobby",
+                "to": "exit"
+              }
+            ],
+            "exit_flags": [
+              "brass",
+              "brass_key",
+              "decon_clear",
+              "local_power",
+              "surgical_credential",
+              "visited_decon",
+              "visited_diagnostics",
+              "visited_exit",
+              "visited_generator",
+              "visited_imaging",
+              "visited_lift_lobby",
+              "visited_maintenance",
+              "visited_nurse",
+              "visited_processing",
+              "visited_reception",
+              "visited_recovery",
+              "visited_sterile",
+              "visited_surgical_access",
+              "visited_theatre",
+              "visited_transfer",
+              "visited_triage"
+            ],
+            "scope": "Symbolic precondition/reachability proof only; encounters abstracted as survival actions, no physical traversal or resource/balance claim."
+          }
+        }
+      },
+      "pale_ward_02": {
+        "rooms": 20,
+        "enemies": 76,
+        "districts": [
+          "culture",
+          "discharge",
+          "pump",
+          "waste"
+        ],
+        "elevations": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "shortcuts": 2,
+        "plans": {
+          "A_then_B": {
+            "state_count": 336,
+            "steps": [
+              {
+                "action": "travel",
+                "portal": "overlook__culture_access",
+                "from": "overlook",
+                "to": "culture_access"
+              },
+              {
+                "action": "travel",
+                "portal": "culture_access__cultures",
+                "from": "culture_access",
+                "to": "cultures"
+              },
+              {
+                "action": "travel",
+                "portal": "cultures__filters",
+                "from": "cultures",
+                "to": "filters"
+              },
+              {
+                "action": "travel",
+                "portal": "filters__isolation_a",
+                "from": "filters",
+                "to": "isolation_a"
+              },
+              {
+                "action": "use",
+                "id": "isolation_a",
+                "room": "isolation_a",
+                "sets": [
+                  "isolation_a",
+                  "one_isolated"
+                ]
+              },
+              {
+                "action": "travel",
+                "portal": "cross_feed_bridge",
+                "from": "isolation_a",
+                "to": "isolation_b"
+              },
+              {
+                "action": "use",
+                "id": "isolation_b",
+                "room": "isolation_b",
+                "sets": [
+                  "isolation_b",
+                  "one_isolated"
+                ]
+              },
+              {
+                "action": "travel",
+                "portal": "isolation_b__waste_access",
+                "from": "isolation_b",
+                "to": "waste_access"
+              },
+              {
+                "action": "travel",
+                "portal": "overlook__waste_access",
+                "from": "waste_access",
+                "to": "overlook"
+              },
+              {
+                "action": "travel",
+                "portal": "overlook__reservoir",
+                "from": "overlook",
+                "to": "reservoir"
+              },
+              {
+                "action": "travel",
+                "portal": "reservoir__outfall",
+                "from": "reservoir",
+                "to": "outfall"
+              },
+              {
+                "action": "travel",
+                "portal": "outfall__purge",
+                "from": "outfall",
+                "to": "purge"
+              },
+              {
+                "action": "travel",
+                "portal": "purge__discharge",
+                "from": "purge",
+                "to": "discharge"
+              },
+              {
+                "action": "travel",
+                "portal": "discharge__exit",
+                "from": "discharge",
+                "to": "exit"
+              }
+            ],
+            "exit_flags": [
+              "isolation_a",
+              "isolation_b",
+              "one_isolated",
+              "visited_culture_access",
+              "visited_cultures",
+              "visited_discharge",
+              "visited_exit",
+              "visited_filters",
+              "visited_isolation_a",
+              "visited_isolation_b",
+              "visited_outfall",
+              "visited_overlook",
+              "visited_purge",
+              "visited_reservoir",
+              "visited_waste_access"
+            ],
+            "scope": "Symbolic precondition/reachability proof only; encounters abstracted as survival actions, no physical traversal or resource/balance claim."
+          },
+          "B_then_A": {
+            "state_count": 337,
+            "steps": [
+              {
+                "action": "travel",
+                "portal": "overlook__waste_access",
+                "from": "overlook",
+                "to": "waste_access"
+              },
+              {
+                "action": "travel",
+                "portal": "waste_access__waste_lab",
+                "from": "waste_access",
+                "to": "waste_lab"
+              },
+              {
+                "action": "travel",
+                "portal": "waste_lab__sterilizer",
+                "from": "waste_lab",
+                "to": "sterilizer"
+              },
+              {
+                "action": "travel",
+                "portal": "sterilizer__isolation_b",
+                "from": "sterilizer",
+                "to": "isolation_b"
+              },
+              {
+                "action": "use",
+                "id": "isolation_b",
+                "room": "isolation_b",
+                "sets": [
+                  "isolation_b",
+                  "one_isolated"
+                ]
+              },
+              {
+                "action": "travel",
+                "portal": "cross_feed_bridge",
+                "from": "isolation_b",
+                "to": "isolation_a"
+              },
+              {
+                "action": "use",
+                "id": "isolation_a",
+                "room": "isolation_a",
+                "sets": [
+                  "isolation_a",
+                  "one_isolated"
+                ]
+              },
+              {
+                "action": "travel",
+                "portal": "isolation_a__culture_access",
+                "from": "isolation_a",
+                "to": "culture_access"
+              },
+              {
+                "action": "travel",
+                "portal": "overlook__culture_access",
+                "from": "culture_access",
+                "to": "overlook"
+              },
+              {
+                "action": "travel",
+                "portal": "overlook__reservoir",
+                "from": "overlook",
+                "to": "reservoir"
+              },
+              {
+                "action": "travel",
+                "portal": "reservoir__outfall",
+                "from": "reservoir",
+                "to": "outfall"
+              },
+              {
+                "action": "travel",
+                "portal": "outfall__purge",
+                "from": "outfall",
+                "to": "purge"
+              },
+              {
+                "action": "travel",
+                "portal": "purge__discharge",
+                "from": "purge",
+                "to": "discharge"
+              },
+              {
+                "action": "travel",
+                "portal": "discharge__exit",
+                "from": "discharge",
+                "to": "exit"
+              }
+            ],
+            "exit_flags": [
+              "isolation_a",
+              "isolation_b",
+              "one_isolated",
+              "visited_culture_access",
+              "visited_discharge",
+              "visited_exit",
+              "visited_isolation_a",
+              "visited_isolation_b",
+              "visited_outfall",
+              "visited_overlook",
+              "visited_purge",
+              "visited_reservoir",
+              "visited_sterilizer",
+              "visited_waste_access",
+              "visited_waste_lab"
+            ],
+            "scope": "Symbolic precondition/reachability proof only; encounters abstracted as survival actions, no physical traversal or resource/balance claim."
+          }
+        }
+      },
+      "pale_ward_03": {
+        "rooms": 21,
+        "enemies": 84,
+        "districts": [
+          "lower",
+          "middle",
+          "rupture",
+          "upper"
+        ],
+        "elevations": [
+          -4,
+          -2,
+          0,
+          2,
+          4,
+          6,
+          8
+        ],
+        "shortcuts": 2,
+        "plans": {
+          "default": {
+            "state_count": 190,
+            "steps": [
+              {
+                "action": "travel",
+                "portal": "loading__upper_intake",
+                "from": "loading",
+                "to": "upper_intake"
+              },
+              {
+                "action": "travel",
+                "portal": "upper_intake__upper_gallery",
+                "from": "upper_intake",
+                "to": "upper_gallery"
+              },
+              {
+                "action": "travel",
+                "portal": "upper_gallery__anchor_a",
+                "from": "upper_gallery",
+                "to": "anchor_a"
+              },
+              {
+                "action": "shoot",
+                "id": "anchor_a",
+                "room": "anchor_a",
+                "sets": [
+                  "anchor_a"
+                ]
+              },
+              {
+                "action": "travel",
+                "portal": "anchor_a__service_descent",
+                "from": "anchor_a",
+                "to": "service_descent"
+              },
+              {
+                "action": "travel",
+                "portal": "service_descent__specimens",
+                "from": "service_descent",
+                "to": "specimens"
+              },
+              {
+                "action": "travel",
+                "portal": "specimens__crossfire",
+                "from": "specimens",
+                "to": "crossfire"
+              },
+              {
+                "action": "travel",
+                "portal": "crossfire__anchor_b",
+                "from": "crossfire",
+                "to": "anchor_b"
+              },
+              {
+                "action": "shoot",
+                "id": "anchor_b",
+                "room": "anchor_b",
+                "sets": [
+                  "anchor_b"
+                ]
+              },
+              {
+                "action": "travel",
+                "portal": "anchor_b__lower_access",
+                "from": "anchor_b",
+                "to": "lower_access"
+              },
+              {
+                "action": "travel",
+                "portal": "lower_access__cultivation",
+                "from": "lower_access",
+                "to": "cultivation"
+              },
+              {
+                "action": "travel",
+                "portal": "cultivation__machinery",
+                "from": "cultivation",
+                "to": "machinery"
+              },
+              {
+                "action": "travel",
+                "portal": "machinery__anchor_c",
+                "from": "machinery",
+                "to": "anchor_c"
+              },
+              {
+                "action": "shoot",
+                "id": "anchor_c",
+                "room": "anchor_c",
+                "sets": [
+                  "anchor_c"
+                ]
+              },
+              {
+                "action": "travel",
+                "portal": "anchor_c__rupture",
+                "from": "anchor_c",
+                "to": "rupture"
+              },
+              {
+                "action": "travel",
+                "portal": "rupture__bridge",
+                "from": "rupture",
+                "to": "bridge"
+              },
+              {
+                "action": "travel",
+                "portal": "bridge__exit",
+                "from": "bridge",
+                "to": "exit"
+              }
+            ],
+            "exit_flags": [
+              "anchor_a",
+              "anchor_b",
+              "anchor_c",
+              "visited_anchor_a",
+              "visited_anchor_b",
+              "visited_anchor_c",
+              "visited_bridge",
+              "visited_crossfire",
+              "visited_cultivation",
+              "visited_exit",
+              "visited_loading",
+              "visited_lower_access",
+              "visited_machinery",
+              "visited_rupture",
+              "visited_service_descent",
+              "visited_specimens",
+              "visited_upper_gallery",
+              "visited_upper_intake"
+            ],
+            "scope": "Symbolic precondition/reachability proof only; encounters abstracted as survival actions, no physical traversal or resource/balance claim."
+          }
+        }
+      }
+    },
+    "scope": "Declared design contracts and symbolic nonsecret/nonoptional objective reachability, both Containment orders; no human-duration or native-geometry acceptance."
+  },
+  "selected_levels": [
+    "pale_ward_01",
+    "pale_ward_02",
+    "pale_ward_03"
+  ],
+  "native": {
+    "checks": 275,
+    "failures": [],
+    "observations": [
+      {
+        "actors": 64,
+        "anchors": 0,
+        "checkpoints": 2,
+        "level": "pale_ward_01",
+        "rooms": 22,
+        "scene": "res://scenes/campaign/pale_ward_01.tscn",
+        "snapshot_fields": [
+          "level_id",
+          "mechanisms",
+          "enemies",
+          "flags",
+          "collected",
+          "visited",
+          "dead_ids",
+          "arena_remaining",
+          "arena_active",
+          "enemy_groups",
+          "traps",
+          "secrets",
+          "shortcuts",
+          "checkpoint_used",
+          "current_room",
+          "finished",
+          "prompt",
+          "objective",
+          "secret_found",
+          "shortcut_open"
+        ]
+      },
+      {
+        "actors": 76,
+        "anchors": 0,
+        "checkpoints": 2,
+        "level": "pale_ward_02",
+        "rooms": 20,
+        "scene": "res://scenes/campaign/pale_ward_02.tscn",
+        "snapshot_fields": [
+          "level_id",
+          "mechanisms",
+          "enemies",
+          "flags",
+          "collected",
+          "visited",
+          "dead_ids",
+          "arena_remaining",
+          "arena_active",
+          "enemy_groups",
+          "traps",
+          "secrets",
+          "shortcuts",
+          "checkpoint_used",
+          "current_room",
+          "finished",
+          "prompt",
+          "objective",
+          "secret_found",
+          "shortcut_open"
+        ]
+      },
+      {
+        "actors": 84,
+        "anchors": 3,
+        "checkpoints": 2,
+        "level": "pale_ward_03",
+        "rooms": 21,
+        "scene": "res://scenes/campaign/pale_ward_03.tscn",
+        "snapshot_fields": [
+          "level_id",
+          "mechanisms",
+          "enemies",
+          "flags",
+          "collected",
+          "visited",
+          "dead_ids",
+          "arena_remaining",
+          "arena_active",
+          "enemy_groups",
+          "traps",
+          "secrets",
+          "shortcuts",
+          "checkpoint_used",
+          "current_room",
+          "finished",
+          "prompt",
+          "objective",
+          "secret_found",
+          "shortcut_open"
+        ]
+      }
+    ],
+    "scope": "Controlled actual Main authored resource/count/identity, checkpoint physical capsule/support, complete stable world roundtrip and atomic invalid-state rejection. AI frozen for inspection. Separate physical input route and checkpoint lifecycle fixtures required; no human pacing or live traversal claim.",
+    "status": "passed"
+  },
+  "packed": false,
+  "auditor_sha256": "271ddcc0a17acb2d31267fadc411501c99c9562c02b26dd0ad21dfe108d238de"
+}

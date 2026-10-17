@@ -1,0 +1,840 @@
+{
+  "status": "passed",
+  "level": "pale_ward_01",
+  "protected_candidate": {
+    "candidate_commit": "0032b97513ce97cafc5284b3fae9531f2f2b2d8f",
+    "candidate_runtime_blobs": 479,
+    "protected_runtime_files": 465,
+    "explicit_allowed_changed_existing_runtime_files": [
+      "resources/campaign/pale_ward_01-layout.json",
+      "resources/campaign/pale_ward_01-route.json",
+      "resources/campaign/pale_ward_02-layout.json",
+      "resources/campaign/pale_ward_02-route.json",
+      "resources/campaign/pale_ward_03-layout.json",
+      "resources/campaign/pale_ward_03-route.json",
+      "resources/campaign/v13/pale_ward_01-author-report.json",
+      "resources/campaign/v13/pale_ward_02-author-report.json",
+      "resources/campaign/v13/pale_ward_03-author-report.json",
+      "scenes/campaign/pale_ward_01.tscn",
+      "scenes/campaign/pale_ward_02.tscn",
+      "scenes/campaign/pale_ward_03.tscn",
+      "scripts/reservoir_effect_v13.gd",
+      "scripts/stage_level.gd"
+    ],
+    "prior_baseline": {
+      "baseline_commit": "5f68f5c5ee51eec0997113e977bd48e4277222bf",
+      "sealed_git_blobs": 464,
+      "protected_current_files": 399,
+      "supplemental_unchanged_resources": 32,
+      "asset_resource_roster": "Exact baseline; new v13 resources limited to three Ward objective resources, three author receipts and availability budget.",
+      "catalog_policy": "Exact baseline JSON plus only three approved Ward subtitle substitutions; every other field and all six later entries identical.",
+      "six_legacy_scene_sha256": {
+        "scenes/campaign/ash_citadel_01.tscn": "70d6f39cafebdeae6dce7ccd8ad0ef88fd3c99ddb222c4d2ea217d40da936ab9",
+        "scenes/campaign/ash_citadel_02.tscn": "61c3c8407ad28d61b6cedf3601c930f71b2949970584716ab3f4d882754f2f0e",
+        "scenes/campaign/ash_citadel_03.tscn": "f46843adc3a5d88e66438734531a941dd1b2c9e06a3fa5f4bcd07c60e995bd9a",
+        "scenes/campaign/occupied_line_01.tscn": "9dd873050a6cef81ce588d02b8b60f3e55b80a248737434360e1951743dfb760",
+        "scenes/campaign/occupied_line_02.tscn": "199d7df904c5ce7048d87929d175585b6f0820b199cb0ffec3f1cec53ef51791",
+        "scenes/campaign/occupied_line_03.tscn": "f6bd25f4272460b97afeeb8a33fc9cebafb8d714a3998728e9ffd94051e382ee"
+      },
+      "scope": "Baseline identity only. Six non-Ward scenes and their route/layout resources, all original art/audio/weapons/AI/player/gore/lighting components protected; no redesigned geometry, checkpoint, route or human-duration acceptance claim."
+    }
+  },
+  "scene_sha256": "8ca7771158a0e4f28d97dbe058890cebd7297e9dbcecd0f6edcaad7e1f7aa5a0",
+  "actual_main": {
+    "checks": [
+      {
+        "check": "Explicit structural connection contract available pale_ward_01",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "north_ledge forward arrives at supported elevation",
+        "detail": {
+          "actual": "(-28.5, 2.100141, -45.97023)",
+          "crouch": false,
+          "floor": "(-28.5, 1.25, -46.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "north_ledge forward arrives at supported elevation",
+        "detail": {
+          "actual": "(-28.5, 2.100141, -42.52353)",
+          "crouch": false,
+          "floor": "(-28.5, 1.25, -43.0)"
+        },
+        "passed": true
+      },
+      {
+        "check": "north_ledge reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(-28.5, 2.09998, -46.92836)",
+          "crouch": false,
+          "floor": "(-28.5, 1.25, -46.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "north_ledge reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(-28.5, 0.975272, -51.49979)",
+          "crouch": false,
+          "floor": "(-28.5, 0.0, -51.35)"
+        },
+        "passed": true
+      },
+      {
+        "check": "south_ledge forward arrives at supported elevation",
+        "detail": {
+          "actual": "(-28.5, 2.100318, -34.02917)",
+          "crouch": false,
+          "floor": "(-28.5, 1.25, -33.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "south_ledge forward arrives at supported elevation",
+        "detail": {
+          "actual": "(-28.5, 2.100318, -36.00918)",
+          "crouch": false,
+          "floor": "(-28.5, 1.25, -35.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "south_ledge reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(-28.5, 2.09998, -33.03832)",
+          "crouch": false,
+          "floor": "(-28.5, 1.25, -33.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "south_ledge reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(-28.5, 0.975394, -28.50028)",
+          "crouch": false,
+          "floor": "(-28.5, 0.0, -28.65)"
+        },
+        "passed": true
+      },
+      {
+        "check": "north_flank forward arrives at supported elevation",
+        "detail": {
+          "actual": "(-22.46166, 0.850103, -47.5)",
+          "crouch": false,
+          "floor": "(-22.0, 0.0, -47.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "north_flank forward arrives at supported elevation",
+        "detail": {
+          "actual": "(-26.44166, 0.850103, -47.5)",
+          "crouch": false,
+          "floor": "(-26.0, 0.0, -47.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "north_flank reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(-21.53834, 0.84937, -47.5)",
+          "crouch": false,
+          "floor": "(-22.0, 0.0, -47.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "north_flank reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(-15.55834, 0.84937, -47.5)",
+          "crouch": false,
+          "floor": "(-16.0, 0.0, -47.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "south_flank forward arrives at supported elevation",
+        "detail": {
+          "actual": "(-22.46166, 0.850103, -32.5)",
+          "crouch": false,
+          "floor": "(-22.0, 0.0, -32.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "south_flank forward arrives at supported elevation",
+        "detail": {
+          "actual": "(-26.44166, 0.850103, -32.5)",
+          "crouch": false,
+          "floor": "(-26.0, 0.0, -32.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "south_flank reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(-21.53834, 0.84937, -32.5)",
+          "crouch": false,
+          "floor": "(-22.0, 0.0, -32.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "south_flank reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(-15.55834, 0.84937, -32.5)",
+          "crouch": false,
+          "floor": "(-16.0, 0.0, -32.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "Exact existing moved actor stable ID pale_ward_01.nurse.enemy.2",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "Authored moved actor position pale_ward_01.nurse.enemy.2",
+        "detail": {
+          "actual": "(-28.5, 2.12, -43.0)",
+          "expected": [
+            -28.5,
+            2.12,
+            -43.0
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "Actual elevated actor sees cross-area player pale_ward_01.nurse.enemy.2",
+        "detail": {
+          "actor": "(-28.5, 2.12, -43.0)",
+          "player": "(-15.0, 0.850103, -42.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "Cross-area stance is inside actual attack range pale_ward_01.nurse.enemy.2",
+        "detail": {
+          "distance": 13.509256362915,
+          "range": 14.0
+        },
+        "passed": true
+      },
+      {
+        "check": "Natural actual actor emits attack across new opening pale_ward_01.nurse.enemy.2",
+        "detail": {
+          "awake": true,
+          "releases": 4,
+          "state": "recovery"
+        },
+        "passed": true
+      },
+      {
+        "check": "Actual natural cross-area attack reaches player pale_ward_01.nurse.enemy.2",
+        "detail": {
+          "player_contacts": 2
+        },
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage a\u2192b actual geometry ray",
+        "detail": {
+          "clear_expected": true,
+          "collider": "TemporaryContactReceiver:<StaticBody3D#422819411181>",
+          "position": "(-15.2485, 1.19577, -42.5092)"
+        },
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage a\u2192b accepted actual pistol consumes exactly one round",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage a\u2192b authoritative pistol contact",
+        "detail": {
+          "impacts": [
+            {
+              "material": "hard",
+              "pellets": 1,
+              "position": "(-15.2485, 1.19577, -42.5092)",
+              "shot_id": 1,
+              "target_id": "422819411181",
+              "type": "impact",
+              "weapon_id": "pistol"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage a\u2192b actual ranged emitter exists",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage a\u2192b actual swept enemy projectile contact",
+        "detail": {
+          "hits": [
+            {
+              "enemy_kind": "infected_security",
+              "material": "hard",
+              "position": "(-15.2485, 1.19577, -42.5092)",
+              "shot_id": 0,
+              "target_id": "",
+              "type": "projectile_impact",
+              "weapon_id": ""
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage a\u2192b actual swept player ordnance contact",
+        "detail": {
+          "explosions": [
+            {
+              "damage": 90.0,
+              "material": "",
+              "position": "(-15.33921, 1.205175, -42.51256)",
+              "radius": 4.8,
+              "shot_id": 810001,
+              "target_id": "",
+              "type": "ordnance_explosion",
+              "weapon_id": "siege_launcher"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage b\u2192a actual geometry ray",
+        "detail": {
+          "clear_expected": true,
+          "collider": "TemporaryContactReceiver:<StaticBody3D#427248596196>",
+          "position": "(-28.2515, 2.54423, -42.9908)"
+        },
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage b\u2192a accepted actual pistol consumes exactly one round",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage b\u2192a authoritative pistol contact",
+        "detail": {
+          "impacts": [
+            {
+              "material": "hard",
+              "pellets": 1,
+              "position": "(-28.2515, 2.54423, -42.9908)",
+              "shot_id": 2,
+              "target_id": "427248596196",
+              "type": "impact",
+              "weapon_id": "pistol"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage b\u2192a actual ranged emitter exists",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage b\u2192a actual swept enemy projectile contact",
+        "detail": {
+          "hits": [
+            {
+              "enemy_kind": "infected_security",
+              "material": "hard",
+              "position": "(-28.2515, 2.54423, -42.9908)",
+              "shot_id": 0,
+              "target_id": "",
+              "type": "projectile_impact",
+              "weapon_id": ""
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "elevated_nurse_to_triage b\u2192a actual swept player ordnance contact",
+        "detail": {
+          "explosions": [
+            {
+              "damage": 90.0,
+              "material": "",
+              "position": "(-28.16079, 2.534825, -42.98744)",
+              "radius": 4.8,
+              "shot_id": 810002,
+              "target_id": "",
+              "type": "ordnance_explosion",
+              "weapon_id": "siege_launcher"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "court_north_wall actual geometry ray",
+        "detail": {
+          "clear_expected": false,
+          "collider": "Structural_triage_nurse_court_CourtNorth:<StaticBody3D#239998081219>",
+          "position": "(-22.0, 1.6, -49.0)"
+        },
+        "passed": true
+      },
+      {
+        "check": "court_north_wall accepted actual pistol consumes exactly one round",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "court_north_wall authoritative pistol contact",
+        "detail": {
+          "impacts": [
+            {
+              "material": "hard",
+              "pellets": 1,
+              "position": "(-22.0, 1.6, -49.0)",
+              "shot_id": 3,
+              "target_id": "239998081219",
+              "type": "impact",
+              "weapon_id": "pistol"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "court_north_wall actual ranged emitter exists",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "court_north_wall actual swept enemy projectile contact",
+        "detail": {
+          "hits": [
+            {
+              "enemy_kind": "infected_security",
+              "material": "hard",
+              "position": "(-22.0, 1.6, -49.0)",
+              "shot_id": 0,
+              "target_id": "",
+              "type": "projectile_impact",
+              "weapon_id": ""
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "court_north_wall actual swept player ordnance contact",
+        "detail": {
+          "explosions": [
+            {
+              "damage": 90.0,
+              "material": "",
+              "position": "(-22.0, 1.6, -48.90899)",
+              "radius": 4.8,
+              "shot_id": 810003,
+              "target_id": "",
+              "type": "ordnance_explosion",
+              "weapon_id": "siege_launcher"
+            }
+          ]
+        },
+        "passed": true
+      }
+    ],
+    "failures": [],
+    "level": "pale_ward_01",
+    "observations": [
+      {
+        "connection": "triage_nurse_court",
+        "contract": {
+          "actor_overrides": [
+            {
+              "kind": "infected_security",
+              "position": [
+                -28.5,
+                2.12,
+                -43.0
+              ],
+              "reason": "Supported elevated cross-area angle;13.51m horizontal to triage test stance.",
+              "stable_id": "pale_ward_01.nurse.enemy.2"
+            }
+          ],
+          "apertures": [
+            {
+              "height": [
+                0.0,
+                5.5
+              ],
+              "plane": -17.0,
+              "room": "triage",
+              "side": "W",
+              "span": [
+                -49.0,
+                -31.0
+              ]
+            },
+            {
+              "height": [
+                0.0,
+                5.5
+              ],
+              "plane": -27.0,
+              "room": "nurse",
+              "side": "E",
+              "span": [
+                -49.0,
+                -31.0
+              ]
+            }
+          ],
+          "boxes": [
+            {
+              "id": "CourtFloor",
+              "position": [
+                -22.0,
+                -0.25,
+                -40.0
+              ],
+              "role": "floor",
+              "size": [
+                10.4,
+                0.5,
+                18.4
+              ]
+            },
+            {
+              "id": "CourtRoof",
+              "position": [
+                -22.0,
+                5.65,
+                -40.0
+              ],
+              "role": "ceiling",
+              "size": [
+                10.8,
+                0.3,
+                18.8
+              ]
+            },
+            {
+              "id": "CourtNorth",
+              "position": [
+                -22.0,
+                2.75,
+                -49.2
+              ],
+              "role": "wall",
+              "size": [
+                10.4,
+                5.5,
+                0.4
+              ]
+            },
+            {
+              "id": "CourtSouth",
+              "position": [
+                -22.0,
+                2.75,
+                -30.8
+              ],
+              "role": "wall",
+              "size": [
+                10.4,
+                5.5,
+                0.4
+              ]
+            },
+            {
+              "id": "NorthCover",
+              "position": [
+                -22.0,
+                0.7,
+                -45.0
+              ],
+              "role": "panel",
+              "size": [
+                2.5,
+                1.4,
+                1.8
+              ]
+            },
+            {
+              "id": "SouthCover",
+              "position": [
+                -22.0,
+                0.7,
+                -35.0
+              ],
+              "role": "panel",
+              "size": [
+                2.5,
+                1.4,
+                1.8
+              ]
+            },
+            {
+              "id": "NorthLedge",
+              "position": [
+                -28.5,
+                0.625,
+                -44.125
+              ],
+              "role": "floor",
+              "size": [
+                3.0,
+                1.25,
+                4.75
+              ]
+            },
+            {
+              "id": "SouthLedge",
+              "position": [
+                -28.5,
+                0.625,
+                -35.875
+              ],
+              "role": "floor",
+              "size": [
+                3.0,
+                1.25,
+                4.75
+              ]
+            }
+          ],
+          "id": "triage_nurse_court",
+          "lane_clearance": {
+            "actual_capsule_diameter_m": 0.6,
+            "central_ground_passage_width_m": 3.5,
+            "enemy_navigation": "Existing centre route; flanks are player choices, not coordinated AI lanes.",
+            "north_south_physical_width_m": 3.1,
+            "usable_capsule_center_width_m": 2.5
+          },
+          "lights": [
+            {
+              "energy": 3.8,
+              "id": "CourtLamp",
+              "position": [
+                -22.0,
+                5.25,
+                -40.0
+              ],
+              "room": "nurse"
+            }
+          ],
+          "policy": "Ungated shared combat court replaces existing ungated connector; no new graph edge. Split ledge preserves3.5m ground axis.",
+          "portal": "triage__nurse",
+          "risks": [
+            "Ten existing actors may now share early engagement; gameplay fairness and checkpoint safety require fresh evidence.",
+            "No collision-only anti-bypass; every solid is a matching visible closed mesh."
+          ],
+          "rooms": [
+            "triage",
+            "nurse"
+          ],
+          "shot_pairs": [
+            {
+              "a": [
+                -28.5,
+                2.57,
+                -43.0
+              ],
+              "b": [
+                -15.0,
+                1.17,
+                -42.5
+              ],
+              "bidirectional": true,
+              "id": "elevated_nurse_to_triage",
+              "state": "always"
+            }
+          ],
+          "solid_pairs": [
+            {
+              "a": [
+                -22.0,
+                1.6,
+                -48.0
+              ],
+              "b": [
+                -22.0,
+                1.6,
+                -50.0
+              ],
+              "id": "court_north_wall"
+            }
+          ],
+          "stairs": [
+            {
+              "end": [
+                -28.5,
+                1.25,
+                -46.5
+              ],
+              "id": "NorthStair",
+              "start": [
+                -28.5,
+                0.0,
+                -51.5
+              ],
+              "width": 3.0
+            },
+            {
+              "end": [
+                -28.5,
+                1.25,
+                -33.5
+              ],
+              "id": "SouthStair",
+              "start": [
+                -28.5,
+                0.0,
+                -28.5
+              ],
+              "width": 3.0
+            }
+          ],
+          "walk_paths": [
+            {
+              "id": "north_ledge",
+              "points": [
+                [
+                  -28.5,
+                  0.0,
+                  -51.35
+                ],
+                [
+                  -28.5,
+                  1.25,
+                  -46.5
+                ],
+                [
+                  -28.5,
+                  1.25,
+                  -43.0
+                ]
+              ],
+              "reverse": true
+            },
+            {
+              "id": "south_ledge",
+              "points": [
+                [
+                  -28.5,
+                  0.0,
+                  -28.65
+                ],
+                [
+                  -28.5,
+                  1.25,
+                  -33.5
+                ],
+                [
+                  -28.5,
+                  1.25,
+                  -35.5
+                ]
+              ],
+              "reverse": true
+            },
+            {
+              "id": "north_flank",
+              "points": [
+                [
+                  -16.0,
+                  0.0,
+                  -47.5
+                ],
+                [
+                  -22.0,
+                  0.0,
+                  -47.5
+                ],
+                [
+                  -26.0,
+                  0.0,
+                  -47.5
+                ]
+              ],
+              "reverse": true
+            },
+            {
+              "id": "south_flank",
+              "points": [
+                [
+                  -16.0,
+                  0.0,
+                  -32.5
+                ],
+                [
+                  -22.0,
+                  0.0,
+                  -32.5
+                ],
+                [
+                  -26.0,
+                  0.0,
+                  -32.5
+                ]
+              ],
+              "reverse": true
+            }
+          ]
+        }
+      }
+    ],
+    "scope": "Controlled actual Main construction fixture: physical player inputs on authored paths; actual moved actor natural LoS/range/release; actual pistol and both production swept projectile classes against temporary endpoint receivers and real authored walls. Actor/query isolation and initial poses are fixture setup, not live-route proof. Player ordnance direct launch is geometry-only, no ammo/cadence claim. Full natural campaign routes are separate.",
+    "status": "passed"
+  },
+  "protected_after": {
+    "candidate_commit": "0032b97513ce97cafc5284b3fae9531f2f2b2d8f",
+    "candidate_runtime_blobs": 479,
+    "protected_runtime_files": 465,
+    "explicit_allowed_changed_existing_runtime_files": [
+      "resources/campaign/pale_ward_01-layout.json",
+      "resources/campaign/pale_ward_01-route.json",
+      "resources/campaign/pale_ward_02-layout.json",
+      "resources/campaign/pale_ward_02-route.json",
+      "resources/campaign/pale_ward_03-layout.json",
+      "resources/campaign/pale_ward_03-route.json",
+      "resources/campaign/v13/pale_ward_01-author-report.json",
+      "resources/campaign/v13/pale_ward_02-author-report.json",
+      "resources/campaign/v13/pale_ward_03-author-report.json",
+      "scenes/campaign/pale_ward_01.tscn",
+      "scenes/campaign/pale_ward_02.tscn",
+      "scenes/campaign/pale_ward_03.tscn",
+      "scripts/reservoir_effect_v13.gd",
+      "scripts/stage_level.gd"
+    ],
+    "prior_baseline": {
+      "baseline_commit": "5f68f5c5ee51eec0997113e977bd48e4277222bf",
+      "sealed_git_blobs": 464,
+      "protected_current_files": 399,
+      "supplemental_unchanged_resources": 32,
+      "asset_resource_roster": "Exact baseline; new v13 resources limited to three Ward objective resources, three author receipts and availability budget.",
+      "catalog_policy": "Exact baseline JSON plus only three approved Ward subtitle substitutions; every other field and all six later entries identical.",
+      "six_legacy_scene_sha256": {
+        "scenes/campaign/ash_citadel_01.tscn": "70d6f39cafebdeae6dce7ccd8ad0ef88fd3c99ddb222c4d2ea217d40da936ab9",
+        "scenes/campaign/ash_citadel_02.tscn": "61c3c8407ad28d61b6cedf3601c930f71b2949970584716ab3f4d882754f2f0e",
+        "scenes/campaign/ash_citadel_03.tscn": "f46843adc3a5d88e66438734531a941dd1b2c9e06a3fa5f4bcd07c60e995bd9a",
+        "scenes/campaign/occupied_line_01.tscn": "9dd873050a6cef81ce588d02b8b60f3e55b80a248737434360e1951743dfb760",
+        "scenes/campaign/occupied_line_02.tscn": "199d7df904c5ce7048d87929d175585b6f0820b199cb0ffec3f1cec53ef51791",
+        "scenes/campaign/occupied_line_03.tscn": "f6bd25f4272460b97afeeb8a33fc9cebafb8d714a3998728e9ffd94051e382ee"
+      },
+      "scope": "Baseline identity only. Six non-Ward scenes and their route/layout resources, all original art/audio/weapons/AI/player/gore/lighting components protected; no redesigned geometry, checkpoint, route or human-duration acceptance claim."
+    }
+  },
+  "auditor_sha256": "6021246ff0b8f26859b752012cb3338bffa50896b27da6757c8b44062983c0ce"
+}

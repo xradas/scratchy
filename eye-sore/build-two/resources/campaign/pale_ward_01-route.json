@@ -382,9 +382,9 @@
           "id": "nurse.prop.5",
           "type": "records_cabinet",
           "position_local": [
-            10,
+            7,
             0,
-            -9
+            -10
           ],
           "heading": -90
         }
@@ -2351,7 +2351,8 @@
           -40
         ]
       ],
-      "axis": 0
+      "axis": 0,
+      "structural_connection": "triage_nurse_court"
     },
     {
       "id": "nurse__maintenance",
@@ -3875,6 +3876,342 @@
     "clinical": "Clinical observation glazing and service panels, surgical work islands/task lamps and lower ceiling zones.",
     "transfer": "Containment ribs, machinery alcoves, decon warning portal and mounted landing fixtures."
   },
+  "structural_connections": [
+    {
+      "id": "triage_nurse_court",
+      "portal": "triage__nurse",
+      "rooms": [
+        "triage",
+        "nurse"
+      ],
+      "policy": "Ungated shared combat court replaces existing ungated connector; no new graph edge. Split ledge preserves3.5m ground axis.",
+      "apertures": [
+        {
+          "room": "triage",
+          "side": "W",
+          "plane": -17,
+          "span": [
+            -49,
+            -31
+          ],
+          "height": [
+            0,
+            5.5
+          ]
+        },
+        {
+          "room": "nurse",
+          "side": "E",
+          "plane": -27,
+          "span": [
+            -49,
+            -31
+          ],
+          "height": [
+            0,
+            5.5
+          ]
+        }
+      ],
+      "boxes": [
+        {
+          "id": "CourtFloor",
+          "position": [
+            -22,
+            -0.25,
+            -40
+          ],
+          "size": [
+            10.4,
+            0.5,
+            18.4
+          ],
+          "role": "floor"
+        },
+        {
+          "id": "CourtRoof",
+          "position": [
+            -22,
+            5.65,
+            -40
+          ],
+          "size": [
+            10.8,
+            0.3,
+            18.8
+          ],
+          "role": "ceiling"
+        },
+        {
+          "id": "CourtNorth",
+          "position": [
+            -22,
+            2.75,
+            -49.2
+          ],
+          "size": [
+            10.4,
+            5.5,
+            0.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "CourtSouth",
+          "position": [
+            -22,
+            2.75,
+            -30.8
+          ],
+          "size": [
+            10.4,
+            5.5,
+            0.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "NorthCover",
+          "position": [
+            -22,
+            0.7,
+            -45
+          ],
+          "size": [
+            2.5,
+            1.4,
+            1.8
+          ],
+          "role": "panel"
+        },
+        {
+          "id": "SouthCover",
+          "position": [
+            -22,
+            0.7,
+            -35
+          ],
+          "size": [
+            2.5,
+            1.4,
+            1.8
+          ],
+          "role": "panel"
+        },
+        {
+          "id": "NorthLedge",
+          "position": [
+            -28.5,
+            0.625,
+            -44.125
+          ],
+          "size": [
+            3,
+            1.25,
+            4.75
+          ],
+          "role": "floor"
+        },
+        {
+          "id": "SouthLedge",
+          "position": [
+            -28.5,
+            0.625,
+            -35.875
+          ],
+          "size": [
+            3,
+            1.25,
+            4.75
+          ],
+          "role": "floor"
+        }
+      ],
+      "stairs": [
+        {
+          "id": "NorthStair",
+          "start": [
+            -28.5,
+            0,
+            -51.5
+          ],
+          "end": [
+            -28.5,
+            1.25,
+            -46.5
+          ],
+          "width": 3
+        },
+        {
+          "id": "SouthStair",
+          "start": [
+            -28.5,
+            0,
+            -28.5
+          ],
+          "end": [
+            -28.5,
+            1.25,
+            -33.5
+          ],
+          "width": 3
+        }
+      ],
+      "actor_overrides": [
+        {
+          "stable_id": "pale_ward_01.nurse.enemy.2",
+          "kind": "infected_security",
+          "position": [
+            -28.5,
+            2.12,
+            -43
+          ],
+          "reason": "Supported elevated cross-area angle;13.51m horizontal to triage test stance."
+        }
+      ],
+      "shot_pairs": [
+        {
+          "id": "elevated_nurse_to_triage",
+          "a": [
+            -28.5,
+            2.57,
+            -43
+          ],
+          "b": [
+            -15,
+            1.17,
+            -42.5
+          ],
+          "state": "always",
+          "bidirectional": true
+        }
+      ],
+      "solid_pairs": [
+        {
+          "id": "court_north_wall",
+          "a": [
+            -22,
+            1.6,
+            -48
+          ],
+          "b": [
+            -22,
+            1.6,
+            -50
+          ]
+        }
+      ],
+      "walk_paths": [
+        {
+          "id": "north_ledge",
+          "points": [
+            [
+              -28.5,
+              0,
+              -51.35
+            ],
+            [
+              -28.5,
+              1.25,
+              -46.5
+            ],
+            [
+              -28.5,
+              1.25,
+              -43
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "south_ledge",
+          "points": [
+            [
+              -28.5,
+              0,
+              -28.65
+            ],
+            [
+              -28.5,
+              1.25,
+              -33.5
+            ],
+            [
+              -28.5,
+              1.25,
+              -35.5
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "north_flank",
+          "points": [
+            [
+              -16,
+              0,
+              -47.5
+            ],
+            [
+              -22,
+              0,
+              -47.5
+            ],
+            [
+              -26,
+              0,
+              -47.5
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "south_flank",
+          "points": [
+            [
+              -16,
+              0,
+              -32.5
+            ],
+            [
+              -22,
+              0,
+              -32.5
+            ],
+            [
+              -26,
+              0,
+              -32.5
+            ]
+          ],
+          "reverse": true
+        }
+      ],
+      "lights": [
+        {
+          "id": "CourtLamp",
+          "position": [
+            -22,
+            5.25,
+            -40
+          ],
+          "room": "nurse",
+          "energy": 3.8
+        }
+      ],
+      "risks": [
+        "Ten existing actors may now share early engagement; gameplay fairness and checkpoint safety require fresh evidence.",
+        "No collision-only anti-bypass; every solid is a matching visible closed mesh."
+      ],
+      "lane_clearance": {
+        "north_south_physical_width_m": 3.1,
+        "actual_capsule_diameter_m": 0.6,
+        "usable_capsule_center_width_m": 2.5,
+        "central_ground_passage_width_m": 3.5,
+        "enemy_navigation": "Existing centre route; flanks are player choices, not coordinated AI lanes."
+      }
+    }
+  ],
   "spawn_position": [
     0,
     0.95,
@@ -3978,9 +4315,9 @@
       "room": "nurse",
       "kind": "infected_security",
       "position": [
-        -35,
-        0.87,
-        -44
+        -28.5,
+        2.12,
+        -43
       ]
     },
     {

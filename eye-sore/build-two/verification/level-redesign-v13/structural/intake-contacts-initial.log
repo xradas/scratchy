@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3060 Ti
+
+ERROR: STRUCTURE_V13 elevated_nurse_to_triage a→b actual swept enemy projectile contact {"hits":[{"enemy_kind":"infected_security","material":"flesh","position":"(-28.5, 2.57, -43.0)","shot_id":0,"target_id":"","type":"projectile_impact","weapon_id":""}]}
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_structures_v13.gd:21)
+       [1] contacts (res://tools/check_structures_v13.gd:91)
+ERROR: STRUCTURE_V13 elevated_nurse_to_triage b→a actual swept enemy projectile contact {"hits":[{"enemy_kind":"infected_security","material":"flesh","position":"(-15.0, 1.17, -42.5)","shot_id":0,"target_id":"","type":"projectile_impact","weapon_id":""}]}
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/check_structures_v13.gd:21)
+       [1] contacts (res://tools/check_structures_v13.gd:91)
+STRUCTURE_V13 pale_ward_01 failed 40 ["elevated_nurse_to_triage a→b actual swept enemy projectile contact", "elevated_nurse_to_triage b→a actual swept enemy projectile contact"]

@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Check the exact v13 portable archive against its committed source and baseline.
 
+Scope: the v13 package without optional --video media; movie delivery is verified separately.
 Read-only except the requested JSON receipt. Does not execute the archived ELF;
 actual-game route/capture receipts are separate evidence.
 """
 from __future__ import annotations
 import argparse, hashlib, io, json, pathlib, subprocess, tarfile
+import package_pale_ward as package
 P=pathlib.Path(__file__).resolve().parents[1]
 def sha(data):return hashlib.sha256(data).hexdigest()
 def require(value,message):
@@ -16,21 +18,23 @@ def main():
  try:
   with tarfile.open(args.archive,'r:gz') as tar:
    entries=tar.getmembers();members={m.name:m for m in entries};require(len(members)==len(entries),'Duplicate archive member');prefix='';require('BUILD.json' in members and 'SOURCE_SHA256SUMS' in members,'Expected flat portable archive');repo=pathlib.Path(subprocess.check_output(['git','rev-parse','--show-toplevel'],cwd=P,text=True).strip());project_prefix=P.relative_to(repo).as_posix()+'/'
-   for n,m in members.items():require(not n.startswith('/') and '..' not in pathlib.PurePosixPath(n).parts and not m.issym() and not m.islnk(),'Unsafe archive member: '+n)
+   for n,m in members.items():require(not n.startswith('/') and '..' not in pathlib.PurePosixPath(n).parts and m.isfile(),'Unsafe archive member: '+n)
    def read(n):
     f=tar.extractfile(prefix+n);require(f is not None,'Missing archive file '+n);return f.read()
    build=json.loads(read('BUILD.json'));require(build['source_commit']==args.expected_commit and build['source_head']==args.expected_commit and build['source_git_status']=='','Build lacks exact clean source checkpoint')
    fingerprints={}
    for line in read('SOURCE_SHA256SUMS').decode().splitlines():
     h,n=line.split('  ',1);require(n not in fingerprints,'Duplicate source entry');fingerprints[n]=h
-   tree=sha(json.dumps(fingerprints,sort_keys=True).encode());require(tree==build['source_tree_sha256'],'Source tree digest mismatch')
+   expected=package.source_snapshot([P/'assets/audio/CREDITS.md',P/'assets/VISUAL_CREDITS.md',*package.provenance_files()]);require(set(fingerprints)==set(expected),'Source fingerprint coverage differs from actual source/provenance collector');tree=sha(json.dumps(fingerprints,sort_keys=True).encode());require(tree==build['source_tree_sha256'],'Source tree digest mismatch')
    for n,h in fingerprints.items():
     require(sha((P/n).read_bytes())==h,'Current source differs: '+n)
     data=subprocess.check_output(['git','show',args.expected_commit+':'+project_prefix+n],cwd=P)
     require(sha(data)==h,'Git source differs: '+n)
     if n.startswith(('docs/','concepts/')):require(sha(read('provenance/'+n))==h,'Archived provenance differs: '+n)
    elf=build['executable'];require(sha(read(elf['path']))==elf['sha256'],'ELF hash mismatch');require(members[prefix+elf['path']].mode & 0o111,'ELF is not executable')
-   sums=read('SHA256SUMS').decode().splitlines()
+   required={'BUILD.json','README.txt','SOURCE_SHA256SUMS','export.log','smoke.log','licenses.log','GODOT_LICENSE.txt','GODOT_THIRD_PARTY_NOTICES.txt','AUDIO_CREDITS.md','VISUAL_CREDITS.md','export-gore.png','export-gameplay.png','export-menu.png','export-diagnostic.json',elf['path'],'SHA256SUMS'}|{'provenance/'+p.relative_to(P).as_posix() for p in package.provenance_files()}
+   require(set(members)==required,'Archive payload coverage differs from required v13 package')
+   sums=read('SHA256SUMS').decode().splitlines();names=[line.split('  ',1)[1] for line in sums];require(len(names)==len(set(names)) and set(names)==set(members)-{'SHA256SUMS'},'Package checksum coverage differs from exact archive members')
    for line in sums:
     h,n=line.split('  ',1);require(sha(read(n))==h,'Package file differs: '+n)
    require(build['engine'].startswith('4.7.2.'),'Wrong engine');require(build['renderer']=='Compatibility','Wrong renderer')

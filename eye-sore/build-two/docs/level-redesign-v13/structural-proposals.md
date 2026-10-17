@@ -1,6 +1,6 @@
 # Ward structural review — proposed construction contracts
 
-17 October 2026. Coordinator reference research: [review and source access log](reference-review.md). Construction specialist reviewed the current generator and authoritative `levels.json` against that brief. This is a read-only feasibility review: none of the geometry below is implemented, exported or verified. The passing progression candidate is preserved at `0032b97513ce97cafc5284b3fae9531f2f2b2d8f`.
+17 October 2026. Coordinator reference research: [review and source access log](reference-review.md). Construction specialist reviewed the current generator and authoritative `levels.json` against that brief. The original feasibility review below is preserved as design rationale. Its bounded construction pass is now implemented in source; fresh dynamic QA and export evidence are tracked separately. The passing progression candidate is preserved at `0032b97513ce97cafc5284b3fae9531f2f2b2d8f`.
 
 ## Intake: triage / nurse shared transfer court
 
@@ -41,3 +41,12 @@ This connector is already ungated after anchor A. Retain all anchors, checkpoint
 - New gameplay images and a short actual combat recording. Human tactical, navigation, visual and pacing review remain necessary.
 
 Most remaining room shells are rectangular and axial. These are bounded first structural improvements, not a claim that every map has already gained a complete spatial redesign. Preserve the passing candidate before construction; repeat relevant checks after changes rather than reusing its old receipts.
+
+## Implemented fit decisions
+
+- Intake uses two raised nurse ledge arms around a3.5m ground-level passage rather than blocking it with one continuous platform. Two court cover islands leave2.5m usable outer capsule-centre lanes. Ten0.125m risers use a5m stair run.
+- Containment uses a0.4m solid parapet base with visible physical upper posts to1.4m and0.4m firing slots. A full solid1.4m barrier blocked the actual enemy target height; a first0.65m base passed rays but blocked real swept projectiles, so the base was lowered after native QA. The slots retain physical player exclusion without an invisible plane. Shutters require both feeds and the actual lowered liquid surface; they cannot be E-opened.
+- Breach’s machine is offset to `[60,4.75,43.25]`, size `[2,1.5,4]`, keeping the original centre route clear. The two player flank paths are not a claim that the unchanged enemies coordinate flanking maneuvers.
+- One existing ranged actor is repositioned per map. Actor stable IDs, types, totals64/76/84 and all three objective resources are preserved. No enemy AI, weapon tuning, source artwork or audio changes.
+
+Static geometry probes passed44,111 checks and selected-level generation reproduced15/15 outputs byte-for-byte; these are not live route or tactical acceptance. The21 current [controlled game views](../../concepts/level-redesign-v13/index.html) include the physical shutter state change and both court perspectives. See `verification/level-redesign-v13/structural/` and `structural-runtime/` for separate evidence; older passing-candidate receipts remain historical and do not establish this new geometry.

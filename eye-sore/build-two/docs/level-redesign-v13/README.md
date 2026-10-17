@@ -53,3 +53,5 @@ New enemy families, weapons, original per-level music, persistent campaign saves
 ## Layout reference review
 
 The user-requested [FAQ contents and layout article review](reference-review.md) records accessible sources, blocked wiki destinations, the current structural limitations and the next construction acceptance contract. Passing progression tests does not establish that the layouts meet this spatial combat standard.
+
+The reference-driven structural pass now constructs shared triage/nurse and specimens/crossfire courts, supported raised positions and accessible reservoir firing balconies. Both-feed shutters synchronize with actual drainage. Physical firing slots replace an ineffective solid parapet; offset cover preserves existing enemy navigation. [Fit decisions and evidence boundaries](structural-proposals.md) record these adjustments.

@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "case": "source_destination",
+      "passed": true,
+      "output": "Evidence/media must be outside the source project and exported package"
+    },
+    {
+      "case": "package_destination",
+      "passed": true,
+      "output": "Evidence/media must be outside the source project and exported package"
+    },
+    {
+      "case": "report_aliases_route",
+      "passed": true,
+      "output": "RuntimeError: Inputs/outputs must be distinct, including verifier log"
+    },
+    {
+      "case": "log_aliases_input",
+      "passed": true,
+      "output": "RuntimeError: Inputs/outputs must be distinct, including verifier log"
+    },
+    {
+      "case": "empty_recomputed_source_manifest",
+      "passed": true,
+      "error": "Source fingerprint coverage differs from actual source/provenance collector"
+    }
+  ],
+  "scope": "Negative CLI guard/manual adversarial artifact checks only; no actual v13 ELF launch/archive acceptance.",
+  "source_commit_before_final_freeze": "cf7507e6a35dd56c75f9baaba1809d67fec5aee8"
+}

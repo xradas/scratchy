@@ -1,0 +1,58 @@
+extends SceneTree
+class QuietCombat extends Node:
+	var enemies:Array=[]
+var stage:Node3D
+var doors:Array[AnimatableBody3D]=[]
+var checks:Array=[]
+var failures:=0
+func _initialize()->void:call_deferred("run")
+func check(ok:bool,label:String)->void:
+	checks.append({"check":label,"passed":ok})
+	if not ok:failures+=1;push_error(label)
+func run()->void:
+	stage=load("res://scripts/stage_level.gd").new()
+	stage.objective_profile=load("res://scripts/stage_objective_profile.gd").from_dictionary({"level_id":"isolated_shutters"})
+	root.add_child(stage);stage.set_physics_process(false)
+	var combat:=QuietCombat.new();stage.add_child(combat);stage.combat=combat
+	var player:=CharacterBody3D.new();stage.add_child(player);stage.player=player
+	var liquid:Node3D=load("res://scripts/reservoir_effect_v13.gd").new();liquid.name="ReservoirLiquid";stage.add_child(liquid)
+	for x in [-5.0,5.0]:
+		var door:AnimatableBody3D=load("res://scripts/stage_door.gd").new()
+		door.position=Vector3(x,6.15,-1);door.open_offset=Vector3(0,4.5,0)
+		door.set_meta("stage_door",str(x));door.set_meta("stable_id",str(x));door.set_meta("auto_open",true)
+		door.set_meta("requires",["isolation_a","isolation_b"]);door.set_meta("drain_controller",NodePath("ReservoirLiquid"))
+		var shape:=CollisionShape3D.new();shape.name="Collision";var box:=BoxShape3D.new();box.size=Vector3(9,4.3,.25);shape.shape=box;door.add_child(shape)
+		stage.add_child(door);doors.append(door)
+	stage.scan(stage);stage.reset()
+	await physics_frame;await physics_frame
+	var closed:Dictionary=stage.capture_checkpoint_state()
+	for flags in [{},{"isolation_a":true},{"isolation_b":true}]:
+		stage.flags=flags;stage.refresh_objective()
+		check(liquid.position.y==3.5 and not liquid.is_drained(),"Undrained actual surface for "+str(flags))
+		check(doors[0].is_closed() and doors[1].is_closed(),"Both physical shutters stay closed for "+str(flags))
+	check(stage.nearest_mechanism()==null,"Automatic shutters omitted from E interaction")
+	stage.flags={"isolation_a":true,"isolation_b":true};stage.refresh_objective()
+	check(liquid.is_drained() and is_equal_approx(liquid.position.y,-.2),"Actual liquid synchronously drained on second flag")
+	check(doors[0].opened and doors[1].opened and not doors[0].is_open(),"Both shutters authorized without teleporting motion")
+	var ray:=PhysicsRayQueryParameters3D.create(Vector3(-5,6.15,1),Vector3(-5,6.15,-3),1)
+	check(not stage.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(),"Solid shutter blocks shot at release start")
+	paused=true;var at:Vector3=doors[0].position
+	await process_frame;await process_frame
+	check(doors[0].position==at,"Paused automatic shutter does not move")
+	paused=false
+	for i in 90:await physics_frame
+	check(doors[0].is_open() and doors[1].is_open(),"Both solid shutters complete ordinary physical motion")
+	check(stage.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(),"Shot aperture clears only after physical movement")
+	var opened:Dictionary=stage.capture_checkpoint_state()
+	check(stage.restore_checkpoint_state(closed),"Closed snapshot restores")
+	check(liquid.position.y==3.5 and doors[0].is_closed() and doors[1].is_closed(),"Closed restore immediately reinstates liquid and shutters")
+	check(stage.restore_checkpoint_state(opened),"Open snapshot restores")
+	check(liquid.is_drained() and doors[0].is_open() and doors[1].is_open(),"Open restore immediately reinstates drained liquid and physical shutter pose")
+	stage.reset()
+	check(liquid.position.y==3.5 and doors[0].is_closed() and doors[1].is_closed(),"Reset immediately reinstates original liquid and physical shutter pose")
+	for door in doors:door.set_meta("drain_controller",NodePath("MissingController"))
+	stage.flags={"isolation_a":true,"isolation_b":true};stage.refresh_objective()
+	check(doors[0].is_closed() and doors[1].is_closed(),"Missing drain controller fails closed")
+	var out:="res://verification/level-redesign-v13/structural-runtime/shutter-component.json"
+	FileAccess.open(out,FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failed":failures,"scope":"Isolated real Stage/Reservoir/StageDoor component solids; empty combat stub, not actual Main/geometry acceptance. Production QA independently covers constructed scene."},"  "))
+	print("SHUTTER_COMPONENT checks=%d failed=%d"%[checks.size(),failures]);quit(1 if failures else 0)

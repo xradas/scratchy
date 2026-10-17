@@ -1,0 +1,53 @@
+{
+  "status": "stopped_unaccepted",
+  "reason": "Native Containment projectiles hit parapet base. Source runs stopped to avoid consuming resources on superseded geometry. Not route acceptance.",
+  "processes": [
+    {
+      "pid": 99877,
+      "command": [
+        "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+        "--headless",
+        "--verbose",
+        "--fixed-fps",
+        "60",
+        "--path",
+        ".",
+        "--log-file",
+        "/tmp/eyesore-v13-structural-source-all9-heavy-BA-engine.log",
+        "--",
+        "--automated-input",
+        "--v13-route-test",
+        "--campaign-level=pale_ward_01",
+        "--v13-level-count=9",
+        "--containment-order=BA",
+        "--release-report-dir=/tmp/eyesore-v13-structural-source-all9-heavy-BA-route",
+        "--use-heavy-weapons"
+      ]
+    },
+    {
+      "pid": 99878,
+      "command": [
+        "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+        "--headless",
+        "--verbose",
+        "--fixed-fps",
+        "60",
+        "--path",
+        ".",
+        "--log-file",
+        "/tmp/eyesore-v13-structural-source-all9-normal-AB-engine.log",
+        "--",
+        "--automated-input",
+        "--v13-route-test",
+        "--campaign-level=pale_ward_01",
+        "--v13-level-count=9",
+        "--containment-order=AB",
+        "--release-report-dir=/tmp/eyesore-v13-structural-source-all9-normal-AB-route"
+      ]
+    }
+  ]
+}

@@ -64,12 +64,12 @@ func reset() -> void:
 		for shutter in trap_shutters.get(arena,[]): shutter.reset_door()
 	finished = false; secret_found = false; shortcut_open = false; current_room = ""; prompt = ""
 	objective = "Restore power at the first arena breaker."
-	if objective_profile!=null: refresh_objective()
 	for item in pickups: item.visible = true
 	for mechanism in mechanisms:
 		if mechanism.has_method("reset_door"): mechanism.reset_door()
 		if mechanism.has_method("reset_lift"): mechanism.reset_lift()
 		if mechanism.has_method("reset_mechanism"): mechanism.reset_mechanism()
+	if objective_profile!=null: refresh_objective()
 	var spawns: Node = get_node_or_null("EnemySpawns")
 	if spawns == null: return
 	for index in spawns.get_child_count():
@@ -203,7 +203,7 @@ func nearest_mechanism() -> Node3D:
 	var best: Node3D
 	var distance := 2.65
 	for candidate in mechanisms:
-		if candidate.has_method("is_shootable_mechanism"): continue
+		if candidate.has_method("is_shootable_mechanism") or bool(candidate.get_meta("auto_open",false)): continue
 		var anchor: Vector3 = candidate.get_meta("use_anchor", Vector3.ZERO)
 		var point: Vector3 = candidate.to_global(anchor)
 		if candidate.has_method("reset_door"): point = candidate.get_parent().to_global(candidate.origin + anchor)
@@ -325,12 +325,24 @@ func collect(item: Node3D) -> void:
 func refresh_objective() -> void:
 	if objective_profile!=null:
 		objective=objective_profile.objective_text(flags)
+		refresh_automatic_doors()
 		return
 	if flags.get("exit", false): objective = "Reach the enabled exit."
 	elif flags.get("red", false): objective = "Return to the red gate and clear the raised final arena."
 	elif flags.get("release", false): objective = "Find the red access key beyond the release gate."
 	elif flags.get("brass", false): objective = "Return through the shortcut to the brass gate."
 	elif flags.get("power", false): objective = "Find the brass access key in the side wing."
+func refresh_automatic_doors() -> void:
+	# Opt-in solid shutters retain ordinary door motion/snapshots. Derive the
+	# cosmetic surface synchronously, before authorizing any physical opening.
+	for mechanism in mechanisms:
+		if not bool(mechanism.get_meta("auto_open",false)) or not mechanism.has_method("reset_door"): continue
+		var drain_path:=NodePath(String(mechanism.get_meta("drain_controller","")))
+		if drain_path.is_empty(): continue
+		var drain:=get_node_or_null(drain_path)
+		if drain==null or not drain.has_method("refresh_visual") or not drain.has_method("is_drained"): continue
+		drain.refresh_visual()
+		if missing_requirements(mechanism).is_empty() and drain.is_drained(): mechanism.activate(flags)
 func room_at(point: Vector3) -> String:
 	var result := ""; var best := INF
 	for room in rooms:

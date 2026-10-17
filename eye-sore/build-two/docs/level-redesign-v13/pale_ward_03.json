@@ -560,7 +560,7 @@
           "position_local": [
             -11,
             0,
-            -9
+            -11
           ],
           "heading": 90
         },
@@ -640,9 +640,9 @@
           "id": "crossfire.prop.2",
           "type": "specimen_tank",
           "position_local": [
-            10,
+            8,
             0,
-            -7
+            -11
           ],
           "heading": 0
         },
@@ -2218,5 +2218,320 @@
       54
     ],
     "purpose": "Shared vertical landmark around upper-to-middle return bridge; sealed observation glazing shows the descent from upper gallery before shortcut release. No additional actors/items/objectives or bypass route."
-  }
+  },
+  "structural_connections": [
+    {
+      "id": "specimens_crossfire_court",
+      "portal": "specimens__crossfire",
+      "rooms": [
+        "specimens",
+        "crossfire"
+      ],
+      "policy": "Broad shared ungated mandatory connector after anchor A; offset cover preserves original centre route. Player flanks only; no claim of coordinated enemy navigation.",
+      "apertures": [
+        {
+          "room": "specimens",
+          "side": "W",
+          "plane": 64,
+          "span": [
+            31,
+            49
+          ],
+          "height": [
+            4,
+            9
+          ]
+        },
+        {
+          "room": "crossfire",
+          "side": "E",
+          "plane": 56,
+          "span": [
+            31,
+            49
+          ],
+          "height": [
+            4,
+            9
+          ]
+        }
+      ],
+      "boxes": [
+        {
+          "id": "CourtFloor",
+          "position": [
+            60,
+            3.75,
+            40
+          ],
+          "size": [
+            8.4,
+            0.5,
+            18.4
+          ],
+          "role": "floor"
+        },
+        {
+          "id": "CourtRoof",
+          "position": [
+            60,
+            9.15,
+            40
+          ],
+          "size": [
+            8.8,
+            0.3,
+            18.8
+          ],
+          "role": "ceiling"
+        },
+        {
+          "id": "CourtNorth",
+          "position": [
+            60,
+            6.5,
+            30.8
+          ],
+          "size": [
+            8.4,
+            5,
+            0.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "CourtSouth",
+          "position": [
+            60,
+            6.5,
+            49.2
+          ],
+          "size": [
+            8.4,
+            5,
+            0.4
+          ],
+          "role": "wall"
+        },
+        {
+          "id": "OffsetMachinery",
+          "position": [
+            60,
+            4.75,
+            43.25
+          ],
+          "size": [
+            2,
+            1.5,
+            4
+          ],
+          "role": "panel"
+        },
+        {
+          "id": "NorthLedge",
+          "position": [
+            60,
+            4.625,
+            32.5
+          ],
+          "size": [
+            16,
+            1.25,
+            3
+          ],
+          "role": "floor"
+        }
+      ],
+      "stairs": [
+        {
+          "id": "CrossfireLedgeStair",
+          "start": [
+            47,
+            4,
+            32.5
+          ],
+          "end": [
+            52,
+            5.25,
+            32.5
+          ],
+          "width": 3
+        },
+        {
+          "id": "SpecimensLedgeStair",
+          "start": [
+            73,
+            4,
+            32.5
+          ],
+          "end": [
+            68,
+            5.25,
+            32.5
+          ],
+          "width": 3
+        }
+      ],
+      "actor_overrides": [
+        {
+          "stable_id": "pale_ward_03.crossfire.enemy.2",
+          "kind": "vessel",
+          "position": [
+            60,
+            6.12,
+            32.5
+          ],
+          "reason": "Supported high ledge exposes diagonal into specimens and crossfire;10.44m horizontal to test stance."
+        }
+      ],
+      "shot_pairs": [
+        {
+          "id": "high_ledge_to_specimens",
+          "a": [
+            60,
+            6.57,
+            32.5
+          ],
+          "b": [
+            70,
+            5.17,
+            35.5
+          ],
+          "state": "always",
+          "bidirectional": true
+        },
+        {
+          "id": "ground_court_front",
+          "a": [
+            54,
+            5.2,
+            40
+          ],
+          "b": [
+            66,
+            5.2,
+            40
+          ],
+          "state": "always",
+          "bidirectional": true
+        }
+      ],
+      "solid_pairs": [
+        {
+          "id": "offset_machine",
+          "a": [
+            58,
+            4.8,
+            43.25
+          ],
+          "b": [
+            62,
+            4.8,
+            43.25
+          ]
+        },
+        {
+          "id": "court_south_wall",
+          "a": [
+            60,
+            5.5,
+            48
+          ],
+          "b": [
+            60,
+            5.5,
+            50
+          ]
+        }
+      ],
+      "walk_paths": [
+        {
+          "id": "raised_ledge",
+          "points": [
+            [
+              47,
+              4,
+              32.5
+            ],
+            [
+              52,
+              5.25,
+              32.5
+            ],
+            [
+              68,
+              5.25,
+              32.5
+            ],
+            [
+              73,
+              4,
+              32.5
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "north_flank",
+          "points": [
+            [
+              54,
+              4,
+              35.5
+            ],
+            [
+              66,
+              4,
+              35.5
+            ]
+          ],
+          "reverse": true
+        },
+        {
+          "id": "south_flank",
+          "points": [
+            [
+              54,
+              4,
+              47.25
+            ],
+            [
+              66,
+              4,
+              47.25
+            ]
+          ],
+          "reverse": true
+        }
+      ],
+      "lane_clearance": {
+        "offset_cover_bounds": [
+          59,
+          61,
+          41.25,
+          45.25
+        ],
+        "south_physical_width": 3.75,
+        "south_usable_capsule_center_width": 3.15,
+        "central_axis_z": 40,
+        "enemy_navigation": "Original centre path physicallyclear; flanks playerchoice only. Machine shrunk depth6\u21924 and offset z43.25 by root-approved navigation fallback."
+      },
+      "lights": [
+        {
+          "id": "CourtLamp",
+          "position": [
+            60,
+            8.8,
+            40
+          ],
+          "room": "crossfire",
+          "energy": 4
+        }
+      ],
+      "risks": [
+        "Fresh contact/stair and real combat tests required; ledge changes ordinary encounter exposure but no mandatory all-clear or actor count.",
+        "No direct new opening into anchor rooms; anchors/checkpoints/return shortcut requirements unchanged."
+      ]
+    }
+  ]
 }

@@ -1,0 +1,21 @@
+{
+  "status": "physical_fix_static_and_independent_native_contacts_pass",
+  "scene_sha256": "7352183510ff81b390f75a926779ebfc14686316f00069bdf2465fdc007f72c8",
+  "cause": "Initial .65m parapet base clipped actual swept .12m enemy and .09m player projectiles despite centre-ray/pistol clearance. Natural Vessel released but zero player contacts. Initial dynamic failure retained by independent QA.",
+  "change": "CONTAINMENT ONLY visible base .65\u2192.4m; posts extended down to new base topworld4.4, retaining topworld5.4 and .4m horizontal slots. No invisible plane, projectile exemption/shrink or actor/objective change.",
+  "other_scene_hashes_unchanged": {
+    "pale_ward_01": "8ca7771158a0e4f28d97dbe058890cebd7297e9dbcecd0f6edcaad7e1f7aa5a0",
+    "pale_ward_03": "b01aff70fe351caa30fade314857dda0ec678c33119bdebc2df994f6eff79e7e"
+  },
+  "static_checks": 14735,
+  "author_check": "author-check.json",
+  "dynamic_evidence_owner": "Independent QA worker; actual swept classes/natural Vessel reciprocal contacts and standing/crouching/diagonal anti-bypass requested. No dynamic acceptance inferred from static ray pass.",
+  "independent_dynamic_evidence": {
+    "report": "verification/level-redesign-v13/structural/containment-contacts-base-fix.json",
+    "native": "verification/level-redesign-v13/structural/containment-contacts-base-fix.native.json",
+    "status": "passed",
+    "checks": 114,
+    "failed_checks": 0,
+    "scope": "Exact independent fixture labels/results are authoritative; contact proof does not establish full route/campaign/human tactical or pacing acceptance."
+  }
+}

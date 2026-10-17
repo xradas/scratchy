@@ -161,6 +161,7 @@ def build_portals(sc,rooms):
     routes=[]
     for p in sc.level['portals']:
         p=deepcopy(p);a,b=rooms[p['from']],rooms[p['to']];middle=p.get('waypoints',[])
+        structural=next((s for s in sc.level.get('structural_connections',[]) if s.get('portal')==p['id']),None)
         start,axis,sign,aside=mouth(a,middle[0] if middle else b['center']);end,_,_,bside=mouth(b,middle[-1] if middle else a['center'])
         points=[start]+deepcopy(middle)+[end]
         if p.get('bridge'):
@@ -180,6 +181,7 @@ def build_portals(sc,rooms):
         end_axis=0 if bside in ['E','W'] else 2
         cuts[b['id']][bside].append((end[2 if end_axis==0 else 0]-p['width']/2,end[2 if end_axis==0 else 0]+p['width']/2,end[1],end[1]+3.8))
         for i,(first,last) in enumerate(zip(points,points[1:])):
+            if structural:continue # Authored shared volume replaces this closed corridor.
             name='Link_'+p['id']+'_'+str(i);dx,dz=last[0]-first[0],last[2]-first[2]
             axis=0 if abs(dx)>abs(dz) else 2;cross=2 if axis==0 else 0
             assert abs(last[cross]-first[cross])<.001,(p['id'],first,last,'orthogonal authored legs required')
@@ -240,6 +242,9 @@ def build_portals(sc,rooms):
             if p['door']:meta+='\nmetadata/stage_nav_door = NodePath("../'+p['door']+'")'
             sc.marker('Nav_'+p['id']+'_'+str(i),point,meta)
         p.update(start=start,end=end,middle=[(start[k]+end[k])/2 for k in range(3)],points=points,traverse_points=[a['center']]+points+[b['center']],axis=axis)
+        if structural:
+            p['structural_connection']=structural['id']
+            p['traverse_points']=structural.get('traverse_points',p['traverse_points'])
         routes.append(p)
     return cuts,routes
 
@@ -269,6 +274,9 @@ def walls(sc,room,cuts):
 
 
 def architecture_cuts(sc,rooms,cuts):
+    for connection in sc.level.get('structural_connections',[]):
+        for aperture in connection['apertures']:
+            cuts[aperture['room']][aperture['side']].append((*aperture['span'],*aperture['height']))
     for room in rooms.values():
         if room['function'] in {'diagnostics','surgery'}:
             x,y,z=room['center'];cuts[room['id']]['E'].append((z+4,z+9,y+1.5,y+4.1))
@@ -369,14 +377,16 @@ def authored_architecture(sc,room):
 def chapter_architecture(sc,room):
     x,y,z=room['center'];sx,h,sz=room['size'];rid=room['id'];m=sc.materials[family(room)]
     if sc.level['id']=='pale_ward_02' and rid=='overlook':
-        # Sealed sight galleries flank the locked central descent. Both ends
-        # are solid glazing: a view of the reservoir, never a gate bypass.
+        fighting=bool(sc.level.get('structural_connections'))
+        # Fighting galleries retain actual side guards and permanent firing
+        # parapets; auto shutters block LOS until both feeds drain the basin.
         for side in [-1,1]:
             px=x+side*8.5;midz=-19.5
             sc.box('OverlookSightFloor'+str(side),(px,3.8,midz),(9,.4,13.2),m['floor'])
             sc.box('OverlookSightRoof'+str(side),(px,8.65,midz),(9.6,.3,13.2),m['ceiling'])
-            for edge in [-1,1]:sc.box('OverlookSightSide'+str(side)+str(edge),(px+edge*4.65,6.25,midz),(.3,4.6,13.2),m['wall'])
-            for label,zz in [('Near',-13),('Far',-26)]:sc.box('OverlookSightGlass'+str(side)+label,(px,6.35,zz),(9,3.9,.08),'v13_glass')
+            for edge in [-1,1]:sc.box('OverlookSightSide'+str(side)+str(edge),(px+edge*4.65,4.7 if fighting else 6.25,midz),(.3,1.4 if fighting else 4.6,13.2),m['trim'] if fighting else m['wall'])
+            if not fighting:
+                for label,zz in [('Near',-13),('Far',-26)]:sc.box('OverlookSightGlass'+str(side)+label,(px,6.35,zz),(9,3.9,.08),'v13_glass')
             sc.box('OverlookSightPier'+str(side),(px,1.85,-22),(.7,3.7,.7),'steel')
         sc.label('ReservoirOverlookSign','CULTURE RESERVOIR / DUAL FEED ISOLATION',(x,y+3.3,z-sz/2+.25),size=33,color=(.53,.7,.44,1))
     if room['function']=='reservoir':
@@ -462,6 +472,11 @@ def populate(sc,rooms):
             kind=('infected_security' if i%3==2 or room['function']=='security' else 'infected_scientist') if staff else ('vessel' if i%3==2 else 'unsealed')
             x,y,z=room['center'];at=[x+((i%3)-1)*5,y+.87,z-4+(i//3)*4]
             stable=level['id']+'.'+room['id']+'.enemy.'+str(i)
+            for connection in level.get('structural_connections',[]):
+                for override in connection.get('actor_overrides',[]):
+                    if override['stable_id']==stable:
+                        assert override['kind']==kind,(stable,'actor type/count must be preserved')
+                        at=override['position']
             sc.marker('Spawn_'+str(len(enemy_records)),at,'metadata/stable_id = '+quote(stable)+'\nmetadata/kind = '+quote(kind)+'\nmetadata/arena_id = '+quote(level['encounters'].get(room['id'],{}).get('arena_id',''))+'\nmetadata/activate_room = '+quote(room['id']),'EnemySpawns')
             enemy_records.append({'stable_id':stable,'room':room['id'],'kind':kind,'position':at})
     for item in level['controls']:
@@ -558,12 +573,32 @@ def descent_atrium(sc):
     sc.label('DescentSiloLandmark','SPECIMEN SILO / LOWER CROSSFEED',(55.75,9,0),rotation=(0,-90,0),size=42,color=(.5,.61,.41,1))
 
 
+def structural_connections(sc,rooms):
+    """Exact authored apertures, closed supports, cover, real stairs and actors.
+
+    Data is mirrored into runtime routes and author reports for independent
+    native contact/walking tests. Metadata does not establish acceptance.
+    """
+    for connection in sc.level.get('structural_connections',[]):
+        prefix='Structural_'+connection['id']+'_';material=sc.materials[family(rooms[connection['rooms'][0]])]
+        for box in connection.get('boxes',[]):
+            sc.box(prefix+box['id'],box['position'],box['size'],material[box['role']])
+        for stair in connection.get('stairs',[]):
+            sc.stairs(prefix+stair['id']+'_',stair['start'],stair['end'],stair['width'],material['floor'])
+        for shutter in connection.get('shutters',[]):
+            extra='script = ExtResource("door")\nmetadata/stage_door = '+quote(shutter['stage_door'])+'\nmetadata/stable_id = '+quote(shutter['stable_id'])+'\nmetadata/requires = '+arr(shutter['requires'])+'\nmetadata/auto_open = true\nmetadata/drain_controller = NodePath('+quote(shutter['drain_controller'])+')\nmetadata/open_offset = '+vec(shutter['open_offset'])
+            sc.box(shutter['id'],shutter['position'],shutter['size'],material['door'],typ='AnimatableBody3D',extra=extra,hit_material='armor')
+        for light in connection.get('lights',[]):
+            sc.lamp(prefix+light['id'],light['position'],rooms[light['room']],energy=light['energy'])
+
+
 def author_selected(level_id,path=INPUT):
     level=load_level(level_id,path);rooms={r['id']:r for r in level['rooms']};sc=WardScene(level)
     protected={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in list((ROOT/'scenes/campaign').glob('*.tscn'))+list((ROOT/'resources/campaign').glob('*-layout.json'))+list((ROOT/'resources/campaign').glob('*-route.json'))+list((ROOT/'assets').rglob('*')) if p.is_file() and not p.name.startswith(level_id)}
     cuts,routes=build_portals(sc,rooms)
     architecture_cuts(sc,rooms,cuts)
     descent_atrium(sc)
+    structural_connections(sc,rooms)
     for room in rooms.values():walls(sc,room,cuts[room['id']]);authored_architecture(sc,room);chapter_architecture(sc,room);furnishing(sc,room)
     enemies,supplies=populate(sc,rooms)
     assert len(enemies)==level['enemy_total']
@@ -572,7 +607,7 @@ def author_selected(level_id,path=INPUT):
     paths={ROOT/'scenes/campaign'/f'{level_id}.tscn':scene,ROOT/'resources/campaign'/f'{level_id}-layout.json':json.dumps(layout,indent=2)+'\n',ROOT/'resources/campaign'/f'{level_id}-route.json':json.dumps(route,indent=2)+'\n',ROOT/'resources/campaign/v13'/f'{level_id}-objectives.tres':objective_resource(level)}
     for output,text in paths.items():output.parent.mkdir(parents=True,exist_ok=True);output.write_text(text)
     assert all(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==digest for p,digest in protected.items()),'Protected scene/art changed'
-    report={'level':level_id,'rooms':len(rooms),'portals':len(routes),'enemies':len(enemies),'fittings':len(sc.fittings),'mounted_lights':len(sc.lights),'height_bands':sorted({r['center'][1] for r in rooms.values()}),'protected_scene_art_files':len(protected),'outputs':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},'geometry':sc.geometry,'furnishings':sc.fittings,'light_fixtures':sc.lights}
+    report={'level':level_id,'rooms':len(rooms),'portals':len(routes),'enemies':len(enemies),'fittings':len(sc.fittings),'mounted_lights':len(sc.lights),'height_bands':sorted({r['center'][1] for r in rooms.values()}),'protected_scene_art_files':len(protected),'outputs':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},'geometry':sc.geometry,'furnishings':sc.fittings,'light_fixtures':sc.lights,'structural_connections':level.get('structural_connections',[])}
     report_path=ROOT/'resources/campaign/v13'/f'{level_id}-author-report.json';report_path.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k not in ['geometry','furnishings','light_fixtures']},indent=2));return report
 
 
