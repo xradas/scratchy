@@ -538,10 +538,10 @@ RANGED_PROMOTIONS={
 
 
 def survival_denominations(kind,total):
-    # One-value shards are frequent but small. Only two 50-point reserves per
-    # route; the same original route budget remains available without secrets.
-    fifties=2
-    singles=25
+    # Keep a rare +1 pickup, with the rest in legible 25/50-point caches.
+    # Dozens of +1 shards made every room feel stocked despite the route cap.
+    singles=total%25
+    fifties=min(2,(total-singles)//50)
     assert kind in {'health','armor'} and (total-singles-50*fifties)%25==0
     quarters=(total-singles-50*fifties)//25
     large=[25]*quarters+[50]*fifties
@@ -633,10 +633,20 @@ def populate(sc,rooms):
     pickups=[]
     for kind,total in dict(level['main_route_ammo'],health=level['main_route_health'],armor=level['main_route_armor']).items():
         if kind==WEAPON_AMMO[weapon['kind']]:total-=weapon['amount']
-        scatter_supply(sc,level,rooms,supply_rooms,kind,total,pickups)
+        # Ammo and medical/armor caches occupy alternating route rooms. A
+        # pickup therefore signals a particular room purpose rather than a
+        # universal pile of every resource in every room.
+        selected=supply_rooms[1::2] if kind in {'health','armor'} else supply_rooms[::2]
+        scatter_supply(sc,level,rooms,selected,kind,total,pickups)
     for room in rooms.values():
         if room['optional'] or room['secret']:
-            x,y,z=room['center'];stable_pickup(sc,'Bonus_'+room['id'],'shells',[x-2,y+.5,z+2],12);stable_pickup(sc,'BonusHealth_'+room['id'],'health',[x+2,y+.5,z-2],25)
+            x,y,z=room['center']
+            if room['secret']:
+                stable_pickup(sc,'Bonus_'+room['id'],'shells',[x-2,y+.5,z+2],12)
+            elif sum(1 for r in rooms.values() if r['optional'] and r['id']<room['id'])%2==0:
+                stable_pickup(sc,'BonusHealth_'+room['id'],'health',[x+2,y+.5,z-2],25)
+            else:
+                stable_pickup(sc,'Bonus_'+room['id'],'shells',[x-2,y+.5,z+2],12)
     # Rare overdrive is distinct from ordinary top-ups; one secret per level
     # rewards exploration without making the main route depend on it.
     secret_room=rooms[level['secret_rooms'][0]]

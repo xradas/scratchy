@@ -91,6 +91,24 @@ func spawn_enemy(kind: StringName, position_value: Vector3, authored_id: String 
 	enemies.append(enemy)
 	return enemy
 
+func configure_reinforcement_art(enemy: CharacterBody3D) -> void:
+	# Initial scene actors are configured by Main before stage setup. Runtime
+	# arrivals need the same manifest treatment or they fall back to proxy boxes.
+	var manifest_path:="res://assets/combat_art.json"
+	if not FileAccess.file_exists(manifest_path):return
+	var art:Variant=JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
+	if not art is Dictionary:return
+	var kind:=String(enemy.definition.identifier)
+	if not art.get("enemies",{}).has(kind):return
+	var data:Dictionary=art.enemies[kind]
+	if data.has("rig_scene"):
+		enemy.configure_live_visual(data.rig_scene)
+		return
+	var clips:Dictionary={}
+	for clip in data.clips:clips[clip]=Vector2i(data.clips[clip][0],data.clips[clip][1])
+	var pivot:Array=data.get("foot_pivot",[-1,-1])
+	enemy.configure_sprite_sheet(data.file,data.columns,data.directions,clips,data.get("pixel_size",0.015),Vector2(pivot[0],pivot[1]),data.get("sprite_options",{}))
+
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(player) or get_tree().paused: return
 	cooldown = maxf(0.0, cooldown - delta)

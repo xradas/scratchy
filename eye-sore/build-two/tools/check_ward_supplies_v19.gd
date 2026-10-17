@@ -3,6 +3,22 @@ var failures: Array[String]=[]
 func _initialize() -> void: call_deferred("run")
 func run() -> void:
 	for id in ["pale_ward_01","pale_ward_02","pale_ward_03"]:
+		var route: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://resources/campaign/"+id+"-route.json"))
+		var route_totals: Dictionary={}
+		var room_kinds: Dictionary={}
+		for supply in route.supplies:
+			var kind: String=String(supply.kind)
+			route_totals[kind]=int(route_totals.get(kind,0))+int(supply.amount)
+			var kinds: Dictionary=room_kinds.get(String(supply.room),{})
+			kinds[kind]=true
+			room_kinds[String(supply.room)]=kinds
+		for room in room_kinds:
+			var kinds: Dictionary=room_kinds[room]
+			if kinds.has("health"):
+				for ammo in ["pistol","shells","rivets","rockets"]:
+					if kinds.has(ammo):failures.append(id+" health/ammo clustered in "+room)
+		if int(route_totals.get("health",0))!=201 or int(route_totals.get("armor",0))!=151:
+			failures.append(id+" main route medical budget drifted")
 		var world: Node3D=load("res://scenes/campaign/"+id+".tscn").instantiate()
 		root.add_child(world);world.scan(world);world.set_physics_process(false)
 		var player: CharacterBody3D=world.get_node("Player");player.set_physics_process(false)

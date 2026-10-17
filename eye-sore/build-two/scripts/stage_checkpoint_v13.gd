@@ -1,6 +1,6 @@
 extends RefCounted
 ## Session-only data, stable authored identities, no emitted gameplay events.
-const WORLD_DICTIONARIES := ["flags","collected","visited","dead_ids","arena_remaining","arena_active","enemy_groups","traps","secrets","shortcuts","checkpoint_used"]
+const WORLD_DICTIONARIES := ["flags","collected","visited","dead_ids","arena_remaining","arena_active","enemy_groups","ambush_triggered","traps","secrets","shortcuts","checkpoint_used"]
 const WORLD_VALUES := ["current_room","finished","prompt","objective","secret_found","shortcut_open"]
 const ENEMY_VALUES := ["health","dead","gibbed","awake","state","state_time","attack_id","released","committed_direction","burst_rounds_remaining","burst_cycle_id","burst_round_index","burst_release_blocked","corpse_integrity","collision_layer","collision_mask"]
 const MECHANISM_VALUES := ["opened","sealing","upper","moving","obstructed","departure_pending"]
@@ -23,7 +23,7 @@ static func capture(stage: Node) -> Dictionary:
 		result.mechanisms[id_for(stage,node)]=state
 	for enemy in stage.combat.enemies:
 		if not is_instance_valid(enemy):continue
-		var state := {"transform":enemy.global_transform,"velocity":enemy.velocity,"seen_shots":enemy.seen_shots.duplicate(true),"corpse_seen_shots":enemy.corpse_seen_shots.duplicate(true),"visual_transform":enemy.get_node("Visual").transform,"visual_visible":enemy.get_node("Visual").visible}
+		var state := {"transform":enemy.global_transform,"velocity":enemy.velocity,"seen_shots":enemy.seen_shots.duplicate(true),"corpse_seen_shots":enemy.corpse_seen_shots.duplicate(true),"visual_transform":enemy.get_node("Visual").transform,"visual_visible":enemy.get_node("Visual").visible,"visible":enemy.visible,"ambush_reinforcement":bool(enemy.get_meta("ambush_reinforcement",false)),"ambush_kind":String(enemy.get_meta("ambush_kind","")),"ambush_trigger":String(enemy.get_meta("ambush_trigger",""))}
 		for field in ENEMY_VALUES:state[field]=enemy.get(field)
 		result.enemies[String(enemy.target_id)]=state
 	return result
@@ -31,6 +31,7 @@ static func restore(stage: Node, data: Dictionary) -> bool:
 	if stage.objective_profile==null or String(data.get("level_id",""))!=stage.objective_profile.level_id:return false
 	# Validate IDs before changing any state; an edited or different map cannot
 	# silently restore into unrelated actors/mechanisms.
+	stage.ensure_checkpoint_reinforcements(data)
 	var actors := {}
 	for enemy in stage.combat.enemies:actors[String(enemy.target_id)]=enemy
 	if data.get("enemies",{}).size()!=actors.size():return false
@@ -64,6 +65,9 @@ static func restore(stage: Node, data: Dictionary) -> bool:
 		for field in ENEMY_VALUES:
 			if state.has(field):enemy.set(field,state[field])
 		enemy.global_transform=state.transform;enemy.velocity=state.velocity
+		enemy.visible=bool(state.get("visible",true))
+		if bool(state.get("ambush_reinforcement",false)) and not enemy.visible:
+			for hurt in enemy.hurt_shapes:hurt.collision_layer=0
 		enemy.seen_shots=state.seen_shots.duplicate(true);enemy.corpse_seen_shots=state.corpse_seen_shots.duplicate(true)
 		enemy.get_node("Visual").transform=state.visual_transform;enemy.get_node("Visual").visible=state.visual_visible
 		enemy.clear_corpse_surfaces();enemy.corpse_frame=-1;enemy.sprite_frame=-1

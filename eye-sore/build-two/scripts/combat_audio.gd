@@ -56,6 +56,7 @@ func handle_event(event: Dictionary) -> void:
 		"enemy_death": key = kind + "_death"
 		"enemy_detect": key = kind + "_detect"
 		"enemy_attack_warning": key = kind + "_attack_warning"
+		"ambush_arrival": key = "ambush_arrival"
 		"projectile_impact": key = "projectile_impact" if event.get("material") == &"flesh" else "projectile_hard"
 		"ordnance_explosion": key = "siege_explosion"
 		"projectile_release", "player_hurt", "empty": key = type

@@ -492,6 +492,21 @@ func clear_hurt_surfaces() -> void:
 func update_sprite() -> void:
 	if not is_instance_valid(sprite): return
 	sprite.visible = not gibbed
+	# A short, foot-anchored rise on each planted step makes the existing painted
+	# leg poses read at combat distance. Move the sprite and its hurt surface
+	# together; the movement capsule and attack release remain unchanged.
+	var walk_bob := 0.0
+	if not dead and state == &"chase" and Vector2(velocity.x, velocity.z).length() > 0.05:
+		var amplitude := float(sprite_data.get("walk_bob_m", 0.0))
+		if amplitude > 0.0:
+			var step_fps := float(sprite_data.get("walk_fps", 8.0))
+			var walk_frame_count := 4
+			if sprite_data.get("layout", "directions") == "poses":
+				walk_frame_count = maxi(1, (sprite_data.get("poses", {}).get("walk", []) as Array).size())
+			elif sprite_data.get("walk_columns", []).size() > 0:
+				walk_frame_count = sprite_data.walk_columns.size()
+			walk_bob = absf(sin(state_time * step_fps / walk_frame_count * TAU)) * amplitude
+	sprite_pivot.position.y = -$CollisionShape3D.shape.height * 0.5 + walk_bob
 	var camera: Node3D = player.get_node_or_null("Camera3D") if is_instance_valid(player) else null
 	if camera != null:
 		var offset := camera.global_position - sprite_pivot.global_position

@@ -2,6 +2,7 @@ extends Node3D
 signal checkpoint_reached(checkpoint_id: String)
 @export var objective_profile: StageObjectiveProfile = null
 const CheckpointState := preload("res://scripts/stage_checkpoint_v13.gd")
+const AmbushPlan := preload("res://scripts/stage_ambush_plan.gd")
 var checkpoint_markers: Array[Node3D] = []
 var checkpoint_used: Dictionary = {}
 var checkpoint_dwell := 0.0
@@ -21,6 +22,7 @@ var dead_ids: Dictionary = {}
 var arena_remaining: Dictionary = {}
 var arena_active: Dictionary = {}
 var enemy_groups: Dictionary = {}
+var ambush_triggered: Dictionary = {}
 var traps: Dictionary = {}
 var trap_entries: Dictionary = {}
 var trap_shutters: Dictionary = {}
@@ -55,7 +57,7 @@ func scan(node: Node) -> void:
 			if node.has_method("is_shootable_mechanism"): node.setup(self)
 	for child in node.get_children(): scan(child)
 func reset() -> void:
-	flags.clear(); collected.clear(); visited.clear(); dead_ids.clear(); arena_remaining.clear(); arena_active.clear(); enemy_groups.clear(); secrets.clear(); shortcuts.clear()
+	flags.clear(); collected.clear(); visited.clear(); dead_ids.clear(); arena_remaining.clear(); arena_active.clear(); enemy_groups.clear(); ambush_triggered.clear(); secrets.clear(); shortcuts.clear()
 	traps.clear(); checkpoint_used.clear(); checkpoint_dwell=0.0; checkpoint_candidate=""
 	if objective_profile!=null: flags=objective_profile.initial_flags.duplicate(true)
 	for arena in trap_entries:
@@ -300,7 +302,9 @@ func try_use(actor: CharacterBody3D = null) -> bool:
 		var complete_requires:Array=selected.get_meta("activated_complete_requires",[])
 		if objective_profile!=null and not complete_requires.is_empty() and objective_profile.unmet(complete_requires,flags).is_empty():
 			activation_message=String(selected.get_meta("activated_complete_message",activation_message))
-		message_changed.emit(activation_message); return true
+		message_changed.emit(activation_message)
+		trigger_ambush_wave("control:" + flag)
+		return true
 	if selected.has_meta("ward_lift"):
 		var accepted: bool = selected.activate()
 		if not accepted and not selected.moving: message_changed.emit("Stand clear of the lift entrance before operating it")
@@ -374,6 +378,7 @@ func collect(item: Node3D) -> void:
 		refresh_objective()
 	else: return
 	collected[pickup_identity(item)] = true; item.visible = false
+	if kind in ["brass", "red", "brass_key", "red_key"]: trigger_ambush_wave("pickup:" + kind.trim_suffix("_key"))
 	# One authoritative receipt follows actual accepted mutation. Inventory events
 	# remain separate; saturated owned bait may still trigger its trap silently.
 	if receipt_accepted:
@@ -558,3 +563,50 @@ func restore_checkpoint_state(data: Dictionary) -> bool:
 	if not CheckpointState.restore(self,data):return false
 	for item in pickups:item.visible=not collected.has(pickup_identity(item))
 	return true
+
+func trigger_ambush_wave(trigger_id: String) -> void:
+	if objective_profile==null or scene_file_path.is_empty() or ambush_triggered.has(trigger_id):return
+	var entries: Array=AmbushPlan.for_level(objective_profile.level_id).get(trigger_id,[])
+	if entries.is_empty():return
+	ambush_triggered[trigger_id]=true
+	message_changed.emit("BREACH · hostiles phasing into the chamber")
+	for index in entries.size():
+		var entry:Dictionary=entries[index]
+		var id: String="%s.ambush.%s.%d" % [objective_profile.level_id,trigger_id.replace(":","_"),index]
+		var enemy:CharacterBody3D=combat.spawn_enemy(StringName(entry.kind),entry.position,id)
+		combat.configure_reinforcement_art(enemy)
+		enemy.set_meta("ambush_reinforcement",true)
+		enemy.set_meta("ambush_kind",entry.kind)
+		enemy.set_meta("ambush_trigger",trigger_id)
+		enemy.awake=false
+		enemy.visible=false
+		enemy.collision_layer=0;enemy.collision_mask=0
+		for hurt in enemy.hurt_shapes:hurt.collision_layer=0
+		enemy.set_physics_process(false)
+		combat.total_enemies+=1
+		var fx:=preload("res://scripts/ambush_arrival.gd").new()
+		add_child(fx)
+		fx.finished.connect(func():
+			if is_instance_valid(enemy) and not enemy.dead and is_instance_valid(combat) and not combat.dead:
+				enemy.visible=true;enemy.collision_layer=2;enemy.collision_mask=3;enemy.awake=true
+				for hurt in enemy.hurt_shapes:hurt.collision_layer=4
+				enemy.set_physics_process(true)
+		)
+		fx.start(entry.position,combat)
+
+func ensure_checkpoint_reinforcements(data: Dictionary) -> void:
+	# A fresh Continue world begins with only the scene's original spawn markers.
+	# Recreate exactly the actors recorded at the checkpoint before validating IDs.
+	for id in data.get("enemies",{}):
+		var state:Dictionary=data.enemies[id]
+		if not state.get("ambush_reinforcement",false):continue
+		var present:=false
+		for enemy in combat.enemies:
+			if String(enemy.target_id)==String(id):present=true;break
+		if present:continue
+		var enemy:CharacterBody3D=combat.spawn_enemy(StringName(state.ambush_kind),state.transform.origin,String(id))
+		combat.configure_reinforcement_art(enemy)
+		enemy.set_meta("ambush_reinforcement",true)
+		enemy.set_meta("ambush_kind",state.ambush_kind)
+		enemy.set_meta("ambush_trigger",state.ambush_trigger)
+		combat.total_enemies+=1

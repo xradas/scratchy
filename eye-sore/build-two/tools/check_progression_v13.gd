@@ -213,6 +213,12 @@ func other_ward_checkpoints() -> void:
 				var control:Node3D=app.world.get_node("Control_"+pair[0])
 				await ground_at(app,control.global_position+Vector3(0,0,1.3))
 				check(app.world.nearest_mechanism()==control and app.world.try_use(app.player),"actual E-use isolation control "+pair[0])
+				# The control now owns a visible arrival wave. Defeat those real
+				# reinforcements before a nearby safe checkpoint may be secured.
+				await create_timer(.7).timeout
+				for enemy in app.combat.enemies:
+					if bool(enemy.get_meta("ambush_reinforcement",false)):enemy.set_physics_process(false)
+				if not await clear_actual_checkpoint_threats(app,marker):break
 				if not await secure_actual_marker(app,marker,pair[1]):break
 			check(app.has_checkpoint() and app.campaign.checkpoint_snapshot.checkpoint_id=="culture_safe" and app.world.flags.get("isolation_a",false) and app.world.flags.get("isolation_b",false),"Containment BA latest checkpoint follows second completed wing")
 		else:
