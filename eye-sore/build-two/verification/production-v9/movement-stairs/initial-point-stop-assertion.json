@@ -1,0 +1,4388 @@
+{
+  "checks": 203,
+  "criteria": "Terminal actual is_on_floor; centered-foot support within.32m throughout, no >4 consecutive airborne ticks, no head-probe collision, real stance held, maxspeed equals4.4/10.8 and no horizontal accelerationboost.",
+  "failures": [
+    "link2 forward Shift+W reaches real far landing",
+    "link2 forward Shift+S reaches real far landing",
+    "link2 reverse Shift+W reaches real far landing",
+    "link2 reverse Shift+S reaches real far landing",
+    "link13 forward Shift+W reaches real far landing",
+    "link13 forward Shift+S reaches real far landing",
+    "link13 reverse Shift+W reaches real far landing",
+    "link13 reverse Shift+S reaches real far landing"
+  ],
+  "fixture_sha256": "496a168b6e45c02e381adfaf5671e42d59e388e230b06529a85f818f67cc7b24",
+  "opened_actual_doors": [
+    "Door_entry_gate",
+    "TrapEntry_arena_one",
+    "Door_breaker",
+    "Door_shortcut_one",
+    "Door_brass_gate",
+    "TrapEntry_arena_two",
+    "Door_release",
+    "Door_shortcut_two",
+    "Door_red_gate",
+    "TrapEntry_final_arena",
+    "Door_exit_gate",
+    "Door_secret_one",
+    "Door_secret_two",
+    "Closet_arena_one_-1_0_Shutter",
+    "Closet_arena_one_-1_1_Shutter",
+    "Closet_arena_one_-1_2_Shutter",
+    "Closet_arena_one_-1_3_Shutter",
+    "Closet_arena_one_1_0_Shutter",
+    "Closet_arena_two_-1_0_Shutter",
+    "Closet_arena_two_-1_1_Shutter",
+    "Closet_arena_two_-1_2_Shutter",
+    "Closet_arena_two_-1_3_Shutter",
+    "Closet_arena_two_1_0_Shutter",
+    "Closet_final_arena_-1_0_Shutter",
+    "Closet_final_arena_-1_1_Shutter",
+    "Closet_final_arena_-1_2_Shutter",
+    "Closet_final_arena_-1_3_Shutter",
+    "Closet_final_arena_1_0_Shutter",
+    "Closet_final_arena_1_1_Shutter"
+  ],
+  "passed": false,
+  "physics_rate": 60,
+  "scope": "Isolated actual production Ward Intake scene/player/shared grounded_step. All-access doors opened using real activate; independent declared landing placements. Real Ctrl/Shift plusW/S, bothdirections across steep link2 and C3exit link13. Camerahead probe radius.05m excludesactor. Bounded geometry/movement proof, not campaign progression or human gamefeel.",
+  "source_sha256": {
+    "scenes/campaign/pale_ward_01.tscn": "7c06137c531c017dce5318654d63dc9e9419b25612b9ba5bc5c1aef63c5d033d",
+    "scripts/grounded_step.gd": "47051c39404e1b488ea9888c1b33b16e6fb1868d7da3078d330512c2ca870bdd",
+    "scripts/player.gd": "adb67f028635811db1e401abd514eaef66b472b0c2d21934c93a08d2970ff08f"
+  },
+  "walks": [
+    {
+      "airborne_ticks": 8,
+      "from": "arena_one",
+      "goal_floor": [
+        29.0,
+        1.5,
+        -76.0
+      ],
+      "goal_xz_error": 0.311450958251953,
+      "head_contacts": [],
+      "initial": [
+        17.0,
+        -0.449361979961395,
+        -76.0
+      ],
+      "label": "link2 forward Ctrl+W",
+      "link": 2,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.180638015270233,
+      "maximum_horizontal_tick_distance": 0.073333740234375,
+      "maximum_speed": 4.40000009536743,
+      "missing_support": [],
+      "modifier": "Ctrl",
+      "movement_key": "W",
+      "reverse": false,
+      "sprint_ticks": 0,
+      "stance_errors": [],
+      "target_speed": 4.4,
+      "terminal": [
+        28.688549041748,
+        2.35078763961792,
+        -76.0
+      ],
+      "tick_budget": 344,
+      "ticks": 160,
+      "to": "key_wing",
+      "trace": [
+        {
+          "camera": [
+            17.3916664123535,
+            -0.0726208686828613,
+            -75.9973373413086
+          ],
+          "crouching": true,
+          "feet_y": -0.999361991882324,
+          "grounded": true,
+          "position": [
+            17.3916664123535,
+            -0.449361979961395,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 8
+        },
+        {
+          "camera": [
+            17.9724578857422,
+            0.0564235746860504,
+            -75.9957122802734
+          ],
+          "crouching": true,
+          "feet_y": -0.868332386016846,
+          "grounded": true,
+          "position": [
+            17.9724578857422,
+            -0.318332403898239,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 16
+        },
+        {
+          "camera": [
+            18.5541934967041,
+            0.1757582873106,
+            -75.996223449707
+          ],
+          "crouching": true,
+          "feet_y": -0.749629855155945,
+          "grounded": true,
+          "position": [
+            18.5541934967041,
+            -0.199629828333855,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 24
+        },
+        {
+          "camera": [
+            19.1371784210205,
+            0.304158598184586,
+            -75.9995803833008
+          ],
+          "crouching": true,
+          "feet_y": -0.62443745136261,
+          "grounded": true,
+          "position": [
+            19.1371784210205,
+            -0.0744374319911003,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 32
+        },
+        {
+          "camera": [
+            19.7210807800293,
+            0.424386888742447,
+            -76.0047149658203
+          ],
+          "crouching": true,
+          "feet_y": -0.49967285990715,
+          "grounded": true,
+          "position": [
+            19.7210807800293,
+            0.0503271408379078,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 40
+        },
+        {
+          "camera": [
+            20.3077507019043,
+            0.607545495033264,
+            -76.0048828125
+          ],
+          "crouching": true,
+          "feet_y": -0.316469728946686,
+          "grounded": true,
+          "position": [
+            20.3077507019043,
+            0.233530282974243,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 48
+        },
+        {
+          "camera": [
+            20.8944206237793,
+            0.785266220569611,
+            -75.9993209838867
+          ],
+          "crouching": true,
+          "feet_y": -0.142055630683899,
+          "grounded": true,
+          "position": [
+            20.8944206237793,
+            0.40794438123703,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 56
+        },
+        {
+          "camera": [
+            21.4754199981689,
+            0.932199001312256,
+            -75.9961700439453
+          ],
+          "crouching": true,
+          "feet_y": 0.00704503059387207,
+          "grounded": true,
+          "position": [
+            21.4754199981689,
+            0.557045042514801,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 64
+        },
+        {
+          "camera": [
+            22.0575256347656,
+            1.05004978179932,
+            -75.9956130981445
+          ],
+          "crouching": true,
+          "feet_y": 0.125431001186371,
+          "grounded": true,
+          "position": [
+            22.0575256347656,
+            0.6754310131073,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 72
+        },
+        {
+          "camera": [
+            22.6406154632568,
+            1.17717576026917,
+            -75.9982681274414
+          ],
+          "crouching": true,
+          "feet_y": 0.249296903610229,
+          "grounded": true,
+          "position": [
+            22.6406154632568,
+            0.799296915531158,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 80
+        },
+        {
+          "camera": [
+            23.2249374389648,
+            1.30057966709137,
+            -76.0037002563477
+          ],
+          "crouching": true,
+          "feet_y": 0.375486671924591,
+          "grounded": true,
+          "position": [
+            23.2249374389648,
+            0.92548668384552,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 88
+        },
+        {
+          "camera": [
+            23.8116073608398,
+            1.48488330841064,
+            -76.005485534668
+          ],
+          "crouching": true,
+          "feet_y": 0.561619222164154,
+          "grounded": true,
+          "position": [
+            23.8116073608398,
+            1.11161923408508,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 96
+        },
+        {
+          "camera": [
+            24.3982772827148,
+            1.6618800163269,
+            -76.0008316040039
+          ],
+          "crouching": true,
+          "feet_y": 0.734079897403717,
+          "grounded": true,
+          "position": [
+            24.3982772827148,
+            1.28407990932465,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 104
+        },
+        {
+          "camera": [
+            24.9801578521729,
+            1.80755794048309,
+            -75.9968566894531
+          ],
+          "crouching": true,
+          "feet_y": 0.88169127702713,
+          "grounded": true,
+          "position": [
+            24.9801578521729,
+            1.43169128894806,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 112
+        },
+        {
+          "camera": [
+            25.5631103515625,
+            1.9244818687439,
+            -75.9953079223633
+          ],
+          "crouching": true,
+          "feet_y": 1.00024485588074,
+          "grounded": true,
+          "position": [
+            25.5631103515625,
+            1.55024492740631,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 120
+        },
+        {
+          "camera": [
+            26.1469898223877,
+            2.05284738540649,
+            -75.9977264404297
+          ],
+          "crouching": true,
+          "feet_y": 1.12563133239746,
+          "grounded": true,
+          "position": [
+            26.1469898223877,
+            1.67563128471375,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 128
+        },
+        {
+          "camera": [
+            26.7336597442627,
+            2.1758017539978,
+            -76.0037612915039
+          ],
+          "crouching": true,
+          "feet_y": 1.25090456008911,
+          "grounded": true,
+          "position": [
+            26.7336597442627,
+            1.8009045124054,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 136
+        },
+        {
+          "camera": [
+            27.3203296661377,
+            2.36621713638306,
+            -76.0054244995117
+          ],
+          "crouching": true,
+          "feet_y": 1.44289684295654,
+          "grounded": true,
+          "position": [
+            27.3203296661377,
+            1.99289679527283,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 144
+        },
+        {
+          "camera": [
+            27.9068794250488,
+            2.4285900592804,
+            -76.0006637573242
+          ],
+          "crouching": true,
+          "feet_y": 1.50078773498535,
+          "grounded": true,
+          "position": [
+            27.9068794250488,
+            2.05078768730164,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 152
+        },
+        {
+          "camera": [
+            28.4935493469238,
+            2.42454051971436,
+            -75.9951095581055
+          ],
+          "crouching": true,
+          "feet_y": 1.50078773498535,
+          "grounded": true,
+          "position": [
+            28.4935493469238,
+            2.05078768730164,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 160
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 9,
+      "from": "arena_one",
+      "goal_floor": [
+        29.0,
+        1.5,
+        -76.0
+      ],
+      "goal_xz_error": 0.313077926635742,
+      "head_contacts": [],
+      "initial": [
+        17.0,
+        -0.449897468090057,
+        -76.0
+      ],
+      "label": "link2 forward Ctrl+S",
+      "link": 2,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.180989742279053,
+      "maximum_horizontal_tick_distance": 0.073333740234375,
+      "maximum_speed": 4.40000009536743,
+      "missing_support": [],
+      "modifier": "Ctrl",
+      "movement_key": "S",
+      "reverse": false,
+      "sprint_ticks": 0,
+      "stance_errors": [],
+      "target_speed": 4.4,
+      "terminal": [
+        28.6869220733643,
+        2.35015845298767,
+        -76.0
+      ],
+      "tick_budget": 344,
+      "ticks": 160,
+      "to": "key_wing",
+      "trace": [
+        {
+          "camera": [
+            17.3916664123535,
+            -0.0731563568115234,
+            -76.0026626586914
+          ],
+          "crouching": true,
+          "feet_y": -0.999897480010986,
+          "grounded": true,
+          "position": [
+            17.3916664123535,
+            -0.449897468090057,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 8
+        },
+        {
+          "camera": [
+            17.9723262786865,
+            0.0563574731349945,
+            -76.0042877197266
+          ],
+          "crouching": true,
+          "feet_y": -0.868398487567902,
+          "grounded": true,
+          "position": [
+            17.9723262786865,
+            -0.318398475646973,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 16
+        },
+        {
+          "camera": [
+            18.5540161132812,
+            0.175779089331627,
+            -76.003776550293
+          ],
+          "crouching": true,
+          "feet_y": -0.749607861042023,
+          "grounded": true,
+          "position": [
+            18.5540161132812,
+            -0.199607864022255,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 24
+        },
+        {
+          "camera": [
+            19.1368808746338,
+            0.30385684967041,
+            -76.0004196166992
+          ],
+          "crouching": true,
+          "feet_y": -0.62474000453949,
+          "grounded": true,
+          "position": [
+            19.1368808746338,
+            -0.0747399926185608,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 32
+        },
+        {
+          "camera": [
+            19.7204456329346,
+            0.424232512712479,
+            -75.9952850341797
+          ],
+          "crouching": true,
+          "feet_y": -0.499830633401871,
+          "grounded": true,
+          "position": [
+            19.7204456329346,
+            0.0501693859696388,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 40
+        },
+        {
+          "camera": [
+            20.3071155548096,
+            0.607383131980896,
+            -75.9951095581055
+          ],
+          "crouching": true,
+          "feet_y": -0.316627472639084,
+          "grounded": true,
+          "position": [
+            20.3071155548096,
+            0.233372539281845,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 48
+        },
+        {
+          "camera": [
+            20.8937854766846,
+            0.785112380981445,
+            -76.0006790161133
+          ],
+          "crouching": true,
+          "feet_y": -0.142213404178619,
+          "grounded": true,
+          "position": [
+            20.8937854766846,
+            0.40778660774231,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 56
+        },
+        {
+          "camera": [
+            21.4748592376709,
+            0.93191659450531,
+            -76.0038223266602
+          ],
+          "crouching": true,
+          "feet_y": 0.00675994157791138,
+          "grounded": true,
+          "position": [
+            21.4748592376709,
+            0.55675995349884,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 64
+        },
+        {
+          "camera": [
+            22.0570316314697,
+            1.05009794235229,
+            -76.00439453125
+          ],
+          "crouching": true,
+          "feet_y": 0.125481188297272,
+          "grounded": true,
+          "position": [
+            22.0570316314697,
+            0.675481200218201,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 72
+        },
+        {
+          "camera": [
+            22.6400909423828,
+            1.17866730690002,
+            -76.0017395019531
+          ],
+          "crouching": true,
+          "feet_y": 0.250794351100922,
+          "grounded": true,
+          "position": [
+            22.6400909423828,
+            0.800794363021851,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 80
+        },
+        {
+          "camera": [
+            23.2243690490723,
+            1.30037891864777,
+            -75.9963073730469
+          ],
+          "crouching": true,
+          "feet_y": 0.375281274318695,
+          "grounded": true,
+          "position": [
+            23.2243690490723,
+            0.925281286239624,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 88
+        },
+        {
+          "camera": [
+            23.8110389709473,
+            1.48467576503754,
+            -75.994514465332
+          ],
+          "crouching": true,
+          "feet_y": 0.561413824558258,
+          "grounded": true,
+          "position": [
+            23.8110389709473,
+            1.11141383647919,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 96
+        },
+        {
+          "camera": [
+            24.3977088928223,
+            1.66167461872101,
+            -75.9991607666016
+          ],
+          "crouching": true,
+          "feet_y": 0.733874499797821,
+          "grounded": true,
+          "position": [
+            24.3977088928223,
+            1.28387451171875,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 104
+        },
+        {
+          "camera": [
+            24.9789485931396,
+            1.80831027030945,
+            -76.0031356811523
+          ],
+          "crouching": true,
+          "feet_y": 0.882438957691193,
+          "grounded": true,
+          "position": [
+            24.9789485931396,
+            1.43243896961212,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 112
+        },
+        {
+          "camera": [
+            25.5617904663086,
+            1.92458176612854,
+            -76.0046920776367
+          ],
+          "crouching": true,
+          "feet_y": 1.00034689903259,
+          "grounded": true,
+          "position": [
+            25.5617904663086,
+            1.55034685134888,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 120
+        },
+        {
+          "camera": [
+            26.1452960968018,
+            2.05225658416748,
+            -76.0029220581055
+          ],
+          "crouching": true,
+          "feet_y": 1.1258270740509,
+          "grounded": true,
+          "position": [
+            26.1452960968018,
+            1.67582702636719,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 128
+        },
+        {
+          "camera": [
+            26.7319660186768,
+            2.17635536193848,
+            -75.99755859375
+          ],
+          "crouching": true,
+          "feet_y": 1.25012373924255,
+          "grounded": true,
+          "position": [
+            26.7319660186768,
+            1.80012369155884,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 136
+        },
+        {
+          "camera": [
+            27.3186359405518,
+            2.36508941650391,
+            -75.9943084716797
+          ],
+          "crouching": true,
+          "feet_y": 1.44211602210999,
+          "grounded": true,
+          "position": [
+            27.3186359405518,
+            1.99211597442627,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 144
+        },
+        {
+          "camera": [
+            27.905252456665,
+            2.42739415168762,
+            -75.9977416992188
+          ],
+          "crouching": true,
+          "feet_y": 1.5001585483551,
+          "grounded": true,
+          "position": [
+            27.905252456665,
+            2.05015850067139,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 152
+        },
+        {
+          "camera": [
+            28.49192237854,
+            2.4249529838562,
+            -76.0038528442383
+          ],
+          "crouching": true,
+          "feet_y": 1.5001585483551,
+          "grounded": true,
+          "position": [
+            28.49192237854,
+            2.05015850067139,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 160
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 8,
+      "from": "arena_one",
+      "goal_floor": [
+        17.0,
+        -1.0,
+        -76.0
+      ],
+      "goal_xz_error": 0.330472946166992,
+      "head_contacts": [],
+      "initial": [
+        29.0,
+        2.0501024723053,
+        -76.0
+      ],
+      "label": "link2 reverse Ctrl+W",
+      "link": 2,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.125799119472504,
+      "maximum_horizontal_tick_distance": 0.0740718841552734,
+      "maximum_speed": 4.40000009536743,
+      "missing_support": [],
+      "modifier": "Ctrl",
+      "movement_key": "W",
+      "reverse": true,
+      "sprint_ticks": 0,
+      "stance_errors": [],
+      "target_speed": 4.4,
+      "terminal": [
+        17.330472946167,
+        -0.149641931056976,
+        -76.0
+      ],
+      "tick_budget": 344,
+      "ticks": 159,
+      "to": "key_wing",
+      "trace": [
+        {
+          "camera": [
+            28.6083335876465,
+            2.42684364318848,
+            -76.0026626586914
+          ],
+          "crouching": true,
+          "feet_y": 1.50010251998901,
+          "grounded": true,
+          "position": [
+            28.6083335876465,
+            2.0501024723053,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 8
+        },
+        {
+          "camera": [
+            28.0216636657715,
+            2.4231014251709,
+            -76.005729675293
+          ],
+          "crouching": true,
+          "feet_y": 1.50010251998901,
+          "grounded": true,
+          "position": [
+            28.0216636657715,
+            2.0501024723053,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 16
+        },
+        {
+          "camera": [
+            27.435001373291,
+            2.42098546028137,
+            -76.0024642944336
+          ],
+          "crouching": true,
+          "feet_y": 1.49399900436401,
+          "grounded": true,
+          "position": [
+            27.435001373291,
+            2.0439989566803,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 24
+        },
+        {
+          "camera": [
+            26.8479995727539,
+            2.26099348068237,
+            -75.9963150024414
+          ],
+          "crouching": true,
+          "feet_y": 1.33604001998901,
+          "grounded": true,
+          "position": [
+            26.8479995727539,
+            1.8860399723053,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 32
+        },
+        {
+          "camera": [
+            26.2607250213623,
+            2.12883496284485,
+            -75.9961090087891
+          ],
+          "crouching": true,
+          "feet_y": 1.20364093780518,
+          "grounded": false,
+          "position": [
+            26.2607250213623,
+            1.75364089012146,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 40
+        },
+        {
+          "camera": [
+            25.6738739013672,
+            1.92681539058685,
+            -75.9966354370117
+          ],
+          "crouching": true,
+          "feet_y": 1.00092935562134,
+          "grounded": true,
+          "position": [
+            25.6738739013672,
+            1.55092930793762,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 48
+        },
+        {
+          "camera": [
+            25.0862312316895,
+            1.80191707611084,
+            -76.0024795532227
+          ],
+          "crouching": true,
+          "feet_y": 0.875807225704193,
+          "grounded": true,
+          "position": [
+            25.0862312316895,
+            1.42580723762512,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 56
+        },
+        {
+          "camera": [
+            24.4987525939941,
+            1.67402672767639,
+            -76.0056838989258
+          ],
+          "crouching": true,
+          "feet_y": 0.751051366329193,
+          "grounded": true,
+          "position": [
+            24.4987525939941,
+            1.30105137825012,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 64
+        },
+        {
+          "camera": [
+            23.911584854126,
+            1.54005599021912,
+            -76.0028305053711
+          ],
+          "crouching": true,
+          "feet_y": 0.613525331020355,
+          "grounded": true,
+          "position": [
+            23.911584854126,
+            1.16352534294128,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 72
+        },
+        {
+          "camera": [
+            23.3243389129639,
+            1.3741409778595,
+            -75.9985885620117
+          ],
+          "crouching": true,
+          "feet_y": 0.446580350399017,
+          "grounded": true,
+          "position": [
+            23.3243389129639,
+            0.996580362319946,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 80
+        },
+        {
+          "camera": [
+            22.7367992401123,
+            1.17440259456635,
+            -75.9944381713867
+          ],
+          "crouching": true,
+          "feet_y": 0.251267850399017,
+          "grounded": true,
+          "position": [
+            22.7367992401123,
+            0.801267862319946,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 88
+        },
+        {
+          "camera": [
+            22.1497974395752,
+            1.05156862735748,
+            -75.9965591430664
+          ],
+          "crouching": true,
+          "feet_y": 0.125779569149017,
+          "grounded": true,
+          "position": [
+            22.1497974395752,
+            0.675779581069946,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 96
+        },
+        {
+          "camera": [
+            21.5624389648438,
+            0.926114559173584,
+            -76.0027389526367
+          ],
+          "crouching": true,
+          "feet_y": 0.000291287899017334,
+          "grounded": true,
+          "position": [
+            21.5624389648438,
+            0.550291299819946,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 104
+        },
+        {
+          "camera": [
+            20.9755325317383,
+            0.798752546310425,
+            -76.0047302246094
+          ],
+          "crouching": true,
+          "feet_y": -0.125393927097321,
+          "grounded": true,
+          "position": [
+            20.9755325317383,
+            0.424606084823608,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 112
+        },
+        {
+          "camera": [
+            20.3882732391357,
+            0.65664541721344,
+            -76.0036392211914
+          ],
+          "crouching": true,
+          "feet_y": -0.268901407718658,
+          "grounded": true,
+          "position": [
+            20.3882732391357,
+            0.281098604202271,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 120
+        },
+        {
+          "camera": [
+            19.8013763427734,
+            0.481092631816864,
+            -75.9985504150391
+          ],
+          "crouching": true,
+          "feet_y": -0.445903360843658,
+          "grounded": true,
+          "position": [
+            19.8013763427734,
+            0.104096651077271,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 128
+        },
+        {
+          "camera": [
+            19.2138328552246,
+            0.29866835474968,
+            -75.9943923950195
+          ],
+          "crouching": true,
+          "feet_y": -0.624370157718658,
+          "grounded": true,
+          "position": [
+            19.2138328552246,
+            -0.0743701457977295,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 136
+        },
+        {
+          "camera": [
+            18.6267185211182,
+            0.177416384220123,
+            -75.9972381591797
+          ],
+          "crouching": true,
+          "feet_y": -0.749200880527496,
+          "grounded": true,
+          "position": [
+            18.6267185211182,
+            -0.199200868606567,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 144
+        },
+        {
+          "camera": [
+            18.0394077301025,
+            0.0543998181819916,
+            -76.0004806518555
+          ],
+          "crouching": true,
+          "feet_y": -0.874031603336334,
+          "grounded": true,
+          "position": [
+            18.0394077301025,
+            -0.324031591415405,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 152
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 8,
+      "from": "arena_one",
+      "goal_floor": [
+        17.0,
+        -1.0,
+        -76.0
+      ],
+      "goal_xz_error": 0.330472946166992,
+      "head_contacts": [],
+      "initial": [
+        29.0,
+        2.0501024723053,
+        -76.0
+      ],
+      "label": "link2 reverse Ctrl+S",
+      "link": 2,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.125799119472504,
+      "maximum_horizontal_tick_distance": 0.0740718841552734,
+      "maximum_speed": 4.40000009536743,
+      "missing_support": [],
+      "modifier": "Ctrl",
+      "movement_key": "S",
+      "reverse": true,
+      "sprint_ticks": 0,
+      "stance_errors": [],
+      "target_speed": 4.4,
+      "terminal": [
+        17.330472946167,
+        -0.149641931056976,
+        -76.0
+      ],
+      "tick_budget": 344,
+      "ticks": 159,
+      "to": "key_wing",
+      "trace": [
+        {
+          "camera": [
+            28.6083335876465,
+            2.42684364318848,
+            -75.9973373413086
+          ],
+          "crouching": true,
+          "feet_y": 1.50010251998901,
+          "grounded": true,
+          "position": [
+            28.6083335876465,
+            2.0501024723053,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 8
+        },
+        {
+          "camera": [
+            28.0216636657715,
+            2.4231014251709,
+            -75.994270324707
+          ],
+          "crouching": true,
+          "feet_y": 1.50010251998901,
+          "grounded": true,
+          "position": [
+            28.0216636657715,
+            2.0501024723053,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 16
+        },
+        {
+          "camera": [
+            27.435001373291,
+            2.42098546028137,
+            -75.9975357055664
+          ],
+          "crouching": true,
+          "feet_y": 1.49399900436401,
+          "grounded": true,
+          "position": [
+            27.435001373291,
+            2.0439989566803,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 24
+        },
+        {
+          "camera": [
+            26.8479995727539,
+            2.26099348068237,
+            -76.0036849975586
+          ],
+          "crouching": true,
+          "feet_y": 1.33604001998901,
+          "grounded": true,
+          "position": [
+            26.8479995727539,
+            1.8860399723053,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 32
+        },
+        {
+          "camera": [
+            26.2607250213623,
+            2.12883496284485,
+            -76.0038909912109
+          ],
+          "crouching": true,
+          "feet_y": 1.20364093780518,
+          "grounded": false,
+          "position": [
+            26.2607250213623,
+            1.75364089012146,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 40
+        },
+        {
+          "camera": [
+            25.6738739013672,
+            1.92681539058685,
+            -76.0033645629883
+          ],
+          "crouching": true,
+          "feet_y": 1.00092935562134,
+          "grounded": true,
+          "position": [
+            25.6738739013672,
+            1.55092930793762,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 48
+        },
+        {
+          "camera": [
+            25.0862312316895,
+            1.80191707611084,
+            -75.9975204467773
+          ],
+          "crouching": true,
+          "feet_y": 0.875807225704193,
+          "grounded": true,
+          "position": [
+            25.0862312316895,
+            1.42580723762512,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 56
+        },
+        {
+          "camera": [
+            24.4987525939941,
+            1.67402672767639,
+            -75.9943161010742
+          ],
+          "crouching": true,
+          "feet_y": 0.751051366329193,
+          "grounded": true,
+          "position": [
+            24.4987525939941,
+            1.30105137825012,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 64
+        },
+        {
+          "camera": [
+            23.911584854126,
+            1.54005599021912,
+            -75.9971694946289
+          ],
+          "crouching": true,
+          "feet_y": 0.613525331020355,
+          "grounded": true,
+          "position": [
+            23.911584854126,
+            1.16352534294128,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 72
+        },
+        {
+          "camera": [
+            23.3243389129639,
+            1.3741409778595,
+            -76.0014114379883
+          ],
+          "crouching": true,
+          "feet_y": 0.446580350399017,
+          "grounded": true,
+          "position": [
+            23.3243389129639,
+            0.996580362319946,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 80
+        },
+        {
+          "camera": [
+            22.7367992401123,
+            1.17440259456635,
+            -76.0055618286133
+          ],
+          "crouching": true,
+          "feet_y": 0.251267850399017,
+          "grounded": true,
+          "position": [
+            22.7367992401123,
+            0.801267862319946,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 88
+        },
+        {
+          "camera": [
+            22.1497974395752,
+            1.05156862735748,
+            -76.0034408569336
+          ],
+          "crouching": true,
+          "feet_y": 0.125779569149017,
+          "grounded": true,
+          "position": [
+            22.1497974395752,
+            0.675779581069946,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 96
+        },
+        {
+          "camera": [
+            21.5624389648438,
+            0.926114559173584,
+            -75.9972610473633
+          ],
+          "crouching": true,
+          "feet_y": 0.000291287899017334,
+          "grounded": true,
+          "position": [
+            21.5624389648438,
+            0.550291299819946,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 104
+        },
+        {
+          "camera": [
+            20.9755325317383,
+            0.798752546310425,
+            -75.9952697753906
+          ],
+          "crouching": true,
+          "feet_y": -0.125393927097321,
+          "grounded": true,
+          "position": [
+            20.9755325317383,
+            0.424606084823608,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 112
+        },
+        {
+          "camera": [
+            20.3882732391357,
+            0.65664541721344,
+            -75.9963607788086
+          ],
+          "crouching": true,
+          "feet_y": -0.268901407718658,
+          "grounded": true,
+          "position": [
+            20.3882732391357,
+            0.281098604202271,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 120
+        },
+        {
+          "camera": [
+            19.8013763427734,
+            0.481092631816864,
+            -76.0014495849609
+          ],
+          "crouching": true,
+          "feet_y": -0.445903360843658,
+          "grounded": true,
+          "position": [
+            19.8013763427734,
+            0.104096651077271,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 128
+        },
+        {
+          "camera": [
+            19.2138328552246,
+            0.29866835474968,
+            -76.0056076049805
+          ],
+          "crouching": true,
+          "feet_y": -0.624370157718658,
+          "grounded": true,
+          "position": [
+            19.2138328552246,
+            -0.0743701457977295,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 136
+        },
+        {
+          "camera": [
+            18.6267185211182,
+            0.177416384220123,
+            -76.0027618408203
+          ],
+          "crouching": true,
+          "feet_y": -0.749200880527496,
+          "grounded": true,
+          "position": [
+            18.6267185211182,
+            -0.199200868606567,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 144
+        },
+        {
+          "camera": [
+            18.0394077301025,
+            0.0543998181819916,
+            -75.9995193481445
+          ],
+          "crouching": true,
+          "feet_y": -0.874031603336334,
+          "grounded": true,
+          "position": [
+            18.0394077301025,
+            -0.324031591415405,
+            -76.0
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 152
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 5,
+      "from": "arena_one",
+      "goal_floor": [
+        29.0,
+        1.5,
+        -76.0
+      ],
+      "goal_xz_error": 0.829835891723633,
+      "head_contacts": [],
+      "initial": [
+        17.0,
+        -0.149897456169128,
+        -76.0
+      ],
+      "label": "link2 forward Shift+W",
+      "link": 2,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.209608554840088,
+      "maximum_horizontal_tick_distance": 0.180000305175781,
+      "maximum_speed": 10.8000001907349,
+      "missing_support": [],
+      "modifier": "Shift",
+      "movement_key": "W",
+      "reverse": false,
+      "sprint_ticks": 62,
+      "stance_errors": [],
+      "target_speed": 10.8,
+      "terminal": [
+        29.8298358917236,
+        2.35047268867493,
+        -76.0
+      ],
+      "tick_budget": 247,
+      "ticks": 72,
+      "to": "key_wing",
+      "trace": [
+        {
+          "camera": [
+            17.4200000762939,
+            0.526746571063995,
+            -75.9972534179688
+          ],
+          "crouching": false,
+          "feet_y": -0.999897480010986,
+          "grounded": true,
+          "position": [
+            17.4200000762939,
+            -0.149897456169128,
+            -76.0
+          ],
+          "speed": 5.59999942779541,
+          "sprinting": true,
+          "tick": 8
+        },
+        {
+          "camera": [
+            18.540943145752,
+            0.775276660919189,
+            -75.9958267211914
+          ],
+          "crouching": false,
+          "feet_y": -0.749619841575623,
+          "grounded": true,
+          "position": [
+            18.540943145752,
+            0.100380182266235,
+            -76.0
+          ],
+          "speed": 10.7999992370605,
+          "sprinting": true,
+          "tick": 16
+        },
+        {
+          "camera": [
+            19.9623794555664,
+            1.14810514450073,
+            -76.0030822753906
+          ],
+          "crouching": false,
+          "feet_y": -0.377071022987366,
+          "grounded": true,
+          "position": [
+            19.9623794555664,
+            0.472929000854492,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 24
+        },
+        {
+          "camera": [
+            21.4023818969727,
+            1.51034152507782,
+            -75.9981842041016
+          ],
+          "crouching": false,
+          "feet_y": -0.0148444175720215,
+          "grounded": true,
+          "position": [
+            21.4023818969727,
+            0.835155606269836,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 32
+        },
+        {
+          "camera": [
+            22.8066310882568,
+            1.83578610420227,
+            -75.9986419677734
+          ],
+          "crouching": false,
+          "feet_y": 0.308058977127075,
+          "grounded": true,
+          "position": [
+            22.8066310882568,
+            1.15805900096893,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 40
+        },
+        {
+          "camera": [
+            24.2466335296631,
+            2.15060639381409,
+            -76.0033416748047
+          ],
+          "crouching": false,
+          "feet_y": 0.625050902366638,
+          "grounded": true,
+          "position": [
+            24.2466335296631,
+            1.4750509262085,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 48
+        },
+        {
+          "camera": [
+            25.6682472229004,
+            2.52524280548096,
+            -75.9960784912109
+          ],
+          "crouching": false,
+          "feet_y": 1.00081360340118,
+          "grounded": true,
+          "position": [
+            25.6682472229004,
+            1.85081362724304,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 56
+        },
+        {
+          "camera": [
+            27.1015014648438,
+            2.92635440826416,
+            -76.0031356811523
+          ],
+          "crouching": false,
+          "feet_y": 1.4020220041275,
+          "grounded": true,
+          "position": [
+            27.1015014648438,
+            2.25202202796936,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 64
+        },
+        {
+          "camera": [
+            28.5298366546631,
+            3.02719306945801,
+            -76.0004196166992
+          ],
+          "crouching": false,
+          "feet_y": 1.50047266483307,
+          "grounded": true,
+          "position": [
+            28.5298366546631,
+            2.35047268867493,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 72
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 5,
+      "from": "arena_one",
+      "goal_floor": [
+        29.0,
+        1.5,
+        -76.0
+      ],
+      "goal_xz_error": 0.829835891723633,
+      "head_contacts": [],
+      "initial": [
+        17.0,
+        -0.149897456169128,
+        -76.0
+      ],
+      "label": "link2 forward Shift+S",
+      "link": 2,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.209608554840088,
+      "maximum_horizontal_tick_distance": 0.180000305175781,
+      "maximum_speed": 10.8000001907349,
+      "missing_support": [],
+      "modifier": "Shift",
+      "movement_key": "S",
+      "reverse": false,
+      "sprint_ticks": 62,
+      "stance_errors": [],
+      "target_speed": 10.8,
+      "terminal": [
+        29.8298358917236,
+        2.35047268867493,
+        -76.0
+      ],
+      "tick_budget": 247,
+      "ticks": 72,
+      "to": "key_wing",
+      "trace": [
+        {
+          "camera": [
+            17.4200000762939,
+            0.526746571063995,
+            -76.0027465820312
+          ],
+          "crouching": false,
+          "feet_y": -0.999897480010986,
+          "grounded": true,
+          "position": [
+            17.4200000762939,
+            -0.149897456169128,
+            -76.0
+          ],
+          "speed": 5.59999942779541,
+          "sprinting": true,
+          "tick": 8
+        },
+        {
+          "camera": [
+            18.540943145752,
+            0.775276660919189,
+            -76.0041732788086
+          ],
+          "crouching": false,
+          "feet_y": -0.749619841575623,
+          "grounded": true,
+          "position": [
+            18.540943145752,
+            0.100380182266235,
+            -76.0
+          ],
+          "speed": 10.7999992370605,
+          "sprinting": true,
+          "tick": 16
+        },
+        {
+          "camera": [
+            19.9623794555664,
+            1.14810514450073,
+            -75.9969177246094
+          ],
+          "crouching": false,
+          "feet_y": -0.377071022987366,
+          "grounded": true,
+          "position": [
+            19.9623794555664,
+            0.472929000854492,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 24
+        },
+        {
+          "camera": [
+            21.4023818969727,
+            1.51034152507782,
+            -76.0018157958984
+          ],
+          "crouching": false,
+          "feet_y": -0.0148444175720215,
+          "grounded": true,
+          "position": [
+            21.4023818969727,
+            0.835155606269836,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 32
+        },
+        {
+          "camera": [
+            22.8066310882568,
+            1.83480954170227,
+            -76.0013580322266
+          ],
+          "crouching": false,
+          "feet_y": 0.307082414627075,
+          "grounded": true,
+          "position": [
+            22.8066310882568,
+            1.15708243846893,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 40
+        },
+        {
+          "camera": [
+            24.2466335296631,
+            2.15060639381409,
+            -75.9966583251953
+          ],
+          "crouching": false,
+          "feet_y": 0.625050902366638,
+          "grounded": true,
+          "position": [
+            24.2466335296631,
+            1.4750509262085,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 48
+        },
+        {
+          "camera": [
+            25.6682472229004,
+            2.52524280548096,
+            -76.0039215087891
+          ],
+          "crouching": false,
+          "feet_y": 1.00081360340118,
+          "grounded": true,
+          "position": [
+            25.6682472229004,
+            1.85081362724304,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 56
+        },
+        {
+          "camera": [
+            27.1015014648438,
+            2.92635440826416,
+            -75.9968643188477
+          ],
+          "crouching": false,
+          "feet_y": 1.4020220041275,
+          "grounded": true,
+          "position": [
+            27.1015014648438,
+            2.25202202796936,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 64
+        },
+        {
+          "camera": [
+            28.5298366546631,
+            3.02719306945801,
+            -75.9995803833008
+          ],
+          "crouching": false,
+          "feet_y": 1.50047266483307,
+          "grounded": true,
+          "position": [
+            28.5298366546631,
+            2.35047268867493,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 72
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 3,
+      "from": "arena_one",
+      "goal_floor": [
+        17.0,
+        -1.0,
+        -76.0
+      ],
+      "goal_xz_error": 0.928176879882812,
+      "head_contacts": [],
+      "initial": [
+        29.0,
+        2.35010242462158,
+        -76.0
+      ],
+      "label": "link2 reverse Shift+W",
+      "link": 2,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.125759959220886,
+      "maximum_horizontal_tick_distance": 0.18040657043457,
+      "maximum_speed": 10.8000001907349,
+      "missing_support": [],
+      "modifier": "Shift",
+      "movement_key": "W",
+      "reverse": true,
+      "sprint_ticks": 66,
+      "stance_errors": [],
+      "target_speed": 10.8,
+      "terminal": [
+        16.0718231201172,
+        -0.149633884429932,
+        -76.0
+      ],
+      "tick_budget": 247,
+      "ticks": 72,
+      "to": "key_wing",
+      "trace": [
+        {
+          "camera": [
+            28.5799999237061,
+            3.02674651145935,
+            -76.0027465820312
+          ],
+          "crouching": false,
+          "feet_y": 1.50010240077972,
+          "grounded": true,
+          "position": [
+            28.5799999237061,
+            2.35010242462158,
+            -76.0
+          ],
+          "speed": 5.59999942779541,
+          "sprinting": true,
+          "tick": 8
+        },
+        {
+          "camera": [
+            27.4200000762939,
+            3.01639080047607,
+            -76.0032272338867
+          ],
+          "crouching": false,
+          "feet_y": 1.49033677577972,
+          "grounded": true,
+          "position": [
+            27.4200000762939,
+            2.34033679962158,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 16
+        },
+        {
+          "camera": [
+            25.9796600341797,
+            2.65008974075317,
+            -75.9964828491211
+          ],
+          "crouching": false,
+          "feet_y": 1.12510240077972,
+          "grounded": true,
+          "position": [
+            25.9796600341797,
+            1.97510242462158,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 24
+        },
+        {
+          "camera": [
+            24.5508136749268,
+            2.2752833366394,
+            -76.0035934448242
+          ],
+          "crouching": false,
+          "feet_y": 0.750515818595886,
+          "grounded": true,
+          "position": [
+            24.5508136749268,
+            1.60051584243774,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 32
+        },
+        {
+          "camera": [
+            23.1101379394531,
+            1.90010976791382,
+            -75.9971923828125
+          ],
+          "crouching": false,
+          "feet_y": 0.375515818595886,
+          "grounded": true,
+          "position": [
+            23.1101379394531,
+            1.22551584243774,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 40
+        },
+        {
+          "camera": [
+            21.6696128845215,
+            1.52594327926636,
+            -76.0017547607422
+          ],
+          "crouching": false,
+          "feet_y": 0.00075995922088623,
+          "grounded": true,
+          "position": [
+            21.6696128845215,
+            0.850759983062744,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 48
+        },
+        {
+          "camera": [
+            20.2406673431396,
+            1.15268182754517,
+            -76.0012588500977
+          ],
+          "crouching": false,
+          "feet_y": -0.375047326087952,
+          "grounded": true,
+          "position": [
+            20.2406673431396,
+            0.474952697753906,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 56
+        },
+        {
+          "camera": [
+            18.8005466461182,
+            0.828827440738678,
+            -75.9967269897461
+          ],
+          "crouching": false,
+          "feet_y": -0.696824669837952,
+          "grounded": true,
+          "position": [
+            18.8005466461182,
+            0.153175354003906,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 64
+        },
+        {
+          "camera": [
+            17.3718223571777,
+            0.524773061275482,
+            -76.0039596557617
+          ],
+          "crouching": false,
+          "feet_y": -0.99963390827179,
+          "grounded": true,
+          "position": [
+            17.3718223571777,
+            -0.149633884429932,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 72
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 3,
+      "from": "arena_one",
+      "goal_floor": [
+        17.0,
+        -1.0,
+        -76.0
+      ],
+      "goal_xz_error": 0.928176879882812,
+      "head_contacts": [],
+      "initial": [
+        29.0,
+        2.35010242462158,
+        -76.0
+      ],
+      "label": "link2 reverse Shift+S",
+      "link": 2,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.125759959220886,
+      "maximum_horizontal_tick_distance": 0.18040657043457,
+      "maximum_speed": 10.8000001907349,
+      "missing_support": [],
+      "modifier": "Shift",
+      "movement_key": "S",
+      "reverse": true,
+      "sprint_ticks": 66,
+      "stance_errors": [],
+      "target_speed": 10.8,
+      "terminal": [
+        16.0718231201172,
+        -0.149633884429932,
+        -76.0
+      ],
+      "tick_budget": 247,
+      "ticks": 72,
+      "to": "key_wing",
+      "trace": [
+        {
+          "camera": [
+            28.5799999237061,
+            3.02674651145935,
+            -75.9972534179688
+          ],
+          "crouching": false,
+          "feet_y": 1.50010240077972,
+          "grounded": true,
+          "position": [
+            28.5799999237061,
+            2.35010242462158,
+            -76.0
+          ],
+          "speed": 5.59999942779541,
+          "sprinting": true,
+          "tick": 8
+        },
+        {
+          "camera": [
+            27.4200000762939,
+            3.01639080047607,
+            -75.9967727661133
+          ],
+          "crouching": false,
+          "feet_y": 1.49033677577972,
+          "grounded": true,
+          "position": [
+            27.4200000762939,
+            2.34033679962158,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 16
+        },
+        {
+          "camera": [
+            25.9796600341797,
+            2.65008974075317,
+            -76.0035171508789
+          ],
+          "crouching": false,
+          "feet_y": 1.12510240077972,
+          "grounded": true,
+          "position": [
+            25.9796600341797,
+            1.97510242462158,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 24
+        },
+        {
+          "camera": [
+            24.5508136749268,
+            2.2752833366394,
+            -75.9964065551758
+          ],
+          "crouching": false,
+          "feet_y": 0.750515818595886,
+          "grounded": true,
+          "position": [
+            24.5508136749268,
+            1.60051584243774,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 32
+        },
+        {
+          "camera": [
+            23.1101379394531,
+            1.90010976791382,
+            -76.0028076171875
+          ],
+          "crouching": false,
+          "feet_y": 0.375515818595886,
+          "grounded": true,
+          "position": [
+            23.1101379394531,
+            1.22551584243774,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 40
+        },
+        {
+          "camera": [
+            21.6696128845215,
+            1.52594327926636,
+            -75.9982452392578
+          ],
+          "crouching": false,
+          "feet_y": 0.00075995922088623,
+          "grounded": true,
+          "position": [
+            21.6696128845215,
+            0.850759983062744,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 48
+        },
+        {
+          "camera": [
+            20.2406673431396,
+            1.15268182754517,
+            -75.9987411499023
+          ],
+          "crouching": false,
+          "feet_y": -0.375047326087952,
+          "grounded": true,
+          "position": [
+            20.2406673431396,
+            0.474952697753906,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 56
+        },
+        {
+          "camera": [
+            18.8005466461182,
+            0.828827440738678,
+            -76.0032730102539
+          ],
+          "crouching": false,
+          "feet_y": -0.696824669837952,
+          "grounded": true,
+          "position": [
+            18.8005466461182,
+            0.153175354003906,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 64
+        },
+        {
+          "camera": [
+            17.3718223571777,
+            0.524773061275482,
+            -75.9960403442383
+          ],
+          "crouching": false,
+          "feet_y": -0.99963390827179,
+          "grounded": true,
+          "position": [
+            17.3718223571777,
+            -0.149633884429932,
+            -76.0
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 72
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 5,
+      "from": "final_arena",
+      "goal_floor": [
+        0.0,
+        3.0,
+        -239.0
+      ],
+      "goal_xz_error": 0.320053100585938,
+      "head_contacts": [],
+      "initial": [
+        0.0,
+        2.0501024723053,
+        -229.0
+      ],
+      "label": "link13 forward Ctrl+W",
+      "link": 13,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.180782556533813,
+      "maximum_horizontal_tick_distance": 0.073333740234375,
+      "maximum_speed": 4.40000009536743,
+      "missing_support": [],
+      "modifier": "Ctrl",
+      "movement_key": "W",
+      "reverse": false,
+      "sprint_ticks": 0,
+      "stance_errors": [],
+      "target_speed": 4.4,
+      "terminal": [
+        0.0,
+        3.85081839561462,
+        -238.679946899414
+      ],
+      "tick_budget": 317,
+      "ticks": 132,
+      "to": "exit_gallery",
+      "trace": [
+        {
+          "camera": [
+            0.00266644125804305,
+            2.4268434047699,
+            -229.391677856445
+          ],
+          "crouching": true,
+          "feet_y": 1.50010251998901,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.0501024723053,
+            -229.391677856445
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 8
+        },
+        {
+          "camera": [
+            0.00428951298817992,
+            2.54999017715454,
+            -229.97834777832
+          ],
+          "crouching": true,
+          "feet_y": 1.62523293495178,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.17523288726807,
+            -229.97834777832
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 16
+        },
+        {
+          "camera": [
+            0.00371432676911354,
+            2.65971660614014,
+            -230.565017700195
+          ],
+          "crouching": true,
+          "feet_y": 1.73425650596619,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.28425645828247,
+            -230.565017700195
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 24
+        },
+        {
+          "camera": [
+            -0.00230714213103056,
+            2.74365234375,
+            -231.15168762207
+          ],
+          "crouching": true,
+          "feet_y": 1.81744432449341,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.36744427680969,
+            -231.15168762207
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 32
+        },
+        {
+          "camera": [
+            -0.00568550918251276,
+            2.7987904548645,
+            -231.738250732422
+          ],
+          "crouching": true,
+          "feet_y": 1.87582755088806,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.42582750320435,
+            -231.738250732422
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 40
+        },
+        {
+          "camera": [
+            -0.00232733436860144,
+            2.92629551887512,
+            -232.324920654297
+          ],
+          "crouching": true,
+          "feet_y": 1.99914813041687,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.54914808273315,
+            -232.324920654297
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 48
+        },
+        {
+          "camera": [
+            0.00379139580763876,
+            3.05024766921997,
+            -232.911590576172
+          ],
+          "crouching": true,
+          "feet_y": 2.12539839744568,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.67539834976196,
+            -232.911590576172
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 56
+        },
+        {
+          "camera": [
+            0.00541140651330352,
+            3.17303466796875,
+            -233.498260498047
+          ],
+          "crouching": true,
+          "feet_y": 2.24969553947449,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.79969549179077,
+            -233.498260498047
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 64
+        },
+        {
+          "camera": [
+            0.000610568094998598,
+            3.30374908447266,
+            -234.084930419922
+          ],
+          "crouching": true,
+          "feet_y": 2.3759458065033,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.92594575881958,
+            -234.084930419922
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 72
+        },
+        {
+          "camera": [
+            -0.00491473358124495,
+            3.42396903038025,
+            -234.671600341797
+          ],
+          "crouching": true,
+          "feet_y": 2.5002429485321,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.05024290084839,
+            -234.671600341797
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 80
+        },
+        {
+          "camera": [
+            -0.00349934096448123,
+            3.5429470539093,
+            -235.258270263672
+          ],
+          "crouching": true,
+          "feet_y": 2.61724829673767,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.16724824905396,
+            -235.258270263672
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 88
+        },
+        {
+          "camera": [
+            -0.000957248616032302,
+            3.63864612579346,
+            -235.844940185547
+          ],
+          "crouching": true,
+          "feet_y": 2.70983958244324,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.25983953475952,
+            -235.844940185547
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 96
+        },
+        {
+          "camera": [
+            0.00260932045057416,
+            3.85612368583679,
+            -236.431610107422
+          ],
+          "crouching": true,
+          "feet_y": 2.92952728271484,
+          "grounded": false,
+          "position": [
+            0.0,
+            3.47952723503113,
+            -236.431610107422
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 104
+        },
+        {
+          "camera": [
+            0.00549010327085853,
+            3.79905295372009,
+            -237.018280029297
+          ],
+          "crouching": true,
+          "feet_y": 2.87578248977661,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.4257824420929,
+            -237.018280029297
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 112
+        },
+        {
+          "camera": [
+            0.00291554443538189,
+            3.92725324630737,
+            -237.604949951172
+          ],
+          "crouching": true,
+          "feet_y": 3.00081849098206,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.55081844329834,
+            -237.604949951172
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 120
+        },
+        {
+          "camera": [
+            -0.00286801299080253,
+            3.92661356925964,
+            -238.191619873047
+          ],
+          "crouching": true,
+          "feet_y": 3.00081849098206,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.55081844329834,
+            -238.191619873047
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 128
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 5,
+      "from": "final_arena",
+      "goal_floor": [
+        0.0,
+        3.0,
+        -239.0
+      ],
+      "goal_xz_error": 0.320053100585938,
+      "head_contacts": [],
+      "initial": [
+        0.0,
+        2.0501024723053,
+        -229.0
+      ],
+      "label": "link13 forward Ctrl+S",
+      "link": 13,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.180781602859497,
+      "maximum_horizontal_tick_distance": 0.073333740234375,
+      "maximum_speed": 4.40000009536743,
+      "missing_support": [],
+      "modifier": "Ctrl",
+      "movement_key": "S",
+      "reverse": false,
+      "sprint_ticks": 0,
+      "stance_errors": [],
+      "target_speed": 4.4,
+      "terminal": [
+        -0.000000862752187913429,
+        3.85081839561462,
+        -238.679946899414
+      ],
+      "tick_budget": 317,
+      "ticks": 132,
+      "to": "exit_gallery",
+      "trace": [
+        {
+          "camera": [
+            -0.00266649248078465,
+            2.4268434047699,
+            -229.391677856445
+          ],
+          "crouching": true,
+          "feet_y": 1.50010251998901,
+          "grounded": true,
+          "position": [
+            -0.0000000512880298231266,
+            2.0501024723053,
+            -229.391677856445
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 8
+        },
+        {
+          "camera": [
+            -0.00428961543366313,
+            2.54999017715454,
+            -229.97834777832
+          ],
+          "crouching": true,
+          "feet_y": 1.62523293495178,
+          "grounded": true,
+          "position": [
+            -0.000000102576052540826,
+            2.17523288726807,
+            -229.97834777832
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 16
+        },
+        {
+          "camera": [
+            -0.003714480670169,
+            2.65971660614014,
+            -230.565017700195
+          ],
+          "crouching": true,
+          "feet_y": 1.73425650596619,
+          "grounded": true,
+          "position": [
+            -0.000000153864050389529,
+            2.28425645828247,
+            -230.565017700195
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 24
+        },
+        {
+          "camera": [
+            0.0023069370072335,
+            2.74169921875,
+            -231.15168762207
+          ],
+          "crouching": true,
+          "feet_y": 1.81549119949341,
+          "grounded": true,
+          "position": [
+            -0.000000205152062449088,
+            2.36549115180969,
+            -231.15168762207
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 32
+        },
+        {
+          "camera": [
+            0.0056852363049984,
+            2.79878330230713,
+            -231.738250732422
+          ],
+          "crouching": true,
+          "feet_y": 1.87582039833069,
+          "grounded": true,
+          "position": [
+            -0.000000272938592615901,
+            2.42582035064697,
+            -231.738250732422
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 40
+        },
+        {
+          "camera": [
+            0.00232701003551483,
+            2.92628836631775,
+            -232.324920654297
+          ],
+          "crouching": true,
+          "feet_y": 1.9991409778595,
+          "grounded": true,
+          "position": [
+            -0.000000324226590464605,
+            2.54914093017578,
+            -232.324920654297
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 48
+        },
+        {
+          "camera": [
+            -0.00379177136346698,
+            3.0502405166626,
+            -232.911590576172
+          ],
+          "crouching": true,
+          "feet_y": 2.12539124488831,
+          "grounded": true,
+          "position": [
+            -0.000000375514588313308,
+            2.67539119720459,
+            -232.911590576172
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 56
+        },
+        {
+          "camera": [
+            -0.00541183352470398,
+            3.17400407791138,
+            -233.498260498047
+          ],
+          "crouching": true,
+          "feet_y": 2.25066494941711,
+          "grounded": true,
+          "position": [
+            -0.000000426802586162012,
+            2.8006649017334,
+            -233.498260498047
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 64
+        },
+        {
+          "camera": [
+            -0.000611046212725341,
+            3.30374193191528,
+            -234.084930419922
+          ],
+          "crouching": true,
+          "feet_y": 2.37593865394592,
+          "grounded": true,
+          "position": [
+            -0.000000478090612432425,
+            2.92593860626221,
+            -234.084930419922
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 72
+        },
+        {
+          "camera": [
+            0.00491420412436128,
+            3.42396187782288,
+            -234.671600341797
+          ],
+          "crouching": true,
+          "feet_y": 2.50023579597473,
+          "grounded": true,
+          "position": [
+            -0.000000529378837654804,
+            3.05023574829102,
+            -234.671600341797
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 80
+        },
+        {
+          "camera": [
+            0.00349876028485596,
+            3.54293990135193,
+            -235.258270263672
+          ],
+          "crouching": true,
+          "feet_y": 2.6172411441803,
+          "grounded": true,
+          "position": [
+            -0.000000580667062877183,
+            3.16724109649658,
+            -235.258270263672
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 88
+        },
+        {
+          "camera": [
+            0.000956616655457765,
+            3.63863897323608,
+            -235.844940185547
+          ],
+          "crouching": true,
+          "feet_y": 2.70983242988586,
+          "grounded": true,
+          "position": [
+            -0.000000631955288099562,
+            3.25983238220215,
+            -235.844940185547
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 96
+        },
+        {
+          "camera": [
+            -0.00261000380851328,
+            3.85611653327942,
+            -236.431610107422
+          ],
+          "crouching": true,
+          "feet_y": 2.92952013015747,
+          "grounded": false,
+          "position": [
+            -0.000000683243513321941,
+            3.47952008247375,
+            -236.431610107422
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 104
+        },
+        {
+          "camera": [
+            -0.00549083761870861,
+            3.79905200004578,
+            -237.018280029297
+          ],
+          "crouching": true,
+          "feet_y": 2.87578153610229,
+          "grounded": true,
+          "position": [
+            -0.000000734531681700901,
+            3.42578148841858,
+            -237.018280029297
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 112
+        },
+        {
+          "camera": [
+            -0.00291633023880422,
+            3.92725324630737,
+            -237.604949951172
+          ],
+          "crouching": true,
+          "feet_y": 3.00081849098206,
+          "grounded": true,
+          "position": [
+            -0.000000785819850079861,
+            3.55081844329834,
+            -237.604949951172
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 120
+        },
+        {
+          "camera": [
+            0.00286717596463859,
+            3.92661356925964,
+            -238.191619873047
+          ],
+          "crouching": true,
+          "feet_y": 3.00081849098206,
+          "grounded": true,
+          "position": [
+            -0.00000083710807530224,
+            3.55081844329834,
+            -238.191619873047
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 128
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 4,
+      "from": "final_arena",
+      "goal_floor": [
+        0.0,
+        1.5,
+        -229.0
+      ],
+      "goal_xz_error": 0.312667846679688,
+      "head_contacts": [],
+      "initial": [
+        0.0,
+        3.5501024723053,
+        -239.0
+      ],
+      "label": "link13 reverse Ctrl+W",
+      "link": 13,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.125765323638916,
+      "maximum_horizontal_tick_distance": 0.07403564453125,
+      "maximum_speed": 4.40000009536743,
+      "missing_support": [],
+      "modifier": "Ctrl",
+      "movement_key": "W",
+      "reverse": true,
+      "sprint_ticks": 0,
+      "stance_errors": [],
+      "target_speed": 4.4,
+      "terminal": [
+        -0.000000846889747663226,
+        2.35139513015747,
+        -229.31266784668
+      ],
+      "tick_budget": 317,
+      "ticks": 132,
+      "to": "exit_gallery",
+      "trace": [
+        {
+          "camera": [
+            -0.00266649248078465,
+            3.9268434047699,
+            -238.608322143555
+          ],
+          "crouching": true,
+          "feet_y": 3.00010251998901,
+          "grounded": true,
+          "position": [
+            -0.0000000512880298231266,
+            3.5501024723053,
+            -238.608322143555
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 8
+        },
+        {
+          "camera": [
+            -0.00572813209146261,
+            3.9231014251709,
+            -238.02165222168
+          ],
+          "crouching": true,
+          "feet_y": 3.00010251998901,
+          "grounded": true,
+          "position": [
+            -0.000000102576038329971,
+            3.5501024723053,
+            -238.02165222168
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 16
+        },
+        {
+          "camera": [
+            -0.00246553984470665,
+            3.92782688140869,
+            -237.434982299805
+          ],
+          "crouching": true,
+          "feet_y": 3.00084018707275,
+          "grounded": true,
+          "position": [
+            -0.000000153864050389529,
+            3.55084013938904,
+            -237.434982299805
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 24
+        },
+        {
+          "camera": [
+            0.00368366087786853,
+            3.80066871643066,
+            -236.847579956055
+          ],
+          "crouching": true,
+          "feet_y": 2.87571811676025,
+          "grounded": true,
+          "position": [
+            -0.00000020521608234958,
+            3.42571806907654,
+            -236.847579956055
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 32
+        },
+        {
+          "camera": [
+            0.0054498789831996,
+            3.67400717735291,
+            -236.260375976562
+          ],
+          "crouching": true,
+          "feet_y": 2.75071811676025,
+          "grounded": true,
+          "position": [
+            -0.000000256550777066877,
+            3.30071806907654,
+            -236.260375976562
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 40
+        },
+        {
+          "camera": [
+            0.000739043054636568,
+            3.55302715301514,
+            -235.673110961914
+          ],
+          "crouching": true,
+          "feet_y": 2.62522983551025,
+          "grounded": true,
+          "position": [
+            -0.000000307890843487257,
+            3.17522978782654,
+            -235.673110961914
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 48
+        },
+        {
+          "camera": [
+            -0.0048499871045351,
+            3.42499732971191,
+            -235.086318969727
+          ],
+          "crouching": true,
+          "feet_y": 2.50120639801025,
+          "grounded": true,
+          "position": [
+            -0.000000359189527898707,
+            3.05120635032654,
+            -235.086318969727
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 56
+        },
+        {
+          "camera": [
+            -0.0046782149001956,
+            3.37602496147156,
+            -234.499084472656
+          ],
+          "crouching": true,
+          "feet_y": 2.45176792144775,
+          "grounded": true,
+          "position": [
+            -0.000000410526894256691,
+            3.00176787376404,
+            -234.499084472656
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 64
+        },
+        {
+          "camera": [
+            -0.000232761987717822,
+            3.29056978225708,
+            -233.912078857422
+          ],
+          "crouching": true,
+          "feet_y": 2.36233758926392,
+          "grounded": true,
+          "position": [
+            -0.000000461844251731236,
+            2.9123375415802,
+            -233.912078857422
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 72
+        },
+        {
+          "camera": [
+            0.00393215520307422,
+            3.17569780349731,
+            -233.324661254883
+          ],
+          "crouching": true,
+          "feet_y": 2.25069046020508,
+          "grounded": true,
+          "position": [
+            -0.000000513197790041886,
+            2.80069041252136,
+            -233.324661254883
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 80
+        },
+        {
+          "camera": [
+            0.00500549981370568,
+            3.04899191856384,
+            -232.737899780273
+          ],
+          "crouching": true,
+          "feet_y": 2.12512731552124,
+          "grounded": true,
+          "position": [
+            -0.000000564493973342906,
+            2.67512726783752,
+            -232.737899780273
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 88
+        },
+        {
+          "camera": [
+            0.00246241292916238,
+            2.92728471755981,
+            -232.150833129883
+          ],
+          "crouching": true,
+          "feet_y": 2.0002965927124,
+          "grounded": true,
+          "position": [
+            -0.000000615816816207371,
+            2.55029654502869,
+            -232.150833129883
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 96
+        },
+        {
+          "camera": [
+            -0.00282377447001636,
+            2.80221390724182,
+            -231.563385009766
+          ],
+          "crouching": true,
+          "feet_y": 1.8762731552124,
+          "grounded": true,
+          "position": [
+            -0.000000667173026158707,
+            2.42627310752869,
+            -231.563385009766
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 104
+        },
+        {
+          "camera": [
+            -0.00567192863672972,
+            2.67392015457153,
+            -230.976135253906
+          ],
+          "crouching": true,
+          "feet_y": 1.7509069442749,
+          "grounded": true,
+          "position": [
+            -0.000000718511898867291,
+            2.30090689659119,
+            -230.976135253906
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 112
+        },
+        {
+          "camera": [
+            -0.00186225154902786,
+            2.5529522895813,
+            -230.388565063477
+          ],
+          "crouching": true,
+          "feet_y": 1.6254186630249,
+          "grounded": true,
+          "position": [
+            -0.000000769878738537955,
+            2.17541861534119,
+            -230.388565063477
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 120
+        },
+        {
+          "camera": [
+            0.00415343698114157,
+            2.47813367843628,
+            -229.801559448242
+          ],
+          "crouching": true,
+          "feet_y": 1.5536413192749,
+          "grounded": true,
+          "position": [
+            -0.000000821196294964466,
+            2.10364127159119,
+            -229.801559448242
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 128
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 4,
+      "from": "final_arena",
+      "goal_floor": [
+        0.0,
+        1.5,
+        -229.0
+      ],
+      "goal_xz_error": 0.314208984375,
+      "head_contacts": [],
+      "initial": [
+        0.0,
+        3.5501024723053,
+        -239.0
+      ],
+      "label": "link13 reverse Ctrl+S",
+      "link": 13,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.125887393951416,
+      "maximum_horizontal_tick_distance": 0.07379150390625,
+      "maximum_speed": 4.40000009536743,
+      "missing_support": [],
+      "modifier": "Ctrl",
+      "movement_key": "S",
+      "reverse": true,
+      "sprint_ticks": 0,
+      "stance_errors": [],
+      "target_speed": 4.4,
+      "terminal": [
+        0.0,
+        2.35029649734497,
+        -229.314208984375
+      ],
+      "tick_budget": 317,
+      "ticks": 132,
+      "to": "exit_gallery",
+      "trace": [
+        {
+          "camera": [
+            0.00266644125804305,
+            3.9268434047699,
+            -238.608322143555
+          ],
+          "crouching": true,
+          "feet_y": 3.00010251998901,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.5501024723053,
+            -238.608322143555
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 8
+        },
+        {
+          "camera": [
+            0.0057280296459794,
+            3.9231014251709,
+            -238.02165222168
+          ],
+          "crouching": true,
+          "feet_y": 3.00010251998901,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.5501024723053,
+            -238.02165222168
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 16
+        },
+        {
+          "camera": [
+            0.0024653859436512,
+            3.92782688140869,
+            -237.434982299805
+          ],
+          "crouching": true,
+          "feet_y": 3.00084018707275,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.55084013938904,
+            -237.434982299805
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 24
+        },
+        {
+          "camera": [
+            -0.00368060544133186,
+            3.80030655860901,
+            -236.848175048828
+          ],
+          "crouching": true,
+          "feet_y": 2.87535190582275,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.42535185813904,
+            -236.848175048828
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 32
+        },
+        {
+          "camera": [
+            -0.00545226549729705,
+            3.67400455474854,
+            -236.260971069336
+          ],
+          "crouching": true,
+          "feet_y": 2.75071811676025,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.30071806907654,
+            -236.260971069336
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 40
+        },
+        {
+          "camera": [
+            -0.000747519661672413,
+            3.55351734161377,
+            -235.674011230469
+          ],
+          "crouching": true,
+          "feet_y": 2.62571811676025,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.17571806907654,
+            -235.674011230469
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 48
+        },
+        {
+          "camera": [
+            0.004845280200243,
+            3.42512392997742,
+            -235.08642578125
+          ],
+          "crouching": true,
+          "feet_y": 2.50132846832275,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.05132842063904,
+            -235.08642578125
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 56
+        },
+        {
+          "camera": [
+            0.00467828847467899,
+            3.37614631652832,
+            -234.499221801758
+          ],
+          "crouching": true,
+          "feet_y": 2.45188999176025,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.00188994407654,
+            -234.499221801758
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 64
+        },
+        {
+          "camera": [
+            0.000233724771533161,
+            3.29069185256958,
+            -233.912216186523
+          ],
+          "crouching": true,
+          "feet_y": 2.36245965957642,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.9124596118927,
+            -233.912216186523
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 72
+        },
+        {
+          "camera": [
+            -0.0039317230693996,
+            3.17582082748413,
+            -233.324798583984
+          ],
+          "crouching": true,
+          "feet_y": 2.25081253051758,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.80081248283386,
+            -233.324798583984
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 80
+        },
+        {
+          "camera": [
+            -0.00500633474439383,
+            3.04911351203918,
+            -232.738067626953
+          ],
+          "crouching": true,
+          "feet_y": 2.12524938583374,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.67524933815002,
+            -232.738067626953
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 88
+        },
+        {
+          "camera": [
+            -0.00246437289752066,
+            2.92740511894226,
+            -232.151016235352
+          ],
+          "crouching": true,
+          "feet_y": 2.0004186630249,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.55041861534119,
+            -232.151016235352
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 96
+        },
+        {
+          "camera": [
+            0.00281815556809306,
+            2.80234169960022,
+            -231.564193725586
+          ],
+          "crouching": true,
+          "feet_y": 1.8763952255249,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.42639517784119,
+            -231.564193725586
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 104
+        },
+        {
+          "camera": [
+            0.00567273609340191,
+            2.6739182472229,
+            -230.977203369141
+          ],
+          "crouching": true,
+          "feet_y": 1.7509069442749,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.30090689659119,
+            -230.977203369141
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 112
+        },
+        {
+          "camera": [
+            0.0018726815469563,
+            2.5529477596283,
+            -230.389770507812
+          ],
+          "crouching": true,
+          "feet_y": 1.6254186630249,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.17541861534119,
+            -230.389770507812
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 120
+        },
+        {
+          "camera": [
+            -0.00414530467242002,
+            2.47997403144836,
+            -229.802734375
+          ],
+          "crouching": true,
+          "feet_y": 1.5554723739624,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.10547232627869,
+            -229.802734375
+          ],
+          "speed": 4.40000009536743,
+          "sprinting": false,
+          "tick": 128
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 3,
+      "from": "final_arena",
+      "goal_floor": [
+        0.0,
+        3.0,
+        -239.0
+      ],
+      "goal_xz_error": 0.9296875,
+      "head_contacts": [],
+      "initial": [
+        0.0,
+        2.35010242462158,
+        -229.0
+      ],
+      "label": "link13 forward Shift+W",
+      "link": 13,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.180545449256897,
+      "maximum_horizontal_tick_distance": 0.17999267578125,
+      "maximum_speed": 10.8000001907349,
+      "missing_support": [],
+      "modifier": "Shift",
+      "movement_key": "W",
+      "reverse": false,
+      "sprint_ticks": 55,
+      "stance_errors": [],
+      "target_speed": 10.8,
+      "terminal": [
+        0.0,
+        3.85013937950134,
+        -239.9296875
+      ],
+      "tick_budget": 236,
+      "ticks": 61,
+      "to": "exit_gallery",
+      "trace": [
+        {
+          "camera": [
+            0.00274588051252067,
+            3.02674627304077,
+            -229.420013427734
+          ],
+          "crouching": false,
+          "feet_y": 1.50010240077972,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.35010242462158,
+            -229.420013427734
+          ],
+          "speed": 5.59999942779541,
+          "sprinting": true,
+          "tick": 8
+        },
+        {
+          "camera": [
+            0.0041214250959456,
+            3.25468778610229,
+            -230.553329467773
+          ],
+          "crouching": false,
+          "feet_y": 1.72972500324249,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.57972502708435,
+            -230.553329467773
+          ],
+          "speed": 10.7999992370605,
+          "sprinting": true,
+          "tick": 16
+        },
+        {
+          "camera": [
+            -0.00328333443030715,
+            3.52496314048767,
+            -231.98161315918
+          ],
+          "crouching": false,
+          "feet_y": 2.00001192092896,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.85001182556152,
+            -231.98161315918
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 24
+        },
+        {
+          "camera": [
+            0.00194390444085002,
+            3.77520370483398,
+            -233.42155456543
+          ],
+          "crouching": false,
+          "feet_y": 2.25012540817261,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.10012555122375,
+            -233.42155456543
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 32
+        },
+        {
+          "camera": [
+            0.00172032741829753,
+            4.02752161026001,
+            -234.849838256836
+          ],
+          "crouching": false,
+          "feet_y": 2.50056838989258,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.35056853294373,
+            -234.849838256836
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 40
+        },
+        {
+          "camera": [
+            -0.0030627716332674,
+            4.2766318321228,
+            -236.289779663086
+          ],
+          "crouching": false,
+          "feet_y": 2.75084209442139,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.60084223747253,
+            -236.289779663086
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 48
+        },
+        {
+          "camera": [
+            0.0037346500903368,
+            4.52485322952271,
+            -237.729721069336
+          ],
+          "crouching": false,
+          "feet_y": 3.0001392364502,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.85013937950134,
+            -237.729721069336
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 56
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 3,
+      "from": "final_arena",
+      "goal_floor": [
+        0.0,
+        3.0,
+        -239.0
+      ],
+      "goal_xz_error": 0.9296875,
+      "head_contacts": [],
+      "initial": [
+        0.0,
+        2.35010242462158,
+        -229.0
+      ],
+      "label": "link13 forward Shift+S",
+      "link": 13,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.180545449256897,
+      "maximum_horizontal_tick_distance": 0.17999267578125,
+      "maximum_speed": 10.8000001907349,
+      "missing_support": [],
+      "modifier": "Shift",
+      "movement_key": "S",
+      "reverse": false,
+      "sprint_ticks": 55,
+      "stance_errors": [],
+      "target_speed": 10.8,
+      "terminal": [
+        -0.000000947662329053856,
+        3.85013937950134,
+        -239.9296875
+      ],
+      "tick_budget": 236,
+      "ticks": 61,
+      "to": "exit_gallery",
+      "trace": [
+        {
+          "camera": [
+            -0.00274600647389889,
+            3.02674627304077,
+            -229.420013427734
+          ],
+          "crouching": false,
+          "feet_y": 1.50010240077972,
+          "grounded": true,
+          "position": [
+            -0.000000125888803381713,
+            2.35010242462158,
+            -229.420013427734
+          ],
+          "speed": 5.59999942779541,
+          "sprinting": true,
+          "tick": 8
+        },
+        {
+          "camera": [
+            -0.00412167282775044,
+            3.25468778610229,
+            -230.553329467773
+          ],
+          "crouching": false,
+          "feet_y": 1.72972500324249,
+          "grounded": true,
+          "position": [
+            -0.000000247697897748367,
+            2.57972502708435,
+            -230.553329467773
+          ],
+          "speed": 10.7999992370605,
+          "sprinting": true,
+          "tick": 16
+        },
+        {
+          "camera": [
+            0.00328296492807567,
+            3.52496314048767,
+            -231.98161315918
+          ],
+          "crouching": false,
+          "feet_y": 2.00001192092896,
+          "grounded": true,
+          "position": [
+            -0.000000369507006325875,
+            2.85001182556152,
+            -231.98161315918
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 24
+        },
+        {
+          "camera": [
+            -0.00194439978804439,
+            3.77520370483398,
+            -233.42155456543
+          ],
+          "crouching": false,
+          "feet_y": 2.25012540817261,
+          "grounded": true,
+          "position": [
+            -0.000000495395795496734,
+            3.10012555122375,
+            -233.42155456543
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 32
+        },
+        {
+          "camera": [
+            -0.00172094465233386,
+            4.02752161026001,
+            -234.849838256836
+          ],
+          "crouching": false,
+          "feet_y": 2.50056838989258,
+          "grounded": true,
+          "position": [
+            -0.000000617204705122276,
+            3.35056853294373,
+            -234.849838256836
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 40
+        },
+        {
+          "camera": [
+            0.00306202843785286,
+            4.2766318321228,
+            -236.289779663086
+          ],
+          "crouching": false,
+          "feet_y": 2.75084209442139,
+          "grounded": true,
+          "position": [
+            -0.000000743093323762878,
+            3.60084223747253,
+            -236.289779663086
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 48
+        },
+        {
+          "camera": [
+            -0.00373551901429892,
+            4.52485322952271,
+            -237.729721069336
+          ],
+          "crouching": false,
+          "feet_y": 3.0001392364502,
+          "grounded": true,
+          "position": [
+            -0.000000868981942403479,
+            3.85013937950134,
+            -237.729721069336
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 56
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 1,
+      "from": "final_arena",
+      "goal_floor": [
+        0.0,
+        1.5,
+        -229.0
+      ],
+      "goal_xz_error": 0.790679931640625,
+      "head_contacts": [],
+      "initial": [
+        0.0,
+        3.85010242462158,
+        -239.0
+      ],
+      "label": "link13 reverse Shift+W",
+      "link": 13,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.125515818595886,
+      "maximum_horizontal_tick_distance": 0.180526733398438,
+      "maximum_speed": 10.8000001907349,
+      "missing_support": [],
+      "modifier": "Shift",
+      "movement_key": "W",
+      "reverse": true,
+      "sprint_ticks": 58,
+      "stance_errors": [],
+      "target_speed": 10.8,
+      "terminal": [
+        -0.000000940317988806783,
+        2.35088205337524,
+        -228.209320068359
+      ],
+      "tick_budget": 236,
+      "ticks": 60,
+      "to": "exit_gallery",
+      "trace": [
+        {
+          "camera": [
+            -0.00274600647389889,
+            4.52674627304077,
+            -238.579986572266
+          ],
+          "crouching": false,
+          "feet_y": 3.00010251998901,
+          "grounded": true,
+          "position": [
+            -0.000000125888803381713,
+            3.85010242462158,
+            -238.579986572266
+          ],
+          "speed": 5.59999942779541,
+          "sprinting": true,
+          "tick": 8
+        },
+        {
+          "camera": [
+            -0.00322884181514382,
+            4.52615642547607,
+            -237.419998168945
+          ],
+          "crouching": false,
+          "feet_y": 3.00010251998901,
+          "grounded": true,
+          "position": [
+            -0.000000251777635185135,
+            3.85010242462158,
+            -237.419998168945
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 16
+        },
+        {
+          "camera": [
+            0.00351492036134005,
+            4.27533435821533,
+            -235.979629516602
+          ],
+          "crouching": false,
+          "feet_y": 2.75034666061401,
+          "grounded": true,
+          "position": [
+            -0.000000377703827325604,
+            3.60034656524658,
+            -235.979629516602
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 24
+        },
+        {
+          "camera": [
+            -0.00401559378951788,
+            3.99847173690796,
+            -234.539108276367
+          ],
+          "crouching": false,
+          "feet_y": 2.47422361373901,
+          "grounded": true,
+          "position": [
+            -0.000000503643320826086,
+            3.32422351837158,
+            -234.539108276367
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 32
+        },
+        {
+          "camera": [
+            0.00271730218082666,
+            3.77175712585449,
+            -233.098541259766
+          ],
+          "crouching": false,
+          "feet_y": 2.24619626998901,
+          "grounded": false,
+          "position": [
+            -0.000000629586679679051,
+            3.09619617462158,
+            -233.098541259766
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": false,
+          "tick": 40
+        },
+        {
+          "camera": [
+            -0.00195992295630276,
+            3.40102553367615,
+            -231.669998168945
+          ],
+          "crouching": false,
+          "feet_y": 1.87551581859589,
+          "grounded": true,
+          "position": [
+            -0.000000751418269828719,
+            2.72551584243774,
+            -231.669998168945
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 48
+        },
+        {
+          "camera": [
+            0.000510078680235893,
+            3.15077877044678,
+            -230.229522705078
+          ],
+          "crouching": false,
+          "feet_y": 1.62490546703339,
+          "grounded": true,
+          "position": [
+            -0.000000877353670603043,
+            2.47490549087524,
+            -230.229522705078
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 56
+        }
+      ]
+    },
+    {
+      "airborne_ticks": 1,
+      "from": "final_arena",
+      "goal_floor": [
+        0.0,
+        1.5,
+        -229.0
+      ],
+      "goal_xz_error": 0.791122436523438,
+      "head_contacts": [],
+      "initial": [
+        0.0,
+        3.85010242462158,
+        -239.0
+      ],
+      "label": "link13 reverse Shift+S",
+      "link": 13,
+      "maximum_contiguous_airborne_ticks": 1,
+      "maximum_floor_gap": 0.125346660614014,
+      "maximum_horizontal_tick_distance": 0.180526733398438,
+      "maximum_speed": 10.8000001907349,
+      "missing_support": [],
+      "modifier": "Shift",
+      "movement_key": "S",
+      "reverse": true,
+      "sprint_ticks": 58,
+      "stance_errors": [],
+      "target_speed": 10.8,
+      "terminal": [
+        0.0,
+        2.35027170181274,
+        -228.208877563477
+      ],
+      "tick_budget": 236,
+      "ticks": 60,
+      "to": "exit_gallery",
+      "trace": [
+        {
+          "camera": [
+            0.00274588051252067,
+            4.52674627304077,
+            -238.579986572266
+          ],
+          "crouching": false,
+          "feet_y": 3.00010251998901,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.85010242462158,
+            -238.579986572266
+          ],
+          "speed": 5.59999942779541,
+          "sprinting": true,
+          "tick": 8
+        },
+        {
+          "camera": [
+            0.00322859012521803,
+            4.52615642547607,
+            -237.419998168945
+          ],
+          "crouching": false,
+          "feet_y": 3.00010251998901,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.85010242462158,
+            -237.419998168945
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 16
+        },
+        {
+          "camera": [
+            -0.00351529801264405,
+            4.27533435821533,
+            -235.979629516602
+          ],
+          "crouching": false,
+          "feet_y": 2.75034666061401,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.60034656524658,
+            -235.979629516602
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 24
+        },
+        {
+          "camera": [
+            0.00401461264118552,
+            3.99737358093262,
+            -234.538986206055
+          ],
+          "crouching": false,
+          "feet_y": 2.47312498092651,
+          "grounded": true,
+          "position": [
+            0.0,
+            3.32312488555908,
+            -234.538986206055
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 32
+        },
+        {
+          "camera": [
+            -0.00271910126321018,
+            3.77126789093018,
+            -233.098114013672
+          ],
+          "crouching": false,
+          "feet_y": 2.24570798873901,
+          "grounded": false,
+          "position": [
+            0.0,
+            3.09570789337158,
+            -233.098114013672
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": false,
+          "tick": 40
+        },
+        {
+          "camera": [
+            0.00196100119501352,
+            3.40151262283325,
+            -231.669631958008
+          ],
+          "crouching": false,
+          "feet_y": 1.87600409984589,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.72600412368774,
+            -231.669631958008
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 48
+        },
+        {
+          "camera": [
+            -0.000513185281306505,
+            3.15016746520996,
+            -230.229248046875
+          ],
+          "crouching": false,
+          "feet_y": 1.62429511547089,
+          "grounded": true,
+          "position": [
+            0.0,
+            2.47429513931274,
+            -230.229248046875
+          ],
+          "speed": 10.8000001907349,
+          "sprinting": true,
+          "tick": 56
+        }
+      ]
+    }
+  ]
+}

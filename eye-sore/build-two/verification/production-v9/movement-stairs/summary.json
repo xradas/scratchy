@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "checks": 235,
+  "traversals": 16,
+  "links": {
+    "2": "arena_one\u2192key_wing, +2.5m over10m",
+    "13": "final_arena\u2192C3exit_gallery, +1.5m over8m"
+  },
+  "inputs": "Ctrl orShift +W orS, each both directions (16 realphysics traversals).",
+  "fixed_physics_rate": 60,
+  "maximum_contiguous_airborne_ticks": 1,
+  "maximum_foot_to_floor_gap_m": 0.209608554840088,
+  "missing_floor_samples": 0,
+  "camera_head_collisions": 0,
+  "speeds_verified_m_per_second": {
+    "crouch": 4.4,
+    "sprint": 10.8
+  },
+  "source_unchanged_sha256": {
+    "scenes/campaign/pale_ward_01.tscn": "7c06137c531c017dce5318654d63dc9e9419b25612b9ba5bc5c1aef63c5d033d",
+    "scripts/grounded_step.gd": "47051c39404e1b488ea9888c1b33b16e6fb1868d7da3078d330512c2ca870bdd",
+    "scripts/player.gd": "adb67f028635811db1e401abd514eaef66b472b0c2d21934c93a08d2970ff08f"
+  },
+  "fixture_sha256": "9672cbfdbd39592119b5d6773a680f9538d444888a80fba1bce3f0044804d929",
+  "report": "geometry.json",
+  "scope": "Isolated actual production Ward Intake scene/player/shared grounded_step. All-access doors opened using real activate; independent declared landing placements. Real Ctrl/Shift plusW/S, bothdirections across steep link2 and C3exit link13. Camerahead probe radius.05m excludesactor. Bounded geometry/movement proof, not campaign progression or human gamefeel.",
+  "initial_fixture_correction": "Initial v7-derived pointgoal check was applied after releasing keys. Sprint legitimately coasts~1.3m under existing acceleration42; no stairfailure. Final checker records arrival within.55m BEFORE release, then asserts postrelease displacement within physical braking bound and correct landing floorheight/support/headclearance. Initial falsefail report/log retained. No physics/source fixes."
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "status": "Clinical movement v9 technically delivered; human movement/visual acceptance pending",
+  "source_commit": "d7693a460ae839e7bbfc0bb483cc769a98247f7c",
+  "source_branch": "codex/eyesore-build-two",
+  "source_checkpoint_remote_verified": true,
+  "package_directory": "/home/rikki/Builds/eyesore-clinical-movement-v9-2026-10-17",
+  "executable": {
+    "bytes": 174635840,
+    "mode": "0755",
+    "path": "eyesore-clinical-movement-v9.x86_64",
+    "pck": "embedded",
+    "sha256": "914a48f3c2902de8a0b3cfcace371b6bc0909ae47f2f392b6770010edaeaaf83"
+  },
+  "archive": {
+    "archived_executable_hash_and_mode_verified": true,
+    "bytes": 122514703,
+    "path": "eyesore-clinical-movement-v9-linux.tar.gz",
+    "sha256": "950547fe40e47cfb45402fd5a40d1a0aec4742dc57d28a315699f52172bf42f0"
+  },
+  "source_fingerprint_count": 596,
+  "source_tree_sha256": "a7735cca7c189d5d02ccb6fb6da78a30f14740c69fc56165cee7d3692f7274d3",
+  "current_packaged_fingerprints_still_match": true,
+  "completed_cards": [
+    "ART-02",
+    "LVL-01",
+    "LVL-02",
+    "MOV-01",
+    "MOV-02",
+    "MOV-03"
+  ],
+  "audio_card": "AUD-01 matched comparison prepared, runtime adoption pending listening selection",
+  "controls": {
+    "Ctrl": "hold physical crouch; standing blocked by actual clearance",
+    "Shift": "hold grounded sprint1.35x; firing allowed; crouch wins",
+    "bob": "default0.35; persisted0..1 includingzero"
+  },
+  "evidence": {
+    "archive": "../archive/export.json",
+    "physics": "../physics/summary.json",
+    "movement": "../movement/summary.json",
+    "actual_main": "../movement-main-verified/integration.json",
+    "stance_stairs": "../movement-stairs/summary.json",
+    "surfaces": "../surfaces/checks.json",
+    "clinical": "../clinical/native-04/native.json",
+    "campaign": "campaign-summary.json",
+    "recording": "recording-verification.json",
+    "audio_listening_candidates": "../../../concepts/audio-v9/validation.json"
+  },
+  "review_url": "http://127.0.0.1:8765/production-v9/index.html",
+  "sound_review_url": "http://127.0.0.1:8765/audio-v9/index.html",
+  "capture_directory": "/home/rikki/Builds/eyesore-clinical-movement-v9-captures-2026-10-17",
+  "known_limits": [
+    "Human movement comfort, visual fidelity and listening selection remain open.",
+    "Clinical23-object layouts apply to the first six Intake rooms; surface kit to the first Intake level; further density and other maps remain later work.",
+    "Earlier optional link14 snag was not reproduced in eight bounded baseline/current walks or current26-walk probes; cause unproven, no geometry fix claimed.",
+    "Current/runtime gunshot, impact, voice and music files remain unchanged; new54-file audition packet is separate.",
+    "Further physical lighting/flicker, new staff enemies, pickup ambushes and volumetric gore remain queued."
+  ],
+  "verification_fixture_corrections": [
+    "Archive heading checker now compares full bases after proving exported-179.999984741211 degrees equals authored180; initialfailure andvaluespreserved.",
+    "Stair profile checker now records landing arrival and bounded normal braking distance; initialpoint-stop falseassertion preserved. No game physics fix made."
+  ]
+}

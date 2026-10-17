@@ -1,0 +1,57 @@
+{
+  "mode": "source",
+  "source_commit": "d7693a460ae839e7bbfc0bb483cc769a98247f7c",
+  "executable": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+  "executable_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "raw_root": "/tmp/eyesore-v9-source-campaign",
+  "started_epoch": 1792236717.017065,
+  "runs": [
+    {
+      "profile": "normal",
+      "command": [
+        "python",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/run_intake_release_v7.py",
+        "--executable",
+        "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+        "--source-commit",
+        "d7693a460ae839e7bbfc0bb483cc769a98247f7c",
+        "--report-dir",
+        "/tmp/eyesore-v9-source-campaign/normal",
+        "--project",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 198.6200122833252
+    },
+    {
+      "profile": "heavy",
+      "command": [
+        "python",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/run_intake_release_v7.py",
+        "--executable",
+        "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+        "--source-commit",
+        "d7693a460ae839e7bbfc0bb483cc769a98247f7c",
+        "--report-dir",
+        "/tmp/eyesore-v9-source-campaign/heavy",
+        "--project",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+        "--heavy"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 210.75368094444275
+    }
+  ],
+  "audit_command": [
+    "python",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/check_intake_campaign_v7.py",
+    "--input",
+    "/tmp/eyesore-v9-source-campaign",
+    "--output",
+    "/tmp/eyesore-v9-source-campaign-audit",
+    "--source-commit",
+    "d7693a460ae839e7bbfc0bb483cc769a98247f7c"
+  ],
+  "audit_exit_code": 0,
+  "finished_epoch": 1792237126.705289
+}

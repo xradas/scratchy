@@ -135,7 +135,7 @@ func run():
   var spec: Dictionary=expected.placements[id]
   var prop: Node3D=world.get_node("RoomProp_"+String(id).replace(".","_"))
   check(prop.position.is_equal_approx(vec(spec.position)),"Exact clinical root position "+id)
-  check(is_equal_approx(prop.rotation_degrees.y,float(spec.heading)),"Exact clinical root heading "+id)
+  check(prop.basis.is_equal_approx(Basis(Vector3.UP,deg_to_rad(float(spec.heading)))),"Exact clinical root orientation basis "+id)
   check(String(prop.get_meta("prop_type"))==spec.type,"Exact clinical inventory type "+id)
  for light in expected.bay_lights:
   var node: OmniLight3D=world.get_node(light.name)
@@ -207,7 +207,7 @@ def audit(a):
     pack=tmp/'archive-pck-data';pack.write_bytes(bundle.extractfile(build['executable']['path']).read());pack.chmod(0o600)
    report.update({'archive':str(a.archive.resolve()),'archive_sha256':structural['archive_sha256'],'source_commit':a.expected_commit,'portable_archive_pass':True})
   native,clinical=native_probe(tmp,pack,supplemental,a)
-  report.update({'status':'passed','native':native,'clinical_native':clinical,'trusted_native_reader_sha256':sha((ROOT/'tools/check_intake_archive_v7.gd').read_bytes()),'supplemental_native_reader_sha256':sha(SUPPLEMENTAL.encode()),'frozen_theme_checker':'Known frozen35cue incompatibility retained in verification/production-v8/archive/frozen-theme-pack-failure.json; not rerun or relaxed.','related_surface_proof':'verification/production-v9/surfaces/checks.json','scope':'Source preflight only; no packaged release claim.' if a.source_preflight else 'Archive checksums, exact dynamic source snapshot roster/current fingerprints and supplied Git checkpoint blobs; all protected v8 baseline assets/profiles/budgets/eight maps exact. Unchanged trusted v7 native reader plus explicit23 placements/8-piece table supplement. Archived ELF never executed. Not full collider-topology proof, player-route or human visual/listening acceptance. External source/license webpages and remote Git history are not authenticated.'})
+  report.update({'status':'passed','native':native,'clinical_native':clinical,'trusted_native_reader_sha256':sha((ROOT/'tools/check_intake_archive_v7.gd').read_bytes()),'supplemental_native_reader_sha256':sha(SUPPLEMENTAL.encode()),'frozen_theme_checker':'Known frozen35cue incompatibility retained in verification/production-v8/archive/frozen-theme-pack-failure.json; not rerun or relaxed.','related_surface_proof':'verification/production-v9/surfaces/checks.json','checker_orientation_note':'Approved yaw is compared using the full Basis with Godot is_equal_approx. Export represents authored180degrees as -179.999984741211; identical-basis proof and initial failed Euler comparison retained under export-heading-normalization.json/export-initial-failure.json. No broad tolerance or production change.','scope':'Source preflight only; no packaged release claim.' if a.source_preflight else 'Archive checksums, exact dynamic source snapshot roster/current fingerprints and supplied Git checkpoint blobs; all protected v8 baseline assets/profiles/budgets/eight maps exact. Unchanged trusted v7 native reader plus explicit23 placements/8-piece table supplement. Archived ELF never executed. Not full collider-topology proof, player-route or human visual/listening acceptance. External source/license webpages and remote Git history are not authenticated.'})
  return report
 
 def main():

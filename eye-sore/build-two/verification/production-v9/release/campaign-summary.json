@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_commit": "d7693a460ae839e7bbfc0bb483cc769a98247f7c",
+  "exported_elf": "/home/rikki/Builds/eyesore-clinical-movement-v9-2026-10-17/eyesore-clinical-movement-v9.x86_64",
+  "exported_elf_sha256": "914a48f3c2902de8a0b3cfcace371b6bc0909ae47f2f392b6770010edaeaaf83",
+  "package_BUILD_sha256": "ffae279fd42dba40eac08f9810c0bb7808da0e66fabf08c6754556518f235f24",
+  "package_source_git_status": "",
+  "source_tree_sha256": "a7735cca7c189d5d02ccb6fb6da78a30f14740c69fc56165cee7d3692f7274d3",
+  "modes": {
+    "source": {
+      "passed": true,
+      "audit": "verification/production-v9/release/source/audit/campaign-audit.json",
+      "raw": "verification/production-v9/release/source/raw",
+      "byte_identical_files": 21,
+      "profiles": {
+        "normal": {
+          "passed": true,
+          "levels_completed": 9,
+          "kills": 305,
+          "shots": 1124,
+          "exact_carry_transitions": 8,
+          "secret_levels": 0,
+          "siege_self_hits": 0,
+          "final_health": 100.0,
+          "accepted_shortcut_interactions": 1
+        },
+        "heavy": {
+          "passed": true,
+          "levels_completed": 9,
+          "kills": 305,
+          "shots": 941,
+          "exact_carry_transitions": 8,
+          "secret_levels": 0,
+          "siege_self_hits": 0,
+          "final_health": 100.0,
+          "accepted_shortcut_interactions": 1
+        }
+      }
+    },
+    "export": {
+      "passed": true,
+      "audit": "verification/production-v9/release/export/audit/campaign-audit.json",
+      "raw": "verification/production-v9/release/export/raw",
+      "byte_identical_files": 21,
+      "profiles": {
+        "normal": {
+          "passed": true,
+          "levels_completed": 9,
+          "kills": 305,
+          "shots": 1124,
+          "exact_carry_transitions": 8,
+          "secret_levels": 0,
+          "siege_self_hits": 0,
+          "final_health": 100.0,
+          "accepted_shortcut_interactions": 1
+        },
+        "heavy": {
+          "passed": true,
+          "levels_completed": 9,
+          "kills": 305,
+          "shots": 941,
+          "exact_carry_transitions": 8,
+          "secret_levels": 0,
+          "siege_self_hits": 0,
+          "final_health": 100.0,
+          "accepted_shortcut_interactions": 1
+        }
+      }
+    }
+  },
+  "scope": "Actual source Main and shipped exported ELF, normal/heavy, complete ordered nine-level physical finite-ammo campaign. Strict unchanged v7 campaign auditor verifies initial inventory/caps, eight exact carry transitions, clear/key/exit flags, no secrets/self-hit, real Intake return loop and accepted E shortcut.",
+  "limits": [
+    "Headless fixed60 automated controller, not human pacing/visual/listening acceptance.",
+    "Native stereo movie and visual evidence are separate coordinator-owned receipts."
+  ],
+  "failed_attempts": []
+}

@@ -1,0 +1,54 @@
+{
+  "mode": "export",
+  "source_commit": "d7693a460ae839e7bbfc0bb483cc769a98247f7c",
+  "executable": "/home/rikki/Builds/eyesore-clinical-movement-v9-2026-10-17/eyesore-clinical-movement-v9.x86_64",
+  "executable_sha256": "914a48f3c2902de8a0b3cfcace371b6bc0909ae47f2f392b6770010edaeaaf83",
+  "raw_root": "/tmp/eyesore-v9-export-campaign",
+  "started_epoch": 1792236786.5470843,
+  "runs": [
+    {
+      "profile": "normal",
+      "command": [
+        "python",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/run_intake_release_v7.py",
+        "--executable",
+        "/home/rikki/Builds/eyesore-clinical-movement-v9-2026-10-17/eyesore-clinical-movement-v9.x86_64",
+        "--source-commit",
+        "d7693a460ae839e7bbfc0bb483cc769a98247f7c",
+        "--report-dir",
+        "/tmp/eyesore-v9-export-campaign/normal"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 189.86334013938904
+    },
+    {
+      "profile": "heavy",
+      "command": [
+        "python",
+        "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/run_intake_release_v7.py",
+        "--executable",
+        "/home/rikki/Builds/eyesore-clinical-movement-v9-2026-10-17/eyesore-clinical-movement-v9.x86_64",
+        "--source-commit",
+        "d7693a460ae839e7bbfc0bb483cc769a98247f7c",
+        "--report-dir",
+        "/tmp/eyesore-v9-export-campaign/heavy",
+        "--heavy"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 176.74388027191162
+    }
+  ],
+  "audit_command": [
+    "python",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/check_intake_campaign_v7.py",
+    "--input",
+    "/tmp/eyesore-v9-export-campaign",
+    "--output",
+    "/tmp/eyesore-v9-export-campaign-audit",
+    "--source-commit",
+    "d7693a460ae839e7bbfc0bb483cc769a98247f7c",
+    "--export"
+  ],
+  "audit_exit_code": 0,
+  "finished_epoch": 1792237153.4688647
+}

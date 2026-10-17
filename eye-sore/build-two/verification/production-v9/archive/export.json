@@ -1,0 +1,141 @@
+{
+  "source_preflight": false,
+  "source_fingerprints_verified": 596,
+  "source_tree_sha256": "a7735cca7c189d5d02ccb6fb6da78a30f14740c69fc56165cee7d3692f7274d3",
+  "source_snapshot_policy": {
+    "collector": "Restricted AST literal policy read from tools/package_pale_ward.py; no packager import/execution",
+    "collector_sha256": "3e6616c15437a4b966a777586746b2f4885343aa2b0aea0667040c10425df555",
+    "packager_sha256": "63bca05b32bd9bf5f1bdf102c29b212894526d4bbf1c91e4b2186a77279a04e6",
+    "provenance_roots": [
+      "concepts/environment-art-v1",
+      "concepts/gore-art-v1",
+      "concepts/sprite-art-v1",
+      "concepts/style-art-v2",
+      "concepts/weapon-style-v3",
+      "concepts/expansion-v1",
+      "docs/expansion-v1",
+      "concepts/arsenal-architecture-v2",
+      "docs/arsenal-architecture-v2",
+      "concepts/campaign-v3",
+      "docs/campaign-v3",
+      "docs/combat-balance-v4",
+      "docs/map-safety-v5",
+      "docs/room-program-v6",
+      "docs/pickup-art-v6",
+      "docs/intake-v7",
+      "docs/production-v8",
+      "concepts/production-v8",
+      "docs/production-v9",
+      "concepts/production-v9",
+      "concepts/audio-v9",
+      "concepts/pickups-rooms-v6",
+      "concepts/visual-v2/corrupted-biotech",
+      "concepts/visual-v2/occult-fortress",
+      "concepts/visual-v2/civic-invasion"
+    ],
+    "excluded_directories": [
+      ".git",
+      ".godot",
+      "build",
+      "concepts",
+      "docs",
+      "tools",
+      "verification"
+    ]
+  },
+  "git_checkpoint_blobs_verified": 596,
+  "protected_v8_baseline_files": 431,
+  "protected_assets": 281,
+  "protected_other_campaign_maps": 8,
+  "explicit_changed_existing_inputs": [
+    "resources/campaign/room-fittings-v6.json",
+    "scenes/campaign/pale_ward_01.tscn",
+    "scripts/main.gd",
+    "scripts/player.gd"
+  ],
+  "unreviewed_runtime_asset_exceptions": [],
+  "provenance": {
+    "archived_manifests": [
+      "concepts/audio-v3/manifest.json",
+      "concepts/audio-v4/manifest.json",
+      "concepts/audio-v5/manifest.json",
+      "concepts/expansion-v1/provenance.json",
+      "concepts/expansion-v1/gore/provenance.json"
+    ],
+    "creature_design_records": 18,
+    "local_license_evidence": {
+      "concepts/audio-v3/provenance/the-free-firearm-sound-library.html": {
+        "sha256": "e69ddc51c1b8a34a6446f8298486e11a6167a75c4e15b46e704d602976831798",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/swish-bamboo-stick-weapon-swhoshes.html": {
+        "sha256": "923a6b8138c4171aaa9c38a6bd33b6f21168d21971a88c015e3018f01377d0da",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/metal-interactions.html": {
+        "sha256": "38d234526ec6fb567abd5a3c7ef96d7ed1a20e83f5442251c50991f66bf2a170",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/male-gruntyelling-sounds.html": {
+        "sha256": "98b68a5beca05c1970401e5d8ed4019f01ccfc50306d1c07989085123a89ab53",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/punch.html": {
+        "sha256": "d6fb9955d3900ed9cbe587742175cc70b376144611e3bb3efcab1e3ca60e9fbc",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/qubodup-punch-source-53985.html": {
+        "sha256": "ac9c1d46ae1761c8fce61f8ed52a7baff067ac88661e84c3c89fe4a8386b76f3",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/100-cc0-metal-and-wood-sfx.html": {
+        "sha256": "d1b313a5a313b9f2f3763e140eb03297965ad5a5a193150e61b711f6605571e6",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/abelian.html": {
+        "sha256": "c0912a0b3e1c4a768444bc57e7a376aa4595d26db21e3462d381f08b17da6192",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/bestial-paragon-interface.html": {
+        "sha256": "ad64c0c902fc768edbbdb8506469300a1545212fddc5ceb7768b275ed432a15d",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/dragged-through-hellfire-abomination.html": {
+        "sha256": "c9648a9a451009a54dcc29d81f165c53027e9ed4f19e7030f4ea4769048f67ca",
+        "archived": false
+      }
+    },
+    "scope": "Archived license declarations and provided original/evidence hashes verified locally; external license pages were not independently researched."
+  },
+  "archive": "/home/rikki/Builds/eyesore-clinical-movement-v9-2026-10-17/eyesore-clinical-movement-v9-linux.tar.gz",
+  "archive_sha256": "950547fe40e47cfb45402fd5a40d1a0aec4742dc57d28a315699f52172bf42f0",
+  "source_commit": "d7693a460ae839e7bbfc0bb483cc769a98247f7c",
+  "portable_archive_pass": true,
+  "status": "passed",
+  "native": {
+    "checks": 7815,
+    "cue_count": 57,
+    "engine": "4.7.2-stable (official)",
+    "failures": [],
+    "physical_parts": 1091,
+    "pickups": 711,
+    "props": 508,
+    "scope": "External pinned Godot reader of source or archived --main-pack; no shipped ELF execution or player route claim.",
+    "status": "passed"
+  },
+  "clinical_native": {
+    "checks": 153,
+    "clinical_placements": 23,
+    "failures": [],
+    "scope": "Supplemental trusted source/PCK structural reader: actual23 root transforms/types, exact8 approved table-piece geometry/collision/envelope and unchanged raw embedded combat/audio JSON. No shipped ELF execution.",
+    "status": "passed",
+    "surgical_table_parts": 8
+  },
+  "trusted_native_reader_sha256": "d3b3cd31438bc488ccca64b50cf51f245b064d35d492d7648ac51fd10e47d506",
+  "supplemental_native_reader_sha256": "e95c0005a4c2b200ca49df97f03af09d55c6b41c5fc945d829138843bf3da925",
+  "frozen_theme_checker": "Known frozen35cue incompatibility retained in verification/production-v8/archive/frozen-theme-pack-failure.json; not rerun or relaxed.",
+  "related_surface_proof": "verification/production-v9/surfaces/checks.json",
+  "checker_orientation_note": "Approved yaw is compared using the full Basis with Godot is_equal_approx. Export represents authored180degrees as -179.999984741211; identical-basis proof and initial failed Euler comparison retained under export-heading-normalization.json/export-initial-failure.json. No broad tolerance or production change.",
+  "scope": "Archive checksums, exact dynamic source snapshot roster/current fingerprints and supplied Git checkpoint blobs; all protected v8 baseline assets/profiles/budgets/eight maps exact. Unchanged trusted v7 native reader plus explicit23 placements/8-piece table supplement. Archived ELF never executed. Not full collider-topology proof, player-route or human visual/listening acceptance. External source/license webpages and remote Git history are not authenticated.",
+  "auditor_sha256": "270c6db82b744f36ef6234403c2dd0350bceba2025e5a738a5d29339f67a9381"
+}
