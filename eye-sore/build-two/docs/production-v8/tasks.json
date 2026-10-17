@@ -1,0 +1,587 @@
+{
+  "schema_version": 1,
+  "phase": "planned task breakdown, no gameplay implementation in this pass",
+  "baseline_commit": "0461086edbbda510b31d44093678524d8bea763f",
+  "baseline_package": "/home/rikki/Builds/eyesore-intake-rework-2026-10-17/eyesore-intake-v7.x86_64",
+  "focus": "Use Intake and existing first Pale Ward chapter as the integration/playtest bed. Preserve other chapter identities; widen rollout after the first integrated review.",
+  "coordinator": [
+    "Reference research and creative direction",
+    "Prepare/generate/select any needed raster artwork; workers implement approved source assets",
+    "Shared event/state interfaces and shared-file integration",
+    "Final visual/listening judgment, provenance, checkpoints and portable release"
+  ],
+  "scheduling": {
+    "maximum_concurrent_workers": 3,
+    "mode": "Rolling queue: start the next ready card as soon as a slot is free. Do not wait for every stream or manufacture work for all roles.",
+    "first_dispatch": [
+      "ART-01",
+      "WPN-01",
+      "HUD-01"
+    ],
+    "early_audio": "Coordinator retrieves and compares retained gun references during first dispatch; AUD-01 enters the next free slot once its sound brief is ready.",
+    "parallel_constraints": [
+      "One writer per file/component; HUD worker provides isolated widget, coordinator binds Main.",
+      "Material authoring stays separate from level geometry binding; explicit asset IDs are handed across.",
+      "Movement/bob must consume the accepted gun registration; layout must expose clearances before enemy placement.",
+      "Workers report completion/evidence, independent reviewer verifies integrated behavior; passing self-tests is not human acceptance."
+    ]
+  },
+  "defaults": {
+    "hud": "Industrial concept-style panel; readable health, armor, ammo/capacity, key icons and actual1–6 inventory slots. Selected distinct from owned.",
+    "minimap": "Right HUD, north-up visited architecture, player heading; persisted on/off, full Tab map retained.",
+    "movement": "Subtle adjustable grounded bob; holdCtrl real crouch; holdShift sprint1.35x, no stamina, firing allowed, crouch wins.",
+    "encounters": "Named authored item ambushes, no random enemies on every pickup.",
+    "new_enemies": "Infected scientist and facility security belong to Pale Ward only.",
+    "gore": "Thick anatomical remains plus directional blood; bounded cosmetic physics, flat decals reserved for blood.",
+    "audio": "Physical punch and separate weapon/material cues; no wet/slosh; existing music retained.",
+    "furnishing": "Explicit rows, spacing and workflow groups; no generic perimeter fallback for key furniture."
+  },
+  "audio_reference_candidates": [
+    {
+      "path": "/home/rikki/Downloads/freesound_community-usp-pistol-sfx-80490.mp3",
+      "sha256": "517b7079c1625ef1c314aedbb073e9815621b5b1092f10cfabe161086d2e1dda",
+      "use": "Likely earlier user listening reference; retain original, do not register as shipped cue without provenance/rights review."
+    },
+    {
+      "path": "/home/rikki/Downloads/freesound_community-doom-shotgun-2017-80549.mp3",
+      "sha256": "3fe11592c2186459df67067a545c8cc9a5ba9978fc2bc75e8791825e3d9dff94",
+      "use": "Likely earlier user listening reference; retain original, do not register as shipped cue without provenance/rights review."
+    },
+    {
+      "path": "/home/rikki/Downloads/freesound_community-plasmapistol_shot-46305.mp3",
+      "sha256": "22093ee0e2bd35572565a8239f0c3445141842e3b7eb933bb79a3de113f3e190",
+      "use": "Likely earlier user listening reference; retain original, do not register as shipped cue without provenance/rights review."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "ART-01",
+      "owner": "environment_materials",
+      "title": "Three distinct Pale Ward room material families",
+      "status": "planned",
+      "depends_on": [],
+      "write_scope": [
+        "New versioned assets/materials set and material definitions; no shared author or main edits"
+      ],
+      "implementation": [
+        "Create coordinated triage, surgical and utility material sets from coordinator-selected references; room identity must change surface treatment, not only tint.",
+        "Preserve gritty pixel treatment, consistent texel density and nearest sampling; include trim, damage and panel variants.",
+        "Prove the three sets in actual Intake room views before extending to other maps."
+      ],
+      "acceptance": [
+        "Triage, theatre and service room are recognizably different at ordinary gameplay distance.",
+        "Texture seams, repetition and native UV regions reviewed in-game; enemies remain readable."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "ART-02",
+      "owner": "environment_materials",
+      "title": "Matching equipment, control and exit surface set",
+      "status": "planned",
+      "depends_on": [
+        "ART-01"
+      ],
+      "write_scope": [
+        "New material assets/resources only"
+      ],
+      "implementation": [
+        "Prepare complete metal sides/risers/undersides plus button inactive/active faces and exit surround panels.",
+        "Use the same room palette/material families rather than unrelated generic swatches."
+      ],
+      "acceptance": [
+        "Actual native previews show front, side, back and underside coverage.",
+        "Control states differ visibly and exit has a clear identity."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "WPN-01",
+      "owner": "weapon_presentation",
+      "title": "Fix Twin Shotgun idle silhouette and resting pose",
+      "status": "planned",
+      "depends_on": [],
+      "write_scope": [
+        "Versioned Twin artwork registration and isolated presentation component; shared main integration by coordinator"
+      ],
+      "implementation": [
+        "Inspect whether the awkward idle comes from artwork, crop, pivot or presentation transform before changing the source.",
+        "Correct scale, hand placement, barrel perspective and bottom anchoring against the approved weapon reference.",
+        "Coordinator supplies replacement bitmap artwork only if the source itself needs correction."
+      ],
+      "acceptance": [
+        "Idle looks coherent at gameplay size in three window aspect ratios.",
+        "Both barrel registrations still converge toward the actual centered aim ray."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "WPN-02",
+      "owner": "weapon_presentation",
+      "title": "Match Twin firing, recovery and switch frames to corrected idle",
+      "status": "planned",
+      "depends_on": [
+        "WPN-01"
+      ],
+      "write_scope": [],
+      "implementation": [
+        "Carry the accepted WPN-01 geometry through every active pose without a scale/position jump.",
+        "Keep one firing event, existing shell cost/damage and two muzzle origins."
+      ],
+      "acceptance": [
+        "Repeated idle/fire/recovery/switch cycles remain aligned and physically consistent.",
+        "No duplicate flashes, damage or sound; accepted cadence remains frame-rate independent."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "HUD-01",
+      "owner": "hud_interface",
+      "title": "Concept-style status bar with inventory",
+      "status": "planned",
+      "depends_on": [],
+      "write_scope": [
+        "New HUD component, layout/style assets; coordinator owns scripts/main.gd binding"
+      ],
+      "implementation": [
+        "Implement a framed industrial pixel HUD with readable native-resolution numerals: health, armor, active weapon ammo/capacity and compact kill count.",
+        "Use brass/red key icons only while their actual flags are held.",
+        "Show current real hotkeys: 1 pistol,2 shotgun,3 melee,4 Twin,5 Rivet,6 Siege. Owned slots illuminated, unowned dim, selected slot distinct.",
+        "Consume combat and stage display state; HUD never grants items or sets gameplay flags."
+      ],
+      "acceptance": [
+        "Acquisition, partial ammo, damage, weapon switch, level carry and Retry update immediately.",
+        "Health/armor/key/weapon states are legible without a large plain text overlay."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "HUD-02",
+      "owner": "hud_interface",
+      "title": "Right-hand visited-area mini-map",
+      "status": "planned",
+      "depends_on": [
+        "HUD-01"
+      ],
+      "write_scope": [],
+      "implementation": [
+        "Reuse existing visited-room data for a compact player-centred north-up map with heading arrow, clipping and stable zoom.",
+        "Place at HUD right, configurable on/off; retain the full Tab automap.",
+        "Do not reveal unvisited rooms, secrets, enemies or hidden pickups."
+      ],
+      "acceptance": [
+        "Updates through the new return loop without reflowing the HUD.",
+        "Resize, pause, Retry and chapter changes behave correctly; map can be hidden."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "LVL-01",
+      "owner": "level_layout",
+      "title": "Explicit ward rows and clinical work-cell layouts",
+      "status": "planned",
+      "depends_on": [],
+      "write_scope": [
+        "New versioned room furnishing recipe data; coordinator integrates shared generator"
+      ],
+      "implementation": [
+        "Author measured placement recipes for triage bed rows, isolation bays, theatre work cell and storage banks.",
+        "Triage beds face a shared aisle with consistent spacing; monitors and screens belong to specific beds. Theatre tables are distinct from ward beds.",
+        "Reserve visible movement, retreat, door, control and shooting lanes before placing objects; no random safe-position fallback for planned key furniture."
+      ],
+      "acceptance": [
+        "Pre-build object/position list matches final placements.",
+        "All required objects placed; actual player and NPC paths remain clear."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "LVL-02",
+      "owner": "level_layout",
+      "title": "Repair platform, button and exit geometry/material bindings",
+      "status": "planned",
+      "depends_on": [
+        "ART-02"
+      ],
+      "write_scope": [],
+      "implementation": [
+        "Inspect actual missing surfaces to distinguish absent mesh faces, wrong normals/culling and wrong UV/material assignments.",
+        "Give platforms complete sides/risers/undersides, controls textured state faces, and the exit a complete visible surround/threshold.",
+        "Keep visible and physical geometry consistent; texture repairs must not hide unsafe gaps."
+      ],
+      "acceptance": [
+        "All approaches, including stairs and lower views, show complete surfaces.",
+        "Bodies, hitscan and projectiles agree at modified platforms/doors; controls and exit remain reachable."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "ENC-01",
+      "owner": "encounters",
+      "title": "Authored once-only item ambush triggers",
+      "status": "planned",
+      "depends_on": [],
+      "write_scope": [
+        "New encounter definitions/component; coordinator integrates scripts/stage_level.gd"
+      ],
+      "implementation": [
+        "Configure selected weapon/key/important supply pickups to activate named encounter groups or physical spawn closets.",
+        "Spawn positions are authored per room, grounded and actor-clear, with a readable warning.",
+        "Use accepted acquisition ownership; full rejected ordinary ammo cannot fire an ambush, while the existing owned-weapon bait exception remains explicit.",
+        "No creature appears inside the player, behind a sealed progression gate or from a repeated pickup callback."
+      ],
+      "acceptance": [
+        "Each encounter triggers once and resets fully on Retry.",
+        "Partial/full/duplicate collection and dead-player cases follow documented rules."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "ENC-02",
+      "owner": "encounters",
+      "title": "Balance the new pickup ambushes",
+      "status": "planned",
+      "depends_on": [
+        "ENC-01",
+        "ENE-01",
+        "ENE-02",
+        "LVL-01"
+      ],
+      "write_scope": [],
+      "implementation": [
+        "Start with two deliberately chosen first-level triggers: triage weapon lure and one later important pickup.",
+        "Use coherent waves/positions rather than adding enemies to every box; keep retreat possible after clearance.",
+        "Record changed enemy/resource budgets and verify the ordinary route without secret supplies."
+      ],
+      "acceptance": [
+        "Warnings, attack pressure and clear conditions are understandable in live play.",
+        "Finite-ammo normal/heavy routes and campaign carry remain completable."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "ENE-01",
+      "owner": "enemies",
+      "title": "Infected scientist for Pale Ward",
+      "status": "planned",
+      "depends_on": [],
+      "write_scope": [
+        "New Ward-only enemy resource, atlas registration and isolated behavior/animation data"
+      ],
+      "implementation": [
+        "Coordinator supplies approved lab-coat design, directional art brief and source assets.",
+        "Implement a distinct frail melee attacker with a committed lunge; lab clothing, silhouette and identity remain readable.",
+        "Deliver movement/attack, pain/death, persistent corpse and native hurt geometry with stable foot pivots; do not deliver only a static stance sheet."
+      ],
+      "acceptance": [
+        "Live approach, warning, pain interruption and death cancellation work.",
+        "Directional presentation and corpse remain coherent at normal game distances."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "ENE-02",
+      "owner": "enemies",
+      "title": "Infected facility security for Pale Ward",
+      "status": "planned",
+      "depends_on": [
+        "ENE-01"
+      ],
+      "write_scope": [],
+      "implementation": [
+        "Coordinator supplies approved uniform/armor design and audio references.",
+        "Implement a distinct controlled ranged attacker with a readable two-round committed burst; pain/death cancel unreleased rounds.",
+        "Separate armor/flesh contacts and deliver complete required movement/attack/pain/death presentation.",
+        "Keep both new staff types in facility stages; first balance pass replaces a small share of existing actors before separate ambush increases."
+      ],
+      "acceptance": [
+        "Closed geometry blocks attacks and actor paths; attack ownership stays once-only.",
+        "Clearly distinguishable from scientist and existing monsters."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "LIT-01",
+      "owner": "environment_lighting",
+      "title": "Physical light fixture kit",
+      "status": "planned",
+      "depends_on": [
+        "ART-01"
+      ],
+      "write_scope": [
+        "New reusable light scene/component and materials; shared author integration by coordinator"
+      ],
+      "implementation": [
+        "Build visible tube/ceiling housings, surgical lamps and warning fixtures using approved materials.",
+        "Bind each emitter to its real lens/fixture position; avoid invisible floating point lights and duplicated pools."
+      ],
+      "acceptance": [
+        "Fixtures look correct from below and sides, with sensible mountings.",
+        "Light/collision headroom and gameplay-distance readability pass."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "LIT-02",
+      "owner": "environment_lighting",
+      "title": "Room-specific darkness and occasional flicker",
+      "status": "planned",
+      "depends_on": [
+        "LIT-01",
+        "LVL-01"
+      ],
+      "write_scope": [],
+      "implementation": [
+        "Compose warm/cold pools and dim service areas with readable route landmarks.",
+        "Use authored deterministic occasional flicker on selected damaged fixtures, with an accessibility toggle; keep stable control/exit cues.",
+        "Avoid indiscriminate full-room flashing or bright ambient fill that erases the concept contrast."
+      ],
+      "acceptance": [
+        "Flicker pauses/resumes/resets consistently and cannot affect gameplay state.",
+        "Enemies, keys and relevant stairs remain readable; actual rendered performance checked."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "MOV-01",
+      "owner": "foundation_movement",
+      "title": "Adjustable grounded view bob",
+      "status": "planned",
+      "depends_on": [
+        "WPN-02"
+      ],
+      "write_scope": [
+        "Player movement/presentation component; coordinator owns shared main/settings integration"
+      ],
+      "implementation": [
+        "Implement subtle distance-driven bob while grounded, easing to neutral when stationary and suppressing it while paused/dead.",
+        "Keep crosshair, actual camera ray, weapon registration and muzzle presentation aligned through the entire bob cycle.",
+        "Add persisted intensity setting including zero; default subtle."
+      ],
+      "acceptance": [
+        "No idle drift or frame-rate-dependent speed/frequency.",
+        "Aim/weapon alignment passes at 30/60/120 FPS and with bob disabled."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "MOV-02",
+      "owner": "foundation_movement",
+      "title": "Real crouch with clearance-safe standing",
+      "status": "planned",
+      "depends_on": [
+        "MOV-01"
+      ],
+      "write_scope": [],
+      "implementation": [
+        "Default hold Ctrl; lower camera and actual capsule while preserving foot contact.",
+        "Check clearance before standing; allow crouched passage only when visible geometry genuinely permits it.",
+        "Keep consistent pickup/use/aim behavior and reset standing state on Retry."
+      ],
+      "acceptance": [
+        "No wall/floor escape, ceiling penetration or automatic standing into solids.",
+        "Doorways, stairs, lifts and narrow spaces pass native movement probes."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "MOV-03",
+      "owner": "foundation_movement",
+      "title": "Sprint without stamina",
+      "status": "planned",
+      "depends_on": [
+        "MOV-02"
+      ],
+      "write_scope": [],
+      "implementation": [
+        "Default hold Shift, 1.35 times current standing movement speed; normal speed remains unchanged.",
+        "Allow firing while sprinting; crouch takes precedence, sprint is grounded and is not a dash.",
+        "Blend presentation without changing weapon cadence/damage or adding stamina management."
+      ],
+      "acceptance": [
+        "Actual acceleration, diagonal speed and stair/lift safety hold at 30/60/120 FPS.",
+        "Sprint/crouch/pause/death/Retry transitions do not retain stale input or pose."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "GOR-01",
+      "owner": "gore_effects",
+      "title": "Volumetric settled limbs and death remains",
+      "status": "planned",
+      "depends_on": [],
+      "write_scope": [
+        "Isolated gore component/profile extension and versioned anatomical mesh assets"
+      ],
+      "implementation": [
+        "Replace floor-projected limb patches with bounded low-poly/extruded textured anatomical chunks; reserve flat decals for blood.",
+        "Keep visible thickness, varied orientation and believable support/settling on floors and stairs.",
+        "Use original species anatomy/armor assets with persistent corpses; cosmetic remains must not trap the player."
+      ],
+      "acceptance": [
+        "Limbs have visible volume from low and side views instead of lying as flat stickers.",
+        "No floating unsupported pieces, doubled deaths or unbounded physics objects."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "GOR-02",
+      "owner": "gore_effects",
+      "title": "Stronger directional gib bursts",
+      "status": "planned",
+      "depends_on": [
+        "GOR-01"
+      ],
+      "write_scope": [],
+      "implementation": [
+        "Increase visible blood volume and breakup for heavy overkill with directional sprays, droplets and surface impacts.",
+        "Keep weapon/species differences and current authoritative death/corpse-gib ownership.",
+        "Budget particles/remains; pause freezes and Retry clears everything."
+      ],
+      "acceptance": [
+        "Actual heavy kills look more forceful with blood stopped by real surfaces.",
+        "No duplicate kills/audio, runaway particle cost or frame-rate-dependent results."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "AUD-01",
+      "owner": "sound_design",
+      "title": "Reference-led physical gunshot redesign",
+      "status": "planned",
+      "depends_on": [],
+      "write_scope": [
+        "New versioned audio cues and explicit edit recipe; shared profile registration integrated by coordinator"
+      ],
+      "implementation": [
+        "Coordinator selects and compares actual retained user references and licensed source recordings; worker implements the approved edits, not source research.",
+        "Start with pistol, shotgun and Twin only: sharper physical transient, weapon-specific body and mechanical recovery, controlled repetition.",
+        "Preserve stereo music, existing bus ownership and one sound per accepted shot."
+      ],
+      "acceptance": [
+        "Matched-level dry/reference/designed/in-game A/B supplied; punch is not claimed from volume metrics alone.",
+        "Repeated shots and warnings under music are judged together; edits/licenses/originals tracked."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    },
+    {
+      "id": "AUD-02",
+      "owner": "sound_design",
+      "title": "Material impacts, new voices and final mix",
+      "status": "planned",
+      "depends_on": [
+        "AUD-01",
+        "ENE-01",
+        "ENE-02",
+        "ENC-01"
+      ],
+      "write_scope": [],
+      "implementation": [
+        "After gunshot review, improve weapon-by-material contacts, dry creature hurt/death identity and staff-zombie warnings.",
+        "Keep no-wet/slosh direction, make human-origin infected staff distinct from demonic monsters.",
+        "Check pickup feedback and new encounter warnings against music in actual stereo gameplay."
+      ],
+      "acceptance": [
+        "Material/weapon identity remains distinguishable at comfortable matched levels.",
+        "Pause/mute/Retry/voice limits and real recorded stereo playback pass."
+      ],
+      "handoff": [
+        "Changed files and exact asset/source hashes",
+        "In-game evidence appropriate to the task, plus relevant regression checks",
+        "Known limitations and integration notes; no self-awarded human approval"
+      ]
+    }
+  ],
+  "integration_review": {
+    "owner": "Independent campaign/release specialist with coordinator",
+    "checks": [
+      "Actual gameplay views of textures, controls/platform sides, HUD and corrected Twin idle/fire",
+      "Normal and full/partial pickup, key, weapon slot and mini-map state through carry and Retry",
+      "All changed movement/collision/aim/encounter/death/audio ownership at30/60/120 where relevant",
+      "Finite main route without secrets and continuous nine-level carry after balance changes",
+      "Native exported Linux run outside development tree with actual stereo mix",
+      "User visual/feel/listening review recorded separately from automated acceptance"
+    ],
+    "delivery": "Versioned Linux package, source checkpoint, credits, concise known issues and before/after review. Preserve v7."
+  }
+}
