@@ -117,6 +117,13 @@ def check_route_receipt(path,expected,require_clean_logs=False):
     portable.require(controls==['Control_isolation_'+x.lower() for x in receipt['containment_order']],'Actual accepted Containment control order matches declared branch order')
    if id=='pale_ward_03':portable.require({r['id'] for r in design['rooms'] if not r['optional'] and not r['secret']}<=set(level['visited_rooms']),'Full first descent before shortcuts '+id)
    if any(p['lift'] for p in design['portals']):portable.require(bool(level['lift_traversals']),'Actual lift passenger receipt '+id)
+  elif id=='ash_citadel_01' and level.get('authored_ash_approach'):
+   portable.require(level['total_enemies']==42,'Ash Approach authored enemy roster')
+   for flag in ('brass','brass_key','gate_winch','visited_inner_bridge','finished'):
+    portable.require(level['flags'].get(flag,False),'Ash Approach physical objective '+flag)
+   secured={x['checkpoint'] for x in level['interactions'] if x.get('checkpoint') and x.get('accepted')}
+   portable.require(secured=={'crypt_credential','bridge_winch'},'Ash Approach live checkpoint milestones')
+   portable.require({'siege_approach','trench','lower_crypt','stair_tower','battlement','gatehouse','winch','inner_bridge','cloister','furnace_gate'}<=set(level['visited_rooms']),'Ash Approach real route districts and bridge crossing')
   else:
    for flag in ('breaker','power','brass_key','release','red_key','exit_control','exit'):portable.require(level['flags'].get(flag,False),'Unchanged legacy progression '+id+'/'+flag)
    portable.require(all(level['arena_remaining'].get(a)==0 for a in ('arena_one','arena_two','final_arena')),'Legacy mandatory arenas '+id)

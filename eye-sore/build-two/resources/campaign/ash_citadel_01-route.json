@@ -1,1216 +1,2408 @@
 {
   "id": "ash_citadel_01",
-  "architecture_version": 2,
+  "title": "Ash Approach",
+  "theme": "ash_citadel",
+  "design_v15": true,
+  "design_version": 15,
+  "objective": "Infiltrate the gatehouse, lower the inner bridge and enter Furnace Choir.",
   "rooms": {
-    "entry": {
-      "id": "entry",
-      "label": "Siege approach",
+    "siege_approach": {
+      "id": "siege_approach",
+      "label": "Siege overlook",
       "center": [
-        -0.0,
         0,
-        0.0
+        0,
+        0
       ],
       "size": [
-        29.832,
-        6,
-        33.792
+        28,
+        8,
+        28
       ],
-      "secret": false,
-      "arena_id": "",
       "function": "rampart",
-      "layout_mode": "rampart_fitted_workstations",
-      "light_family": "ember_warm"
+      "district": "siege",
+      "enemies": 2,
+      "objects": [
+        "barricade",
+        "weapon_rack",
+        "banner_standard"
+      ],
+      "optional": false,
+      "secret": false
     },
-    "service": {
-      "id": "service",
-      "label": "Gatehouse inspection",
+    "trench": {
+      "id": "trench",
+      "label": "Broken trench",
       "center": [
-        -0.0,
-        0,
-        -40.128
+        -40,
+        -2,
+        0
       ],
       "size": [
-        14.916,
-        5,
-        29.568
+        26,
+        7,
+        26
       ],
-      "secret": false,
-      "arena_id": "",
+      "function": "barricade",
+      "district": "siege",
+      "enemies": 3,
+      "objects": [
+        "barricade",
+        "supply_crate",
+        "weapon_rack"
+      ],
+      "optional": false,
+      "secret": false
+    },
+    "breach_camp": {
+      "id": "breach_camp",
+      "label": "Breach camp",
+      "center": [
+        -80,
+        -2,
+        0
+      ],
+      "size": [
+        26,
+        7,
+        26
+      ],
       "function": "guardhouse",
-      "layout_mode": "guardhouse_fitted_workstations",
-      "light_family": "ember_warm"
+      "district": "siege",
+      "enemies": 3,
+      "objects": [
+        "guard_table",
+        "weapon_rack",
+        "barricade"
+      ],
+      "optional": false,
+      "secret": false
     },
-    "arena_one": {
-      "id": "arena_one",
-      "label": "Cloister courtyard",
+    "flank_tunnel": {
+      "id": "flank_tunnel",
+      "label": "Flank tunnel",
       "center": [
-        -0.0,
-        0.0,
-        -80.256
+        -80,
+        -2,
+        -40
       ],
       "size": [
-        44.748,
-        14,
-        42.239999999999995
-      ],
-      "secret": false,
-      "arena_id": "arena_one",
-      "chamfer": 3.0,
-      "encounter": "sealed weapon cache",
-      "function": "cloister",
-      "layout_mode": "cloister_seating",
-      "light_family": "ember_warm"
-    },
-    "key_wing": {
-      "id": "key_wing",
-      "label": "Monastic cells",
-      "center": [
-        -47.234,
-        0,
-        -80.256
-      ],
-      "size": [
-        10,
-        5,
-        12
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "quarters",
-      "layout_mode": "quarters_fitted_workstations",
-      "light_family": "ember_warm"
-    },
-    "key_console": {
-      "id": "key_console",
-      "label": "Scriptorium",
-      "center": [
-        -47.234,
-        0,
-        -110.88000000000001
-      ],
-      "size": [
-        12,
-        5,
-        14
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "archive",
-      "layout_mode": "archive_fitted_workstations",
-      "light_family": "ember_warm"
-    },
-    "return_store": {
-      "id": "return_store",
-      "label": "Cloister stores",
-      "center": [
-        -42.262,
-        0,
-        -40.128
-      ],
-      "size": [
-        12,
-        5,
-        10
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "stores",
-      "layout_mode": "stores_fitted_workstations",
-      "light_family": "ember_warm"
-    },
-    "spine": {
-      "id": "spine",
-      "label": "Processional passage",
-      "center": [
-        -0.0,
-        0,
-        -129.888
-      ],
-      "size": [
-        19.887999999999998,
+        24,
         6,
-        25.344
+        26
       ],
-      "secret": false,
-      "arena_id": "",
-      "function": "cloister",
-      "layout_mode": "cloister_fitted_workstations",
-      "light_family": "ember_warm"
-    },
-    "arena_two": {
-      "id": "arena_two",
-      "label": "Chain house",
-      "center": [
-        -0.0,
-        0.0,
-        -166.848
-      ],
-      "size": [
-        47.234,
-        16,
-        33.792
-      ],
-      "secret": false,
-      "arena_id": "arena_two",
-      "chamfer": 3.0,
-      "encounter": "raised crossfire bridge",
-      "function": "forge",
-      "layout_mode": "forge_banks",
-      "light_family": "ember_warm"
-    },
-    "red_wing": {
-      "id": "red_wing",
-      "label": "Guard crypt passage",
-      "center": [
-        49.72,
-        0,
-        -166.848
-      ],
-      "size": [
-        14,
-        6,
-        14
-      ],
-      "secret": false,
-      "arena_id": "",
       "function": "crypt",
-      "layout_mode": "crypt_fitted_workstations",
-      "light_family": "ember_warm"
+      "district": "crypt",
+      "enemies": 2,
+      "objects": [
+        "ossuary_rack",
+        "banner_standard"
+      ],
+      "optional": false,
+      "secret": false
     },
-    "red_console": {
-      "id": "red_console",
-      "label": "Crypt warden chamber",
+    "lower_crypt": {
+      "id": "lower_crypt",
+      "label": "Lower crypt",
       "center": [
-        49.72,
+        -40,
+        -2,
+        -40
+      ],
+      "size": [
+        26,
+        7,
+        26
+      ],
+      "function": "crypt",
+      "district": "crypt",
+      "enemies": 3,
+      "objects": [
+        "ossuary_rack",
+        "reliquary",
+        "guard_table"
+      ],
+      "optional": false,
+      "secret": false
+    },
+    "stair_tower": {
+      "id": "stair_tower",
+      "label": "Stair tower",
+      "center": [
         0,
-        -202.752
+        2,
+        -40
       ],
       "size": [
-        12,
-        6,
-        14
+        26,
+        10,
+        26
       ],
-      "secret": false,
-      "arena_id": "",
       "function": "guardhouse",
-      "layout_mode": "guardhouse_fitted_workstations",
-      "light_family": "ember_warm"
+      "district": "ramparts",
+      "enemies": 3,
+      "objects": [
+        "weapon_rack",
+        "banner_standard"
+      ],
+      "optional": false,
+      "secret": false
     },
-    "final_arena": {
-      "id": "final_arena",
-      "label": "Ash gate courtyard",
+    "battlement": {
+      "id": "battlement",
+      "label": "High battlement",
       "center": [
-        -0.0,
-        1.5,
-        -221.76000000000002
+        40,
+        6,
+        -40
       ],
       "size": [
-        42.262,
-        14,
-        42.239999999999995
+        26,
+        8,
+        26
       ],
-      "secret": false,
-      "arena_id": "final_arena",
-      "chamfer": 3.0,
-      "encounter": "lower court and upper launcher reward",
       "function": "rampart",
-      "layout_mode": "rampart_recesses",
-      "light_family": "ember_warm"
-    },
-    "exit_gallery": {
-      "id": "exit_gallery",
-      "label": "Furnace approach",
-      "center": [
-        -0.0,
-        1.5,
-        -260.83200000000005
+      "district": "ramparts",
+      "enemies": 3,
+      "objects": [
+        "barricade",
+        "banner_standard",
+        "weapon_rack"
       ],
-      "size": [
-        24.86,
+      "optional": false,
+      "secret": false
+    },
+    "crosswall": {
+      "id": "crosswall",
+      "label": "Crosswall",
+      "center": [
+        80,
         6,
-        19.008
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "forge",
-      "layout_mode": "forge_fitted_workstations",
-      "light_family": "ember_warm"
-    },
-    "supplies": {
-      "id": "supplies",
-      "label": "Quartermaster stores",
-      "center": [
-        32.318,
-        0,
-        -4.224
+        -40
       ],
       "size": [
-        12,
-        5,
-        10
+        26,
+        8,
+        26
       ],
-      "secret": false,
-      "arena_id": "",
-      "function": "stores",
-      "layout_mode": "stores_fitted_workstations",
-      "light_family": "ember_warm"
+      "function": "rampart",
+      "district": "ramparts",
+      "enemies": 3,
+      "objects": [
+        "barricade",
+        "banner_standard"
+      ],
+      "optional": false,
+      "secret": false
     },
-    "armory": {
-      "id": "armory",
-      "label": "Siege armory",
+    "gatehouse": {
+      "id": "gatehouse",
+      "label": "Gatehouse",
       "center": [
-        49.72,
-        0,
-        -123.552
+        80,
+        6,
+        0
       ],
       "size": [
-        12,
-        5,
-        14
+        28,
+        9,
+        28
       ],
-      "secret": false,
-      "arena_id": "",
       "function": "guardhouse",
-      "layout_mode": "guardhouse_fitted_workstations",
-      "light_family": "ember_warm"
+      "district": "ramparts",
+      "enemies": 4,
+      "objects": [
+        "guard_table",
+        "weapon_rack",
+        "chain_winch"
+      ],
+      "optional": false,
+      "secret": false
     },
-    "secret_one": {
-      "id": "secret_one",
+    "winch": {
+      "id": "winch",
+      "label": "Bridge winch",
+      "center": [
+        40,
+        6,
+        0
+      ],
+      "size": [
+        28,
+        9,
+        28
+      ],
+      "function": "forge",
+      "district": "ramparts",
+      "enemies": 3,
+      "objects": [
+        "chain_winch",
+        "anvil",
+        "forge_hearth"
+      ],
+      "optional": false,
+      "secret": false
+    },
+    "inner_bridge": {
+      "id": "inner_bridge",
+      "label": "Inner bridgehead",
+      "center": [
+        40,
+        6,
+        40
+      ],
+      "size": [
+        28,
+        8,
+        28
+      ],
+      "function": "rampart",
+      "district": "inner",
+      "enemies": 2,
+      "objects": [
+        "banner_standard",
+        "barricade"
+      ],
+      "optional": false,
+      "secret": false
+    },
+    "cloister": {
+      "id": "cloister",
+      "label": "Ash cloister",
+      "center": [
+        80,
+        2,
+        40
+      ],
+      "size": [
+        28,
+        9,
+        28
+      ],
+      "function": "chapel",
+      "district": "inner",
+      "enemies": 4,
+      "objects": [
+        "stone_bench",
+        "reliquary",
+        "banner_standard"
+      ],
+      "optional": false,
+      "secret": false
+    },
+    "armory_hall": {
+      "id": "armory_hall",
+      "label": "Armory hall",
+      "center": [
+        80,
+        2,
+        80
+      ],
+      "size": [
+        26,
+        8,
+        26
+      ],
+      "function": "guardhouse",
+      "district": "inner",
+      "enemies": 3,
+      "objects": [
+        "weapon_rack",
+        "anvil",
+        "supply_crate"
+      ],
+      "optional": false,
+      "secret": false
+    },
+    "furnace_gate": {
+      "id": "furnace_gate",
+      "label": "Furnace gate",
+      "center": [
+        40,
+        2,
+        80
+      ],
+      "size": [
+        28,
+        10,
+        28
+      ],
+      "function": "forge",
+      "district": "inner",
+      "enemies": 4,
+      "objects": [
+        "forge_hearth",
+        "chain_winch",
+        "banner_standard"
+      ],
+      "optional": false,
+      "secret": false
+    },
+    "quartermaster": {
+      "id": "quartermaster",
+      "label": "Quartermaster",
+      "center": [
+        0,
+        0,
+        40
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "function": "stores",
+      "district": "siege",
+      "enemies": 1,
+      "objects": [
+        "supply_crate",
+        "weapon_rack"
+      ],
+      "optional": true,
+      "secret": false
+    },
+    "watch_post": {
+      "id": "watch_post",
+      "label": "Watch post",
+      "center": [
+        40,
+        6,
+        -80
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "function": "rampart",
+      "district": "ramparts",
+      "enemies": 1,
+      "objects": [
+        "guard_table",
+        "banner_standard"
+      ],
+      "optional": true,
+      "secret": false
+    },
+    "tithe_vault": {
+      "id": "tithe_vault",
       "label": "Hidden tithe vault",
       "center": [
-        52.205999999999996,
-        0,
-        -4.224
+        -80,
+        -2,
+        40
       ],
       "size": [
-        9.943999999999999,
-        5,
-        8.448
+        16,
+        6,
+        16
       ],
-      "secret": true,
-      "arena_id": "",
       "function": "reliquary",
-      "layout_mode": "reliquary_fitted_workstations",
-      "light_family": "ember_warm"
-    },
-    "observation": {
-      "id": "observation",
-      "label": "Rampart watch",
-      "center": [
-        -47.234,
-        4.5,
-        -221.76000000000002
+      "district": "crypt",
+      "enemies": 1,
+      "objects": [
+        "reliquary",
+        "supply_crate"
       ],
-      "size": [
-        22.374,
-        5,
-        19.008
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "rampart",
-      "layout_mode": "rampart_fitted_workstations",
-      "light_family": "ember_warm"
+      "optional": true,
+      "secret": true
     }
   },
-  "portals": [
-    {
-      "from": "entry",
-      "to": "service",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -0.0,
-        0,
-        -16.896
-      ],
-      "end": [
-        -0.0,
-        0,
-        -25.344
-      ],
-      "middle": [
-        -0.0,
-        0.0,
-        -21.12
-      ],
-      "axis": 2,
-      "door": null
-    },
-    {
-      "from": "service",
-      "to": "arena_one",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "trap_entry": "TrapEntry_arena_one",
-      "start": [
-        -0.0,
-        0,
-        -54.912
-      ],
-      "end": [
-        -0.0,
-        0.0,
-        -59.136
-      ],
-      "middle": [
-        -0.0,
-        0.0,
-        -57.024
-      ],
-      "axis": 2,
-      "door": null
-    },
-    {
-      "from": "arena_one",
-      "to": "key_wing",
-      "width": 4.0,
-      "gate": "breaker",
-      "requires": [
-        "breaker"
-      ],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -22.374,
-        0.0,
-        -80.256
-      ],
-      "end": [
-        -42.234,
-        0,
-        -80.256
-      ],
-      "middle": [
-        -32.304,
-        0.0,
-        -80.256
-      ],
-      "axis": 0,
-      "door": "Door_breaker"
-    },
-    {
-      "from": "key_wing",
-      "to": "key_console",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -47.234,
-        0,
-        -86.256
-      ],
-      "end": [
-        -47.234,
-        0,
-        -103.88000000000001
-      ],
-      "middle": [
-        -47.234,
-        0.0,
-        -95.06800000000001
-      ],
-      "axis": 2,
-      "door": null
-    },
-    {
-      "from": "key_wing",
-      "to": "return_store",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -46.262,
-        0,
-        -74.256
-      ],
-      "end": [
-        -46.262,
-        0,
-        -45.128
-      ],
-      "middle": [
-        -46.262,
-        0.0,
-        -59.692
-      ],
-      "axis": 2,
-      "door": null
-    },
-    {
-      "from": "return_store",
-      "to": "service",
-      "width": 4.0,
-      "gate": "shortcut_one",
-      "requires": [],
-      "secret": false,
-      "shortcut": true,
-      "lift": false,
-      "start": [
-        -36.262,
-        0,
-        -40.128
-      ],
-      "end": [
-        -7.458,
-        0,
-        -40.128
-      ],
-      "middle": [
-        -21.86,
-        0.0,
-        -40.128
-      ],
-      "axis": 0,
-      "door": "Door_shortcut_one"
-    },
-    {
-      "from": "arena_one",
-      "to": "spine",
-      "width": 4.0,
-      "gate": "brass_gate",
-      "requires": [
-        "breaker",
-        "brass_key"
-      ],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -0.0,
-        0.0,
-        -101.376
-      ],
-      "end": [
-        -0.0,
-        0,
-        -117.21600000000001
-      ],
-      "middle": [
-        -0.0,
-        0.0,
-        -109.296
-      ],
-      "axis": 2,
-      "door": "Door_brass_gate"
-    },
-    {
-      "from": "spine",
-      "to": "arena_two",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "trap_entry": "TrapEntry_arena_two",
-      "start": [
-        -0.0,
-        0,
-        -142.56
-      ],
-      "end": [
-        -0.0,
-        0.0,
-        -149.952
-      ],
-      "middle": [
-        -0.0,
-        0.0,
-        -146.256
-      ],
-      "axis": 2,
-      "door": null
-    },
-    {
-      "from": "arena_two",
-      "to": "red_wing",
-      "width": 4.0,
-      "gate": "release",
-      "requires": [
-        "release"
-      ],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        23.617,
-        0.0,
-        -166.848
-      ],
-      "end": [
-        42.72,
-        0,
-        -166.848
-      ],
-      "middle": [
-        33.1685,
-        0.0,
-        -166.848
-      ],
-      "axis": 0,
-      "door": "Door_release"
-    },
-    {
-      "from": "red_wing",
-      "to": "red_console",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        49.72,
-        0,
-        -173.848
-      ],
-      "end": [
-        49.72,
-        0,
-        -195.752
-      ],
-      "middle": [
-        49.72,
-        0.0,
-        -184.8
-      ],
-      "axis": 2,
-      "door": null
-    },
-    {
-      "from": "red_wing",
-      "to": "armory",
-      "width": 4.0,
-      "gate": "shortcut_two",
-      "requires": [],
-      "secret": false,
-      "shortcut": true,
-      "lift": false,
-      "start": [
-        49.72,
-        0,
-        -159.848
-      ],
-      "end": [
-        49.72,
-        0,
-        -130.55200000000002
-      ],
-      "middle": [
-        49.72,
-        0.0,
-        -145.20000000000002
-      ],
-      "axis": 2,
-      "door": "Door_shortcut_two"
-    },
-    {
-      "from": "armory",
-      "to": "spine",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        43.72,
-        0,
-        -123.552
-      ],
-      "end": [
-        9.943999999999999,
-        0,
-        -123.552
-      ],
-      "middle": [
-        26.832,
-        0.0,
-        -123.552
-      ],
-      "axis": 0,
-      "door": null
-    },
-    {
-      "from": "arena_two",
-      "to": "final_arena",
-      "width": 4.0,
-      "gate": "red_gate",
-      "requires": [
-        "release",
-        "red_key"
-      ],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "trap_entry": "TrapEntry_final_arena",
-      "start": [
-        -0.0,
-        0.0,
-        -183.74400000000003
-      ],
-      "end": [
-        -0.0,
-        1.5,
-        -200.64000000000001
-      ],
-      "middle": [
-        -0.0,
-        0.75,
-        -192.192
-      ],
-      "axis": 2,
-      "door": "Door_red_gate"
-    },
-    {
-      "from": "final_arena",
-      "to": "exit_gallery",
-      "width": 4.0,
-      "gate": "exit_gate",
-      "requires": [
-        "exit_control"
-      ],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -0.0,
-        1.5,
-        -242.88000000000002
-      ],
-      "end": [
-        -0.0,
-        1.5,
-        -251.32800000000006
-      ],
-      "middle": [
-        -0.0,
-        1.5,
-        -247.10400000000004
-      ],
-      "axis": 2,
-      "door": "Door_exit_gate"
-    },
-    {
-      "from": "entry",
-      "to": "supplies",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        14.916,
-        0,
-        -1.2240000000000002
-      ],
-      "end": [
-        26.317999999999998,
-        0,
-        -1.2240000000000002
-      ],
-      "middle": [
-        20.616999999999997,
-        0.0,
-        -1.2240000000000002
-      ],
-      "axis": 0,
-      "door": null
-    },
-    {
-      "from": "supplies",
-      "to": "secret_one",
-      "width": 2.4,
-      "gate": "secret_one",
-      "requires": [],
-      "secret": true,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        38.318,
-        0,
-        -4.224
-      ],
-      "end": [
-        47.233999999999995,
-        0,
-        -4.224
-      ],
-      "middle": [
-        42.775999999999996,
-        0.0,
-        -4.224
-      ],
-      "axis": 0,
-      "door": "Door_secret_one"
-    },
-    {
-      "from": "final_arena",
-      "to": "observation",
-      "width": 4.0,
-      "gate": "lift",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": true,
-      "start": [
-        -21.131,
-        1.5,
-        -221.76000000000002
-      ],
-      "end": [
-        -36.047000000000004,
-        4.5,
-        -221.76000000000002
-      ],
-      "middle": [
-        -28.589000000000002,
-        3.0,
-        -221.76000000000002
-      ],
-      "axis": 0,
-      "door": null
-    }
-  ],
-  "buttons": [
-    {
-      "id": "breaker",
-      "room": "arena_one",
-      "arena": "arena_one",
-      "sets": "breaker",
-      "label": "ENABLE BRASS ACCESS"
-    },
-    {
-      "id": "release",
-      "room": "arena_two",
-      "arena": "arena_two",
-      "sets": "release",
-      "label": "RELEASE RED ACCESS"
-    },
-    {
-      "id": "exit_control",
-      "room": "final_arena",
-      "arena": "final_arena",
-      "sets": "exit_control",
-      "label": "OPEN SECTOR EXIT"
-    }
-  ],
+  "object_program": {
+    "siege_approach": [
+      "barricade",
+      "weapon_rack",
+      "banner_standard"
+    ],
+    "trench": [
+      "barricade",
+      "supply_crate",
+      "weapon_rack"
+    ],
+    "breach_camp": [
+      "guard_table",
+      "weapon_rack",
+      "barricade"
+    ],
+    "flank_tunnel": [
+      "ossuary_rack",
+      "banner_standard"
+    ],
+    "lower_crypt": [
+      "ossuary_rack",
+      "reliquary",
+      "guard_table"
+    ],
+    "stair_tower": [
+      "weapon_rack",
+      "banner_standard"
+    ],
+    "battlement": [
+      "barricade",
+      "banner_standard",
+      "weapon_rack"
+    ],
+    "crosswall": [
+      "barricade",
+      "banner_standard"
+    ],
+    "gatehouse": [
+      "guard_table",
+      "weapon_rack",
+      "chain_winch"
+    ],
+    "winch": [
+      "chain_winch",
+      "anvil",
+      "forge_hearth"
+    ],
+    "inner_bridge": [
+      "banner_standard",
+      "barricade"
+    ],
+    "cloister": [
+      "stone_bench",
+      "reliquary",
+      "banner_standard"
+    ],
+    "armory_hall": [
+      "weapon_rack",
+      "anvil",
+      "supply_crate"
+    ],
+    "furnace_gate": [
+      "forge_hearth",
+      "chain_winch",
+      "banner_standard"
+    ],
+    "quartermaster": [
+      "supply_crate",
+      "weapon_rack"
+    ],
+    "watch_post": [
+      "guard_table",
+      "banner_standard"
+    ],
+    "tithe_vault": [
+      "reliquary",
+      "supply_crate"
+    ]
+  },
+  "spawn_room": "siege_approach",
   "keys": [
     {
-      "id": "brass_key",
-      "room": "key_console",
-      "label": "BRASS ACCESS KEY"
-    },
+      "kind": "brass_key",
+      "room": "lower_crypt",
+      "node": "Key_gatehouse",
+      "position": [
+        -40,
+        -1.4,
+        -44
+      ]
+    }
+  ],
+  "controls": [
     {
-      "id": "red_key",
-      "room": "red_console",
-      "label": "RED ACCESS KEY"
+      "id": "gate_winch",
+      "room": "winch",
+      "requires": [
+        "brass"
+      ],
+      "sets": [
+        "gate_winch"
+      ],
+      "node": "Control_gate_winch",
+      "position": [
+        44,
+        7.05,
+        1
+      ]
     }
   ],
   "exit": {
-    "room": "exit_gallery",
+    "room": "furnace_gate",
     "requires": [
-      "brass_key",
-      "red_key",
-      "exit_control"
+      "gate_winch",
+      "visited_inner_bridge"
+    ],
+    "node": "ExitControl",
+    "position": [
+      40,
+      3,
+      85
     ]
   },
-  "weapon_cache": {
-    "arena_one": {
-      "weapon": "twin_shotgun",
-      "ammo": 4
+  "secret_rooms": [
+    "tithe_vault"
+  ],
+  "optional_rooms": [
+    "quartermaster",
+    "watch_post"
+  ],
+  "next_level": "ash_citadel_02",
+  "spawn_position": [
+    0,
+    0.87,
+    8
+  ],
+  "portals": [
+    {
+      "id": "approach_trench",
+      "from": "siege_approach",
+      "to": "trench",
+      "width": 4.8,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        -14.0,
+        0,
+        0
+      ],
+      "middle": [
+        -20.5,
+        -1.0,
+        0.0
+      ],
+      "end": [
+        -27.0,
+        -2,
+        0
+      ],
+      "points": [
+        [
+          -14.0,
+          0,
+          0
+        ],
+        [
+          -20.5,
+          -1.0,
+          0.0
+        ],
+        [
+          -27.0,
+          -2,
+          0
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          -14.0,
+          0,
+          0
+        ],
+        [
+          -20.5,
+          -1.0,
+          0.0
+        ],
+        [
+          -27.0,
+          -2,
+          0
+        ],
+        [
+          -40,
+          -2,
+          0
+        ]
+      ],
+      "axis": 0
     },
-    "arena_two": {
-      "weapon": "twin_shotgun",
-      "ammo": 4
+    {
+      "id": "trench_camp",
+      "from": "trench",
+      "to": "breach_camp",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        -53.0,
+        -2,
+        0
+      ],
+      "middle": [
+        -60.0,
+        -2.0,
+        0.0
+      ],
+      "end": [
+        -67.0,
+        -2,
+        0
+      ],
+      "points": [
+        [
+          -53.0,
+          -2,
+          0
+        ],
+        [
+          -60.0,
+          -2.0,
+          0.0
+        ],
+        [
+          -67.0,
+          -2,
+          0
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          -2,
+          0
+        ],
+        [
+          -53.0,
+          -2,
+          0
+        ],
+        [
+          -60.0,
+          -2.0,
+          0.0
+        ],
+        [
+          -67.0,
+          -2,
+          0
+        ],
+        [
+          -80,
+          -2,
+          0
+        ]
+      ],
+      "axis": 0
     },
-    "final_arena": {
-      "weapon": "twin_shotgun",
-      "ammo": 4
+    {
+      "id": "camp_flank",
+      "from": "breach_camp",
+      "to": "flank_tunnel",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        -80,
+        -2,
+        -13.0
+      ],
+      "middle": [
+        -80.0,
+        -2.0,
+        -20.0
+      ],
+      "end": [
+        -80,
+        -2,
+        -27.0
+      ],
+      "points": [
+        [
+          -80,
+          -2,
+          -13.0
+        ],
+        [
+          -80.0,
+          -2.0,
+          -20.0
+        ],
+        [
+          -80,
+          -2,
+          -27.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          -80,
+          -2,
+          0
+        ],
+        [
+          -80,
+          -2,
+          -13.0
+        ],
+        [
+          -80.0,
+          -2.0,
+          -20.0
+        ],
+        [
+          -80,
+          -2,
+          -27.0
+        ],
+        [
+          -80,
+          -2,
+          -40
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "flank_crypt",
+      "from": "flank_tunnel",
+      "to": "lower_crypt",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        -68.0,
+        -2,
+        -40
+      ],
+      "middle": [
+        -60.5,
+        -2.0,
+        -40.0
+      ],
+      "end": [
+        -53.0,
+        -2,
+        -40
+      ],
+      "points": [
+        [
+          -68.0,
+          -2,
+          -40
+        ],
+        [
+          -60.5,
+          -2.0,
+          -40.0
+        ],
+        [
+          -53.0,
+          -2,
+          -40
+        ]
+      ],
+      "traverse_points": [
+        [
+          -80,
+          -2,
+          -40
+        ],
+        [
+          -68.0,
+          -2,
+          -40
+        ],
+        [
+          -60.5,
+          -2.0,
+          -40.0
+        ],
+        [
+          -53.0,
+          -2,
+          -40
+        ],
+        [
+          -40,
+          -2,
+          -40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "crypt_tower",
+      "from": "lower_crypt",
+      "to": "stair_tower",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        -27.0,
+        -2,
+        -40
+      ],
+      "middle": [
+        -20.0,
+        0.0,
+        -40.0
+      ],
+      "end": [
+        -13.0,
+        2,
+        -40
+      ],
+      "points": [
+        [
+          -27.0,
+          -2,
+          -40
+        ],
+        [
+          -20.0,
+          0.0,
+          -40.0
+        ],
+        [
+          -13.0,
+          2,
+          -40
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          -2,
+          -40
+        ],
+        [
+          -27.0,
+          -2,
+          -40
+        ],
+        [
+          -20.0,
+          0.0,
+          -40.0
+        ],
+        [
+          -13.0,
+          2,
+          -40
+        ],
+        [
+          0,
+          2,
+          -40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "tower_battlement",
+      "from": "stair_tower",
+      "to": "battlement",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        13.0,
+        2,
+        -40
+      ],
+      "middle": [
+        20.0,
+        4.0,
+        -40.0
+      ],
+      "end": [
+        27.0,
+        6,
+        -40
+      ],
+      "points": [
+        [
+          13.0,
+          2,
+          -40
+        ],
+        [
+          20.0,
+          4.0,
+          -40.0
+        ],
+        [
+          27.0,
+          6,
+          -40
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          2,
+          -40
+        ],
+        [
+          13.0,
+          2,
+          -40
+        ],
+        [
+          20.0,
+          4.0,
+          -40.0
+        ],
+        [
+          27.0,
+          6,
+          -40
+        ],
+        [
+          40,
+          6,
+          -40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "battlement_crosswall",
+      "from": "battlement",
+      "to": "crosswall",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        53.0,
+        6,
+        -40
+      ],
+      "middle": [
+        60.0,
+        6.0,
+        -40.0
+      ],
+      "end": [
+        67.0,
+        6,
+        -40
+      ],
+      "points": [
+        [
+          53.0,
+          6,
+          -40
+        ],
+        [
+          60.0,
+          6.0,
+          -40.0
+        ],
+        [
+          67.0,
+          6,
+          -40
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          6,
+          -40
+        ],
+        [
+          53.0,
+          6,
+          -40
+        ],
+        [
+          60.0,
+          6.0,
+          -40.0
+        ],
+        [
+          67.0,
+          6,
+          -40
+        ],
+        [
+          80,
+          6,
+          -40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "crosswall_gatehouse",
+      "from": "crosswall",
+      "to": "gatehouse",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        80,
+        6,
+        -27.0
+      ],
+      "middle": [
+        80.0,
+        6.0,
+        -20.5
+      ],
+      "end": [
+        80,
+        6,
+        -14.0
+      ],
+      "points": [
+        [
+          80,
+          6,
+          -27.0
+        ],
+        [
+          80.0,
+          6.0,
+          -20.5
+        ],
+        [
+          80,
+          6,
+          -14.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          6,
+          -40
+        ],
+        [
+          80,
+          6,
+          -27.0
+        ],
+        [
+          80.0,
+          6.0,
+          -20.5
+        ],
+        [
+          80,
+          6,
+          -14.0
+        ],
+        [
+          80,
+          6,
+          0
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "gatehouse_winch",
+      "from": "gatehouse",
+      "to": "winch",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        66.0,
+        6,
+        0
+      ],
+      "middle": [
+        60.0,
+        6.0,
+        0.0
+      ],
+      "end": [
+        54.0,
+        6,
+        0
+      ],
+      "points": [
+        [
+          66.0,
+          6,
+          0
+        ],
+        [
+          60.0,
+          6.0,
+          0.0
+        ],
+        [
+          54.0,
+          6,
+          0
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          6,
+          0
+        ],
+        [
+          66.0,
+          6,
+          0
+        ],
+        [
+          60.0,
+          6.0,
+          0.0
+        ],
+        [
+          54.0,
+          6,
+          0
+        ],
+        [
+          40,
+          6,
+          0
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "lowering_bridge",
+      "from": "winch",
+      "to": "inner_bridge",
+      "width": 6,
+      "requires": [
+        "gate_winch"
+      ],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": "Door_bridge_gate",
+      "start": [
+        40,
+        6,
+        14.0
+      ],
+      "middle": [
+        40.0,
+        6.0,
+        20.0
+      ],
+      "end": [
+        40,
+        6,
+        26.0
+      ],
+      "points": [
+        [
+          40,
+          6,
+          14.0
+        ],
+        [
+          40.0,
+          6.0,
+          20.0
+        ],
+        [
+          40,
+          6,
+          26.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          6,
+          0
+        ],
+        [
+          40,
+          6,
+          14.0
+        ],
+        [
+          40.0,
+          6.0,
+          20.0
+        ],
+        [
+          40,
+          6,
+          26.0
+        ],
+        [
+          40,
+          6,
+          40
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "bridge_cloister",
+      "from": "inner_bridge",
+      "to": "cloister",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        54.0,
+        6,
+        40
+      ],
+      "middle": [
+        60.0,
+        4.0,
+        40.0
+      ],
+      "end": [
+        66.0,
+        2,
+        40
+      ],
+      "points": [
+        [
+          54.0,
+          6,
+          40
+        ],
+        [
+          60.0,
+          4.0,
+          40.0
+        ],
+        [
+          66.0,
+          2,
+          40
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          6,
+          40
+        ],
+        [
+          54.0,
+          6,
+          40
+        ],
+        [
+          60.0,
+          4.0,
+          40.0
+        ],
+        [
+          66.0,
+          2,
+          40
+        ],
+        [
+          80,
+          2,
+          40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "cloister_armory",
+      "from": "cloister",
+      "to": "armory_hall",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        80,
+        2,
+        54.0
+      ],
+      "middle": [
+        80.0,
+        2.0,
+        60.5
+      ],
+      "end": [
+        80,
+        2,
+        67.0
+      ],
+      "points": [
+        [
+          80,
+          2,
+          54.0
+        ],
+        [
+          80.0,
+          2.0,
+          60.5
+        ],
+        [
+          80,
+          2,
+          67.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          2,
+          40
+        ],
+        [
+          80,
+          2,
+          54.0
+        ],
+        [
+          80.0,
+          2.0,
+          60.5
+        ],
+        [
+          80,
+          2,
+          67.0
+        ],
+        [
+          80,
+          2,
+          80
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "armory_furnace",
+      "from": "armory_hall",
+      "to": "furnace_gate",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        67.0,
+        2,
+        80
+      ],
+      "middle": [
+        60.5,
+        2.0,
+        80.0
+      ],
+      "end": [
+        54.0,
+        2,
+        80
+      ],
+      "points": [
+        [
+          67.0,
+          2,
+          80
+        ],
+        [
+          60.5,
+          2.0,
+          80.0
+        ],
+        [
+          54.0,
+          2,
+          80
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          2,
+          80
+        ],
+        [
+          67.0,
+          2,
+          80
+        ],
+        [
+          60.5,
+          2.0,
+          80.0
+        ],
+        [
+          54.0,
+          2,
+          80
+        ],
+        [
+          40,
+          2,
+          80
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "tower_return",
+      "from": "stair_tower",
+      "to": "siege_approach",
+      "width": 4.8,
+      "requires": [],
+      "shortcut": true,
+      "secret": false,
+      "first_open_from": "stair_tower",
+      "door": "Door_tower_return",
+      "start": [
+        0,
+        2,
+        -27.0
+      ],
+      "middle": [
+        0.0,
+        1.0,
+        -20.5
+      ],
+      "end": [
+        0,
+        0,
+        -14.0
+      ],
+      "points": [
+        [
+          0,
+          2,
+          -27.0
+        ],
+        [
+          0.0,
+          1.0,
+          -20.5
+        ],
+        [
+          0,
+          0,
+          -14.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          2,
+          -40
+        ],
+        [
+          0,
+          2,
+          -27.0
+        ],
+        [
+          0.0,
+          1.0,
+          -20.5
+        ],
+        [
+          0,
+          0,
+          -14.0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "approach_supplies",
+      "from": "siege_approach",
+      "to": "quartermaster",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        0,
+        0,
+        14.0
+      ],
+      "middle": [
+        0.0,
+        0.0,
+        22.5
+      ],
+      "end": [
+        0,
+        0,
+        31.0
+      ],
+      "points": [
+        [
+          0,
+          0,
+          14.0
+        ],
+        [
+          0.0,
+          0.0,
+          22.5
+        ],
+        [
+          0,
+          0,
+          31.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          14.0
+        ],
+        [
+          0.0,
+          0.0,
+          22.5
+        ],
+        [
+          0,
+          0,
+          31.0
+        ],
+        [
+          0,
+          0,
+          40
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "battlement_watch",
+      "from": "battlement",
+      "to": "watch_post",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "first_open_from": "",
+      "door": null,
+      "start": [
+        40,
+        6,
+        -53.0
+      ],
+      "middle": [
+        40.0,
+        6.0,
+        -62.0
+      ],
+      "end": [
+        40,
+        6,
+        -71.0
+      ],
+      "points": [
+        [
+          40,
+          6,
+          -53.0
+        ],
+        [
+          40.0,
+          6.0,
+          -62.0
+        ],
+        [
+          40,
+          6,
+          -71.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          6,
+          -40
+        ],
+        [
+          40,
+          6,
+          -53.0
+        ],
+        [
+          40.0,
+          6.0,
+          -62.0
+        ],
+        [
+          40,
+          6,
+          -71.0
+        ],
+        [
+          40,
+          6,
+          -80
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "hidden_tithe",
+      "from": "breach_camp",
+      "to": "tithe_vault",
+      "width": 4.2,
+      "requires": [],
+      "shortcut": false,
+      "secret": true,
+      "first_open_from": "",
+      "door": "Door_hidden_tithe",
+      "start": [
+        -80,
+        -2,
+        13.0
+      ],
+      "middle": [
+        -80.0,
+        -2.0,
+        22.5
+      ],
+      "end": [
+        -80,
+        -2,
+        32.0
+      ],
+      "points": [
+        [
+          -80,
+          -2,
+          13.0
+        ],
+        [
+          -80.0,
+          -2.0,
+          22.5
+        ],
+        [
+          -80,
+          -2,
+          32.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          -80,
+          -2,
+          0
+        ],
+        [
+          -80,
+          -2,
+          13.0
+        ],
+        [
+          -80.0,
+          -2.0,
+          22.5
+        ],
+        [
+          -80,
+          -2,
+          32.0
+        ],
+        [
+          -80,
+          -2,
+          40
+        ]
+      ],
+      "axis": 2
     }
-  },
-  "vertical_routes": {
-    "arena_one_gallery": [
-      [
-        -7.0,
-        0.0,
-        -61.136
+  ],
+  "enemy_total": 42,
+  "enemy_spawns": [
+    {
+      "stable_id": "ash_citadel_01.siege_approach.enemy.0",
+      "kind": "ironbound",
+      "room": "siege_approach",
+      "position": [
+        -5,
+        0.87,
+        -3
       ],
-      [
-        -7.0,
-        4.0,
-        -75.536
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.siege_approach.enemy.1",
+      "kind": "ironbound",
+      "room": "siege_approach",
+      "position": [
+        0,
+        0.87,
+        -3
       ],
-      [
-        -7.0,
-        4.0,
-        -84.976
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.trench.enemy.0",
+      "kind": "ironbound",
+      "room": "trench",
+      "position": [
+        -45,
+        -1.13,
+        -3
       ],
-      [
-        -7.0,
-        0.0,
-        -99.376
-      ]
-    ],
-    "arena_two_altar": [
-      [
-        -0.0,
-        0.0,
-        -153.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.trench.enemy.1",
+      "kind": "ironbound",
+      "room": "trench",
+      "position": [
+        -40,
+        -1.13,
+        -3
       ],
-      [
-        -0.0,
-        2.0,
-        -161.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.trench.enemy.2",
+      "kind": "censer",
+      "room": "trench",
+      "position": [
+        -35,
+        -1.13,
+        -3
       ],
-      [
-        -0.0,
-        2.0,
-        -166.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.breach_camp.enemy.0",
+      "kind": "ironbound",
+      "room": "breach_camp",
+      "position": [
+        -85,
+        -1.13,
+        -3
       ],
-      [
-        -0.0,
-        2.0,
-        -171.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.breach_camp.enemy.1",
+      "kind": "ironbound",
+      "room": "breach_camp",
+      "position": [
+        -80,
+        -1.13,
+        -3
       ],
-      [
-        -0.0,
-        0.0,
-        -179.848
-      ]
-    ],
-    "arena_two_gallery": [
-      [
-        -7.0,
-        0.0,
-        -151.952
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.breach_camp.enemy.2",
+      "kind": "censer",
+      "room": "breach_camp",
+      "position": [
+        -75,
+        -1.13,
+        -3
       ],
-      [
-        -7.0,
-        4.0,
-        -166.352
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.flank_tunnel.enemy.0",
+      "kind": "ironbound",
+      "room": "flank_tunnel",
+      "position": [
+        -85,
+        -1.13,
+        -43
       ],
-      [
-        -7.0,
-        4.0,
-        -167.34400000000002
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.flank_tunnel.enemy.1",
+      "kind": "ironbound",
+      "room": "flank_tunnel",
+      "position": [
+        -80,
+        -1.13,
+        -43
       ],
-      [
-        -7.0,
-        0.0,
-        -181.74400000000003
-      ]
-    ],
-    "final_arena_gallery": [
-      [
-        -7.0,
-        1.5,
-        -202.64000000000001
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.lower_crypt.enemy.0",
+      "kind": "ironbound",
+      "room": "lower_crypt",
+      "position": [
+        -45,
+        -1.13,
+        -43
       ],
-      [
-        -7.0,
-        5.5,
-        -217.04000000000002
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.lower_crypt.enemy.1",
+      "kind": "ironbound",
+      "room": "lower_crypt",
+      "position": [
+        -40,
+        -1.13,
+        -43
       ],
-      [
-        -7.0,
-        5.5,
-        -226.48000000000002
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.lower_crypt.enemy.2",
+      "kind": "censer",
+      "room": "lower_crypt",
+      "position": [
+        -35,
+        -1.13,
+        -43
       ],
-      [
-        -7.0,
-        1.5,
-        -240.88000000000002
-      ]
-    ]
-  },
-  "combat_paths": {
-    "arena_one": [
-      [
-        [
-          -4.3,
-          0.0,
-          -70.256
-        ],
-        [
-          -4.3,
-          0.0,
-          -90.256
-        ]
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.stair_tower.enemy.0",
+      "kind": "ironbound",
+      "room": "stair_tower",
+      "position": [
+        -5,
+        2.87,
+        -43
       ],
-      [
-        [
-          4.3,
-          0.0,
-          -70.256
-        ],
-        [
-          4.3,
-          0.0,
-          -90.256
-        ]
-      ]
-    ],
-    "arena_two": [
-      [
-        [
-          -4.3,
-          0.0,
-          -156.848
-        ],
-        [
-          -4.3,
-          0.0,
-          -176.848
-        ]
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.stair_tower.enemy.1",
+      "kind": "ironbound",
+      "room": "stair_tower",
+      "position": [
+        0,
+        2.87,
+        -43
       ],
-      [
-        [
-          4.3,
-          0.0,
-          -156.848
-        ],
-        [
-          4.3,
-          0.0,
-          -176.848
-        ]
-      ]
-    ],
-    "final_arena": [
-      [
-        [
-          -4.3,
-          1.5,
-          -211.76000000000002
-        ],
-        [
-          -4.3,
-          1.5,
-          -231.76000000000002
-        ]
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.stair_tower.enemy.2",
+      "kind": "censer",
+      "room": "stair_tower",
+      "position": [
+        5,
+        2.87,
+        -43
       ],
-      [
-        [
-          4.3,
-          1.5,
-          -211.76000000000002
-        ],
-        [
-          4.3,
-          1.5,
-          -231.76000000000002
-        ]
-      ]
-    ]
-  },
-  "theme": "ash_citadel",
-  "title": "Ash Approach",
-  "subtitle": "Rampart / cloister courtyard",
-  "entry_weapon": null,
-  "combat_flanks": {
-    "arena_one": [
-      [
-        -4.3,
-        0.0,
-        -80.256
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.battlement.enemy.0",
+      "kind": "ironbound",
+      "room": "battlement",
+      "position": [
+        35,
+        6.87,
+        -43
       ],
-      [
-        -15.373999999999999,
-        0.0,
-        -80.256
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.battlement.enemy.1",
+      "kind": "ironbound",
+      "room": "battlement",
+      "position": [
+        40,
+        6.87,
+        -43
       ],
-      [
-        -15.373999999999999,
-        0.0,
-        -89.256
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.battlement.enemy.2",
+      "kind": "censer",
+      "room": "battlement",
+      "position": [
+        45,
+        6.87,
+        -43
       ],
-      [
-        -15.373999999999999,
-        0.0,
-        -83.256
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.crosswall.enemy.0",
+      "kind": "ironbound",
+      "room": "crosswall",
+      "position": [
+        75,
+        6.87,
+        -43
       ],
-      [
-        -15.373999999999999,
-        0.0,
-        -77.256
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.crosswall.enemy.1",
+      "kind": "ironbound",
+      "room": "crosswall",
+      "position": [
+        80,
+        6.87,
+        -43
       ],
-      [
-        -15.373999999999999,
-        0.0,
-        -71.256
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.crosswall.enemy.2",
+      "kind": "censer",
+      "room": "crosswall",
+      "position": [
+        85,
+        6.87,
+        -43
       ],
-      [
-        4.3,
-        0.0,
-        -80.256
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.gatehouse.enemy.0",
+      "kind": "ironbound",
+      "room": "gatehouse",
+      "position": [
+        75,
+        6.87,
+        -3
       ],
-      [
-        15.373999999999999,
-        0.0,
-        -80.256
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.gatehouse.enemy.1",
+      "kind": "ironbound",
+      "room": "gatehouse",
+      "position": [
+        80,
+        6.87,
+        -3
       ],
-      [
-        15.373999999999999,
-        0.0,
-        -89.256
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.gatehouse.enemy.2",
+      "kind": "censer",
+      "room": "gatehouse",
+      "position": [
+        85,
+        6.87,
+        -3
       ],
-      [
-        15.373999999999999,
-        0.0,
-        -83.256
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.gatehouse.enemy.3",
+      "kind": "ironbound",
+      "room": "gatehouse",
+      "position": [
+        75,
+        6.87,
+        1
       ],
-      [
-        15.373999999999999,
-        0.0,
-        -77.256
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.winch.enemy.0",
+      "kind": "ironbound",
+      "room": "winch",
+      "position": [
+        35,
+        6.87,
+        -3
       ],
-      [
-        15.373999999999999,
-        0.0,
-        -71.256
-      ]
-    ],
-    "arena_two": [
-      [
-        -4.3,
-        0.0,
-        -166.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.winch.enemy.1",
+      "kind": "ironbound",
+      "room": "winch",
+      "position": [
+        40,
+        6.87,
+        -3
       ],
-      [
-        -16.617,
-        0.0,
-        -166.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.winch.enemy.2",
+      "kind": "censer",
+      "room": "winch",
+      "position": [
+        45,
+        6.87,
+        -3
       ],
-      [
-        -16.617,
-        0.0,
-        -175.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.inner_bridge.enemy.0",
+      "kind": "ironbound",
+      "room": "inner_bridge",
+      "position": [
+        35,
+        6.87,
+        37
       ],
-      [
-        -16.617,
-        0.0,
-        -169.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.inner_bridge.enemy.1",
+      "kind": "ironbound",
+      "room": "inner_bridge",
+      "position": [
+        40,
+        6.87,
+        37
       ],
-      [
-        -16.617,
-        0.0,
-        -163.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.cloister.enemy.0",
+      "kind": "ironbound",
+      "room": "cloister",
+      "position": [
+        75,
+        2.87,
+        37
       ],
-      [
-        -16.617,
-        0.0,
-        -157.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.cloister.enemy.1",
+      "kind": "ironbound",
+      "room": "cloister",
+      "position": [
+        80,
+        2.87,
+        37
       ],
-      [
-        4.3,
-        0.0,
-        -166.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.cloister.enemy.2",
+      "kind": "censer",
+      "room": "cloister",
+      "position": [
+        85,
+        2.87,
+        37
       ],
-      [
-        16.617,
-        0.0,
-        -166.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.cloister.enemy.3",
+      "kind": "ironbound",
+      "room": "cloister",
+      "position": [
+        75,
+        2.87,
+        41
       ],
-      [
-        16.617,
-        0.0,
-        -175.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.armory_hall.enemy.0",
+      "kind": "ironbound",
+      "room": "armory_hall",
+      "position": [
+        75,
+        2.87,
+        77
       ],
-      [
-        16.617,
-        0.0,
-        -169.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.armory_hall.enemy.1",
+      "kind": "ironbound",
+      "room": "armory_hall",
+      "position": [
+        80,
+        2.87,
+        77
       ],
-      [
-        16.617,
-        0.0,
-        -163.848
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.armory_hall.enemy.2",
+      "kind": "censer",
+      "room": "armory_hall",
+      "position": [
+        85,
+        2.87,
+        77
       ],
-      [
-        16.617,
-        0.0,
-        -157.848
-      ]
-    ],
-    "final_arena": [
-      [
-        -4.3,
-        1.5,
-        -221.76000000000002
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.furnace_gate.enemy.0",
+      "kind": "ironbound",
+      "room": "furnace_gate",
+      "position": [
+        35,
+        2.87,
+        77
       ],
-      [
-        -14.131,
-        1.5,
-        -221.76000000000002
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.furnace_gate.enemy.1",
+      "kind": "ironbound",
+      "room": "furnace_gate",
+      "position": [
+        40,
+        2.87,
+        77
       ],
-      [
-        -14.131,
-        1.5,
-        -230.76000000000002
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.furnace_gate.enemy.2",
+      "kind": "censer",
+      "room": "furnace_gate",
+      "position": [
+        45,
+        2.87,
+        77
       ],
-      [
-        -14.131,
-        1.5,
-        -224.76000000000002
+      "arena_id": ""
+    },
+    {
+      "stable_id": "ash_citadel_01.furnace_gate.enemy.3",
+      "kind": "ironbound",
+      "room": "furnace_gate",
+      "position": [
+        35,
+        2.87,
+        81
       ],
-      [
-        -14.131,
-        1.5,
-        -218.76000000000002
+      "arena_id": ""
+    }
+  ],
+  "entry_weapon": "twin_shotgun",
+  "architecture_version": 15,
+  "supplies": [
+    {
+      "node": "Supply_twin_shotgun_siege_approach",
+      "room": "siege_approach",
+      "kind": "twin_shotgun",
+      "amount": 8,
+      "position": [
+        4,
+        0.6,
+        4
       ],
-      [
-        -14.131,
-        1.5,
-        -212.76000000000002
+      "optional": false
+    },
+    {
+      "node": "Supply_shells_trench",
+      "room": "trench",
+      "kind": "shells",
+      "amount": 8,
+      "position": [
+        -36,
+        -1.4,
+        4
       ],
-      [
-        4.3,
-        1.5,
-        -221.76000000000002
+      "optional": false
+    },
+    {
+      "node": "Supply_pistol_breach_camp",
+      "room": "breach_camp",
+      "kind": "pistol",
+      "amount": 16,
+      "position": [
+        -76,
+        -1.4,
+        4
       ],
-      [
-        14.131,
-        1.5,
-        -221.76000000000002
+      "optional": false
+    },
+    {
+      "node": "Supply_health_lower_crypt",
+      "room": "lower_crypt",
+      "kind": "health",
+      "amount": 25,
+      "position": [
+        -44,
+        -1.4,
+        -36
       ],
-      [
-        14.131,
-        1.5,
-        -230.76000000000002
+      "optional": false
+    },
+    {
+      "node": "Supply_armor_stair_tower",
+      "room": "stair_tower",
+      "kind": "armor",
+      "amount": 25,
+      "position": [
+        4,
+        2.6,
+        -36
       ],
-      [
-        14.131,
-        1.5,
-        -224.76000000000002
+      "optional": false
+    },
+    {
+      "node": "Supply_shells_battlement",
+      "room": "battlement",
+      "kind": "shells",
+      "amount": 8,
+      "position": [
+        44,
+        6.6,
+        -36
       ],
-      [
-        14.131,
-        1.5,
-        -218.76000000000002
+      "optional": false
+    },
+    {
+      "node": "Supply_rivets_gatehouse",
+      "room": "gatehouse",
+      "kind": "rivets",
+      "amount": 24,
+      "position": [
+        84,
+        6.6,
+        4
       ],
-      [
-        14.131,
-        1.5,
-        -212.76000000000002
-      ]
-    ]
-  }
+      "optional": false
+    },
+    {
+      "node": "Supply_health_winch",
+      "room": "winch",
+      "kind": "health",
+      "amount": 25,
+      "position": [
+        36,
+        6.6,
+        4
+      ],
+      "optional": false
+    },
+    {
+      "node": "Supply_shells_inner_bridge",
+      "room": "inner_bridge",
+      "kind": "shells",
+      "amount": 8,
+      "position": [
+        44,
+        6.6,
+        44
+      ],
+      "optional": false
+    },
+    {
+      "node": "Supply_rockets_cloister",
+      "room": "cloister",
+      "kind": "rockets",
+      "amount": 3,
+      "position": [
+        84,
+        2.6,
+        44
+      ],
+      "optional": false
+    },
+    {
+      "node": "Supply_rivets_armory_hall",
+      "room": "armory_hall",
+      "kind": "rivets",
+      "amount": 24,
+      "position": [
+        84,
+        2.6,
+        84
+      ],
+      "optional": false
+    },
+    {
+      "node": "Supply_health_furnace_gate",
+      "room": "furnace_gate",
+      "kind": "health",
+      "amount": 25,
+      "position": [
+        36,
+        2.6,
+        84
+      ],
+      "optional": false
+    },
+    {
+      "node": "Supply_shells_quartermaster",
+      "room": "quartermaster",
+      "kind": "shells",
+      "amount": 12,
+      "position": [
+        4,
+        0.6,
+        44
+      ],
+      "optional": true
+    },
+    {
+      "node": "Supply_armor_watch_post",
+      "room": "watch_post",
+      "kind": "armor",
+      "amount": 25,
+      "position": [
+        44,
+        6.6,
+        -76
+      ],
+      "optional": true
+    },
+    {
+      "node": "Supply_rockets_tithe_vault",
+      "room": "tithe_vault",
+      "kind": "rockets",
+      "amount": 4,
+      "position": [
+        -76,
+        -1.4,
+        44
+      ],
+      "optional": true
+    }
+  ]
 }

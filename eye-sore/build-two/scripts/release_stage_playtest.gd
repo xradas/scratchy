@@ -267,8 +267,19 @@ func use(name: String) -> bool:
 	return true
 func return_to_arena_staging(id: String) -> bool:
 	var floor_point: Vector3 = vector(route.rooms[id].center)
-	if id=="arena_two" and player.global_position.y>floor_point.y+1.0:
-		if not await walk(floor_point+Vector3(0,0,13),"Descend cleared altar"):return false
+	if id=="arena_two":
+		# Combat can leave the bot behind either side of the raised altar. From
+		# there a straight line to the front stair hits its solid diagonal edge.
+		# Occupied Line 02's floor ring is physically verified for this detour;
+		# other stages have different altar furniture and keep their old route.
+		if stage_id=="occupied_line_02" and player.global_position.z < floor_point.z-4.0:
+			var altar_side := -1.0 if player.global_position.x < floor_point.x else 1.0
+			var altar_lane_x := floor_point.x+altar_side*4.3
+			if not await walk(Vector3(altar_lane_x,floor_point.y,player.global_position.z),"Altar side retreat"):return false
+			if not await walk(Vector3(altar_lane_x,floor_point.y,floor_point.z+13.0),"Altar ring retreat"):return false
+			if not await walk(floor_point+Vector3(0,0,13),"Descend cleared altar"):return false
+		elif player.global_position.y>floor_point.y+1.0:
+			if not await walk(floor_point+Vector3(0,0,13),"Descend cleared altar"):return false
 	var side := -1.0 if player.global_position.x<floor_point.x else 1.0
 	var outer := absf(player.global_position.x-floor_point.x)>7.0
 	var lane := floor_point.x+side*(maxf(12.0,float(route.rooms[id].size[0])/2.0-7.0) if outer else 4.3)

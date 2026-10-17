@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StageObjectiveProfile" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/stage_objective_profile.gd" id="profile_script"]
+[resource]
+script = ExtResource("profile_script")
+level_id = "ash_citadel_01"
+initial_flags = {}
+objectives = Array[Dictionary]([{"requires": [], "complete_flag": "brass", "text": "Descend the broken trench and recover the gatehouse credential in the lower crypt."}, {"requires": ["brass"], "complete_flag": "gate_winch", "text": "Climb the battlement to the gatehouse and lower the inner bridge."}, {"requires": ["gate_winch"], "complete_flag": "finished", "text": "Cross the lowered bridge and enter the Furnace Choir."}])
+controls = {"gate_winch": {"requires": ["brass"], "sets": ["gate_winch"]}}
+keys = {"brass": {"requires": [], "sets": ["brass", "brass_key"]}}
+encounters = {}
+exit_requires = Array[String](["gate_winch", "visited_inner_bridge"])

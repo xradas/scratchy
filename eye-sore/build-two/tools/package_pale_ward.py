@@ -113,6 +113,7 @@ def provenance_files() -> list[Path]:
              "docs/production-v12", "concepts/production-v12",
              "docs/level-redesign-v13", "concepts/level-redesign-v13",
              "docs/ward-spatial-v14", "concepts/ward-spatial-v14",
+             "docs/ash-approach-v15", "concepts/ash-approach-v15",
              "concepts/pickups-rooms-v6",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")
@@ -132,7 +133,7 @@ def provenance_files() -> list[Path]:
     for root in roots:
         paths.extend(p for p in (PROJECT / root).rglob("*")
                      if p.is_file() and (p.suffix in {".json", ".txt", ".md"}
-                         or (root in {"docs/level-redesign-v13", "concepts/level-redesign-v13", "docs/ward-spatial-v14", "concepts/ward-spatial-v14"}
+                         or (root in {"docs/level-redesign-v13", "concepts/level-redesign-v13", "docs/ward-spatial-v14", "concepts/ward-spatial-v14", "docs/ash-approach-v15", "concepts/ash-approach-v15"}
                              and p.suffix in {".svg", ".html", ".png"}))
                      and not (root in {"concepts/arsenal-architecture-v2", "concepts/campaign-v3"}
                               and "review" in p.relative_to(PROJECT / root).parts))

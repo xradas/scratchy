@@ -38,27 +38,33 @@ func run() -> void:
 		if not require(FileAccess.file_exists(route_path),"Actual route resource missing "+level_id):break
 		route=JSON.parse_string(FileAccess.get_file_as_string(route_path))
 		var is_ward := level_id.begins_with("pale_ward_")
+		var is_ash_approach := level_id=="ash_citadel_01" and bool(route.get("design_v15",false))
 		if is_ward:
 			ward_data=route.get("design_v13",route)
 			if not require(int(world.get_meta("design_version",0))==13 and world.objective_profile!=null,"Redesigned Ward scene/profile required "+level_id):break
+		elif is_ash_approach:
+			ward_data=route
+			if not require(int(world.get_meta("design_version",0))==15 and world.objective_profile!=null,"Authored Ash Approach scene/profile required"):break
 		var entry: Dictionary=app.campaign.entry_snapshot.duplicate(true)
 		if index==0 and app.campaign.current_index==0:
 			require(entry.health==100 and entry.armor==50 and entry.ammo_pistol==36 and entry.ammo_shotgun==12 and entry.ammo_rivets==0 and entry.ammo_rockets==0 and entry.owned_weapons.size()==3,"Normal campaign entry loadout; no test seed")
 		elif not expected_carry.is_empty():
 			for field in app.campaign.COMBAT_FIELDS:require(entry[field]==expected_carry[field],"Exact Continue carry "+field+" into "+level_id)
 		if not failures.is_empty():break
-		current_route_room=String(ward_data.get("spawn_room","")) if is_ward else "entry"
+		current_route_room=String(ward_data.get("spawn_room","")) if is_ward or is_ash_approach else "entry"
 		records.clear();interactions.clear();weapon_shots.clear();weapon_kills.clear();arsenal_events.clear();lift_traversals_v13.clear();ticks=0;reset_ammo_ledger()
 		combat.combat_event.connect(observe_weapon_event)
 		if not app.started:app.enter_combat()
 		await get_tree().physics_frame;global_start=Engine.get_physics_frames()
-		if is_ward:
-			if await collect_room_supplies(current_route_room):await ward_route()
+		if is_ward or is_ash_approach:
+			if await collect_room_supplies(current_route_room):
+				if is_ash_approach:await ash_approach_route()
+				else:await ward_route()
 		else:await super.route_run()
 		var complete: bool=world.finished and app.level_complete and get_tree().paused
 		require(complete,"Actual exit/menu completion "+level_id);require(not combat.dead and combat.health>0,"Live route survival "+level_id)
 		require(not world.secret_found and world.secrets.is_empty(),"No secret supply "+level_id)
-		if is_ward:
+		if is_ward or is_ash_approach:
 			for flag in world.objective_profile.exit_requires:require(bool(world.flags.get(flag,false)),"Authored objective exit precondition "+String(flag))
 			if level_id=="pale_ward_03":
 				for id in route.rooms:
@@ -69,6 +75,7 @@ func run() -> void:
 		var exit_state: Dictionary=app.campaign.capture(combat)
 		level_receipts.append({"level":level_id,"scene":world.scene_file_path,"redesigned_ward":is_ward,"containment_order":branch_order if level_id=="pale_ward_02" else "","completed":complete,"entry_loadout":entry,"exit_loadout":exit_state,"health":combat.health,"armor":combat.armor,"kills":combat.kills,"total_enemies":combat.total_enemies,"shots":combat.shot_counter,"flags":world.flags.duplicate(),"arena_remaining":world.arena_remaining.duplicate(),"secret_used":world.secret_found,"peak_ammo":peak_ammo.duplicate(),"ammo_caps":ammo_caps(),"weapon_shots":weapon_shots.duplicate(),"weapon_kills":weapon_kills.duplicate(),"segments":records.duplicate(true),"interactions":interactions.duplicate(true),"physics_seconds":float(Engine.get_physics_frames()-global_start)/Engine.physics_ticks_per_second,"checkpoint_at_exit":app.has_checkpoint()})
 		level_receipts.back().siege_self_hits=siege_self_hits
+		level_receipts.back().authored_ash_approach=is_ash_approach
 		level_receipts.back().lift_traversals=lift_traversals_v13.duplicate(true)
 		level_receipts.back().lift_route_requested="--check-lift-route" in OS.get_cmdline_user_args()
 		level_receipts.back().visited_rooms=world.visited.keys()
@@ -81,8 +88,10 @@ func run() -> void:
 			if not require(app.world!=old_world and not get_tree().paused,"Continue builds next real world"):break
 			require(not app.has_checkpoint(),"Continue clears previous level checkpoint")
 	await finish_v13()
+func authored_route() -> bool:
+	return level_id.begins_with("pale_ward_") or level_id=="ash_citadel_01" and bool(route.get("design_v15",false))
 func gate_available(portal: Dictionary) -> bool:
-	if not level_id.begins_with("pale_ward_"):return super.gate_available(portal)
+	if not authored_route():return super.gate_available(portal)
 	if bool(portal.get("secret",false)):return false
 	for flag in portal.get("requires",[]):
 		if not world.flags.get(String(flag),false):return false
@@ -91,9 +100,10 @@ func collect_room_supplies(room_id: String) -> bool:
 	var nodes: Array[Node3D]=[]
 	for supply in route.get("supplies",[]):
 		if String(supply.room)!=room_id:continue
+		if not supply.has("node"):continue
 		var pickup: Node3D=world.get_node_or_null(String(supply.node))
 		if pickup!=null:nodes.append(pickup)
-	if String(route.weapon.room)==room_id:
+	if route.get("weapon") is Dictionary and String(route.weapon.get("room",""))==room_id:
 		var weapon: Node3D=world.get_node_or_null(String(route.weapon.node))
 		if weapon!=null:nodes.push_front(weapon)
 	for pickup in nodes:
@@ -105,7 +115,7 @@ func collect_room_supplies(room_id: String) -> bool:
 		if not await walk(pickup.global_position,"Physical main-route supply "+String(pickup.name)):return false
 	return true
 func path_to(destination: String) -> Array[String]:
-	if not level_id.begins_with("pale_ward_"):return super.path_to(destination)
+	if not authored_route():return super.path_to(destination)
 	var queue: Array[String]=[current_route_room];var previous := {current_route_room:""}
 	while not queue.is_empty():
 		var here: String=queue.pop_front()
@@ -114,7 +124,7 @@ func path_to(destination: String) -> Array[String]:
 			if not gate_available(portal):continue
 			var next := String(portal.to) if String(portal.from)==here else String(portal.from) if String(portal.to)==here else ""
 			if next.is_empty() or previous.has(next):continue
-			if portal.get("first_open_from","")!="" and here!=String(portal.first_open_from):
+			if String(portal.get("first_open_from",""))!="" and here!=String(portal.first_open_from):
 				var door: Node=world.get_node_or_null(String(portal.get("door","")))
 				if door!=null and not door.opened:continue
 			var room: Dictionary=route.rooms[next]
@@ -125,7 +135,7 @@ func path_to(destination: String) -> Array[String]:
 	while cursor!=current_route_room:result.push_front(cursor);cursor=previous[cursor]
 	return result
 func connect_rooms(a: String,b: String) -> bool:
-	if not level_id.begins_with("pale_ward_"):return await super.connect_rooms(a,b)
+	if not authored_route():return await super.connect_rooms(a,b)
 	var link := {}
 	for portal in route.portals:
 		if String(portal.from)==a and String(portal.to)==b or String(portal.from)==b and String(portal.to)==a:link=portal;break
@@ -235,6 +245,37 @@ func destroy_anchor(id: String,room_id: String) -> bool:
 		else:combat.try_fire()
 		await get_tree().physics_frame;ticks+=1
 	return require(false,"Actual weapon rays did not destroy anchor "+id)
+func ash_approach_route() -> void:
+	# The credential and winch are physical interactions; the route never sets
+	# progression flags or advances across the bridge by teleporting.
+	if not await travel_to("lower_crypt"):return
+	var credential: Node3D
+	for pickup in world.pickups:
+		if String(pickup.get_meta("stage_pickup","")) in ["brass","brass_key"]:
+			credential=pickup;break
+	if not require(credential!=null,"Actual gatehouse credential pickup"):return
+	if not await walk(credential.global_position,"Acquire gatehouse credential"):return
+	if not require(bool(world.flags.get("brass",false)),"Gatehouse credential flag from accepted pickup"):return
+	if not await secure_checkpoint("crypt_credential","lower_crypt"):return
+	if not await use_control("gate_winch","winch"):return
+	if not require(bool(world.flags.get("gate_winch",false)),"Winch operated by real E input"):return
+	var bridge: Node3D
+	for node in world.get_children():
+		if node is Node3D and bool(node.get_meta("ash_bridge",false)):
+			bridge=node;break
+	if not require(bridge!=null and bridge.has_method("is_open"),"Physical Ash bridge component"):return
+	for i in 600:
+		if bridge.is_open():break
+		stop();await get_tree().physics_frame;ticks+=1
+	if not require(bridge.is_open(),"Winch lowered physical bridge before crossing"):return
+	if not await secure_checkpoint("bridge_winch","winch"):return
+	if not await travel_to("furnace_gate"):return
+	var exit_node: Node3D
+	for node in world.mechanisms:
+		if node.has_meta("stage_exit"):exit_node=node;break
+	if not require(exit_node!=null,"Actual Ash furnace exit mechanism"):return
+	if not await approach(exit_node,"furnace_gate"):return
+	await use(String(exit_node.name))
 func ward_route() -> void:
 	match level_id:
 		"pale_ward_01":
@@ -275,7 +316,7 @@ func finish_v13() -> void:
 	var completed := 0
 	for receipt in level_receipts:
 		if receipt.completed:completed+=1
-	var report := {"status":"passed" if failures.is_empty() and completed==requested_levels else "failed","levels_completed":completed,"expected_levels":requested_levels,"containment_order":branch_order,"use_heavy_weapons":heavy_mode,"levels":level_receipts,"failures":failures,"executable":OS.get_executable_path(),"editor_feature":OS.has_feature("editor"),"engine_arguments":OS.get_cmdline_args(),"physics_ticks_per_second":Engine.physics_ticks_per_second,"source_package_dir":package_dir,"scope":"Opt-in actual Main physical CharacterBody movement, live enemies/damage/finite ammo, real weapon rays and E-use. Ward objective contracts; legacy sequence only six unchanged maps. Exact Continue carry, no seed/teleport/death/flag injection or secret supplies. Bot simulation timings do not establish20–25minute human pacing."}
+	var report := {"status":"passed" if failures.is_empty() and completed==requested_levels else "failed","levels_completed":completed,"expected_levels":requested_levels,"containment_order":branch_order,"use_heavy_weapons":heavy_mode,"levels":level_receipts,"failures":failures,"executable":OS.get_executable_path(),"editor_feature":OS.has_feature("editor"),"engine_arguments":OS.get_cmdline_args(),"physics_ticks_per_second":Engine.physics_ticks_per_second,"source_package_dir":package_dir,"scope":"Opt-in actual Main physical CharacterBody movement, live enemies/damage/finite ammo, real weapon rays and E-use. Three Ward objective contracts, authored Ash Approach bridge objective, and five unchanged legacy maps. Exact Continue carry, no seed/teleport/death/flag injection or secret supplies. Bot simulation timings do not establish human pacing."}
 	report.user_arguments=OS.get_cmdline_user_args()
 	report.capture_policy={"native":DisplayServer.get_name()!="headless","no_focus":get_tree().root.get_flag(Window.FLAG_NO_FOCUS),"minimized":get_tree().root.mode==Window.MODE_MINIMIZED,"force_offscreen_requested":force_offscreen_v13,"forced_draw_frames":forced_draw_frames_v13}
 	DirAccess.make_dir_recursive_absolute(report_dir)
