@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "Selected gunshots v10 technically delivered; human final in-game listening acceptance pending",
+  "source_commit": "ebf534ef1f49bf5a9e17efb38b475bc296acc00c",
+  "source_branch": "codex/eyesore-build-two",
+  "source_checkpoint_remote_verified": true,
+  "package_directory": "/home/rikki/Builds/eyesore-selected-audio-v10-2026-10-17",
+  "executable": {
+    "bytes": 174683264,
+    "mode": "0755",
+    "path": "eyesore-selected-audio-v10.x86_64",
+    "pck": "embedded",
+    "sha256": "f95983b7542123bb63e186100871188bd035fdbdf51c9ee0afc89a24e89ba1f5"
+  },
+  "archive": {
+    "archived_executable_hash_and_mode_verified": true,
+    "bytes": 122581124,
+    "path": "eyesore-selected-audio-v10-linux.tar.gz",
+    "sha256": "6bf4087532fcb77ee3e38157bf16b52db4615d4d7a3d9f0a28c9ccfcb1e5b389"
+  },
+  "source_fingerprint_count": 608,
+  "source_tree_sha256": "8ccf9ade1ffd341d0466796aeb23fc416cd49d97401ecaf84c2e58de6437d8b5",
+  "current_packaged_fingerprints_still_match": true,
+  "selected": [
+    {
+      "weapon": "pistol",
+      "choice": "New original take",
+      "selected_row": "dry",
+      "runtime_file": "res://assets/audio/selected-v10/pistol_fire.ogg",
+      "ogg_sha256": "5cc00fcbc36f9eca7f629e8e9585831814d0b9cedeb4be114abd1f248e16e691",
+      "gain_db": 4.0
+    },
+    {
+      "weapon": "shotgun",
+      "choice": "Candidate A",
+      "selected_row": "A",
+      "runtime_file": "res://assets/audio/selected-v10/shotgun_fire.ogg",
+      "ogg_sha256": "580f9cc57040861116472ca21e87e97a1a339185d4d36bdff113135f7e3e1d3f",
+      "gain_db": 4.0
+    },
+    {
+      "weapon": "twin_shotgun",
+      "choice": "Candidate B",
+      "selected_row": "B",
+      "runtime_file": "res://assets/audio/selected-v10/twin_shotgun_fire.ogg",
+      "ogg_sha256": "6876e3e0e67dddc7829f86ac4cd69d4634dbd7069da738085cfdd879a773f6d0",
+      "gain_db": 4.0
+    }
+  ],
+  "audio_policy": "Exact approved OGG copies; common +4dB cue gain, existing buses/master/music unchanged. Exact PCM24 WAV source copies preserved in Godot-ignored source-wav directory, no conversion.",
+  "preservation": {
+    "other_cues": 54,
+    "music_streams": 3,
+    "campaign_scenes": 9,
+    "protected_v9_runtime_files": 437,
+    "gameplay_changed": false
+  },
+  "verification": {
+    "actual_main_headless_checks": 280,
+    "actual_main_native_checks": 280,
+    "packed_actual_main_native_checks": 280,
+    "archive_native_checks": 7997,
+    "archive": "../audio/archive-export.json",
+    "packed_main": "../audio/main-packed-native.json",
+    "recording": "recording-verification.json",
+    "strict_import": "../audio/import-relocated.json"
+  },
+  "recording": {
+    "directory": "/home/rikki/Builds/eyesore-selected-audio-v10-captures-2026-10-17",
+    "mp4": "/home/rikki/Builds/eyesore-selected-audio-v10-captures-2026-10-17/intake-v10.mp4",
+    "wav": "/home/rikki/Builds/eyesore-selected-audio-v10-captures-2026-10-17/intake-v10.wav",
+    "frames": 6910,
+    "seconds": 230.33333333333334,
+    "sample_rate": 48000,
+    "channels": 2,
+    "rail_sample_count": 0,
+    "weapon_shots": {
+      "pistol": 65,
+      "shotgun": 25,
+      "twin_shotgun": 7
+    },
+    "completed": true,
+    "secret_used": false,
+    "lift_round_trip": true
+  },
+  "review_url": "http://127.0.0.1:8765/audio-v10/index.html",
+  "retained_diagnostics": [
+    "../audio/main-initial-failure.json",
+    "../audio/main-diagnostic.json",
+    "../audio/pause-oracle-main.native.json",
+    "../audio/wav-import-original-errors.json",
+    "package-initial-failure.log"
+  ],
+  "known_limits": [
+    "Numerical recording checks and automated combat do not establish human listening acceptance.",
+    "This audio-only pass preserves all nine maps and gameplay; the previous v9 nine-level campaign results remain archived and were not rerun in full.",
+    "Physical lighting/flicker, staff enemies, further room dressing and volumetric gore remain queued."
+  ],
+  "verified_utc": "2026-10-17T12:36:02.287197+00:00"
+}
