@@ -16,9 +16,12 @@ for name in ('normal','heavy'):
  assert [l['level'] for l in levels]==expected
  assert route['use_heavy_weapons']==(name=='heavy')
  assert launch['exit_code']==0 and launch['cwd']=='/tmp'
- assert launch['observed_proc_cwd']==('/tmp' if a.export else str(root))
+ assert launch['observed_proc_cwd']==(str(Path(launch['command'][0]).resolve().parent) if a.export else str(root))
  assert launch['command']==launch['observed_proc_cmdline'] and launch['source_commit']==a.source_commit
  assert route['editor_feature'] is (not a.export)
+ assert route['executable']==launch['command'][0]
+ assert route['source_package_dir']==(str(Path(launch['command'][0]).resolve().parent) if a.export else str(root))
+ assert hashlib.sha256(Path(launch['command'][0]).read_bytes()).hexdigest()==launch['executable_sha256']
  initial=levels[0]['entry_loadout'];assert [initial[k] for k in ('health','armor','ammo_pistol','ammo_shotgun','ammo_rivets','ammo_rockets')]==[100,50,36,12,0,0]
  assert len(initial['owned_weapons'])==3
  shots=collections.Counter();kills=collections.Counter();peak={k:0 for k in caps}
@@ -39,6 +42,6 @@ for name in ('normal','heavy'):
  assert shortcut, 'No actual shortcut release E'
  for f in d.iterdir():
   if f.is_file():shutil.copyfile(f,a.output/f'{name}-{f.name}')
- profiles[name]={'passed':True,'levels_completed':9,'kills':sum(l['kills'] for l in levels),'exact_carry_transitions':8,'peak_ammo':peak,'weapon_shots':dict(shots),'weapon_kills':dict(kills),'secret_levels':0,'siege_self_hits':0,'intake_loop_segments':['Portal key_console→return_store','Portal return_store→service'],'accepted_shortcut_interactions':shortcut,'launch':f'{name}-launch.json','raw_receipt':f'{name}-campaign-all-route.json'}
+ profiles[name]={'passed':True,'levels_completed':9,'kills':sum(l['kills'] for l in levels),'exact_carry_transitions':8,'peak_ammo':peak,'weapon_shots':dict(shots),'weapon_kills':dict(kills),'secret_levels':0,'siege_self_hits':0,'intake_loop_segments':['Portal key_console→return_store','Portal return_store→service'],'accepted_shortcut_interactions':shortcut,'launch':f'{name}-launch.json','launch_cwd':launch['cwd'],'observed_runtime_cwd':launch['observed_proc_cwd'],'raw_receipt':f'{name}-campaign-all-route.json'}
 result={'passed':True,'source_commit':a.source_commit,'ordered_levels':expected,'profiles':profiles,'mode':'actual exported ELF' if a.export else 'actual source Main','scope':'Automated physical finite-ammo live-combat Main, explicit new Intake store loop and E shortcut, full nine-level continuation. Headless fixed60; not human art/pacing/listening acceptance.'}
 (a.output/'campaign-audit.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))

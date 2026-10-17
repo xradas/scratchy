@@ -1,0 +1,5 @@
+{
+  "status": "superseded historical-verifier assumption",
+  "actual": "All exported processes launched with cwd=/tmp; native /proc observation correctly reports that Godot changes its runtime cwd to the exact exported package directory. This remains outside development source.",
+  "adaptation": "New v7 verifier requires launch cwd /tmp, observed runtime cwd exact executable parent, with actual live PID/cmdline/source/executable SHA/exit checks retained. No evidence values changed; no gameplay/package changes."
+}

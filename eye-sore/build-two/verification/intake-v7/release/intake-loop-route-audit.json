@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "source_commit": "3465c8afe47a78cf01bfed742a56c246822bb65f",
+  "route": {
+    "path": "native-route.json",
+    "sha256": "fa4fd53bc2bbca4814cd71ea9a3258c209821c856ff55b1b2fd229bdf2695c36"
+  },
+  "actual_intake_segments": [
+    {
+      "armor": 100.0,
+      "health": 100.0,
+      "kills": 14,
+      "pistol": 62,
+      "position": "(61.97281, 2.350468, -79.33358)",
+      "rivets": 0,
+      "rockets": 0,
+      "segment": "Acquire brass_key",
+      "shells": 0,
+      "ticks": 28
+    },
+    {
+      "armor": 100.0,
+      "health": 100.0,
+      "kills": 15,
+      "pistol": 67,
+      "position": "(62.0, 2.350468, -44.67374)",
+      "rivets": 0,
+      "rockets": 0,
+      "segment": "Portal key_console\u2192return_store",
+      "shells": 0,
+      "ticks": 153
+    },
+    {
+      "armor": 100.0,
+      "health": 100.0,
+      "kills": 15,
+      "pistol": 67,
+      "position": "(33.16211, 2.350468, -37.99999)",
+      "rivets": 0,
+      "rockets": 0,
+      "segment": "Gate shortcut_one",
+      "shells": 0,
+      "ticks": 158
+    },
+    {
+      "armor": 100.0,
+      "health": 100.0,
+      "kills": 15,
+      "pistol": 67,
+      "position": "(8.629504, 2.350468, -38.0)",
+      "rivets": 0,
+      "rockets": 0,
+      "segment": "Portal return_store\u2192service",
+      "shells": 0,
+      "ticks": 185
+    }
+  ],
+  "required_segment_order": [
+    "Acquire brass_key",
+    "Portal key_console\u2192return_store",
+    "Gate shortcut_one",
+    "Portal return_store\u2192service"
+  ],
+  "accepted_shortcut_interactions": [
+    {
+      "accepted": true,
+      "input": "E",
+      "mechanism": "Door_shortcut_one"
+    }
+  ],
+  "completed": true,
+  "lift_round_trip": true,
+  "kills": 32,
+  "shots": 95,
+  "secret_used": false,
+  "siege_self_hits": 0,
+  "external_launcher_sha256": "22ab498016a5ee2cb537c89e4241e1c5940a47e99569e1a19efdbbce92907549",
+  "scope": "Actual exported ELF from/tmp, new brass\u2192theatre/store\u2192supply-side E shortcut route observed in real physical live-combat Main; observation lift roundtrip. Automated fixed30 MovieMaker, no human input/visual/pacing/listening approval."
+}
