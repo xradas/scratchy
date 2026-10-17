@@ -11,3 +11,9 @@ Deliverables: Original track, creator/license evidence, selected excerpts/loop e
 Acceptance constraints: User listening decides appeal. Confirm warning masking in the game. No unlicensed or ambiguous-license tracks.
 
 Gate: follow `../PRODUCTION_PLAN.md`; identity selection precedes full asset production, combat exchange review precedes level expansion. Keep changes in your assigned project paths, report evidence and limitations, and hand off reviewable files. Do not overwrite earlier source assets or checkpoint another specialist’s work.
+
+## Deferred direction — 17 October 2026
+
+User request: compose original music for every level we make, using the current tracks as references for direction. This replaces library-track selection as the future level-music goal. Do not begin composing, sourcing replacements or integrating music yet; retain the current tracks until this work is resumed.
+
+The user accepted the v10 gun sounds as okay. Their selected firing cues remain pistol new original, shotgun candidate A and Twin candidate B.
