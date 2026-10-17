@@ -81,7 +81,7 @@ func run() -> void:
 			if combat.get(overdrive_kind)!=200.0 or overdrive.visible:failures.append(id+" overdrive cap failed")
 		var ranged:=0
 		for enemy in combat.enemies:
-			if String(enemy.definition.identifier)=="infected_security":ranged+=1
+			if String(enemy.definition.identifier) in ["infected_security", "infected_security_shotgun"]:ranged+=1
 		if ranged<(15 if id=="pale_ward_01" else 18 if id=="pale_ward_02" else 12):failures.append(id+" ranged promotion missing")
 		world.queue_free();await process_frame
 	for failure in failures:printerr(failure)

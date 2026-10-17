@@ -64,9 +64,8 @@ const HEARING_DISTANCE: Dictionary = {
 
 func setup(controller: Node3D, actor: CharacterBody3D, data: EnemyDefinition, id: String) -> void:
 	combat = controller; player = actor; definition = data; target_id = id; health = definition.health
-	if definition.identifier == &"infected_security":
-		# The first triage guard introduces the shotgun before the Ward's larger fights.
-		carried_weapon = HEAVY_CARRIERS.get(target_id, &"shotgun" if target_id == "pale_ward_01.triage.enemy.5" else &"pistol")
+	if definition.identifier in [&"infected_security", &"infected_security_shotgun"]:
+		carried_weapon = &"shotgun" if definition.identifier == &"infected_security_shotgun" else HEAVY_CARRIERS.get(target_id, &"pistol")
 		build_carried_visual()
 	set_meta("hit_material", definition.hit_material)
 	$Visual.material_override = make_proxy_material(Color(0.53, 0.35, 0.3) if not definition.ranged else Color(0.33, 0.46, 0.4))

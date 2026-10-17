@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/enemy_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+identifier = &"infected_security_shotgun"
+display_name = "Shotgun Security"
+health = 105.0
+speed = 1.95
+ranged = true
+damage = 14.0
+attack_range = 10.0
+windup_seconds = 0.72
+recovery_seconds = 0.7
+pain_seconds = 0.26
+projectile_speed = 13.0
+hit_material = &"flesh"
+burst_round_count = 1
+burst_interval_seconds = 0.16
+metadata/visible_height_m = 1.82
+metadata/source_theme = "clinical-infection"

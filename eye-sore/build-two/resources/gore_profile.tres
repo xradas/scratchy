@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GoreProfile" load_steps=9 format=3]
+[gd_resource type="Resource" script_class="GoreProfile" load_steps=10 format=3]
 [ext_resource type="Script" path="res://scripts/gore_profile.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/effects/gore-v1/pools-atlas.png" id="2"]
 [ext_resource type="Texture2D" path="res://assets/effects/gore-v1/remains-atlas.png" id="3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" path="res://assets/effects/gore-v2/occupied_line-parts-atlas.png" id="6"]
 [ext_resource type="Texture2D" path="res://assets/enemies/staff-v11/infected_scientist-atlas.png" id="7"]
 [ext_resource type="Texture2D" path="res://assets/enemies/staff-v11/infected_security-atlas.png" id="8"]
+[ext_resource type="Texture2D" path="res://assets/enemies/staff-v21/infected_security_shotgun-atlas.png" id="9"]
 [resource]
 script = ExtResource("1")
 pools = ExtResource("2")
@@ -18,7 +19,7 @@ max_remains = 128
 max_particles = 256
 corpse_integrity_fraction = 0.4
 corpse_integrity_minimum = 38.0
-gib_counts = {"unsealed": 12, "vessel": 14, "ironbound": 14, "censer": 15, "reaver": 12, "surveyor": 13, "infected_scientist":12, "infected_security":14}
+gib_counts = {"unsealed": 12, "vessel": 14, "ironbound": 14, "censer": 15, "reaver": 12, "surveyor": 13, "infected_scientist":12, "infected_security":14, "infected_security_shotgun":14}
 species_atlases = {
 "unsealed": {"texture": ExtResource("4"), "columns": 4, "rows": 2, "regions": {}, "parts": [
 {"name": "flesh", "cell": 7, "material": "flesh", "size": Vector2(0.3, 0.3), "tint": Color(1, 1, 1, 1)},
@@ -120,6 +121,14 @@ species_atlases = {
 {"name":"spine","texture":ExtResource("4"),"columns":4,"rows":2,"cell":6,"material":"flesh","size":Vector2(0.16,0.48)},
 {"name":"flesh","texture":ExtResource("4"),"columns":4,"rows":2,"cell":7,"material":"flesh","size":Vector2(0.25,0.24)}]}
 ,"infected_security": {"texture": ExtResource("8"), "columns":1, "rows":1, "regions":{"head":Rect2(48,0,48,41),"ribcage":Rect2(44,43,54,58),"arm":Rect2(28,39,31,64),"leg":Rect2(34,92,35,62)}, "parts":[
+{"name":"head","cell":0,"material":"flesh","size":Vector2(0.38,0.48)},
+{"name":"ribcage","cell":1,"material":"armor","size":Vector2(0.36,0.4),"coat_tint":Color(0.2,0.24,0.22,1)},
+{"name":"arm","cell":2,"material":"armor","size":Vector2(0.22,0.48),"coat_tint":Color(0.2,0.24,0.22,1)},
+{"name":"leg","cell":3,"material":"armor","size":Vector2(0.26,0.56),"coat_tint":Color(0.2,0.24,0.22,1)},
+{"name":"spine","texture":ExtResource("4"),"columns":4,"rows":2,"cell":6,"material":"flesh","size":Vector2(0.18,0.5)},
+{"name":"flesh","texture":ExtResource("4"),"columns":4,"rows":2,"cell":7,"material":"flesh","size":Vector2(0.28,0.26)},
+{"name":"cage","texture":ExtResource("4"),"columns":4,"rows":2,"cell":5,"material":"armor","size":Vector2(0.3,0.32),"coat_tint":Color(0.2,0.24,0.22,1)}]}
+,"infected_security_shotgun": {"texture": ExtResource("9"), "columns":1, "rows":1, "regions":{"head":Rect2(48,0,48,41),"ribcage":Rect2(44,43,54,58),"arm":Rect2(28,39,31,64),"leg":Rect2(34,92,35,62)}, "parts":[
 {"name":"head","cell":0,"material":"flesh","size":Vector2(0.38,0.48)},
 {"name":"ribcage","cell":1,"material":"armor","size":Vector2(0.36,0.4),"coat_tint":Color(0.2,0.24,0.22,1)},
 {"name":"arm","cell":2,"material":"armor","size":Vector2(0.22,0.48),"coat_tint":Color(0.2,0.24,0.22,1)},

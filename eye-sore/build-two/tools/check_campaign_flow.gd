@@ -45,7 +45,7 @@ func run() -> void:
 		require(String(app.world.get_meta("stage_id", "")) == String(level.theme), "theme metadata for " + String(level.id))
 		var theme: Dictionary = app.selected_stage()
 		require(app.combat_audio.profile.music.resource_path == app.selected_level_music_path(), "music for " + String(level.id))
-		var allowed_kinds: Array = ["infected_scientist", "infected_security", "unsealed", "vessel"] if String(level.theme) == "pale_ward" else theme.enemy_kinds
+		var allowed_kinds: Array = ["infected_scientist", "infected_security", "infected_security_shotgun", "unsealed", "vessel"] if String(level.theme) == "pale_ward" else theme.enemy_kinds
 		for enemy in app.combat.enemies:
 			require(String(enemy.definition.identifier) in allowed_kinds, "creature theme for " + String(level.id))
 		if index == 1:

@@ -28,6 +28,7 @@ func run() -> void:
 	check(is_instance_valid(pistol_carrier), "pistol carrier missing")
 	var pending_drop_state: Dictionary = {}
 	if shotgun_carrier != null:
+		check(shotgun_carrier.definition.identifier == &"infected_security_shotgun", "early shotgun guard is not its own troop type")
 		check(shotgun_carrier.carried_weapon == &"shotgun", "early carrier not firing shotgun")
 		shotgun_carrier.apply_damage(999.0, 1, &"pistol", shotgun_carrier.global_position)
 		check(shotgun_carrier.dead and is_instance_valid(shotgun_carrier.weapon_drop), "shotgun drop not persistent on death")
@@ -68,6 +69,8 @@ func run() -> void:
 	world.queue_free()
 	await process_frame
 	for case in [
+		{"level":"pale_ward_02","target":"pale_ward_02.isolation_a.enemy.2","weapon":&"shotgun","ammo":3,"barrels":1},
+		{"level":"pale_ward_03","target":"pale_ward_03.crossfire.enemy.0","weapon":&"shotgun","ammo":3,"barrels":1},
 		{"level":"pale_ward_01","target":"pale_ward_01.generator.enemy.0","weapon":&"twin_shotgun","ammo":4,"barrels":2},
 		{"level":"pale_ward_02","target":"pale_ward_02.culture_access.enemy.2","weapon":&"rivet_cannon","ammo":12,"barrels":1},
 		{"level":"pale_ward_03","target":"pale_ward_03.upper_gallery.enemy.0","weapon":&"siege_launcher","ammo":2,"barrels":1},
@@ -88,6 +91,8 @@ func run() -> void:
 			if enemy.target_id == case.target: carrier = enemy; break
 		check(is_instance_valid(carrier), "%s carrier missing" % case.weapon)
 		if carrier != null:
+			if case.weapon == &"shotgun":
+				check(carrier.definition.identifier == &"infected_security_shotgun", "%s shotgun troop kind missing" % case.level)
 			check(carrier.carried_weapon == case.weapon, "%s carrier uses wrong gun" % case.weapon)
 			check(is_instance_valid(carrier.carried_visual) and carrier.carried_visual.visible, "%s carried gun invisible" % case.weapon)
 			var barrels := 0

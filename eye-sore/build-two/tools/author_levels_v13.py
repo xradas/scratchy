@@ -539,6 +539,11 @@ RANGED_PROMOTIONS={
     'pale_ward_02': {'cultures','waste_lab','reservoir','purge'},
     'pale_ward_03': {'upper_gallery','crossfire','cultivation','rupture'},
 }
+SHOTGUN_TROOPS={
+    'pale_ward_01.triage.enemy.5',
+    'pale_ward_02.isolation_a.enemy.2',
+    'pale_ward_03.crossfire.enemy.0',
+}
 
 
 def survival_denominations(kind,total):
@@ -598,6 +603,9 @@ def populate(sc,rooms):
                     if override['stable_id']==stable:
                         assert override['kind']==kind,(stable,'actor type/count must be preserved')
                         at=override['position'];activation_room=override.get('activation_room',activation_room);arena=override.get('arena_id',arena)
+            if stable in SHOTGUN_TROOPS:
+                assert kind=='infected_security',stable
+                kind='infected_security_shotgun'
             actual=next((r['id'] for r in rooms.values() if abs(at[0]-r['center'][0])<=r['size'][0]/2 and abs(at[2]-r['center'][2])<=r['size'][2]/2 and (not r.get('outline_xz') or shell.inside((at[0]-r['center'][0],at[2]-r['center'][2]),r['outline_xz']))),None)
             sc.marker('Spawn_'+str(len(enemy_records)),at,'metadata/stable_id = '+quote(stable)+'\nmetadata/kind = '+quote(kind)+'\nmetadata/arena_id = '+quote(arena)+'\nmetadata/activate_room = '+quote(activation_room),'EnemySpawns')
             enemy_records.append({'stable_id':stable,'room':actual or activation_room,'source_room':room['id'],'actual_room':actual,'activation_room':activation_room,'arena_id':arena,'kind':kind,'position':at})

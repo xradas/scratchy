@@ -41,6 +41,9 @@ func handle_event(event: Dictionary) -> void:
 	var type := String(event.get("type", ""))
 	var weapon := String(event.get("weapon_id", ""))
 	var kind := String(event.get("enemy_kind", ""))
+	# The two security loadouts have distinct visual/attack identities; their
+	# pain, death and detection voices belong to the same infected soldier.
+	if kind == "infected_security_shotgun": kind = "infected_security"
 	var key := ""
 	match type:
 		"item_collected":
