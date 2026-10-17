@@ -1,0 +1,84 @@
+{
+  "status": "packed_fixture_and_source_campaign_gates_passed",
+  "source_commit": "1dfe7ae589154a841a56f5acaccb50f44b83c101",
+  "packed_file": "/home/rikki/Builds/eyesore-ward-redesign-v13-2026-10-17/eyesore-ward-redesign-v13.x86_64",
+  "packed_file_sha256": "388611bbef2689c1ef0c61baa7a36e5a2bc9cbebee7f16f00becb71ba52720c3",
+  "packed_execution_scope": "Pinned external Godot editor loads exact exported ELF as --main-pack; external frozen QA scripts. This does not execute shipped ELF. All four native fixture processes exited 0.",
+  "packed_main_checks": 275,
+  "packed_structural_checks": 208,
+  "packed_fixtures": [
+    {
+      "report": "verification/level-redesign-v13/structural/release/packed-main275.json",
+      "sha256": "0ff6365745c11010312fb878174fd9fa7ce7e0053dd22b70c82a68425dccea19",
+      "checks": 275,
+      "status": "passed",
+      "strict_log": "clean"
+    },
+    {
+      "report": "verification/level-redesign-v13/structural/release/packed-structural-01.json",
+      "sha256": "9f1a35f8019b41f8e3685e7771632f9dd29049806b1a8f74e50ea5c3a17943cf",
+      "checks": 41,
+      "status": "passed",
+      "strict_log": "clean"
+    },
+    {
+      "report": "verification/level-redesign-v13/structural/release/packed-structural-02.json",
+      "sha256": "d6e3d33d9faf9dd79010c6adca2776711bf9e60cd176a0c646042549ac40d118",
+      "checks": 114,
+      "status": "passed",
+      "strict_log": "clean"
+    },
+    {
+      "report": "verification/level-redesign-v13/structural/release/packed-structural-03.json",
+      "sha256": "bd7e1c1373276b21f90c3adeed09c43b09f8f2b33d6a7e7a451ba8c48ff165f2",
+      "checks": 53,
+      "status": "passed",
+      "strict_log": "clean"
+    }
+  ],
+  "source_routes": [
+    {
+      "report": "verification/level-redesign-v13/structural/release/source-all9-normal-AB.json",
+      "sha256": "d76490d27c10dd9281b43eadbc3ab328768dd16fb0711f8d8b41d55244bedae8",
+      "status": "passed",
+      "completed_levels": 9,
+      "continue_transitions": 8,
+      "total_shots": 1204,
+      "total_kills": 416,
+      "siege_self_hits": 0,
+      "user_arguments_match_requested_source_run": true,
+      "physics_ticks_per_second": 60,
+      "teardown": {
+        "complete": true,
+        "freed_main_drain_wall_ms": 250,
+        "gameplay_changed": false,
+        "stopped_audio_wall_ms": 300
+      }
+    },
+    {
+      "report": "verification/level-redesign-v13/structural/release/source-all9-heavy-BA.json",
+      "sha256": "3be9b325016fc7cde7b1c1c7582298149f53e2b6f849b76c719d04cd3fe5b595",
+      "status": "passed",
+      "completed_levels": 9,
+      "continue_transitions": 8,
+      "total_shots": 1093,
+      "total_kills": 422,
+      "siege_self_hits": 0,
+      "user_arguments_match_requested_source_run": true,
+      "physics_ticks_per_second": 60,
+      "teardown": {
+        "complete": true,
+        "freed_main_drain_wall_ms": 250,
+        "gameplay_changed": false,
+        "stopped_audio_wall_ms": 300
+      }
+    }
+  ],
+  "semantic_audit": "verification/level-redesign-v13/structural/release/source-all9-audit.json",
+  "pending": "Actual shipped-ELF normal-AB/heavy-BA campaign receipts are running under coordinator; independent semantic audit pending completion. Coordinator owns archive integrity and stereo MovieMaker proof.",
+  "limits": [
+    "Controlled structural fixtures isolate target actors and probe geometry; full live finite-inventory routes provide separate progression proof.",
+    "No human-duration pacing, new enemy flank navigation, or exhaustive climb-path search claim.",
+    "All source, docs, tools, provenance and captured package remain frozen. Only verification evidence written."
+  ]
+}

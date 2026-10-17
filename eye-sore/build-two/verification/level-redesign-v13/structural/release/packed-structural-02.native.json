@@ -1,0 +1,1836 @@
+{
+  "checks": [
+    {
+      "check": "Explicit structural connection contract available pale_ward_02",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "east_balcony forward arrives at supported elevation",
+      "detail": {
+        "actual": "(8.5, 4.850102, -24.92832)",
+        "crouch": false,
+        "floor": "(8.5, 4.0, -24.5)"
+      },
+      "passed": true
+    },
+    {
+      "check": "east_balcony reverse arrives at supported elevation",
+      "detail": {
+        "actual": "(8.5, 4.850102, -10.57168)",
+        "crouch": false,
+        "floor": "(8.5, 4.0, -11.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "west_balcony forward arrives at supported elevation",
+      "detail": {
+        "actual": "(-8.5, 4.850102, -24.92832)",
+        "crouch": false,
+        "floor": "(-8.5, 4.0, -24.5)"
+      },
+      "passed": true
+    },
+    {
+      "check": "west_balcony reverse arrives at supported elevation",
+      "detail": {
+        "actual": "(-8.5, 4.850102, -10.57168)",
+        "crouch": false,
+        "floor": "(-8.5, 4.0, -11.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual derived basin surface []",
+      "detail": {
+        "height": 3.5
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual automatic shutter requires both feeds ReservoirBalconyWest[]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "No E candidate bypass for automatic shutter ReservoirBalconyWest[]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Actual automatic shutter requires both feeds ReservoirBalconyEast[]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "No E candidate bypass for automatic shutter ReservoirBalconyEast[]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Closed real shutter blocks basin enemy LOS []",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "No early basin attacks through closed shutter []",
+      "detail": {
+        "releases": 0
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [] basin\u2192balcony actual geometry ray",
+      "detail": {
+        "clear_expected": false,
+        "collider": "ReservoirBalconyEast:<AnimatableBody3D#253050755775>",
+        "position": "(5.25, 4.650833, -26.29)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [] basin\u2192balcony accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Shutter state [] basin\u2192balcony authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "armor",
+            "pellets": 1,
+            "position": "(5.25, 4.650833, -26.29)",
+            "shot_id": 1,
+            "target_id": "253050755775",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [] basin\u2192balcony actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Shutter state [] basin\u2192balcony actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "armor",
+            "position": "(5.25, 4.581411, -26.29)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [] basin\u2192balcony actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(5.25, 4.598255, -26.38014)",
+            "radius": 4.8,
+            "shot_id": 810001,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual derived basin surface [\"isolation_a\"]",
+      "detail": {
+        "height": 3.5
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual automatic shutter requires both feeds ReservoirBalconyWest[\"isolation_a\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "No E candidate bypass for automatic shutter ReservoirBalconyWest[\"isolation_a\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Actual automatic shutter requires both feeds ReservoirBalconyEast[\"isolation_a\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "No E candidate bypass for automatic shutter ReservoirBalconyEast[\"isolation_a\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Closed real shutter blocks basin enemy LOS [\"isolation_a\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "No early basin attacks through closed shutter [\"isolation_a\"]",
+      "detail": {
+        "releases": 0
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\"] basin\u2192balcony actual geometry ray",
+      "detail": {
+        "clear_expected": false,
+        "collider": "ReservoirBalconyEast:<AnimatableBody3D#253050755775>",
+        "position": "(5.25, 4.650833, -26.29)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\"] basin\u2192balcony accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\"] basin\u2192balcony authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "armor",
+            "pellets": 1,
+            "position": "(5.25, 4.650833, -26.29)",
+            "shot_id": 2,
+            "target_id": "253050755775",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\"] basin\u2192balcony actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\"] basin\u2192balcony actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "armor",
+            "position": "(5.25, 4.581411, -26.29)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\"] basin\u2192balcony actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(5.25, 4.598255, -26.38014)",
+            "radius": 4.8,
+            "shot_id": 810002,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual derived basin surface [\"isolation_b\"]",
+      "detail": {
+        "height": 3.5
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual automatic shutter requires both feeds ReservoirBalconyWest[\"isolation_b\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "No E candidate bypass for automatic shutter ReservoirBalconyWest[\"isolation_b\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Actual automatic shutter requires both feeds ReservoirBalconyEast[\"isolation_b\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "No E candidate bypass for automatic shutter ReservoirBalconyEast[\"isolation_b\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Closed real shutter blocks basin enemy LOS [\"isolation_b\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "No early basin attacks through closed shutter [\"isolation_b\"]",
+      "detail": {
+        "releases": 0
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_b\"] basin\u2192balcony actual geometry ray",
+      "detail": {
+        "clear_expected": false,
+        "collider": "ReservoirBalconyEast:<AnimatableBody3D#253050755775>",
+        "position": "(5.25, 4.650833, -26.29)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_b\"] basin\u2192balcony accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_b\"] basin\u2192balcony authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "armor",
+            "pellets": 1,
+            "position": "(5.25, 4.650833, -26.29)",
+            "shot_id": 3,
+            "target_id": "253050755775",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_b\"] basin\u2192balcony actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_b\"] basin\u2192balcony actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "armor",
+            "position": "(5.25, 4.581411, -26.29)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_b\"] basin\u2192balcony actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(5.25, 4.598255, -26.38014)",
+            "radius": 4.8,
+            "shot_id": 810003,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual derived basin surface [\"isolation_a\", \"isolation_b\"]",
+      "detail": {
+        "height": -0.200000002980232
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual automatic shutter requires both feeds ReservoirBalconyWest[\"isolation_a\", \"isolation_b\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "No E candidate bypass for automatic shutter ReservoirBalconyWest[\"isolation_a\", \"isolation_b\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Actual automatic shutter requires both feeds ReservoirBalconyEast[\"isolation_a\", \"isolation_b\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "No E candidate bypass for automatic shutter ReservoirBalconyEast[\"isolation_a\", \"isolation_b\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Actual automatic shutter motion freezes while paused",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Actual full shutter travel completes ReservoirBalconyWest",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Actual full shutter travel completes ReservoirBalconyEast",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\", \"isolation_b\"] basin\u2192balcony actual geometry ray",
+      "detail": {
+        "clear_expected": true,
+        "collider": "TemporaryContactReceiver:<StaticBody3D#428993426931>",
+        "position": "(5.25, 5.044032, -25.61594)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\", \"isolation_b\"] basin\u2192balcony accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\", \"isolation_b\"] basin\u2192balcony authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "hard",
+            "pellets": 1,
+            "position": "(5.25, 5.044033, -25.61594)",
+            "shot_id": 4,
+            "target_id": "428993426931",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\", \"isolation_b\"] basin\u2192balcony actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\", \"isolation_b\"] basin\u2192balcony actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "hard",
+            "position": "(5.25, 5.044024, -25.61594)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Shutter state [\"isolation_a\", \"isolation_b\"] basin\u2192balcony actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(5.25, 4.997735, -25.69532)",
+            "radius": 4.8,
+            "shot_id": 810004,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Open shutter balcony\u2192basin actual geometry ray",
+      "detail": {
+        "clear_expected": true,
+        "collider": "TemporaryContactReceiver:<StaticBody3D#431778444797>",
+        "position": "(5.25, 1.445967, -31.78406)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Open shutter balcony\u2192basin accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Open shutter balcony\u2192basin authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "hard",
+            "pellets": 1,
+            "position": "(5.25, 1.445967, -31.78406)",
+            "shot_id": 5,
+            "target_id": "431778444797",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Open shutter balcony\u2192basin actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Open shutter balcony\u2192basin actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "hard",
+            "position": "(5.25, 1.445975, -31.78406)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Open shutter balcony\u2192basin actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(5.25, 1.492265, -31.70468)",
+            "radius": 4.8,
+            "shot_id": 810005,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual closed shutter checkpoint restore accepted",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Closed restore synchronously refills basin",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Closed restore real shutter collision pose ReservoirBalconyWest",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Closed restore real shutter collision pose ReservoirBalconyEast",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Actual open shutter checkpoint restore accepted",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Open restore synchronously drains basin",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Open restore real shutter collision pose ReservoirBalconyWest",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Open restore real shutter collision pose ReservoirBalconyEast",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists -5.25 crouch=false diagonal=-1.0",
+      "detail": {
+        "crouch": false,
+        "grounded": true,
+        "position": "(-6.669096, 4.850942, -25.54906)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists -5.25 crouch=false diagonal=0.0",
+      "detail": {
+        "crouch": false,
+        "grounded": true,
+        "position": "(-5.25212, 4.850102, -25.5499)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists -5.25 crouch=false diagonal=1.0",
+      "detail": {
+        "crouch": false,
+        "grounded": true,
+        "position": "(-4.303591, 4.850944, -25.54906)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists -5.25 crouch=true diagonal=-1.0",
+      "detail": {
+        "crouch": true,
+        "grounded": true,
+        "position": "(-6.504972, 4.550941, -25.54906)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists -5.25 crouch=true diagonal=0.0",
+      "detail": {
+        "crouch": true,
+        "grounded": true,
+        "position": "(-5.254082, 4.550634, -25.54334)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists -5.25 crouch=true diagonal=1.0",
+      "detail": {
+        "crouch": true,
+        "grounded": true,
+        "position": "(-4.308337, 4.550942, -25.54906)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists 5.25 crouch=false diagonal=-1.0",
+      "detail": {
+        "crouch": false,
+        "grounded": true,
+        "position": "(4.308439, 4.85094, -25.54906)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists 5.25 crouch=false diagonal=0.0",
+      "detail": {
+        "crouch": false,
+        "grounded": true,
+        "position": "(5.242095, 4.850824, -25.5525)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists 5.25 crouch=false diagonal=1.0",
+      "detail": {
+        "crouch": false,
+        "grounded": true,
+        "position": "(6.669182, 4.850941, -25.54906)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists 5.25 crouch=true diagonal=-1.0",
+      "detail": {
+        "crouch": true,
+        "grounded": true,
+        "position": "(4.30965, 4.550941, -25.54906)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists 5.25 crouch=true diagonal=0.0",
+      "detail": {
+        "crouch": true,
+        "grounded": true,
+        "position": "(5.241021, 4.54998, -25.54332)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual parapet resists 5.25 crouch=true diagonal=1.0",
+      "detail": {
+        "crouch": true,
+        "grounded": true,
+        "position": "(6.507095, 4.550941, -25.54906)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Exact existing moved actor stable ID pale_ward_02.reservoir.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Authored moved actor position pale_ward_02.reservoir.enemy.2",
+      "detail": {
+        "actual": "(5.25, 0.87, -32.0)",
+        "expected": [
+          5.25,
+          0.87,
+          -32.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual elevated actor sees cross-area player pale_ward_02.reservoir.enemy.2",
+      "detail": {
+        "actor": "(5.25, 0.87, -32.0)",
+        "player": "(5.25526, 4.850102, -25.41167)"
+      },
+      "passed": true
+    },
+    {
+      "check": "Cross-area stance is inside actual attack range pale_ward_02.reservoir.enemy.2",
+      "detail": {
+        "distance": 6.58833503723145,
+        "range": 14.0
+      },
+      "passed": true
+    },
+    {
+      "check": "Natural actual actor emits attack across new opening pale_ward_02.reservoir.enemy.2",
+      "detail": {
+        "awake": true,
+        "releases": 1,
+        "state": "windup"
+      },
+      "passed": true
+    },
+    {
+      "check": "Actual natural cross-area attack reaches player pale_ward_02.reservoir.enemy.2",
+      "detail": {
+        "player_contacts": 1
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony a\u2192b actual geometry ray",
+      "detail": {
+        "clear_expected": true,
+        "collider": "TemporaryContactReceiver:<StaticBody3D#502410524160>",
+        "position": "(5.25, 5.044032, -25.61594)"
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony a\u2192b accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony a\u2192b authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "hard",
+            "pellets": 1,
+            "position": "(5.25, 5.044033, -25.61594)",
+            "shot_id": 6,
+            "target_id": "502410524160",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony a\u2192b actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony a\u2192b actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "hard",
+            "position": "(5.25, 5.044024, -25.61594)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony a\u2192b actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(5.25, 4.997735, -25.69532)",
+            "radius": 4.8,
+            "shot_id": 810006,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony b\u2192a actual geometry ray",
+      "detail": {
+        "clear_expected": true,
+        "collider": "TemporaryContactReceiver:<StaticBody3D#505212319239>",
+        "position": "(5.25, 1.445967, -31.78406)"
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony b\u2192a accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony b\u2192a authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "hard",
+            "pellets": 1,
+            "position": "(5.25, 1.445967, -31.78406)",
+            "shot_id": 7,
+            "target_id": "505212319239",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony b\u2192a actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony b\u2192a actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "hard",
+            "position": "(5.25, 1.445975, -31.78406)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_basin_to_balcony b\u2192a actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(5.25, 1.492265, -31.70468)",
+            "radius": 4.8,
+            "shot_id": 810007,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "east_parapet_base actual geometry ray",
+      "detail": {
+        "clear_expected": false,
+        "collider": "Structural_reservoir_fighting_balconies_EastParapetBase:<StaticBody3D#251993787804>",
+        "position": "(5.25, 4.2, -25.85)"
+      },
+      "passed": true
+    },
+    {
+      "check": "east_parapet_base accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "east_parapet_base authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "armor",
+            "pellets": 1,
+            "position": "(5.25, 4.2, -25.85)",
+            "shot_id": 8,
+            "target_id": "251993787804",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "east_parapet_base actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "east_parapet_base actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "armor",
+            "position": "(5.25, 4.2, -25.85)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "east_parapet_base actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(5.25, 4.2, -25.75833)",
+            "radius": 4.8,
+            "shot_id": 810008,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_post actual geometry ray",
+      "detail": {
+        "clear_expected": false,
+        "collider": "Structural_reservoir_fighting_balconies_EastParapetPost2:<StaticBody3D#252144786082>",
+        "position": "(5.0, 5.0, -25.85)"
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_post accepted actual pistol consumes exactly one round",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "east_slot_post authoritative pistol contact",
+      "detail": {
+        "impacts": [
+          {
+            "material": "armor",
+            "pellets": 1,
+            "position": "(5.0, 5.0, -25.85)",
+            "shot_id": 9,
+            "target_id": "252144786082",
+            "type": "impact",
+            "weapon_id": "pistol"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_post actual ranged emitter exists",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "east_slot_post actual swept enemy projectile contact",
+      "detail": {
+        "hits": [
+          {
+            "enemy_kind": "infected_security",
+            "material": "armor",
+            "position": "(5.0, 5.0, -25.85)",
+            "shot_id": 0,
+            "target_id": "",
+            "type": "projectile_impact",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "east_slot_post actual swept player ordnance contact",
+      "detail": {
+        "explosions": [
+          {
+            "damage": 90.0,
+            "material": "",
+            "position": "(5.0, 5.0, -25.75833)",
+            "radius": 4.8,
+            "shot_id": 810009,
+            "target_id": "",
+            "type": "ordnance_explosion",
+            "weapon_id": "siege_launcher"
+          }
+        ]
+      },
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "level": "pale_ward_02",
+  "observations": [
+    {
+      "connection": "reservoir_fighting_balconies",
+      "contract": {
+        "actor_overrides": [
+          {
+            "kind": "vessel",
+            "position": [
+              5.25,
+              0.87,
+              -32.0
+            ],
+            "reason": "After drain: reciprocal ranged attack through actual .4m parapet slot from6.6m horizontal; blocked by shutter beforeboth.",
+            "stable_id": "pale_ward_02.reservoir.enemy.2"
+          }
+        ],
+        "apertures": [
+          {
+            "height": [
+              4.0,
+              8.3
+            ],
+            "plane": -13.0,
+            "room": "overlook",
+            "side": "N",
+            "span": [
+              -13.0,
+              -4.0
+            ]
+          },
+          {
+            "height": [
+              4.0,
+              8.3
+            ],
+            "plane": -13.0,
+            "room": "overlook",
+            "side": "N",
+            "span": [
+              4.0,
+              13.0
+            ]
+          },
+          {
+            "height": [
+              4.0,
+              8.3
+            ],
+            "plane": -26.0,
+            "room": "reservoir",
+            "side": "S",
+            "span": [
+              -13.0,
+              -4.0
+            ]
+          },
+          {
+            "height": [
+              4.0,
+              8.3
+            ],
+            "plane": -26.0,
+            "room": "reservoir",
+            "side": "S",
+            "span": [
+              4.0,
+              13.0
+            ]
+          }
+        ],
+        "boxes": [
+          {
+            "id": "WestParapetBase",
+            "position": [
+              -8.5,
+              4.2,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              9.0,
+              0.4,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost0",
+            "position": [
+              -13.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost1",
+            "position": [
+              -12.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost2",
+            "position": [
+              -12.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost3",
+            "position": [
+              -11.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost4",
+            "position": [
+              -11.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost5",
+            "position": [
+              -10.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost6",
+            "position": [
+              -10.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost7",
+            "position": [
+              -9.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost8",
+            "position": [
+              -9.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost9",
+            "position": [
+              -8.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost10",
+            "position": [
+              -8.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost11",
+            "position": [
+              -7.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost12",
+            "position": [
+              -7.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost13",
+            "position": [
+              -6.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost14",
+            "position": [
+              -6.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost15",
+            "position": [
+              -5.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost16",
+            "position": [
+              -5.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost17",
+            "position": [
+              -4.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "WestParapetPost18",
+            "position": [
+              -4.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetBase",
+            "position": [
+              8.5,
+              4.2,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              9.0,
+              0.4,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost0",
+            "position": [
+              4.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost1",
+            "position": [
+              4.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost2",
+            "position": [
+              5.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost3",
+            "position": [
+              5.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost4",
+            "position": [
+              6.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost5",
+            "position": [
+              6.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost6",
+            "position": [
+              7.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost7",
+            "position": [
+              7.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost8",
+            "position": [
+              8.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost9",
+            "position": [
+              8.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost10",
+            "position": [
+              9.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost11",
+            "position": [
+              9.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost12",
+            "position": [
+              10.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost13",
+            "position": [
+              10.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost14",
+            "position": [
+              11.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost15",
+            "position": [
+              11.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost16",
+            "position": [
+              12.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost17",
+            "position": [
+              12.5,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          },
+          {
+            "id": "EastParapetPost18",
+            "position": [
+              13.0,
+              4.9,
+              -26.0
+            ],
+            "role": "trim",
+            "size": [
+              0.1,
+              1.0,
+              0.3
+            ]
+          }
+        ],
+        "id": "reservoir_fighting_balconies",
+        "nearby_props": "Existing overlook fittings stay inside room z>=-13; nearest basin tanks x\u00b111,z-32 and columns x\u00b116.4,z-28; no new climbable items beside gallery ends.",
+        "parapet": {
+          "base_height": 0.4,
+          "clear_slot_width": 0.4,
+          "depth": 0.3,
+          "deviation": "Root approved real .4m firing slots rather than a full1.4m wall, which blocks actual standing-player enemy LOS. Actual swept .12m enemy/.09m player projectiles then clipped the initial .65m base despite thin ray clearance; lowered visible base to.4m and extended posts down, retaining total1.4m barrier and.4m clear widths. Actual contact and anti-bypass reruns required; no projectile exemptions or invisible body.",
+          "floor": 4.0,
+          "pitch": 0.5,
+          "player_capsule_diameter": 0.6,
+          "post_width": 0.1,
+          "total_height": 1.4
+        },
+        "policy": "Two accessible upper balconies; firing shutters open only after both feed flags and actual drain. Physical slotted parapets prevent passage; central both-feeds gate unchanged.",
+        "risks": [
+          "Stand/crouch/diagonal and projectile diameter proofs required; .4m slots are smaller than .6m capsule, but metadata alone does not prove anti-bypass.",
+          "Basin actors are visually submerged until3.5m liquid drains; shutters must block all shots/LOS until actual drain.",
+          "Enemy navigation unchanged; these are firing balconies, never an alternate physical path into gated basin."
+        ],
+        "rooms": [
+          "overlook",
+          "reservoir"
+        ],
+        "shot_pairs": [
+          {
+            "a": [
+              5.25,
+              1.32,
+              -32.0
+            ],
+            "b": [
+              5.25,
+              5.17,
+              -25.4
+            ],
+            "bidirectional": true,
+            "id": "east_slot_basin_to_balcony",
+            "state": "both_flags_and_drained_shutters_fully_open"
+          }
+        ],
+        "shutters": [
+          {
+            "auto_open": true,
+            "drain_controller": "ReservoirLiquid",
+            "id": "ReservoirBalconyWest",
+            "open_offset": [
+              0.0,
+              5.0,
+              0.0
+            ],
+            "position": [
+              -8.5,
+              6.15,
+              -26.18
+            ],
+            "requires": [
+              "isolation_a",
+              "isolation_b"
+            ],
+            "size": [
+              9.0,
+              4.3,
+              0.22
+            ],
+            "stable_id": "pale_ward_02.shutter.reservoir_balcony_west",
+            "stage_door": "reservoir_balcony_west"
+          },
+          {
+            "auto_open": true,
+            "drain_controller": "ReservoirLiquid",
+            "id": "ReservoirBalconyEast",
+            "open_offset": [
+              0.0,
+              5.0,
+              0.0
+            ],
+            "position": [
+              8.5,
+              6.15,
+              -26.18
+            ],
+            "requires": [
+              "isolation_a",
+              "isolation_b"
+            ],
+            "size": [
+              9.0,
+              4.3,
+              0.22
+            ],
+            "stable_id": "pale_ward_02.shutter.reservoir_balcony_east",
+            "stage_door": "reservoir_balcony_east"
+          }
+        ],
+        "solid_pairs": [
+          {
+            "a": [
+              5.25,
+              4.2,
+              -25.0
+            ],
+            "b": [
+              5.25,
+              4.2,
+              -27.0
+            ],
+            "id": "east_parapet_base"
+          },
+          {
+            "a": [
+              5.0,
+              5.0,
+              -25.0
+            ],
+            "b": [
+              5.0,
+              5.0,
+              -27.0
+            ],
+            "id": "east_slot_post"
+          }
+        ],
+        "stairs": [],
+        "walk_paths": [
+          {
+            "id": "east_balcony",
+            "points": [
+              [
+                8.5,
+                4.0,
+                -11.0
+              ],
+              [
+                8.5,
+                4.0,
+                -24.5
+              ]
+            ],
+            "reverse": true
+          },
+          {
+            "id": "west_balcony",
+            "points": [
+              [
+                -8.5,
+                4.0,
+                -11.0
+              ],
+              [
+                -8.5,
+                4.0,
+                -24.5
+              ]
+            ],
+            "reverse": true
+          }
+        ]
+      }
+    }
+  ],
+  "scope": "Controlled actual Main construction fixture: physical player inputs on authored paths; actual moved actor natural LoS/range/release; actual pistol and both production swept projectile classes against temporary endpoint receivers and real authored walls. Actor/query isolation and initial poses are fixture setup, not live-route proof. Player ordnance direct launch is geometry-only, no ammo/cadence claim. Full natural campaign routes are separate.",
+  "status": "passed"
+}

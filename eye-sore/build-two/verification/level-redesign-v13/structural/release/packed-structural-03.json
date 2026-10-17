@@ -1,0 +1,979 @@
+{
+  "status": "passed",
+  "level": "pale_ward_03",
+  "protected_candidate": {
+    "candidate_commit": "0032b97513ce97cafc5284b3fae9531f2f2b2d8f",
+    "candidate_runtime_blobs": 479,
+    "protected_runtime_files": 465,
+    "explicit_allowed_changed_existing_runtime_files": [
+      "resources/campaign/pale_ward_01-layout.json",
+      "resources/campaign/pale_ward_01-route.json",
+      "resources/campaign/pale_ward_02-layout.json",
+      "resources/campaign/pale_ward_02-route.json",
+      "resources/campaign/pale_ward_03-layout.json",
+      "resources/campaign/pale_ward_03-route.json",
+      "resources/campaign/v13/pale_ward_01-author-report.json",
+      "resources/campaign/v13/pale_ward_02-author-report.json",
+      "resources/campaign/v13/pale_ward_03-author-report.json",
+      "scenes/campaign/pale_ward_01.tscn",
+      "scenes/campaign/pale_ward_02.tscn",
+      "scenes/campaign/pale_ward_03.tscn",
+      "scripts/reservoir_effect_v13.gd",
+      "scripts/stage_level.gd"
+    ],
+    "prior_baseline": {
+      "baseline_commit": "5f68f5c5ee51eec0997113e977bd48e4277222bf",
+      "sealed_git_blobs": 464,
+      "protected_current_files": 399,
+      "supplemental_unchanged_resources": 32,
+      "asset_resource_roster": "Exact baseline; new v13 resources limited to three Ward objective resources, three author receipts and availability budget.",
+      "catalog_policy": "Exact baseline JSON plus only three approved Ward subtitle substitutions; every other field and all six later entries identical.",
+      "six_legacy_scene_sha256": {
+        "scenes/campaign/ash_citadel_01.tscn": "70d6f39cafebdeae6dce7ccd8ad0ef88fd3c99ddb222c4d2ea217d40da936ab9",
+        "scenes/campaign/ash_citadel_02.tscn": "61c3c8407ad28d61b6cedf3601c930f71b2949970584716ab3f4d882754f2f0e",
+        "scenes/campaign/ash_citadel_03.tscn": "f46843adc3a5d88e66438734531a941dd1b2c9e06a3fa5f4bcd07c60e995bd9a",
+        "scenes/campaign/occupied_line_01.tscn": "9dd873050a6cef81ce588d02b8b60f3e55b80a248737434360e1951743dfb760",
+        "scenes/campaign/occupied_line_02.tscn": "199d7df904c5ce7048d87929d175585b6f0820b199cb0ffec3f1cec53ef51791",
+        "scenes/campaign/occupied_line_03.tscn": "f6bd25f4272460b97afeeb8a33fc9cebafb8d714a3998728e9ffd94051e382ee"
+      },
+      "scope": "Baseline identity only. Six non-Ward scenes and their route/layout resources, all original art/audio/weapons/AI/player/gore/lighting components protected; no redesigned geometry, checkpoint, route or human-duration acceptance claim."
+    }
+  },
+  "scene_sha256": "b01aff70fe351caa30fade314857dda0ec678c33119bdebc2df994f6eff79e7e",
+  "packed": true,
+  "actual_main": {
+    "checks": [
+      {
+        "check": "Explicit structural connection contract available pale_ward_03",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "raised_ledge forward arrives at supported elevation",
+        "detail": {
+          "actual": "(52.51199, 6.100648, 32.5)",
+          "crouch": false,
+          "floor": "(52.0, 5.25, 32.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "raised_ledge forward arrives at supported elevation",
+        "detail": {
+          "actual": "(68.49207, 6.100648, 32.5)",
+          "crouch": false,
+          "floor": "(68.0, 5.25, 32.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "raised_ledge forward arrives at supported elevation",
+        "detail": {
+          "actual": "(73.54231, 4.850603, 32.5)",
+          "crouch": false,
+          "floor": "(73.0, 4.0, 32.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "raised_ledge reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(67.48811, 6.100657, 32.5)",
+          "crouch": false,
+          "floor": "(68.0, 5.25, 32.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "raised_ledge reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(51.508, 6.100657, 32.5)",
+          "crouch": false,
+          "floor": "(52.0, 5.25, 32.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "raised_ledge reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(46.45766, 4.850605, 32.5)",
+          "crouch": false,
+          "floor": "(47.0, 4.0, 32.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "north_flank forward arrives at supported elevation",
+        "detail": {
+          "actual": "(66.46176, 4.850102, 35.5)",
+          "crouch": false,
+          "floor": "(66.0, 4.0, 35.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "north_flank reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(53.53822, 4.850102, 35.5)",
+          "crouch": false,
+          "floor": "(54.0, 4.0, 35.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "south_flank forward arrives at supported elevation",
+        "detail": {
+          "actual": "(66.46176, 4.850102, 47.25)",
+          "crouch": false,
+          "floor": "(66.0, 4.0, 47.25)"
+        },
+        "passed": true
+      },
+      {
+        "check": "south_flank reverse arrives at supported elevation",
+        "detail": {
+          "actual": "(53.53822, 4.850102, 47.25)",
+          "crouch": false,
+          "floor": "(54.0, 4.0, 47.25)"
+        },
+        "passed": true
+      },
+      {
+        "check": "Exact existing moved actor stable ID pale_ward_03.crossfire.enemy.2",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "Authored moved actor position pale_ward_03.crossfire.enemy.2",
+        "detail": {
+          "actual": "(60.0, 6.12, 32.5)",
+          "expected": [
+            60.0,
+            6.12,
+            32.5
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "Actual elevated actor sees cross-area player pale_ward_03.crossfire.enemy.2",
+        "detail": {
+          "actor": "(60.0, 6.12, 32.5)",
+          "player": "(70.0, 4.850102, 35.5)"
+        },
+        "passed": true
+      },
+      {
+        "check": "Cross-area stance is inside actual attack range pale_ward_03.crossfire.enemy.2",
+        "detail": {
+          "distance": 10.4403066635132,
+          "range": 14.0
+        },
+        "passed": true
+      },
+      {
+        "check": "Natural actual actor emits attack across new opening pale_ward_03.crossfire.enemy.2",
+        "detail": {
+          "awake": true,
+          "releases": 1,
+          "state": "windup"
+        },
+        "passed": true
+      },
+      {
+        "check": "Actual natural cross-area attack reaches player pale_ward_03.crossfire.enemy.2",
+        "detail": {
+          "player_contacts": 1
+        },
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens a\u2192b actual geometry ray",
+        "detail": {
+          "clear_expected": true,
+          "collider": "TemporaryContactReceiver:<StaticBody3D#446894717085>",
+          "position": "(69.76267, 5.203227, 35.4288)"
+        },
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens a\u2192b accepted actual pistol consumes exactly one round",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens a\u2192b authoritative pistol contact",
+        "detail": {
+          "impacts": [
+            {
+              "material": "hard",
+              "pellets": 1,
+              "position": "(69.76266, 5.203227, 35.4288)",
+              "shot_id": 1,
+              "target_id": "446894717085",
+              "type": "impact",
+              "weapon_id": "pistol"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens a\u2192b actual ranged emitter exists",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens a\u2192b actual swept enemy projectile contact",
+        "detail": {
+          "hits": [
+            {
+              "enemy_kind": "infected_security",
+              "material": "hard",
+              "position": "(69.76266, 5.203232, 35.4288)",
+              "shot_id": 0,
+              "target_id": "",
+              "type": "projectile_impact",
+              "weapon_id": ""
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens a\u2192b actual swept player ordnance contact",
+        "detail": {
+          "explosions": [
+            {
+              "damage": 90.0,
+              "material": "",
+              "position": "(69.677, 5.215218, 35.4031)",
+              "radius": 4.8,
+              "shot_id": 810001,
+              "target_id": "",
+              "type": "ordnance_explosion",
+              "weapon_id": "siege_launcher"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens b\u2192a actual geometry ray",
+        "detail": {
+          "clear_expected": true,
+          "collider": "TemporaryContactReceiver:<StaticBody3D#450636036271>",
+          "position": "(60.23733, 6.536774, 32.5712)"
+        },
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens b\u2192a accepted actual pistol consumes exactly one round",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens b\u2192a authoritative pistol contact",
+        "detail": {
+          "impacts": [
+            {
+              "material": "hard",
+              "pellets": 1,
+              "position": "(60.23734, 6.536774, 32.5712)",
+              "shot_id": 2,
+              "target_id": "450636036271",
+              "type": "impact",
+              "weapon_id": "pistol"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens b\u2192a actual ranged emitter exists",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens b\u2192a actual swept enemy projectile contact",
+        "detail": {
+          "hits": [
+            {
+              "enemy_kind": "infected_security",
+              "material": "hard",
+              "position": "(60.23733, 6.536768, 32.5712)",
+              "shot_id": 0,
+              "target_id": "",
+              "type": "projectile_impact",
+              "weapon_id": ""
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "high_ledge_to_specimens b\u2192a actual swept player ordnance contact",
+        "detail": {
+          "explosions": [
+            {
+              "damage": 90.0,
+              "material": "",
+              "position": "(60.323, 6.524782, 32.5969)",
+              "radius": 4.8,
+              "shot_id": 810002,
+              "target_id": "",
+              "type": "ordnance_explosion",
+              "weapon_id": "siege_launcher"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "ground_court_front a\u2192b actual geometry ray",
+        "detail": {
+          "clear_expected": true,
+          "collider": "TemporaryContactReceiver:<StaticBody3D#454108919964>",
+          "position": "(65.75, 5.2, 40.0)"
+        },
+        "passed": true
+      },
+      {
+        "check": "ground_court_front a\u2192b accepted actual pistol consumes exactly one round",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "ground_court_front a\u2192b authoritative pistol contact",
+        "detail": {
+          "impacts": [
+            {
+              "material": "hard",
+              "pellets": 1,
+              "position": "(65.75, 5.2, 40.0)",
+              "shot_id": 3,
+              "target_id": "454108919964",
+              "type": "impact",
+              "weapon_id": "pistol"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "ground_court_front a\u2192b actual ranged emitter exists",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "ground_court_front a\u2192b actual swept enemy projectile contact",
+        "detail": {
+          "hits": [
+            {
+              "enemy_kind": "infected_security",
+              "material": "hard",
+              "position": "(65.75, 5.2, 40.0)",
+              "shot_id": 0,
+              "target_id": "",
+              "type": "projectile_impact",
+              "weapon_id": ""
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "ground_court_front a\u2192b actual swept player ordnance contact",
+        "detail": {
+          "explosions": [
+            {
+              "damage": 90.0,
+              "material": "",
+              "position": "(65.65771, 5.2, 40.0)",
+              "radius": 4.8,
+              "shot_id": 810003,
+              "target_id": "",
+              "type": "ordnance_explosion",
+              "weapon_id": "siege_launcher"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "ground_court_front b\u2192a actual geometry ray",
+        "detail": {
+          "clear_expected": true,
+          "collider": "TemporaryContactReceiver:<StaticBody3D#457900570758>",
+          "position": "(54.25, 5.2, 40.0)"
+        },
+        "passed": true
+      },
+      {
+        "check": "ground_court_front b\u2192a accepted actual pistol consumes exactly one round",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "ground_court_front b\u2192a authoritative pistol contact",
+        "detail": {
+          "impacts": [
+            {
+              "material": "hard",
+              "pellets": 1,
+              "position": "(54.25, 5.2, 40.0)",
+              "shot_id": 4,
+              "target_id": "457900570758",
+              "type": "impact",
+              "weapon_id": "pistol"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "ground_court_front b\u2192a actual ranged emitter exists",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "ground_court_front b\u2192a actual swept enemy projectile contact",
+        "detail": {
+          "hits": [
+            {
+              "enemy_kind": "infected_security",
+              "material": "hard",
+              "position": "(54.25, 5.2, 40.0)",
+              "shot_id": 0,
+              "target_id": "",
+              "type": "projectile_impact",
+              "weapon_id": ""
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "ground_court_front b\u2192a actual swept player ordnance contact",
+        "detail": {
+          "explosions": [
+            {
+              "damage": 90.0,
+              "material": "",
+              "position": "(54.34229, 5.2, 40.0)",
+              "radius": 4.8,
+              "shot_id": 810004,
+              "target_id": "",
+              "type": "ordnance_explosion",
+              "weapon_id": "siege_launcher"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "offset_machine actual geometry ray",
+        "detail": {
+          "clear_expected": false,
+          "collider": "Structural_specimens_crossfire_court_OffsetMachinery:<StaticBody3D#257798704679>",
+          "position": "(59.0, 4.8, 43.25)"
+        },
+        "passed": true
+      },
+      {
+        "check": "offset_machine accepted actual pistol consumes exactly one round",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "offset_machine authoritative pistol contact",
+        "detail": {
+          "impacts": [
+            {
+              "material": "armor",
+              "pellets": 1,
+              "position": "(59.0, 4.8, 43.25)",
+              "shot_id": 5,
+              "target_id": "257798704679",
+              "type": "impact",
+              "weapon_id": "pistol"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "offset_machine actual ranged emitter exists",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "offset_machine actual swept enemy projectile contact",
+        "detail": {
+          "hits": [
+            {
+              "enemy_kind": "infected_security",
+              "material": "armor",
+              "position": "(59.0, 4.8, 43.25)",
+              "shot_id": 0,
+              "target_id": "",
+              "type": "projectile_impact",
+              "weapon_id": ""
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "offset_machine actual swept player ordnance contact",
+        "detail": {
+          "explosions": [
+            {
+              "damage": 90.0,
+              "material": "",
+              "position": "(58.90899, 4.8, 43.25)",
+              "radius": 4.8,
+              "shot_id": 810005,
+              "target_id": "",
+              "type": "ordnance_explosion",
+              "weapon_id": "siege_launcher"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "court_south_wall actual geometry ray",
+        "detail": {
+          "clear_expected": false,
+          "collider": "Structural_specimens_crossfire_court_CourtSouth:<StaticBody3D#257748376410>",
+          "position": "(60.0, 5.5, 49.0)"
+        },
+        "passed": true
+      },
+      {
+        "check": "court_south_wall accepted actual pistol consumes exactly one round",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "court_south_wall authoritative pistol contact",
+        "detail": {
+          "impacts": [
+            {
+              "material": "hard",
+              "pellets": 1,
+              "position": "(60.0, 5.5, 49.0)",
+              "shot_id": 6,
+              "target_id": "257748376410",
+              "type": "impact",
+              "weapon_id": "pistol"
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "court_south_wall actual ranged emitter exists",
+        "detail": {},
+        "passed": true
+      },
+      {
+        "check": "court_south_wall actual swept enemy projectile contact",
+        "detail": {
+          "hits": [
+            {
+              "enemy_kind": "infected_security",
+              "material": "hard",
+              "position": "(60.0, 5.5, 49.0)",
+              "shot_id": 0,
+              "target_id": "",
+              "type": "projectile_impact",
+              "weapon_id": ""
+            }
+          ]
+        },
+        "passed": true
+      },
+      {
+        "check": "court_south_wall actual swept player ordnance contact",
+        "detail": {
+          "explosions": [
+            {
+              "damage": 90.0,
+              "material": "",
+              "position": "(60.0, 5.5, 48.90899)",
+              "radius": 4.8,
+              "shot_id": 810006,
+              "target_id": "",
+              "type": "ordnance_explosion",
+              "weapon_id": "siege_launcher"
+            }
+          ]
+        },
+        "passed": true
+      }
+    ],
+    "failures": [],
+    "level": "pale_ward_03",
+    "observations": [
+      {
+        "connection": "specimens_crossfire_court",
+        "contract": {
+          "actor_overrides": [
+            {
+              "kind": "vessel",
+              "position": [
+                60.0,
+                6.12,
+                32.5
+              ],
+              "reason": "Supported high ledge exposes diagonal into specimens and crossfire;10.44m horizontal to test stance.",
+              "stable_id": "pale_ward_03.crossfire.enemy.2"
+            }
+          ],
+          "apertures": [
+            {
+              "height": [
+                4.0,
+                9.0
+              ],
+              "plane": 64.0,
+              "room": "specimens",
+              "side": "W",
+              "span": [
+                31.0,
+                49.0
+              ]
+            },
+            {
+              "height": [
+                4.0,
+                9.0
+              ],
+              "plane": 56.0,
+              "room": "crossfire",
+              "side": "E",
+              "span": [
+                31.0,
+                49.0
+              ]
+            }
+          ],
+          "boxes": [
+            {
+              "id": "CourtFloor",
+              "position": [
+                60.0,
+                3.75,
+                40.0
+              ],
+              "role": "floor",
+              "size": [
+                8.4,
+                0.5,
+                18.4
+              ]
+            },
+            {
+              "id": "CourtRoof",
+              "position": [
+                60.0,
+                9.15,
+                40.0
+              ],
+              "role": "ceiling",
+              "size": [
+                8.8,
+                0.3,
+                18.8
+              ]
+            },
+            {
+              "id": "CourtNorth",
+              "position": [
+                60.0,
+                6.5,
+                30.8
+              ],
+              "role": "wall",
+              "size": [
+                8.4,
+                5.0,
+                0.4
+              ]
+            },
+            {
+              "id": "CourtSouth",
+              "position": [
+                60.0,
+                6.5,
+                49.2
+              ],
+              "role": "wall",
+              "size": [
+                8.4,
+                5.0,
+                0.4
+              ]
+            },
+            {
+              "id": "OffsetMachinery",
+              "position": [
+                60.0,
+                4.75,
+                43.25
+              ],
+              "role": "panel",
+              "size": [
+                2.0,
+                1.5,
+                4.0
+              ]
+            },
+            {
+              "id": "NorthLedge",
+              "position": [
+                60.0,
+                4.625,
+                32.5
+              ],
+              "role": "floor",
+              "size": [
+                16.0,
+                1.25,
+                3.0
+              ]
+            }
+          ],
+          "id": "specimens_crossfire_court",
+          "lane_clearance": {
+            "central_axis_z": 40.0,
+            "enemy_navigation": "Original centre path physicallyclear; flanks playerchoice only. Machine shrunk depth6\u21924 and offset z43.25 by root-approved navigation fallback.",
+            "offset_cover_bounds": [
+              59.0,
+              61.0,
+              41.25,
+              45.25
+            ],
+            "south_physical_width": 3.75,
+            "south_usable_capsule_center_width": 3.15
+          },
+          "lights": [
+            {
+              "energy": 4.0,
+              "id": "CourtLamp",
+              "position": [
+                60.0,
+                8.8,
+                40.0
+              ],
+              "room": "crossfire"
+            }
+          ],
+          "policy": "Broad shared ungated mandatory connector after anchor A; offset cover preserves original centre route. Player flanks only; no claim of coordinated enemy navigation.",
+          "portal": "specimens__crossfire",
+          "risks": [
+            "Fresh contact/stair and real combat tests required; ledge changes ordinary encounter exposure but no mandatory all-clear or actor count.",
+            "No direct new opening into anchor rooms; anchors/checkpoints/return shortcut requirements unchanged."
+          ],
+          "rooms": [
+            "specimens",
+            "crossfire"
+          ],
+          "shot_pairs": [
+            {
+              "a": [
+                60.0,
+                6.57,
+                32.5
+              ],
+              "b": [
+                70.0,
+                5.17,
+                35.5
+              ],
+              "bidirectional": true,
+              "id": "high_ledge_to_specimens",
+              "state": "always"
+            },
+            {
+              "a": [
+                54.0,
+                5.2,
+                40.0
+              ],
+              "b": [
+                66.0,
+                5.2,
+                40.0
+              ],
+              "bidirectional": true,
+              "id": "ground_court_front",
+              "state": "always"
+            }
+          ],
+          "solid_pairs": [
+            {
+              "a": [
+                58.0,
+                4.8,
+                43.25
+              ],
+              "b": [
+                62.0,
+                4.8,
+                43.25
+              ],
+              "id": "offset_machine"
+            },
+            {
+              "a": [
+                60.0,
+                5.5,
+                48.0
+              ],
+              "b": [
+                60.0,
+                5.5,
+                50.0
+              ],
+              "id": "court_south_wall"
+            }
+          ],
+          "stairs": [
+            {
+              "end": [
+                52.0,
+                5.25,
+                32.5
+              ],
+              "id": "CrossfireLedgeStair",
+              "start": [
+                47.0,
+                4.0,
+                32.5
+              ],
+              "width": 3.0
+            },
+            {
+              "end": [
+                68.0,
+                5.25,
+                32.5
+              ],
+              "id": "SpecimensLedgeStair",
+              "start": [
+                73.0,
+                4.0,
+                32.5
+              ],
+              "width": 3.0
+            }
+          ],
+          "walk_paths": [
+            {
+              "id": "raised_ledge",
+              "points": [
+                [
+                  47.0,
+                  4.0,
+                  32.5
+                ],
+                [
+                  52.0,
+                  5.25,
+                  32.5
+                ],
+                [
+                  68.0,
+                  5.25,
+                  32.5
+                ],
+                [
+                  73.0,
+                  4.0,
+                  32.5
+                ]
+              ],
+              "reverse": true
+            },
+            {
+              "id": "north_flank",
+              "points": [
+                [
+                  54.0,
+                  4.0,
+                  35.5
+                ],
+                [
+                  66.0,
+                  4.0,
+                  35.5
+                ]
+              ],
+              "reverse": true
+            },
+            {
+              "id": "south_flank",
+              "points": [
+                [
+                  54.0,
+                  4.0,
+                  47.25
+                ],
+                [
+                  66.0,
+                  4.0,
+                  47.25
+                ]
+              ],
+              "reverse": true
+            }
+          ]
+        }
+      }
+    ],
+    "scope": "Controlled actual Main construction fixture: physical player inputs on authored paths; actual moved actor natural LoS/range/release; actual pistol and both production swept projectile classes against temporary endpoint receivers and real authored walls. Actor/query isolation and initial poses are fixture setup, not live-route proof. Player ordnance direct launch is geometry-only, no ammo/cadence claim. Full natural campaign routes are separate.",
+    "status": "passed"
+  },
+  "protected_after": {
+    "candidate_commit": "0032b97513ce97cafc5284b3fae9531f2f2b2d8f",
+    "candidate_runtime_blobs": 479,
+    "protected_runtime_files": 465,
+    "explicit_allowed_changed_existing_runtime_files": [
+      "resources/campaign/pale_ward_01-layout.json",
+      "resources/campaign/pale_ward_01-route.json",
+      "resources/campaign/pale_ward_02-layout.json",
+      "resources/campaign/pale_ward_02-route.json",
+      "resources/campaign/pale_ward_03-layout.json",
+      "resources/campaign/pale_ward_03-route.json",
+      "resources/campaign/v13/pale_ward_01-author-report.json",
+      "resources/campaign/v13/pale_ward_02-author-report.json",
+      "resources/campaign/v13/pale_ward_03-author-report.json",
+      "scenes/campaign/pale_ward_01.tscn",
+      "scenes/campaign/pale_ward_02.tscn",
+      "scenes/campaign/pale_ward_03.tscn",
+      "scripts/reservoir_effect_v13.gd",
+      "scripts/stage_level.gd"
+    ],
+    "prior_baseline": {
+      "baseline_commit": "5f68f5c5ee51eec0997113e977bd48e4277222bf",
+      "sealed_git_blobs": 464,
+      "protected_current_files": 399,
+      "supplemental_unchanged_resources": 32,
+      "asset_resource_roster": "Exact baseline; new v13 resources limited to three Ward objective resources, three author receipts and availability budget.",
+      "catalog_policy": "Exact baseline JSON plus only three approved Ward subtitle substitutions; every other field and all six later entries identical.",
+      "six_legacy_scene_sha256": {
+        "scenes/campaign/ash_citadel_01.tscn": "70d6f39cafebdeae6dce7ccd8ad0ef88fd3c99ddb222c4d2ea217d40da936ab9",
+        "scenes/campaign/ash_citadel_02.tscn": "61c3c8407ad28d61b6cedf3601c930f71b2949970584716ab3f4d882754f2f0e",
+        "scenes/campaign/ash_citadel_03.tscn": "f46843adc3a5d88e66438734531a941dd1b2c9e06a3fa5f4bcd07c60e995bd9a",
+        "scenes/campaign/occupied_line_01.tscn": "9dd873050a6cef81ce588d02b8b60f3e55b80a248737434360e1951743dfb760",
+        "scenes/campaign/occupied_line_02.tscn": "199d7df904c5ce7048d87929d175585b6f0820b199cb0ffec3f1cec53ef51791",
+        "scenes/campaign/occupied_line_03.tscn": "f6bd25f4272460b97afeeb8a33fc9cebafb8d714a3998728e9ffd94051e382ee"
+      },
+      "scope": "Baseline identity only. Six non-Ward scenes and their route/layout resources, all original art/audio/weapons/AI/player/gore/lighting components protected; no redesigned geometry, checkpoint, route or human-duration acceptance claim."
+    }
+  },
+  "auditor_sha256": "a58c6a04011610b5babac1ef568dd4221a234afe956f088520aa82f13d9c50f4"
+}
