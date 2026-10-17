@@ -1,0 +1,141 @@
+{
+  "selected": [
+    {
+      "weapon": "pistol",
+      "cue": "pistol_fire",
+      "runtime_file": "res://assets/audio/selected-v10/pistol_fire.ogg",
+      "gain_db": 4.0,
+      "selected_row": "dry",
+      "sha256": {
+        "ogg": "5cc00fcbc36f9eca7f629e8e9585831814d0b9cedeb4be114abd1f248e16e691",
+        "wav": "5264af4f4e139871d9f2d49b46af80e32b9b189697ce143fa84ba8260c600c7b"
+      }
+    },
+    {
+      "weapon": "shotgun",
+      "cue": "shotgun_fire",
+      "runtime_file": "res://assets/audio/selected-v10/shotgun_fire.ogg",
+      "gain_db": 4.0,
+      "selected_row": "A",
+      "sha256": {
+        "ogg": "580f9cc57040861116472ca21e87e97a1a339185d4d36bdff113135f7e3e1d3f",
+        "wav": "d79ad587a3dcedf761a1b1f7f97f17d773501b8cc4196f9a2af4481a2751f6cc"
+      }
+    },
+    {
+      "weapon": "twin_shotgun",
+      "cue": "twin_shotgun_fire",
+      "runtime_file": "res://assets/audio/selected-v10/twin_shotgun_fire.ogg",
+      "gain_db": 4.0,
+      "selected_row": "B",
+      "sha256": {
+        "ogg": "6876e3e0e67dddc7829f86ac4cd69d4634dbd7069da738085cfdd879a773f6d0",
+        "wav": "3e3554e265a384925cfc97337ef1fe15a62511b83420f00d8656709e1fca34f6"
+      }
+    }
+  ],
+  "new_assets": [
+    "assets/audio/selected-v10/pistol_fire.ogg",
+    "assets/audio/selected-v10/pistol_fire.ogg.import",
+    "assets/audio/selected-v10/shotgun_fire.ogg",
+    "assets/audio/selected-v10/shotgun_fire.ogg.import",
+    "assets/audio/selected-v10/source-wav/.gdignore",
+    "assets/audio/selected-v10/source-wav/pistol_fire.wav",
+    "assets/audio/selected-v10/source-wav/shotgun_fire.wav",
+    "assets/audio/selected-v10/source-wav/twin_shotgun_fire.wav",
+    "assets/audio/selected-v10/twin_shotgun_fire.ogg",
+    "assets/audio/selected-v10/twin_shotgun_fire.ogg.import"
+  ],
+  "archival_wav_ignore_marker": {
+    "path": "assets/audio/selected-v10/source-wav/.gdignore",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "protected_runtime_files": 437,
+  "other_cues_preserved": 54,
+  "music_sha256": {
+    "assets/audio/music/level_music_biotech_candidate.ogg": "88cc828e5fea3f6ac9888020a642bc8ad353f56cdc6635b0fe39bbd518820384",
+    "assets/audio/music/level_music_fortress_candidate.ogg": "5e43b700362434e609aeb8cfbc58d6133eb6ab153ee794b053d215a9ecfddeaa",
+    "assets/audio/music/menu_abelian.ogg": "dd00153a6886d9facf5d7c9a8e37baa241fc83ac37c9a6bb3028f59e7e099e85"
+  },
+  "all_nine_campaign_scenes_preserved": true,
+  "scope": "Source preflight only; no archive/release acceptance claim.",
+  "source_preflight": true,
+  "source_fingerprints_verified": 608,
+  "source_tree_sha256": "8ccf9ade1ffd341d0466796aeb23fc416cd49d97401ecaf84c2e58de6437d8b5",
+  "source_snapshot_policy": {
+    "collector": "Restricted AST literal policy read from tools/package_pale_ward.py; no packager import/execution",
+    "collector_sha256": "3e6616c15437a4b966a777586746b2f4885343aa2b0aea0667040c10425df555",
+    "packager_sha256": "2163401937c8a5ddd4565d31b10756e0a85378d6002988b3caaf1ebbaa813be0",
+    "provenance_roots": [
+      "concepts/environment-art-v1",
+      "concepts/gore-art-v1",
+      "concepts/sprite-art-v1",
+      "concepts/style-art-v2",
+      "concepts/weapon-style-v3",
+      "concepts/expansion-v1",
+      "docs/expansion-v1",
+      "concepts/arsenal-architecture-v2",
+      "docs/arsenal-architecture-v2",
+      "concepts/campaign-v3",
+      "docs/campaign-v3",
+      "docs/combat-balance-v4",
+      "docs/map-safety-v5",
+      "docs/room-program-v6",
+      "docs/pickup-art-v6",
+      "docs/intake-v7",
+      "docs/production-v8",
+      "concepts/production-v8",
+      "docs/production-v9",
+      "concepts/production-v9",
+      "concepts/audio-v9",
+      "docs/production-v10",
+      "concepts/audio-v10",
+      "concepts/pickups-rooms-v6",
+      "concepts/visual-v2/corrupted-biotech",
+      "concepts/visual-v2/occult-fortress",
+      "concepts/visual-v2/civic-invasion"
+    ],
+    "excluded_directories": [
+      ".git",
+      ".godot",
+      "build",
+      "concepts",
+      "docs",
+      "tools",
+      "verification"
+    ]
+  },
+  "git_checkpoint_blobs_verified": null,
+  "ignore_marker_git_blob_verified": null,
+  "explicit_changed_existing_inputs": [
+    "assets/audio/CREDITS.md",
+    "assets/audio/runtime-cues.json",
+    "resources/combat_audio.tres"
+  ],
+  "native_expected_changes": "Only selected pistol_fire/shotgun_fire/twin_shotgun_fire variations/gain replace matching3 frozen expected objects; no other old cue/property/pickup/geometry check removed.",
+  "status": "passed",
+  "native": {
+    "checks": 7815,
+    "cue_count": 57,
+    "engine": "4.7.2-stable (official)",
+    "failures": [],
+    "physical_parts": 1091,
+    "pickups": 711,
+    "props": 508,
+    "scope": "External pinned Godot reader of source or archived --main-pack; no shipped ELF execution or player route claim.",
+    "status": "passed"
+  },
+  "selected_native": {
+    "checks": 182,
+    "failures": [],
+    "other_cues_preserved": 54,
+    "scope": "External trusted editor reads actual source/PCK profile versus sealed v9 profile. All57 cue identities/buses/spatial, selected3 exactpaths/+4dB/decodedOGG, other54 gain/streams, music registration and embedded validated JSON. Archived ELF never executed; no listening claim.",
+    "selected_cues": 3,
+    "status": "passed"
+  },
+  "trusted_v7_reader_sha256": "d3b3cd31438bc488ccca64b50cf51f245b064d35d492d7648ac51fd10e47d506",
+  "explicit_selected_reader_sha256": "dedbabde509043321a8f0dd1506208581d44fa456d03f058e9c28a72f885146e",
+  "frozen_theme_checker": "Known old35cue fixture incompatibility retained in v8 evidence; not rerun or relaxed.",
+  "related_main_qa": "verification/production-v10/audio/main.json",
+  "auditor_sha256": "efb7a0d6ca4b644de1f8e1e300a3e26336bb58b0e0a5e1956c90abe9f156929f"
+}

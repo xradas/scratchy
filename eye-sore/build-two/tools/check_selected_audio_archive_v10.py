@@ -95,8 +95,10 @@ def audit(a):
  mapping,policy=source_audit.snapshot_policy()
  preservation=selected_audit.validate_sources(mapping)
  git_count=source_audit.git_fingerprints(a.expected_commit,mapping) if a.expected_commit else None
+ marker=preservation['archival_wav_ignore_marker']
+ marker_git_count=source_audit.git_fingerprints(a.expected_commit,{marker['path']:marker['sha256']}) if a.expected_commit else None
  report={k:v for k,v in preservation.items() if k not in ('baseline','selection_spec','expected_ledger')}
- report.update({'source_preflight':a.source_preflight,'source_fingerprints_verified':len(mapping),'source_tree_sha256':sha(json.dumps(mapping,sort_keys=True).encode()),'source_snapshot_policy':policy,'git_checkpoint_blobs_verified':git_count,'explicit_changed_existing_inputs':sorted(selected_audit.CHANGED),'native_expected_changes':'Only selected pistol_fire/shotgun_fire/twin_shotgun_fire variations/gain replace matching3 frozen expected objects; no other old cue/property/pickup/geometry check removed.'})
+ report.update({'source_preflight':a.source_preflight,'source_fingerprints_verified':len(mapping),'source_tree_sha256':sha(json.dumps(mapping,sort_keys=True).encode()),'source_snapshot_policy':policy,'git_checkpoint_blobs_verified':git_count,'ignore_marker_git_blob_verified':marker_git_count,'explicit_changed_existing_inputs':sorted(selected_audit.CHANGED),'native_expected_changes':'Only selected pistol_fire/shotgun_fire/twin_shotgun_fire variations/gain replace matching3 frozen expected objects; no other old cue/property/pickup/geometry check removed.'})
  with tempfile.TemporaryDirectory(prefix='eyesore-selected-v10-archive-') as directory:
   temporary=Path(directory);pack=None
   if not a.source_preflight:

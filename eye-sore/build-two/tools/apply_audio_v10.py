@@ -45,6 +45,8 @@ def main():
  args=parser.parse_args();spec=json.loads(args.selection.read_text());selected=spec['selected']
  manifest=json.loads((ROOT/'concepts/audio-v9/manifest.json').read_text())
  assert sha(ROOT/'concepts/audio-v9/manifest.json')==spec['audition_manifest_sha256'],'Audition manifest drift'
+ assert (ROOT/spec['source_wav_policy']['godot_ignore_file']).is_file(),'Archival PCM24 directory must remain Godot-ignored'
+ assert all(Path(i['selected_assets']['wav']).parent.as_posix()==spec['source_wav_policy']['directory'] for i in selected),'Selected WAV archival path drift'
  for item in selected:
   row=next(r for r in manifest['rows'] if r['weapon']==item['weapon'] and r['kind']==item['selected_row'])
   for fmt in ['ogg','wav']:

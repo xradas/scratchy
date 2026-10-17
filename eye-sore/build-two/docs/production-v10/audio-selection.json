@@ -1,6 +1,6 @@
 {
   "schema_version": 10,
-  "status": "User-selected exact audio bytes registered at common4dB playback gain, with corrected source provenance. ActualMain and exported-mix verification pending.",
+  "status": "Selected runtime OGG registration unchanged. Exact PCM24 source WAVs relocated into ignored source-wav directory to prevent unsupported Godot WAV imports.",
   "approval": {
     "request_as_relayed_by_coordinator": "pistol New original take; show candidatea interpreted as shotgun Candidate A; Twin Candidate B.",
     "confirmed_mapping": {
@@ -24,7 +24,7 @@
       "gain_db": 4.0,
       "selected_assets": {
         "ogg": "assets/audio/selected-v10/pistol_fire.ogg",
-        "wav": "assets/audio/selected-v10/pistol_fire.wav"
+        "wav": "assets/audio/selected-v10/source-wav/pistol_fire.wav"
       },
       "audition_files": {
         "ogg": "concepts/audio-v9/dry/pistol-dry.ogg",
@@ -92,7 +92,7 @@
       "gain_db": 4.0,
       "selected_assets": {
         "ogg": "assets/audio/selected-v10/shotgun_fire.ogg",
-        "wav": "assets/audio/selected-v10/shotgun_fire.wav"
+        "wav": "assets/audio/selected-v10/source-wav/shotgun_fire.wav"
       },
       "audition_files": {
         "ogg": "concepts/audio-v9/cues/shotgun-A.ogg",
@@ -160,7 +160,7 @@
       "gain_db": 4.0,
       "selected_assets": {
         "ogg": "assets/audio/selected-v10/twin_shotgun_fire.ogg",
-        "wav": "assets/audio/selected-v10/twin_shotgun_fire.wav"
+        "wav": "assets/audio/selected-v10/source-wav/twin_shotgun_fire.wav"
       },
       "audition_files": {
         "ogg": "concepts/audio-v9/cues/twin_shotgun-B.ogg",
@@ -334,7 +334,7 @@
   },
   "verification": {
     "passed": true,
-    "applier_sha256": "fcf1560a0a25b9a84462fc8373159e686194c2b032064fe6c733713c24fbc701",
+    "applier_sha256": "b5061610fc760ee00458d7c1d30e94f27efd2d31b36f64c947d8cc589b51b3b6",
     "provenance_states_tested": [
       {
         "starting_state": "baseline",
@@ -449,6 +449,49 @@
       "assets/audio/runtime-cues.json": "bf079250b9d99e8d9f7f65590d32ccf6125e49af1db1be56dd3ba73d5d2f4c9e",
       "resources/combat_audio.tres": "3b224ccd355103a451e8f6075f809ea7fab99dafec75936cb7e3c1b28aa09ac1"
     },
-    "source_stream_copy_hashes_still_verified_by_applier": true
+    "source_stream_copy_hashes_still_verified_by_applier": true,
+    "source_wav_relocation": {
+      "exact_original_bytes_preserved": true,
+      "selected_wav_files": 3,
+      "obsolete_import_sidecars_remaining_at_runtime_asset_root": 0,
+      "dry_run_changes_ledger": false,
+      "dry_run_changes_profile": false,
+      "strict_import_audit_owner": "QA worker /root/v8_hud"
+    }
+  },
+  "source_wav_policy": {
+    "directory": "assets/audio/selected-v10/source-wav",
+    "godot_ignore_file": "assets/audio/selected-v10/source-wav/.gdignore",
+    "policy": "Exact selected PCM24 WAV source copies retained as archival files inside a Godot-ignored directory. Runtime imports the unchanged OGG files only. No format conversion, rerender or gain change.",
+    "reason": "Godot WAV importer rejected PCM24; export failure evidence is retained by coordinator.",
+    "relocations": [
+      {
+        "weapon": "pistol",
+        "old_wav_path": "assets/audio/selected-v10/pistol_fire.wav",
+        "new_wav_path": "assets/audio/selected-v10/source-wav/pistol_fire.wav",
+        "wav_sha256_unchanged": "5264af4f4e139871d9f2d49b46af80e32b9b189697ce143fa84ba8260c600c7b",
+        "old_import_sidecar_removed": "assets/audio/selected-v10/pistol_fire.wav.import",
+        "failed_import_sidecar_preserved_external": "/home/rikki/Builds/eyesore-selected-audio-v10-2026-10-17/failure-evidence/selected-wav-sidecars-20261017T122709414033Z/pistol_fire.wav.import",
+        "failed_import_sidecar_sha256": "ecfc8ad67d95e78585dcd86689578dd67ffc65502e492af373b1a6cbc2b0ad65"
+      },
+      {
+        "weapon": "shotgun",
+        "old_wav_path": "assets/audio/selected-v10/shotgun_fire.wav",
+        "new_wav_path": "assets/audio/selected-v10/source-wav/shotgun_fire.wav",
+        "wav_sha256_unchanged": "d79ad587a3dcedf761a1b1f7f97f17d773501b8cc4196f9a2af4481a2751f6cc",
+        "old_import_sidecar_removed": "assets/audio/selected-v10/shotgun_fire.wav.import",
+        "failed_import_sidecar_preserved_external": "/home/rikki/Builds/eyesore-selected-audio-v10-2026-10-17/failure-evidence/selected-wav-sidecars-20261017T122709414033Z/shotgun_fire.wav.import",
+        "failed_import_sidecar_sha256": "7647232856d6fb1b3457f155516bc956c2c1b157c6e396fb16e2df245c3b2f78"
+      },
+      {
+        "weapon": "twin_shotgun",
+        "old_wav_path": "assets/audio/selected-v10/twin_shotgun_fire.wav",
+        "new_wav_path": "assets/audio/selected-v10/source-wav/twin_shotgun_fire.wav",
+        "wav_sha256_unchanged": "3e3554e265a384925cfc97337ef1fe15a62511b83420f00d8656709e1fca34f6",
+        "old_import_sidecar_removed": "assets/audio/selected-v10/twin_shotgun_fire.wav.import",
+        "failed_import_sidecar_preserved_external": "/home/rikki/Builds/eyesore-selected-audio-v10-2026-10-17/failure-evidence/selected-wav-sidecars-20261017T122709414033Z/twin_shotgun_fire.wav.import",
+        "failed_import_sidecar_sha256": "404b822d593c202e204426c53e4f884c76ca2cf38834cbfd39047ce628d12690"
+      }
+    ]
   }
 }

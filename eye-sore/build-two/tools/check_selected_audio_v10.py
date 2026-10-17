@@ -43,7 +43,12 @@ def validate_sources(mapping=None):
  old_ledger=source_audit.git_blob(baseline['baseline_runtime_source_commit'],'assets/audio/runtime-cues.json')
  portable.require(sha(old_ledger)==fingerprints['assets/audio/runtime-cues.json'] and json.loads(old_ledger)==expected_ledger,'Sealed v9 ledger/embedded baseline identity')
  portable.require(sha(baseline['baseline_profile_text'].encode())==fingerprints['resources/combat_audio.tres'],'Sealed exact v9 native profile text')
- new_assets=set();records=[]
+ wav_directory='assets/audio/selected-v10/source-wav';ignore_path=wav_directory+'/.gdignore'
+ policy=spec['source_wav_policy']
+ portable.require(policy['directory']==wav_directory and policy['godot_ignore_file']==ignore_path and (ROOT/ignore_path).read_bytes()==b'','Exact empty Godot ignore marker for archival WAV sources')
+ relocations=policy['relocations']
+ portable.require(len(relocations)==3 and {x['weapon'] for x in relocations}==set(CHOSEN),'Exactly3 archival WAV relocations')
+ new_assets={ignore_path};records=[]
  for item in selected:
   weapon=item['weapon'];cue=item['cue']
   portable.require(cue==weapon+'_fire' and item['runtime_file']=='res://assets/audio/selected-v10/'+cue+'.ogg' and item['gain_db']==baseline['playback_gain_db']==4.0,'Exact selected path/common4dB '+weapon)
@@ -51,10 +56,17 @@ def validate_sources(mapping=None):
   row=next(r for r in manifest['rows'] if r['weapon']==weapon and r['kind']==CHOSEN[weapon])
   for fmt in ('ogg','wav'):
    path=item['selected_assets'][fmt]
-   portable.require(path=='assets/audio/selected-v10/'+cue+'.'+fmt,'Exact selected asset basename '+weapon)
+   expected_path=('assets/audio/selected-v10/' if fmt=='ogg' else wav_directory+'/')+cue+'.'+fmt
+   portable.require(path==expected_path,'Exact selected asset basename/directory '+weapon)
    digest=sha((ROOT/path).read_bytes())
    portable.require(digest==item['selected_sha256'][fmt]==row['individual'][fmt+'_sha256']==sha((ROOT/item['audition_files'][fmt]).read_bytes()),'Exact selected audition bytes '+path)
-   new_assets.add(path);new_assets.add(path+'.import')
+   new_assets.add(path)
+   if fmt=='ogg':new_assets.add(path+'.import')
+  relocation=next(x for x in relocations if x['weapon']==weapon)
+  old_wav='assets/audio/selected-v10/'+cue+'.wav'
+  portable.require(relocation['old_wav_path']==old_wav and relocation['new_wav_path']==item['selected_assets']['wav'] and relocation['wav_sha256_unchanged']==item['selected_sha256']['wav'] and relocation['old_import_sidecar_removed']==old_wav+'.import','Exact source-only WAV relocation record '+weapon)
+  portable.require(not (ROOT/old_wav).exists() and not (ROOT/(old_wav+'.import')).exists() and not (ROOT/(item['selected_assets']['wav']+'.import')).exists(),'Unsupported WAV source cannot be imported '+weapon)
+  portable.require(sha(Path(relocation['failed_import_sidecar_preserved_external']).read_bytes())==relocation['failed_import_sidecar_sha256'],'Failed WAV import sidecar evidence retained '+weapon)
   portable.require(sha((ROOT/item['source_original']).read_bytes())==item['source_original_sha256'] and sha((ROOT/item['license_evidence']).read_bytes())==item['license_evidence_sha256'],'Recorded original/license evidence identity '+weapon)
   after=dict(item['before'],file=item['runtime_file'],gain_db=4.0,source_manifest='concepts/audio-v9/manifest.json',source_ids=[weapon],selected_row=CHOSEN[weapon],selection_manifest='docs/production-v10/audio-selection.json')
   expected_ledger['cues'][cue]=after
@@ -69,12 +81,13 @@ def validate_sources(mapping=None):
  for path,digest in fingerprints.items():
   if path not in CHANGED:portable.require((ROOT/path).is_file() and sha((ROOT/path).read_bytes())==digest,'Unrelated v9 runtime input changed '+path)
  actual_assets={p.relative_to(ROOT).as_posix() for p in (ROOT/'assets').rglob('*') if p.is_file()}
- portable.require(actual_assets=={p for p in fingerprints if p.startswith('assets/')}|new_assets,'Only new3 OGG/3 WAV and import sidecars allowed')
+ portable.require(actual_assets=={p for p in fingerprints if p.startswith('assets/')}|new_assets,'Only new3 runtime OGG/imports,3 archival WAV and empty ignore marker allowed')
  if mapping is not None:
-  for path in new_assets:portable.require(path in mapping,'Selected asset absent from full source snapshot '+path)
+  for path in new_assets-{ignore_path}:portable.require(path in mapping,'Selected asset absent from full source snapshot '+path)
+  portable.require(ignore_path not in mapping,'Dotfile exclusion in source snapshot remains unchanged; ignore marker verified separately')
  music={p:hashval for p,hashval in fingerprints.items() if p.startswith('assets/audio/music/') and p.endswith('.ogg')}
  portable.require(len(music)==3,'Exactly3 preserved music streams')
- return {'selected':records,'baseline':baseline,'selection_spec':spec,'expected_ledger':expected_ledger,'new_assets':sorted(new_assets),'protected_runtime_files':len(fingerprints)-len(CHANGED),'other_cues_preserved':54,'music_sha256':music,'all_nine_campaign_scenes_preserved':True,'scope':'Exact three selected audition OGG/WAV copies, exact3 cue stream/gain/provenance changes, exact known credits append. All other baseline assets/scripts/shaders/gameplay resources/scenes/buses/music protected; no new audio processing or source research.'}
+ return {'selected':records,'baseline':baseline,'selection_spec':spec,'expected_ledger':expected_ledger,'new_assets':sorted(new_assets),'archival_wav_ignore_marker':{'path':ignore_path,'sha256':sha(b'')},'protected_runtime_files':len(fingerprints)-len(CHANGED),'other_cues_preserved':54,'music_sha256':music,'all_nine_campaign_scenes_preserved':True,'scope':'Exact three selected audition OGG/WAV copies; archival WAV retained in explicitly ignored source directory, only OGG imported. Exact3 cue stream/gain/provenance changes and exact known credits append. All other baseline assets/scripts/shaders/gameplay resources/scenes/buses/music protected; no new audio processing or source research.'}
 
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--native',action='store_true');p.add_argument('--main-pack',type=Path);p.add_argument('--source-only',action='store_true');p.add_argument('--report',type=Path,default=OUT/'main.json');a=p.parse_args()
