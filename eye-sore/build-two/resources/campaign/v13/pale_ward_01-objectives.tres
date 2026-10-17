@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StageObjectiveProfile" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/stage_objective_profile.gd" id="profile_script"]
+[resource]
+script = ExtResource("profile_script")
+level_id = "pale_ward_01"
+initial_flags = {}
+objectives = Array[Dictionary]([{"id": "restore_power", "requires": [], "complete_flag": "local_power", "text": "Restore local power in the utility generator room."}, {"id": "surgical_access", "requires": ["local_power"], "complete_flag": "surgical_credential", "text": "Find the surgical credential in the operating theatre."}, {"id": "decon", "requires": ["surgical_credential"], "complete_flag": "decon_clear", "text": "Reach the surgical wing and survive decontamination."}, {"id": "leave", "requires": ["decon_clear"], "complete_flag": "finished", "text": "Take the transfer lift to Containment."}])
+controls = {"local_power": {"requires": [], "sets": ["local_power"]}}
+keys = {"brass": {"requires": ["local_power"], "sets": ["surgical_credential", "brass", "brass_key"]}}
+exit_requires = Array[String](["decon_clear"])
+encounters = {"decon": {"arena_id": "decon", "activation": "room_entry", "completion_flag": "decon_clear", "seal": true}}

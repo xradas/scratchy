@@ -34,6 +34,10 @@ The coordinator authored room functions, dimensions, floor elevations, connectio
 
 Three programming workers maximum alongside the coordinator. Runtime owner edits shared progression/checkpoint/combat/menu interfaces; construction owner edits authoring/scenes/resources; independent QA owner edits opt-in test driver and verification. Coordinator handles all research/design decisions, shared contracts, packaging, provenance, integration and Git. Existing specialist roles rotate through bounded tasks; no parallel ownership of shared files.
 
+The Breach upper-to-middle return bridge sits in a sealed silo atrium (floor −4m, roof18m), with observation glazing exposing the vertical route before shortcut release. Containment’s uphill bridge approach uses a15m run with0.46875m treads; physical ascent and descent are verified separately with the unchanged player controller.
+
+Legacy aggregate v3–v9 resource audits remain historical inputs for the unreplaced maps. The current Ward truth is its v13 layout/route/profile and author report, plus new route receipts; old three-arena audit assumptions are not applied to the redesigned maps.
+
 ## Checkpoint semantics
 
 Two authored milestone markers per Ward level. One latest snapshot within the current level/session; no disk save. Capture occurs only when grounded/stationary at a safe marker, required flags are set, no live projectile/local threat can hit the landing, and mechanisms have stopped. It is deferred while unsafe, never faked by clearing the encounter.
@@ -45,3 +49,7 @@ Continue restores the checkpoint's inventory, player pose, objectives, visited a
 Existing art PNGs, weapon definitions, enemy health/AI, v12 gore, accepted gun sounds and every music/audio file remain unchanged. New architecture reuses native material regions and existing fitted prop recipes. No replacement concept images stand in for game captures. Lighting uses visible mounted fixtures and readable progression landmarks.
 
 New enemy families, weapons, original per-level music, persistent campaign saves and reconstruction of the other six playable levels remain later milestones. The selected soundtrack is unchanged; original music for every current/future level remains a recorded later task using those tracks as references.
+
+## Layout reference review
+
+The user-requested [FAQ contents and layout article review](reference-review.md) records accessible sources, blocked wiki destinations, the current structural limitations and the next construction acceptance contract. Passing progression tests does not establish that the layouts meet this spatial combat standard.

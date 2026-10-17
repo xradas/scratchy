@@ -32,12 +32,14 @@ func load_catalog(path: String) -> bool:
 func reset() -> void:
 	current_index = 0
 	entry_snapshot.clear()
+	clear_checkpoint()
 
 func seek(level_id: String) -> bool:
 	for index in levels.size():
 		if String(levels[index].id) == level_id:
 			current_index = index
 			entry_snapshot.clear()
+			clear_checkpoint()
 			return true
 	return false
 
@@ -50,6 +52,7 @@ func next_level() -> Dictionary:
 func advance() -> bool:
 	if next_level().is_empty(): return false
 	current_index += 1
+	clear_checkpoint()
 	return true
 
 func is_chapter_end() -> bool:
@@ -77,3 +80,34 @@ func restore(combat: Node, snapshot: Dictionary) -> void:
 	combat.phase_time = 0.0
 	combat.cooldown = 0.0
 	combat.recoil_remaining = 0.0
+
+# One latest in-memory checkpoint. Never serialized to user:// or a save file.
+var checkpoint_snapshot: Dictionary = {}
+
+func clear_checkpoint() -> void:
+	checkpoint_snapshot.clear()
+
+func has_checkpoint(level_id: String = "") -> bool:
+	return not checkpoint_snapshot.is_empty() and (level_id.is_empty() or String(checkpoint_snapshot.get("level_id",""))==level_id)
+
+func capture_checkpoint(world: Node, combat: Node, player: CharacterBody3D, checkpoint_id: String) -> bool:
+	if world.get("objective_profile")==null or not world.checkpoint_is_safe():return false
+	var world_state:Dictionary=world.capture_checkpoint_state()
+	if world_state.is_empty():return false
+	checkpoint_snapshot={"level_id":world.objective_profile.level_id,"checkpoint_id":checkpoint_id,"inventory":capture(combat),"combat":{"kills":combat.kills,"shot_counter":combat.shot_counter},"world":world_state,"player":{"transform":player.global_transform,"camera_pitch":player.get_node("Camera3D").rotation.x,"crouching":bool(player.get("is_crouching"))}}
+	return true
+
+func restore_checkpoint(world: Node, combat: Node, player: CharacterBody3D, data: Dictionary) -> bool:
+	if world.get("objective_profile")==null or String(data.get("level_id",""))!=world.objective_profile.level_id:return false
+	if not world.restore_checkpoint_state(data.get("world",{})):return false
+	restore(combat,data.get("inventory",{}))
+	for field in ["kills","shot_counter"]:combat.set(field,data.get("combat",{}).get(field,0))
+	combat.empty_cooldown=0.0
+	player.set_movement_active(false)
+	if bool(data.get("player",{}).get("crouching",false)) and player.has_method("_set_crouching"):player._set_crouching(true)
+	player.global_transform=data.player.transform;player.velocity=Vector3.ZERO
+	player.get_node("Camera3D").rotation.x=float(data.player.get("camera_pitch",0.0))
+	# Directional hurt/corpse registration must use the restored camera now,
+	# including before the next physics tick or an immediate accepted shot.
+	for enemy in combat.enemies:enemy.update_presentation()
+	return true

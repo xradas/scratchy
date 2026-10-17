@@ -1,0 +1,1293 @@
+{
+  "containment_order": "AB",
+  "editor_feature": true,
+  "engine_arguments": [],
+  "executable": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+  "expected_levels": 1,
+  "failures": [
+    "Portal processing→decon: player died",
+    "Actual exit/menu completion pale_ward_01",
+    "Live route survival pale_ward_01",
+    "Authored objective exit precondition decon_clear"
+  ],
+  "levels": [
+    {
+      "ammo_caps": {
+        "pistol": 96,
+        "rivets": 160,
+        "rockets": 12,
+        "shells": 40
+      },
+      "arena_remaining": {
+        "decon": 6
+      },
+      "armor": 0.0,
+      "checkpoint_at_exit": true,
+      "completed": false,
+      "containment_order": "",
+      "entry_loadout": {
+        "ammo_pistol": 36,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 12,
+        "armor": 50.0,
+        "currentweapon": "pistol",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true
+        }
+      },
+      "exit_loadout": {
+        "ammo_pistol": 0,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 0,
+        "armor": 0.0,
+        "currentweapon": "melee",
+        "health": 0.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true
+        }
+      },
+      "failure_state": {
+        "ammo": {
+          "pistol": 0,
+          "rivets": 0,
+          "rockets": 0,
+          "shells": 0
+        },
+        "arena_remaining": {
+          "decon": 6
+        },
+        "armor": 0.0,
+        "bot_visible_chest_fallbacks": 49,
+        "health": 0.0,
+        "last_player_hurt": {
+          "damage": 12.0,
+          "physics_tick": 6483,
+          "source_id": "pale_ward_01.decon.enemy.1"
+        },
+        "living_enemies": [
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.triage.enemy.5",
+            "position": "(5.132641, 0.850942, -26.58507)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.generator.enemy.0",
+            "position": "(-1.018474, 0.850347, -0.976823)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.generator.enemy.3",
+            "position": "(-1.432133, 0.850931, -7.808231)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.diagnostics.enemy.1",
+            "position": "(5.90579, 0.850942, -26.58092)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.diagnostics.enemy.2",
+            "position": "(15.28542, 0.850651, -35.90528)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.imaging.enemy.0",
+            "position": "(21.01905, 1.850943, 2.104158)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.imaging.enemy.1",
+            "position": "(19.6127, 1.60084, 2.113027)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.imaging.enemy.2",
+            "position": "(42.40544, 2.850931, 1.429419)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.theatre.enemy.0",
+            "position": "(1.447532, 1.475766, 17.95039)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.theatre.enemy.1",
+            "position": "(-0.023819, 1.475257, 17.55316)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.theatre.enemy.2",
+            "position": "(18.21193, 1.350282, 1.886081)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.theatre.enemy.3",
+            "position": "(1.456242, 1.350361, 17.12912)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.theatre.enemy.4",
+            "position": "(0.209411, 0.975818, 14.3284)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.sterile.enemy.0",
+            "position": "(1.47769, 1.850192, 20.497)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.sterile.enemy.1",
+            "position": "(0.255063, 1.29732, 16.42728)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.surgical_access.enemy.0",
+            "position": "(1.458274, 1.975784, 21.45906)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.surgical_access.enemy.2",
+            "position": "(-1.211176, 1.224898, 16.25938)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.surgical_access.enemy.3",
+            "position": "(1.46864, 1.600822, 18.86009)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.recovery.enemy.0",
+            "position": "(-34.86292, 2.850942, 51.64391)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.recovery.enemy.1",
+            "position": "(-36.35342, 2.850942, 69.85726)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.recovery.enemy.2",
+            "position": "(-34.69117, 2.850942, 49.76816)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.recovery.enemy.3",
+            "position": "(-38.03595, 2.850942, 64.96262)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.recovery.enemy.4",
+            "position": "(-38.22746, 2.850848, 63.56141)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.recovery.enemy.5",
+            "position": "(-38.37052, 2.850942, 52.77945)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.processing.enemy.0",
+            "position": "(-34.85575, 2.850942, 52.41722)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.processing.enemy.1",
+            "position": "(-37.99286, 2.850942, 62.17543)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.processing.enemy.2",
+            "position": "(-28.98547, 2.850943, 77.1548)"
+          },
+          {
+            "arena": "decon",
+            "awake": true,
+            "id": "pale_ward_01.decon.enemy.0",
+            "position": "(-2.145508, 2.85, 78.75481)"
+          },
+          {
+            "arena": "decon",
+            "awake": true,
+            "id": "pale_ward_01.decon.enemy.1",
+            "position": "(-2.555416, 2.850091, 79.44062)"
+          },
+          {
+            "arena": "decon",
+            "awake": true,
+            "id": "pale_ward_01.decon.enemy.2",
+            "position": "(2.997734, 2.85, 76.53419)"
+          },
+          {
+            "arena": "decon",
+            "awake": true,
+            "id": "pale_ward_01.decon.enemy.5",
+            "position": "(-0.180006, 2.850091, 80.0)"
+          },
+          {
+            "arena": "decon",
+            "awake": true,
+            "id": "pale_ward_01.decon.enemy.6",
+            "position": "(-2.619512, 2.85, 80.2256)"
+          },
+          {
+            "arena": "decon",
+            "awake": true,
+            "id": "pale_ward_01.decon.enemy.7",
+            "position": "(-2.369554, 2.850091, 80.98048)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.transfer.enemy.0",
+            "position": "(27.58756, 4.850942, 68.59087)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.transfer.enemy.1",
+            "position": "(27.58436, 4.850936, 69.617)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.transfer.enemy.2",
+            "position": "(28.2272, 4.850941, 69.20948)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.lift_lobby.enemy.0",
+            "position": "(27.58004, 4.850105, 108.5827)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.lift_lobby.enemy.1",
+            "position": "(28.34595, 4.850942, 108.5879)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.exit.enemy.0",
+            "position": "(67.5867, 6.850941, 108.5825)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.exit.enemy.1",
+            "position": "(68.36137, 6.850941, 108.5809)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_01.observation.enemy.0",
+            "position": "(1.488148, 1.10003, 15.20459)"
+          }
+        ],
+        "player_position": "(-0.860163, 2.850192, 79.99997)",
+        "siege_self_hits": 0,
+        "weapon": "melee"
+      },
+      "flags": {
+        "brass": true,
+        "brass_key": true,
+        "local_power": true,
+        "surgical_credential": true,
+        "visited_decon": true,
+        "visited_diagnostics": true,
+        "visited_generator": true,
+        "visited_imaging": true,
+        "visited_maintenance": true,
+        "visited_nurse": true,
+        "visited_processing": true,
+        "visited_reception": true,
+        "visited_recovery": true,
+        "visited_sterile": true,
+        "visited_surgical_access": true,
+        "visited_theatre": true,
+        "visited_triage": true
+      },
+      "health": 0.0,
+      "interactions": [
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Control_local_power"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_generator__triage"
+        },
+        {
+          "accepted": true,
+          "checkpoint": "power_return",
+          "input": "stationary physical dwell",
+          "position": "(-0.0, 0.850944, 2.75207)",
+          "ticks": 56,
+          "world_safe": true
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_triage__diagnostics"
+        },
+        {
+          "accepted": true,
+          "checkpoint": "credential_return",
+          "input": "stationary physical dwell",
+          "position": "(40.0001, 2.850943, 2.732794)",
+          "ticks": 56,
+          "world_safe": true
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_sterile__reception"
+        },
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_reception__surgical_access"
+        }
+      ],
+      "kills": 23,
+      "level": "pale_ward_01",
+      "lift_route_requested": false,
+      "lift_traversals": [],
+      "peak_ammo": {
+        "pistol": 36,
+        "rivets": 0,
+        "rockets": 0,
+        "shells": 12
+      },
+      "physics_seconds": 108.033333333333,
+      "redesigned_ward": true,
+      "scene": "res://scenes/campaign/pale_ward_01.tscn",
+      "secret_used": false,
+      "segments": [
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 0,
+          "pistol": 36,
+          "position": "(0.0, 0.85056, -0.32)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→triage",
+          "shells": 12,
+          "ticks": 57
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 1,
+          "pistol": 30,
+          "position": "(0.0, 0.85056, -14.29499)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→triage",
+          "shells": 12,
+          "ticks": 102
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 3,
+          "pistol": 29,
+          "position": "(0.0, 0.85056, -26.40331)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→triage",
+          "shells": 11,
+          "ticks": 88
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 5,
+          "pistol": 29,
+          "position": "(0.0, 0.85056, -40.37841)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→triage",
+          "shells": 9,
+          "ticks": 102
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 6,
+          "pistol": 29,
+          "position": "(0.0, 0.85056, -39.89508)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→nurse",
+          "shells": 8,
+          "ticks": 15
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 7,
+          "pistol": 29,
+          "position": "(-17.31882, 0.85056, -39.99886)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→nurse",
+          "shells": 6,
+          "ticks": 132
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 9,
+          "pistol": 29,
+          "position": "(-27.27061, 0.850943, -39.98729)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→nurse",
+          "shells": 4,
+          "ticks": 79
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 10,
+          "pistol": 25,
+          "position": "(-40.30859, 0.850943, -39.9999)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→nurse",
+          "shells": 4,
+          "ticks": 95
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 10,
+          "pistol": 24,
+          "position": "(-39.82525, 0.850943, -40.0)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal nurse→maintenance",
+          "shells": 4,
+          "ticks": 15
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 20,
+          "position": "(-39.99928, 0.850943, -52.3838)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal nurse→maintenance",
+          "shells": 4,
+          "ticks": 95
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 13,
+          "pistol": 20,
+          "position": "(-40.0, -1.149179, -68.36459)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal nurse→maintenance",
+          "shells": 1,
+          "ticks": 117
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 20,
+          "position": "(-40.0, -1.149179, -80.33942)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal nurse→maintenance",
+          "shells": 0,
+          "ticks": 87
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 19,
+          "position": "(-40.0, -1.149179, -79.85607)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal maintenance→generator",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 14,
+          "position": "(-26.68208, -1.149179, -79.99821)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal maintenance→generator",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 15,
+          "pistol": 10,
+          "position": "(-14.70724, -1.149179, -79.99998)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal maintenance→generator",
+          "shells": 0,
+          "ticks": 87
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 4,
+          "position": "(0.334331, -1.149179, -79.99999)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal maintenance→generator",
+          "shells": 0,
+          "ticks": 110
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 2,
+          "position": "(2.811368, -1.149179, -83.34113)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Approach Control_local_power",
+          "shells": 0,
+          "ticks": 31
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.15757, -1.149179, -79.77851)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal generator→triage",
+          "shells": 0,
+          "ticks": 36
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.020289, -1.149179, -68.54144)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Gate approach Door_generator__triage",
+          "shells": 0,
+          "ticks": 83
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.000747, -1.024849, -66.67496)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal generator→triage",
+          "shells": 0,
+          "ticks": 14
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.000003, 0.850944, -53.63373)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal generator→triage",
+          "shells": 0,
+          "ticks": 95
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.0, 0.850944, -39.65895)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal generator→triage",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.0, 0.850944, -40.14231)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→reception",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(0.0, 0.850944, -25.65921)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→reception",
+          "shells": 0,
+          "ticks": 115
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.0, 0.850944, -13.68437)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→reception",
+          "shells": 0,
+          "ticks": 87
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(0.0, 0.850944, 0.290478)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→reception",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.0, 0.850944, 3.332106)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Checkpoint approach power_return",
+          "shells": 0,
+          "ticks": 20
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.0, 0.850944, -0.301236)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→triage",
+          "shells": 0,
+          "ticks": 25
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.0, 0.850944, -14.27609)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→triage",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.0, 0.850944, -26.38425)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→triage",
+          "shells": 0,
+          "ticks": 88
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(-0.0, 0.850944, -40.35904)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→triage",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(0.0, 0.850944, -39.87568)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→diagnostics",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 17,
+          "pistol": 0,
+          "position": "(15.45178, 0.850944, -39.98747)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Gate approach Door_triage__diagnostics",
+          "shells": 0,
+          "ticks": 118
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 18,
+          "pistol": 0,
+          "position": "(17.32996, 0.975273, -39.99924)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→diagnostics",
+          "shells": 0,
+          "ticks": 14
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 18,
+          "pistol": 0,
+          "position": "(27.30445, 2.850856, -39.99999)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→diagnostics",
+          "shells": 0,
+          "ticks": 72
+        },
+        {
+          "armor": 44.6,
+          "health": 96.4,
+          "kills": 19,
+          "pistol": 0,
+          "position": "(40.35272, 2.850943, -40.00181)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal triage→diagnostics",
+          "shells": 0,
+          "ticks": 137
+        },
+        {
+          "armor": 44.6,
+          "health": 96.4,
+          "kills": 19,
+          "pistol": 0,
+          "position": "(39.86827, 2.850943, -40.00001)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal diagnostics→imaging",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 40.4,
+          "health": 93.6,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(53.34509, 2.850943, -39.9973)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal diagnostics→imaging",
+          "shells": 0,
+          "ticks": 118
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(66.38597, 2.850943, -40.0)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal diagnostics→imaging",
+          "shells": 0,
+          "ticks": 95
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(80.36075, 2.850943, -40.0)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal diagnostics→imaging",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(79.87737, 2.850943, -40.0)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal imaging→theatre",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(79.99952, 2.850943, -25.61517)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal imaging→theatre",
+          "shells": 0,
+          "ticks": 110
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(79.99999, 2.850943, -13.64047)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal imaging→theatre",
+          "shells": 0,
+          "ticks": 87
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(79.99999, 2.850943, 0.334233)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal imaging→theatre",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(79.99999, 2.850943, -4.384058)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Acquire surgical credential",
+          "shells": 0,
+          "ticks": 46
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(79.99999, 2.850943, 0.334234)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal theatre→sterile",
+          "shells": 0,
+          "ticks": 46
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(64.6928, 2.850943, 0.004494)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal theatre→sterile",
+          "shells": 0,
+          "ticks": 117
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(52.71869, 2.850943, 0.000052)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal theatre→sterile",
+          "shells": 0,
+          "ticks": 87
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(39.67723, 2.850943, 0.0)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal theatre→sterile",
+          "shells": 0,
+          "ticks": 95
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(40.01873, 2.850943, 3.387748)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Checkpoint approach credential_return",
+          "shells": 0,
+          "ticks": 28
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(40.00001, 2.850943, -0.320475)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal sterile→reception",
+          "shells": 0,
+          "ticks": 25
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(28.56105, 2.850943, -0.043469)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Gate approach Door_sterile__reception",
+          "shells": 0,
+          "ticks": 88
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(26.69731, 2.850943, 0.000288)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal sterile→reception",
+          "shells": 0,
+          "ticks": 93
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(15.65172, 0.851057, 0.000002)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal sterile→reception",
+          "shells": 0,
+          "ticks": 80
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(-0.32269, 0.850363, 0.0)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal sterile→reception",
+          "shells": 0,
+          "ticks": 117
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(0.160737, 0.850363, -0.0)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→surgical_access",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 36.2,
+          "health": 90.8,
+          "kills": 20,
+          "pistol": 0,
+          "position": "(0.018171, 0.850363, 12.51736)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Gate approach Door_reception__surgical_access",
+          "shells": 0,
+          "ticks": 96
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(0.228384, 0.948322, 13.87033)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→surgical_access",
+          "shells": 0,
+          "ticks": 22
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(0.00292, 2.850192, 28.27685)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→surgical_access",
+          "shells": 0,
+          "ticks": 112
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(0.000008, 2.850192, 40.38445)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal reception→surgical_access",
+          "shells": 0,
+          "ticks": 88
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(0.0, 2.850192, 39.74264)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal surgical_access→recovery",
+          "shells": 0,
+          "ticks": 16
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(-13.31328, 2.850192, 39.99681)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal surgical_access→recovery",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(-24.35393, 2.850192, 39.99998)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal surgical_access→recovery",
+          "shells": 0,
+          "ticks": 80
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(-40.32811, 2.850192, 40.0)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal surgical_access→recovery",
+          "shells": 0,
+          "ticks": 117
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(-39.84463, 2.850192, 40.0)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal recovery→processing",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(-39.99811, 2.850192, 53.31691)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal recovery→processing",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(-40.0, 2.850192, 68.35763)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal recovery→processing",
+          "shells": 0,
+          "ticks": 110
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(-40.0, 2.850192, 80.33176)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal recovery→processing",
+          "shells": 0,
+          "ticks": 87
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(-40.0, 2.850192, 79.84828)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal processing→decon",
+          "shells": 0,
+          "ticks": 15
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(-26.68296, 2.850192, 79.99815)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal processing→decon",
+          "shells": 0,
+          "ticks": 102
+        },
+        {
+          "armor": 21.8,
+          "health": 81.2,
+          "kills": 21,
+          "pistol": 0,
+          "position": "(-16.7087, 2.850192, 79.99997)",
+          "rivets": 0,
+          "rockets": 0,
+          "segment": "Portal processing→decon",
+          "shells": 0,
+          "ticks": 72
+        }
+      ],
+      "shots": 183,
+      "siege_self_hits": 0,
+      "total_enemies": 64,
+      "visited_rooms": [
+        "reception",
+        "triage",
+        "nurse",
+        "maintenance",
+        "generator",
+        "diagnostics",
+        "imaging",
+        "theatre",
+        "sterile",
+        "surgical_access",
+        "recovery",
+        "processing",
+        "decon"
+      ],
+      "weapon_kills": {
+        "melee": 6,
+        "pistol": 7,
+        "shotgun": 10
+      },
+      "weapon_shots": {
+        "melee": 135,
+        "pistol": 36,
+        "shotgun": 12
+      }
+    }
+  ],
+  "levels_completed": 0,
+  "physics_ticks_per_second": 60,
+  "scope": "Opt-in actual Main physical CharacterBody movement, live enemies/damage/finite ammo, real weapon rays and E-use. Ward objective contracts; legacy sequence only six unchanged maps. Exact Continue carry, no seed/teleport/death/flag injection or secret supplies. Bot simulation timings do not establish20–25minute human pacing.",
+  "source_package_dir": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+  "status": "failed",
+  "use_heavy_weapons": false
+}

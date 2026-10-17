@@ -1,0 +1,38 @@
+{
+  "checks": 80,
+  "failures": [],
+  "observations": [
+    {
+      "actors": 64,
+      "anchors": 0,
+      "checkpoints": 2,
+      "level": "pale_ward_01",
+      "rooms": 22,
+      "scene": "res://scenes/campaign/pale_ward_01.tscn",
+      "snapshot_fields": [
+        "level_id",
+        "mechanisms",
+        "enemies",
+        "flags",
+        "collected",
+        "visited",
+        "dead_ids",
+        "arena_remaining",
+        "arena_active",
+        "enemy_groups",
+        "traps",
+        "secrets",
+        "shortcuts",
+        "checkpoint_used",
+        "current_room",
+        "finished",
+        "prompt",
+        "objective",
+        "secret_found",
+        "shortcut_open"
+      ]
+    }
+  ],
+  "scope": "Controlled actual Main authored resource/count/identity, checkpoint physical capsule/support, complete stable world roundtrip and atomic invalid-state rejection. AI frozen for inspection. Separate physical input route and checkpoint lifecycle fixtures required; no human pacing or live traversal claim.",
+  "status": "passed"
+}

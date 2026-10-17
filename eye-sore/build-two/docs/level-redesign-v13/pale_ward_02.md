@@ -23,25 +23,25 @@ Encounter roster: 76 existing Ward enemies. Main-route ammunition pickups: {'pis
 
 | Room | Floor | Function | Objects |
 |---|---:|---|---|
-| Reservoir receiving overlook | 4m | control_room | containment_console, records_cabinet |
-| Culture receiving | 4m | diagnostics | scan_console, instrument_bench, specimen_fridge |
-| Sterile culture laboratory | 4m | surgery | surgical_table, instrument_bench, surgical_lamp |
-| Culture filtration | 2m | utility | filter_unit, supply_cart |
-| Culture isolation control | 2m | control_room | containment_console, records_cabinet |
-| Waste transfer | 4m | utility | filter_unit, supply_cart |
-| Surgical waste laboratory | 4m | surgery | surgical_table, instrument_bench, surgical_lamp |
-| Thermal sterilizer | 6m | utility | filter_unit, supply_cart |
-| Waste isolation control | 6m | control_room | containment_console, records_cabinet |
-| Drained reservoir basin | 0m | reservoir | filter_unit, containment_console |
-| Lower outfall | 0m | utility | filter_unit, supply_cart |
-| Purge machinery | 0m | utility | filter_unit, supply_cart |
-| Discharge control | 2m | control_room | containment_console, records_cabinet |
-| Specimen transfer | 2m | security | intake_desk, weapon_rack |
-| Pump spares (optional) | 4m | utility | filter_unit, supply_cart |
-| Culture records (optional) | 4m | records | records_cabinet, records_cabinet |
-| Decon lockers (optional) | 4m | staff_room | ppe_locker, waiting_bench |
-| Upper service observation (optional) | 6m | control_room | containment_console, records_cabinet |
-| Cold archive (secret) | 2m | medical_stores | medical_cabinet, supply_cart, records_cabinet |
-| Old outfall stores (secret) | 0m | utility | filter_unit, supply_cart |
+| Reservoir receiving overlook | 4m | control_room | containment_console, containment_console, containment_console, containment_console, records_cabinet, records_cabinet |
+| Culture receiving | 4m | diagnostics | scan_console, scan_console, instrument_bench, instrument_bench, specimen_fridge, specimen_fridge, medical_cabinet, medical_cabinet |
+| Sterile culture laboratory | 4m | surgery | surgical_table, surgical_table, surgical_lamp, surgical_lamp, instrument_bench, instrument_bench, specimen_fridge, medical_cabinet, vital_monitor, vital_monitor |
+| Culture filtration | 2m | utility | pump_rig, pump_rig, pump_rig, pump_rig, pipe_manifold, pipe_manifold, filter_unit, containment_console |
+| Culture isolation control | 2m | control_room | containment_console, containment_console, containment_console, containment_console, records_cabinet, records_cabinet |
+| Waste transfer | 4m | utility | pump_rig, pump_rig, pump_rig, pump_rig, pipe_manifold, pipe_manifold, filter_unit, containment_console |
+| Surgical waste laboratory | 4m | surgery | surgical_table, surgical_table, surgical_lamp, surgical_lamp, instrument_bench, instrument_bench, specimen_fridge, medical_cabinet, vital_monitor, vital_monitor |
+| Thermal sterilizer | 6m | utility | pump_rig, pump_rig, pump_rig, pump_rig, pipe_manifold, pipe_manifold, filter_unit, containment_console |
+| Waste isolation control | 6m | control_room | containment_console, containment_console, containment_console, containment_console, records_cabinet, records_cabinet |
+| Drained reservoir basin | 0m | reservoir | specimen_tank, specimen_tank, specimen_tank, specimen_tank, pipe_manifold, pipe_manifold |
+| Lower outfall | 0m | utility | pump_rig, pump_rig, pump_rig, pump_rig, pipe_manifold, pipe_manifold, filter_unit, containment_console |
+| Purge machinery | 0m | utility | pump_rig, pump_rig, pump_rig, pump_rig, pipe_manifold, pipe_manifold, filter_unit, containment_console |
+| Discharge control | 2m | control_room | containment_console, containment_console, containment_console, containment_console, records_cabinet, records_cabinet |
+| Specimen transfer | 2m | security | intake_desk, security_console, weapon_rack, weapon_rack, ppe_locker, ppe_locker |
+| Pump spares (optional) | 4m | utility | pump_rig, pump_rig, pump_rig, pump_rig |
+| Culture records (optional) | 4m | records | records_cabinet, records_cabinet, records_cabinet, records_cabinet |
+| Decon lockers (optional) | 4m | staff_room | ppe_locker, ppe_locker, ppe_locker, ppe_locker |
+| Upper service observation (optional) | 6m | control_room | containment_console, containment_console, containment_console, containment_console |
+| Cold archive (secret) | 2m | medical_stores | medical_cabinet, medical_cabinet, medical_cabinet, medical_cabinet |
+| Old outfall stores (secret) | 0m | utility | pump_rig, pump_rig, pump_rig, pump_rig |
 
 Machine-readable positions, connections, requirements and inventory: `pale_ward_02.json`.

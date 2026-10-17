@@ -1,0 +1,21 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Invalid call 'String' constructor: Authored physical traverse_points missing reception→
+          at: connect_rooms (res://scripts/level_route_playtest_v13.gd:103)
+          GDScript backtrace (most recent call first):
+              [0] connect_rooms (res://scripts/level_route_playtest_v13.gd:103)
+              [1] travel_to (res://scripts/campaign_route_playtest.gd:496)
+              [2] use_control (res://scripts/level_route_playtest_v13.gd:148)
+              [3] ward_route (res://scripts/level_route_playtest_v13.gd:181)
+              [4] run (res://scripts/level_route_playtest_v13.gd:41)
+ERROR: RELEASE_STAGE_ROUTE: Actual exit/menu completion pale_ward_01
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (res://scripts/release_stage_playtest.gd:42)
+       [1] run (res://scripts/level_route_playtest_v13.gd:44)
+ERROR: RELEASE_STAGE_ROUTE: Authored objective exit precondition decon_clear
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (res://scripts/release_stage_playtest.gd:42)
+       [1] run (res://scripts/level_route_playtest_v13.gd:47)
+LEVELS_V13_ROUTE failed 0/1 ["Actual exit/menu completion pale_ward_01", "Authored objective exit precondition decon_clear"]

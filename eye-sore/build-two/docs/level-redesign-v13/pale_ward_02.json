@@ -28,19 +28,59 @@
           "id": "overlook.prop.0",
           "type": "containment_console",
           "position_local": [
-            -12.0,
+            -8,
             0,
-            -8.0
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "overlook.prop.1",
+          "type": "containment_console",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "overlook.prop.2",
+          "type": "containment_console",
+          "position_local": [
+            -8,
+            0,
+            6
           ],
           "heading": 90
         },
         {
-          "id": "overlook.prop.1",
+          "id": "overlook.prop.3",
+          "type": "containment_console",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "overlook.prop.4",
           "type": "records_cabinet",
           "position_local": [
-            12.0,
+            -10,
             0,
-            -8.0
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "overlook.prop.5",
+          "type": "records_cabinet",
+          "position_local": [
+            10,
+            0,
+            -9
           ],
           "heading": -90
         }
@@ -70,31 +110,81 @@
           "id": "culture_access.prop.0",
           "type": "scan_console",
           "position_local": [
-            -9.0,
+            -9,
             0,
-            -7.0
+            -7
           ],
           "heading": 90
         },
         {
           "id": "culture_access.prop.1",
-          "type": "instrument_bench",
+          "type": "scan_console",
           "position_local": [
-            9.0,
+            9,
             0,
-            -7.0
+            -7
           ],
           "heading": -90
         },
         {
           "id": "culture_access.prop.2",
-          "type": "specimen_fridge",
+          "type": "instrument_bench",
           "position_local": [
-            -9.0,
+            -8,
             0,
-            -1.0
+            5
           ],
           "heading": 90
+        },
+        {
+          "id": "culture_access.prop.3",
+          "type": "instrument_bench",
+          "position_local": [
+            8,
+            0,
+            5
+          ],
+          "heading": -90
+        },
+        {
+          "id": "culture_access.prop.4",
+          "type": "specimen_fridge",
+          "position_local": [
+            -10,
+            0,
+            -10.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "culture_access.prop.5",
+          "type": "specimen_fridge",
+          "position_local": [
+            10,
+            0,
+            -10.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "culture_access.prop.6",
+          "type": "medical_cabinet",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "culture_access.prop.7",
+          "type": "medical_cabinet",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
         }
       ],
       "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
@@ -122,31 +212,101 @@
           "id": "cultures.prop.0",
           "type": "surgical_table",
           "position_local": [
-            -12.0,
+            -7,
             0,
-            -9.0
+            -2
           ],
-          "heading": 90
+          "heading": 0
         },
         {
           "id": "cultures.prop.1",
-          "type": "instrument_bench",
+          "type": "surgical_table",
           "position_local": [
-            12.0,
+            7,
             0,
-            -9.0
+            -2
           ],
-          "heading": -90
+          "heading": 0
         },
         {
           "id": "cultures.prop.2",
           "type": "surgical_lamp",
           "position_local": [
-            -12.0,
+            -7,
             0,
-            -3.0
+            -4.5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "cultures.prop.3",
+          "type": "surgical_lamp",
+          "position_local": [
+            7,
+            0,
+            -4.5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "cultures.prop.4",
+          "type": "instrument_bench",
+          "position_local": [
+            -10,
+            0,
+            7
           ],
           "heading": 90
+        },
+        {
+          "id": "cultures.prop.5",
+          "type": "instrument_bench",
+          "position_local": [
+            10,
+            0,
+            7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "cultures.prop.6",
+          "type": "specimen_fridge",
+          "position_local": [
+            -11,
+            0,
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "cultures.prop.7",
+          "type": "medical_cabinet",
+          "position_local": [
+            11,
+            0,
+            -9
+          ],
+          "heading": -90
+        },
+        {
+          "id": "cultures.prop.8",
+          "type": "vital_monitor",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "cultures.prop.9",
+          "type": "vital_monitor",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
         }
       ],
       "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
@@ -172,21 +332,81 @@
       "objects": [
         {
           "id": "filters.prop.0",
-          "type": "filter_unit",
+          "type": "pump_rig",
           "position_local": [
-            -9.0,
+            -8,
             0,
-            -7.0
+            -7
           ],
           "heading": 90
         },
         {
           "id": "filters.prop.1",
-          "type": "supply_cart",
+          "type": "pump_rig",
           "position_local": [
-            9.0,
+            -8,
             0,
-            -7.0
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "filters.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "filters.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "filters.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "filters.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "filters.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "filters.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
           ],
           "heading": -90
         }
@@ -216,19 +436,59 @@
           "id": "isolation_a.prop.0",
           "type": "containment_console",
           "position_local": [
-            -9.0,
+            -8,
             0,
-            -7.0
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "isolation_a.prop.1",
+          "type": "containment_console",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "isolation_a.prop.2",
+          "type": "containment_console",
+          "position_local": [
+            -8,
+            0,
+            6
           ],
           "heading": 90
         },
         {
-          "id": "isolation_a.prop.1",
+          "id": "isolation_a.prop.3",
+          "type": "containment_console",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "isolation_a.prop.4",
           "type": "records_cabinet",
           "position_local": [
-            9.0,
+            -10,
             0,
-            -7.0
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "isolation_a.prop.5",
+          "type": "records_cabinet",
+          "position_local": [
+            10,
+            0,
+            -9
           ],
           "heading": -90
         }
@@ -256,21 +516,81 @@
       "objects": [
         {
           "id": "waste_access.prop.0",
-          "type": "filter_unit",
+          "type": "pump_rig",
           "position_local": [
-            -9.0,
+            -8,
             0,
-            -7.0
+            -7
           ],
           "heading": 90
         },
         {
           "id": "waste_access.prop.1",
-          "type": "supply_cart",
+          "type": "pump_rig",
           "position_local": [
-            9.0,
+            -8,
             0,
-            -7.0
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "waste_access.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "waste_access.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "waste_access.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "waste_access.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "waste_access.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "waste_access.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
           ],
           "heading": -90
         }
@@ -300,31 +620,101 @@
           "id": "waste_lab.prop.0",
           "type": "surgical_table",
           "position_local": [
-            -12.0,
+            -7,
             0,
-            -9.0
+            -2
           ],
-          "heading": 90
+          "heading": 0
         },
         {
           "id": "waste_lab.prop.1",
-          "type": "instrument_bench",
+          "type": "surgical_table",
           "position_local": [
-            12.0,
+            7,
             0,
-            -9.0
+            -2
           ],
-          "heading": -90
+          "heading": 0
         },
         {
           "id": "waste_lab.prop.2",
           "type": "surgical_lamp",
           "position_local": [
-            -12.0,
+            -7,
             0,
-            -3.0
+            -4.5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "waste_lab.prop.3",
+          "type": "surgical_lamp",
+          "position_local": [
+            7,
+            0,
+            -4.5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "waste_lab.prop.4",
+          "type": "instrument_bench",
+          "position_local": [
+            -10,
+            0,
+            7
           ],
           "heading": 90
+        },
+        {
+          "id": "waste_lab.prop.5",
+          "type": "instrument_bench",
+          "position_local": [
+            10,
+            0,
+            7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "waste_lab.prop.6",
+          "type": "specimen_fridge",
+          "position_local": [
+            -11,
+            0,
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "waste_lab.prop.7",
+          "type": "medical_cabinet",
+          "position_local": [
+            11,
+            0,
+            -9
+          ],
+          "heading": -90
+        },
+        {
+          "id": "waste_lab.prop.8",
+          "type": "vital_monitor",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "waste_lab.prop.9",
+          "type": "vital_monitor",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
         }
       ],
       "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
@@ -350,21 +740,81 @@
       "objects": [
         {
           "id": "sterilizer.prop.0",
-          "type": "filter_unit",
+          "type": "pump_rig",
           "position_local": [
-            -9.0,
+            -8,
             0,
-            -7.0
+            -7
           ],
           "heading": 90
         },
         {
           "id": "sterilizer.prop.1",
-          "type": "supply_cart",
+          "type": "pump_rig",
           "position_local": [
-            9.0,
+            -8,
             0,
-            -7.0
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "sterilizer.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "sterilizer.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "sterilizer.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "sterilizer.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "sterilizer.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "sterilizer.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
           ],
           "heading": -90
         }
@@ -394,19 +844,59 @@
           "id": "isolation_b.prop.0",
           "type": "containment_console",
           "position_local": [
-            -9.0,
+            -8,
             0,
-            -7.0
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "isolation_b.prop.1",
+          "type": "containment_console",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "isolation_b.prop.2",
+          "type": "containment_console",
+          "position_local": [
+            -8,
+            0,
+            6
           ],
           "heading": 90
         },
         {
-          "id": "isolation_b.prop.1",
+          "id": "isolation_b.prop.3",
+          "type": "containment_console",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "isolation_b.prop.4",
           "type": "records_cabinet",
           "position_local": [
-            9.0,
+            -10,
             0,
-            -7.0
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "isolation_b.prop.5",
+          "type": "records_cabinet",
+          "position_local": [
+            10,
+            0,
+            -9
           ],
           "heading": -90
         }
@@ -434,21 +924,61 @@
       "objects": [
         {
           "id": "reservoir.prop.0",
-          "type": "filter_unit",
+          "type": "specimen_tank",
           "position_local": [
-            -14.0,
+            -11,
             0,
-            -9.0
+            -8
+          ],
+          "heading": 0
+        },
+        {
+          "id": "reservoir.prop.1",
+          "type": "specimen_tank",
+          "position_local": [
+            -11,
+            0,
+            8
+          ],
+          "heading": 0
+        },
+        {
+          "id": "reservoir.prop.2",
+          "type": "specimen_tank",
+          "position_local": [
+            11,
+            0,
+            -8
+          ],
+          "heading": 0
+        },
+        {
+          "id": "reservoir.prop.3",
+          "type": "specimen_tank",
+          "position_local": [
+            11,
+            0,
+            8
+          ],
+          "heading": 0
+        },
+        {
+          "id": "reservoir.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -13,
+            0,
+            3
           ],
           "heading": 90
         },
         {
-          "id": "reservoir.prop.1",
-          "type": "containment_console",
+          "id": "reservoir.prop.5",
+          "type": "pipe_manifold",
           "position_local": [
-            14.0,
+            13,
             0,
-            -9.0
+            3
           ],
           "heading": -90
         }
@@ -476,21 +1006,81 @@
       "objects": [
         {
           "id": "outfall.prop.0",
-          "type": "filter_unit",
+          "type": "pump_rig",
           "position_local": [
-            -9.0,
+            -8,
             0,
-            -7.0
+            -7
           ],
           "heading": 90
         },
         {
           "id": "outfall.prop.1",
-          "type": "supply_cart",
+          "type": "pump_rig",
           "position_local": [
-            9.0,
+            -8,
             0,
-            -7.0
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "outfall.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "outfall.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "outfall.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "outfall.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "outfall.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "outfall.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
           ],
           "heading": -90
         }
@@ -518,21 +1108,81 @@
       "objects": [
         {
           "id": "purge.prop.0",
-          "type": "filter_unit",
+          "type": "pump_rig",
           "position_local": [
-            -9.0,
+            -8,
             0,
-            -7.0
+            -7
           ],
           "heading": 90
         },
         {
           "id": "purge.prop.1",
-          "type": "supply_cart",
+          "type": "pump_rig",
           "position_local": [
-            9.0,
+            -8,
             0,
-            -7.0
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "purge.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "purge.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "purge.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "purge.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "purge.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "purge.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
           ],
           "heading": -90
         }
@@ -562,19 +1212,59 @@
           "id": "discharge.prop.0",
           "type": "containment_console",
           "position_local": [
-            -9.0,
+            -8,
             0,
-            -7.0
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "discharge.prop.1",
+          "type": "containment_console",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "discharge.prop.2",
+          "type": "containment_console",
+          "position_local": [
+            -8,
+            0,
+            6
           ],
           "heading": 90
         },
         {
-          "id": "discharge.prop.1",
+          "id": "discharge.prop.3",
+          "type": "containment_console",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "discharge.prop.4",
           "type": "records_cabinet",
           "position_local": [
-            9.0,
+            -10,
             0,
-            -7.0
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "discharge.prop.5",
+          "type": "records_cabinet",
+          "position_local": [
+            10,
+            0,
+            -9
           ],
           "heading": -90
         }
@@ -604,19 +1294,59 @@
           "id": "exit.prop.0",
           "type": "intake_desk",
           "position_local": [
-            -9.0,
+            -7,
             0,
-            -7.0
+            -5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "exit.prop.1",
+          "type": "security_console",
+          "position_local": [
+            7,
+            0,
+            -5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "exit.prop.2",
+          "type": "weapon_rack",
+          "position_local": [
+            -9,
+            0,
+            6
           ],
           "heading": 90
         },
         {
-          "id": "exit.prop.1",
+          "id": "exit.prop.3",
           "type": "weapon_rack",
           "position_local": [
-            9.0,
+            9,
             0,
-            -7.0
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "exit.prop.4",
+          "type": "ppe_locker",
+          "position_local": [
+            -10,
+            0,
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "exit.prop.5",
+          "type": "ppe_locker",
+          "position_local": [
+            10,
+            0,
+            -9
           ],
           "heading": -90
         }
@@ -644,21 +1374,41 @@
       "objects": [
         {
           "id": "pump_store.prop.0",
-          "type": "filter_unit",
+          "type": "pump_rig",
           "position_local": [
-            -9.0,
+            -10.0,
             0,
-            -7.0
+            -9.0
           ],
           "heading": 90
         },
         {
           "id": "pump_store.prop.1",
-          "type": "supply_cart",
+          "type": "pump_rig",
           "position_local": [
-            9.0,
+            -10.0,
             0,
-            -7.0
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "pump_store.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "pump_store.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            9.0
           ],
           "heading": -90
         }
@@ -688,9 +1438,9 @@
           "id": "culture_office.prop.0",
           "type": "records_cabinet",
           "position_local": [
-            -9.0,
+            -10.0,
             0,
-            -7.0
+            -9.0
           ],
           "heading": 90
         },
@@ -698,9 +1448,29 @@
           "id": "culture_office.prop.1",
           "type": "records_cabinet",
           "position_local": [
-            9.0,
+            -10.0,
             0,
-            -7.0
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "culture_office.prop.2",
+          "type": "records_cabinet",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "culture_office.prop.3",
+          "type": "records_cabinet",
+          "position_local": [
+            10.0,
+            0,
+            9.0
           ],
           "heading": -90
         }
@@ -730,19 +1500,39 @@
           "id": "waste_locker.prop.0",
           "type": "ppe_locker",
           "position_local": [
-            -9.0,
+            -10.0,
             0,
-            -7.0
+            -9.0
           ],
           "heading": 90
         },
         {
           "id": "waste_locker.prop.1",
-          "type": "waiting_bench",
+          "type": "ppe_locker",
           "position_local": [
-            9.0,
+            -10.0,
             0,
-            -7.0
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "waste_locker.prop.2",
+          "type": "ppe_locker",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "waste_locker.prop.3",
+          "type": "ppe_locker",
+          "position_local": [
+            10.0,
+            0,
+            9.0
           ],
           "heading": -90
         }
@@ -772,19 +1562,39 @@
           "id": "upper_service.prop.0",
           "type": "containment_console",
           "position_local": [
-            -9.0,
+            -10.0,
             0,
-            -7.0
+            -9.0
           ],
           "heading": 90
         },
         {
           "id": "upper_service.prop.1",
-          "type": "records_cabinet",
+          "type": "containment_console",
           "position_local": [
-            9.0,
+            -10.0,
             0,
-            -7.0
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "upper_service.prop.2",
+          "type": "containment_console",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "upper_service.prop.3",
+          "type": "containment_console",
+          "position_local": [
+            10.0,
+            0,
+            9.0
           ],
           "heading": -90
         }
@@ -814,31 +1624,41 @@
           "id": "secret_culture.prop.0",
           "type": "medical_cabinet",
           "position_local": [
-            -9.0,
+            -10.0,
             0,
-            -7.0
+            -9.0
           ],
           "heading": 90
         },
         {
           "id": "secret_culture.prop.1",
-          "type": "supply_cart",
+          "type": "medical_cabinet",
           "position_local": [
-            9.0,
+            -10.0,
             0,
-            -7.0
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "secret_culture.prop.2",
+          "type": "medical_cabinet",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
           ],
           "heading": -90
         },
         {
-          "id": "secret_culture.prop.2",
-          "type": "records_cabinet",
+          "id": "secret_culture.prop.3",
+          "type": "medical_cabinet",
           "position_local": [
-            -9.0,
+            10.0,
             0,
-            -1.0
+            9.0
           ],
-          "heading": 90
+          "heading": -90
         }
       ],
       "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
@@ -864,21 +1684,41 @@
       "objects": [
         {
           "id": "secret_outfall.prop.0",
-          "type": "filter_unit",
+          "type": "pump_rig",
           "position_local": [
-            -9.0,
+            -10.0,
             0,
-            -7.0
+            -9.0
           ],
           "heading": 90
         },
         {
           "id": "secret_outfall.prop.1",
-          "type": "supply_cart",
+          "type": "pump_rig",
           "position_local": [
-            9.0,
+            -10.0,
             0,
-            -7.0
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "secret_outfall.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "secret_outfall.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            9.0
           ],
           "heading": -90
         }
@@ -1120,7 +1960,7 @@
       "width": 4,
       "waypoints": [
         [
-          -16,
+          -12,
           6,
           -40
         ],
@@ -1269,5 +2109,8 @@
   "secret_rooms": [
     "secret_culture",
     "secret_outfall"
-  ]
+  ],
+  "architectural_direction": {
+    "all": "Distinct district architecture: exposed reservoir/bridge and piping for Containment; stacked specimen machinery/gantries and rupture framing for Breach."
+  }
 }

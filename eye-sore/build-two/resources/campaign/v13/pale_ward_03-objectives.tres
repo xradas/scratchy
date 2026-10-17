@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StageObjectiveProfile" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/stage_objective_profile.gd" id="profile_script"]
+[resource]
+script = ExtResource("profile_script")
+level_id = "pale_ward_03"
+initial_flags = {}
+objectives = Array[Dictionary]([{"id": "a", "requires": [], "complete_flag": "anchor_a", "text": "Destroy the upper containment anchor."}, {"id": "b", "requires": ["anchor_a"], "complete_flag": "anchor_b", "text": "Descend to the middle silo and destroy its anchor."}, {"id": "c", "requires": ["anchor_b"], "complete_flag": "anchor_c", "text": "Destroy the deep containment anchor."}, {"id": "rupture", "requires": ["anchor_c"], "complete_flag": "finished", "text": "Cross the rupture and enter the buried passage."}])
+controls = {}
+keys = {}
+exit_requires = Array[String](["anchor_a", "anchor_b", "anchor_c"])
+encounters = {}

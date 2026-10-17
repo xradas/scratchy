@@ -1,0 +1,31 @@
+{
+  "status": "fixture_wall_time_retirement_verified",
+  "evidence": "verification/level-redesign-v13/routes/breach-final-v2.console.log",
+  "evidence_sha256": "547999a796e212ccae03e3ae02d6f4efad8ed86fbd3c71a9ba38b972ef861bbf",
+  "observed": {
+    "leaked_objects": 16,
+    "resources_still_in_use": 5,
+    "classes": [
+      "AudioStreamOggVorbis",
+      "AudioStreamPlaybackOggVorbis",
+      "OggPacketSequence",
+      "OggPacketSequencePlayback"
+    ],
+    "paths": [
+      "res://assets/audio/selected-v10/shotgun_fire.ogg::OggPacketSequence_lwm4o (OggPacketSequence)",
+      "res://assets/audio/selected-v10/shotgun_fire.ogg (AudioStreamOggVorbis)",
+      "res://assets/audio/demonic-v1/vessel_death.ogg::OggPacketSequence_bqqqm (OggPacketSequence)",
+      "res://assets/audio/demonic-v1/vessel_death.ogg (AudioStreamOggVorbis)",
+      "res://assets/audio/music/level_music_biotech_candidate.ogg::OggPacketSequence_886h4 (OggPacketSequence)"
+    ]
+  },
+  "interpretation": "All retained instances in the verbose failing run are OGG streams, packet sequences or playback objects. No leaked geometry/Node type was reported. Earlier node/cache teardown did not remove intermittence. Fixed-simulation timers are insufficient evidence of actual mixer retirement wall time.",
+  "fixture_correction": "Opt-in adapter stops actual audio, awaits measured >=300ms wall via Time.get_ticks_msec/process_frame, frees Main/drains frames and caches, then awaits >=250ms additional wall; reports durations. No runtime audio/gameplay/source resources changed and warnings remain strict failures.",
+  "pending": "Packed runtime and actual ELF verification remain separate; no production audio resource or script changed.",
+  "final_recheck": {
+    "source_gate": "verification/level-redesign-v13/source-final.json",
+    "normal_AB": "verification/level-redesign-v13/routes/source-all9-normal-AB.console.log",
+    "heavy_BA": "verification/level-redesign-v13/routes/source-all9-heavy-BA.console.log",
+    "result": "Both complete 9/9 with eight exact Continue carries, zero ERROR/WARNING, stopped_audio_wall_ms=300 and freed_main_drain_wall_ms=250 each. Confirms the bounded fixture correction; no general audio engine/platform stability claim."
+  }
+}

@@ -571,6 +571,17 @@ def balance_receipt(level_id: str, stage: dict, scene_text: str) -> dict:
 
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    selection = parser.add_mutually_exclusive_group(required=True)
+    selection.add_argument("--level", choices=("pale_ward_01", "pale_ward_02", "pale_ward_03"),
+                        help="Author only one independently designed v13 Ward level.")
+    selection.add_argument("--legacy-all", action="store_true",
+                           help="Explicitly regenerate all nine historical templates; overwrites later presentation passes.")
+    args = parser.parse_args()
+    if args.level:
+        from author_levels_v13 import author_selected
+        return author_selected(args.level)
     OUT.mkdir(parents=True, exist_ok=True); SCENES.mkdir(parents=True, exist_ok=True)
     programmes = room_program.load_program()
     prepared = {}

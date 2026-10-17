@@ -1,1391 +1,5193 @@
 {
   "id": "pale_ward_01",
-  "architecture_version": 2,
+  "title": "Intake",
+  "theme": "pale_ward",
+  "version": 13,
+  "stage_id": "pale_ward",
   "rooms": {
-    "entry": {
-      "id": "entry",
-      "label": "Patient intake",
+    "reception": {
+      "id": "reception",
+      "label": "Patient reception",
       "center": [
         0,
         0,
         0
       ],
       "size": [
-        24,
-        6,
-        26
+        32,
+        8,
+        28
       ],
-      "secret": false,
-      "arena_id": "",
+      "district": "admissions",
       "function": "triage_reception",
-      "layout_mode": "triage_reception_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "service": {
-      "id": "service",
-      "label": "Decontamination",
-      "center": [
-        0,
-        1.5,
-        -38
-      ],
-      "size": [
-        18,
-        5,
-        16
-      ],
+      "optional": false,
       "secret": false,
-      "arena_id": "",
-      "function": "decontamination",
-      "layout_mode": "decontamination_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "enemies": 0,
+      "objects": [
+        {
+          "id": "reception.prop.0",
+          "type": "intake_desk",
+          "position_local": [
+            -7,
+            0,
+            -4
+          ],
+          "heading": 0
+        },
+        {
+          "id": "reception.prop.1",
+          "type": "intake_desk",
+          "position_local": [
+            -7,
+            0,
+            -6
+          ],
+          "heading": 0
+        },
+        {
+          "id": "reception.prop.2",
+          "type": "waiting_bench",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "reception.prop.3",
+          "type": "waiting_bench",
+          "position_local": [
+            8,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "reception.prop.4",
+          "type": "waiting_bench",
+          "position_local": [
+            -8,
+            0,
+            7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "reception.prop.5",
+          "type": "records_cabinet",
+          "position_local": [
+            -12,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "reception.prop.6",
+          "type": "records_cabinet",
+          "position_local": [
+            -12,
+            0,
+            -10
+          ],
+          "heading": 90
+        },
+        {
+          "id": "reception.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            11,
+            0,
+            -8
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "arena_one": {
-      "id": "arena_one",
+    "triage": {
+      "id": "triage",
       "label": "Emergency triage",
       "center": [
         0,
-        -1,
-        -76
-      ],
-      "size": [
-        36,
-        10,
-        40
-      ],
-      "secret": false,
-      "arena_id": "arena_one",
-      "chamfer": 2.0,
-      "encounter": "triage cache lure / far-alcove ranged warning / melee advance",
-      "function": "triage_ward",
-      "layout_mode": "bed_bays",
-      "light_family": "clinical_sick_green"
-    },
-    "key_wing": {
-      "id": "key_wing",
-      "label": "Diagnostics corridor",
-      "center": [
-        36,
-        1.5,
-        -76
-      ],
-      "size": [
-        16,
-        5,
-        18
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "diagnostics",
-      "layout_mode": "diagnostics_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "key_console": {
-      "id": "key_console",
-      "label": "Operating theatre",
-      "center": [
-        62,
-        1.5,
-        -76
-      ],
-      "size": [
-        18,
-        5,
-        20
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "surgery",
-      "layout_mode": "surgery_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "return_store": {
-      "id": "return_store",
-      "label": "Sterile supply return",
-      "center": [
-        62,
-        1.5,
-        -38
-      ],
-      "size": [
-        14,
-        5,
-        14
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "medical_stores",
-      "layout_mode": "medical_stores_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "spine": {
-      "id": "spine",
-      "label": "Isolation transfer",
-      "center": [
-        0.0,
-        1.5,
-        -123.0
-      ],
-      "size": [
-        16.0,
-        6,
-        24.0
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "decontamination",
-      "layout_mode": "decontamination_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "arena_two": {
-      "id": "arena_two",
-      "label": "Isolation ward",
-      "center": [
-        0.0,
-        0.0,
-        -158.0
-      ],
-      "size": [
-        38.0,
-        12,
-        32.0
-      ],
-      "secret": false,
-      "arena_id": "arena_two",
-      "chamfer": 2.0,
-      "encounter": "raised crossfire bridge",
-      "function": "isolation",
-      "layout_mode": "split_isolation",
-      "light_family": "clinical_sick_green"
-    },
-    "red_wing": {
-      "id": "red_wing",
-      "label": "Pathology preparation",
-      "center": [
-        -40.0,
-        1.5,
-        -158.0
-      ],
-      "size": [
-        12,
-        6,
-        12
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "pathology",
-      "layout_mode": "pathology_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "red_console": {
-      "id": "red_console",
-      "label": "Pathology office",
-      "center": [
-        -40.0,
-        1.5,
-        -192.0
-      ],
-      "size": [
-        12,
-        6,
-        14
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "diagnostics",
-      "layout_mode": "diagnostics_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "final_arena": {
-      "id": "final_arena",
-      "label": "C3 quarantine transfer",
-      "center": [
-        0.0,
-        1.5,
-        -210.0
-      ],
-      "size": [
-        34.0,
-        10,
-        40.0
-      ],
-      "secret": false,
-      "arena_id": "final_arena",
-      "chamfer": 2.0,
-      "encounter": "lower court and upper launcher reward",
-      "function": "quarantine_transfer",
-      "layout_mode": "transfer_bays",
-      "light_family": "clinical_sick_green"
-    },
-    "exit_gallery": {
-      "id": "exit_gallery",
-      "label": "Reservoir airlock",
-      "center": [
-        0.0,
-        3.0,
-        -247.0
-      ],
-      "size": [
-        20.0,
-        6,
-        18.0
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "decontamination",
-      "layout_mode": "decontamination_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "supplies": {
-      "id": "supplies",
-      "label": "Pharmacy",
-      "center": [
-        -26.0,
         0,
-        -4.0
+        -40
       ],
       "size": [
-        12,
-        5,
-        10
+        34,
+        9,
+        28
       ],
+      "district": "admissions",
+      "function": "triage_ward",
+      "optional": false,
       "secret": false,
-      "arena_id": "",
-      "function": "medical_stores",
-      "layout_mode": "medical_stores_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "enemies": 7,
+      "objects": [
+        {
+          "id": "triage.prop.0",
+          "type": "medical_bed",
+          "position_local": [
+            -11,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "triage.prop.1",
+          "type": "medical_bed",
+          "position_local": [
+            -7,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "triage.prop.2",
+          "type": "medical_bed",
+          "position_local": [
+            7,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "triage.prop.3",
+          "type": "medical_bed",
+          "position_local": [
+            11,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "triage.prop.4",
+          "type": "medical_bed",
+          "position_local": [
+            -11,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "triage.prop.5",
+          "type": "medical_bed",
+          "position_local": [
+            -7,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "triage.prop.6",
+          "type": "medical_bed",
+          "position_local": [
+            7,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "triage.prop.7",
+          "type": "medical_bed",
+          "position_local": [
+            11,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "triage.prop.8",
+          "type": "vital_monitor",
+          "position_local": [
+            -12,
+            0,
+            -4
+          ],
+          "heading": 90
+        },
+        {
+          "id": "triage.prop.9",
+          "type": "vital_monitor",
+          "position_local": [
+            -12,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "triage.prop.10",
+          "type": "vital_monitor",
+          "position_local": [
+            12,
+            0,
+            -4
+          ],
+          "heading": -90
+        },
+        {
+          "id": "triage.prop.11",
+          "type": "vital_monitor",
+          "position_local": [
+            12,
+            0,
+            9
+          ],
+          "heading": -90
+        },
+        {
+          "id": "triage.prop.12",
+          "type": "privacy_screen",
+          "position_local": [
+            -10,
+            0,
+            3
+          ],
+          "heading": 0
+        },
+        {
+          "id": "triage.prop.13",
+          "type": "privacy_screen",
+          "position_local": [
+            -6,
+            0,
+            3
+          ],
+          "heading": 0
+        },
+        {
+          "id": "triage.prop.14",
+          "type": "privacy_screen",
+          "position_local": [
+            6,
+            0,
+            3
+          ],
+          "heading": 0
+        },
+        {
+          "id": "triage.prop.15",
+          "type": "privacy_screen",
+          "position_local": [
+            10,
+            0,
+            3
+          ],
+          "heading": 0
+        },
+        {
+          "id": "triage.prop.16",
+          "type": "medical_cabinet",
+          "position_local": [
+            -14,
+            0,
+            -10
+          ],
+          "heading": 90
+        },
+        {
+          "id": "triage.prop.17",
+          "type": "medical_cabinet",
+          "position_local": [
+            14,
+            0,
+            -10
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "nurse": {
+      "id": "nurse",
+      "label": "Nurse station",
+      "center": [
+        -40,
+        0,
+        -40
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "utilities",
+      "function": "control_room",
+      "optional": false,
+      "secret": false,
+      "enemies": 3,
+      "objects": [
+        {
+          "id": "nurse.prop.0",
+          "type": "containment_console",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "nurse.prop.1",
+          "type": "containment_console",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "nurse.prop.2",
+          "type": "containment_console",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "nurse.prop.3",
+          "type": "containment_console",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "nurse.prop.4",
+          "type": "records_cabinet",
+          "position_local": [
+            -10,
+            0,
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "nurse.prop.5",
+          "type": "records_cabinet",
+          "position_local": [
+            10,
+            0,
+            -9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
     "maintenance": {
       "id": "maintenance",
-      "label": "Air handling plant",
+      "label": "Utility service",
       "center": [
-        28.0,
-        0,
-        6.0
+        -40,
+        -2,
+        -80
       ],
       "size": [
-        14,
-        5,
-        16
+        26,
+        7,
+        24
       ],
-      "secret": false,
-      "arena_id": "",
+      "district": "utilities",
       "function": "utility",
-      "layout_mode": "utility_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "pump_room": {
-      "id": "pump_room",
-      "label": "Quarantine water pumps",
-      "center": [
-        38.0,
-        1.5,
-        -135.0
-      ],
-      "size": [
-        14,
-        5,
-        16
-      ],
+      "optional": false,
       "secret": false,
-      "arena_id": "",
-      "function": "utility",
-      "layout_mode": "utility_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "armory": {
-      "id": "armory",
-      "label": "Containment security",
-      "center": [
-        -40.0,
-        1.5,
-        -117.0
+      "enemies": 4,
+      "objects": [
+        {
+          "id": "maintenance.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "maintenance.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "maintenance.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "maintenance.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "maintenance.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "maintenance.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "maintenance.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "maintenance.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
       ],
-      "size": [
-        12,
-        5,
-        14
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "security",
-      "layout_mode": "security_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "secret_one": {
-      "id": "secret_one",
-      "label": "Sealed medication store",
+    "generator": {
+      "id": "generator",
+      "label": "Emergency generator",
       "center": [
-        -42.0,
         0,
-        -4.0
+        -2,
+        -80
       ],
       "size": [
-        8.0,
-        5,
-        8.0
+        30,
+        8,
+        26
       ],
-      "secret": true,
-      "arena_id": "",
+      "district": "utilities",
+      "function": "utility",
+      "optional": false,
+      "secret": false,
+      "enemies": 5,
+      "objects": [
+        {
+          "id": "generator.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "generator.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "generator.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "generator.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "generator.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "generator.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "generator.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "generator.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "diagnostics": {
+      "id": "diagnostics",
+      "label": "Diagnostics access",
+      "center": [
+        40,
+        2,
+        -40
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "clinical",
+      "function": "diagnostics",
+      "optional": false,
+      "secret": false,
+      "enemies": 3,
+      "objects": [
+        {
+          "id": "diagnostics.prop.0",
+          "type": "scan_console",
+          "position_local": [
+            -9,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "diagnostics.prop.1",
+          "type": "scan_console",
+          "position_local": [
+            9,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "diagnostics.prop.2",
+          "type": "instrument_bench",
+          "position_local": [
+            -8,
+            0,
+            5
+          ],
+          "heading": 90
+        },
+        {
+          "id": "diagnostics.prop.3",
+          "type": "instrument_bench",
+          "position_local": [
+            8,
+            0,
+            5
+          ],
+          "heading": -90
+        },
+        {
+          "id": "diagnostics.prop.4",
+          "type": "specimen_fridge",
+          "position_local": [
+            -10,
+            0,
+            -10.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "diagnostics.prop.5",
+          "type": "specimen_fridge",
+          "position_local": [
+            10,
+            0,
+            -10.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "diagnostics.prop.6",
+          "type": "medical_cabinet",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "diagnostics.prop.7",
+          "type": "medical_cabinet",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "imaging": {
+      "id": "imaging",
+      "label": "Imaging suite",
+      "center": [
+        80,
+        2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        28
+      ],
+      "district": "clinical",
+      "function": "diagnostics",
+      "optional": false,
+      "secret": false,
+      "enemies": 5,
+      "objects": [
+        {
+          "id": "imaging.prop.0",
+          "type": "scan_console",
+          "position_local": [
+            -9,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "imaging.prop.1",
+          "type": "scan_console",
+          "position_local": [
+            9,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "imaging.prop.2",
+          "type": "instrument_bench",
+          "position_local": [
+            -8,
+            0,
+            5
+          ],
+          "heading": 90
+        },
+        {
+          "id": "imaging.prop.3",
+          "type": "instrument_bench",
+          "position_local": [
+            8,
+            0,
+            5
+          ],
+          "heading": -90
+        },
+        {
+          "id": "imaging.prop.4",
+          "type": "specimen_fridge",
+          "position_local": [
+            -10,
+            0,
+            -10
+          ],
+          "heading": 90
+        },
+        {
+          "id": "imaging.prop.5",
+          "type": "specimen_fridge",
+          "position_local": [
+            10,
+            0,
+            -10
+          ],
+          "heading": -90
+        },
+        {
+          "id": "imaging.prop.6",
+          "type": "medical_cabinet",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "imaging.prop.7",
+          "type": "medical_cabinet",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "theatre": {
+      "id": "theatre",
+      "label": "Operating theatre",
+      "center": [
+        80,
+        2,
+        0
+      ],
+      "size": [
+        30,
+        8,
+        28
+      ],
+      "district": "clinical",
+      "function": "surgery",
+      "optional": false,
+      "secret": false,
+      "enemies": 5,
+      "objects": [
+        {
+          "id": "theatre.prop.0",
+          "type": "surgical_table",
+          "position_local": [
+            -7,
+            0,
+            -2
+          ],
+          "heading": 0
+        },
+        {
+          "id": "theatre.prop.1",
+          "type": "surgical_table",
+          "position_local": [
+            7,
+            0,
+            -2
+          ],
+          "heading": 0
+        },
+        {
+          "id": "theatre.prop.2",
+          "type": "surgical_lamp",
+          "position_local": [
+            -7,
+            0,
+            -4.5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "theatre.prop.3",
+          "type": "surgical_lamp",
+          "position_local": [
+            7,
+            0,
+            -4.5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "theatre.prop.4",
+          "type": "instrument_bench",
+          "position_local": [
+            -10,
+            0,
+            7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "theatre.prop.5",
+          "type": "instrument_bench",
+          "position_local": [
+            10,
+            0,
+            7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "theatre.prop.6",
+          "type": "specimen_fridge",
+          "position_local": [
+            -11,
+            0,
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "theatre.prop.7",
+          "type": "medical_cabinet",
+          "position_local": [
+            11,
+            0,
+            -9
+          ],
+          "heading": -90
+        },
+        {
+          "id": "theatre.prop.8",
+          "type": "vital_monitor",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "theatre.prop.9",
+          "type": "vital_monitor",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "sterile": {
+      "id": "sterile",
+      "label": "Sterile supply return",
+      "center": [
+        40,
+        2,
+        0
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "clinical",
       "function": "medical_stores",
-      "layout_mode": "medical_stores_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "optional": false,
+      "secret": false,
+      "enemies": 2,
+      "objects": [
+        {
+          "id": "sterile.prop.0",
+          "type": "medical_cabinet",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "sterile.prop.1",
+          "type": "medical_cabinet",
+          "position_local": [
+            -8,
+            0,
+            -3
+          ],
+          "heading": 90
+        },
+        {
+          "id": "sterile.prop.2",
+          "type": "medical_cabinet",
+          "position_local": [
+            -8,
+            0,
+            5
+          ],
+          "heading": 90
+        },
+        {
+          "id": "sterile.prop.3",
+          "type": "medical_cabinet",
+          "position_local": [
+            -8,
+            0,
+            8
+          ],
+          "heading": 90
+        },
+        {
+          "id": "sterile.prop.4",
+          "type": "medical_cabinet",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "sterile.prop.5",
+          "type": "medical_cabinet",
+          "position_local": [
+            8,
+            0,
+            -3
+          ],
+          "heading": -90
+        },
+        {
+          "id": "sterile.prop.6",
+          "type": "medical_cabinet",
+          "position_local": [
+            8,
+            0,
+            5
+          ],
+          "heading": -90
+        },
+        {
+          "id": "sterile.prop.7",
+          "type": "medical_cabinet",
+          "position_local": [
+            8,
+            0,
+            8
+          ],
+          "heading": -90
+        },
+        {
+          "id": "sterile.prop.8",
+          "type": "supply_cart",
+          "position_local": [
+            -5,
+            0,
+            7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "sterile.prop.9",
+          "type": "supply_cart",
+          "position_local": [
+            5,
+            0,
+            7
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "secret_two": {
-      "id": "secret_two",
-      "label": "Discarded specimen archive",
+    "surgical_access": {
+      "id": "surgical_access",
+      "label": "Surgical access",
       "center": [
-        -60.0,
-        1.5,
-        -192.0
+        0,
+        2,
+        40
       ],
       "size": [
-        10.0,
-        5,
-        10.0
+        26,
+        7,
+        24
       ],
-      "secret": true,
-      "arena_id": "",
-      "function": "specimen_archive",
-      "layout_mode": "specimen_archive_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "district": "transfer",
+      "function": "decontamination",
+      "optional": false,
+      "secret": false,
+      "enemies": 4,
+      "objects": [
+        {
+          "id": "surgical_access.prop.0",
+          "type": "filter_unit",
+          "position_local": [
+            -9,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "surgical_access.prop.1",
+          "type": "filter_unit",
+          "position_local": [
+            9,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "surgical_access.prop.2",
+          "type": "decon_frame",
+          "position_local": [
+            -8,
+            0,
+            5
+          ],
+          "heading": 90
+        },
+        {
+          "id": "surgical_access.prop.3",
+          "type": "decon_frame",
+          "position_local": [
+            8,
+            0,
+            5
+          ],
+          "heading": -90
+        },
+        {
+          "id": "surgical_access.prop.4",
+          "type": "ppe_locker",
+          "position_local": [
+            -10,
+            0,
+            8
+          ],
+          "heading": 90
+        },
+        {
+          "id": "surgical_access.prop.5",
+          "type": "ppe_locker",
+          "position_local": [
+            10,
+            0,
+            8
+          ],
+          "heading": -90
+        },
+        {
+          "id": "surgical_access.prop.6",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "surgical_access.prop.7",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "recovery": {
+      "id": "recovery",
+      "label": "Recovery ward",
+      "center": [
+        -40,
+        2,
+        40
+      ],
+      "size": [
+        32,
+        8,
+        26
+      ],
+      "district": "transfer",
+      "function": "triage_ward",
+      "optional": false,
+      "secret": false,
+      "enemies": 6,
+      "objects": [
+        {
+          "id": "recovery.prop.0",
+          "type": "medical_bed",
+          "position_local": [
+            -11,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "recovery.prop.1",
+          "type": "medical_bed",
+          "position_local": [
+            -7,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "recovery.prop.2",
+          "type": "medical_bed",
+          "position_local": [
+            7,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "recovery.prop.3",
+          "type": "medical_bed",
+          "position_local": [
+            11,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "recovery.prop.4",
+          "type": "medical_bed",
+          "position_local": [
+            -11,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "recovery.prop.5",
+          "type": "medical_bed",
+          "position_local": [
+            -7,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "recovery.prop.6",
+          "type": "medical_bed",
+          "position_local": [
+            7,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "recovery.prop.7",
+          "type": "medical_bed",
+          "position_local": [
+            11,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "recovery.prop.8",
+          "type": "vital_monitor",
+          "position_local": [
+            -12,
+            0,
+            -4
+          ],
+          "heading": 90
+        },
+        {
+          "id": "recovery.prop.9",
+          "type": "vital_monitor",
+          "position_local": [
+            -12,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "recovery.prop.10",
+          "type": "vital_monitor",
+          "position_local": [
+            12,
+            0,
+            -4
+          ],
+          "heading": -90
+        },
+        {
+          "id": "recovery.prop.11",
+          "type": "vital_monitor",
+          "position_local": [
+            12,
+            0,
+            9
+          ],
+          "heading": -90
+        },
+        {
+          "id": "recovery.prop.12",
+          "type": "privacy_screen",
+          "position_local": [
+            -10,
+            0,
+            3
+          ],
+          "heading": 0
+        },
+        {
+          "id": "recovery.prop.13",
+          "type": "privacy_screen",
+          "position_local": [
+            -6,
+            0,
+            3
+          ],
+          "heading": 0
+        },
+        {
+          "id": "recovery.prop.14",
+          "type": "privacy_screen",
+          "position_local": [
+            6,
+            0,
+            3
+          ],
+          "heading": 0
+        },
+        {
+          "id": "recovery.prop.15",
+          "type": "privacy_screen",
+          "position_local": [
+            10,
+            0,
+            3
+          ],
+          "heading": 0
+        },
+        {
+          "id": "recovery.prop.16",
+          "type": "medical_cabinet",
+          "position_local": [
+            -14.0,
+            0,
+            -10
+          ],
+          "heading": 90
+        },
+        {
+          "id": "recovery.prop.17",
+          "type": "medical_cabinet",
+          "position_local": [
+            14.0,
+            0,
+            -10
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "processing": {
+      "id": "processing",
+      "label": "Instrument processing",
+      "center": [
+        -40,
+        2,
+        80
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "transfer",
+      "function": "medical_stores",
+      "optional": false,
+      "secret": false,
+      "enemies": 3,
+      "objects": [
+        {
+          "id": "processing.prop.0",
+          "type": "medical_cabinet",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "processing.prop.1",
+          "type": "medical_cabinet",
+          "position_local": [
+            -8,
+            0,
+            -3
+          ],
+          "heading": 90
+        },
+        {
+          "id": "processing.prop.2",
+          "type": "medical_cabinet",
+          "position_local": [
+            -8,
+            0,
+            5
+          ],
+          "heading": 90
+        },
+        {
+          "id": "processing.prop.3",
+          "type": "medical_cabinet",
+          "position_local": [
+            -8,
+            0,
+            8
+          ],
+          "heading": 90
+        },
+        {
+          "id": "processing.prop.4",
+          "type": "medical_cabinet",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "processing.prop.5",
+          "type": "medical_cabinet",
+          "position_local": [
+            8,
+            0,
+            -3
+          ],
+          "heading": -90
+        },
+        {
+          "id": "processing.prop.6",
+          "type": "medical_cabinet",
+          "position_local": [
+            8,
+            0,
+            5
+          ],
+          "heading": -90
+        },
+        {
+          "id": "processing.prop.7",
+          "type": "medical_cabinet",
+          "position_local": [
+            8,
+            0,
+            8
+          ],
+          "heading": -90
+        },
+        {
+          "id": "processing.prop.8",
+          "type": "supply_cart",
+          "position_local": [
+            -5,
+            0,
+            7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "processing.prop.9",
+          "type": "supply_cart",
+          "position_local": [
+            5,
+            0,
+            7
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "decon": {
+      "id": "decon",
+      "label": "Sealed decontamination",
+      "center": [
+        0,
+        2,
+        80
+      ],
+      "size": [
+        34,
+        9,
+        28
+      ],
+      "district": "transfer",
+      "function": "decontamination",
+      "optional": false,
+      "secret": false,
+      "enemies": 8,
+      "objects": [
+        {
+          "id": "decon.prop.0",
+          "type": "filter_unit",
+          "position_local": [
+            -9,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "decon.prop.1",
+          "type": "filter_unit",
+          "position_local": [
+            9,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "decon.prop.2",
+          "type": "decon_frame",
+          "position_local": [
+            -8,
+            0,
+            5
+          ],
+          "heading": 90
+        },
+        {
+          "id": "decon.prop.3",
+          "type": "decon_frame",
+          "position_local": [
+            8,
+            0,
+            5
+          ],
+          "heading": -90
+        },
+        {
+          "id": "decon.prop.4",
+          "type": "ppe_locker",
+          "position_local": [
+            -10,
+            0,
+            8
+          ],
+          "heading": 90
+        },
+        {
+          "id": "decon.prop.5",
+          "type": "ppe_locker",
+          "position_local": [
+            10,
+            0,
+            8
+          ],
+          "heading": -90
+        },
+        {
+          "id": "decon.prop.6",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "decon.prop.7",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "transfer": {
+      "id": "transfer",
+      "label": "Patient transfer",
+      "center": [
+        40,
+        4,
+        80
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "transfer",
+      "function": "utility",
+      "optional": false,
+      "secret": false,
+      "enemies": 3,
+      "objects": [
+        {
+          "id": "transfer.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "transfer.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "transfer.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "transfer.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "transfer.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "transfer.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "transfer.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "transfer.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "lift_lobby": {
+      "id": "lift_lobby",
+      "label": "Upper transfer landing",
+      "center": [
+        40,
+        4,
+        120
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "transfer",
+      "function": "utility",
+      "optional": false,
+      "secret": false,
+      "enemies": 2,
+      "objects": [
+        {
+          "id": "lift_lobby.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lift_lobby.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lift_lobby.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "lift_lobby.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "lift_lobby.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lift_lobby.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "lift_lobby.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lift_lobby.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "exit": {
+      "id": "exit",
+      "label": "Containment receiving",
+      "center": [
+        80,
+        6,
+        120
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "transfer",
+      "function": "security",
+      "optional": false,
+      "secret": false,
+      "enemies": 2,
+      "objects": [
+        {
+          "id": "exit.prop.0",
+          "type": "intake_desk",
+          "position_local": [
+            -7,
+            0,
+            -5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "exit.prop.1",
+          "type": "security_console",
+          "position_local": [
+            7,
+            0,
+            -5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "exit.prop.2",
+          "type": "weapon_rack",
+          "position_local": [
+            -9,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "exit.prop.3",
+          "type": "weapon_rack",
+          "position_local": [
+            9,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "exit.prop.4",
+          "type": "ppe_locker",
+          "position_local": [
+            -10,
+            0,
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "exit.prop.5",
+          "type": "ppe_locker",
+          "position_local": [
+            10,
+            0,
+            -9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "records": {
+      "id": "records",
+      "label": "Patient records",
+      "center": [
+        -40,
+        0,
+        0
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "admissions",
+      "function": "records",
+      "optional": true,
+      "secret": false,
+      "enemies": 0,
+      "objects": [
+        {
+          "id": "records.prop.0",
+          "type": "records_cabinet",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "records.prop.1",
+          "type": "records_cabinet",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "records.prop.2",
+          "type": "records_cabinet",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "records.prop.3",
+          "type": "records_cabinet",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "lockers": {
+      "id": "lockers",
+      "label": "Staff lockers",
+      "center": [
+        -80,
+        0,
+        -40
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "utilities",
+      "function": "staff_room",
+      "optional": true,
+      "secret": false,
+      "enemies": 1,
+      "objects": [
+        {
+          "id": "lockers.prop.0",
+          "type": "ppe_locker",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lockers.prop.1",
+          "type": "ppe_locker",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lockers.prop.2",
+          "type": "ppe_locker",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "lockers.prop.3",
+          "type": "ppe_locker",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "pharmacy": {
+      "id": "pharmacy",
+      "label": "Pharmacy",
+      "center": [
+        80,
+        2,
+        -80
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "clinical",
+      "function": "medical_stores",
+      "optional": true,
+      "secret": false,
+      "enemies": 0,
+      "objects": [
+        {
+          "id": "pharmacy.prop.0",
+          "type": "medical_cabinet",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "pharmacy.prop.1",
+          "type": "medical_cabinet",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "pharmacy.prop.2",
+          "type": "medical_cabinet",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "pharmacy.prop.3",
+          "type": "medical_cabinet",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
     "observation": {
       "id": "observation",
-      "label": "C3 monitoring gallery",
+      "label": "Surgical observation",
       "center": [
-        38.0,
-        6.0,
-        -210.0
+        120,
+        4,
+        0
       ],
       "size": [
-        18.0,
-        5,
-        18.0
+        26,
+        7,
+        24
       ],
-      "secret": false,
-      "arena_id": "",
+      "district": "clinical",
       "function": "control_room",
-      "layout_mode": "control_room_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "optional": true,
+      "secret": false,
+      "enemies": 1,
+      "objects": [
+        {
+          "id": "observation.prop.0",
+          "type": "containment_console",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "observation.prop.1",
+          "type": "containment_console",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "observation.prop.2",
+          "type": "containment_console",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "observation.prop.3",
+          "type": "containment_console",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "secret_filter": {
+      "id": "secret_filter",
+      "label": "Abandoned filter crawl",
+      "center": [
+        -80,
+        -2,
+        -80
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "utilities",
+      "function": "utility",
+      "optional": false,
+      "secret": true,
+      "enemies": 0,
+      "objects": [
+        {
+          "id": "secret_filter.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "secret_filter.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "secret_filter.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "secret_filter.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "secret_isolation": {
+      "id": "secret_isolation",
+      "label": "Sealed isolation stores",
+      "center": [
+        -80,
+        2,
+        80
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "transfer",
+      "function": "medical_stores",
+      "optional": false,
+      "secret": true,
+      "enemies": 0,
+      "objects": [
+        {
+          "id": "secret_isolation.prop.0",
+          "type": "medical_cabinet",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "secret_isolation.prop.1",
+          "type": "medical_cabinet",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "secret_isolation.prop.2",
+          "type": "medical_cabinet",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "secret_isolation.prop.3",
+          "type": "medical_cabinet",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     }
   },
   "portals": [
     {
-      "from": "entry",
-      "to": "service",
-      "width": 8.0,
-      "gate": "entry_gate",
+      "id": "reception__triage",
+      "from": "reception",
+      "to": "triage",
       "requires": [],
-      "secret": false,
       "shortcut": false,
+      "secret": false,
       "lift": false,
+      "width": 5,
+      "door": null,
       "start": [
         0,
         0,
-        -13.0
+        -14.0
       ],
       "end": [
         0,
-        1.5,
-        -30.0
+        0,
+        -26.0
       ],
       "middle": [
         0.0,
-        0.75,
-        -21.5
+        0.0,
+        -20.0
       ],
-      "axis": 2,
-      "door": "Door_entry_gate"
+      "points": [
+        [
+          0,
+          0,
+          -14.0
+        ],
+        [
+          0,
+          0,
+          -26.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -14.0
+        ],
+        [
+          0,
+          0,
+          -26.0
+        ],
+        [
+          0,
+          0,
+          -40
+        ]
+      ],
+      "axis": 2
     },
     {
-      "from": "service",
-      "to": "arena_one",
-      "width": 4.0,
-      "gate": "",
+      "id": "triage__nurse",
+      "from": "triage",
+      "to": "nurse",
       "requires": [],
-      "secret": false,
       "shortcut": false,
+      "secret": false,
       "lift": false,
-      "trap_entry": "TrapEntry_arena_one",
+      "width": 5,
+      "door": null,
       "start": [
+        -17.0,
         0,
-        1.5,
-        -46.0
+        -40
       ],
       "end": [
+        -27.0,
         0,
-        -1,
-        -56.0
+        -40
       ],
       "middle": [
+        -22.0,
         0.0,
-        0.25,
-        -51.0
+        -40.0
       ],
-      "axis": 2,
-      "door": null
+      "points": [
+        [
+          -17.0,
+          0,
+          -40
+        ],
+        [
+          -27.0,
+          0,
+          -40
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          0,
+          -40
+        ],
+        [
+          -17.0,
+          0,
+          -40
+        ],
+        [
+          -27.0,
+          0,
+          -40
+        ],
+        [
+          -40,
+          0,
+          -40
+        ]
+      ],
+      "axis": 0
     },
     {
-      "from": "arena_one",
-      "to": "key_wing",
-      "width": 4.0,
-      "gate": "breaker",
-      "requires": [
-        "breaker"
-      ],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        18.0,
-        -1,
-        -76
-      ],
-      "end": [
-        28.0,
-        1.5,
-        -76
-      ],
-      "middle": [
-        23.0,
-        0.25,
-        -76.0
-      ],
-      "axis": 0,
-      "door": "Door_breaker"
-    },
-    {
-      "from": "key_wing",
-      "to": "key_console",
-      "width": 4.0,
-      "gate": "",
+      "id": "nurse__maintenance",
+      "from": "nurse",
+      "to": "maintenance",
       "requires": [],
-      "secret": false,
       "shortcut": false,
-      "lift": false,
-      "start": [
-        44.0,
-        1.5,
-        -76
-      ],
-      "end": [
-        53.0,
-        1.5,
-        -76
-      ],
-      "middle": [
-        48.5,
-        1.5,
-        -76.0
-      ],
-      "axis": 0,
-      "door": null
-    },
-    {
-      "from": "key_console",
-      "to": "return_store",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
       "secret": false,
-      "shortcut": false,
       "lift": false,
+      "width": 5,
+      "door": null,
       "start": [
-        62,
-        1.5,
-        -66.0
-      ],
-      "end": [
-        62,
-        1.5,
-        -45.0
-      ],
-      "middle": [
-        62.0,
-        1.5,
-        -55.5
-      ],
-      "axis": 2,
-      "door": null
-    },
-    {
-      "from": "return_store",
-      "to": "service",
-      "width": 4.0,
-      "gate": "shortcut_one",
-      "requires": [
-        "breaker",
-        "brass_key"
-      ],
-      "secret": false,
-      "shortcut": true,
-      "lift": false,
-      "first_open_normal": [
-        1,
+        -40,
         0,
-        0
-      ],
-      "locked_message": "Brass key and power required \u00b7 release from sterile supply side",
-      "start": [
-        55.0,
-        1.5,
-        -38
+        -52.0
       ],
       "end": [
-        9.0,
-        1.5,
-        -38
-      ],
-      "middle": [
-        32.0,
-        1.5,
-        -38.0
-      ],
-      "axis": 0,
-      "door": "Door_shortcut_one"
-    },
-    {
-      "from": "arena_one",
-      "to": "spine",
-      "width": 4.0,
-      "gate": "brass_gate",
-      "requires": [
-        "breaker",
-        "brass_key"
-      ],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        0,
-        -1,
-        -96.0
-      ],
-      "end": [
-        0,
-        1.5,
-        -111.0
-      ],
-      "middle": [
-        0.0,
-        0.25,
-        -103.5
-      ],
-      "axis": 2,
-      "door": "Door_brass_gate"
-    },
-    {
-      "from": "spine",
-      "to": "arena_two",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "trap_entry": "TrapEntry_arena_two",
-      "start": [
-        0.0,
-        1.5,
-        -135.0
-      ],
-      "end": [
-        0.0,
-        0.0,
-        -142.0
-      ],
-      "middle": [
-        0.0,
-        0.75,
-        -138.5
-      ],
-      "axis": 2,
-      "door": null
-    },
-    {
-      "from": "arena_two",
-      "to": "red_wing",
-      "width": 4.0,
-      "gate": "release",
-      "requires": [
-        "release"
-      ],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -19.0,
-        0.0,
-        -158.0
-      ],
-      "end": [
-        -34.0,
-        1.5,
-        -158.0
-      ],
-      "middle": [
-        -26.5,
-        0.75,
-        -158.0
-      ],
-      "axis": 0,
-      "door": "Door_release"
-    },
-    {
-      "from": "red_wing",
-      "to": "red_console",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -40.0,
-        1.5,
-        -164.0
-      ],
-      "end": [
-        -40.0,
-        1.5,
-        -185.0
+        -40,
+        -2,
+        -68.0
       ],
       "middle": [
         -40.0,
-        1.5,
-        -174.5
+        -1.0,
+        -60.0
       ],
-      "axis": 2,
-      "door": null
+      "points": [
+        [
+          -40,
+          0,
+          -52.0
+        ],
+        [
+          -40,
+          -2,
+          -68.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          0,
+          -40
+        ],
+        [
+          -40,
+          0,
+          -52.0
+        ],
+        [
+          -40,
+          -2,
+          -68.0
+        ],
+        [
+          -40,
+          -2,
+          -80
+        ]
+      ],
+      "axis": 2
     },
     {
-      "from": "red_wing",
-      "to": "armory",
-      "width": 4.0,
-      "gate": "shortcut_two",
+      "id": "maintenance__generator",
+      "from": "maintenance",
+      "to": "generator",
       "requires": [],
-      "secret": false,
-      "shortcut": true,
-      "lift": false,
-      "start": [
-        -40.0,
-        1.5,
-        -152.0
-      ],
-      "end": [
-        -40.0,
-        1.5,
-        -124.0
-      ],
-      "middle": [
-        -40.0,
-        1.5,
-        -138.0
-      ],
-      "axis": 2,
-      "door": "Door_shortcut_two"
-    },
-    {
-      "from": "armory",
-      "to": "spine",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
       "shortcut": false,
+      "secret": false,
       "lift": false,
+      "width": 5,
+      "door": null,
       "start": [
-        -34.0,
-        1.5,
-        -117.0
+        -27.0,
+        -2,
+        -80
       ],
       "end": [
-        -8.0,
-        1.5,
-        -117.0
+        -15.0,
+        -2,
+        -80
       ],
       "middle": [
         -21.0,
-        1.5,
-        -117.0
+        -2.0,
+        -80.0
       ],
-      "axis": 0,
-      "door": null
+      "points": [
+        [
+          -27.0,
+          -2,
+          -80
+        ],
+        [
+          -15.0,
+          -2,
+          -80
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          -2,
+          -80
+        ],
+        [
+          -27.0,
+          -2,
+          -80
+        ],
+        [
+          -15.0,
+          -2,
+          -80
+        ],
+        [
+          0,
+          -2,
+          -80
+        ]
+      ],
+      "axis": 0
     },
     {
-      "from": "arena_two",
-      "to": "final_arena",
-      "width": 4.0,
-      "gate": "red_gate",
+      "id": "generator__triage",
+      "from": "generator",
+      "to": "triage",
       "requires": [
-        "release",
-        "red_key"
+        "local_power"
       ],
+      "shortcut": true,
       "secret": false,
-      "shortcut": false,
       "lift": false,
-      "trap_entry": "TrapEntry_final_arena",
+      "width": 5,
+      "door": "Door_generator__triage",
       "start": [
-        0.0,
-        0.0,
-        -174.0
+        0,
+        -2,
+        -67.0
       ],
       "end": [
-        0.0,
-        1.5,
-        -190.0
+        0,
+        0,
+        -54.0
       ],
       "middle": [
         0.0,
-        0.75,
-        -182.0
+        -1.0,
+        -60.5
       ],
-      "axis": 2,
-      "door": "Door_red_gate"
+      "points": [
+        [
+          0,
+          -2,
+          -67.0
+        ],
+        [
+          0,
+          0,
+          -54.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          -2,
+          -80
+        ],
+        [
+          0,
+          -2,
+          -67.0
+        ],
+        [
+          0,
+          0,
+          -54.0
+        ],
+        [
+          0,
+          0,
+          -40
+        ]
+      ],
+      "axis": 2
     },
     {
-      "from": "final_arena",
-      "to": "exit_gallery",
-      "width": 4.0,
-      "gate": "exit_gate",
+      "id": "triage__diagnostics",
+      "from": "triage",
+      "to": "diagnostics",
       "requires": [
-        "exit_control"
+        "local_power"
       ],
+      "shortcut": false,
       "secret": false,
-      "shortcut": false,
       "lift": false,
-      "start": [
-        0.0,
-        1.5,
-        -230.0
-      ],
-      "end": [
-        0.0,
-        3.0,
-        -238.0
-      ],
-      "middle": [
-        0.0,
-        2.25,
-        -234.0
-      ],
-      "axis": 2,
-      "door": "Door_exit_gate"
-    },
-    {
-      "from": "entry",
-      "to": "supplies",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -12.0,
-        0,
-        -1.0
-      ],
-      "end": [
-        -20.0,
-        0,
-        -1.0
-      ],
-      "middle": [
-        -16.0,
-        0.0,
-        -1.0
-      ],
-      "axis": 0,
-      "door": null
-    },
-    {
-      "from": "entry",
-      "to": "maintenance",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        12.0,
-        0,
-        0.0
-      ],
-      "end": [
-        21.0,
-        0,
-        0.0
-      ],
-      "middle": [
-        16.5,
-        0.0,
-        0.0
-      ],
-      "axis": 0,
-      "door": null
-    },
-    {
-      "from": "spine",
-      "to": "pump_room",
-      "width": 4.0,
-      "gate": "",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        8.0,
-        1.5,
-        -129.0
-      ],
-      "end": [
-        31.0,
-        1.5,
-        -129.0
-      ],
-      "middle": [
-        19.5,
-        1.5,
-        -129.0
-      ],
-      "axis": 0,
-      "door": null
-    },
-    {
-      "from": "supplies",
-      "to": "secret_one",
-      "width": 2.4,
-      "gate": "secret_one",
-      "requires": [],
-      "secret": true,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -32.0,
-        0,
-        -4.0
-      ],
-      "end": [
-        -38.0,
-        0,
-        -4.0
-      ],
-      "middle": [
-        -35.0,
-        0.0,
-        -4.0
-      ],
-      "axis": 0,
-      "door": "Door_secret_one"
-    },
-    {
-      "from": "red_console",
-      "to": "secret_two",
-      "width": 2.4,
-      "gate": "secret_two",
-      "requires": [],
-      "secret": true,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -46.0,
-        1.5,
-        -192.0
-      ],
-      "end": [
-        -55.0,
-        1.5,
-        -192.0
-      ],
-      "middle": [
-        -50.5,
-        1.5,
-        -192.0
-      ],
-      "axis": 0,
-      "door": "Door_secret_two"
-    },
-    {
-      "from": "final_arena",
-      "to": "observation",
-      "width": 4.0,
-      "gate": "lift",
-      "requires": [],
-      "secret": false,
-      "shortcut": false,
-      "lift": true,
+      "width": 5,
+      "door": "Door_triage__diagnostics",
       "start": [
         17.0,
-        1.5,
-        -210.0
+        0,
+        -40
       ],
       "end": [
-        29.0,
-        6.0,
-        -210.0
+        27.0,
+        2,
+        -40
       ],
       "middle": [
-        23.0,
-        3.75,
-        -210.0
+        22.0,
+        1.0,
+        -40.0
       ],
-      "axis": 0,
-      "door": null
+      "points": [
+        [
+          17.0,
+          0,
+          -40
+        ],
+        [
+          27.0,
+          2,
+          -40
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          0,
+          -40
+        ],
+        [
+          17.0,
+          0,
+          -40
+        ],
+        [
+          27.0,
+          2,
+          -40
+        ],
+        [
+          40,
+          2,
+          -40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "diagnostics__imaging",
+      "from": "diagnostics",
+      "to": "imaging",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        53.0,
+        2,
+        -40
+      ],
+      "end": [
+        66.0,
+        2,
+        -40
+      ],
+      "middle": [
+        59.5,
+        2.0,
+        -40.0
+      ],
+      "points": [
+        [
+          53.0,
+          2,
+          -40
+        ],
+        [
+          66.0,
+          2,
+          -40
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          2,
+          -40
+        ],
+        [
+          53.0,
+          2,
+          -40
+        ],
+        [
+          66.0,
+          2,
+          -40
+        ],
+        [
+          80,
+          2,
+          -40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "imaging__theatre",
+      "from": "imaging",
+      "to": "theatre",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        80,
+        2,
+        -26.0
+      ],
+      "end": [
+        80,
+        2,
+        -14.0
+      ],
+      "middle": [
+        80.0,
+        2.0,
+        -20.0
+      ],
+      "points": [
+        [
+          80,
+          2,
+          -26.0
+        ],
+        [
+          80,
+          2,
+          -14.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          2,
+          -40
+        ],
+        [
+          80,
+          2,
+          -26.0
+        ],
+        [
+          80,
+          2,
+          -14.0
+        ],
+        [
+          80,
+          2,
+          0
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "theatre__sterile",
+      "from": "theatre",
+      "to": "sterile",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        65.0,
+        2,
+        0
+      ],
+      "end": [
+        53.0,
+        2,
+        0
+      ],
+      "middle": [
+        59.0,
+        2.0,
+        0.0
+      ],
+      "points": [
+        [
+          65.0,
+          2,
+          0
+        ],
+        [
+          53.0,
+          2,
+          0
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          2,
+          0
+        ],
+        [
+          65.0,
+          2,
+          0
+        ],
+        [
+          53.0,
+          2,
+          0
+        ],
+        [
+          40,
+          2,
+          0
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "sterile__reception",
+      "from": "sterile",
+      "to": "reception",
+      "requires": [
+        "surgical_credential"
+      ],
+      "shortcut": true,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": "Door_sterile__reception",
+      "start": [
+        27.0,
+        2,
+        0
+      ],
+      "end": [
+        16.0,
+        0,
+        0
+      ],
+      "middle": [
+        21.5,
+        1.0,
+        0.0
+      ],
+      "points": [
+        [
+          27.0,
+          2,
+          0
+        ],
+        [
+          16.0,
+          0,
+          0
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          2,
+          0
+        ],
+        [
+          27.0,
+          2,
+          0
+        ],
+        [
+          16.0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "reception__surgical_access",
+      "from": "reception",
+      "to": "surgical_access",
+      "requires": [
+        "surgical_credential"
+      ],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": "Door_reception__surgical_access",
+      "start": [
+        0,
+        0,
+        14.0
+      ],
+      "end": [
+        0,
+        2,
+        28.0
+      ],
+      "middle": [
+        0.0,
+        1.0,
+        21.0
+      ],
+      "points": [
+        [
+          0,
+          0,
+          14.0
+        ],
+        [
+          0,
+          2,
+          28.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          14.0
+        ],
+        [
+          0,
+          2,
+          28.0
+        ],
+        [
+          0,
+          2,
+          40
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "surgical_access__recovery",
+      "from": "surgical_access",
+      "to": "recovery",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        -13.0,
+        2,
+        40
+      ],
+      "end": [
+        -24.0,
+        2,
+        40
+      ],
+      "middle": [
+        -18.5,
+        2.0,
+        40.0
+      ],
+      "points": [
+        [
+          -13.0,
+          2,
+          40
+        ],
+        [
+          -24.0,
+          2,
+          40
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          2,
+          40
+        ],
+        [
+          -13.0,
+          2,
+          40
+        ],
+        [
+          -24.0,
+          2,
+          40
+        ],
+        [
+          -40,
+          2,
+          40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "recovery__processing",
+      "from": "recovery",
+      "to": "processing",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        -40,
+        2,
+        53.0
+      ],
+      "end": [
+        -40,
+        2,
+        68.0
+      ],
+      "middle": [
+        -40.0,
+        2.0,
+        60.5
+      ],
+      "points": [
+        [
+          -40,
+          2,
+          53.0
+        ],
+        [
+          -40,
+          2,
+          68.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          2,
+          40
+        ],
+        [
+          -40,
+          2,
+          53.0
+        ],
+        [
+          -40,
+          2,
+          68.0
+        ],
+        [
+          -40,
+          2,
+          80
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "processing__decon",
+      "from": "processing",
+      "to": "decon",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "trap_entry": "TrapEntry_decon",
+      "start": [
+        -27.0,
+        2,
+        80
+      ],
+      "end": [
+        -17.0,
+        2,
+        80
+      ],
+      "middle": [
+        -22.0,
+        2.0,
+        80.0
+      ],
+      "points": [
+        [
+          -27.0,
+          2,
+          80
+        ],
+        [
+          -17.0,
+          2,
+          80
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          2,
+          80
+        ],
+        [
+          -27.0,
+          2,
+          80
+        ],
+        [
+          -17.0,
+          2,
+          80
+        ],
+        [
+          0,
+          2,
+          80
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "decon__transfer",
+      "from": "decon",
+      "to": "transfer",
+      "requires": [
+        "decon_clear"
+      ],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": "Door_decon__transfer",
+      "start": [
+        17.0,
+        2,
+        80
+      ],
+      "end": [
+        27.0,
+        4,
+        80
+      ],
+      "middle": [
+        22.0,
+        3.0,
+        80.0
+      ],
+      "points": [
+        [
+          17.0,
+          2,
+          80
+        ],
+        [
+          27.0,
+          4,
+          80
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          2,
+          80
+        ],
+        [
+          17.0,
+          2,
+          80
+        ],
+        [
+          27.0,
+          4,
+          80
+        ],
+        [
+          40,
+          4,
+          80
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "transfer__lift_lobby",
+      "from": "transfer",
+      "to": "lift_lobby",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        40,
+        4,
+        92.0
+      ],
+      "end": [
+        40,
+        4,
+        108.0
+      ],
+      "middle": [
+        40.0,
+        4.0,
+        100.0
+      ],
+      "points": [
+        [
+          40,
+          4,
+          92.0
+        ],
+        [
+          40,
+          4,
+          108.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          4,
+          80
+        ],
+        [
+          40,
+          4,
+          92.0
+        ],
+        [
+          40,
+          4,
+          108.0
+        ],
+        [
+          40,
+          4,
+          120
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "lift_lobby__exit",
+      "from": "lift_lobby",
+      "to": "exit",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": true,
+      "width": 5,
+      "lift_data": {
+        "node": "Lift_lift_lobby__exit",
+        "deck": [
+          65.0,
+          3.85,
+          120
+        ],
+        "lower_floor": 4,
+        "upper_floor": 6,
+        "axis": 0,
+        "sign": 1,
+        "lower_call": [
+          62.3,
+          4.95,
+          121.1
+        ],
+        "upper_call": [
+          67.7,
+          6.95,
+          121.1
+        ]
+      },
+      "door": null,
+      "start": [
+        53.0,
+        4,
+        120
+      ],
+      "end": [
+        67.0,
+        6,
+        120
+      ],
+      "middle": [
+        60.0,
+        5.0,
+        120.0
+      ],
+      "points": [
+        [
+          53.0,
+          4,
+          120
+        ],
+        [
+          67.0,
+          6,
+          120
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          4,
+          120
+        ],
+        [
+          53.0,
+          4,
+          120
+        ],
+        [
+          67.0,
+          6,
+          120
+        ],
+        [
+          80,
+          6,
+          120
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "reception__records",
+      "from": "reception",
+      "to": "records",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        -16.0,
+        0,
+        0
+      ],
+      "end": [
+        -27.0,
+        0,
+        0
+      ],
+      "middle": [
+        -21.5,
+        0.0,
+        0.0
+      ],
+      "points": [
+        [
+          -16.0,
+          0,
+          0
+        ],
+        [
+          -27.0,
+          0,
+          0
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          -16.0,
+          0,
+          0
+        ],
+        [
+          -27.0,
+          0,
+          0
+        ],
+        [
+          -40,
+          0,
+          0
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "nurse__lockers",
+      "from": "nurse",
+      "to": "lockers",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        -53.0,
+        0,
+        -40
+      ],
+      "end": [
+        -67.0,
+        0,
+        -40
+      ],
+      "middle": [
+        -60.0,
+        0.0,
+        -40.0
+      ],
+      "points": [
+        [
+          -53.0,
+          0,
+          -40
+        ],
+        [
+          -67.0,
+          0,
+          -40
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          0,
+          -40
+        ],
+        [
+          -53.0,
+          0,
+          -40
+        ],
+        [
+          -67.0,
+          0,
+          -40
+        ],
+        [
+          -80,
+          0,
+          -40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "imaging__pharmacy",
+      "from": "imaging",
+      "to": "pharmacy",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        80,
+        2,
+        -54.0
+      ],
+      "end": [
+        80,
+        2,
+        -68.0
+      ],
+      "middle": [
+        80.0,
+        2.0,
+        -61.0
+      ],
+      "points": [
+        [
+          80,
+          2,
+          -54.0
+        ],
+        [
+          80,
+          2,
+          -68.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          2,
+          -40
+        ],
+        [
+          80,
+          2,
+          -54.0
+        ],
+        [
+          80,
+          2,
+          -68.0
+        ],
+        [
+          80,
+          2,
+          -80
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "theatre__observation",
+      "from": "theatre",
+      "to": "observation",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        95.0,
+        2,
+        0
+      ],
+      "end": [
+        107.0,
+        4,
+        0
+      ],
+      "middle": [
+        101.0,
+        3.0,
+        0.0
+      ],
+      "points": [
+        [
+          95.0,
+          2,
+          0
+        ],
+        [
+          107.0,
+          4,
+          0
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          2,
+          0
+        ],
+        [
+          95.0,
+          2,
+          0
+        ],
+        [
+          107.0,
+          4,
+          0
+        ],
+        [
+          120,
+          4,
+          0
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "maintenance__secret_filter",
+      "from": "maintenance",
+      "to": "secret_filter",
+      "requires": [],
+      "shortcut": false,
+      "secret": true,
+      "lift": false,
+      "width": 5,
+      "door": "Door_maintenance__secret_filter",
+      "start": [
+        -53.0,
+        -2,
+        -80
+      ],
+      "end": [
+        -67.0,
+        -2,
+        -80
+      ],
+      "middle": [
+        -60.0,
+        -2.0,
+        -80.0
+      ],
+      "points": [
+        [
+          -53.0,
+          -2,
+          -80
+        ],
+        [
+          -67.0,
+          -2,
+          -80
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          -2,
+          -80
+        ],
+        [
+          -53.0,
+          -2,
+          -80
+        ],
+        [
+          -67.0,
+          -2,
+          -80
+        ],
+        [
+          -80,
+          -2,
+          -80
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "processing__secret_isolation",
+      "from": "processing",
+      "to": "secret_isolation",
+      "requires": [],
+      "shortcut": false,
+      "secret": true,
+      "lift": false,
+      "width": 5,
+      "door": "Door_processing__secret_isolation",
+      "start": [
+        -53.0,
+        2,
+        80
+      ],
+      "end": [
+        -67.0,
+        2,
+        80
+      ],
+      "middle": [
+        -60.0,
+        2.0,
+        80.0
+      ],
+      "points": [
+        [
+          -53.0,
+          2,
+          80
+        ],
+        [
+          -67.0,
+          2,
+          80
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          2,
+          80
+        ],
+        [
+          -53.0,
+          2,
+          80
+        ],
+        [
+          -67.0,
+          2,
+          80
+        ],
+        [
+          -80,
+          2,
+          80
+        ]
+      ],
+      "axis": 0
     }
   ],
-  "buttons": [
-    {
-      "id": "breaker",
-      "room": "arena_one",
-      "arena": "arena_one",
-      "sets": "breaker",
-      "label": "ENABLE BRASS ACCESS"
+  "spawn_room": "reception",
+  "spawn_local": [
+    0,
+    0.95,
+    7
+  ],
+  "exit": {
+    "room": "exit",
+    "requires": [
+      "decon_clear"
+    ],
+    "node": "ExitControl",
+    "position": [
+      80,
+      7,
+      116
+    ]
+  },
+  "objective_profile": {
+    "level_id": "pale_ward_01",
+    "initial_flags": {},
+    "objectives": [
+      {
+        "id": "restore_power",
+        "requires": [],
+        "complete_flag": "local_power",
+        "text": "Restore local power in the utility generator room."
+      },
+      {
+        "id": "surgical_access",
+        "requires": [
+          "local_power"
+        ],
+        "complete_flag": "surgical_credential",
+        "text": "Find the surgical credential in the operating theatre."
+      },
+      {
+        "id": "decon",
+        "requires": [
+          "surgical_credential"
+        ],
+        "complete_flag": "decon_clear",
+        "text": "Reach the surgical wing and survive decontamination."
+      },
+      {
+        "id": "leave",
+        "requires": [
+          "decon_clear"
+        ],
+        "complete_flag": "finished",
+        "text": "Take the transfer lift to Containment."
+      }
+    ],
+    "controls": {
+      "local_power": {
+        "requires": [],
+        "sets": [
+          "local_power"
+        ]
+      }
     },
-    {
-      "id": "release",
-      "room": "arena_two",
-      "arena": "arena_two",
-      "sets": "release",
-      "label": "RELEASE RED ACCESS"
+    "keys": {
+      "brass": {
+        "requires": [
+          "local_power"
+        ],
+        "sets": [
+          "surgical_credential",
+          "brass",
+          "brass_key"
+        ]
+      }
     },
+    "exit_requires": [
+      "decon_clear"
+    ],
+    "encounters": {
+      "decon": {
+        "arena_id": "decon",
+        "activation": "room_entry",
+        "completion_flag": "decon_clear",
+        "seal": true
+      }
+    }
+  },
+  "controls": [
     {
-      "id": "exit_control",
-      "room": "final_arena",
-      "arena": "final_arena",
-      "sets": "exit_control",
-      "label": "OPEN SECTOR EXIT"
+      "id": "local_power",
+      "room": "generator",
+      "node": "Control_local_power",
+      "position": [
+        3.5,
+        -1.05,
+        -84
+      ]
     }
   ],
   "keys": [
     {
-      "id": "brass_key",
-      "room": "key_console",
-      "label": "BRASS ACCESS KEY"
-    },
-    {
-      "id": "red_key",
-      "room": "red_console",
-      "label": "RED ACCESS KEY"
+      "kind": "brass",
+      "room": "theatre",
+      "requires": [
+        "local_power"
+      ],
+      "node": "Key_brass",
+      "position": [
+        80,
+        2.65,
+        -4
+      ]
     }
   ],
-  "exit": {
-    "room": "exit_gallery",
-    "requires": [
-      "brass_key",
-      "red_key",
-      "exit_control"
+  "anchors": [],
+  "checkpoints": [
+    {
+      "id": "power_return",
+      "room": "reception",
+      "requires": [
+        "local_power"
+      ],
+      "radius": 2.5,
+      "offset": [
+        0,
+        0,
+        3
+      ],
+      "position": [
+        0,
+        0,
+        3
+      ],
+      "node": "Checkpoint_power_return"
+    },
+    {
+      "id": "credential_return",
+      "room": "sterile",
+      "requires": [
+        "surgical_credential"
+      ],
+      "radius": 2.5,
+      "offset": [
+        0,
+        0,
+        3
+      ],
+      "position": [
+        40,
+        2,
+        3
+      ],
+      "node": "Checkpoint_credential_return"
+    }
+  ],
+  "weapon": {
+    "kind": "twin_shotgun",
+    "room": "diagnostics",
+    "amount": 8,
+    "node": "FirstGunCache",
+    "position": [
+      40,
+      2.65,
+      -36
     ]
   },
-  "weapon_cache": {
-    "arena_one": {
-      "weapon": "twin_shotgun",
-      "ammo": 4
-    },
-    "arena_two": {
-      "weapon": "twin_shotgun",
-      "ammo": 4
-    },
-    "final_arena": {
-      "weapon": "twin_shotgun",
-      "ammo": 4
+  "main_route_ammo": {
+    "pistol": 220,
+    "shells": 90,
+    "rivets": 0,
+    "rockets": 0
+  },
+  "main_route_health": 350,
+  "main_route_armor": 250,
+  "enemy_total": 64,
+  "enemy_roster": [
+    "infected_scientist",
+    "unsealed",
+    "infected_security",
+    "vessel"
+  ],
+  "encounters": {
+    "decon": {
+      "arena_id": "decon",
+      "activation": "room_entry",
+      "completion_flag": "decon_clear",
+      "seal": true
     }
   },
-  "vertical_routes": {
-    "arena_one_gallery": [
-      [
-        -7,
-        -1,
-        -59.400000000000006
-      ],
-      [
-        -7,
-        1.5,
-        -68.4
-      ],
-      [
-        -7,
-        1.5,
-        -83.6
-      ],
-      [
-        -7,
-        -1,
-        -92.6
-      ]
-    ],
-    "arena_one_rim": [
-      [
-        7,
-        -1,
-        -59.400000000000006
-      ],
-      [
-        7,
-        1.5,
-        -68.4
-      ],
-      [
-        -7,
-        1.5,
-        -70.2
-      ],
-      [
-        -7,
-        1.5,
-        -81.8
-      ],
-      [
-        7,
-        1.5,
-        -81.8
-      ]
-    ],
-    "arena_two_altar": [
-      [
-        0.0,
-        0.0,
-        -145.0
-      ],
-      [
-        0.0,
-        2.0,
-        -153.0
-      ],
-      [
-        0.0,
-        2.0,
-        -158.0
-      ],
-      [
-        0.0,
-        2.0,
-        -163.0
-      ],
-      [
-        0.0,
-        0.0,
-        -171.0
-      ]
-    ],
-    "arena_two_gallery": [
-      [
-        -7.0,
-        0.0,
-        -144.0
-      ],
-      [
-        -7.0,
-        2.5,
-        -153.0
-      ],
-      [
-        -7.0,
-        2.5,
-        -163.0
-      ],
-      [
-        -7.0,
-        0.0,
-        -172.0
-      ]
-    ],
-    "final_arena_gallery": [
-      [
-        -7.0,
-        1.5,
-        -193.4
-      ],
-      [
-        -7.0,
-        4.0,
-        -202.4
-      ],
-      [
-        -7.0,
-        4.0,
-        -217.6
-      ],
-      [
-        -7.0,
-        1.5,
-        -226.6
-      ]
-    ]
+  "target_human_minutes": [
+    20,
+    25
+  ],
+  "optional_rooms": [
+    "records",
+    "lockers",
+    "pharmacy",
+    "observation"
+  ],
+  "secret_rooms": [
+    "secret_filter",
+    "secret_isolation"
+  ],
+  "architectural_direction": {
+    "admissions": "Reception desk canopy/service glazing, triage C3 portal/pillars, ceiling pipes, ordered bed bays; no blank box gallery.",
+    "utilities": "Visible pump/generator machinery, pipe bundles and exposed support ribs; maintenance height changes readable.",
+    "clinical": "Clinical observation glazing and service panels, surgical work islands/task lamps and lower ceiling zones.",
+    "transfer": "Containment ribs, machinery alcoves, decon warning portal and mounted landing fixtures."
   },
-  "combat_paths": {
-    "arena_one": [
-      [
-        [
-          -4.3,
-          -1,
-          -66
-        ],
-        [
-          -4.3,
-          -1,
-          -86
-        ]
-      ],
-      [
-        [
-          4.3,
-          -1,
-          -66
-        ],
-        [
-          4.3,
-          -1,
-          -86
-        ]
+  "spawn_position": [
+    0,
+    0.95,
+    7
+  ],
+  "architecture_version": 13,
+  "design_version": 13,
+  "enemy_spawns": [
+    {
+      "stable_id": "pale_ward_01.triage.enemy.0",
+      "room": "triage",
+      "kind": "infected_scientist",
+      "position": [
+        -5,
+        0.87,
+        -44
       ]
-    ],
-    "arena_two": [
-      [
-        [
-          -4.3,
-          0.0,
-          -148.0
-        ],
-        [
-          -4.3,
-          0.0,
-          -168.0
-        ]
-      ],
-      [
-        [
-          4.3,
-          0.0,
-          -148.0
-        ],
-        [
-          4.3,
-          0.0,
-          -168.0
-        ]
+    },
+    {
+      "stable_id": "pale_ward_01.triage.enemy.1",
+      "room": "triage",
+      "kind": "infected_scientist",
+      "position": [
+        0,
+        0.87,
+        -44
       ]
-    ],
-    "final_arena": [
-      [
-        [
-          -4.3,
-          1.5,
-          -200.0
-        ],
-        [
-          -4.3,
-          1.5,
-          -220.0
-        ]
-      ],
-      [
-        [
-          4.3,
-          1.5,
-          -200.0
-        ],
-        [
-          4.3,
-          1.5,
-          -220.0
-        ]
+    },
+    {
+      "stable_id": "pale_ward_01.triage.enemy.2",
+      "room": "triage",
+      "kind": "infected_security",
+      "position": [
+        5,
+        0.87,
+        -44
       ]
-    ]
-  },
-  "theme": "pale_ward",
-  "intake_section_version": 7,
-  "title": "Intake",
-  "subtitle": "Ward arrival / sunken triage",
-  "entry_weapon": "twin_shotgun",
-  "combat_flanks": {
-    "arena_one": [
-      [
-        -4.3,
-        -1,
-        -76
-      ],
-      [
-        -11.0,
-        -1,
-        -76
-      ],
-      [
-        -11.0,
-        -1,
-        -85
-      ],
-      [
-        -11.0,
-        -1,
-        -79
-      ],
-      [
-        -11.0,
-        -1,
-        -73
-      ],
-      [
-        -11.0,
-        -1,
-        -67
-      ],
-      [
-        4.3,
-        -1,
-        -76
-      ],
-      [
-        11.0,
-        -1,
-        -76
-      ],
-      [
-        11.0,
-        -1,
-        -85
-      ],
-      [
-        11.0,
-        -1,
-        -79
-      ],
-      [
-        11.0,
-        -1,
-        -73
-      ],
-      [
-        11.0,
-        -1,
-        -67
+    },
+    {
+      "stable_id": "pale_ward_01.triage.enemy.3",
+      "room": "triage",
+      "kind": "infected_scientist",
+      "position": [
+        -5,
+        0.87,
+        -40
       ]
-    ],
-    "arena_two": [
-      [
-        -4.3,
-        0.0,
-        -158.0
-      ],
-      [
-        -12.0,
-        0.0,
-        -158.0
-      ],
-      [
-        -12.0,
-        0.0,
-        -167.0
-      ],
-      [
-        -12.0,
-        0.0,
-        -161.0
-      ],
-      [
-        -12.0,
-        0.0,
-        -155.0
-      ],
-      [
-        -12.0,
-        0.0,
-        -149.0
-      ],
-      [
-        4.3,
-        0.0,
-        -158.0
-      ],
-      [
-        12.0,
-        0.0,
-        -158.0
-      ],
-      [
-        12.0,
-        0.0,
-        -167.0
-      ],
-      [
-        12.0,
-        0.0,
-        -161.0
-      ],
-      [
-        12.0,
-        0.0,
-        -155.0
-      ],
-      [
-        12.0,
-        0.0,
-        -149.0
+    },
+    {
+      "stable_id": "pale_ward_01.triage.enemy.4",
+      "room": "triage",
+      "kind": "infected_scientist",
+      "position": [
+        0,
+        0.87,
+        -40
       ]
-    ],
-    "final_arena": [
-      [
-        -4.3,
-        1.5,
-        -210.0
-      ],
-      [
-        -12.0,
-        1.5,
-        -210.0
-      ],
-      [
-        -12.0,
-        1.5,
-        -219.0
-      ],
-      [
-        -12.0,
-        1.5,
-        -213.0
-      ],
-      [
-        -12.0,
-        1.5,
-        -207.0
-      ],
-      [
-        -12.0,
-        1.5,
-        -201.0
-      ],
-      [
-        4.3,
-        1.5,
-        -210.0
-      ],
-      [
-        12.0,
-        1.5,
-        -210.0
-      ],
-      [
-        12.0,
-        1.5,
-        -219.0
-      ],
-      [
-        12.0,
-        1.5,
-        -213.0
-      ],
-      [
-        12.0,
-        1.5,
-        -207.0
-      ],
-      [
-        12.0,
-        1.5,
-        -201.0
+    },
+    {
+      "stable_id": "pale_ward_01.triage.enemy.5",
+      "room": "triage",
+      "kind": "infected_security",
+      "position": [
+        5,
+        0.87,
+        -40
       ]
-    ]
-  }
+    },
+    {
+      "stable_id": "pale_ward_01.triage.enemy.6",
+      "room": "triage",
+      "kind": "infected_scientist",
+      "position": [
+        -5,
+        0.87,
+        -36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.nurse.enemy.0",
+      "room": "nurse",
+      "kind": "infected_scientist",
+      "position": [
+        -45,
+        0.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.nurse.enemy.1",
+      "room": "nurse",
+      "kind": "infected_scientist",
+      "position": [
+        -40,
+        0.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.nurse.enemy.2",
+      "room": "nurse",
+      "kind": "infected_security",
+      "position": [
+        -35,
+        0.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.maintenance.enemy.0",
+      "room": "maintenance",
+      "kind": "unsealed",
+      "position": [
+        -45,
+        -1.13,
+        -84
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.maintenance.enemy.1",
+      "room": "maintenance",
+      "kind": "unsealed",
+      "position": [
+        -40,
+        -1.13,
+        -84
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.maintenance.enemy.2",
+      "room": "maintenance",
+      "kind": "vessel",
+      "position": [
+        -35,
+        -1.13,
+        -84
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.maintenance.enemy.3",
+      "room": "maintenance",
+      "kind": "unsealed",
+      "position": [
+        -45,
+        -1.13,
+        -80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.generator.enemy.0",
+      "room": "generator",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        -1.13,
+        -84
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.generator.enemy.1",
+      "room": "generator",
+      "kind": "unsealed",
+      "position": [
+        0,
+        -1.13,
+        -84
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.generator.enemy.2",
+      "room": "generator",
+      "kind": "vessel",
+      "position": [
+        5,
+        -1.13,
+        -84
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.generator.enemy.3",
+      "room": "generator",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        -1.13,
+        -80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.generator.enemy.4",
+      "room": "generator",
+      "kind": "unsealed",
+      "position": [
+        0,
+        -1.13,
+        -80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.diagnostics.enemy.0",
+      "room": "diagnostics",
+      "kind": "infected_scientist",
+      "position": [
+        35,
+        2.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.diagnostics.enemy.1",
+      "room": "diagnostics",
+      "kind": "infected_scientist",
+      "position": [
+        40,
+        2.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.diagnostics.enemy.2",
+      "room": "diagnostics",
+      "kind": "infected_security",
+      "position": [
+        45,
+        2.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.imaging.enemy.0",
+      "room": "imaging",
+      "kind": "infected_scientist",
+      "position": [
+        75,
+        2.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.imaging.enemy.1",
+      "room": "imaging",
+      "kind": "infected_scientist",
+      "position": [
+        80,
+        2.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.imaging.enemy.2",
+      "room": "imaging",
+      "kind": "infected_security",
+      "position": [
+        85,
+        2.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.imaging.enemy.3",
+      "room": "imaging",
+      "kind": "infected_scientist",
+      "position": [
+        75,
+        2.87,
+        -40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.imaging.enemy.4",
+      "room": "imaging",
+      "kind": "infected_scientist",
+      "position": [
+        80,
+        2.87,
+        -40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.theatre.enemy.0",
+      "room": "theatre",
+      "kind": "infected_scientist",
+      "position": [
+        75,
+        2.87,
+        -4
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.theatre.enemy.1",
+      "room": "theatre",
+      "kind": "infected_scientist",
+      "position": [
+        80,
+        2.87,
+        -4
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.theatre.enemy.2",
+      "room": "theatre",
+      "kind": "infected_security",
+      "position": [
+        85,
+        2.87,
+        -4
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.theatre.enemy.3",
+      "room": "theatre",
+      "kind": "infected_scientist",
+      "position": [
+        75,
+        2.87,
+        0
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.theatre.enemy.4",
+      "room": "theatre",
+      "kind": "infected_scientist",
+      "position": [
+        80,
+        2.87,
+        0
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.sterile.enemy.0",
+      "room": "sterile",
+      "kind": "infected_scientist",
+      "position": [
+        35,
+        2.87,
+        -4
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.sterile.enemy.1",
+      "room": "sterile",
+      "kind": "infected_scientist",
+      "position": [
+        40,
+        2.87,
+        -4
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.surgical_access.enemy.0",
+      "room": "surgical_access",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        2.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.surgical_access.enemy.1",
+      "room": "surgical_access",
+      "kind": "unsealed",
+      "position": [
+        0,
+        2.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.surgical_access.enemy.2",
+      "room": "surgical_access",
+      "kind": "vessel",
+      "position": [
+        5,
+        2.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.surgical_access.enemy.3",
+      "room": "surgical_access",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        2.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.recovery.enemy.0",
+      "room": "recovery",
+      "kind": "infected_scientist",
+      "position": [
+        -45,
+        2.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.recovery.enemy.1",
+      "room": "recovery",
+      "kind": "infected_scientist",
+      "position": [
+        -40,
+        2.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.recovery.enemy.2",
+      "room": "recovery",
+      "kind": "infected_security",
+      "position": [
+        -35,
+        2.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.recovery.enemy.3",
+      "room": "recovery",
+      "kind": "infected_scientist",
+      "position": [
+        -45,
+        2.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.recovery.enemy.4",
+      "room": "recovery",
+      "kind": "infected_scientist",
+      "position": [
+        -40,
+        2.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.recovery.enemy.5",
+      "room": "recovery",
+      "kind": "infected_security",
+      "position": [
+        -35,
+        2.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.processing.enemy.0",
+      "room": "processing",
+      "kind": "infected_scientist",
+      "position": [
+        -45,
+        2.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.processing.enemy.1",
+      "room": "processing",
+      "kind": "infected_scientist",
+      "position": [
+        -40,
+        2.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.processing.enemy.2",
+      "room": "processing",
+      "kind": "infected_security",
+      "position": [
+        -35,
+        2.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.decon.enemy.0",
+      "room": "decon",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        2.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.decon.enemy.1",
+      "room": "decon",
+      "kind": "unsealed",
+      "position": [
+        0,
+        2.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.decon.enemy.2",
+      "room": "decon",
+      "kind": "vessel",
+      "position": [
+        5,
+        2.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.decon.enemy.3",
+      "room": "decon",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        2.87,
+        80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.decon.enemy.4",
+      "room": "decon",
+      "kind": "unsealed",
+      "position": [
+        0,
+        2.87,
+        80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.decon.enemy.5",
+      "room": "decon",
+      "kind": "vessel",
+      "position": [
+        5,
+        2.87,
+        80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.decon.enemy.6",
+      "room": "decon",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        2.87,
+        84
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.decon.enemy.7",
+      "room": "decon",
+      "kind": "unsealed",
+      "position": [
+        0,
+        2.87,
+        84
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.transfer.enemy.0",
+      "room": "transfer",
+      "kind": "unsealed",
+      "position": [
+        35,
+        4.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.transfer.enemy.1",
+      "room": "transfer",
+      "kind": "unsealed",
+      "position": [
+        40,
+        4.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.transfer.enemy.2",
+      "room": "transfer",
+      "kind": "vessel",
+      "position": [
+        45,
+        4.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.lift_lobby.enemy.0",
+      "room": "lift_lobby",
+      "kind": "unsealed",
+      "position": [
+        35,
+        4.87,
+        116
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.lift_lobby.enemy.1",
+      "room": "lift_lobby",
+      "kind": "unsealed",
+      "position": [
+        40,
+        4.87,
+        116
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.exit.enemy.0",
+      "room": "exit",
+      "kind": "infected_security",
+      "position": [
+        75,
+        6.87,
+        116
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.exit.enemy.1",
+      "room": "exit",
+      "kind": "infected_security",
+      "position": [
+        80,
+        6.87,
+        116
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.lockers.enemy.0",
+      "room": "lockers",
+      "kind": "infected_scientist",
+      "position": [
+        -85,
+        0.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_01.observation.enemy.0",
+      "room": "observation",
+      "kind": "infected_scientist",
+      "position": [
+        115,
+        4.87,
+        -4
+      ]
+    }
+  ],
+  "supplies": [
+    {
+      "node": "Supply_pistol_reception",
+      "kind": "pistol",
+      "amount": 10,
+      "room": "reception",
+      "position": [
+        -2,
+        0.5,
+        11.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_triage",
+      "kind": "pistol",
+      "amount": 24,
+      "room": "triage",
+      "position": [
+        -2,
+        0.5,
+        -29.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_nurse",
+      "kind": "pistol",
+      "amount": 10,
+      "room": "nurse",
+      "position": [
+        -42,
+        0.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_maintenance",
+      "kind": "pistol",
+      "amount": 14,
+      "room": "maintenance",
+      "position": [
+        -42,
+        -1.5,
+        -71.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_generator",
+      "kind": "pistol",
+      "amount": 17,
+      "room": "generator",
+      "position": [
+        -2,
+        -1.5,
+        -70.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_diagnostics",
+      "kind": "pistol",
+      "amount": 10,
+      "room": "diagnostics",
+      "position": [
+        38,
+        2.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_imaging",
+      "kind": "pistol",
+      "amount": 17,
+      "room": "imaging",
+      "position": [
+        78,
+        2.5,
+        -29.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_theatre",
+      "kind": "pistol",
+      "amount": 17,
+      "room": "theatre",
+      "position": [
+        78,
+        2.5,
+        11.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_sterile",
+      "kind": "pistol",
+      "amount": 10,
+      "room": "sterile",
+      "position": [
+        38,
+        2.5,
+        9.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_surgical_access",
+      "kind": "pistol",
+      "amount": 14,
+      "room": "surgical_access",
+      "position": [
+        -2,
+        2.5,
+        49.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_recovery",
+      "kind": "pistol",
+      "amount": 20,
+      "room": "recovery",
+      "position": [
+        -42,
+        2.5,
+        50.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_processing",
+      "kind": "pistol",
+      "amount": 10,
+      "room": "processing",
+      "position": [
+        -42,
+        2.5,
+        89.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_decon",
+      "kind": "pistol",
+      "amount": 27,
+      "room": "decon",
+      "position": [
+        -2,
+        2.5,
+        91.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_transfer",
+      "kind": "pistol",
+      "amount": 10,
+      "room": "transfer",
+      "position": [
+        38,
+        4.5,
+        89.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_lift_lobby",
+      "kind": "pistol",
+      "amount": 10,
+      "room": "lift_lobby",
+      "position": [
+        38,
+        4.5,
+        129.0
+      ]
+    },
+    {
+      "node": "Supply_shells_reception",
+      "kind": "shells",
+      "amount": 4,
+      "room": "reception",
+      "position": [
+        2,
+        0.5,
+        11.0
+      ]
+    },
+    {
+      "node": "Supply_shells_triage",
+      "kind": "shells",
+      "amount": 9,
+      "room": "triage",
+      "position": [
+        2,
+        0.5,
+        -29.0
+      ]
+    },
+    {
+      "node": "Supply_shells_nurse",
+      "kind": "shells",
+      "amount": 4,
+      "room": "nurse",
+      "position": [
+        -38,
+        0.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_shells_maintenance",
+      "kind": "shells",
+      "amount": 5,
+      "room": "maintenance",
+      "position": [
+        -38,
+        -1.5,
+        -71.0
+      ]
+    },
+    {
+      "node": "Supply_shells_generator",
+      "kind": "shells",
+      "amount": 6,
+      "room": "generator",
+      "position": [
+        2,
+        -1.5,
+        -70.0
+      ]
+    },
+    {
+      "node": "Supply_shells_diagnostics",
+      "kind": "shells",
+      "amount": 4,
+      "room": "diagnostics",
+      "position": [
+        42,
+        2.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_shells_imaging",
+      "kind": "shells",
+      "amount": 6,
+      "room": "imaging",
+      "position": [
+        82,
+        2.5,
+        -29.0
+      ]
+    },
+    {
+      "node": "Supply_shells_theatre",
+      "kind": "shells",
+      "amount": 6,
+      "room": "theatre",
+      "position": [
+        82,
+        2.5,
+        11.0
+      ]
+    },
+    {
+      "node": "Supply_shells_sterile",
+      "kind": "shells",
+      "amount": 4,
+      "room": "sterile",
+      "position": [
+        42,
+        2.5,
+        9.0
+      ]
+    },
+    {
+      "node": "Supply_shells_surgical_access",
+      "kind": "shells",
+      "amount": 5,
+      "room": "surgical_access",
+      "position": [
+        2,
+        2.5,
+        49.0
+      ]
+    },
+    {
+      "node": "Supply_shells_recovery",
+      "kind": "shells",
+      "amount": 7,
+      "room": "recovery",
+      "position": [
+        -38,
+        2.5,
+        50.0
+      ]
+    },
+    {
+      "node": "Supply_shells_processing",
+      "kind": "shells",
+      "amount": 4,
+      "room": "processing",
+      "position": [
+        -38,
+        2.5,
+        89.0
+      ]
+    },
+    {
+      "node": "Supply_shells_decon",
+      "kind": "shells",
+      "amount": 10,
+      "room": "decon",
+      "position": [
+        2,
+        2.5,
+        91.0
+      ]
+    },
+    {
+      "node": "Supply_shells_transfer",
+      "kind": "shells",
+      "amount": 4,
+      "room": "transfer",
+      "position": [
+        42,
+        4.5,
+        89.0
+      ]
+    },
+    {
+      "node": "Supply_shells_lift_lobby",
+      "kind": "shells",
+      "amount": 4,
+      "room": "lift_lobby",
+      "position": [
+        42,
+        4.5,
+        129.0
+      ]
+    },
+    {
+      "node": "Supply_health_reception",
+      "kind": "health",
+      "amount": 16,
+      "room": "reception",
+      "position": [
+        -2,
+        0.5,
+        9.0
+      ]
+    },
+    {
+      "node": "Supply_health_triage",
+      "kind": "health",
+      "amount": 38,
+      "room": "triage",
+      "position": [
+        -2,
+        0.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_health_nurse",
+      "kind": "health",
+      "amount": 16,
+      "room": "nurse",
+      "position": [
+        -42,
+        0.5,
+        -33.0
+      ]
+    },
+    {
+      "node": "Supply_health_maintenance",
+      "kind": "health",
+      "amount": 22,
+      "room": "maintenance",
+      "position": [
+        -42,
+        -1.5,
+        -73.0
+      ]
+    },
+    {
+      "node": "Supply_health_generator",
+      "kind": "health",
+      "amount": 27,
+      "room": "generator",
+      "position": [
+        -2,
+        -1.5,
+        -72.0
+      ]
+    },
+    {
+      "node": "Supply_health_diagnostics",
+      "kind": "health",
+      "amount": 16,
+      "room": "diagnostics",
+      "position": [
+        38,
+        2.5,
+        -33.0
+      ]
+    },
+    {
+      "node": "Supply_health_imaging",
+      "kind": "health",
+      "amount": 27,
+      "room": "imaging",
+      "position": [
+        78,
+        2.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_health_theatre",
+      "kind": "health",
+      "amount": 27,
+      "room": "theatre",
+      "position": [
+        78,
+        2.5,
+        9.0
+      ]
+    },
+    {
+      "node": "Supply_health_sterile",
+      "kind": "health",
+      "amount": 16,
+      "room": "sterile",
+      "position": [
+        38,
+        2.5,
+        7.0
+      ]
+    },
+    {
+      "node": "Supply_health_surgical_access",
+      "kind": "health",
+      "amount": 22,
+      "room": "surgical_access",
+      "position": [
+        -2,
+        2.5,
+        47.0
+      ]
+    },
+    {
+      "node": "Supply_health_recovery",
+      "kind": "health",
+      "amount": 32,
+      "room": "recovery",
+      "position": [
+        -42,
+        2.5,
+        48.0
+      ]
+    },
+    {
+      "node": "Supply_health_processing",
+      "kind": "health",
+      "amount": 16,
+      "room": "processing",
+      "position": [
+        -42,
+        2.5,
+        87.0
+      ]
+    },
+    {
+      "node": "Supply_health_decon",
+      "kind": "health",
+      "amount": 43,
+      "room": "decon",
+      "position": [
+        -2,
+        2.5,
+        89.0
+      ]
+    },
+    {
+      "node": "Supply_health_transfer",
+      "kind": "health",
+      "amount": 16,
+      "room": "transfer",
+      "position": [
+        38,
+        4.5,
+        87.0
+      ]
+    },
+    {
+      "node": "Supply_health_lift_lobby",
+      "kind": "health",
+      "amount": 16,
+      "room": "lift_lobby",
+      "position": [
+        38,
+        4.5,
+        127.0
+      ]
+    },
+    {
+      "node": "Supply_armor_reception",
+      "kind": "armor",
+      "amount": 12,
+      "room": "reception",
+      "position": [
+        2,
+        0.5,
+        9.0
+      ]
+    },
+    {
+      "node": "Supply_armor_triage",
+      "kind": "armor",
+      "amount": 27,
+      "room": "triage",
+      "position": [
+        2,
+        0.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_armor_nurse",
+      "kind": "armor",
+      "amount": 12,
+      "room": "nurse",
+      "position": [
+        -38,
+        0.5,
+        -33.0
+      ]
+    },
+    {
+      "node": "Supply_armor_maintenance",
+      "kind": "armor",
+      "amount": 15,
+      "room": "maintenance",
+      "position": [
+        -38,
+        -1.5,
+        -73.0
+      ]
+    },
+    {
+      "node": "Supply_armor_generator",
+      "kind": "armor",
+      "amount": 19,
+      "room": "generator",
+      "position": [
+        2,
+        -1.5,
+        -72.0
+      ]
+    },
+    {
+      "node": "Supply_armor_diagnostics",
+      "kind": "armor",
+      "amount": 12,
+      "room": "diagnostics",
+      "position": [
+        42,
+        2.5,
+        -33.0
+      ]
+    },
+    {
+      "node": "Supply_armor_imaging",
+      "kind": "armor",
+      "amount": 19,
+      "room": "imaging",
+      "position": [
+        82,
+        2.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_armor_theatre",
+      "kind": "armor",
+      "amount": 19,
+      "room": "theatre",
+      "position": [
+        82,
+        2.5,
+        9.0
+      ]
+    },
+    {
+      "node": "Supply_armor_sterile",
+      "kind": "armor",
+      "amount": 12,
+      "room": "sterile",
+      "position": [
+        42,
+        2.5,
+        7.0
+      ]
+    },
+    {
+      "node": "Supply_armor_surgical_access",
+      "kind": "armor",
+      "amount": 15,
+      "room": "surgical_access",
+      "position": [
+        2,
+        2.5,
+        47.0
+      ]
+    },
+    {
+      "node": "Supply_armor_recovery",
+      "kind": "armor",
+      "amount": 23,
+      "room": "recovery",
+      "position": [
+        -38,
+        2.5,
+        48.0
+      ]
+    },
+    {
+      "node": "Supply_armor_processing",
+      "kind": "armor",
+      "amount": 12,
+      "room": "processing",
+      "position": [
+        -38,
+        2.5,
+        87.0
+      ]
+    },
+    {
+      "node": "Supply_armor_decon",
+      "kind": "armor",
+      "amount": 31,
+      "room": "decon",
+      "position": [
+        2,
+        2.5,
+        89.0
+      ]
+    },
+    {
+      "node": "Supply_armor_transfer",
+      "kind": "armor",
+      "amount": 11,
+      "room": "transfer",
+      "position": [
+        42,
+        4.5,
+        87.0
+      ]
+    },
+    {
+      "node": "Supply_armor_lift_lobby",
+      "kind": "armor",
+      "amount": 11,
+      "room": "lift_lobby",
+      "position": [
+        42,
+        4.5,
+        127.0
+      ]
+    }
+  ],
+  "vertical_routes": {},
+  "combat_paths": {},
+  "combat_flanks": {},
+  "entry_weapon": "twin_shotgun"
 }

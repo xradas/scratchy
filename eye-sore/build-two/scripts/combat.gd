@@ -19,6 +19,7 @@ var empty_cooldown: float = 0.0
 var kills: int = 0
 var total_enemies: int = 0
 var dead: bool = false
+var suppress_events: bool = false
 var world: Node3D
 var player: CharacterBody3D
 var camera: Camera3D
@@ -73,7 +74,8 @@ func reset() -> void:
 	var authored := world.get_node_or_null("EnemySpawns")
 	if authored:
 		for marker in authored.get_children():
-			var enemy := spawn_enemy(StringName(marker.get_meta("kind", "unsealed")), marker.position)
+			var authored_id := String(marker.get_meta("stable_id","")) if world.has_method("capture_checkpoint_state") and world.objective_profile!=null else ""
+			var enemy := spawn_enemy(StringName(marker.get_meta("kind", "unsealed")), marker.position, authored_id)
 			enemy.awake = false
 	else:
 		spawn_enemy(&"unsealed", Vector3(0, 0.87, 10))
@@ -81,11 +83,11 @@ func reset() -> void:
 	total_enemies = enemies.size()
 	emit_event({"type": &"encounter_started", "total_enemies": total_enemies})
 
-func spawn_enemy(kind: StringName, position_value: Vector3) -> CharacterBody3D:
+func spawn_enemy(kind: StringName, position_value: Vector3, authored_id: String = "") -> CharacterBody3D:
 	var enemy: CharacterBody3D = preload("res://scenes/combat_enemy.tscn").instantiate()
 	enemy.position = position_value
 	world.add_child(enemy)
-	enemy.setup(self, player, load("res://resources/enemies/%s.tres" % kind), "enemy_%s_%d" % [kind, enemies.size()])
+	enemy.setup(self, player, load("res://resources/enemies/%s.tres" % kind), authored_id if not authored_id.is_empty() else "enemy_%s_%d" % [kind, enemies.size()])
 	enemies.append(enemy)
 	return enemy
 
@@ -168,7 +170,7 @@ func resolve_shot(definition: WeaponDefinition, origin: Vector3, forward: Vector
 		hits[key].materials[contact_material] = hits[key].materials.get(contact_material, 0) + 1
 	for value in hits.values():
 		var collider: Object = value.collider
-		var target_id: String = collider.target_id if collider.has_method("apply_damage") else str(collider.get_instance_id())
+		var target_id := contact_target_id(collider)
 		var material := material_for(collider)
 		var most_contacts := 0
 		for struck_material in value.materials:
@@ -176,7 +178,9 @@ func resolve_shot(definition: WeaponDefinition, origin: Vector3, forward: Vector
 				material = struck_material
 				most_contacts = value.materials[struck_material]
 		emit_event({"type": &"impact", "weapon_id": definition.identifier, "shot_id": shot_id, "target_id": target_id, "material": material, "position": value.position, "pellets": value.pellets})
-		if value.corpse:
+		if is_mechanism(collider):
+			collider.apply_mechanism_damage(value.damage,shot_id,definition.identifier,value.position)
+		elif value.corpse:
 			collider.apply_corpse_damage(value.damage, shot_id, definition.identifier, value.position, material)
 		elif collider.has_method("apply_damage"):
 			collider.apply_damage(value.damage, shot_id, definition.identifier, value.position, material)
@@ -187,7 +191,15 @@ func ray(from: Vector3, to: Vector3, exclude: Array = [], anatomical_hits: bool 
 	var query := PhysicsRayQueryParameters3D.create(from, to, 15 if anatomical_hits else 3, typed_exclude)
 	return get_world_3d().direct_space_state.intersect_ray(query)
 
+func is_mechanism(collider: Object) -> bool:
+	return is_instance_valid(collider) and collider.has_method("is_shootable_mechanism")
+
+func contact_target_id(collider: Object) -> String:
+	if is_mechanism(collider): return String(collider.target_id)
+	return String(collider.target_id) if collider.has_method("apply_damage") else str(collider.get_instance_id())
+
 func material_for(collider: Object) -> StringName:
+	if is_mechanism(collider): return &"armor"
 	if collider.has_method("apply_damage"): return collider.definition.hit_material
 	if collider.has_meta("hit_material"): return StringName(collider.get_meta("hit_material"))
 	# Explicit hard-surface fallback, never infer enemy flesh from a node's visual name.
@@ -211,6 +223,7 @@ func enemy_killed(enemy: CharacterBody3D) -> void:
 	if kills == total_enemies: emit_event({"type": &"encounter_complete"})
 
 func emit_event(event: Dictionary) -> void:
+	if suppress_events:return
 	for key in ["weapon_id", "target_id", "material"]:
 		if not event.has(key): event[key] = &""
 	if not event.has("position"): event.position = global_position
@@ -285,7 +298,7 @@ func resolve_ordnance_explosion(definition: WeaponDefinition, origin: Vector3, d
 	var hits: Dictionary = {}
 	if is_instance_valid(direct):
 		if direct.has_meta("combat_target"): direct = direct.get_meta("combat_target")
-		if direct.has_method("apply_damage"):
+		if is_mechanism(direct) or direct.has_method("apply_damage"):
 			hits[direct.get_instance_id()] = {"target": direct, "damage": definition.damage + definition.blast_damage, "position": origin, "material": direct_material, "direct": true}
 		else:
 			emit_event({"type": &"impact", "weapon_id": definition.identifier, "shot_id": shot_id, "position": origin, "target_id": str(direct.get_instance_id()), "material": direct_material, "pellets": 1})
@@ -298,7 +311,8 @@ func resolve_ordnance_explosion(definition: WeaponDefinition, origin: Vector3, d
 	for contact in candidates:
 		var body: Object = contact.collider
 		var target: Object = body.get_meta("combat_target") if body.has_meta("combat_target") else body
-		if not target.has_method("apply_damage") or target.gibbed: continue
+		if not is_mechanism(target) and (not target.has_method("apply_damage") or target.gibbed): continue
+		if is_mechanism(target) and target.disabled: continue
 		var point: Vector3 = body.global_position
 		var shape_node := body.get_node_or_null("HitSurface") as CollisionShape3D
 		if shape_node == null: shape_node = body.get_node_or_null("CollisionShape3D") as CollisionShape3D
@@ -309,22 +323,24 @@ func resolve_ordnance_explosion(definition: WeaponDefinition, origin: Vector3, d
 		# A direct surface contact receives the contact blast at zero distance.
 		# It was already aggregated above and must never be applied a second time.
 		if hits.has(key): continue
-		if distance >= definition.blast_radius or not blast_visible(origin, point): continue
+		var clear := blast_visible(origin,point,[target.get_rid()]) if is_mechanism(target) else blast_visible(origin,point)
+		if distance >= definition.blast_radius or not clear: continue
 		var amount := definition.blast_damage * (1.0 - distance / definition.blast_radius)
 		if not splash.has(key) or splash[key].damage < amount:
 			splash[key] = {"target": target, "damage": amount, "position": point, "material": material_for(body), "direct": false}
 	for key in splash: hits[key] = splash[key]
 	for value in hits.values():
 		var target: Object = value.target
-		emit_event({"type": &"impact", "weapon_id": definition.identifier, "shot_id": shot_id, "target_id": target.target_id, "material": value.material, "position": value.position, "pellets": 1, "damage": value.damage, "direct": value.direct})
-		if target.dead: target.apply_corpse_damage(value.damage, shot_id, definition.identifier, value.position, value.material)
+		emit_event({"type": &"impact", "weapon_id": definition.identifier, "shot_id": shot_id, "target_id": contact_target_id(target), "material": value.material, "position": value.position, "pellets": 1, "damage": value.damage, "direct": value.direct})
+		if is_mechanism(target): target.apply_mechanism_damage(value.damage,shot_id,definition.identifier,value.position)
+		elif target.dead: target.apply_corpse_damage(value.damage, shot_id, definition.identifier, value.position, value.material)
 		else: target.apply_damage(value.damage, shot_id, definition.identifier, value.position, value.material)
 	var self_distance := origin.distance_to(player.global_position)
 	if self_distance < definition.blast_radius and blast_visible(origin, player.global_position):
 		receive_player_damage(60.0 * (1.0 - self_distance / definition.blast_radius), "player_siege_launcher", origin)
 
-func blast_visible(from: Vector3, to: Vector3) -> bool:
+func blast_visible(from: Vector3, to: Vector3, exclude: Array[RID] = []) -> bool:
 	if from.is_equal_approx(to): return true
 	# World layer includes static walls and current moving-door collision geometry.
-	var query := PhysicsRayQueryParameters3D.create(from, to, 1)
+	var query := PhysicsRayQueryParameters3D.create(from, to, 1,exclude)
 	return get_world_3d().direct_space_state.intersect_ray(query).is_empty()

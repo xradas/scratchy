@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: RELEASE_STAGE_ROUTE: Safe actual checkpoint dwell did not complete credential_return
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (res://scripts/release_stage_playtest.gd:42)
+       [1] secure_checkpoint (res://scripts/level_route_playtest_v13.gd:165)
+       [2] tick (res://scripts/campaign_route_playtest.gd:210)
+       [3] tick (res://scripts/release_stage_playtest.gd:178)
+ERROR: RELEASE_STAGE_ROUTE: Actual exit/menu completion pale_ward_01
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (res://scripts/release_stage_playtest.gd:42)
+       [1] run (res://scripts/level_route_playtest_v13.gd:44)
+       [2] ward_route (res://scripts/level_route_playtest_v13.gd:191)
+       [3] secure_checkpoint (res://scripts/level_route_playtest_v13.gd:165)
+       [4] tick (res://scripts/campaign_route_playtest.gd:210)
+       [5] tick (res://scripts/release_stage_playtest.gd:178)
+ERROR: RELEASE_STAGE_ROUTE: Authored objective exit precondition decon_clear
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (res://scripts/release_stage_playtest.gd:42)
+       [1] run (res://scripts/level_route_playtest_v13.gd:47)
+       [2] ward_route (res://scripts/level_route_playtest_v13.gd:191)
+       [3] secure_checkpoint (res://scripts/level_route_playtest_v13.gd:165)
+       [4] tick (res://scripts/campaign_route_playtest.gd:210)
+       [5] tick (res://scripts/release_stage_playtest.gd:178)
+LEVELS_V13_ROUTE failed 0/1 ["Safe actual checkpoint dwell did not complete credential_return", "Actual exit/menu completion pale_ward_01", "Authored objective exit precondition decon_clear"]

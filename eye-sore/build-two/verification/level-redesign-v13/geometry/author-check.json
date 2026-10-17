@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "generated_outputs_byte_identical_without_writing": {
+    "scenes/campaign/pale_ward_01.tscn": true,
+    "resources/campaign/pale_ward_01-layout.json": true,
+    "resources/campaign/pale_ward_01-route.json": true,
+    "resources/campaign/v13/pale_ward_01-objectives.tres": true,
+    "resources/campaign/v13/pale_ward_01-author-report.json": true,
+    "scenes/campaign/pale_ward_02.tscn": true,
+    "resources/campaign/pale_ward_02-layout.json": true,
+    "resources/campaign/pale_ward_02-route.json": true,
+    "resources/campaign/v13/pale_ward_02-objectives.tres": true,
+    "resources/campaign/v13/pale_ward_02-author-report.json": true,
+    "scenes/campaign/pale_ward_03.tscn": true,
+    "resources/campaign/pale_ward_03-layout.json": true,
+    "resources/campaign/pale_ward_03-route.json": true,
+    "resources/campaign/v13/pale_ward_03-objectives.tres": true,
+    "resources/campaign/v13/pale_ward_03-author-report.json": true
+  },
+  "baseline_files_preserved": 313,
+  "baseline_changed": [],
+  "safe_cli": {
+    "missing": {
+      "returncode": 2,
+      "stderr": "usage: author_campaign_v3.py [-h]\n                             (--level {pale_ward_01,pale_ward_02,pale_ward_03} |\n                             --legacy-all)\nauthor_campaign_v3.py: error: one of the arguments --level --legacy-all is required\n",
+      "passed": true
+    },
+    "exclusive": {
+      "returncode": 2,
+      "stderr": "usage: author_campaign_v3.py [-h]\n                             (--level {pale_ward_01,pale_ward_02,pale_ward_03} |\n                             --legacy-all)\nauthor_campaign_v3.py: error: argument --legacy-all: not allowed with argument --level\n",
+      "passed": true
+    }
+  },
+  "scene_sha256": {
+    "pale_ward_01": "a4033335a6aaae0cd5847dd2968ee440c3d6620f9beb9c85fc15e9247050274a",
+    "pale_ward_02": "fcfb3609aa79389e03051710914eb7ce2a117cef3da767bd1aecebcead4918cf",
+    "pale_ward_03": "fba761a9147d6199e340c3c3500b38966333d0735f7c09837b810f7d8a3cad5e"
+  }
+}

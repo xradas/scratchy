@@ -1,0 +1,86 @@
+{
+  "version": 13,
+  "status": "source_verified_export_pending",
+  "baseline": "docs/level-redesign-v13/qa-baseline.json",
+  "source_preflight": {
+    "protected_current_files": 399,
+    "frozen_git_blobs": 464,
+    "catalog": "All baseline JSON fields exact except three approved Ward subtitle substitutions.",
+    "supplemental_unchanged_resources": 32,
+    "asset_files_exact_roster_and_bytes": 295,
+    "new_resource_roster": "Exactly three Ward objective TRES files, three author reports and the v13 availability budget.",
+    "report": "verification/level-redesign-v13/source-final.json"
+  },
+  "controlled_native_main": {
+    "report": "verification/level-redesign-v13/ward-main-final-v2.json",
+    "checks": 275,
+    "scope": "Three actual Main worlds; stable actor IDs/counts, two supported capsule-fit checkpoints each, all three60HP Breach mechanism-only anchors, complete checkpoint logical-state roundtrip and atomic unknown-ID rejection. AI frozen during inspection.",
+    "final_geometry": "Final Intake a4033335 / Containment fcfb3609 / Breach fba761a9; after the 15 m stair run, silo atrium, moved anchors and final fixture/glass cosmetics."
+  },
+  "physical_routes": {
+    "intake_initial_complete": "verification/level-redesign-v13/routes/intake-main-supplies.json",
+    "independent_receipt_audit": "verification/level-redesign-v13/routes/intake-main-supplies-audit.json",
+    "intake_scope": "Actual native graphics Main with ordinary CharacterBody movement, live AI/combat, finite unseeded normal entry inventory and declared main-route pickups; both automatic checkpoints, decon lockdown, physical lift and exit. Clean console/engine exit after end-only cache teardown. No human-duration claim.",
+    "breach_initial": "verification/level-redesign-v13/routes/breach-initial.json",
+    "breach_scope": "Initial scene before final anchor-offset revision; full descent and objective completion, old shutdown cache retention. Not final geometry or clean-exit acceptance.",
+    "intake_final": "verification/level-redesign-v13/routes/intake-native-final.json",
+    "containment_BA": "verification/level-redesign-v13/routes/containment-BA-centre.json",
+    "containment_BA_scope": "Clean real physical source route B\u2192bridge\u2192A\u2192lower route/exit, both safe checkpoints,68/76kills; no global all-clear, secret supplies or state injection.",
+    "full_campaign": {
+      "normal_AB": {
+        "report": "verification/level-redesign-v13/routes/source-all9-normal-AB.json",
+        "console": "verification/level-redesign-v13/routes/source-all9-normal-AB.console.log",
+        "levels_completed": 9,
+        "exact_continue_carries": 8,
+        "kills": 419,
+        "accepted_shots": 1204,
+        "siege_self_hits": 0,
+        "retirement": {
+          "complete": true,
+          "freed_main_drain_wall_ms": 250,
+          "gameplay_changed": false,
+          "stopped_audio_wall_ms": 300
+        },
+        "scope": "Actual contiguous source Main physics, live AI, weapon rays, E-use, finite entry inventory and real pickups. Both Ward checkpoints per level; all three Breach anchors and full required descent; legacy progression checks on the six unchanged maps. No secret supplies or death/flag/teleport/seed injection. Complete console is clean."
+      },
+      "heavy_BA": {
+        "report": "verification/level-redesign-v13/routes/source-all9-heavy-BA.json",
+        "console": "verification/level-redesign-v13/routes/source-all9-heavy-BA.console.log",
+        "levels_completed": 9,
+        "exact_continue_carries": 8,
+        "kills": 417,
+        "accepted_shots": 1086,
+        "siege_self_hits": 0,
+        "retirement": {
+          "complete": true,
+          "freed_main_drain_wall_ms": 250,
+          "gameplay_changed": false,
+          "stopped_audio_wall_ms": 300
+        },
+        "scope": "Actual contiguous source Main physics, live AI, weapon rays, E-use, finite entry inventory and real pickups. Both Ward checkpoints per level; all three Breach anchors and full required descent; legacy progression checks on the six unchanged maps. No secret supplies or death/flag/teleport/seed injection. Complete console is clean."
+      }
+    }
+  },
+  "preserved_failures": [
+    "Constructor String(null) fixture bug before movement.",
+    "Checkpoint driver chased threats away then stopped outside marker; runtime safety correctly blocked save.",
+    "Centre-only bot missed off-centre main-route supplies and died before decon.",
+    "Containment diagonal supply-to-control approach hit checkpoint station; corrected physical route returns through clear room centre.",
+    "Actual ascending cross-feed stair blocked the unchanged player on the 11 m run / .34375 m treads. Coordinator lengthened the authored run to 15 m / .46875 m treads; both physical directions then passed.",
+    "Intermittent shutdown OGG stream/playback retention diagnosed with verbose logs. Test-only measured wall-time retirement passed both full-nine runs; earlier warning receipts remain strictly rejected."
+  ],
+  "pending": [
+    "Trusted pinned editor --main-pack actual packed Main: 275 checks.",
+    "Actual exported ELF all-nine normal AB / heavy BA receipt audits and actual stereo movie by coordinator.",
+    "Human 20\u201325 minute pacing, listening and subjective playtesting remain unverified by automation."
+  ],
+  "limits": [
+    "Simulation bot times do not establish20\u201325minute human pacing.",
+    "Editor resource/Main fixture is not execution of shippedELF.",
+    "Controlled inspection freezesAI and does not constitute traversal.",
+    "No teleportation, flags/deaths injection, ammo grants, secret supply use, safety relaxation or collider exemptions in physical route driver."
+  ],
+  "native_capture_policy": {
+    "scope": "The opt-in route adapter sets native Window NO_FOCUS/minimized and calls force_draw only with --force-offscreen-draw. Ordinary play is unchanged. Added after the headless full-nine runs; parser verified. Actual exported MovieMaker capture remains pending. Launcher must also supply --no-focus before initial window creation."
+  }
+}

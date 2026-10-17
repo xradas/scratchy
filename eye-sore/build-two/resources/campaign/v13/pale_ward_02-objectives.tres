@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StageObjectiveProfile" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/stage_objective_profile.gd" id="profile_script"]
+[resource]
+script = ExtResource("profile_script")
+level_id = "pale_ward_02"
+initial_flags = {}
+objectives = Array[Dictionary]([{"id": "a", "requires": [], "complete_flag": "isolation_a", "text": "Isolate the culture reservoir feed."}, {"id": "b", "requires": [], "complete_flag": "isolation_b", "text": "Isolate the surgical-waste reservoir feed."}, {"id": "discharge", "requires": ["isolation_a", "isolation_b"], "complete_flag": "finished", "text": "Descend into the drained basin and reach specimen transfer."}])
+controls = {"isolation_a": {"requires": [], "sets": ["isolation_a", "one_isolated"]}, "isolation_b": {"requires": [], "sets": ["isolation_b", "one_isolated"]}}
+keys = {}
+exit_requires = Array[String](["isolation_a", "isolation_b"])
+encounters = {}

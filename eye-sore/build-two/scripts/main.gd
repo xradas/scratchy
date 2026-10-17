@@ -26,6 +26,7 @@ var hud: Control
 var menu_title: Label
 var menu_note: Label
 var resume_button: Button
+var restart_button: Button
 var damage_overlay: ColorRect
 var texture_cache: Dictionary = {}
 var music_started: bool = false
@@ -50,6 +51,7 @@ var campaign_mode := false
 var campaign_button: Button
 var stage_mode_button: Button
 var campaign_transitioning := false
+var restoring_checkpoint := false
 var weapon_hint := ""
 var weapon_hint_time := 0.0
 
@@ -88,7 +90,7 @@ func _ready() -> void:
 	load_settings()
 	smoke = "--smoke-test" in OS.get_cmdline_user_args()
 	# Automated fixtures call combat directly and do not verify physical mouse input.
-	automated_input = smoke or "--automated-input" in OS.get_cmdline_user_args() or "--release-route-test" in OS.get_cmdline_user_args() or "--campaign-route-test" in OS.get_cmdline_user_args()
+	automated_input = smoke or "--automated-input" in OS.get_cmdline_user_args() or "--release-route-test" in OS.get_cmdline_user_args() or "--campaign-route-test" in OS.get_cmdline_user_args() or "--v13-route-test" in OS.get_cmdline_user_args()
 	var background := ColorRect.new()
 	background.color = Color.BLACK
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -185,10 +187,17 @@ func _ready() -> void:
 		call_deferred("run_release_route_test")
 	elif "--campaign-route-test" in OS.get_cmdline_user_args():
 		call_deferred("run_campaign_route_test")
+	elif "--v13-route-test" in OS.get_cmdline_user_args():
+		call_deferred("run_v13_route_test")
 
 func run_release_route_test() -> void:
 	# Explicit verification mode; ordinary play never creates the route driver.
 	var driver := preload("res://scripts/release_stage_playtest.gd").new()
+	add_child(driver)
+	driver.setup(self)
+
+func run_v13_route_test() -> void:
+	var driver:Node = (load("res://scripts/level_route_playtest_v13.gd") as Script).new()
 	add_child(driver)
 	driver.setup(self)
 
@@ -354,10 +363,10 @@ func build_menu() -> void:
 	resume_button.text = "Play"
 	resume_button.pressed.connect(enter_combat)
 	column.add_child(resume_button)
-	var retry := Button.new()
-	retry.text = "Restart"
-	retry.pressed.connect(restart_combat)
-	column.add_child(retry)
+	restart_button = Button.new()
+	restart_button.text = "Restart"
+	restart_button.pressed.connect(restart_level)
+	column.add_child(restart_button)
 	var title_screen := Button.new()
 	title_screen.text = "Return to title"
 	title_screen.pressed.connect(return_to_title)
@@ -456,6 +465,7 @@ func create_world() -> void:
 	if ResourceLoader.exists("res://scripts/combat.gd"):
 		combat = load("res://scripts/combat.gd").new()
 		combat.name = "Combat"
+		combat.suppress_events=restoring_checkpoint
 		world.add_child(combat)
 		combat.combat_event.connect(on_combat_event)
 		combat.player_died.connect(on_player_died)
@@ -471,6 +481,7 @@ func create_world() -> void:
 			world.setup(combat, player)
 			world.completed.connect(on_level_completed)
 			world.message_changed.connect(func(text: String): level_message = text)
+			if world.has_signal("checkpoint_reached"):world.checkpoint_reached.connect(on_checkpoint_reached)
 	control_presentations.clear()
 	for component in get_tree().get_nodes_in_group("equipment_controls_v9"):
 		if world.is_ancestor_of(component): control_presentations.append(component)
@@ -533,7 +544,8 @@ func enter_combat() -> void:
 			continue_campaign()
 		return
 	if level_complete or (is_instance_valid(combat) and combat.dead):
-		restart_combat()
+		if combat.dead and has_checkpoint():continue_from_checkpoint()
+		else:restart_level()
 		return
 	started = true
 	if is_instance_valid(menu_music): menu_music.stop()
@@ -541,6 +553,10 @@ func enter_combat() -> void:
 	set_paused(false)
 
 func restart_combat() -> void:
+	restart_level()
+
+func restart_level() -> void:
+	campaign.clear_checkpoint()
 	var restore_snapshot: Dictionary = campaign.entry_snapshot.duplicate(true) if campaign_mode else {}
 	set_paused(true)
 	level_complete = false
@@ -614,8 +630,32 @@ func replace_world(snapshot: Dictionary) -> void:
 		automap.state.clear()
 	weapon_hint_time = 0.0
 
+func checkpoint_level_id() -> String:
+	var profile:Variant=world.get("objective_profile") if is_instance_valid(world) else null
+	return String(profile.level_id) if profile!=null else ""
+
+func has_checkpoint() -> bool:
+	var id:=checkpoint_level_id()
+	return not id.is_empty() and campaign.has_checkpoint(id)
+
+func on_checkpoint_reached(id: String) -> void:
+	if not started or get_tree().paused or level_complete or combat.dead:return
+	if campaign.capture_checkpoint(world,combat,player,id):level_message="Checkpoint secured · "+id.replace("_"," ").capitalize()
+
+func continue_from_checkpoint() -> void:
+	if not has_checkpoint():restart_level();return
+	var snapshot:Dictionary=campaign.checkpoint_snapshot.duplicate(true)
+	set_paused(true);level_complete=false;level_message=""
+	restoring_checkpoint=true
+	replace_world({})
+	if not campaign.restore_checkpoint(world,combat,player,snapshot):
+		campaign.clear_checkpoint()
+		if campaign_mode:campaign.restore(combat,campaign.entry_snapshot)
+	restoring_checkpoint=false;combat.suppress_events=false
+	enter_combat()
+
 func on_combat_event(event: Dictionary) -> void:
-	if event.get("type") in [&"enemy_hurt", &"enemy_death"]:
+	if event.get("type") in [&"enemy_hurt", &"enemy_death", &"mechanism_damaged"]:
 		crosshair.confirm_hit()
 	if is_instance_valid(combat_audio): combat_audio.handle_event(event)
 	if event.get("type") == &"player_hurt": damage_flash = 0.24
@@ -779,6 +819,12 @@ func set_paused(value: bool) -> void:
 			menu_title.text = "STAGE COMPLETE" if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / " + String(selected_stage().title).to_upper()))
 			resume_button.text = "Play again" if level_complete else ("Retry" if dead else ("Resume" if started else "Play"))
 			menu_note.text = ("%s completed.\nKills %d/%d" % [selected_stage().title, combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1–6 weapons · E use · Tab map · Ctrl crouch · Shift sprint")
+		if not checkpoint_level_id().is_empty():
+			restart_button.text="Restart Level"
+			if dead:
+				resume_button.text="Continue from Checkpoint" if has_checkpoint() else "Retry from Entrance"
+				menu_note.text=current_level_label()+"\n"+("Restore the latest secured checkpoint." if has_checkpoint() else "No checkpoint secured · retry from this level’s entrance.")
+		else:restart_button.text="Restart"
 		stage_selector.visible = not campaign_mode
 		campaign_button.visible = not started and not campaign.levels.is_empty()
 		stage_mode_button.visible = not started and campaign_mode

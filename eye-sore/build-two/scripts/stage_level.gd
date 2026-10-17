@@ -1,4 +1,11 @@
 extends Node3D
+signal checkpoint_reached(checkpoint_id: String)
+@export var objective_profile: StageObjectiveProfile = null
+const CheckpointState := preload("res://scripts/stage_checkpoint_v13.gd")
+var checkpoint_markers: Array[Node3D] = []
+var checkpoint_used: Dictionary = {}
+var checkpoint_dwell := 0.0
+var checkpoint_candidate := ""
 signal completed
 signal message_changed(text: String)
 var combat: Node
@@ -27,7 +34,7 @@ var secrets: Dictionary = {}
 var shortcuts: Dictionary = {}
 func setup(controller: Node, actor: CharacterBody3D) -> void:
 	combat = controller; player = actor
-	rooms.clear(); navigation.clear(); pickups.clear(); mechanisms.clear(); trap_entries.clear(); trap_shutters.clear()
+	rooms.clear(); navigation.clear(); pickups.clear(); mechanisms.clear(); trap_entries.clear(); trap_shutters.clear(); checkpoint_markers.clear()
 	scan(self)
 	if combat.has_signal("combat_event") and not combat.combat_event.is_connected(handle_event): combat.combat_event.connect(handle_event)
 	reset()
@@ -42,21 +49,27 @@ func scan(node: Node) -> void:
 		if node.has_meta("stage_room"): rooms.append(node)
 		if node.has_meta("stage_nav"): navigation.append(node)
 		if node.has_meta("stage_pickup"): pickups.append(node)
-		if node.has_meta("stage_door") or node.has_meta("stage_button") or node.has_meta("ward_lift") or node.has_meta("stage_exit"): mechanisms.append(node)
+		if node.has_meta("checkpoint_id"): checkpoint_markers.append(node)
+		if node.has_meta("stage_door") or node.has_meta("stage_button") or node.has_meta("ward_lift") or node.has_meta("stage_exit") or node.has_method("is_shootable_mechanism"):
+			mechanisms.append(node)
+			if node.has_method("is_shootable_mechanism"): node.setup(self)
 	for child in node.get_children(): scan(child)
 func reset() -> void:
 	flags.clear(); collected.clear(); visited.clear(); dead_ids.clear(); arena_remaining.clear(); arena_active.clear(); enemy_groups.clear(); secrets.clear(); shortcuts.clear()
-	traps.clear()
+	traps.clear(); checkpoint_used.clear(); checkpoint_dwell=0.0; checkpoint_candidate=""
+	if objective_profile!=null: flags=objective_profile.initial_flags.duplicate(true)
 	for arena in trap_entries:
 		traps[arena] = {"triggered":false,"cleared":false,"latched":false,"shutters_open":false}
 		trap_entries[arena].reset_door()
 		for shutter in trap_shutters.get(arena,[]): shutter.reset_door()
 	finished = false; secret_found = false; shortcut_open = false; current_room = ""; prompt = ""
 	objective = "Restore power at the first arena breaker."
+	if objective_profile!=null: refresh_objective()
 	for item in pickups: item.visible = true
 	for mechanism in mechanisms:
 		if mechanism.has_method("reset_door"): mechanism.reset_door()
 		if mechanism.has_method("reset_lift"): mechanism.reset_lift()
+		if mechanism.has_method("reset_mechanism"): mechanism.reset_mechanism()
 	var spawns: Node = get_node_or_null("EnemySpawns")
 	if spawns == null: return
 	for index in spawns.get_child_count():
@@ -74,22 +87,40 @@ func update_player(actor: CharacterBody3D, controller: Node) -> void:
 	current_room = room_at(player.global_position)
 	if not current_room.is_empty():
 		visited[current_room] = true
+		if objective_profile!=null and not flags.get("visited_"+current_room,false):
+			flags["visited_"+current_room]=true;refresh_objective()
 		for room in rooms:
-			if String(room.get_meta("stage_room")) == current_room and room.has_meta("arena_id") and not traps.has(String(room.get_meta("arena_id"))): activate_arena(String(room.get_meta("arena_id")))
+			if String(room.get_meta("stage_room"))!=current_room or not room.has_meta("arena_id"):continue
+			var arena:=String(room.get_meta("arena_id"))
+			var authored_room_entry:=false
+			if objective_profile!=null:
+				for encounter in objective_profile.encounters.values():
+					if String(encounter.get("arena_id",""))==arena and String(encounter.get("activation",""))=="room_entry":authored_room_entry=true
+			if authored_room_entry:
+				if traps.has(arena):trigger_trap(arena)
+				activate_arena(arena)
+			elif not traps.has(arena):activate_arena(arena)
 	for enemy in combat.enemies:
 		if is_instance_valid(enemy) and not enemy.dead and String(enemy.get_meta("activate_room", "")) == current_room and is_arena_active(String(enemy.get_meta("arena_id", ""))): enemy.awake = true
 	for item in pickups:
-		if not collected.has(item.get_instance_id()) and player.global_position.distance_to(item.global_position) < 1.2: collect(item)
+		if not collected.has(pickup_identity(item)) and player.global_position.distance_to(item.global_position) < 1.2: collect(item)
 	update_traps()
 	var selected := nearest_mechanism()
 	prompt = describe(selected) if selected != null else ""
-func _physics_process(_delta: float) -> void:
-	if is_instance_valid(player) and is_instance_valid(combat): update_player(player, combat)
+func _physics_process(delta: float) -> void:
+	if is_instance_valid(player) and is_instance_valid(combat):
+		update_player(player, combat)
+		if objective_profile!=null: update_checkpoints(delta)
 func trigger_trap(arena: String) -> void:
 	if not traps.has(arena) or traps[arena].triggered: return
 	traps[arena].triggered = true
-	message_changed.emit("AMBUSH · survive the weapon cache")
-	objective = "Clear the ambush to reopen retreat and enable its control."
+	var warning := "AMBUSH · survive the weapon cache"
+	if objective_profile!=null:
+		warning="DECONTAMINATION LOCKDOWN · clear the chamber"
+		for encounter in objective_profile.encounters.values():
+			if String(encounter.get("arena_id",""))==arena:warning=String(encounter.get("message",warning))
+	message_changed.emit(warning)
+	if objective_profile==null: objective = "Clear the ambush to reopen retreat and enable its control."
 	for shutter in trap_shutters.get(arena,[]): shutter.activate()
 	# The normal weapon pickup is a lure, never a permanent prerequisite.
 	if int(arena_remaining.get(arena,0)) == 0: clear_trap(arena)
@@ -116,7 +147,7 @@ func update_traps() -> void:
 func activate_arena(arena: String) -> void:
 	if arena_active.has(arena): return
 	arena_active[arena] = true
-	if int(arena_remaining.get(arena, 0)) > 0: objective = "Clear this arena to enable its marked control."
+	if objective_profile==null and int(arena_remaining.get(arena, 0)) > 0: objective = "Clear this arena to enable its marked control."
 	for enemy in combat.enemies:
 		if is_instance_valid(enemy) and String(enemy.get_meta("arena_id", "")) == arena: enemy.awake = true
 func handle_event(event: Dictionary) -> void:
@@ -130,11 +161,26 @@ func notify_enemy_death(id: String, arena: String = "") -> void:
 	if int(arena_remaining[arena]) == 0:
 		flags["clear_" + arena] = true
 		clear_trap(arena)
-		if arena_active.get(arena, false): objective = "Use this arena’s enabled control."
-		message_changed.emit("Arena clear · its control is enabled")
+		if objective_profile==null and arena_active.get(arena, false): objective = "Use this arena’s enabled control."
+		if objective_profile!=null:
+			for encounter in objective_profile.encounters.values():
+				if String(encounter.get("arena_id",""))==arena:
+					var flag := String(encounter.get("completion_flag",""))
+					if not flag.is_empty(): flags[flag]=true
+			refresh_objective()
+		var message := "Arena clear · its control is enabled"
+		if objective_profile!=null:
+			message="Decontamination clear · transfer exit released"
+			for encounter in objective_profile.encounters.values():
+				if String(encounter.get("arena_id",""))==arena:message=String(encounter.get("completion_message",message))
+		message_changed.emit(message)
 func missing_requirements(node: Node) -> Array[String]:
 	var result: Array[String] = []
-	for requirement in node.get_meta("requires", []):
+	var requirements: Array = node.get_meta("requires", []).duplicate()
+	if objective_profile!=null:
+		if node.has_meta("stage_button"): requirements.append_array(objective_profile.controls.get(String(node.get_meta("stage_button")),{}).get("requires",[]))
+		if node.has_meta("stage_exit"): requirements.append_array(objective_profile.exit_requires)
+	for requirement in requirements:
 		if not flags.get(String(requirement), false): result.append(String(requirement))
 	# Authored one-way release applies only until its first accepted opening.
 	# Use a world-space door-plane normal: corridor controls can lie outside rooms.
@@ -157,6 +203,7 @@ func nearest_mechanism() -> Node3D:
 	var best: Node3D
 	var distance := 2.65
 	for candidate in mechanisms:
+		if candidate.has_method("is_shootable_mechanism"): continue
 		var anchor: Vector3 = candidate.get_meta("use_anchor", Vector3.ZERO)
 		var point: Vector3 = candidate.to_global(anchor)
 		if candidate.has_method("reset_door"): point = candidate.get_parent().to_global(candidate.origin + anchor)
@@ -183,18 +230,23 @@ func nearest_mechanism() -> Node3D:
 	return best
 func try_use(actor: CharacterBody3D = null) -> bool:
 	if actor != null: player = actor
-	if finished or not is_instance_valid(player) or combat.dead: return false
+	if finished or not is_instance_valid(player) or combat.dead or (objective_profile!=null and get_tree().paused): return false
 	var selected := nearest_mechanism()
 	if selected == null: return false
 	if not missing_requirements(selected).is_empty(): message_changed.emit(describe(selected)); return false
 	if selected.has_meta("stage_exit"):
-		finished = true; objective = String(get_meta("stage_title", "Stage")) + " cleared."; prompt = ""; completed.emit(); return true
+		finished = true
+		if objective_profile!=null: flags["finished"]=true
+		objective = String(get_meta("stage_title", "Stage")) + " cleared."; prompt = ""; completed.emit(); return true
 	if selected.has_meta("stage_button"):
 		var flag := String(selected.get_meta("stage_button"))
 		if flags.get(flag, false): return false
 		flags[flag] = true
-		if flag == "breaker": flags["power"] = true
-		if flag == "exit_control": flags["exit"] = true
+		if objective_profile!=null:
+			for granted in objective_profile.controls.get(flag,{}).get("sets",[flag]): flags[String(granted)]=true
+		else:
+			if flag == "breaker": flags["power"] = true
+			if flag == "exit_control": flags["exit"] = true
 		refresh_objective(); message_changed.emit(String(selected.get_meta("activated_message", "Control engaged"))); return true
 	if selected.has_meta("ward_lift"):
 		var accepted: bool = selected.activate()
@@ -207,7 +259,8 @@ func try_use(actor: CharacterBody3D = null) -> bool:
 	return true
 func interact() -> bool: return try_use()
 func collect(item: Node3D) -> void:
-	if get_tree().paused or combat.dead or collected.has(item.get_instance_id()): return
+	if get_tree().paused or combat.dead or collected.has(pickup_identity(item)): return
+	if objective_profile!=null and not missing_requirements(item).is_empty(): return
 	var kind := String(item.get_meta("stage_pickup"))
 	var amount := int(item.get_meta("amount", 25))
 	var receipt_kind := kind
@@ -243,8 +296,15 @@ func collect(item: Node3D) -> void:
 		# A full carried weapon can still spring a physical lure on the next level.
 		if not bait_arena.is_empty(): trigger_trap(bait_arena)
 		elif not accepted: return
+	elif objective_profile!=null and objective_profile.keys.has(kind.trim_suffix("_key")):
+		var key_id := kind.trim_suffix("_key")
+		var rules: Dictionary = objective_profile.keys[key_id]
+		if not objective_profile.unmet(rules.get("requires",[]),flags).is_empty(): return
+		receipt_kind=key_id+"_key";receipt_accepted=not flags.get(key_id,false);accepted_amount=1
+		for granted in rules.get("sets",[key_id,key_id+"_key"]): flags[String(granted)]=true
+		refresh_objective()
 	elif kind in ["brass", "red", "brass_key", "red_key"]:
-		if not flags.get("power", false): return
+		if objective_profile!=null or not flags.get("power", false): return
 		receipt_kind = kind.trim_suffix("_key") + "_key"
 		receipt_accepted = not flags.get(kind.trim_suffix("_key"), false)
 		accepted_amount = 1
@@ -252,17 +312,20 @@ func collect(item: Node3D) -> void:
 		flags[kind.trim_suffix("_key")] = true
 		refresh_objective()
 	else: return
-	collected[item.get_instance_id()] = true; item.visible = false
+	collected[pickup_identity(item)] = true; item.visible = false
 	# One authoritative receipt follows actual accepted mutation. Inventory events
 	# remain separate; saturated owned bait may still trigger its trap silently.
 	if receipt_accepted:
-		combat.emit_event({"type": &"item_collected", "item_kind": StringName(receipt_kind), "pickup_id": item.get_instance_id(), "amount": accepted_amount, "new_weapon": new_weapon, "position": item.global_position})
+		combat.emit_event({"type": &"item_collected", "item_kind": StringName(receipt_kind), "pickup_id": pickup_identity(item), "amount": accepted_amount, "new_weapon": new_weapon, "position": item.global_position})
 	if kind in ["twin_shotgun","rivet_cannon","siege_launcher"]:
 		var equip_key: int = {"twin_shotgun":4,"rivet_cannon":5,"siege_launcher":6}[kind]
 		message_changed.emit("%s cache · [%d] equip · AMBUSH" % [kind.replace("_"," ").capitalize(),equip_key])
 	else:
 		message_changed.emit(kind.trim_suffix("_key").capitalize() + " access key acquired" if kind in ["brass", "red", "brass_key", "red_key"] else "%s +%d" % [kind.capitalize(), amount])
 func refresh_objective() -> void:
+	if objective_profile!=null:
+		objective=objective_profile.objective_text(flags)
+		return
 	if flags.get("exit", false): objective = "Reach the enabled exit."
 	elif flags.get("red", false): objective = "Return to the red gate and clear the raised final arena."
 	elif flags.get("release", false): objective = "Find the red access key beyond the release gate."
@@ -305,7 +368,7 @@ func get_level_state() -> Dictionary:
 		if not visited.has(id): continue
 		var bounds: Vector3 = room.get_meta("room_bounds")
 		map.append({"id": id, "label": room.get_meta("stage_label", id), "rect": Rect2(Vector2(room.global_position.x - bounds.x, room.global_position.z - bounds.z), Vector2(bounds.x * 2, bounds.z * 2)), "visited": true, "position": room.global_position, "bounds": bounds})
-	return {"objective": objective, "prompt": prompt, "current_room": current_room, "visited_rooms": visited.keys(), "map_rooms": map, "key": flags.get("brass", false), "brass_key": flags.get("brass", false), "red_key": flags.get("red", false), "power": flags.get("power", false), "arena_remaining": arena_remaining.duplicate(), "traps": traps.duplicate(true), "shortcut_open": shortcut_open, "shortcuts_open": shortcuts.size(), "secret_found": secret_found, "secrets_found": secrets.size(), "exit_ready": flags.get("exit", false), "completed": finished, "pickups_remaining": pickups.size() - collected.size(), "flags": flags.duplicate()}
+	return {"objective": objective, "prompt": prompt, "current_room": current_room, "visited_rooms": visited.keys(), "map_rooms": map, "key": flags.get("brass", false), "brass_key": flags.get("brass", false), "red_key": flags.get("red", false), "power": flags.get("power", false), "arena_remaining": arena_remaining.duplicate(), "traps": traps.duplicate(true), "shortcut_open": shortcut_open, "shortcuts_open": shortcuts.size(), "secret_found": secret_found, "secrets_found": secrets.size(), "exit_ready": flags.get("exit", false) if objective_profile==null else objective_profile.unmet(objective_profile.exit_requires,flags).is_empty(), "completed": finished, "pickups_remaining": pickups.size() - collected.size(), "flags": flags.duplicate()}
 func is_arena_active(arena: String) -> bool:
 	return arena.is_empty() or bool(arena_active.get(arena, false))
 
@@ -340,3 +403,73 @@ func build_polygon(node: Node3D) -> void:
 	var visual := MeshInstance3D.new();visual.mesh=mesh;body.add_child(visual)
 	var shape := ConvexPolygonShape3D.new();shape.points=vertices
 	var collider := CollisionShape3D.new();collider.shape=shape;body.add_child(collider)
+
+func pickup_identity(item: Node) -> Variant:
+	return String(item.get_meta("stable_id",get_path_to(item))) if objective_profile!=null else item.get_instance_id()
+
+func set_progress_flag(flag: String) -> void:
+	if flag.is_empty():return
+	flags[flag]=true;refresh_objective()
+
+func checkpoint_mechanisms() -> Array[Node3D]:
+	var result:Array[Node3D]=mechanisms.duplicate()
+	for entry in trap_entries.values():
+		if entry not in result:result.append(entry)
+	for shutters in trap_shutters.values():
+		for shutter in shutters:
+			if shutter not in result:result.append(shutter)
+	return result
+
+func checkpoint_is_safe() -> bool:
+	if objective_profile==null or get_tree().paused or finished or not is_instance_valid(player) or combat.dead:return false
+	if not player.is_on_floor() or player.velocity.length_squared()>.01:return false
+	for child in combat.get_children():
+		if child.has_method("is_combat_projectile") and not child.resolved:return false
+	for node in checkpoint_mechanisms():
+		if node.has_method("reset_lift") and (node.moving or node.departure_pending or node.obstructed):return false
+		if node.has_method("reset_door"):
+			if node.opened and not node.is_open():return false
+			if CheckpointState.has_property(node,"sealing") and node.sealing and not node.is_closed():return false
+	var radius := float(objective_profile.checkpoint_options.get("threat_radius",10.0))
+	for enemy in combat.enemies:
+		if not is_instance_valid(enemy) or enemy.dead:continue
+		var distance:float=enemy.global_position.distance_to(player.global_position)
+		if distance<radius:return false
+		if enemy.awake and distance<maxf(radius,enemy.definition.attack_range+2.0) and enemy.can_see_player():return false
+	return true
+
+func update_checkpoints(delta: float) -> void:
+	if objective_profile==null or get_tree().paused or finished or combat.dead:return
+	var selected:Node3D
+	for marker in checkpoint_markers:
+		var id:=String(marker.get_meta("checkpoint_id"))
+		if checkpoint_used.has(id) or not missing_requirements(marker).is_empty():continue
+		if player.global_position.distance_to(marker.global_position)<=float(marker.get_meta("radius",1.5)):
+			selected=marker;break
+	if selected==null:checkpoint_dwell=0.0;checkpoint_candidate="";return
+	# Keep the E-use prompt when a real nearby control/gate is selected.
+	var show_checkpoint_prompt:=nearest_mechanism()==null
+	if not player.is_on_floor() or player.velocity.length_squared()>.01:
+		checkpoint_dwell=0.0;checkpoint_candidate=""
+		if show_checkpoint_prompt:prompt="Checkpoint · stop here to secure progress"
+		return
+	if not checkpoint_is_safe():
+		checkpoint_dwell=0.0;checkpoint_candidate=""
+		if show_checkpoint_prompt:prompt="Checkpoint waiting · clear nearby threats"
+		return
+	var id:=String(selected.get_meta("checkpoint_id"))
+	if id!=checkpoint_candidate:checkpoint_candidate=id;checkpoint_dwell=0.0
+	checkpoint_dwell+=delta
+	if show_checkpoint_prompt:prompt="Checkpoint · securing progress…"
+	if checkpoint_dwell<float(objective_profile.checkpoint_options.get("stationary_seconds",.5)):return
+	checkpoint_used[id]=true;checkpoint_dwell=0.0
+	if show_checkpoint_prompt:prompt="Checkpoint secured"
+	checkpoint_reached.emit(id)
+
+func capture_checkpoint_state() -> Dictionary:
+	return CheckpointState.capture(self) if objective_profile!=null else {}
+
+func restore_checkpoint_state(data: Dictionary) -> bool:
+	if not CheckpointState.restore(self,data):return false
+	for item in pickups:item.visible=not collected.has(pickup_identity(item))
+	return true

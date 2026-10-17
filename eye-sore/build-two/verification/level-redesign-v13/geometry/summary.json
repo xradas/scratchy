@@ -1,0 +1,73 @@
+{
+  "status": "passed_static_geometry_and_reproducible_authoring",
+  "source_frozen": true,
+  "engine": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+  "author_command": "python tools/author_campaign_v3.py --level pale_ward_01 (or pale_ward_02 / pale_ward_03)",
+  "regeneration_safety": "The CLI requires exactly one of --level or historical --legacy-all. No-argument and combined selectors reject. Do not run --legacy-all for the v13 release.",
+  "input_sha256": "40990ff31cc442d96ba83186058d6a949ac2f5e3736dd6c0d751e550b55c8d3f",
+  "author_sha256": "f8252169b3c153f8467af54ba13f913f687f4d3743af4cadc64675053d1f6b91",
+  "geometry_checker_sha256": "1c6f5cf063280ee0a6d465e29ba315fb07b7aa15b1e536d6e53240e404cb8968",
+  "reservoir_helper_sha256": "f71098f33525bba968da9c4e79a217a11648545d4dd5fab64becc1a6ea04ff71",
+  "checks": 42309,
+  "lane_samples": 21150,
+  "levels": {
+    "pale_ward_01": {
+      "checks": 13695,
+      "excluded_operable_bodies": 11,
+      "failures": [],
+      "lane_samples": 6846,
+      "level": "pale_ward_01",
+      "passed": true,
+      "scope": "Actual native .3radius/1.7height capsule overlap and flat upward floor probes on all nonlift portalcenter/\u00b1.65m lanes, every.4m; intentional gates/traps/liftguards excluded from staticclearance only. Real door/lift interactions and live physical walking require separate Main route fixture.",
+      "scene_sha256": "a4033335a6aaae0cd5847dd2968ee440c3d6620f9beb9c85fc15e9247050274a",
+      "report": "verification/level-redesign-v13/geometry/pale_ward_01.json"
+    },
+    "pale_ward_02": {
+      "checks": 14313,
+      "excluded_operable_bodies": 7,
+      "failures": [],
+      "lane_samples": 7155,
+      "level": "pale_ward_02",
+      "passed": true,
+      "scope": "Actual native .3radius/1.7height capsule overlap and flat upward floor probes on all nonlift portalcenter/\u00b1.65m lanes, every.4m; intentional gates/traps/liftguards excluded from staticclearance only. Real door/lift interactions and live physical walking require separate Main route fixture.",
+      "scene_sha256": "fcfb3609aa79389e03051710914eb7ce2a117cef3da767bd1aecebcead4918cf",
+      "report": "verification/level-redesign-v13/geometry/pale_ward_02.json"
+    },
+    "pale_ward_03": {
+      "checks": 14301,
+      "excluded_operable_bodies": 8,
+      "failures": [],
+      "lane_samples": 7149,
+      "level": "pale_ward_03",
+      "passed": true,
+      "scope": "Actual native .3radius/1.7height capsule overlap and flat upward floor probes on all nonlift portalcenter/\u00b1.65m lanes, every.4m; intentional gates/traps/liftguards excluded from staticclearance only. Real door/lift interactions and live physical walking require separate Main route fixture.",
+      "scene_sha256": "fba761a9147d6199e340c3c3500b38966333d0735f7c09837b810f7d8a3cad5e",
+      "report": "verification/level-redesign-v13/geometry/pale_ward_03.json"
+    }
+  },
+  "reproducibility": {
+    "outputs_reproduced_byte_identically_without_writing": 15,
+    "protected_baseline_files_unchanged": 313,
+    "report": "author-check.json",
+    "baseline": "preserved-baseline.json"
+  },
+  "architecture": {
+    "intake": "Lowered reception canopy/service hatch, paired clinical workcells, C3 triage pillars/pipe gantry/specimen bays, clinical glazing and utility vessels; lift connects4m to6m.",
+    "containment": "Shared transparent full-volume bridge guards, sealed reservoir sight galleries, bridge piers clear of lower purge route; both isolation flags derive cosmetic liquid height3.5m to-.2m. Initial AB approach changed by root from11m to15m for32 real.125m risers; no player/step tuning.",
+    "breach": "Sealed32m\u00d754m\u00d722m descent atrium around existing gated return bridge, large vertical pipes/buttresses, full-volume transparent guard/observation glazing, suspended warm fixture at[40,16,0], range35m. Anchor poses avoid axial routes; final exit organic arch."
+  },
+  "presentation": "Existing approved native v8/v6 surfaces, v9 textured state controls/exits, v11 mounted fixtures reused. No raster art generation/edits. Specimen glass retains original tint; only Breach vista glazing alpha.12.",
+  "physical_scope": "Actual native .3m-radius/1.7m-height Player capsule and floor queries on every nonlift portal centre and \u00b1.65m lanes, every.4m. Intentional operable gates/traps/liftguards excluded only from staticclearance. Stage-step-only overlaps tested again at+.126m. This proves static support/headroom, not successful ordinary player ascent or interactions.",
+  "physical_route_evidence_owner": "Independent QA worker; verification/level-redesign-v13/routes. Actual live walking, E controls, gates, checkpoints, lift, anchor accepted shots and exit receipts must be assessed separately.",
+  "retained_failures": "retained-attempts preserves initial static failures (ordinary stair resolver accounting, old sparse prop lanes, initial anchor placement). Actual initial Containment AB11m stair failure preserved separately in routes/containment-AB-centre.json; a static query pass did not supersede that real failure. Root fixed physical approach to15m and independent live AB/BA runs assess it.",
+  "visual_review": {
+    "status": "root_accepted_first_construction_pass",
+    "source": "/tmp/eyesore-v13-layout-views/pale_ward_01, pale_ward_02, pale_ward_03; root copies exact images/manifest under visual",
+    "final_breach_frame": "/tmp/eyesore-v13-layout-views/pale_ward_03/silo-vista.png",
+    "scope": "Controlled actual Main camera captures with AI/movement frozen. They establish construction readability only; they are not physical-route proof or final concept-art acceptance."
+  },
+  "limits": [
+    "No claim of all spawn/AI paths, every surface ray, performance benchmark, human playtest or optional/secret live traversal from the static lane probes.",
+    "All six non-Ward scenes and recorded baseline art/audio/layout/routes remain byte-identical. No existing runtime physics, weapon, audio or gore code was edited by this construction module."
+  ]
+}

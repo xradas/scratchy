@@ -1,0 +1,102 @@
+{
+  "version": 13,
+  "ammo_caps": {
+    "pistol": 96,
+    "shells": 40,
+    "rivets": 160,
+    "rockets": 12
+  },
+  "scope": "Authoritative redesigned Ward availability budgets; legacy aggregate v3/v4 budget retained for historical/unreplaced maps. Human aim/exploration balance remains review.",
+  "levels": [
+    {
+      "id": "pale_ward_01",
+      "version": 13,
+      "enemy_total": 64,
+      "roster": {
+        "infected_scientist": 27,
+        "infected_security": 11,
+        "unsealed": 20,
+        "vessel": 6
+      },
+      "main_route_ammo_available": {
+        "pistol": 220,
+        "shells": 90,
+        "rivets": 0,
+        "rockets": 0
+      },
+      "main_route_health_available": 350,
+      "main_route_armor_available": 250,
+      "optional_bonus_rooms": [
+        "records",
+        "lockers",
+        "pharmacy",
+        "observation"
+      ],
+      "secret_bonus_rooms": [
+        "secret_filter",
+        "secret_isolation"
+      ],
+      "scope": "Physical placed supplies plus guaranteed weapon cache, before inventory capacity/losses; optional and secret bonuses excluded. Starting/carry inventory separate. Actual accepted pickups and survival verified by route receipts."
+    },
+    {
+      "id": "pale_ward_02",
+      "version": 13,
+      "enemy_total": 76,
+      "roster": {
+        "infected_scientist": 31,
+        "infected_security": 14,
+        "unsealed": 23,
+        "vessel": 8
+      },
+      "main_route_ammo_available": {
+        "pistol": 180,
+        "shells": 80,
+        "rivets": 180,
+        "rockets": 0
+      },
+      "main_route_health_available": 350,
+      "main_route_armor_available": 250,
+      "optional_bonus_rooms": [
+        "pump_store",
+        "culture_office",
+        "waste_locker",
+        "upper_service"
+      ],
+      "secret_bonus_rooms": [
+        "secret_culture",
+        "secret_outfall"
+      ],
+      "scope": "Physical placed supplies plus guaranteed weapon cache, before inventory capacity/losses; optional and secret bonuses excluded. Starting/carry inventory separate. Actual accepted pickups and survival verified by route receipts."
+    },
+    {
+      "id": "pale_ward_03",
+      "version": 13,
+      "enemy_total": 84,
+      "roster": {
+        "infected_security": 8,
+        "unsealed": 51,
+        "vessel": 20,
+        "infected_scientist": 5
+      },
+      "main_route_ammo_available": {
+        "pistol": 160,
+        "shells": 80,
+        "rivets": 120,
+        "rockets": 20
+      },
+      "main_route_health_available": 350,
+      "main_route_armor_available": 250,
+      "optional_bonus_rooms": [
+        "security_store",
+        "specimen_office",
+        "lower_pump",
+        "overlook"
+      ],
+      "secret_bonus_rooms": [
+        "secret_upper",
+        "secret_crypt"
+      ],
+      "scope": "Physical placed supplies plus guaranteed weapon cache, before inventory capacity/losses; optional and secret bonuses excluded. Starting/carry inventory separate. Actual accepted pickups and survival verified by route receipts."
+    }
+  ]
+}

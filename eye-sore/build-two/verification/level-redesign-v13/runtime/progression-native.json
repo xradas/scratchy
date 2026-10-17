@@ -1,0 +1,1041 @@
+{
+  "actual_main_levels": [
+    "pale_ward_01",
+    "pale_ward_02",
+    "pale_ward_03"
+  ],
+  "checks": [
+    {
+      "check": "authored actor ID survives creation order",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "resource owns initial HUD objective",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "key resource prerequisites reject early collection",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "resource control grants local flag without legacy breaker/power aliases",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "legacy flags excluded and repeated control cannot reward",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "credential sets authored flags and stable pickup identity",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "one stable authoritative receipt",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "collected key cannot replay receipt",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "profile room visits expose generic visited flags",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "unrelated room kill never clears mandatory encounter",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "only explicit decon group publishes authored completion flag",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "exit readiness follows profile prerequisites",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "wall-blocked anchor shot still consumes one accepted shot",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "shared wall blocks anchor damage",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "accepted pistol anchor contact 0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "accepted pistol anchor contact 1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "accepted pistol anchor contact 2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "60HP anchor disables once after three real pistol contacts",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "metal mechanism emits no enemy damage/kill/gore",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "mechanism impacts use stable ID and armor sound material",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "duplicate mechanism release cannot replay completion",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "shotgun anchor shot accepted",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "pellets aggregate into one mechanism damage owner",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "twin_shotgun real accepted mechanism contact 0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "twin_shotgun each accepted shot owns one aggregated damage event",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "twin_shotgun exact resource damage/metal completion once",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "twin_shotgun mechanism remains outside enemy/gore ownership",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "twin_shotgun disabled metal body still accepts physical weapon contact",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "twin_shotgun disabled target cannot republish flag or damage events",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "rivet_cannon real accepted mechanism contact 0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "rivet_cannon each accepted shot owns one aggregated damage event",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "rivet_cannon real accepted mechanism contact 1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "rivet_cannon each accepted shot owns one aggregated damage event",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "rivet_cannon exact resource damage/metal completion once",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "rivet_cannon mechanism remains outside enemy/gore ownership",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "rivet_cannon disabled metal body still accepts physical weapon contact",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "rivet_cannon disabled target cannot republish flag or damage events",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "melee real accepted mechanism contact 0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "melee each accepted shot owns one aggregated damage event",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "melee real accepted mechanism contact 1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "melee each accepted shot owns one aggregated damage event",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "melee exact resource damage/metal completion once",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "melee mechanism remains outside enemy/gore ownership",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "melee disabled metal body still accepts physical weapon contact",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "melee disabled target cannot republish flag or damage events",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Siege mechanism contact starts one actual accepted projectile",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual swept projectile explosion dedicated mechanism branch avoids enemy fields",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "grounded stationary secured area is checkpoint-safe",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "eligible checkpoint explains stationary capture while moving",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "checkpoint hint preserves a nearby real interaction prompt",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "near living threat blocks checkpoint",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "unsafe checkpoint explains nearby threat",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "live enemy projectile blocks checkpoint",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "moving door blocks checkpoint",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "fully stopped open mechanism permits checkpoint",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "checkpoint requires stationary dwell",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "safe marker publishes one accepted checkpoint",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "same checkpoint marker never resaves continuously",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "atomic session checkpoint captures current inventory/world",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "checkpoint restores same authored world",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "restore inventory and kill count exactly",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "restore flags, consumed pickup, gate and disabled anchor",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "restore dead actors and partially/live logical state",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "state restore emits no reward, kill, pickup or mechanism events",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "second safe checkpoint can supersede first",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "session keeps latest checkpoint only",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "stable checkpoint restores into newly instantiated world",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "fresh world restores actors/items/anchors/objectives together",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "fresh checkpoint rebuild has no replayed effects/events",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "different level checkpoint is rejected",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "new game/title reset clears checkpoint",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Containment supports branch order [\"isolation_a\", \"isolation_b\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Containment supports branch order [\"isolation_b\", \"isolation_a\"]",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual redesigned Intake Main binds objective resource",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual Main automatically secures grounded safe authored checkpoint",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "death menu defaults to latest checkpoint",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Main death Continue restores exact saved inventory",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "checkpoint replaces and clears transient gore owner",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Main restores dead and gibbed actor progression without duplicate kills",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "fresh Main reconstructs persistent corpse and gibbed logical actors",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "held forward key is suppressed after death Continue",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Continue retains objective and checkpoint marker state",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Restart Level clears checkpoint and all progress",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Restart Level uses campaign entrance inventory",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "death without checkpoint offers entrance retry",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "death without checkpoint restarts at level entry",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Return to title discards session checkpoint",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual pale_ward_02 has redesigned objective resource",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_b.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_b.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_b.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_b.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_b.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_b.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_b.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_b.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_b.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_b.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_b.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_b.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_b.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_b.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_b.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual E-use isolation control isolation_b",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_a.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_a.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_a.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_a.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_a.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_a.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_a.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_a.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_a.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_a.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_a.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_a.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_a.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_a.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_a.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_02.isolation_a.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_02.isolation_a.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_02.isolation_a.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual E-use isolation control isolation_a",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Containment BA latest checkpoint follows second completed wing",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual pale_ward_02 death Continue restores exact finite inventory and kills",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Containment BA restore retains both branch flags and latest checkpoint",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual pale_ward_03 has redesigned objective resource",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_a.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_a.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_a.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_a.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_a.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_a.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_a.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_a.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_a.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_a.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_a.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_a.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_a.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_a.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_a.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_a.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_a.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_a.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_a.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_a.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_a.enemy.6",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_a.enemy.6",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_a.enemy.6",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "authored Breach anchor exists anchor_a",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual Breach anchor pistol contact anchor_a",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual Breach anchor pistol contact anchor_a",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual Breach anchor pistol contact anchor_a",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual Breach anchor disables via real damage anchor_a",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_b.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_b.enemy.0",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_b.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_b.enemy.1",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_b.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_b.enemy.2",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_b.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_b.enemy.3",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_b.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_b.enemy.4",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_b.enemy.5",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual native target has unobstructed checkpoint defense contact pale_ward_03.anchor_b.enemy.6",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.6",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.6",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.6",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "finite accepted shot clears actual nearby threat pale_ward_03.anchor_b.enemy.6",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual checkpoint defense target defeated pale_ward_03.anchor_b.enemy.6",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "authored Breach anchor exists anchor_b",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual Breach anchor pistol contact anchor_b",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual Breach anchor pistol contact anchor_b",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual Breach anchor pistol contact anchor_b",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual Breach anchor disables via real damage anchor_b",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Breach second anchor secures latest authored checkpoint",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "actual pale_ward_03 death Continue restores exact finite inventory and kills",
+      "detail": {},
+      "passed": true
+    },
+    {
+      "check": "Breach destroyed anchors stay disabled after actual Main restore",
+      "detail": {},
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "scope": "Production Stage/Combat/Player/components on real shared fixture solids; actualdamage and projectile explosion; authored input profiles. Main/scene route integration separate."
+}

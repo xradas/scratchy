@@ -1,1051 +1,5175 @@
 {
   "id": "pale_ward_03",
-  "architecture_version": 2,
+  "title": "Breach",
+  "theme": "pale_ward",
+  "version": 13,
+  "stage_id": "pale_ward",
   "rooms": {
-    "entry": {
-      "id": "entry",
-      "label": "Specimen silo reception",
+    "loading": {
+      "id": "loading",
+      "label": "Specimen loading bay",
       "center": [
-        0.0,
         0,
-        0.0
+        8,
+        0
       ],
       "size": [
-        25.200000000000003,
-        6,
-        37.76
+        32,
+        9,
+        26
       ],
-      "secret": false,
-      "arena_id": "",
+      "district": "upper",
       "function": "security",
-      "layout_mode": "security_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "optional": false,
+      "secret": false,
+      "enemies": 5,
+      "objects": [
+        {
+          "id": "loading.prop.0",
+          "type": "intake_desk",
+          "position_local": [
+            -7,
+            0,
+            -5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "loading.prop.1",
+          "type": "security_console",
+          "position_local": [
+            7,
+            0,
+            -5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "loading.prop.2",
+          "type": "weapon_rack",
+          "position_local": [
+            -9,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "loading.prop.3",
+          "type": "weapon_rack",
+          "position_local": [
+            9,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "loading.prop.4",
+          "type": "ppe_locker",
+          "position_local": [
+            -10,
+            0,
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "loading.prop.5",
+          "type": "ppe_locker",
+          "position_local": [
+            10,
+            0,
+            -9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "arena_one": {
-      "id": "arena_one",
-      "label": "Specimen cultivation silo",
+    "upper_intake": {
+      "id": "upper_intake",
+      "label": "Upper silo intake",
       "center": [
-        0.0,
-        -1.0,
-        -89.67999999999999
+        0,
+        8,
+        -40
       ],
       "size": [
-        37.800000000000004,
-        10,
-        47.199999999999996
+        26,
+        7,
+        24
       ],
+      "district": "upper",
+      "function": "utility",
+      "optional": false,
       "secret": false,
-      "arena_id": "arena_one",
-      "chamfer": 2.0,
-      "encounter": "sealed weapon cache",
+      "enemies": 5,
+      "objects": [
+        {
+          "id": "upper_intake.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "upper_intake.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "upper_intake.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "upper_intake.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "upper_intake.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "upper_intake.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "upper_intake.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "upper_intake.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "upper_gallery": {
+      "id": "upper_gallery",
+      "label": "Upper specimen gallery",
+      "center": [
+        40,
+        8,
+        -40
+      ],
+      "size": [
+        32,
+        10,
+        26
+      ],
+      "district": "upper",
       "function": "specimen_silo",
-      "layout_mode": "tall_silo_clusters",
-      "light_family": "clinical_sick_green"
-    },
-    "key_wing": {
-      "id": "key_wing",
-      "label": "Research access passage",
-      "center": [
-        44.9,
-        1.5,
-        -89.67999999999999
-      ],
-      "size": [
-        12,
-        5,
-        14
-      ],
+      "optional": false,
       "secret": false,
-      "arena_id": "",
-      "function": "diagnostics",
-      "layout_mode": "diagnostics_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "enemies": 7,
+      "objects": [
+        {
+          "id": "upper_gallery.prop.0",
+          "type": "specimen_tank",
+          "position_local": [
+            -10,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "upper_gallery.prop.1",
+          "type": "specimen_tank",
+          "position_local": [
+            -10,
+            0,
+            7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "upper_gallery.prop.2",
+          "type": "specimen_tank",
+          "position_local": [
+            10,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "upper_gallery.prop.3",
+          "type": "specimen_tank",
+          "position_local": [
+            10,
+            0,
+            7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "upper_gallery.prop.4",
+          "type": "containment_console",
+          "position_local": [
+            -12,
+            0,
+            3
+          ],
+          "heading": 90
+        },
+        {
+          "id": "upper_gallery.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            12,
+            0,
+            3
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "key_console": {
-      "id": "key_console",
-      "label": "Genetic analysis laboratory",
+    "anchor_a": {
+      "id": "anchor_a",
+      "label": "Upper anchor machinery",
       "center": [
-        44.9,
-        1.5,
-        -123.89999999999999
+        80,
+        8,
+        -40
       ],
       "size": [
-        12,
-        5,
-        12
+        26,
+        7,
+        24
       ],
+      "district": "upper",
+      "function": "utility",
+      "optional": false,
       "secret": false,
-      "arena_id": "",
-      "function": "pathology",
-      "layout_mode": "pathology_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "spine": {
-      "id": "spine",
-      "label": "Emergency sterilisation",
-      "center": [
-        0.0,
-        1.5,
-        -145.14
+      "enemies": 7,
+      "objects": [
+        {
+          "id": "anchor_a.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_a.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_a.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "anchor_a.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "anchor_a.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_a.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "anchor_a.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_a.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
       ],
-      "size": [
-        16.8,
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "service_descent": {
+      "id": "service_descent",
+      "label": "Transfer maintenance",
+      "center": [
+        80,
         6,
-        28.32
-      ],
-      "secret": false,
-      "arena_id": "",
-      "function": "decontamination",
-      "layout_mode": "decontamination_fitted_workstations",
-      "light_family": "clinical_sick_green"
-    },
-    "arena_two": {
-      "id": "arena_two",
-      "label": "Containment rupture hall",
-      "center": [
-        0.0,
-        0.0,
-        -186.44
+        0
       ],
       "size": [
-        39.9,
-        12,
-        37.76
+        26,
+        7,
+        24
       ],
+      "district": "middle",
+      "function": "utility",
+      "optional": false,
       "secret": false,
-      "arena_id": "arena_two",
-      "chamfer": 2.0,
-      "encounter": "raised crossfire bridge",
-      "function": "breached_lab",
-      "layout_mode": "broken_bays",
-      "light_family": "clinical_sick_green"
+      "enemies": 4,
+      "objects": [
+        {
+          "id": "service_descent.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "service_descent.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "service_descent.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "service_descent.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "service_descent.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "service_descent.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "service_descent.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "service_descent.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "red_wing": {
-      "id": "red_wing",
-      "label": "Dead sample archive",
+    "specimens": {
+      "id": "specimens",
+      "label": "Specimen preparation",
       "center": [
-        -42.0,
-        1.5,
-        -186.44
+        80,
+        4,
+        40
       ],
       "size": [
-        12,
-        6,
-        12
+        32,
+        9,
+        28
       ],
+      "district": "middle",
+      "function": "surgery",
+      "optional": false,
       "secret": false,
-      "arena_id": "",
-      "function": "specimen_archive",
-      "layout_mode": "specimen_archive_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "enemies": 7,
+      "objects": [
+        {
+          "id": "specimens.prop.0",
+          "type": "surgical_table",
+          "position_local": [
+            -7,
+            0,
+            -2
+          ],
+          "heading": 0
+        },
+        {
+          "id": "specimens.prop.1",
+          "type": "surgical_table",
+          "position_local": [
+            7,
+            0,
+            -2
+          ],
+          "heading": 0
+        },
+        {
+          "id": "specimens.prop.2",
+          "type": "surgical_lamp",
+          "position_local": [
+            -7,
+            0,
+            -4.5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "specimens.prop.3",
+          "type": "surgical_lamp",
+          "position_local": [
+            7,
+            0,
+            -4.5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "specimens.prop.4",
+          "type": "instrument_bench",
+          "position_local": [
+            -10,
+            0,
+            7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "specimens.prop.5",
+          "type": "instrument_bench",
+          "position_local": [
+            10,
+            0,
+            7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "specimens.prop.6",
+          "type": "specimen_fridge",
+          "position_local": [
+            -11,
+            0,
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "specimens.prop.7",
+          "type": "medical_cabinet",
+          "position_local": [
+            11,
+            0,
+            -9
+          ],
+          "heading": -90
+        },
+        {
+          "id": "specimens.prop.8",
+          "type": "vital_monitor",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "specimens.prop.9",
+          "type": "vital_monitor",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "red_console": {
-      "id": "red_console",
-      "label": "Emergency release office",
+    "crossfire": {
+      "id": "crossfire",
+      "label": "Middle silo crossing",
       "center": [
-        -42.0,
-        1.5,
-        -226.56
+        40,
+        4,
+        40
       ],
       "size": [
+        32,
         10,
-        6,
-        12
+        30
       ],
+      "district": "middle",
+      "function": "specimen_silo",
+      "optional": false,
       "secret": false,
-      "arena_id": "",
-      "function": "control_room",
-      "layout_mode": "control_room_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "enemies": 9,
+      "objects": [
+        {
+          "id": "crossfire.prop.0",
+          "type": "specimen_tank",
+          "position_local": [
+            -10,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "crossfire.prop.1",
+          "type": "specimen_tank",
+          "position_local": [
+            -10,
+            0,
+            7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "crossfire.prop.2",
+          "type": "specimen_tank",
+          "position_local": [
+            10,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "crossfire.prop.3",
+          "type": "specimen_tank",
+          "position_local": [
+            10,
+            0,
+            7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "crossfire.prop.4",
+          "type": "containment_console",
+          "position_local": [
+            -12,
+            0,
+            3
+          ],
+          "heading": 90
+        },
+        {
+          "id": "crossfire.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            12,
+            0,
+            3
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "final_arena": {
-      "id": "final_arena",
-      "label": "Buried fissure excavation",
+    "anchor_b": {
+      "id": "anchor_b",
+      "label": "Middle anchor machinery",
       "center": [
-        0.0,
-        1.5,
-        -247.79999999999998
+        0,
+        4,
+        40
       ],
       "size": [
-        35.7,
-        10,
-        47.199999999999996
+        26,
+        7,
+        24
       ],
+      "district": "middle",
+      "function": "utility",
+      "optional": false,
       "secret": false,
-      "arena_id": "final_arena",
-      "chamfer": 2.0,
-      "encounter": "lower court and upper launcher reward",
-      "function": "breach_works",
-      "layout_mode": "excavation_sides",
-      "light_family": "clinical_sick_green"
+      "enemies": 7,
+      "objects": [
+        {
+          "id": "anchor_b.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_b.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_b.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "anchor_b.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "anchor_b.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_b.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "anchor_b.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_b.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "exit_gallery": {
-      "id": "exit_gallery",
+    "lower_access": {
+      "id": "lower_access",
+      "label": "Lower silo access",
+      "center": [
+        -40,
+        2,
+        40
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "lower",
+      "function": "utility",
+      "optional": false,
+      "secret": false,
+      "enemies": 4,
+      "objects": [
+        {
+          "id": "lower_access.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lower_access.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lower_access.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "lower_access.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "lower_access.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lower_access.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "lower_access.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lower_access.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "cultivation": {
+      "id": "cultivation",
+      "label": "Deep cultivation",
+      "center": [
+        -40,
+        0,
+        80
+      ],
+      "size": [
+        30,
+        9,
+        28
+      ],
+      "district": "lower",
+      "function": "reservoir",
+      "optional": false,
+      "secret": false,
+      "enemies": 7,
+      "objects": [
+        {
+          "id": "cultivation.prop.0",
+          "type": "specimen_tank",
+          "position_local": [
+            -11,
+            0,
+            -8
+          ],
+          "heading": 0
+        },
+        {
+          "id": "cultivation.prop.1",
+          "type": "specimen_tank",
+          "position_local": [
+            -11,
+            0,
+            8
+          ],
+          "heading": 0
+        },
+        {
+          "id": "cultivation.prop.2",
+          "type": "specimen_tank",
+          "position_local": [
+            11,
+            0,
+            -8
+          ],
+          "heading": 0
+        },
+        {
+          "id": "cultivation.prop.3",
+          "type": "specimen_tank",
+          "position_local": [
+            11,
+            0,
+            8
+          ],
+          "heading": 0
+        },
+        {
+          "id": "cultivation.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -13.0,
+            0,
+            3
+          ],
+          "heading": 90
+        },
+        {
+          "id": "cultivation.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            13.0,
+            0,
+            3
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "machinery": {
+      "id": "machinery",
+      "label": "Containment machinery",
+      "center": [
+        0,
+        0,
+        80
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "lower",
+      "function": "utility",
+      "optional": false,
+      "secret": false,
+      "enemies": 5,
+      "objects": [
+        {
+          "id": "machinery.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "machinery.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "machinery.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "machinery.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "machinery.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "machinery.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "machinery.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "machinery.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "anchor_c": {
+      "id": "anchor_c",
+      "label": "Lower anchor machinery",
+      "center": [
+        40,
+        0,
+        80
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "lower",
+      "function": "utility",
+      "optional": false,
+      "secret": false,
+      "enemies": 7,
+      "objects": [
+        {
+          "id": "anchor_c.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_c.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_c.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "anchor_c.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "anchor_c.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_c.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "anchor_c.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "anchor_c.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "rupture": {
+      "id": "rupture",
+      "label": "Rupture chamber",
+      "center": [
+        40,
+        -4,
+        120
+      ],
+      "size": [
+        34,
+        12,
+        30
+      ],
+      "district": "rupture",
+      "function": "specimen_silo",
+      "optional": false,
+      "secret": false,
+      "enemies": 6,
+      "objects": [
+        {
+          "id": "rupture.prop.0",
+          "type": "specimen_tank",
+          "position_local": [
+            -10,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "rupture.prop.1",
+          "type": "specimen_tank",
+          "position_local": [
+            -10,
+            0,
+            7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "rupture.prop.2",
+          "type": "specimen_tank",
+          "position_local": [
+            10,
+            0,
+            -7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "rupture.prop.3",
+          "type": "specimen_tank",
+          "position_local": [
+            10,
+            0,
+            7
+          ],
+          "heading": 0
+        },
+        {
+          "id": "rupture.prop.4",
+          "type": "containment_console",
+          "position_local": [
+            -12,
+            0,
+            3
+          ],
+          "heading": 90
+        },
+        {
+          "id": "rupture.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            12,
+            0,
+            3
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "bridge": {
+      "id": "bridge",
+      "label": "Rupture crossing",
+      "center": [
+        0,
+        -4,
+        120
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "rupture",
+      "function": "utility",
+      "optional": false,
+      "secret": false,
+      "enemies": 3,
+      "objects": [
+        {
+          "id": "bridge.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            -7
+          ],
+          "heading": 90
+        },
+        {
+          "id": "bridge.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -8,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "bridge.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            -7
+          ],
+          "heading": -90
+        },
+        {
+          "id": "bridge.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            8,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "bridge.prop.4",
+          "type": "pipe_manifold",
+          "position_local": [
+            -10,
+            0,
+            -2
+          ],
+          "heading": 90
+        },
+        {
+          "id": "bridge.prop.5",
+          "type": "pipe_manifold",
+          "position_local": [
+            10,
+            0,
+            -2
+          ],
+          "heading": -90
+        },
+        {
+          "id": "bridge.prop.6",
+          "type": "filter_unit",
+          "position_local": [
+            -10,
+            0,
+            9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "bridge.prop.7",
+          "type": "containment_console",
+          "position_local": [
+            10,
+            0,
+            9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "exit": {
+      "id": "exit",
       "label": "Buried occult threshold",
       "center": [
-        0.0,
-        3.0,
-        -291.46
+        -40,
+        -4,
+        120
       ],
       "size": [
-        21.0,
-        6,
-        21.24
+        26,
+        7,
+        24
       ],
+      "district": "rupture",
+      "function": "security",
+      "optional": false,
       "secret": false,
-      "arena_id": "",
-      "function": "breach_works",
-      "layout_mode": "breach_works_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "enemies": 1,
+      "objects": [
+        {
+          "id": "exit.prop.0",
+          "type": "intake_desk",
+          "position_local": [
+            -7,
+            0,
+            -5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "exit.prop.1",
+          "type": "security_console",
+          "position_local": [
+            7,
+            0,
+            -5
+          ],
+          "heading": 0
+        },
+        {
+          "id": "exit.prop.2",
+          "type": "weapon_rack",
+          "position_local": [
+            -9,
+            0,
+            6
+          ],
+          "heading": 90
+        },
+        {
+          "id": "exit.prop.3",
+          "type": "weapon_rack",
+          "position_local": [
+            9,
+            0,
+            6
+          ],
+          "heading": -90
+        },
+        {
+          "id": "exit.prop.4",
+          "type": "ppe_locker",
+          "position_local": [
+            -10,
+            0,
+            -9
+          ],
+          "heading": 90
+        },
+        {
+          "id": "exit.prop.5",
+          "type": "ppe_locker",
+          "position_local": [
+            10,
+            0,
+            -9
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "supplies": {
-      "id": "supplies",
-      "label": "Emergency surgical store",
+    "security_store": {
+      "id": "security_store",
+      "label": "Security stores",
       "center": [
-        -27.3,
-        0,
-        -4.72
+        -40,
+        8,
+        0
       ],
       "size": [
-        12,
-        5,
-        10
+        26,
+        7,
+        24
       ],
+      "district": "upper",
+      "function": "security",
+      "optional": true,
       "secret": false,
-      "arena_id": "",
-      "function": "medical_stores",
-      "layout_mode": "medical_stores_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "enemies": 0,
+      "objects": [
+        {
+          "id": "security_store.prop.0",
+          "type": "intake_desk",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "security_store.prop.1",
+          "type": "security_console",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "security_store.prop.2",
+          "type": "weapon_rack",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "security_store.prop.3",
+          "type": "weapon_rack",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "maintenance": {
-      "id": "maintenance",
-      "label": "Silo coolant plant",
+    "specimen_office": {
+      "id": "specimen_office",
+      "label": "Specimen records",
       "center": [
-        29.400000000000002,
-        0,
-        7.08
+        120,
+        4,
+        40
       ],
       "size": [
-        14,
-        5,
-        16
+        26,
+        7,
+        24
       ],
+      "district": "middle",
+      "function": "records",
+      "optional": true,
       "secret": false,
-      "arena_id": "",
+      "enemies": 0,
+      "objects": [
+        {
+          "id": "specimen_office.prop.0",
+          "type": "records_cabinet",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "specimen_office.prop.1",
+          "type": "records_cabinet",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "specimen_office.prop.2",
+          "type": "records_cabinet",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "specimen_office.prop.3",
+          "type": "records_cabinet",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "lower_pump": {
+      "id": "lower_pump",
+      "label": "Lower pump service",
+      "center": [
+        -80,
+        0,
+        80
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "lower",
       "function": "utility",
-      "layout_mode": "utility_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "optional": true,
+      "secret": false,
+      "enemies": 0,
+      "objects": [
+        {
+          "id": "lower_pump.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lower_pump.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "lower_pump.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "lower_pump.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     },
-    "secret_two": {
-      "id": "secret_two",
-      "label": "Failed culture vault",
+    "overlook": {
+      "id": "overlook",
+      "label": "Fissure observation",
       "center": [
-        -63.0,
-        1.5,
-        -226.56
+        80,
+        -2,
+        120
       ],
       "size": [
-        10.5,
-        5,
-        11.799999999999999
+        26,
+        7,
+        24
       ],
+      "district": "rupture",
+      "function": "control_room",
+      "optional": true,
+      "secret": false,
+      "enemies": 0,
+      "objects": [
+        {
+          "id": "overlook.prop.0",
+          "type": "containment_console",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "overlook.prop.1",
+          "type": "containment_console",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "overlook.prop.2",
+          "type": "containment_console",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "overlook.prop.3",
+          "type": "containment_console",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "secret_upper": {
+      "id": "secret_upper",
+      "label": "Sealed equipment cage",
+      "center": [
+        80,
+        8,
+        -80
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "upper",
+      "function": "utility",
+      "optional": false,
       "secret": true,
-      "arena_id": "",
-      "function": "specimen_archive",
-      "layout_mode": "specimen_archive_fitted_workstations",
-      "light_family": "clinical_sick_green"
+      "enemies": 0,
+      "objects": [
+        {
+          "id": "secret_upper.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "secret_upper.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "secret_upper.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "secret_upper.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+    },
+    "secret_crypt": {
+      "id": "secret_crypt",
+      "label": "Buried crypt recess",
+      "center": [
+        0,
+        -4,
+        160
+      ],
+      "size": [
+        26,
+        7,
+        24
+      ],
+      "district": "rupture",
+      "function": "utility",
+      "optional": false,
+      "secret": true,
+      "enemies": 0,
+      "objects": [
+        {
+          "id": "secret_crypt.prop.0",
+          "type": "pump_rig",
+          "position_local": [
+            -10.0,
+            0,
+            -9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "secret_crypt.prop.1",
+          "type": "pump_rig",
+          "position_local": [
+            -10.0,
+            0,
+            9.0
+          ],
+          "heading": 90
+        },
+        {
+          "id": "secret_crypt.prop.2",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            -9.0
+          ],
+          "heading": -90
+        },
+        {
+          "id": "secret_crypt.prop.3",
+          "type": "pump_rig",
+          "position_local": [
+            10.0,
+            0,
+            9.0
+          ],
+          "heading": -90
+        }
+      ],
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
     }
   },
   "portals": [
     {
-      "from": "arena_one",
-      "to": "key_wing",
-      "width": 4.0,
-      "gate": "breaker",
-      "requires": [
-        "breaker"
-      ],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        18.900000000000002,
-        -1.0,
-        -89.67999999999999
-      ],
-      "end": [
-        38.9,
-        1.5,
-        -89.67999999999999
-      ],
-      "middle": [
-        28.9,
-        0.25,
-        -89.67999999999999
-      ],
-      "axis": 0,
-      "door": "Door_breaker"
-    },
-    {
-      "from": "key_wing",
-      "to": "key_console",
-      "width": 4.0,
-      "gate": "",
+      "id": "loading__upper_intake",
+      "from": "loading",
+      "to": "upper_intake",
       "requires": [],
-      "secret": false,
       "shortcut": false,
+      "secret": false,
       "lift": false,
+      "width": 5,
+      "door": null,
       "start": [
-        44.9,
-        1.5,
-        -96.67999999999999
+        0,
+        8,
+        -13.0
       ],
       "end": [
-        44.9,
-        1.5,
-        -117.89999999999999
-      ],
-      "middle": [
-        44.9,
-        1.5,
-        -107.28999999999999
-      ],
-      "axis": 2,
-      "door": null
-    },
-    {
-      "from": "arena_one",
-      "to": "spine",
-      "width": 4.0,
-      "gate": "brass_gate",
-      "requires": [
-        "breaker",
-        "brass_key"
-      ],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        0.0,
-        -1.0,
-        -113.27999999999999
-      ],
-      "end": [
-        0.0,
-        1.5,
-        -130.98
+        0,
+        8,
+        -28.0
       ],
       "middle": [
         0.0,
-        0.25,
-        -122.13
+        8.0,
+        -20.5
       ],
-      "axis": 2,
-      "door": "Door_brass_gate"
+      "points": [
+        [
+          0,
+          8,
+          -13.0
+        ],
+        [
+          0,
+          8,
+          -28.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          8,
+          0
+        ],
+        [
+          0,
+          8,
+          -13.0
+        ],
+        [
+          0,
+          8,
+          -28.0
+        ],
+        [
+          0,
+          8,
+          -40
+        ]
+      ],
+      "axis": 2
     },
     {
-      "from": "spine",
-      "to": "arena_two",
-      "width": 4.0,
-      "gate": "",
+      "id": "upper_intake__upper_gallery",
+      "from": "upper_intake",
+      "to": "upper_gallery",
       "requires": [],
-      "secret": false,
       "shortcut": false,
+      "secret": false,
       "lift": false,
-      "trap_entry": "TrapEntry_arena_two",
+      "width": 5,
+      "door": null,
       "start": [
-        0.0,
-        1.5,
-        -159.29999999999998
+        13.0,
+        8,
+        -40
       ],
       "end": [
-        0.0,
-        0.0,
-        -167.56
+        24.0,
+        8,
+        -40
       ],
       "middle": [
-        0.0,
-        0.75,
-        -163.43
+        18.5,
+        8.0,
+        -40.0
       ],
-      "axis": 2,
-      "door": null
+      "points": [
+        [
+          13.0,
+          8,
+          -40
+        ],
+        [
+          24.0,
+          8,
+          -40
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          8,
+          -40
+        ],
+        [
+          13.0,
+          8,
+          -40
+        ],
+        [
+          24.0,
+          8,
+          -40
+        ],
+        [
+          40,
+          8,
+          -40
+        ]
+      ],
+      "axis": 0
     },
     {
-      "from": "arena_two",
-      "to": "red_wing",
-      "width": 4.0,
-      "gate": "release",
-      "requires": [
-        "release"
-      ],
-      "secret": false,
-      "shortcut": false,
-      "lift": false,
-      "start": [
-        -19.95,
-        0.0,
-        -186.44
-      ],
-      "end": [
-        -36.0,
-        1.5,
-        -186.44
-      ],
-      "middle": [
-        -27.975,
-        0.75,
-        -186.44
-      ],
-      "axis": 0,
-      "door": "Door_release"
-    },
-    {
-      "from": "red_wing",
-      "to": "red_console",
-      "width": 4.0,
-      "gate": "",
+      "id": "upper_gallery__anchor_a",
+      "from": "upper_gallery",
+      "to": "anchor_a",
       "requires": [],
-      "secret": false,
       "shortcut": false,
+      "secret": false,
       "lift": false,
+      "width": 5,
+      "door": null,
       "start": [
-        -42.0,
-        1.5,
-        -192.44
+        56.0,
+        8,
+        -40
       ],
       "end": [
-        -42.0,
-        1.5,
-        -220.56
+        67.0,
+        8,
+        -40
       ],
       "middle": [
-        -42.0,
-        1.5,
-        -206.5
+        61.5,
+        8.0,
+        -40.0
       ],
-      "axis": 2,
-      "door": null
+      "points": [
+        [
+          56.0,
+          8,
+          -40
+        ],
+        [
+          67.0,
+          8,
+          -40
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          8,
+          -40
+        ],
+        [
+          56.0,
+          8,
+          -40
+        ],
+        [
+          67.0,
+          8,
+          -40
+        ],
+        [
+          80,
+          8,
+          -40
+        ]
+      ],
+      "axis": 0
     },
     {
-      "from": "arena_two",
-      "to": "final_arena",
-      "width": 4.0,
-      "gate": "red_gate",
+      "id": "anchor_a__service_descent",
+      "from": "anchor_a",
+      "to": "service_descent",
       "requires": [
-        "release",
-        "red_key"
+        "anchor_a"
       ],
-      "secret": false,
       "shortcut": false,
+      "secret": false,
       "lift": false,
-      "trap_entry": "TrapEntry_final_arena",
+      "width": 5,
+      "door": "Door_anchor_a__service_descent",
       "start": [
-        0.0,
-        0.0,
-        -205.32
+        80,
+        8,
+        -28.0
       ],
       "end": [
-        0.0,
-        1.5,
-        -224.2
+        80,
+        6,
+        -12.0
       ],
       "middle": [
-        0.0,
-        0.75,
-        -214.76
+        80.0,
+        7.0,
+        -20.0
       ],
-      "axis": 2,
-      "door": "Door_red_gate"
+      "points": [
+        [
+          80,
+          8,
+          -28.0
+        ],
+        [
+          80,
+          6,
+          -12.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          8,
+          -40
+        ],
+        [
+          80,
+          8,
+          -28.0
+        ],
+        [
+          80,
+          6,
+          -12.0
+        ],
+        [
+          80,
+          6,
+          0
+        ]
+      ],
+      "axis": 2
     },
     {
-      "from": "final_arena",
-      "to": "exit_gallery",
-      "width": 4.0,
-      "gate": "exit_gate",
-      "requires": [
-        "exit_control"
-      ],
-      "secret": false,
+      "id": "service_descent__specimens",
+      "from": "service_descent",
+      "to": "specimens",
+      "requires": [],
       "shortcut": false,
+      "secret": false,
       "lift": false,
+      "width": 5,
+      "door": null,
       "start": [
-        0.0,
-        1.5,
-        -271.4
+        80,
+        6,
+        12.0
       ],
       "end": [
-        0.0,
+        80,
+        4,
+        26.0
+      ],
+      "middle": [
+        80.0,
+        5.0,
+        19.0
+      ],
+      "points": [
+        [
+          80,
+          6,
+          12.0
+        ],
+        [
+          80,
+          4,
+          26.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          6,
+          0
+        ],
+        [
+          80,
+          6,
+          12.0
+        ],
+        [
+          80,
+          4,
+          26.0
+        ],
+        [
+          80,
+          4,
+          40
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "specimens__crossfire",
+      "from": "specimens",
+      "to": "crossfire",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        64.0,
+        4,
+        40
+      ],
+      "end": [
+        56.0,
+        4,
+        40
+      ],
+      "middle": [
+        60.0,
+        4.0,
+        40.0
+      ],
+      "points": [
+        [
+          64.0,
+          4,
+          40
+        ],
+        [
+          56.0,
+          4,
+          40
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          4,
+          40
+        ],
+        [
+          64.0,
+          4,
+          40
+        ],
+        [
+          56.0,
+          4,
+          40
+        ],
+        [
+          40,
+          4,
+          40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "crossfire__anchor_b",
+      "from": "crossfire",
+      "to": "anchor_b",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        24.0,
+        4,
+        40
+      ],
+      "end": [
+        13.0,
+        4,
+        40
+      ],
+      "middle": [
+        18.5,
+        4.0,
+        40.0
+      ],
+      "points": [
+        [
+          24.0,
+          4,
+          40
+        ],
+        [
+          13.0,
+          4,
+          40
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          4,
+          40
+        ],
+        [
+          24.0,
+          4,
+          40
+        ],
+        [
+          13.0,
+          4,
+          40
+        ],
+        [
+          0,
+          4,
+          40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "anchor_b__lower_access",
+      "from": "anchor_b",
+      "to": "lower_access",
+      "requires": [
+        "anchor_b"
+      ],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": "Door_anchor_b__lower_access",
+      "start": [
+        -13.0,
+        4,
+        40
+      ],
+      "end": [
+        -27.0,
+        2,
+        40
+      ],
+      "middle": [
+        -20.0,
         3.0,
-        -280.84
+        40.0
       ],
-      "middle": [
-        0.0,
-        2.25,
-        -276.12
+      "points": [
+        [
+          -13.0,
+          4,
+          40
+        ],
+        [
+          -27.0,
+          2,
+          40
+        ]
       ],
-      "axis": 2,
-      "door": "Door_exit_gate"
+      "traverse_points": [
+        [
+          0,
+          4,
+          40
+        ],
+        [
+          -13.0,
+          4,
+          40
+        ],
+        [
+          -27.0,
+          2,
+          40
+        ],
+        [
+          -40,
+          2,
+          40
+        ]
+      ],
+      "axis": 0
     },
     {
-      "from": "entry",
-      "to": "supplies",
-      "width": 4.0,
-      "gate": "",
+      "id": "lower_access__cultivation",
+      "from": "lower_access",
+      "to": "cultivation",
       "requires": [],
-      "secret": false,
       "shortcut": false,
+      "secret": false,
       "lift": false,
+      "width": 5,
+      "door": null,
       "start": [
-        -12.600000000000001,
-        0,
-        -1.7199999999999998
+        -40,
+        2,
+        52.0
       ],
       "end": [
-        -21.3,
+        -40,
         0,
-        -1.7199999999999998
+        66.0
       ],
       "middle": [
-        -16.950000000000003,
-        0.0,
-        -1.7199999999999998
+        -40.0,
+        1.0,
+        59.0
       ],
-      "axis": 0,
-      "door": null
+      "points": [
+        [
+          -40,
+          2,
+          52.0
+        ],
+        [
+          -40,
+          0,
+          66.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          2,
+          40
+        ],
+        [
+          -40,
+          2,
+          52.0
+        ],
+        [
+          -40,
+          0,
+          66.0
+        ],
+        [
+          -40,
+          0,
+          80
+        ]
+      ],
+      "axis": 2
     },
     {
-      "from": "entry",
-      "to": "maintenance",
-      "width": 4.0,
-      "gate": "",
+      "id": "cultivation__machinery",
+      "from": "cultivation",
+      "to": "machinery",
       "requires": [],
-      "secret": false,
       "shortcut": false,
+      "secret": false,
       "lift": false,
+      "width": 5,
+      "door": null,
       "start": [
-        12.600000000000001,
+        -25.0,
         0,
-        1.08
+        80
       ],
       "end": [
-        22.400000000000002,
+        -13.0,
         0,
-        1.08
+        80
       ],
       "middle": [
-        17.5,
+        -19.0,
         0.0,
-        1.08
+        80.0
       ],
-      "axis": 0,
-      "door": null
+      "points": [
+        [
+          -25.0,
+          0,
+          80
+        ],
+        [
+          -13.0,
+          0,
+          80
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          0,
+          80
+        ],
+        [
+          -25.0,
+          0,
+          80
+        ],
+        [
+          -13.0,
+          0,
+          80
+        ],
+        [
+          0,
+          0,
+          80
+        ]
+      ],
+      "axis": 0
     },
     {
-      "from": "red_console",
-      "to": "secret_two",
-      "width": 2.4,
-      "gate": "secret_two",
+      "id": "machinery__anchor_c",
+      "from": "machinery",
+      "to": "anchor_c",
       "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        13.0,
+        0,
+        80
+      ],
+      "end": [
+        27.0,
+        0,
+        80
+      ],
+      "middle": [
+        20.0,
+        0.0,
+        80.0
+      ],
+      "points": [
+        [
+          13.0,
+          0,
+          80
+        ],
+        [
+          27.0,
+          0,
+          80
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          0,
+          80
+        ],
+        [
+          13.0,
+          0,
+          80
+        ],
+        [
+          27.0,
+          0,
+          80
+        ],
+        [
+          40,
+          0,
+          80
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "anchor_c__rupture",
+      "from": "anchor_c",
+      "to": "rupture",
+      "requires": [
+        "anchor_c"
+      ],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": "Door_anchor_c__rupture",
+      "start": [
+        40,
+        0,
+        92.0
+      ],
+      "end": [
+        40,
+        -4,
+        105.0
+      ],
+      "middle": [
+        40.0,
+        -2.0,
+        98.5
+      ],
+      "points": [
+        [
+          40,
+          0,
+          92.0
+        ],
+        [
+          40,
+          -4,
+          105.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          0,
+          80
+        ],
+        [
+          40,
+          0,
+          92.0
+        ],
+        [
+          40,
+          -4,
+          105.0
+        ],
+        [
+          40,
+          -4,
+          120
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "rupture__bridge",
+      "from": "rupture",
+      "to": "bridge",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        23.0,
+        -4,
+        120
+      ],
+      "end": [
+        13.0,
+        -4,
+        120
+      ],
+      "middle": [
+        18.0,
+        -4.0,
+        120.0
+      ],
+      "points": [
+        [
+          23.0,
+          -4,
+          120
+        ],
+        [
+          13.0,
+          -4,
+          120
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          -4,
+          120
+        ],
+        [
+          23.0,
+          -4,
+          120
+        ],
+        [
+          13.0,
+          -4,
+          120
+        ],
+        [
+          0,
+          -4,
+          120
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "bridge__exit",
+      "from": "bridge",
+      "to": "exit",
+      "requires": [
+        "anchor_a",
+        "anchor_b",
+        "anchor_c"
+      ],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": "Door_bridge__exit",
+      "start": [
+        -13.0,
+        -4,
+        120
+      ],
+      "end": [
+        -27.0,
+        -4,
+        120
+      ],
+      "middle": [
+        -20.0,
+        -4.0,
+        120.0
+      ],
+      "points": [
+        [
+          -13.0,
+          -4,
+          120
+        ],
+        [
+          -27.0,
+          -4,
+          120
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          -4,
+          120
+        ],
+        [
+          -13.0,
+          -4,
+          120
+        ],
+        [
+          -27.0,
+          -4,
+          120
+        ],
+        [
+          -40,
+          -4,
+          120
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "upper_gallery__crossfire",
+      "from": "upper_gallery",
+      "to": "crossfire",
+      "requires": [
+        "anchor_a",
+        "visited_crossfire"
+      ],
+      "shortcut": true,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "waypoints": [
+        [
+          40,
+          6,
+          0
+        ]
+      ],
+      "first_open_from": "crossfire",
+      "bridge": true,
+      "door": "Door_upper_gallery__crossfire",
+      "start": [
+        40,
+        8,
+        -27.0
+      ],
+      "end": [
+        40,
+        4,
+        25.0
+      ],
+      "middle": [
+        40.0,
+        6.0,
+        -1.0
+      ],
+      "points": [
+        [
+          40,
+          8,
+          -27.0
+        ],
+        [
+          40,
+          6,
+          0
+        ],
+        [
+          40,
+          4,
+          25.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          8,
+          -40
+        ],
+        [
+          40,
+          8,
+          -27.0
+        ],
+        [
+          40,
+          6,
+          0
+        ],
+        [
+          40,
+          4,
+          25.0
+        ],
+        [
+          40,
+          4,
+          40
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "anchor_b__machinery",
+      "from": "anchor_b",
+      "to": "machinery",
+      "requires": [
+        "anchor_b",
+        "visited_machinery"
+      ],
+      "shortcut": true,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "first_open_from": "machinery",
+      "door": "Door_anchor_b__machinery",
+      "start": [
+        0,
+        4,
+        52.0
+      ],
+      "end": [
+        0,
+        0,
+        68.0
+      ],
+      "middle": [
+        0.0,
+        2.0,
+        60.0
+      ],
+      "points": [
+        [
+          0,
+          4,
+          52.0
+        ],
+        [
+          0,
+          0,
+          68.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          4,
+          40
+        ],
+        [
+          0,
+          4,
+          52.0
+        ],
+        [
+          0,
+          0,
+          68.0
+        ],
+        [
+          0,
+          0,
+          80
+        ]
+      ],
+      "axis": 2
+    },
+    {
+      "id": "loading__security_store",
+      "from": "loading",
+      "to": "security_store",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        -16.0,
+        8,
+        0
+      ],
+      "end": [
+        -27.0,
+        8,
+        0
+      ],
+      "middle": [
+        -21.5,
+        8.0,
+        0.0
+      ],
+      "points": [
+        [
+          -16.0,
+          8,
+          0
+        ],
+        [
+          -27.0,
+          8,
+          0
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          8,
+          0
+        ],
+        [
+          -16.0,
+          8,
+          0
+        ],
+        [
+          -27.0,
+          8,
+          0
+        ],
+        [
+          -40,
+          8,
+          0
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "specimens__specimen_office",
+      "from": "specimens",
+      "to": "specimen_office",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        96.0,
+        4,
+        40
+      ],
+      "end": [
+        107.0,
+        4,
+        40
+      ],
+      "middle": [
+        101.5,
+        4.0,
+        40.0
+      ],
+      "points": [
+        [
+          96.0,
+          4,
+          40
+        ],
+        [
+          107.0,
+          4,
+          40
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          4,
+          40
+        ],
+        [
+          96.0,
+          4,
+          40
+        ],
+        [
+          107.0,
+          4,
+          40
+        ],
+        [
+          120,
+          4,
+          40
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "cultivation__lower_pump",
+      "from": "cultivation",
+      "to": "lower_pump",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        -55.0,
+        0,
+        80
+      ],
+      "end": [
+        -67.0,
+        0,
+        80
+      ],
+      "middle": [
+        -61.0,
+        0.0,
+        80.0
+      ],
+      "points": [
+        [
+          -55.0,
+          0,
+          80
+        ],
+        [
+          -67.0,
+          0,
+          80
+        ]
+      ],
+      "traverse_points": [
+        [
+          -40,
+          0,
+          80
+        ],
+        [
+          -55.0,
+          0,
+          80
+        ],
+        [
+          -67.0,
+          0,
+          80
+        ],
+        [
+          -80,
+          0,
+          80
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "rupture__overlook",
+      "from": "rupture",
+      "to": "overlook",
+      "requires": [],
+      "shortcut": false,
+      "secret": false,
+      "lift": false,
+      "width": 5,
+      "door": null,
+      "start": [
+        57.0,
+        -4,
+        120
+      ],
+      "end": [
+        67.0,
+        -2,
+        120
+      ],
+      "middle": [
+        62.0,
+        -3.0,
+        120.0
+      ],
+      "points": [
+        [
+          57.0,
+          -4,
+          120
+        ],
+        [
+          67.0,
+          -2,
+          120
+        ]
+      ],
+      "traverse_points": [
+        [
+          40,
+          -4,
+          120
+        ],
+        [
+          57.0,
+          -4,
+          120
+        ],
+        [
+          67.0,
+          -2,
+          120
+        ],
+        [
+          80,
+          -2,
+          120
+        ]
+      ],
+      "axis": 0
+    },
+    {
+      "id": "anchor_a__secret_upper",
+      "from": "anchor_a",
+      "to": "secret_upper",
+      "requires": [],
+      "shortcut": false,
       "secret": true,
-      "shortcut": false,
       "lift": false,
+      "width": 5,
+      "door": "Door_anchor_a__secret_upper",
       "start": [
-        -47.0,
-        1.5,
-        -226.56
+        80,
+        8,
+        -52.0
       ],
       "end": [
-        -57.75,
-        1.5,
-        -226.56
+        80,
+        8,
+        -68.0
       ],
       "middle": [
-        -52.375,
-        1.5,
-        -226.56
+        80.0,
+        8.0,
+        -60.0
       ],
-      "axis": 0,
-      "door": "Door_secret_two"
+      "points": [
+        [
+          80,
+          8,
+          -52.0
+        ],
+        [
+          80,
+          8,
+          -68.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          80,
+          8,
+          -40
+        ],
+        [
+          80,
+          8,
+          -52.0
+        ],
+        [
+          80,
+          8,
+          -68.0
+        ],
+        [
+          80,
+          8,
+          -80
+        ]
+      ],
+      "axis": 2
     },
     {
-      "from": "entry",
-      "to": "arena_one",
-      "width": 5.2,
-      "gate": "entry_gate",
+      "id": "bridge__secret_crypt",
+      "from": "bridge",
+      "to": "secret_crypt",
       "requires": [],
-      "secret": false,
       "shortcut": false,
+      "secret": true,
       "lift": false,
-      "trap_entry": "TrapEntry_arena_one",
+      "width": 5,
+      "door": "Door_bridge__secret_crypt",
       "start": [
-        0.0,
         0,
-        -18.88
+        -4,
+        132.0
       ],
       "end": [
-        0.0,
-        -1.0,
-        -66.08
+        0,
+        -4,
+        148.0
       ],
       "middle": [
         0.0,
-        -0.5,
-        -42.48
+        -4.0,
+        140.0
       ],
-      "axis": 2,
-      "door": "Door_entry_gate"
+      "points": [
+        [
+          0,
+          -4,
+          132.0
+        ],
+        [
+          0,
+          -4,
+          148.0
+        ]
+      ],
+      "traverse_points": [
+        [
+          0,
+          -4,
+          120
+        ],
+        [
+          0,
+          -4,
+          132.0
+        ],
+        [
+          0,
+          -4,
+          148.0
+        ],
+        [
+          0,
+          -4,
+          160
+        ]
+      ],
+      "axis": 2
     }
   ],
-  "buttons": [
-    {
-      "id": "breaker",
-      "room": "arena_one",
-      "arena": "arena_one",
-      "sets": "breaker",
-      "label": "ENABLE BRASS ACCESS"
-    },
-    {
-      "id": "release",
-      "room": "arena_two",
-      "arena": "arena_two",
-      "sets": "release",
-      "label": "RELEASE RED ACCESS"
-    },
-    {
-      "id": "exit_control",
-      "room": "final_arena",
-      "arena": "final_arena",
-      "sets": "exit_control",
-      "label": "OPEN SECTOR EXIT"
-    }
-  ],
-  "keys": [
-    {
-      "id": "brass_key",
-      "room": "key_console",
-      "label": "BRASS ACCESS KEY"
-    },
-    {
-      "id": "red_key",
-      "room": "red_console",
-      "label": "RED ACCESS KEY"
-    }
+  "spawn_room": "loading",
+  "spawn_local": [
+    0,
+    0.95,
+    7
   ],
   "exit": {
-    "room": "exit_gallery",
+    "room": "exit",
     "requires": [
-      "brass_key",
-      "red_key",
-      "exit_control"
+      "anchor_a",
+      "anchor_b",
+      "anchor_c"
+    ],
+    "node": "ExitControl",
+    "position": [
+      -40,
+      -3,
+      116
     ]
   },
-  "weapon_cache": {
-    "arena_one": {
-      "weapon": "siege_launcher",
-      "ammo": 2
+  "objective_profile": {
+    "level_id": "pale_ward_03",
+    "initial_flags": {},
+    "objectives": [
+      {
+        "id": "a",
+        "requires": [],
+        "complete_flag": "anchor_a",
+        "text": "Destroy the upper containment anchor."
+      },
+      {
+        "id": "b",
+        "requires": [
+          "anchor_a"
+        ],
+        "complete_flag": "anchor_b",
+        "text": "Descend to the middle silo and destroy its anchor."
+      },
+      {
+        "id": "c",
+        "requires": [
+          "anchor_b"
+        ],
+        "complete_flag": "anchor_c",
+        "text": "Destroy the deep containment anchor."
+      },
+      {
+        "id": "rupture",
+        "requires": [
+          "anchor_c"
+        ],
+        "complete_flag": "finished",
+        "text": "Cross the rupture and enter the buried passage."
+      }
+    ],
+    "controls": {},
+    "keys": {},
+    "exit_requires": [
+      "anchor_a",
+      "anchor_b",
+      "anchor_c"
+    ],
+    "encounters": {}
+  },
+  "controls": [],
+  "keys": [],
+  "anchors": [
+    {
+      "id": "anchor_a",
+      "room": "anchor_a",
+      "health": 60,
+      "requires": [],
+      "node": "Anchor_anchor_a",
+      "position": [
+        84.5,
+        9.4,
+        -46
+      ]
     },
-    "arena_two": {
-      "weapon": "siege_launcher",
-      "ammo": 2
+    {
+      "id": "anchor_b",
+      "room": "anchor_b",
+      "health": 60,
+      "requires": [
+        "anchor_a"
+      ],
+      "node": "Anchor_anchor_b",
+      "position": [
+        4.5,
+        5.4,
+        34
+      ]
     },
-    "final_arena": {
-      "weapon": "siege_launcher",
-      "ammo": 2
+    {
+      "id": "anchor_c",
+      "room": "anchor_c",
+      "health": 60,
+      "requires": [
+        "anchor_b"
+      ],
+      "node": "Anchor_anchor_c",
+      "position": [
+        44.5,
+        1.4,
+        74
+      ]
     }
+  ],
+  "checkpoints": [
+    {
+      "id": "upper_anchor_safe",
+      "room": "anchor_a",
+      "requires": [
+        "anchor_a"
+      ],
+      "radius": 2.5,
+      "offset": [
+        0,
+        0,
+        3
+      ],
+      "position": [
+        80,
+        8,
+        -37
+      ],
+      "node": "Checkpoint_upper_anchor_safe"
+    },
+    {
+      "id": "middle_anchor_safe",
+      "room": "anchor_b",
+      "requires": [
+        "anchor_b"
+      ],
+      "radius": 2.5,
+      "offset": [
+        0,
+        0,
+        3
+      ],
+      "position": [
+        0,
+        4,
+        43
+      ],
+      "node": "Checkpoint_middle_anchor_safe"
+    }
+  ],
+  "weapon": {
+    "kind": "siege_launcher",
+    "room": "loading",
+    "amount": 4,
+    "node": "FirstGunCache",
+    "position": [
+      0,
+      8.65,
+      4
+    ]
   },
-  "vertical_routes": {
-    "arena_one_gallery": [
-      [
-        -7.0,
-        -1.0,
-        -71.71199999999999
-      ],
-      [
-        -7.0,
-        1.5,
-        -80.71199999999999
-      ],
-      [
-        -7.0,
-        1.5,
-        -98.648
-      ],
-      [
-        -7.0,
-        -1.0,
-        -107.648
-      ]
+  "main_route_ammo": {
+    "pistol": 160,
+    "shells": 80,
+    "rivets": 120,
+    "rockets": 20
+  },
+  "main_route_health": 350,
+  "main_route_armor": 250,
+  "enemy_total": 84,
+  "enemy_roster": [
+    "infected_scientist",
+    "unsealed",
+    "infected_security",
+    "vessel"
+  ],
+  "encounters": {},
+  "target_human_minutes": [
+    20,
+    25
+  ],
+  "optional_rooms": [
+    "security_store",
+    "specimen_office",
+    "lower_pump",
+    "overlook"
+  ],
+  "secret_rooms": [
+    "secret_upper",
+    "secret_crypt"
+  ],
+  "architectural_direction": {
+    "all": "Distinct district architecture: exposed reservoir/bridge and piping for Containment; stacked specimen machinery/gantries and rupture framing for Breach."
+  },
+  "silo_atrium": {
+    "center": [
+      40,
+      -4,
+      0
     ],
-    "arena_one_rim": [
-      [
-        7.0,
-        -1.0,
-        -71.71199999999999
-      ],
-      [
-        7.0,
-        1.5,
-        -80.71199999999999
-      ],
-      [
-        -7.0,
-        1.5,
-        -82.51199999999999
-      ],
-      [
-        -7.0,
-        1.5,
-        -96.848
-      ],
-      [
-        7.0,
-        1.5,
-        -96.848
-      ]
+    "size": [
+      32,
+      22,
+      54
     ],
-    "arena_two_altar": [
-      [
-        0.0,
-        0.0,
-        -173.44
-      ],
-      [
-        0.0,
-        2.0,
-        -181.44
-      ],
-      [
-        0.0,
-        2.0,
-        -186.44
-      ],
-      [
-        0.0,
-        2.0,
-        -191.44
-      ],
-      [
-        0.0,
-        0.0,
-        -199.44
+    "purpose": "Shared vertical landmark around upper-to-middle return bridge; sealed observation glazing shows the descent from upper gallery before shortcut release. No additional actors/items/objectives or bypass route."
+  },
+  "spawn_position": [
+    0,
+    8.95,
+    7
+  ],
+  "architecture_version": 13,
+  "design_version": 13,
+  "enemy_spawns": [
+    {
+      "stable_id": "pale_ward_03.loading.enemy.0",
+      "room": "loading",
+      "kind": "infected_security",
+      "position": [
+        -5,
+        8.87,
+        -4
       ]
-    ],
-    "arena_two_gallery": [
-      [
-        -7.0,
-        0.0,
-        -170.2656
-      ],
-      [
-        -7.0,
+    },
+    {
+      "stable_id": "pale_ward_03.loading.enemy.1",
+      "room": "loading",
+      "kind": "infected_security",
+      "position": [
+        0,
+        8.87,
+        -4
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.loading.enemy.2",
+      "room": "loading",
+      "kind": "infected_security",
+      "position": [
+        5,
+        8.87,
+        -4
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.loading.enemy.3",
+      "room": "loading",
+      "kind": "infected_security",
+      "position": [
+        -5,
+        8.87,
+        0
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.loading.enemy.4",
+      "room": "loading",
+      "kind": "infected_security",
+      "position": [
+        0,
+        8.87,
+        0
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_intake.enemy.0",
+      "room": "upper_intake",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        8.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_intake.enemy.1",
+      "room": "upper_intake",
+      "kind": "unsealed",
+      "position": [
+        0,
+        8.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_intake.enemy.2",
+      "room": "upper_intake",
+      "kind": "vessel",
+      "position": [
+        5,
+        8.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_intake.enemy.3",
+      "room": "upper_intake",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        8.87,
+        -40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_intake.enemy.4",
+      "room": "upper_intake",
+      "kind": "unsealed",
+      "position": [
+        0,
+        8.87,
+        -40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_gallery.enemy.0",
+      "room": "upper_gallery",
+      "kind": "unsealed",
+      "position": [
+        35,
+        8.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_gallery.enemy.1",
+      "room": "upper_gallery",
+      "kind": "unsealed",
+      "position": [
+        40,
+        8.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_gallery.enemy.2",
+      "room": "upper_gallery",
+      "kind": "vessel",
+      "position": [
+        45,
+        8.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_gallery.enemy.3",
+      "room": "upper_gallery",
+      "kind": "unsealed",
+      "position": [
+        35,
+        8.87,
+        -40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_gallery.enemy.4",
+      "room": "upper_gallery",
+      "kind": "unsealed",
+      "position": [
+        40,
+        8.87,
+        -40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_gallery.enemy.5",
+      "room": "upper_gallery",
+      "kind": "vessel",
+      "position": [
+        45,
+        8.87,
+        -40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.upper_gallery.enemy.6",
+      "room": "upper_gallery",
+      "kind": "unsealed",
+      "position": [
+        35,
+        8.87,
+        -36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_a.enemy.0",
+      "room": "anchor_a",
+      "kind": "unsealed",
+      "position": [
+        75,
+        8.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_a.enemy.1",
+      "room": "anchor_a",
+      "kind": "unsealed",
+      "position": [
+        80,
+        8.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_a.enemy.2",
+      "room": "anchor_a",
+      "kind": "vessel",
+      "position": [
+        85,
+        8.87,
+        -44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_a.enemy.3",
+      "room": "anchor_a",
+      "kind": "unsealed",
+      "position": [
+        75,
+        8.87,
+        -40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_a.enemy.4",
+      "room": "anchor_a",
+      "kind": "unsealed",
+      "position": [
+        80,
+        8.87,
+        -40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_a.enemy.5",
+      "room": "anchor_a",
+      "kind": "vessel",
+      "position": [
+        85,
+        8.87,
+        -40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_a.enemy.6",
+      "room": "anchor_a",
+      "kind": "unsealed",
+      "position": [
+        75,
+        8.87,
+        -36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.service_descent.enemy.0",
+      "room": "service_descent",
+      "kind": "unsealed",
+      "position": [
+        75,
+        6.87,
+        -4
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.service_descent.enemy.1",
+      "room": "service_descent",
+      "kind": "unsealed",
+      "position": [
+        80,
+        6.87,
+        -4
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.service_descent.enemy.2",
+      "room": "service_descent",
+      "kind": "vessel",
+      "position": [
+        85,
+        6.87,
+        -4
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.service_descent.enemy.3",
+      "room": "service_descent",
+      "kind": "unsealed",
+      "position": [
+        75,
+        6.87,
+        0
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.specimens.enemy.0",
+      "room": "specimens",
+      "kind": "infected_scientist",
+      "position": [
+        75,
+        4.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.specimens.enemy.1",
+      "room": "specimens",
+      "kind": "infected_scientist",
+      "position": [
+        80,
+        4.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.specimens.enemy.2",
+      "room": "specimens",
+      "kind": "infected_security",
+      "position": [
+        85,
+        4.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.specimens.enemy.3",
+      "room": "specimens",
+      "kind": "infected_scientist",
+      "position": [
+        75,
+        4.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.specimens.enemy.4",
+      "room": "specimens",
+      "kind": "infected_scientist",
+      "position": [
+        80,
+        4.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.specimens.enemy.5",
+      "room": "specimens",
+      "kind": "infected_security",
+      "position": [
+        85,
+        4.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.specimens.enemy.6",
+      "room": "specimens",
+      "kind": "infected_scientist",
+      "position": [
+        75,
+        4.87,
+        44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.crossfire.enemy.0",
+      "room": "crossfire",
+      "kind": "unsealed",
+      "position": [
+        35,
+        4.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.crossfire.enemy.1",
+      "room": "crossfire",
+      "kind": "unsealed",
+      "position": [
+        40,
+        4.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.crossfire.enemy.2",
+      "room": "crossfire",
+      "kind": "vessel",
+      "position": [
+        45,
+        4.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.crossfire.enemy.3",
+      "room": "crossfire",
+      "kind": "unsealed",
+      "position": [
+        35,
+        4.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.crossfire.enemy.4",
+      "room": "crossfire",
+      "kind": "unsealed",
+      "position": [
+        40,
+        4.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.crossfire.enemy.5",
+      "room": "crossfire",
+      "kind": "vessel",
+      "position": [
+        45,
+        4.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.crossfire.enemy.6",
+      "room": "crossfire",
+      "kind": "unsealed",
+      "position": [
+        35,
+        4.87,
+        44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.crossfire.enemy.7",
+      "room": "crossfire",
+      "kind": "unsealed",
+      "position": [
+        40,
+        4.87,
+        44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.crossfire.enemy.8",
+      "room": "crossfire",
+      "kind": "vessel",
+      "position": [
+        45,
+        4.87,
+        44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_b.enemy.0",
+      "room": "anchor_b",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        4.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_b.enemy.1",
+      "room": "anchor_b",
+      "kind": "unsealed",
+      "position": [
+        0,
+        4.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_b.enemy.2",
+      "room": "anchor_b",
+      "kind": "vessel",
+      "position": [
+        5,
+        4.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_b.enemy.3",
+      "room": "anchor_b",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        4.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_b.enemy.4",
+      "room": "anchor_b",
+      "kind": "unsealed",
+      "position": [
+        0,
+        4.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_b.enemy.5",
+      "room": "anchor_b",
+      "kind": "vessel",
+      "position": [
+        5,
+        4.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_b.enemy.6",
+      "room": "anchor_b",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        4.87,
+        44
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.lower_access.enemy.0",
+      "room": "lower_access",
+      "kind": "unsealed",
+      "position": [
+        -45,
+        2.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.lower_access.enemy.1",
+      "room": "lower_access",
+      "kind": "unsealed",
+      "position": [
+        -40,
+        2.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.lower_access.enemy.2",
+      "room": "lower_access",
+      "kind": "vessel",
+      "position": [
+        -35,
+        2.87,
+        36
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.lower_access.enemy.3",
+      "room": "lower_access",
+      "kind": "unsealed",
+      "position": [
+        -45,
+        2.87,
+        40
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.cultivation.enemy.0",
+      "room": "cultivation",
+      "kind": "unsealed",
+      "position": [
+        -45,
+        0.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.cultivation.enemy.1",
+      "room": "cultivation",
+      "kind": "unsealed",
+      "position": [
+        -40,
+        0.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.cultivation.enemy.2",
+      "room": "cultivation",
+      "kind": "vessel",
+      "position": [
+        -35,
+        0.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.cultivation.enemy.3",
+      "room": "cultivation",
+      "kind": "unsealed",
+      "position": [
+        -45,
+        0.87,
+        80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.cultivation.enemy.4",
+      "room": "cultivation",
+      "kind": "unsealed",
+      "position": [
+        -40,
+        0.87,
+        80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.cultivation.enemy.5",
+      "room": "cultivation",
+      "kind": "vessel",
+      "position": [
+        -35,
+        0.87,
+        80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.cultivation.enemy.6",
+      "room": "cultivation",
+      "kind": "unsealed",
+      "position": [
+        -45,
+        0.87,
+        84
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.machinery.enemy.0",
+      "room": "machinery",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        0.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.machinery.enemy.1",
+      "room": "machinery",
+      "kind": "unsealed",
+      "position": [
+        0,
+        0.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.machinery.enemy.2",
+      "room": "machinery",
+      "kind": "vessel",
+      "position": [
+        5,
+        0.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.machinery.enemy.3",
+      "room": "machinery",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        0.87,
+        80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.machinery.enemy.4",
+      "room": "machinery",
+      "kind": "unsealed",
+      "position": [
+        0,
+        0.87,
+        80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_c.enemy.0",
+      "room": "anchor_c",
+      "kind": "unsealed",
+      "position": [
+        35,
+        0.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_c.enemy.1",
+      "room": "anchor_c",
+      "kind": "unsealed",
+      "position": [
+        40,
+        0.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_c.enemy.2",
+      "room": "anchor_c",
+      "kind": "vessel",
+      "position": [
+        45,
+        0.87,
+        76
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_c.enemy.3",
+      "room": "anchor_c",
+      "kind": "unsealed",
+      "position": [
+        35,
+        0.87,
+        80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_c.enemy.4",
+      "room": "anchor_c",
+      "kind": "unsealed",
+      "position": [
+        40,
+        0.87,
+        80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_c.enemy.5",
+      "room": "anchor_c",
+      "kind": "vessel",
+      "position": [
+        45,
+        0.87,
+        80
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.anchor_c.enemy.6",
+      "room": "anchor_c",
+      "kind": "unsealed",
+      "position": [
+        35,
+        0.87,
+        84
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.rupture.enemy.0",
+      "room": "rupture",
+      "kind": "unsealed",
+      "position": [
+        35,
+        -3.13,
+        116
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.rupture.enemy.1",
+      "room": "rupture",
+      "kind": "unsealed",
+      "position": [
+        40,
+        -3.13,
+        116
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.rupture.enemy.2",
+      "room": "rupture",
+      "kind": "vessel",
+      "position": [
+        45,
+        -3.13,
+        116
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.rupture.enemy.3",
+      "room": "rupture",
+      "kind": "unsealed",
+      "position": [
+        35,
+        -3.13,
+        120
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.rupture.enemy.4",
+      "room": "rupture",
+      "kind": "unsealed",
+      "position": [
+        40,
+        -3.13,
+        120
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.rupture.enemy.5",
+      "room": "rupture",
+      "kind": "vessel",
+      "position": [
+        45,
+        -3.13,
+        120
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.bridge.enemy.0",
+      "room": "bridge",
+      "kind": "unsealed",
+      "position": [
+        -5,
+        -3.13,
+        116
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.bridge.enemy.1",
+      "room": "bridge",
+      "kind": "unsealed",
+      "position": [
+        0,
+        -3.13,
+        116
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.bridge.enemy.2",
+      "room": "bridge",
+      "kind": "vessel",
+      "position": [
+        5,
+        -3.13,
+        116
+      ]
+    },
+    {
+      "stable_id": "pale_ward_03.exit.enemy.0",
+      "room": "exit",
+      "kind": "infected_security",
+      "position": [
+        -45,
+        -3.13,
+        116
+      ]
+    }
+  ],
+  "supplies": [
+    {
+      "node": "Supply_pistol_loading",
+      "kind": "pistol",
+      "amount": 10,
+      "room": "loading",
+      "position": [
+        -2,
+        8.5,
+        10.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_upper_intake",
+      "kind": "pistol",
+      "amount": 10,
+      "room": "upper_intake",
+      "position": [
+        -2,
+        8.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_upper_gallery",
+      "kind": "pistol",
+      "amount": 14,
+      "room": "upper_gallery",
+      "position": [
+        38,
+        8.5,
+        -30.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_anchor_a",
+      "kind": "pistol",
+      "amount": 13,
+      "room": "anchor_a",
+      "position": [
+        78,
+        8.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_service_descent",
+      "kind": "pistol",
+      "amount": 8,
+      "room": "service_descent",
+      "position": [
+        78,
+        6.5,
+        9.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_specimens",
+      "kind": "pistol",
+      "amount": 13,
+      "room": "specimens",
+      "position": [
+        78,
+        4.5,
+        51.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_crossfire",
+      "kind": "pistol",
+      "amount": 17,
+      "room": "crossfire",
+      "position": [
+        38,
+        4.5,
+        52.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_anchor_b",
+      "kind": "pistol",
+      "amount": 13,
+      "room": "anchor_b",
+      "position": [
+        -2,
+        4.5,
+        49.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_lower_access",
+      "kind": "pistol",
+      "amount": 8,
+      "room": "lower_access",
+      "position": [
+        -42,
         2.5,
-        -179.2656
-      ],
-      [
-        -7.0,
+        49.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_cultivation",
+      "kind": "pistol",
+      "amount": 13,
+      "room": "cultivation",
+      "position": [
+        -42,
+        0.5,
+        91.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_machinery",
+      "kind": "pistol",
+      "amount": 10,
+      "room": "machinery",
+      "position": [
+        -2,
+        0.5,
+        89.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_anchor_c",
+      "kind": "pistol",
+      "amount": 13,
+      "room": "anchor_c",
+      "position": [
+        38,
+        0.5,
+        89.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_rupture",
+      "kind": "pistol",
+      "amount": 12,
+      "room": "rupture",
+      "position": [
+        38,
+        -3.5,
+        132.0
+      ]
+    },
+    {
+      "node": "Supply_pistol_bridge",
+      "kind": "pistol",
+      "amount": 6,
+      "room": "bridge",
+      "position": [
+        -2,
+        -3.5,
+        129.0
+      ]
+    },
+    {
+      "node": "Supply_shells_loading",
+      "kind": "shells",
+      "amount": 5,
+      "room": "loading",
+      "position": [
+        2,
+        8.5,
+        10.0
+      ]
+    },
+    {
+      "node": "Supply_shells_upper_intake",
+      "kind": "shells",
+      "amount": 5,
+      "room": "upper_intake",
+      "position": [
+        2,
+        8.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_shells_upper_gallery",
+      "kind": "shells",
+      "amount": 7,
+      "room": "upper_gallery",
+      "position": [
+        42,
+        8.5,
+        -30.0
+      ]
+    },
+    {
+      "node": "Supply_shells_anchor_a",
+      "kind": "shells",
+      "amount": 7,
+      "room": "anchor_a",
+      "position": [
+        82,
+        8.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_shells_service_descent",
+      "kind": "shells",
+      "amount": 4,
+      "room": "service_descent",
+      "position": [
+        82,
+        6.5,
+        9.0
+      ]
+    },
+    {
+      "node": "Supply_shells_specimens",
+      "kind": "shells",
+      "amount": 7,
+      "room": "specimens",
+      "position": [
+        82,
+        4.5,
+        51.0
+      ]
+    },
+    {
+      "node": "Supply_shells_crossfire",
+      "kind": "shells",
+      "amount": 8,
+      "room": "crossfire",
+      "position": [
+        42,
+        4.5,
+        52.0
+      ]
+    },
+    {
+      "node": "Supply_shells_anchor_b",
+      "kind": "shells",
+      "amount": 7,
+      "room": "anchor_b",
+      "position": [
+        2,
+        4.5,
+        49.0
+      ]
+    },
+    {
+      "node": "Supply_shells_lower_access",
+      "kind": "shells",
+      "amount": 4,
+      "room": "lower_access",
+      "position": [
+        -38,
         2.5,
-        -193.6144
-      ],
-      [
-        -7.0,
-        0.0,
-        -202.6144
+        49.0
       ]
-    ],
-    "final_arena_gallery": [
-      [
-        -7.0,
-        1.5,
-        -229.832
-      ],
-      [
-        -7.0,
-        4.0,
-        -238.832
-      ],
-      [
-        -7.0,
-        4.0,
-        -256.768
-      ],
-      [
-        -7.0,
-        1.5,
-        -265.768
+    },
+    {
+      "node": "Supply_shells_cultivation",
+      "kind": "shells",
+      "amount": 6,
+      "room": "cultivation",
+      "position": [
+        -38,
+        0.5,
+        91.0
       ]
-    ]
-  },
-  "combat_paths": {
-    "arena_one": [
-      [
-        [
-          -4.3,
-          -1.0,
-          -79.67999999999999
-        ],
-        [
-          -4.3,
-          -1.0,
-          -99.67999999999999
-        ]
-      ],
-      [
-        [
-          4.3,
-          -1.0,
-          -79.67999999999999
-        ],
-        [
-          4.3,
-          -1.0,
-          -99.67999999999999
-        ]
+    },
+    {
+      "node": "Supply_shells_machinery",
+      "kind": "shells",
+      "amount": 5,
+      "room": "machinery",
+      "position": [
+        2,
+        0.5,
+        89.0
       ]
-    ],
-    "arena_two": [
-      [
-        [
-          -4.3,
-          0.0,
-          -176.44
-        ],
-        [
-          -4.3,
-          0.0,
-          -196.44
-        ]
-      ],
-      [
-        [
-          4.3,
-          0.0,
-          -176.44
-        ],
-        [
-          4.3,
-          0.0,
-          -196.44
-        ]
+    },
+    {
+      "node": "Supply_shells_anchor_c",
+      "kind": "shells",
+      "amount": 6,
+      "room": "anchor_c",
+      "position": [
+        42,
+        0.5,
+        89.0
       ]
-    ],
-    "final_arena": [
-      [
-        [
-          -4.3,
-          1.5,
-          -237.79999999999998
-        ],
-        [
-          -4.3,
-          1.5,
-          -257.79999999999995
-        ]
-      ],
-      [
-        [
-          4.3,
-          1.5,
-          -237.79999999999998
-        ],
-        [
-          4.3,
-          1.5,
-          -257.79999999999995
-        ]
+    },
+    {
+      "node": "Supply_shells_rupture",
+      "kind": "shells",
+      "amount": 6,
+      "room": "rupture",
+      "position": [
+        42,
+        -3.5,
+        132.0
       ]
-    ]
-  },
-  "theme": "pale_ward",
-  "title": "Breach",
-  "subtitle": "Specimen silo / occult fissure",
-  "entry_weapon": "siege_launcher",
-  "combat_flanks": {
-    "arena_one": [
-      [
-        -4.3,
-        -1.0,
-        -89.67999999999999
-      ],
-      [
-        -11.900000000000002,
-        -1.0,
-        -89.67999999999999
-      ],
-      [
-        -11.900000000000002,
-        -1.0,
-        -98.67999999999999
-      ],
-      [
-        -11.900000000000002,
-        -1.0,
-        -92.67999999999999
-      ],
-      [
-        -11.900000000000002,
-        -1.0,
-        -86.67999999999999
-      ],
-      [
-        -11.900000000000002,
-        -1.0,
-        -80.67999999999999
-      ],
-      [
-        4.3,
-        -1.0,
-        -89.67999999999999
-      ],
-      [
-        11.900000000000002,
-        -1.0,
-        -89.67999999999999
-      ],
-      [
-        11.900000000000002,
-        -1.0,
-        -98.67999999999999
-      ],
-      [
-        11.900000000000002,
-        -1.0,
-        -92.67999999999999
-      ],
-      [
-        11.900000000000002,
-        -1.0,
-        -86.67999999999999
-      ],
-      [
-        11.900000000000002,
-        -1.0,
-        -80.67999999999999
+    },
+    {
+      "node": "Supply_shells_bridge",
+      "kind": "shells",
+      "amount": 3,
+      "room": "bridge",
+      "position": [
+        2,
+        -3.5,
+        129.0
       ]
-    ],
-    "arena_two": [
-      [
-        -4.3,
-        0.0,
-        -186.44
-      ],
-      [
-        -12.95,
-        0.0,
-        -186.44
-      ],
-      [
-        -12.95,
-        0.0,
-        -195.44
-      ],
-      [
-        -12.95,
-        0.0,
-        -189.44
-      ],
-      [
-        -12.95,
-        0.0,
-        -183.44
-      ],
-      [
-        -12.95,
-        0.0,
-        -177.44
-      ],
-      [
-        4.3,
-        0.0,
-        -186.44
-      ],
-      [
-        12.95,
-        0.0,
-        -186.44
-      ],
-      [
-        12.95,
-        0.0,
-        -195.44
-      ],
-      [
-        12.95,
-        0.0,
-        -189.44
-      ],
-      [
-        12.95,
-        0.0,
-        -183.44
-      ],
-      [
-        12.95,
-        0.0,
-        -177.44
+    },
+    {
+      "node": "Supply_rivets_loading",
+      "kind": "rivets",
+      "amount": 7,
+      "room": "loading",
+      "position": [
+        -2,
+        8.5,
+        9.0
       ]
-    ],
-    "final_arena": [
-      [
-        -4.3,
-        1.5,
-        -247.79999999999998
-      ],
-      [
-        -12.850000000000001,
-        1.5,
-        -247.79999999999998
-      ],
-      [
-        -12.850000000000001,
-        1.5,
-        -256.79999999999995
-      ],
-      [
-        -12.850000000000001,
-        1.5,
-        -250.79999999999998
-      ],
-      [
-        -12.850000000000001,
-        1.5,
-        -244.79999999999998
-      ],
-      [
-        -12.850000000000001,
-        1.5,
-        -238.79999999999998
-      ],
-      [
-        4.3,
-        1.5,
-        -247.79999999999998
-      ],
-      [
-        12.850000000000001,
-        1.5,
-        -247.79999999999998
-      ],
-      [
-        12.850000000000001,
-        1.5,
-        -256.79999999999995
-      ],
-      [
-        12.850000000000001,
-        1.5,
-        -250.79999999999998
-      ],
-      [
-        12.850000000000001,
-        1.5,
-        -244.79999999999998
-      ],
-      [
-        12.850000000000001,
-        1.5,
-        -238.79999999999998
+    },
+    {
+      "node": "Supply_rivets_upper_intake",
+      "kind": "rivets",
+      "amount": 7,
+      "room": "upper_intake",
+      "position": [
+        -2,
+        8.5,
+        -32.0
       ]
-    ]
-  }
+    },
+    {
+      "node": "Supply_rivets_upper_gallery",
+      "kind": "rivets",
+      "amount": 10,
+      "room": "upper_gallery",
+      "position": [
+        38,
+        8.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_rivets_anchor_a",
+      "kind": "rivets",
+      "amount": 10,
+      "room": "anchor_a",
+      "position": [
+        78,
+        8.5,
+        -32.0
+      ]
+    },
+    {
+      "node": "Supply_rivets_service_descent",
+      "kind": "rivets",
+      "amount": 6,
+      "room": "service_descent",
+      "position": [
+        78,
+        6.5,
+        8.0
+      ]
+    },
+    {
+      "node": "Supply_rivets_specimens",
+      "kind": "rivets",
+      "amount": 10,
+      "room": "specimens",
+      "position": [
+        78,
+        4.5,
+        50.0
+      ]
+    },
+    {
+      "node": "Supply_rivets_crossfire",
+      "kind": "rivets",
+      "amount": 13,
+      "room": "crossfire",
+      "position": [
+        38,
+        4.5,
+        51.0
+      ]
+    },
+    {
+      "node": "Supply_rivets_anchor_b",
+      "kind": "rivets",
+      "amount": 10,
+      "room": "anchor_b",
+      "position": [
+        -2,
+        4.5,
+        48.0
+      ]
+    },
+    {
+      "node": "Supply_rivets_lower_access",
+      "kind": "rivets",
+      "amount": 6,
+      "room": "lower_access",
+      "position": [
+        -42,
+        2.5,
+        48.0
+      ]
+    },
+    {
+      "node": "Supply_rivets_cultivation",
+      "kind": "rivets",
+      "amount": 10,
+      "room": "cultivation",
+      "position": [
+        -42,
+        0.5,
+        90.0
+      ]
+    },
+    {
+      "node": "Supply_rivets_machinery",
+      "kind": "rivets",
+      "amount": 7,
+      "room": "machinery",
+      "position": [
+        -2,
+        0.5,
+        88.0
+      ]
+    },
+    {
+      "node": "Supply_rivets_anchor_c",
+      "kind": "rivets",
+      "amount": 10,
+      "room": "anchor_c",
+      "position": [
+        38,
+        0.5,
+        88.0
+      ]
+    },
+    {
+      "node": "Supply_rivets_rupture",
+      "kind": "rivets",
+      "amount": 9,
+      "room": "rupture",
+      "position": [
+        38,
+        -3.5,
+        131.0
+      ]
+    },
+    {
+      "node": "Supply_rivets_bridge",
+      "kind": "rivets",
+      "amount": 5,
+      "room": "bridge",
+      "position": [
+        -2,
+        -3.5,
+        128.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_loading",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "loading",
+      "position": [
+        2,
+        8.5,
+        9.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_upper_intake",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "upper_intake",
+      "position": [
+        2,
+        8.5,
+        -32.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_upper_gallery",
+      "kind": "rockets",
+      "amount": 2,
+      "room": "upper_gallery",
+      "position": [
+        42,
+        8.5,
+        -31.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_anchor_a",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "anchor_a",
+      "position": [
+        82,
+        8.5,
+        -32.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_service_descent",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "service_descent",
+      "position": [
+        82,
+        6.5,
+        8.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_specimens",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "specimens",
+      "position": [
+        82,
+        4.5,
+        50.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_crossfire",
+      "kind": "rockets",
+      "amount": 2,
+      "room": "crossfire",
+      "position": [
+        42,
+        4.5,
+        51.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_anchor_b",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "anchor_b",
+      "position": [
+        2,
+        4.5,
+        48.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_lower_access",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "lower_access",
+      "position": [
+        -38,
+        2.5,
+        48.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_cultivation",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "cultivation",
+      "position": [
+        -38,
+        0.5,
+        90.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_machinery",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "machinery",
+      "position": [
+        2,
+        0.5,
+        88.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_anchor_c",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "anchor_c",
+      "position": [
+        42,
+        0.5,
+        88.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_rupture",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "rupture",
+      "position": [
+        42,
+        -3.5,
+        131.0
+      ]
+    },
+    {
+      "node": "Supply_rockets_bridge",
+      "kind": "rockets",
+      "amount": 1,
+      "room": "bridge",
+      "position": [
+        2,
+        -3.5,
+        128.0
+      ]
+    },
+    {
+      "node": "Supply_health_loading",
+      "kind": "health",
+      "amount": 21,
+      "room": "loading",
+      "position": [
+        -2,
+        8.5,
+        8.0
+      ]
+    },
+    {
+      "node": "Supply_health_upper_intake",
+      "kind": "health",
+      "amount": 21,
+      "room": "upper_intake",
+      "position": [
+        -2,
+        8.5,
+        -33.0
+      ]
+    },
+    {
+      "node": "Supply_health_upper_gallery",
+      "kind": "health",
+      "amount": 30,
+      "room": "upper_gallery",
+      "position": [
+        38,
+        8.5,
+        -32.0
+      ]
+    },
+    {
+      "node": "Supply_health_anchor_a",
+      "kind": "health",
+      "amount": 30,
+      "room": "anchor_a",
+      "position": [
+        78,
+        8.5,
+        -33.0
+      ]
+    },
+    {
+      "node": "Supply_health_service_descent",
+      "kind": "health",
+      "amount": 17,
+      "room": "service_descent",
+      "position": [
+        78,
+        6.5,
+        7.0
+      ]
+    },
+    {
+      "node": "Supply_health_specimens",
+      "kind": "health",
+      "amount": 30,
+      "room": "specimens",
+      "position": [
+        78,
+        4.5,
+        49.0
+      ]
+    },
+    {
+      "node": "Supply_health_crossfire",
+      "kind": "health",
+      "amount": 38,
+      "room": "crossfire",
+      "position": [
+        38,
+        4.5,
+        50.0
+      ]
+    },
+    {
+      "node": "Supply_health_anchor_b",
+      "kind": "health",
+      "amount": 29,
+      "room": "anchor_b",
+      "position": [
+        -2,
+        4.5,
+        47.0
+      ]
+    },
+    {
+      "node": "Supply_health_lower_access",
+      "kind": "health",
+      "amount": 17,
+      "room": "lower_access",
+      "position": [
+        -42,
+        2.5,
+        47.0
+      ]
+    },
+    {
+      "node": "Supply_health_cultivation",
+      "kind": "health",
+      "amount": 29,
+      "room": "cultivation",
+      "position": [
+        -42,
+        0.5,
+        89.0
+      ]
+    },
+    {
+      "node": "Supply_health_machinery",
+      "kind": "health",
+      "amount": 21,
+      "room": "machinery",
+      "position": [
+        -2,
+        0.5,
+        87.0
+      ]
+    },
+    {
+      "node": "Supply_health_anchor_c",
+      "kind": "health",
+      "amount": 29,
+      "room": "anchor_c",
+      "position": [
+        38,
+        0.5,
+        87.0
+      ]
+    },
+    {
+      "node": "Supply_health_rupture",
+      "kind": "health",
+      "amount": 25,
+      "room": "rupture",
+      "position": [
+        38,
+        -3.5,
+        130.0
+      ]
+    },
+    {
+      "node": "Supply_health_bridge",
+      "kind": "health",
+      "amount": 13,
+      "room": "bridge",
+      "position": [
+        -2,
+        -3.5,
+        127.0
+      ]
+    },
+    {
+      "node": "Supply_armor_loading",
+      "kind": "armor",
+      "amount": 15,
+      "room": "loading",
+      "position": [
+        2,
+        8.5,
+        8.0
+      ]
+    },
+    {
+      "node": "Supply_armor_upper_intake",
+      "kind": "armor",
+      "amount": 15,
+      "room": "upper_intake",
+      "position": [
+        2,
+        8.5,
+        -33.0
+      ]
+    },
+    {
+      "node": "Supply_armor_upper_gallery",
+      "kind": "armor",
+      "amount": 21,
+      "room": "upper_gallery",
+      "position": [
+        42,
+        8.5,
+        -32.0
+      ]
+    },
+    {
+      "node": "Supply_armor_anchor_a",
+      "kind": "armor",
+      "amount": 21,
+      "room": "anchor_a",
+      "position": [
+        82,
+        8.5,
+        -33.0
+      ]
+    },
+    {
+      "node": "Supply_armor_service_descent",
+      "kind": "armor",
+      "amount": 12,
+      "room": "service_descent",
+      "position": [
+        82,
+        6.5,
+        7.0
+      ]
+    },
+    {
+      "node": "Supply_armor_specimens",
+      "kind": "armor",
+      "amount": 21,
+      "room": "specimens",
+      "position": [
+        82,
+        4.5,
+        49.0
+      ]
+    },
+    {
+      "node": "Supply_armor_crossfire",
+      "kind": "armor",
+      "amount": 28,
+      "room": "crossfire",
+      "position": [
+        42,
+        4.5,
+        50.0
+      ]
+    },
+    {
+      "node": "Supply_armor_anchor_b",
+      "kind": "armor",
+      "amount": 21,
+      "room": "anchor_b",
+      "position": [
+        2,
+        4.5,
+        47.0
+      ]
+    },
+    {
+      "node": "Supply_armor_lower_access",
+      "kind": "armor",
+      "amount": 12,
+      "room": "lower_access",
+      "position": [
+        -38,
+        2.5,
+        47.0
+      ]
+    },
+    {
+      "node": "Supply_armor_cultivation",
+      "kind": "armor",
+      "amount": 21,
+      "room": "cultivation",
+      "position": [
+        -38,
+        0.5,
+        89.0
+      ]
+    },
+    {
+      "node": "Supply_armor_machinery",
+      "kind": "armor",
+      "amount": 15,
+      "room": "machinery",
+      "position": [
+        2,
+        0.5,
+        87.0
+      ]
+    },
+    {
+      "node": "Supply_armor_anchor_c",
+      "kind": "armor",
+      "amount": 21,
+      "room": "anchor_c",
+      "position": [
+        42,
+        0.5,
+        87.0
+      ]
+    },
+    {
+      "node": "Supply_armor_rupture",
+      "kind": "armor",
+      "amount": 18,
+      "room": "rupture",
+      "position": [
+        42,
+        -3.5,
+        130.0
+      ]
+    },
+    {
+      "node": "Supply_armor_bridge",
+      "kind": "armor",
+      "amount": 9,
+      "room": "bridge",
+      "position": [
+        2,
+        -3.5,
+        127.0
+      ]
+    }
+  ],
+  "vertical_routes": {},
+  "combat_paths": {},
+  "combat_flanks": {},
+  "entry_weapon": "siege_launcher"
 }

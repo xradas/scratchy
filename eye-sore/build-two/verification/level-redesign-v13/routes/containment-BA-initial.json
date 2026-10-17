@@ -1,0 +1,790 @@
+{
+  "containment_order": "BA",
+  "editor_feature": true,
+  "engine_arguments": [],
+  "executable": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+  "expected_levels": 1,
+  "failures": [
+    "Approach Control_isolation_b: traversal stalled at (42.63674, 6.850122, -36.37466)",
+    "Actual exit/menu completion pale_ward_02",
+    "Authored objective exit precondition isolation_a",
+    "Authored objective exit precondition isolation_b"
+  ],
+  "levels": [
+    {
+      "accepted_ammo": {
+        "pistol": 66,
+        "rivets": 94,
+        "rockets": 0,
+        "shells": 32
+      },
+      "ammo_caps": {
+        "pistol": 96,
+        "rivets": 160,
+        "rockets": 12,
+        "shells": 40
+      },
+      "arena_remaining": {},
+      "armor": 100.0,
+      "checkpoint_at_exit": false,
+      "completed": false,
+      "containment_order": "BA",
+      "entry_loadout": {
+        "ammo_pistol": 36,
+        "ammo_rivets": 0,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 12,
+        "armor": 50.0,
+        "currentweapon": "pistol",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "shotgun": true
+        }
+      },
+      "exit_loadout": {
+        "ammo_pistol": 91,
+        "ammo_rivets": 92,
+        "ammo_rockets": 0,
+        "ammo_shotgun": 11,
+        "armor": 100.0,
+        "currentweapon": "pistol",
+        "health": 100.0,
+        "owned_weapons": {
+          "melee": true,
+          "pistol": true,
+          "rivet_cannon": true,
+          "shotgun": true
+        }
+      },
+      "failure_state": {
+        "ammo": {
+          "pistol": 91,
+          "rivets": 92,
+          "rockets": 0,
+          "shells": 11
+        },
+        "arena_remaining": {},
+        "armor": 100.0,
+        "bot_visible_chest_fallbacks": 10,
+        "health": 100.0,
+        "last_player_hurt": {
+          "damage": 7.0,
+          "physics_tick": 941,
+          "source_id": "pale_ward_02.waste_lab.enemy.5"
+        },
+        "living_enemies": [
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.culture_access.enemy.1",
+            "position": "(52.12347, 4.850164, -1.602288)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.culture_access.enemy.2",
+            "position": "(53.19417, 4.850638, -0.526051)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.culture_access.enemy.3",
+            "position": "(53.30823, 4.850944, -2.082041)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.culture_access.enemy.4",
+            "position": "(52.70621, 4.850111, -1.112472)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.cultures.enemy.0",
+            "position": "(51.40665, 4.850841, -1.347524)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.cultures.enemy.1",
+            "position": "(51.72966, 4.850942, -0.133466)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.cultures.enemy.2",
+            "position": "(51.14656, 4.850941, 0.361588)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.cultures.enemy.3",
+            "position": "(51.13824, 4.850941, -0.636396)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.cultures.enemy.4",
+            "position": "(52.47965, 4.850941, -0.261591)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.cultures.enemy.5",
+            "position": "(52.21598, 4.850941, 0.459735)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.cultures.enemy.6",
+            "position": "(52.50768, 4.850942, -2.257796)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.cultures.enemy.7",
+            "position": "(51.9935, 4.850111, -0.848397)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.filters.enemy.0",
+            "position": "(-76.80717, 2.850212, -29.29476)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.filters.enemy.1",
+            "position": "(-74.96883, 2.850942, -28.5902)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.filters.enemy.2",
+            "position": "(-77.09811, 2.850942, -28.59196)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.filters.enemy.3",
+            "position": "(-75.73499, 2.850847, -28.58519)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.filters.enemy.4",
+            "position": "(-77.8701, 2.850281, -28.29063)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.isolation_a.enemy.0",
+            "position": "(-52.63465, 2.850942, -37.84807)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.isolation_a.enemy.1",
+            "position": "(-53.29996, 2.85094, -40.30512)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.isolation_a.enemy.2",
+            "position": "(-53.29765, 2.850941, -41.08139)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.isolation_a.enemy.3",
+            "position": "(-53.33496, 2.850821, -38.13876)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.isolation_a.enemy.4",
+            "position": "(-53.02438, 2.850942, -38.8327)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.isolation_a.enemy.5",
+            "position": "(-53.29601, 2.85094, -39.54348)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.sterilizer.enemy.5",
+            "position": "(77.88093, 5.225944, -16.3379)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.reservoir.enemy.0",
+            "position": "(9.701731, 0.849466, -36.57855)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.reservoir.enemy.1",
+            "position": "(13.04595, 0.850638, -38.11769)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.reservoir.enemy.2",
+            "position": "(11.9428, 0.849466, -39.20181)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.reservoir.enemy.3",
+            "position": "(9.999396, 0.850638, -33.32997)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.reservoir.enemy.4",
+            "position": "(14.15257, 0.850638, -33.76953)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.reservoir.enemy.5",
+            "position": "(12.44411, 0.850638, -35.7649)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.reservoir.enemy.6",
+            "position": "(10.29192, 0.849466, -30.11843)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.outfall.enemy.0",
+            "position": "(6.42384, 0.850638, -71.03279)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.outfall.enemy.1",
+            "position": "(10.73896, 0.850638, -71.91357)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.outfall.enemy.2",
+            "position": "(10.42632, 0.850638, -76.46688)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.outfall.enemy.3",
+            "position": "(6.777655, 0.850638, -68.91893)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.purge.enemy.0",
+            "position": "(41.20483, 0.850638, -68.93761)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.purge.enemy.1",
+            "position": "(45.44734, 0.850638, -68.78619)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.purge.enemy.2",
+            "position": "(46.59199, 0.850638, -74.88719)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.purge.enemy.3",
+            "position": "(42.92487, 0.850638, -68.76956)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.discharge.enemy.0",
+            "position": "(71.50664, 2.850638, -69.0957)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.discharge.enemy.1",
+            "position": "(74.51012, 2.850638, -69.07545)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.discharge.enemy.2",
+            "position": "(80.73629, 2.850638, -74.03595)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.discharge.enemy.3",
+            "position": "(68.38163, 2.850638, -68.67265)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.exit.enemy.0",
+            "position": "(73.0433, 2.850638, -113.185)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.exit.enemy.1",
+            "position": "(77.54714, 2.850837, -112.6457)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.exit.enemy.2",
+            "position": "(82.08783, 2.850638, -113.379)"
+          },
+          {
+            "arena": "",
+            "awake": true,
+            "id": "pale_ward_02.culture_office.enemy.0",
+            "position": "(53.06724, 4.850941, 0.225489)"
+          }
+        ],
+        "player_position": "(42.63674, 6.850122, -36.37466)",
+        "siege_self_hits": 0,
+        "weapon": "pistol"
+      },
+      "flags": {
+        "visited_isolation_b": true,
+        "visited_overlook": true,
+        "visited_sterilizer": true,
+        "visited_waste_access": true,
+        "visited_waste_lab": true
+      },
+      "health": 100.0,
+      "interactions": [],
+      "kills": 29,
+      "level": "pale_ward_02",
+      "lift_route_requested": false,
+      "lift_traversals": [],
+      "peak_ammo": {
+        "pistol": 96,
+        "rivets": 92,
+        "rockets": 0,
+        "shells": 13
+      },
+      "physics_seconds": 98.35,
+      "redesigned_ward": true,
+      "scene": "res://scenes/campaign/pale_ward_02.tscn",
+      "secret_used": false,
+      "segments": [
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 1,
+          "pistol": 36,
+          "position": "(0.0, 4.85056, 3.680002)",
+          "rivets": 36,
+          "rockets": 0,
+          "segment": "Physical main-route supply FirstGunCache",
+          "shells": 11,
+          "ticks": 27
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 2,
+          "pistol": 46,
+          "position": "(-2.014121, 4.85056, 10.34114)",
+          "rivets": 44,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_pistol_overlook",
+          "shells": 10,
+          "ticks": 62
+        },
+        {
+          "armor": 50.0,
+          "health": 100.0,
+          "kills": 3,
+          "pistol": 46,
+          "position": "(2.32879, 4.85056, 10.00392)",
+          "rivets": 44,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_shells_overlook",
+          "shells": 13,
+          "ticks": 35
+        },
+        {
+          "armor": 64.0,
+          "health": 100.0,
+          "kills": 3,
+          "pistol": 46,
+          "position": "(1.973036, 4.85056, 7.724464)",
+          "rivets": 44,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_armor_overlook",
+          "shells": 13,
+          "ticks": 20
+        },
+        {
+          "armor": 64.0,
+          "health": 100.0,
+          "kills": 4,
+          "pistol": 46,
+          "position": "(-0.019759, 4.85056, -0.354529)",
+          "rivets": 44,
+          "rockets": 0,
+          "segment": "Portal overlook→waste_access",
+          "shells": 11,
+          "ticks": 60
+        },
+        {
+          "armor": 64.0,
+          "health": 100.0,
+          "kills": 5,
+          "pistol": 46,
+          "position": "(16.35553, 4.85056, -0.002309)",
+          "rivets": 44,
+          "rockets": 0,
+          "segment": "Portal overlook→waste_access",
+          "shells": 9,
+          "ticks": 125
+        },
+        {
+          "armor": 56.8,
+          "health": 95.2,
+          "kills": 7,
+          "pistol": 46,
+          "position": "(27.2744, 4.850943, 0.002851)",
+          "rivets": 44,
+          "rockets": 0,
+          "segment": "Portal overlook→waste_access",
+          "shells": 7,
+          "ticks": 133
+        },
+        {
+          "armor": 56.8,
+          "health": 95.2,
+          "kills": 8,
+          "pistol": 46,
+          "position": "(40.31577, 4.850943, 0.000023)",
+          "rivets": 44,
+          "rockets": 0,
+          "segment": "Portal overlook→waste_access",
+          "shells": 5,
+          "ticks": 95
+        },
+        {
+          "armor": 56.8,
+          "health": 100.0,
+          "kills": 10,
+          "pistol": 58,
+          "position": "(37.97197, 4.850943, 9.33844)",
+          "rivets": 54,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_pistol_waste_access",
+          "shells": 3,
+          "ticks": 75
+        },
+        {
+          "armor": 56.8,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 58,
+          "position": "(42.31757, 4.850943, 9.005889)",
+          "rivets": 54,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_shells_waste_access",
+          "shells": 7,
+          "ticks": 35
+        },
+        {
+          "armor": 73.8,
+          "health": 100.0,
+          "kills": 11,
+          "pistol": 58,
+          "position": "(41.97439, 4.850943, 6.721982)",
+          "rivets": 54,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_armor_waste_access",
+          "shells": 7,
+          "ticks": 20
+        },
+        {
+          "armor": 73.8,
+          "health": 100.0,
+          "kills": 12,
+          "pistol": 58,
+          "position": "(39.99664, 4.850943, -0.257657)",
+          "rivets": 54,
+          "rockets": 0,
+          "segment": "Portal waste_access→waste_lab",
+          "shells": 6,
+          "ticks": 52
+        },
+        {
+          "armor": 73.8,
+          "health": 100.0,
+          "kills": 14,
+          "pistol": 58,
+          "position": "(53.30703, 4.850943, -0.004224)",
+          "rivets": 54,
+          "rockets": 0,
+          "segment": "Portal waste_access→waste_lab",
+          "shells": 4,
+          "ticks": 102
+        },
+        {
+          "armor": 65.4,
+          "health": 94.4,
+          "kills": 16,
+          "pistol": 58,
+          "position": "(64.23165, 4.850943, 0.200826)",
+          "rivets": 54,
+          "rockets": 0,
+          "segment": "Portal waste_access→waste_lab",
+          "shells": 2,
+          "ticks": 82
+        },
+        {
+          "armor": 65.4,
+          "health": 94.4,
+          "kills": 18,
+          "pistol": 58,
+          "position": "(80.38998, 4.850943, 0.000334)",
+          "rivets": 54,
+          "rockets": 0,
+          "segment": "Portal waste_access→waste_lab",
+          "shells": 0,
+          "ticks": 120
+        },
+        {
+          "armor": 65.4,
+          "health": 100.0,
+          "kills": 18,
+          "pistol": 74,
+          "position": "(78.00504, 4.850943, 11.26223)",
+          "rivets": 70,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_pistol_waste_lab",
+          "shells": 0,
+          "ticks": 89
+        },
+        {
+          "armor": 65.4,
+          "health": 100.0,
+          "kills": 19,
+          "pistol": 72,
+          "position": "(82.35856, 4.850943, 11.00111)",
+          "rivets": 70,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_shells_waste_lab",
+          "shells": 9,
+          "ticks": 35
+        },
+        {
+          "armor": 93.4,
+          "health": 100.0,
+          "kills": 19,
+          "pistol": 72,
+          "position": "(81.96876, 4.850943, 8.736469)",
+          "rivets": 70,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_armor_waste_lab",
+          "shells": 8,
+          "ticks": 20
+        },
+        {
+          "armor": 93.4,
+          "health": 100.0,
+          "kills": 20,
+          "pistol": 72,
+          "position": "(79.99942, 4.850943, -0.300915)",
+          "rivets": 70,
+          "rockets": 0,
+          "segment": "Portal waste_lab→sterilizer",
+          "shells": 7,
+          "ticks": 67
+        },
+        {
+          "armor": 93.4,
+          "health": 100.0,
+          "kills": 21,
+          "pistol": 72,
+          "position": "(79.99999, 4.975777, -14.38948)",
+          "rivets": 70,
+          "rockets": 0,
+          "segment": "Portal waste_lab→sterilizer",
+          "shells": 5,
+          "ticks": 103
+        },
+        {
+          "armor": 93.4,
+          "health": 100.0,
+          "kills": 22,
+          "pistol": 72,
+          "position": "(79.99999, 6.850983, -28.36432)",
+          "rivets": 68,
+          "rockets": 0,
+          "segment": "Portal waste_lab→sterilizer",
+          "shells": 4,
+          "ticks": 102
+        },
+        {
+          "armor": 93.4,
+          "health": 100.0,
+          "kills": 24,
+          "pistol": 72,
+          "position": "(79.99999, 6.849274, -40.33919)",
+          "rivets": 68,
+          "rockets": 0,
+          "segment": "Portal waste_lab→sterilizer",
+          "shells": 2,
+          "ticks": 87
+        },
+        {
+          "armor": 93.4,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 87,
+          "position": "(78.00783, 6.849274, -30.7024)",
+          "rivets": 80,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_pistol_sterilizer",
+          "shells": 0,
+          "ticks": 84
+        },
+        {
+          "armor": 93.4,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 87,
+          "position": "(82.35449, 6.849274, -30.99947)",
+          "rivets": 80,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_shells_sterilizer",
+          "shells": 7,
+          "ticks": 35
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 26,
+          "pistol": 87,
+          "position": "(81.96928, 6.849274, -33.26694)",
+          "rivets": 80,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_armor_sterilizer",
+          "shells": 6,
+          "ticks": 20
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 27,
+          "pistol": 87,
+          "position": "(79.96374, 6.849274, -40.37023)",
+          "rivets": 80,
+          "rockets": 0,
+          "segment": "Portal sterilizer→isolation_b",
+          "shells": 5,
+          "ticks": 53
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 28,
+          "pistol": 87,
+          "position": "(66.65842, 6.849274, -40.00354)",
+          "rivets": 80,
+          "rockets": 0,
+          "segment": "Portal sterilizer→isolation_b",
+          "shells": 4,
+          "ticks": 102
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 28,
+          "pistol": 87,
+          "position": "(52.68453, 6.849274, -40.00003)",
+          "rivets": 80,
+          "rockets": 0,
+          "segment": "Portal sterilizer→isolation_b",
+          "shells": 4,
+          "ticks": 102
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 28,
+          "pistol": 87,
+          "position": "(39.64306, 6.849274, -40.0)",
+          "rivets": 80,
+          "rockets": 0,
+          "segment": "Portal sterilizer→isolation_b",
+          "shells": 4,
+          "ticks": 95
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 28,
+          "pistol": 96,
+          "position": "(38.00024, 6.849274, -30.64552)",
+          "rivets": 92,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_pistol_isolation_b",
+          "shells": 4,
+          "ticks": 73
+        },
+        {
+          "armor": 100.0,
+          "health": 100.0,
+          "kills": 28,
+          "pistol": 96,
+          "position": "(42.3374, 6.849274, -30.99809)",
+          "rivets": 92,
+          "rockets": 0,
+          "segment": "Physical main-route supply Supply_shells_isolation_b",
+          "shells": 11,
+          "ticks": 35
+        }
+      ],
+      "shots": 46,
+      "siege_self_hits": 0,
+      "total_enemies": 76,
+      "visited_rooms": [
+        "overlook",
+        "waste_access",
+        "waste_lab",
+        "sterilizer",
+        "isolation_b"
+      ],
+      "weapon_kills": {
+        "pistol": 2,
+        "rivet_cannon": 1,
+        "shotgun": 26
+      },
+      "weapon_shots": {
+        "pistol": 11,
+        "rivet_cannon": 2,
+        "shotgun": 33
+      }
+    }
+  ],
+  "levels_completed": 0,
+  "physics_ticks_per_second": 60,
+  "scope": "Opt-in actual Main physical CharacterBody movement, live enemies/damage/finite ammo, real weapon rays and E-use. Ward objective contracts; legacy sequence only six unchanged maps. Exact Continue carry, no seed/teleport/death/flag injection or secret supplies. Bot simulation timings do not establish20–25minute human pacing.",
+  "source_package_dir": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+  "status": "failed",
+  "use_heavy_weapons": false
+}

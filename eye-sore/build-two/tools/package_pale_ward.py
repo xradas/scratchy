@@ -32,6 +32,7 @@ RESERVED_NAMES = {"BUILD.json", "README.txt", "SHA256SUMS", "SOURCE_SHA256SUMS",
 BAD_OUTPUT = re.compile(r"(?:^|\n)\s*(?:SCRIPT ERROR:|ERROR:|WARNING:)|SMOKE_FAILED:", re.I)
 EXCLUDED = {".godot", ".git", "build", "concepts", "docs", "tools", "verification"}
 STYLE_PASS_LIMITATIONS = [
+    "V13 rebuilds only the three Pale Ward maps; the other six playable maps retain their prior layouts. New Ward human-paced 20–25 minute exploration and visual acceptance remain pending. Session-only checkpoints do not survive title return or closing the game.",
     "V12 gore uses bounded cosmetic closed meshes textured from existing painted parts; final human visual review of breakup, settling and blood intensity remains pending.",
     "Current style pass combines world, viewgun and muzzle presentation at a 320 × 180 display grid; human visual acceptance against the approved concept remains pending.",
     "The four new creatures have eight directional stance images and frontal combat/death sequences; the Ward creatures retain frontal sequences. Complete animation in eight directions remains work.",
@@ -45,7 +46,7 @@ DEFAULT_LIMITATIONS = [
     "Playable reference-based art/layout pass; full production and human release acceptance pending.",
     "Dedicated architecture materials and original-board signs retain native source pixels; source-byte preservation does not establish whole-scene visual acceptance.",
     *STYLE_PASS_LIMITATIONS,
-    "Human-paced encounters toward the original 5–8 minute duration remain work.",
+    "Ward redesign targets 20–25 minute human exploration; actual pacing remains human review.",
     "Sustained human combat, interaction audio, and final mix review remain pending.",
     "Nine connected campaign levels; campaign saves remain deferred.",
     "Occupied Line temporarily shares the Ward score, pending a separate music review.",
@@ -109,6 +110,7 @@ def provenance_files() -> list[Path]:
              "docs/production-v10", "concepts/audio-v10",
              "docs/production-v11", "concepts/production-v11",
              "docs/production-v12", "concepts/production-v12",
+             "docs/level-redesign-v13", "concepts/level-redesign-v13",
              "concepts/pickups-rooms-v6",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")
@@ -127,7 +129,9 @@ def provenance_files() -> list[Path]:
              PROJECT / "assets/materials/expanded-stages/provenance.json"]
     for root in roots:
         paths.extend(p for p in (PROJECT / root).rglob("*")
-                     if p.is_file() and p.suffix in {".json", ".txt", ".md"}
+                     if p.is_file() and (p.suffix in {".json", ".txt", ".md"}
+                         or (root in {"docs/level-redesign-v13", "concepts/level-redesign-v13"}
+                             and p.suffix in {".svg", ".html", ".png"}))
                      and not (root in {"concepts/arsenal-architecture-v2", "concepts/campaign-v3"}
                               and "review" in p.relative_to(PROJECT / root).parts))
     return sorted(set(paths))
@@ -332,7 +336,7 @@ def package(args: argparse.Namespace) -> dict:
             raise PackagingError("Source inputs changed during export/smoke; stabilize source and retry")
         integration_path = PROJECT / "verification/INTEGRATION.json"
         integration = json.loads(integration_path.read_text()) if integration_path.is_file() else {}
-        limitations = list(integration.get("known_issues", DEFAULT_LIMITATIONS))
+        limitations = [issue.replace("and original5–8minute human-paced level duration", "and human-paced level duration") for issue in integration.get("known_issues", DEFAULT_LIMITATIONS)]
         for issue in STYLE_PASS_LIMITATIONS:
             if issue not in limitations:
                 limitations.append(issue)
