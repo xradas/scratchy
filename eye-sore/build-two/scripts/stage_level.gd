@@ -152,6 +152,9 @@ func update_traps() -> void:
 		state.shutters_open = exposed
 		if exposed and not arena_active.get(arena,false): activate_arena(arena)
 func activate_arena(arena: String) -> void:
+	# Ungrouped enemies belong to their authored rooms. Activating an empty
+	# arena would wake every such actor in the entire level at first entry.
+	if arena.is_empty(): return
 	if arena_active.has(arena): return
 	arena_active[arena] = true
 	if objective_profile==null and int(arena_remaining.get(arena, 0)) > 0: objective = "Clear this arena to enable its marked control."

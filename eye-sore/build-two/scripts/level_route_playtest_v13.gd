@@ -61,8 +61,14 @@ func run() -> void:
 				if is_ash_approach:await ash_approach_route()
 				else:await ward_route()
 		else:await super.route_run()
+		# The exit emits completion synchronously, while Main applies the paused
+		# completion menu through call_deferred. Give that real transition a bounded
+		# chance to settle before judging the played route.
+		for frame in 12:
+			if world.finished and app.level_complete and get_tree().paused:break
+			await get_tree().process_frame
 		var complete: bool=world.finished and app.level_complete and get_tree().paused
-		require(complete,"Actual exit/menu completion "+level_id);require(not combat.dead and combat.health>0,"Live route survival "+level_id)
+		require(complete,"Actual exit/menu completion %s: world_finished=%s, app_complete=%s, paused=%s, transitioning=%s, same_world=%s, completion_connections=%d" % [level_id,world.finished,app.level_complete,get_tree().paused,app.campaign_transitioning,app.world==world,world.completed.get_connections().size()]);require(not combat.dead and combat.health>0,"Live route survival "+level_id)
 		require(not world.secret_found and world.secrets.is_empty(),"No secret supply "+level_id)
 		if is_ward or is_ash_approach:
 			for flag in world.objective_profile.exit_requires:require(bool(world.flags.get(flag,false)),"Authored objective exit precondition "+String(flag))

@@ -60,6 +60,12 @@ func selected_stage() -> Dictionary:
 		if entry.id == stage_id: return entry
 	return {}
 
+func selected_level_music_path() -> String:
+	if campaign_mode:
+		var original := String(campaign.current_level().get("music", ""))
+		if not original.is_empty(): return original
+	return String(selected_stage().get("music", ""))
+
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
 	var expansion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://resources/stages/catalog.json"))
@@ -474,7 +480,8 @@ func create_world() -> void:
 			combat_audio = preload("res://scripts/combat_audio.gd").new()
 			world.add_child(combat_audio)
 			var audio_profile: CombatAudioProfile = load("res://resources/combat_audio.tres").duplicate()
-			audio_profile.music = load(selected_stage().music)
+			var music_path := selected_level_music_path()
+			audio_profile.music = load(music_path) if not music_path.is_empty() else null
 			combat_audio.setup(audio_profile, false)
 		configure_combat_art()
 		if world.has_method("setup"):

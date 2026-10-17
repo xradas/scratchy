@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "ward02_scene_sha256": "e3774f0cd061b5a5e97aad83c0843dd40aaade8975247ae0faa946a4e7ef71fd",
+  "new_bulkheads": [
+    "overlook__culture_access",
+    "culture_access__cultures",
+    "overlook__waste_access",
+    "waste_access__waste_lab"
+  ],
+  "source_campaign": {
+    "status": "passed",
+    "completed": 9,
+    "expected": 9,
+    "containment_order": "AB",
+    "ward02_kills": 60
+  },
+  "focused_routes": {
+    "AB": "ward02-final-AB.json",
+    "BA": "ward02-BA.json"
+  },
+  "limits": [
+    "AB final-route and full campaign receipts use the final accented Ward02 scene. BA route preceded the purely visual accent regeneration; door geometry and routing did not change.",
+    "Automated route and fixture checks do not establish human combat pacing, object recognition or music appeal."
+  ]
+}

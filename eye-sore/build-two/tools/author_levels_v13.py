@@ -63,6 +63,9 @@ class WardScene(base.Scene):
             source=next(s for s in self.sub if s.startswith(f'[sub_resource type="ShaderMaterial" id="v8_utility_{role}"]'))
             self.sub.append(source.replace(f'id="v8_utility_{role}"',f'id="{alias}"',1))
         self.mat('glow',(.77,.79,.62,1),1.2)
+        if level['id']=='pale_ward_02':
+            self.mat('v16_filter_signal',(.32,.68,.20,1),.35)
+            self.mat('v16_pipe_signal',(.85,.43,.12,1),.35)
         self.mat('v13_checkpoint_inset',(.08,.25,.19,1),.08)
         self.mat('v13_liquid',(.13,.24,.08,.78));self.sub[-1]+='transparency = 1\nroughness = 0.24\ncull_mode = 2\n'
         self.board_material('v13_invasion','res://assets/materials/architecture-v2/pale_ward-atlas.png',[384,682,384,341])
@@ -124,14 +127,14 @@ def mouth(room,target):
 
 
 def doors(sc,p,points,rooms):
-    if not (p['requires'] or p['secret'] or p['shortcut']):return None
+    if not (p['requires'] or p['secret'] or p['shortcut'] or p.get('service_door')):return None
     a=rooms[p['from']];start,end=points[0],points[1]
     axis=0 if abs(end[0]-start[0])>abs(end[2]-start[2]) else 2
     sign=1 if end[axis]>start[axis] else -1
     at=list(start);at[axis]-=sign*.35;at[1]=a['center'][1]+1.9
     size=[p['width'],3.8,p['width']];size[axis]=.24
     name='Door_'+p['id']
-    extra='script = ExtResource("door")\nmetadata/stage_door = '+quote(p['id'])+'\nmetadata/stable_id = '+quote(sc.level['id']+'.door.'+p['id'])+'\nmetadata/requires = '+arr(p['requires'])+'\nmetadata/open_offset = Vector3(0,5,0)\nmetadata/use_anchor = Vector3(0,-1,0)\nmetadata/label = '+quote('release shortcut' if p['shortcut'] else 'open concealed service panel' if p['secret'] else 'open access gate')+'\nmetadata/locked_message = '+quote('Complete the marked objective to release this gate')
+    extra='script = ExtResource("door")\nmetadata/stage_door = '+quote(p['id'])+'\nmetadata/stable_id = '+quote(sc.level['id']+'.door.'+p['id'])+'\nmetadata/requires = '+arr(p['requires'])+'\nmetadata/open_offset = Vector3(0,5,0)\nmetadata/use_anchor = Vector3(0,-1,0)\nmetadata/label = '+quote('release shortcut' if p['shortcut'] else 'open concealed service panel' if p['secret'] else 'open containment bulkhead' if p.get('service_door') else 'open access gate')+'\nmetadata/locked_message = '+quote('Complete the marked objective to release this gate')
     if p['secret']:extra+='\nmetadata/secret = true'
     if p['shortcut']:extra+='\nmetadata/shortcut = true'
     if p.get('first_open_from'):
@@ -482,6 +485,22 @@ def furnishing(sc,room):
                 sc.lamp('TaskHead',(0,2.1,.1),room,'surgical',parent=root,energy=1.6)
         else:
             props._emit_prop(sc,name,{'type':typ},room,(pos[0],pos[2],obj['heading']),sc.prop_materials,'authored_v13')
+            if sc.level['id']=='pale_ward_02' and typ in {'filter_unit','pipe_manifold'}:
+                # The shared fixture recipe hangs its housing above the floor.
+                # These Ward utility fittings are freestanding, so give each a
+                # visible, collidable route down to the room's actual floor.
+                if typ=='filter_unit':
+                    sc.box('FloorCabinet',(0,.64,0),(1.2,1.28,.58),'steel',parent=root,hit_material='armor')
+                    for side in [-1,1]:
+                        sc.box('FilterRail'+str(side),(side*.45,1.83,.33),(.09,.73,.06),'steel',False,root)
+                    sc.box('FilterStatusBand',(0,.94,.303),(.96,.21,.045),'v16_filter_signal',False,root)
+                    sc.label('EquipmentLabel','AIR FILTER',(0,1.82,.36),root,size=21,color=(.66,.83,.66,1))
+                else:
+                    for side in [-1,1]:
+                        sc.cylinder('FloorFeed'+str(side),(side*.36,.68,0),.095,1.36,'steel',True,root)
+                        sc.box('PipeCollar'+str(side),(side*.36,1.14,.13),(.27,.19,.18),'v16_pipe_signal',False,root)
+                    sc.box('ValveBridge',(0,.48,.08),(1.03,.16,.2),'steel',False,root)
+                    sc.label('EquipmentLabel','PIPE FEED',(0,1.82,.36),root,size=21,color=(1,.76,.39,1))
         sc.fittings.append({'id':name,'room':room['id'],'type':typ,'position_local':pos,'heading':obj['heading']})
 
 

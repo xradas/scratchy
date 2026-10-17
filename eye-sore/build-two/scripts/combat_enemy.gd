@@ -38,6 +38,15 @@ var corpse_bodies: Dictionary = {}
 var corpse_integrity: float = 0.0
 var corpse_frame: int = -1
 var corpse_seen_shots: Dictionary = {}
+const SIGHT_ACQUIRE_DISTANCE: float = 10.0
+const HEARING_DISTANCE: Dictionary = {
+	&"melee": 2.0,
+	&"pistol": 10.0,
+	&"shotgun": 14.0,
+	&"twin_shotgun": 16.0,
+	&"rivet_cannon": 12.0,
+	&"siege_launcher": 18.0,
+}
 
 func setup(controller: Node3D, actor: CharacterBody3D, data: EnemyDefinition, id: String) -> void:
 	combat = controller; player = actor; definition = data; target_id = id; health = definition.health
@@ -59,12 +68,15 @@ func _physics_process(delta: float) -> void:
 	state_time += delta
 	var offset := player.global_position - global_position
 	var distance := Vector2(offset.x, offset.z).length()
-	var visible := can_see_player()
+	var visible := can_see_player() if awake or distance <= SIGHT_ACQUIRE_DISTANCE else false
 	if not awake:
 		var arena_enabled := true
 		if combat.world.has_method("is_arena_active") and has_meta("arena_id"):
 			arena_enabled = combat.world.is_arena_active(String(get_meta("arena_id")))
-		if arena_enabled and (visible or (combat.weapon_phase == &"fire" and distance < 13.0)):
+		# A long clear corridor may expose an actor without making the whole
+		# level active. A shot only travels its local radius along an unobstructed
+		# physical path; closed doors and walls stop the wake-up ray.
+		if arena_enabled and ((visible and distance <= SIGHT_ACQUIRE_DISTANCE) or can_hear_player_shot(distance)):
 			awake = true
 		else:
 			velocity.x = 0; velocity.z = 0
@@ -129,6 +141,13 @@ func change_state(next: StringName) -> void:
 
 func can_see_player() -> bool:
 	if dead or not is_instance_valid(player): return false
+	var hit: Dictionary = combat.ray(global_position + Vector3(0, 0.45, 0), player.global_position + Vector3(0, 0.3, 0), [get_rid()])
+	return not hit.is_empty() and hit.collider == player
+
+func can_hear_player_shot(distance: float) -> bool:
+	if combat.shot_counter <= 0 or combat.weapon_phase != &"fire": return false
+	var radius: float = float(HEARING_DISTANCE.get(combat.currentweapon, 10.0))
+	if distance > radius: return false
 	var hit: Dictionary = combat.ray(global_position + Vector3(0, 0.45, 0), player.global_position + Vector3(0, 0.3, 0), [get_rid()])
 	return not hit.is_empty() and hit.collider == player
 

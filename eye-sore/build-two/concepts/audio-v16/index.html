@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eyesore · original campaign music review</title>
+<style>
+body{margin:0;background:#0b1012;color:#e8ece6;font:16px/1.5 system-ui,sans-serif}main{max-width:960px;margin:auto;padding:34px 22px 80px}h1{font-size:2rem;margin:0}p{color:#adbdb5}section{border:1px solid #425248;background:#18201f;margin:14px 0;padding:18px}h2{font-size:1.08rem;margin:0 0 7px}small{color:#b4c0b8}audio{display:block;width:100%;margin-top:12px}code{color:#bde5bd}
+</style><main><h1>Original campaign music · first composition pass</h1>
+<p>Nine distinct cues, one for each campaign level. Every note, drum pattern and sound is generated from the project’s own score; Abelian stays on the menu. These are review drafts, not listening-approved replacements.</p>
+<div id="cues"></div>
+<p>Listen at a comfortable fixed volume, then try the cues in combat. The present loops are 33–44 seconds; arrangement depth, transitions and warning audibility still need a listening pass.</p>
+<p>Source and provenance: <code>tools/compose_campaign_v16.py</code> and <code>assets/audio/music/original-v16/manifest.json</code>.</p></main>
+<script>
+const cues=[
+['Pale Ward 01 — Intake','Cold triage · 136 BPM','pale_ward_01'],
+['Pale Ward 02 — Containment','Pressure pulse · 150 BPM','pale_ward_02'],
+['Pale Ward 03 — Breach','Failing anchors · 164 BPM','pale_ward_03'],
+['Ash Citadel 01 — Ash Approach','Siege march · 144 BPM','ash_citadel_01'],
+['Ash Citadel 02 — Furnace Choir','Iron litany · 158 BPM','ash_citadel_02'],
+['Ash Citadel 03 — Black Reliquary','Vault procession · 132 BPM','ash_citadel_03'],
+['Occupied Line 01 — Dead Platform','Broken signal · 152 BPM','occupied_line_01'],
+['Occupied Line 02 — Civic Lockdown','Alarm grid · 160 BPM','occupied_line_02'],
+['Occupied Line 03 — Occupation Engine','Turbine drive · 174 BPM','occupied_line_03']];
+document.querySelector('#cues').innerHTML=cues.map(([name,description,id])=>`<section><h2>${name}</h2><small>${description}</small><audio controls preload="none" src="../../assets/audio/music/original-v16/${id}.ogg"></audio></section>`).join('');
+document.querySelectorAll('audio').forEach(audio=>audio.addEventListener('play',()=>document.querySelectorAll('audio').forEach(other=>{if(other!==audio)other.pause()})));
+</script></html>

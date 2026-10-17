@@ -11,11 +11,11 @@
     4,
     6
   ],
-  "protected_scene_art_files": 319,
+  "protected_scene_art_files": 336,
   "outputs": {
-    "scenes/campaign/pale_ward_02.tscn": "e2033eb5467a374d47630efdba8c15051a9def3998c9b533d1bb2b69a4ee14cf",
-    "resources/campaign/pale_ward_02-layout.json": "314560615a17df7807d36126739c4f1adb5d6bbc545102fa41c0c9d7b80d1f90",
-    "resources/campaign/pale_ward_02-route.json": "dc3b90a456e3319e7345ab7669693c132116b9ad2800fdd687e0f89c8e4cbe88",
+    "scenes/campaign/pale_ward_02.tscn": "e3774f0cd061b5a5e97aad83c0843dd40aaade8975247ae0faa946a4e7ef71fd",
+    "resources/campaign/pale_ward_02-layout.json": "ab2998e71d5df040d703b7528c5c0b56d5d830ad5ccb67a50ae78159ea35add5",
+    "resources/campaign/pale_ward_02-route.json": "977c3da345a3f816df32294f8079791bd8b5e4d6a330cff8b5ab68f994481667",
     "resources/campaign/v13/pale_ward_02-objectives.tres": "727593dd5dee37dc210d714a53454b3fe61384c71f6f742b586aa2545958061f"
   },
   "geometry": [
@@ -140,6 +140,26 @@
       "type": "StaticBody3D"
     },
     {
+      "name": "Door_overlook__culture_access",
+      "parent": ".",
+      "position": [
+        -15.65,
+        5.9,
+        0
+      ],
+      "size": [
+        0.24,
+        3.8,
+        5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "AnimatableBody3D"
+    },
+    {
       "name": "Link_culture_access__cultures_0_Floor",
       "parent": ".",
       "position": [
@@ -258,6 +278,26 @@
         0
       ],
       "type": "StaticBody3D"
+    },
+    {
+      "name": "Door_culture_access__cultures",
+      "parent": ".",
+      "position": [
+        -52.65,
+        5.9,
+        0
+      ],
+      "size": [
+        0.24,
+        3.8,
+        5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "AnimatableBody3D"
     },
     {
       "name": "Link_filters__isolation_a_0_Floor",
@@ -940,6 +980,26 @@
       "type": "StaticBody3D"
     },
     {
+      "name": "Door_overlook__waste_access",
+      "parent": ".",
+      "position": [
+        15.65,
+        5.9,
+        0
+      ],
+      "size": [
+        0.24,
+        3.8,
+        5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "AnimatableBody3D"
+    },
+    {
       "name": "Link_waste_access__waste_lab_0_Floor",
       "parent": ".",
       "position": [
@@ -1058,6 +1118,26 @@
         0
       ],
       "type": "StaticBody3D"
+    },
+    {
+      "name": "Door_waste_access__waste_lab",
+      "parent": ".",
+      "position": [
+        52.65,
+        5.9,
+        0
+      ],
+      "size": [
+        0.24,
+        3.8,
+        5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "AnimatableBody3D"
     },
     {
       "name": "Link_waste_lab__sterilizer_0_Step_0",
@@ -12340,6 +12420,26 @@
       "type": "StaticBody3D"
     },
     {
+      "name": "FloorCabinet",
+      "parent": "RoomProp_pale_ward_02_filters_prop_6",
+      "position": [
+        0,
+        0.64,
+        0
+      ],
+      "size": [
+        1.2,
+        1.28,
+        0.58
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
       "name": "Pedestal",
       "parent": "RoomProp_pale_ward_02_filters_prop_7",
       "position": [
@@ -13591,6 +13691,26 @@
         1.4,
         1.05,
         0.62
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "FloorCabinet",
+      "parent": "RoomProp_pale_ward_02_waste_access_prop_6",
+      "position": [
+        0,
+        0.64,
+        0
+      ],
+      "size": [
+        1.2,
+        1.28,
+        0.58
       ],
       "rotation": [
         0,
@@ -15871,6 +15991,26 @@
         1.4,
         1.05,
         0.62
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "FloorCabinet",
+      "parent": "RoomProp_pale_ward_02_sterilizer_prop_6",
+      "position": [
+        0,
+        0.64,
+        0
+      ],
+      "size": [
+        1.2,
+        1.28,
+        0.58
       ],
       "rotation": [
         0,
@@ -18360,6 +18500,26 @@
       "type": "StaticBody3D"
     },
     {
+      "name": "FloorCabinet",
+      "parent": "RoomProp_pale_ward_02_outfall_prop_6",
+      "position": [
+        0,
+        0.64,
+        0
+      ],
+      "size": [
+        1.2,
+        1.28,
+        0.58
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
       "name": "Pedestal",
       "parent": "RoomProp_pale_ward_02_outfall_prop_7",
       "position": [
@@ -18991,6 +19151,26 @@
         1.4,
         1.05,
         0.62
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "FloorCabinet",
+      "parent": "RoomProp_pale_ward_02_purge_prop_6",
+      "position": [
+        0,
+        0.64,
+        0
+      ],
+      "size": [
+        1.2,
+        1.28,
+        0.58
       ],
       "rotation": [
         0,
