@@ -47,3 +47,7 @@ These are project decisions, not numerical rules from either reference:
 6. Judge the result in real gameplay views and navigation. Diagrams, metadata assertions and bot completion cannot establish visual match, tactical quality or the 20–25-minute human pacing target.
 
 The coordinator owns research and acceptance decisions. Workers receive bounded implementation contracts and do not browse or invent replacement objectives. This review does not claim that the structural proposals are implemented or release-verified.
+
+## Specialist handoff
+
+The construction specialist completed a read-only feasibility review of the generator and level inputs. [Three bounded structural proposals](structural-proposals.md) record dimensions, risks and evidence requirements. They are proposals, not implemented geometry. The current passing source candidate is preserved and remotely verified at `0032b97513ce97cafc5284b3fae9531f2f2b2d8f`.
