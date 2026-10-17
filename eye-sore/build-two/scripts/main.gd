@@ -256,6 +256,8 @@ func run_smoke() -> void:
 		if not smoke_require(victim.sprite.frame == 0 and torso_alpha >= .5, "Gore fixture aim is not opaque idle torso"): return
 		var torso_world: Vector3 = victim.sprite_pivot.to_global(Vector3((torso_pixel.x-victim.sprite_foot.x)*victim.sprite.pixel_size,(victim.sprite_foot.y-torso_pixel.y)*victim.sprite.pixel_size,0))
 		player.camera.look_at(torso_world)
+		# This fixture tests a real shotgun impact; campaign entry now owns only the pistol.
+		combat.grant_weapon(&"shotgun", 12)
 		combat.currentweapon = &"shotgun"
 		await get_tree().physics_frame; await get_tree().physics_frame
 		var gore_events: Array[Dictionary] = []
