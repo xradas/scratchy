@@ -128,6 +128,22 @@ func frame_checks() -> void:
 			check(flash_probes>0,"opaque release flash probes exercised")
 		observations.append({"kind":enemy.definition.identifier,"frames_visited":visited.size(),"actual_physics_materials":material_hits.keys(),"opaque_flash_noncontact_probes":flash_probes})
 		enemy.rotation=original_rotation; enemy.state=&"chase"; enemy.state_time=0; app.player.global_position=original_player; enemy.update_sprite()
+func flash_timing_checks() -> void:
+	var enemy: Node3D=app.combat.enemies[2]
+	var original_rotation: Vector3=enemy.rotation; var original_player: Vector3=app.player.global_position
+	app.player.global_position=enemy.global_position+Vector3(0,0,3)
+	var duration: float=enemy.sprite_data.get("release_pose_seconds",-1)
+	var rest: int=enemy.sprite_data.get("recovery_rest_column",-1)
+	check(is_equal_approx(duration,.075) and rest==3,"security explicitly opts into75ms release flash and windup rest")
+	check(not app.combat.enemies[9].sprite_data.has("recovery_rest_column"),"scientist classic recovery behavior unchanged")
+	for direction in 8:
+		enemy.rotation.y=PI-float(direction)*TAU/8
+		for time in [duration-.000001,duration,duration+.001,enemy.definition.recovery_seconds-.001]:
+			enemy.state=&"recovery"; enemy.state_time=time; enemy.update_sprite()
+			var column: int=4 if time<duration else rest
+			check(enemy.sprite_frame==direction*8+column,"actual security flash/rest boundary direction%d t%.6f"%[direction,time])
+	observations.append({"security_release_flash_seconds":duration,"recovery_rest_column":rest,"boundary_directions_tested":8})
+	enemy.rotation=original_rotation; enemy.state=&"chase"; enemy.state_time=0; app.player.global_position=original_player; enemy.update_sprite()
 func verify_roster(label: String) -> void:
 	check(app.combat.enemies.size()==36 and app.combat.total_enemies==36,label+" exact36 actors")
 	observations.append({"phase":label,"actual_arena_counts":app.world.arena_remaining.duplicate(),"expected_arena_counts":expected.arena_counts})
@@ -158,6 +174,7 @@ func run() -> void:
 	await frames(3)
 	native_audio(); verify_roster("initial")
 	await frame_checks()
+	flash_timing_checks()
 	await lighting_checks()
 	# Visit each existing staff room through the actual room activation API.
 	for item in expected.placements:

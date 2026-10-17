@@ -1,0 +1,101 @@
+{
+  "passed": true,
+  "source_commit": "e3d46fdcdf52e354000b1408a2a148bd56c136e2",
+  "ordered_levels": [
+    "pale_ward_01",
+    "pale_ward_02",
+    "pale_ward_03",
+    "ash_citadel_01",
+    "ash_citadel_02",
+    "ash_citadel_03",
+    "occupied_line_01",
+    "occupied_line_02",
+    "occupied_line_03"
+  ],
+  "profiles": {
+    "normal": {
+      "passed": true,
+      "levels_completed": 9,
+      "kills": 305,
+      "exact_carry_transitions": 8,
+      "peak_ammo": {
+        "pistol": 96,
+        "shells": 26,
+        "rivets": 160,
+        "rockets": 12
+      },
+      "weapon_shots": {
+        "pistol": 497,
+        "shotgun": 274,
+        "rivet_cannon": 355
+      },
+      "weapon_kills": {
+        "pistol": 73,
+        "shotgun": 157,
+        "rivet_cannon": 75
+      },
+      "secret_levels": 0,
+      "siege_self_hits": 0,
+      "intake_loop_segments": [
+        "Portal key_console\u2192return_store",
+        "Portal return_store\u2192service"
+      ],
+      "accepted_shortcut_interactions": [
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_shortcut_one"
+        }
+      ],
+      "launch": "normal-launch.json",
+      "launch_cwd": "/tmp",
+      "observed_runtime_cwd": "/home/rikki/Builds/eyesore-staff-lighting-v11-2026-10-17",
+      "raw_receipt": "normal-campaign-all-route.json"
+    },
+    "heavy": {
+      "passed": true,
+      "levels_completed": 9,
+      "kills": 305,
+      "exact_carry_transitions": 8,
+      "peak_ammo": {
+        "pistol": 96,
+        "shells": 40,
+        "rivets": 40,
+        "rockets": 10
+      },
+      "weapon_shots": {
+        "pistol": 227,
+        "shotgun": 84,
+        "twin_shotgun": 73,
+        "rivet_cannon": 506,
+        "siege_launcher": 46
+      },
+      "weapon_kills": {
+        "pistol": 35,
+        "shotgun": 39,
+        "twin_shotgun": 67,
+        "rivet_cannon": 118,
+        "siege_launcher": 46
+      },
+      "secret_levels": 0,
+      "siege_self_hits": 0,
+      "intake_loop_segments": [
+        "Portal key_console\u2192return_store",
+        "Portal return_store\u2192service"
+      ],
+      "accepted_shortcut_interactions": [
+        {
+          "accepted": true,
+          "input": "E",
+          "mechanism": "Door_shortcut_one"
+        }
+      ],
+      "launch": "heavy-launch.json",
+      "launch_cwd": "/tmp",
+      "observed_runtime_cwd": "/home/rikki/Builds/eyesore-staff-lighting-v11-2026-10-17",
+      "raw_receipt": "heavy-campaign-all-route.json"
+    }
+  },
+  "mode": "actual exported ELF",
+  "scope": "Automated physical finite-ammo live-combat Main, explicit new Intake store loop and E shortcut, full nine-level continuation. Headless fixed60; not human art/pacing/listening acceptance."
+}

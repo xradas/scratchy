@@ -1,0 +1,277 @@
+{
+  "checks": [
+    {
+      "check": "legacy opt-in defaults: unsealed",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "legacy opt-in defaults: vessel",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "legacy opt-in defaults: ironbound",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "legacy opt-in defaults: censer",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "legacy opt-in defaults: reaver",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "legacy opt-in defaults: surveyor",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "one warning before security burst",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "first projectile uses exact displayed release-frame muzzle",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "security visible windup before first round",
+      "details": {
+        "first_round_tick": 45
+      },
+      "passed": true
+    },
+    {
+      "check": "duplicate callbacks do not release extra first/early round",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "first flash ends after075ms and returns to rest3",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "security releases exactly two rounds",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "second accepted round restarts flash4",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "accepted round muzzle equals displayed release-frame muzzle",
+      "details": {
+        "round": 1
+      },
+      "passed": true
+    },
+    {
+      "check": "accepted round muzzle equals displayed release-frame muzzle",
+      "details": {
+        "round": 2
+      },
+      "passed": true
+    },
+    {
+      "check": "distinct dedup IDs share warning cycle",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "two round order and interval",
+      "details": {
+        "rounds": [
+          {
+            "attack_cycle_id": 1,
+            "attack_id": 1,
+            "displayed_frame": 4,
+            "displayed_muzzle": "(0.481677, 1.288086, -8.0)",
+            "enemy_kind": "infected_security",
+            "fixture_tick": 45,
+            "material": "",
+            "position": "(0.481677, 1.288086, -8.0)",
+            "round_count": 2,
+            "round_index": 1,
+            "shot_id": 0,
+            "target_id": "enemy_infected_security_0",
+            "type": "projectile_release",
+            "weapon_id": ""
+          },
+          {
+            "attack_cycle_id": 1,
+            "attack_id": 2,
+            "displayed_frame": 4,
+            "displayed_muzzle": "(0.481677, 1.288086, -8.0)",
+            "enemy_kind": "infected_security",
+            "fixture_tick": 55,
+            "material": "",
+            "position": "(0.481677, 1.288086, -8.0)",
+            "round_count": 2,
+            "round_index": 2,
+            "shot_id": 0,
+            "target_id": "enemy_infected_security_0",
+            "type": "projectile_release",
+            "weapon_id": ""
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "check": "second flash ends after075ms and returns to rest3",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "two projectiles each hurt once, no duplicate release",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "two 7 damage rounds use existing armor pipeline",
+      "details": {
+        "armor": 41.6,
+        "health": 94.4
+      },
+      "passed": true
+    },
+    {
+      "check": "pain immediately removes release flash",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "pain before first round cancels release and requires fresh windup",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "pain immediately removes release flash",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "pain between rounds cancels unreleased round",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "post-pain attack uses new warning cycle",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "death immediately removes release flash",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "death cancels pending rounds: true",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "death is once and living collider disabled: true",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "native settled corpse keeps alpha hit registration",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "death immediately removes release flash",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "death cancels pending rounds: false",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "death is once and living collider disabled: false",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "native settled corpse keeps alpha hit registration",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "pause freezes pending burst even with direct callback",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "resume releases one remaining round",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "new shared wall cancels second round and blocks first projectile",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "scientist committed lunge reaches stationary target at2.3m",
+      "details": {
+        "distance": 1.30000007152557,
+        "travel": 0.99999988079071
+      },
+      "passed": true
+    },
+    {
+      "check": "scientist moves physically along committed heading",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "scientist contact authoritative once",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "scientist commits warning heading and misses dodging target",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "shared wall blocks physical lunge and melee release",
+      "details": {
+        "position": "(0.0, 0.85, -1.9)"
+      },
+      "passed": true
+    },
+    {
+      "check": "pain immediately stops lunge and contact",
+      "details": {},
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "fixture": "production Combat/CharacterBody/enemy/projectile with shared physics solids",
+  "native_art_ids": [
+    "unsealed",
+    "vessel",
+    "ironbound",
+    "censer",
+    "reaver",
+    "surveyor",
+    "infected_scientist",
+    "infected_security"
+  ],
+  "renderer": "gl_compatibility",
+  "schema_version": 11
+}

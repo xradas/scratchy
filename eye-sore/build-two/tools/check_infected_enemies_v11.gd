@@ -49,7 +49,11 @@ func fixture(kind: StringName, distance: float) -> void:
 	camera.current = true
 	combat=load("res://scripts/combat.gd").new(); world.add_child(combat)
 	combat.combat_event.connect(func(event: Dictionary):
-		var entry := event.duplicate(); entry["fixture_tick"] = tick; events.append(entry))
+		var entry := event.duplicate(); entry["fixture_tick"] = tick
+		if event.type == &"projectile_release":
+			entry["displayed_frame"] = enemy.sprite_frame
+			entry["displayed_muzzle"] = enemy.attack_origin()
+		events.append(entry))
 	combat.setup(world,player); combat.set_physics_process(false)
 	enemy=combat.spawn_enemy(kind,Vector3(0,.85,-distance)); enemy.set_physics_process(false)
 	var art: Dictionary = manifest.get("enemies",{}).get(String(kind),{})
@@ -98,23 +102,30 @@ func run() -> void:
 	check(tick>=44,"security visible windup before first round",{"first_round_tick":tick})
 	enemy.release_attack(); enemy.release_burst_followup()
 	check(matching(&"projectile_release").size()==1,"duplicate callbacks do not release extra first/early round")
-	await advance(10)
+	await advance(5)
+	check(enemy.sprite_frame%8==3,"first flash ends after075ms and returns to rest3")
+	await advance(5)
 	var rounds := matching(&"projectile_release")
 	check(rounds.size()==2,"security releases exactly two rounds")
+	check(enemy.sprite_frame%8==4,"second accepted round restarts flash4")
+	for round_event in rounds:
+		check(round_event.displayed_frame%8==4 and round_event.position.distance_to(round_event.displayed_muzzle)<.00001,"accepted round muzzle equals displayed release-frame muzzle",{"round":round_event.round_index})
 	if rounds.size()==2:
 		check(rounds[0].attack_id!=rounds[1].attack_id and rounds[0].attack_cycle_id==rounds[1].attack_cycle_id,"distinct dedup IDs share warning cycle")
 		check(rounds[0].round_index==1 and rounds[1].round_index==2 and rounds[1].fixture_tick-rounds[0].fixture_tick>=10,"two round order and interval",{"rounds":rounds})
 	enemy.release_attack(); enemy.release_burst_followup()
-	await advance(50,false)
+	await advance(5)
+	check(enemy.sprite_frame%8==3,"second flash ends after075ms and returns to rest3")
+	await advance(45,false)
 	check(matching(&"projectile_release").size()==2 and matching(&"player_hurt").size()==2,"two projectiles each hurt once, no duplicate release")
 	check(is_equal_approx(combat.health,94.4) and is_equal_approx(combat.armor,41.6),"two 7 damage rounds use existing armor pipeline",{"health":combat.health,"armor":combat.armor})
 
 	await fixture(&"infected_security",8)
-	await advance(14); hurt(); await advance(30)
+	await advance(14); hurt(); check(enemy.sprite_frame%8==5,"pain immediately removes release flash"); await advance(30)
 	check(matching(&"projectile_release").is_empty(),"pain before first round cancels release and requires fresh windup")
 	await fixture(&"infected_security",8)
 	await first_round(); var cancelled_cycle: int=enemy.burst_cycle_id
-	hurt(); await advance(30)
+	hurt(); check(enemy.sprite_frame%8==5,"pain immediately removes release flash"); await advance(30)
 	check(matching(&"projectile_release").size()==1 and enemy.burst_rounds_remaining==0,"pain between rounds cancels unreleased round")
 	await advance(55)
 	var resumed := matching(&"projectile_release")
@@ -124,7 +135,7 @@ func run() -> void:
 		await fixture(&"infected_security",8)
 		if before_first: await advance(14)
 		else: await first_round()
-		hurt(true); hurt(true); enemy.release_attack(); enemy.release_burst_followup(); await advance(45)
+		hurt(true); check(enemy.sprite_frame%8==6,"death immediately removes release flash"); hurt(true); enemy.release_attack(); enemy.release_burst_followup(); await advance(45)
 		check(matching(&"projectile_release").size()==(0 if before_first else 1),"death cancels pending rounds: " + str(before_first))
 		check(matching(&"enemy_death").size()==1 and enemy.dead and enemy.collision_layer==0 and enemy.burst_rounds_remaining==0,"death is once and living collider disabled: " + str(before_first))
 		if is_instance_valid(enemy.sprite):
@@ -161,7 +172,7 @@ func run() -> void:
 	check(enemy.position.distance_to(interrupted)<.01 and matching(&"enemy_melee_release").is_empty(),"pain immediately stops lunge and contact")
 
 	var report := {"schema_version":11,"fixture":"production Combat/CharacterBody/enemy/projectile with shared physics solids","renderer":RenderingServer.get_current_rendering_method(),"native_art_ids":manifest.get("enemies",{}).keys(),"checks":results,"failed":failed}
-	var folder := "res://verification/production-v11/enemies"
+	var folder := "res://verification/production-v11/enemies-release-pose"
 	DirAccess.make_dir_recursive_absolute(folder)
 	var suffix := "headless" if DisplayServer.get_name()=="headless" else "native"
 	var file := FileAccess.open(folder+"/runtime-"+suffix+".json",FileAccess.WRITE); file.store_string(JSON.stringify(report,"  ")); file.close()

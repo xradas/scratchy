@@ -9,3 +9,5 @@ Visible mounted fixtures replace overlapping floating light pools. Limited damag
 The staff reuse the existing two demonic voice families through six cue aliases. They have warning, hurt and death feedback, but this is not a new recording or bespoke voice production pass. Existing57 cue resources, all audio files, accepted pistol/shotgun/Twin choices and music remain unchanged. Original music for every future level is recorded for later; no composition is started here.
 
 Coordinator owns references, generated art, source provenance, shared Main/audio/scene integration and release. Workers own enemy runtime, reusable lighting and authored placement/independent checks. At most three workers run alongside the coordinator.
+
+Release review correction: the guard atlas contains painted muzzle flashes in its discharge column. Guard recovery therefore displays that frame only for75ms after each accepted burst round, then returns to its aimed pose. The second round restores its release pose before muzzle resolution. Earlier v11 package/campaign/recording evidence is preserved; the corrected v11b package has a separate source checkpoint and verification.

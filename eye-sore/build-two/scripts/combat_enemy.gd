@@ -16,6 +16,7 @@ var committed_direction := Vector3.ZERO
 var burst_rounds_remaining: int = 0
 var burst_cycle_id: int = 0
 var burst_round_index: int = 0
+var burst_release_blocked: bool = false
 var seen_shots: Dictionary = {}
 var sprite_clips: Dictionary = {}
 var sprite_directions: int = 1
@@ -90,14 +91,13 @@ func _physics_process(delta: float) -> void:
 		if definition.ranged and definition.burst_round_count > 1 and burst_rounds_remaining > 0:
 			if state_time >= maxf(0.01, definition.burst_interval_seconds):
 				release_burst_followup()
-				change_state(&"recovery")
 		elif state_time >= definition.recovery_seconds: change_state(&"chase")
 	else:
 		if visible and distance <= definition.attack_range:
 			rotation.y = atan2(-offset.x, -offset.z)
 			attack_id += 1; released = false; change_state(&"windup")
 			committed_direction = Vector3(offset.x, 0, offset.z).normalized()
-			burst_rounds_remaining = 0; burst_round_index = 0; burst_cycle_id = attack_id
+			burst_rounds_remaining = 0; burst_round_index = 0; burst_cycle_id = attack_id; burst_release_blocked = false
 			combat.emit_event({"type": &"enemy_attack_warning", "enemy_kind": definition.identifier, "target_id": target_id, "attack_id": attack_id, "position": global_position})
 			velocity.x = 0; velocity.z = 0
 		else:
@@ -166,20 +166,33 @@ func launch_burst_round(origin: Vector3) -> void:
 	burst_round_index += 1
 	combat.emit_event({"type": &"projectile_release", "enemy_kind": definition.identifier, "target_id": target_id, "attack_id": attack_id, "attack_cycle_id": burst_cycle_id, "round_index": burst_round_index, "round_count": definition.burst_round_count, "position": origin})
 
-func release_burst_followup() -> void:
-	if get_tree().paused or dead or combat.dead or state != &"recovery" or burst_rounds_remaining <= 0 or state_time < maxf(0.01, definition.burst_interval_seconds): return
+func prepare_burst_release_origin() -> Variant:
+	# Resolve LOS against the actual release pose, then retain that pose only
+	# for an accepted round. A rejected release restores the previous view.
+	var previous_state := state
+	var previous_time := state_time
+	state = &"recovery"; state_time = 0.0; update_presentation()
 	var origin := attack_origin()
 	var offset := player.global_position - global_position
 	if Vector2(offset.x, offset.z).length() > release_contact_range() or not release_path_clear(origin):
+		burst_release_blocked = true
+		state = previous_state; state_time = previous_time; update_presentation()
 		clear_pending_attack()
-		return
+		return null
+	burst_release_blocked = false
+	return origin
+
+func release_burst_followup() -> void:
+	if get_tree().paused or dead or combat.dead or state != &"recovery" or burst_rounds_remaining <= 0 or state_time < maxf(0.01, definition.burst_interval_seconds): return
+	var origin: Variant = prepare_burst_release_origin()
+	if origin == null: return
 	# Existing audio dedup keys include attack_id. Each actual round consumes a
 	# distinct ID; attack_cycle_id retains correlation with the one warning.
 	attack_id += 1
 	burst_rounds_remaining -= 1
 	launch_burst_round(origin)
-	# A duplicate direct callback cannot release another round in this interval.
-	state_time = 0.0
+	# prepare_burst_release_origin resets the accepted release timeline, so a
+	# duplicate direct callback cannot release another round in this interval.
 
 func release_attack() -> void:
 	if get_tree().paused: return
@@ -187,17 +200,17 @@ func release_attack() -> void:
 	if has_extended_attack():
 		if combat.dead or state_time < definition.windup_seconds: return
 		var offset := player.global_position - global_position
-		if Vector2(offset.x, offset.z).length() > release_contact_range() or not release_path_clear(attack_origin()):
+		if not (definition.ranged and definition.burst_round_count > 1) and (Vector2(offset.x, offset.z).length() > release_contact_range() or not release_path_clear(attack_origin())):
 			released = true; clear_pending_attack()
 			return
 	released = true
 	if definition.ranged:
 		if definition.burst_round_count > 1:
+			var origin: Variant = prepare_burst_release_origin()
+			if origin == null: return
 			burst_cycle_id = attack_id; burst_round_index = 0
 			burst_rounds_remaining = definition.burst_round_count - 1
-			# Resolve the release-frame muzzle before launching either burst round.
-			change_state(&"recovery")
-			launch_burst_round(attack_origin())
+			launch_burst_round(origin)
 			return
 		var origin := global_position + Vector3(0, 0.4, 0)
 		if is_instance_valid(visual_rig) and visual_rig.has_method("get_projectile_origin"):
@@ -461,7 +474,11 @@ func update_sprite() -> void:
 			elif state == &"recovery": duration = definition.recovery_seconds
 			elif state == &"pain": duration = definition.pain_seconds
 			index = mini(count-1,int(clampf(state_time/maxf(duration,.001),0,1)*count))
-		selected = sprite_direction_row() * sprite_source_columns + clip.x + index
+		var column := clip.x + index
+		if state == &"recovery" and sprite_data.has("release_pose_seconds") and sprite_data.has("recovery_rest_column"):
+			if burst_release_blocked or state_time >= float(sprite_data.release_pose_seconds):
+				column = int(sprite_data.recovery_rest_column)
+		selected = sprite_direction_row() * sprite_source_columns + column
 	if selected != sprite_frame:
 		assert(selected >= 0 and selected < sprite_source_columns * sprite_source_rows)
 		if sprite_data.has("source_regions"):
