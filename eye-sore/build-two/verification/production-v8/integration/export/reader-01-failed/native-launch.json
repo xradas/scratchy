@@ -1,0 +1,37 @@
+{
+  "command": [
+    "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+    "--main-pack",
+    "/home/rikki/Builds/eyesore-presentation-v8-2026-10-17/eyesore-presentation-v8.x86_64",
+    "--rendering-method",
+    "gl_compatibility",
+    "--no-focus",
+    "--position",
+    "20000,20000",
+    "--resolution",
+    "1280x720",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/check_presentation_v8.gd",
+    "--",
+    "--automated-input",
+    "--campaign-level=pale_ward_01",
+    "--report=/tmp/eyesore-v8-export-reader-audit/native.json",
+    "--expected=/tmp/eyesore-v8-export-reader-audit/native-expected.json"
+  ],
+  "cwd": "/tmp",
+  "executable_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "exit_code": 0,
+  "wall_seconds": 5.358978986740112,
+  "report_sha256": "dcd07fd7a49478d7d6d2e1be0dfc9c9f3420a7203d3d097843662c371e5be520",
+  "script_sha256": "399beace4ecdbd1bc0ac3ade3e5113540a7fcca416c4d798ba557bdb506eba1c",
+  "native_errors": [
+    "SCRIPT ERROR: Invalid call. Nonexistent 'float' constructor."
+  ],
+  "shutdown_diagnostics": [
+    "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+  ],
+  "mode": "exported ELF with external read-only checker"
+}

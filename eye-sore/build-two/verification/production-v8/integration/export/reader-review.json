@@ -1,0 +1,499 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_commit": "1d576648e2ef0083d0be0be1df2450afed2a5a69",
+  "baseline_commit": "14a6ec9bc01867c6229809f2bf325749500a51ba",
+  "exported_elf": "/home/rikki/Builds/eyesore-presentation-v8-2026-10-17/eyesore-presentation-v8.x86_64",
+  "exported_elf_sha256": "4090f2b63d6e21df5438cc79c977a589afe61fa03106af33428a71b4c6cd5c99",
+  "native_reader": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+  "native_reader_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "reader_summary": "reader-02/summary.json",
+  "scope": "Independent pinned-editor native reader of exact exported ELF embedded PCK via --main-pack, plus source baseline audit. This does not execute the shipped ELF. Root-owned movie/full-campaign receipts provide executable evidence.",
+  "results": {
+    "source_audit_checks": 8674,
+    "native_checks": 23570,
+    "runtime_nodes": 4587,
+    "runtime_colliders": 1029,
+    "material_bindings": 427,
+    "corridor_floor_rays": 5904,
+    "v7_physics_checks": 321,
+    "v7_walks": 26,
+    "v7_floor_rays": 65567,
+    "v7_capsule_queries": 5011,
+    "physics_hz": 60,
+    "reported_average_render_fps": 144
+  },
+  "unsupported_release_script_attempt": {
+    "directory": "unsupported-release-script",
+    "status": "terminated; no valid checker receipt",
+    "reason": "The shipped release template help does not advertise --script or --main-pack; it emitted no external-checker receipt. The pinned editor supports both. This release attempt is not validation evidence."
+  },
+  "preserved_failed_reader_attempt": {
+    "directory": "reader-01-failed",
+    "native_error": "Export omitted density override equal to shader default64; external checker attempted float(null). Verification-only checker now reads the actual RenderingServer shader default.",
+    "physics_failures": [
+      "link14 forward W reached",
+      "link14 reverse S reached"
+    ],
+    "walks": [
+      {
+        "from": "entry",
+        "goal_floor": [
+          -21.0,
+          0.0,
+          -1.0
+        ],
+        "goal_xz_error": 8.40000057220459,
+        "grounded": true,
+        "initial": [
+          -11.0,
+          0.850102543830872,
+          -1.0
+        ],
+        "key": "W",
+        "link": 14,
+        "minimum_y": 0.850102543830872,
+        "path_distance": 1.59999942779541,
+        "physics_seconds": 4.25,
+        "reached": false,
+        "reverse": false,
+        "slide_colliders": [
+          "entry_Floor",
+          "Link_14_Floor"
+        ],
+        "terminal": [
+          -12.5999994277954,
+          0.850102543830872,
+          -1.0
+        ],
+        "ticks": 255,
+        "to": "supplies",
+        "trace": [
+          {
+            "grounded": true,
+            "position": [
+              -11.7699995040894,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 12
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 24
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 36
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 48
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 60
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 72
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 84
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 96
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 108
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 120
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 132
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 144
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 156
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 168
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 180
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 192
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 204
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 216
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 228
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 240
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.5999994277954,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 252
+          }
+        ],
+        "unsupported": []
+      },
+      {
+        "from": "entry",
+        "goal_floor": [
+          -11.0,
+          0.0,
+          -1.0
+        ],
+        "goal_xz_error": 1.73333740234375,
+        "grounded": true,
+        "initial": [
+          -21.0,
+          0.850102543830872,
+          -1.0
+        ],
+        "key": "S",
+        "link": 14,
+        "minimum_y": 0.850102543830872,
+        "path_distance": 8.26666259765625,
+        "physics_seconds": 4.25,
+        "reached": false,
+        "reverse": true,
+        "slide_colliders": [
+          "supplies_Floor",
+          "Link_14_Floor"
+        ],
+        "terminal": [
+          -12.7333374023438,
+          0.850102543830872,
+          -1.0
+        ],
+        "ticks": 255,
+        "to": "supplies",
+        "trace": [
+          {
+            "grounded": true,
+            "position": [
+              -20.2299995422363,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 12
+          },
+          {
+            "grounded": true,
+            "position": [
+              -18.6299991607666,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 24
+          },
+          {
+            "grounded": true,
+            "position": [
+              -17.0300006866455,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 36
+          },
+          {
+            "grounded": true,
+            "position": [
+              -15.4300022125244,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 48
+          },
+          {
+            "grounded": true,
+            "position": [
+              -13.8300037384033,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 60
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7550039291382,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 72
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 84
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 96
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 108
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 120
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 132
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 144
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 156
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 168
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 180
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 192
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 204
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 216
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 228
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 240
+          },
+          {
+            "grounded": true,
+            "position": [
+              -12.7333374023438,
+              0.850102543830872,
+              -1.0
+            ],
+            "tick": 252
+          }
+        ],
+        "unsupported": []
+      }
+    ],
+    "note": "This earlier reader physics process overlapped a second native checker window. Input/focus interference is plausible but unproven; no geometry/runtime fix was made. Final corrected reader02 passed all26 walks. Raw failure retained and not promoted to a passing receipt.",
+    "historical_metadata_correction": "reader01 launch mode text predates runner fix; its executable was the pinned editor reading --main-pack, not the shipped ELF."
+  },
+  "limits": [
+    "Final reader used uncapped actual X11/OpenGL rendering (reported144FPS) with60Hz physics, rather than rerunning original capped30/60/120 matrix.",
+    "Controlled shot/HUD and isolated all-access motion are not continuous gameplay or human visual/listening acceptance.",
+    "Native shutdown retains4 ObjectDB instances/1 resource diagnostic in raw reader log; not a leak-free claim.",
+    "No production data, scenes, geometry, progression or source assets were changed for this verification."
+  ]
+}

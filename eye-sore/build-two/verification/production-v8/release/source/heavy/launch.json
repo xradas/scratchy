@@ -1,0 +1,49 @@
+{
+  "pid": 32177,
+  "command": [
+    "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+    "--path",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+    "--headless",
+    "--fixed-fps",
+    "60",
+    "--log-file",
+    "/tmp/eyesore-v8-source-campaign/heavy/engine.log",
+    "--",
+    "--campaign-route-test",
+    "--campaign-level=pale_ward_01",
+    "--release-report-dir=/tmp/eyesore-v8-source-campaign/heavy",
+    "--automated-input",
+    "--campaign-all-levels",
+    "--use-heavy-weapons"
+  ],
+  "observed_proc_cmdline": [
+    "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+    "--path",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+    "--headless",
+    "--fixed-fps",
+    "60",
+    "--log-file",
+    "/tmp/eyesore-v8-source-campaign/heavy/engine.log",
+    "--",
+    "--campaign-route-test",
+    "--campaign-level=pale_ward_01",
+    "--release-report-dir=/tmp/eyesore-v8-source-campaign/heavy",
+    "--automated-input",
+    "--campaign-all-levels",
+    "--use-heavy-weapons"
+  ],
+  "cwd": "/tmp",
+  "observed_proc_cwd": "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+  "source": "live /proc cmdline and cwd; subprocess wait exit status",
+  "source_commit": "1d576648e2ef0083d0be0be1df2450afed2a5a69",
+  "executable_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "started_epoch": 1792234372.8624182,
+  "source_files": {
+    "scenes/campaign/pale_ward_01.tscn": "8063e98c44cad7953a2ebd76beabb9b9abaec6c1e745ffe3448143e630eb19a4",
+    "scripts/campaign_route_playtest.gd": "97b48e3d9618a2079a108e6a07196359c033986c50ca9be945c7fc07165304ab"
+  },
+  "exit_code": 0,
+  "elapsed_seconds": 221.18518829345703
+}

@@ -2,7 +2,9 @@
 """Bounded v8 audit against committed v7; never generates production content.
 
 Source: python tools/check_presentation_v8.py --native --v7-physics
-Export: add --executable /path/eyesore.x86_64 (external checker, embedded data).
+Export data: add --executable /path/eyesore.x86_64. The pinned editor reads the
+exact embedded PCK with --main-pack; release templates cannot run --script.
+Genuine shipped-executable behavior requires separate campaign/movie receipts.
 All receipts and baseline fixtures go in a NEW --output directory.
 """
 from __future__ import annotations
@@ -226,13 +228,14 @@ def source_audit(audit, output):
 
 
 def run_native(audit, args, output, script, name, extra=None):
-    engine = args.executable or Path.home() / ".local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64"
+    engine = Path.home() / ".local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64"
+    pack = args.main_pack or args.executable
     report = output / (name + ".json")
     command = [str(engine.resolve())]
-    if not args.executable:
+    if not pack:
         command += ["--path", str(ROOT)]
-    if args.main_pack:
-        command += ["--main-pack", str(args.main_pack.resolve())]
+    if pack:
+        command += ["--main-pack", str(pack.resolve())]
     if args.render:
         command += ["--rendering-method", "gl_compatibility", "--no-focus", "--position", "20000,20000", "--resolution", "1280x720", "--audio-driver", "Dummy"]
     else:
@@ -257,7 +260,9 @@ def run_native(audit, args, output, script, name, extra=None):
     launch = dict(command=command, cwd="/tmp", executable_sha256=sha(engine.read_bytes()), exit_code=code,
                   wall_seconds=time.time() - start, report_sha256=sha(report.read_bytes()) if report.exists() else None,
                   script_sha256=sha((ROOT / script).read_bytes()), native_errors=errors, shutdown_diagnostics=shutdown,
-                  mode="exported ELF with external read-only checker" if args.executable else "source project")
+                  mode="independent pinned-editor native reader of exported embedded data; shipped ELF not executed" if pack else "source project",
+                  main_pack=str(pack.resolve()) if pack else None,
+                  main_pack_sha256=sha(pack.read_bytes()) if pack else None)
     (output / (name + "-launch.json")).write_text(json.dumps(launch, indent=2) + "\n")
     audit.check(code == 0 and raw.get("passed") is True and not errors, name + " native runtime checks pass")
     return dict(passed=raw.get("passed", False), checks=raw.get("checks", 0), failures=raw.get("failures", []), launch=launch)
@@ -269,7 +274,7 @@ def main():
     parser.add_argument("--native", action="store_true")
     parser.add_argument("--render", action="store_true", help="actual Compatibility rendering instead of headless")
     parser.add_argument("--v7-physics", action="store_true", help="reuse unchanged v7 isolated motion/floor test, new report path")
-    parser.add_argument("--executable", type=Path, help="test embedded exported data using external checker; never adds source --path")
+    parser.add_argument("--executable", type=Path, help="read this exact exported ELF's embedded PCK with the pinned editor; does not execute the ELF or add source --path")
     parser.add_argument("--main-pack", type=Path, help="optional exported PCK override; external verification script is not embedded")
     args = parser.parse_args()
     output = args.output.resolve()
@@ -288,7 +293,7 @@ def main():
                    runner_sha256=sha(Path(__file__).read_bytes()),
                    limits=["Controlled native display/shot and static collider probes; not human visual, listening or pacing acceptance.",
                            "Native shutdown warnings, if present, remain in each launch receipt/raw log; pass is not a leak-free claim.",
-                           "Source byte preservation is independent of export inclusion; exported runtime is checked only when --executable is supplied.",
+                           "Source byte preservation is independent of export inclusion; --executable tests embedded exported data with the pinned editor, not execution of the shipped ELF.",
                            "Full live nine-level finite-ammo route is not repeated by this bounded audit; route/resource/other-scene bytes are pinned to v7."])
     (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps({"passed": summary["passed"], "checks": audit.checks, "failures": audit.failures,

@@ -1,0 +1,193 @@
+{
+  "accepted_shots": [
+    {
+      "direction": "(0.0, 0.0, -1.0)",
+      "material": "",
+      "pellets": 16,
+      "physics_tick": 121,
+      "position": "(0.0, 1.55, 11.0)",
+      "seed": 8391,
+      "shot_id": 1,
+      "target_id": "",
+      "time_seconds": 2.01666666666667,
+      "type": "shot",
+      "weapon_id": "twin_shotgun"
+    },
+    {
+      "direction": "(0.0, 0.0, -1.0)",
+      "material": "",
+      "pellets": 1,
+      "physics_tick": 121,
+      "position": "(0.0, 1.55, 11.0)",
+      "seed": 16310,
+      "shot_id": 2,
+      "target_id": "",
+      "time_seconds": 2.01666666666667,
+      "type": "shot",
+      "weapon_id": "pistol"
+    }
+  ],
+  "baseline_commit": "14a6ec9bc01867c6229809f2bf325749500a51ba",
+  "checks": 21013,
+  "colliders_compared": 1029,
+  "display_server": "X11",
+  "editor_feature": true,
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "executable": "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+  "failures": [],
+  "floor_rays": 5904,
+  "floor_surveys": [
+    {
+      "from": "entry",
+      "grade_deviations": 0,
+      "index": 0,
+      "missing": 0,
+      "rays": 1232,
+      "to": "service"
+    },
+    {
+      "from": "service",
+      "grade_deviations": 0,
+      "index": 1,
+      "missing": 0,
+      "rays": 392,
+      "to": "arena_one"
+    },
+    {
+      "from": "arena_one",
+      "grade_deviations": 0,
+      "index": 2,
+      "missing": 0,
+      "rays": 392,
+      "to": "key_wing"
+    },
+    {
+      "from": "key_wing",
+      "grade_deviations": 0,
+      "index": 3,
+      "missing": 0,
+      "rays": 360,
+      "to": "key_console"
+    },
+    {
+      "from": "key_console",
+      "grade_deviations": 0,
+      "index": 4,
+      "missing": 0,
+      "rays": 744,
+      "to": "return_store"
+    },
+    {
+      "from": "return_store",
+      "grade_deviations": 0,
+      "index": 5,
+      "missing": 0,
+      "rays": 1544,
+      "to": "service"
+    },
+    {
+      "from": "arena_one",
+      "grade_deviations": 0,
+      "index": 6,
+      "missing": 0,
+      "rays": 552,
+      "to": "spine"
+    },
+    {
+      "from": "entry",
+      "grade_deviations": 0,
+      "index": 14,
+      "missing": 0,
+      "rays": 328,
+      "to": "supplies"
+    },
+    {
+      "from": "entry",
+      "grade_deviations": 0,
+      "index": 15,
+      "missing": 0,
+      "rays": 360,
+      "to": "maintenance"
+    }
+  ],
+  "layouts": [
+    {
+      "hud_position": [
+        10.0,
+        614.0
+      ],
+      "hud_size": [
+        1260.0,
+        98.0
+      ],
+      "window": [
+        1280,
+        720
+      ]
+    },
+    {
+      "hud_position": [
+        202.0,
+        568.0
+      ],
+      "hud_size": [
+        620.0,
+        118.0
+      ],
+      "window": [
+        1024,
+        768
+      ]
+    },
+    {
+      "hud_position": [
+        90.0,
+        482.0
+      ],
+      "hud_size": [
+        620.0,
+        118.0
+      ],
+      "window": [
+        800,
+        600
+      ]
+    },
+    {
+      "hud_position": [
+        10.0,
+        304.0
+      ],
+      "hud_size": [
+        620.0,
+        56.0
+      ],
+      "window": [
+        640,
+        360
+      ]
+    }
+  ],
+  "limits": [
+    "Direct fixture grants/state setup isolate presentation. No continuous live route or human visual/listening claim.",
+    "Mini-map visibility tested without writing user settings; persistence roundtrip not exercised.",
+    "Checker script and v7 baseline supplied externally so production export need not include tools."
+  ],
+  "native_material_bindings": 1,
+  "nodes_compared": 4587,
+  "passed": true,
+  "rendering_method": "gl_compatibility",
+  "res_root": "",
+  "schema_version": 1,
+  "scope": "Actual runtime collider pair versus committed v7; isolated all-access corridor floor survey; controlled actual Main HUD/shot/flash/pause/Retry."
+}

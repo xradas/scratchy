@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "archive": "/home/rikki/Builds/eyesore-presentation-v8-2026-10-17/eyesore-presentation-v8-linux.tar.gz",
+  "archive_sha256": "7d275f26fcd260dea825e672cc58afddfc572a8793e090be5c7154326aa311dc",
+  "source_commit": "1d576648e2ef0083d0be0be1df2450afed2a5a69",
+  "source_fingerprints_verified": 579,
+  "preserved_baseline_files": 289,
+  "preserved_other_campaign_maps": 8,
+  "explicit_asset_exceptions": [
+    "assets/VISUAL_CREDITS.md",
+    "assets/combat_art.json"
+  ],
+  "exception_validation": "Full manifest structural equality after applying only exact documented Twin+flash anchors; credits append-only preserving original text. Embedded manifest SHA256 independently read.",
+  "provenance": {
+    "archived_manifests": [
+      "concepts/audio-v3/manifest.json",
+      "concepts/audio-v4/manifest.json",
+      "concepts/audio-v5/manifest.json",
+      "concepts/expansion-v1/provenance.json",
+      "concepts/expansion-v1/gore/provenance.json"
+    ],
+    "creature_design_records": 18,
+    "local_license_evidence": {
+      "concepts/audio-v3/provenance/the-free-firearm-sound-library.html": {
+        "sha256": "e69ddc51c1b8a34a6446f8298486e11a6167a75c4e15b46e704d602976831798",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/swish-bamboo-stick-weapon-swhoshes.html": {
+        "sha256": "923a6b8138c4171aaa9c38a6bd33b6f21168d21971a88c015e3018f01377d0da",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/metal-interactions.html": {
+        "sha256": "38d234526ec6fb567abd5a3c7ef96d7ed1a20e83f5442251c50991f66bf2a170",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/male-gruntyelling-sounds.html": {
+        "sha256": "98b68a5beca05c1970401e5d8ed4019f01ccfc50306d1c07989085123a89ab53",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/punch.html": {
+        "sha256": "d6fb9955d3900ed9cbe587742175cc70b376144611e3bb3efcab1e3ca60e9fbc",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/qubodup-punch-source-53985.html": {
+        "sha256": "ac9c1d46ae1761c8fce61f8ed52a7baff067ac88661e84c3c89fe4a8386b76f3",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/100-cc0-metal-and-wood-sfx.html": {
+        "sha256": "d1b313a5a313b9f2f3763e140eb03297965ad5a5a193150e61b711f6605571e6",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/abelian.html": {
+        "sha256": "c0912a0b3e1c4a768444bc57e7a376aa4595d26db21e3462d381f08b17da6192",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/bestial-paragon-interface.html": {
+        "sha256": "ad64c0c902fc768edbbdb8506469300a1545212fddc5ceb7768b275ed432a15d",
+        "archived": false
+      },
+      "concepts/audio-v3/provenance/dragged-through-hellfire-abomination.html": {
+        "sha256": "c9648a9a451009a54dcc29d81f165c53027e9ed4f19e7030f4ea4769048f67ca",
+        "archived": false
+      }
+    },
+    "scope": "Archived license declarations and provided original/evidence hashes verified locally; external license pages were not independently researched."
+  },
+  "native": {
+    "checks": 7803,
+    "cue_count": 57,
+    "engine": "4.7.2-stable (official)",
+    "failures": [],
+    "physical_parts": 1087,
+    "pickups": 711,
+    "props": 508,
+    "scope": "External pinned Godot reader of source or archived --main-pack; no shipped ELF execution or player route claim.",
+    "status": "passed"
+  },
+  "frozen_checker_incompatibility": {
+    "status": "failed",
+    "error": "Source runtime ledger must contain 35 cues",
+    "archive": "/home/rikki/Builds/eyesore-presentation-v8-2026-10-17/eyesore-presentation-v8-linux.tar.gz",
+    "scope": "Required independent audit checks failed; no release acceptance claim.",
+    "auditor_sha256": "b2172857240286da21f6ada8711f25a4ae1d1837b6ee968594f3812e146035c8",
+    "godot_probe_sha256": "26cc4299a2ed4cf2ca7e35bb4a3cd6c29ad389a6d608e779a846a4ba9b53808f"
+  },
+  "native_reader_sha256": "d3b3cd31438bc488ccca64b50cf51f245b064d35d492d7648ac51fd10e47d506",
+  "scope": "Independent archive integrity/source579 identity, preserved baseline assets/eight maps, recorded provenance and trusted external Godot --main-pack native object/audio resources. Archived ELF never executed. Native reader checks508 typed furnishings, matching visual/collision dimensions, all authored pickup metadata and57decoded cues. This does not authenticate Git history, prove all scene collider topology unchanged, run a player route, or provide human visual/listening acceptance. Fresh v8 art authoring provenance remains coordinator evidence; unchanged v7 provenance routine verifies its existing ledger without relaxing cue counts.",
+  "auditor_sha256": "5647496fd6304ca256084f01a326fdf66c26b8a8ab6504304ca2f21b6004b3bb"
+}

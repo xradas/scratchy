@@ -61,7 +61,11 @@ func materials(world: Node3D) -> void:
 		check(material.get_shader_parameter("source_region_pixels") == Vector4(rect[0],rect[1],rect[2],rect[3]), "native exact source rectangle " + binding.path)
 		var texture: Texture2D = material.get_shader_parameter("painted_surface")
 		check(texture.resource_path == source.path and texture.get_size() == Vector2(1536,1024), "native correct imported family PNG " + binding.path)
-		check(is_equal_approx(float(material.get_shader_parameter("pixels_per_metre")), float(expected.pixels_per_metre)), "native constant texel density")
+		# Export serialization can omit an override equal to the shader default.
+		# Query that actual shader default rather than treating null as a number.
+		var density: Variant = material.get_shader_parameter("pixels_per_metre")
+		if density == null: density = RenderingServer.shader_get_parameter_default(material.shader.get_rid(), &"pixels_per_metre")
+		check((density is float or density is int) and is_equal_approx(float(density), float(expected.pixels_per_metre)), "native constant texel density")
 
 func vec(a: Array) -> Vector3: return Vector3(a[0],a[1],a[2])
 
