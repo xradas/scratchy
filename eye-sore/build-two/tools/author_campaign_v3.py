@@ -15,6 +15,9 @@ import tempfile
 
 import author_themed_stages as base
 import room_program_v6 as room_program
+import intake_section_v7 as intake_section
+import intake_encounter_v7 as intake_encounter
+import intake_presentation_v7 as intake_presentation
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = {stage["id"]: stage for stage in json.loads((ROOT / "docs/expansion-v1/layouts.json").read_text())["stages"]}
@@ -255,6 +258,8 @@ def author_campaign(stage, contract):
             extra='script = ExtResource("door")\nmetadata/stage_door = '+quote(p['gate'])+'\nmetadata/requires = '+arr(required)+'\nmetadata/locked_message = '+quote(tag+' access required')+'\nmetadata/label = '+quote('open '+tag.lower()+' gate')+'\nmetadata/open_offset = Vector3(0,6,0)\nmetadata/use_anchor = Vector3(0,-1.2,0)'
             if p.get('secret'):extra+='\nmetadata/secret = true'
             if p.get('shortcut'):extra+='\nmetadata/shortcut = true'
+            if p.get('first_open_normal'):
+                extra+='\nmetadata/first_open_normal = '+vec(p['first_open_normal'])
             sc.box(gate_name,pp,ss,'door_skin',typ='AnimatableBody3D',extra=extra,hit_material='armor' if tag=='ACCESS' else 'hard')
             indicator='red' if tag in ['RED','RELEASE'] else 'brass' if tag in ['BRASS','POWER'] else 'glow' if tag=='EXIT' else 'steel'
             # Two small color strips remain readable from either approach and
@@ -286,7 +291,7 @@ def author_campaign(stage, contract):
     optional=stage.get('optional_rooms', ['supplies','maintenance','pump_room','armory'])
     for rid,r in rooms.items():
         x,y,z=r['center'];sx,h,sz=r['size'];sc.marker('Room_'+rid,(x,y+h/2,z),'metadata/stage_room = '+quote(rid)+'\nmetadata/stage_label = '+quote(r['label'])+'\nmetadata/room_function = '+quote(r['function'])+'\nmetadata/layout_mode = '+quote(r['layout_mode'])+'\nmetadata/room_bounds = '+vec((sx/2,h/2+1,sz/2))+'\nmetadata/optional = '+str(rid in optional).lower()+(('\nmetadata/arena_id = '+quote(r['arena_id'])) if r['arena_id'] else ''))
-        if stage['id']=='pale_ward' and rid=='arena_one':
+        if stage['id']=='pale_ward' and rid=='arena_one' and not intake_section.applies(stage):
             # Real recessed wet sump: four rim slabs and a lower, solid basin.
             # Campaign rooms vary in width. Both full-length rims reach their
             # authored walls, and basin rims overlap them by 2 m so moving
@@ -297,7 +302,13 @@ def author_campaign(stage, contract):
             sc.box(rid+'_BloodSurface',(x+8,y-.34,z-6),(3.9,.018,4.9),'invasion',False)
             sc.stairs(rid+'_SumpWest',[x+7.2,y-.35,z-6],[x+6,y,z-6],3)
             sc.stairs(rid+'_SumpEast',[x+8.8,y-.35,z-6],[x+10,y,z-6],3)
-        else: sc.box(rid+'_Floor',(x,y-.25,z),(sx+.04,.5,sz+.04),'floor')
+        else:
+            sc.box(rid+'_Floor',(x,y-.25,z),(sx+.04,.5,sz+.04),'floor')
+            if intake_section.applies(stage) and rid == 'arena_one':
+                # The shallow old sump caught a chasing actor on its diagonal
+                # rim. A visible supported drain replaces the recessed pocket.
+                sc.box(rid+'_DrainGrate',(x+8,y+.006,z-6),(4,.012,5),'grate',False)
+                sc.box(rid+'_BloodSurface',(x+8,y+.014,z-6),(3.9,.008,4.9),'invasion',False)
         sc.box(rid+'_Roof',(x,y+h+.2,z),(sx+.8,.4,sz+.8),'ceiling')
         for side in ['N','S','E','W']:
             axis=0 if side in ['N','S'] else 2;cross=2 if axis==0 else 0;span=sx if axis==0 else sz;cent=x if axis==0 else z
@@ -322,7 +333,7 @@ def author_campaign(stage, contract):
                 cursor=max(cursor,hi)
         sc.light('Light_'+rid,(x,y+h-.7,z),{'pale_ward':(.9,.9,.72,1),'ash_citadel':(1,.48,.16,1),'occupied_line':(.61,.76,.93,1)}[stage['id']],2.5,max(sx,sz)*.8)
         sc.label('RoomName_'+rid,r['label'].upper(),(x,y+3,z-sz/2+.3))
-        if stage['id']=='pale_ward' and rid=='service':
+        if stage['id']=='pale_ward' and rid=='service' and not intake_section.applies(stage):
             deck_y=y+2.5;bx=x+3.8
             sc.box('ServiceBalcony',(bx,deck_y-.18,z),(2.4,.36,8),'grate')
             for end in [-1,1]:sc.stairs('ServiceBalconyStairs'+str(end),[bx,y,z+end*13],[bx,deck_y,z+end*4],2.4)
@@ -494,6 +505,7 @@ def make_stage(level):
     stage["buttons"][1]["label"] = "RELEASE RED ACCESS"
     stage["buttons"][2]["label"] = "OPEN SECTOR EXIT"
     stage["campaign_level_id"] = level_id
+    intake_section.apply_stage(stage)
     return stage, contract
 
 
@@ -570,6 +582,9 @@ def main():
             room.update({key:plan[key] for key in ("label", "function", "layout_mode", "light_family")})
             if "authored_size_xz" in plan:
                 room["size"][0], room["size"][2] = plan["authored_size_xz"]
+        programme = intake_section.prepare_programme(stage, programme)
+        intake_encounter.apply_stage(stage)
+        programmes[level_id] = programme
         inventories.append(room_program.validate_level_program(stage, programme))
         prepared[level_id] = (stage, contract)
     assert sum(item["rooms"] for item in inventories) == 130
@@ -631,6 +646,10 @@ def main():
                         augment(self, level_id, title, level[6])
                         furnishing_reports.append(room_program.furnish(self, self.stage, programme,
                             self.room_program_routes, self.vertical_routes, list(getattr(self, '_physical_obstacles', []))))
+                        if intake_section.applies(self.stage):
+                            intake_encounter.apply_scene(self, self.stage, self.room_program_routes)
+                            report = intake_presentation.decorate(self)
+                            (OUT / 'intake-presentation-v7.json').write_text(json.dumps(report, indent=2) + '\n')
                         super().save(path)
                 globals()["Scene"] = CampaignScene
                 author_campaign(stage, contract)
@@ -640,6 +659,7 @@ def main():
                 (SCENES / (level_id + ".tscn")).write_text(scene_text)
                 route = json.loads((staging / "resources/stages" / (theme + "-route.json")).read_text())
                 route["id"] = level_id; route["theme"] = theme
+                if intake_section.applies(stage): route["intake_section_version"] = 7
                 route["title"] = title; route["subtitle"] = subtitle
                 route["entry_weapon"] = level[6] if level_id.startswith("pale_ward") else None
                 route["combat_flanks"] = {

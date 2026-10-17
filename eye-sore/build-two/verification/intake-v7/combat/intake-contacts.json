@@ -1,0 +1,174 @@
+{
+  "cases": [
+    {
+      "damage": 20.0,
+      "events": [
+        {
+          "direction": "(-0.017569, -0.115728, -0.993125)",
+          "material": "",
+          "pellets": 1,
+          "physics_tick": 5,
+          "position": "(0.0, 0.55, -72.0)",
+          "seed": 8391,
+          "shot_id": 1,
+          "target_id": "",
+          "time_seconds": 0.0833333333333333,
+          "type": "shot",
+          "weapon_id": "pistol"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "position": "(-0.070762, 0.083882, -76.0)",
+          "shot_id": 1,
+          "target_id": "enemy_unsealed_0",
+          "type": "impact",
+          "weapon_id": "pistol"
+        },
+        {
+          "damage": 20.0,
+          "direction": "(-0.017569, -0.115728, -0.993125)",
+          "enemy_kind": "unsealed",
+          "material": "flesh",
+          "position": "(-0.070762, 0.083882, -76.0)",
+          "shot_id": 1,
+          "target_id": "enemy_unsealed_0",
+          "type": "enemy_hurt",
+          "weapon_id": "pistol"
+        }
+      ],
+      "fixture_enemy_position": "(0.0, -0.13, -76.0)",
+      "weapon": "pistol"
+    },
+    {
+      "damage": 96.0,
+      "events": [
+        {
+          "direction": "(-0.017569, -0.115728, -0.993125)",
+          "material": "",
+          "pellets": 7,
+          "physics_tick": 7,
+          "position": "(0.0, 0.55, -72.0)",
+          "seed": 16310,
+          "shot_id": 2,
+          "target_id": "",
+          "time_seconds": 0.116666666666667,
+          "type": "shot",
+          "weapon_id": "shotgun"
+        },
+        {
+          "material": "flesh",
+          "pellets": 6,
+          "position": "(-0.070762, 0.083882, -76.0)",
+          "shot_id": 2,
+          "target_id": "enemy_unsealed_0",
+          "type": "impact",
+          "weapon_id": "shotgun"
+        },
+        {
+          "damage": 96.0,
+          "direction": "(-0.017569, -0.115728, -0.993125)",
+          "enemy_kind": "unsealed",
+          "material": "flesh",
+          "position": "(-0.070762, 0.083882, -76.0)",
+          "shot_id": 2,
+          "target_id": "enemy_unsealed_0",
+          "type": "enemy_hurt",
+          "weapon_id": "shotgun"
+        },
+        {
+          "material": "hard",
+          "pellets": 1,
+          "position": "(-1.041734, -1.0, -85.56807)",
+          "shot_id": 2,
+          "target_id": "98113164501",
+          "type": "impact",
+          "weapon_id": "shotgun"
+        }
+      ],
+      "fixture_enemy_position": "(0.0, -0.13, -76.0)",
+      "weapon": "shotgun"
+    },
+    {
+      "damage": 180.0,
+      "events": [
+        {
+          "direction": "(-0.017569, -0.115728, -0.993125)",
+          "material": "",
+          "pellets": 16,
+          "physics_tick": 9,
+          "position": "(0.0, 0.55, -72.0)",
+          "seed": 24229,
+          "shot_id": 3,
+          "target_id": "",
+          "time_seconds": 0.15,
+          "type": "shot",
+          "weapon_id": "twin_shotgun"
+        },
+        {
+          "material": "flesh",
+          "pellets": 10,
+          "position": "(-0.070762, 0.083882, -76.0)",
+          "shot_id": 3,
+          "target_id": "enemy_unsealed_0",
+          "type": "impact",
+          "weapon_id": "twin_shotgun"
+        },
+        {
+          "damage": 180.0,
+          "direction": "(-0.017569, -0.115728, -0.993125)",
+          "enemy_kind": "unsealed",
+          "material": "flesh",
+          "position": "(-0.070762, 0.083882, -76.0)",
+          "shot_id": 3,
+          "target_id": "enemy_unsealed_0",
+          "type": "enemy_hurt",
+          "weapon_id": "twin_shotgun"
+        },
+        {
+          "material": "hard",
+          "pellets": 6,
+          "position": "(-1.488491, -1.0, -85.2425)",
+          "shot_id": 3,
+          "target_id": "98113164501",
+          "type": "impact",
+          "weapon_id": "twin_shotgun"
+        }
+      ],
+      "fixture_enemy_position": "(0.0, -0.13, -76.0)",
+      "weapon": "twin_shotgun"
+    },
+    {
+      "authored_prop": "/root/Foundation/@SubViewport@3/PaleWard/RoomProp_pale_ward_01_entry_intake_desk_01_1/CabinetLeg-1",
+      "events": [
+        {
+          "direction": "(0.0, -0.321903, 0.946773)",
+          "material": "",
+          "pellets": 1,
+          "physics_tick": 11,
+          "position": "(6.33, 1.02, 5.0)",
+          "seed": 32148,
+          "shot_id": 4,
+          "target_id": "",
+          "time_seconds": 0.183333333333333,
+          "type": "shot",
+          "weapon_id": "pistol"
+        },
+        {
+          "material": "hard",
+          "pellets": 1,
+          "position": "(6.33, 0.4811, 6.585)",
+          "shot_id": 4,
+          "target_id": "133596978456",
+          "type": "impact",
+          "weapon_id": "pistol"
+        }
+      ]
+    }
+  ],
+  "checks": 21,
+  "failures": [],
+  "scene_sha256": "cedb55dc41ed5e1ed65b0cfc9b7eb5ad725c41fb4b6c4baf3a19ec7db6131aa4",
+  "scope": "Actual Main Intake source, current Ward native hurt silhouette and actual authored desk collision. AI, actor/world physics frozen; target/player repositioned and target HP raised to isolate contacts, Twin granted 12 shells. Cosmetics manually advanced. Not finite route, physical mouse feel, live encounter, or human visual approval.",
+  "status": "passed"
+}

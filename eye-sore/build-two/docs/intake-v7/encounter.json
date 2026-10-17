@@ -1,0 +1,11 @@
+{
+  "version": "intake-v7",
+  "level": "pale_ward_01",
+  "arena": "arena_one",
+  "sequence": ["collect physical twin-shotgun lure", "shutters open with existing mechanical warning", "wake actors only once shutters fully open", "melee advance through reserved lanes; existing ranged windup and line-of-sight required", "last unique arena death reopens entry", "breaker becomes usable", "power enables diagnostics", "collect theatre brass key", "reach sterile supply", "open shortcut from positive-X supply side", "return through decontamination to brass gate"],
+  "actors": {"total": 5, "melee": 4, "ranged": 1, "ranged_alcove": "west slot 0 / local z -9", "spawn_pivots": "existing native alcove centres, unchanged", "entry_approach": "local +Z"},
+  "preserve": ["enemy IDs", "species counts", "health and attack timing", "normal AI visibility and projectile physics", "supply and bait amounts", "single accepted pickup receipt", "full owned bait still triggers once without pickup receipt", "duplicate death cannot clear early"],
+  "shortcut": {"id": "shortcut_one", "requires": ["breaker", "brass_key"], "first_open_normal": [1, 0, 0], "plane_margin_m": 0.05, "after_open": "traversable from both sides", "reset": "closed and supply-side restricted again"},
+  "fixture_scope": "Controlled actual Main state transitions, not a traversal, native audio listening, or live enemy combat proof.",
+  "coordinator_followups": ["reserve centre +/-3m and cross lane z +/-2m against solid furnishings", "native physical playthrough checks route, props and ranged visibility", "capture actual mix and review cue audibility"]
+}

@@ -1,0 +1,1615 @@
+{
+  "checks": 36,
+  "command_line": [
+    "--no-focus",
+    "--script",
+    "res://tools/check_intake_physics_v7.gd"
+  ],
+  "display_server": "X11",
+  "door_fixture": {
+    "access_flags": {
+      "brass_key": true,
+      "breaker": true,
+      "exit_control": true,
+      "red_key": true,
+      "release": true
+    },
+    "activated_bodies": [
+      "Door_entry_gate",
+      "TrapEntry_arena_one",
+      "Door_breaker",
+      "Door_shortcut_one",
+      "Door_brass_gate",
+      "TrapEntry_arena_two",
+      "Door_release",
+      "Door_shortcut_two",
+      "Door_red_gate",
+      "TrapEntry_final_arena",
+      "Door_exit_gate",
+      "Door_secret_one",
+      "Door_secret_two",
+      "Closet_arena_one_-1_0_Shutter",
+      "Closet_arena_one_-1_1_Shutter",
+      "Closet_arena_one_-1_2_Shutter",
+      "Closet_arena_one_-1_3_Shutter",
+      "Closet_arena_one_1_0_Shutter",
+      "Closet_arena_two_-1_0_Shutter",
+      "Closet_arena_two_-1_1_Shutter",
+      "Closet_arena_two_-1_2_Shutter",
+      "Closet_arena_two_-1_3_Shutter",
+      "Closet_arena_two_1_0_Shutter",
+      "Closet_final_arena_-1_0_Shutter",
+      "Closet_final_arena_-1_1_Shutter",
+      "Closet_final_arena_-1_2_Shutter",
+      "Closet_final_arena_-1_3_Shutter",
+      "Closet_final_arena_1_0_Shutter",
+      "Closet_final_arena_1_1_Shutter"
+    ],
+    "note": "All access doors and trap shutters activated through their real method before traversals; isolated geometry probes, no encounter or progression proof."
+  },
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": [],
+  "fixture_sha256": "3c91b4f778f5e9352958b2098c7ed89922d0722875ab68dcb6d9246d2eb4cbe4",
+  "floor_surveys": [],
+  "former_pocket": {},
+  "inventory": {},
+  "limitations": [
+    "No live enemies instantiated: spawn markers surveyed with player-size capsule, not enemy navigation proof.",
+    "Actor is independently placed at each declared start; not continuous human route or combat proof.",
+    "Near-wall capsule center margin .32m leaves actual capsule inside corridor.",
+    "No audio/visual acceptance claim."
+  ],
+  "passed": true,
+  "physics_motion_ticks": 1278,
+  "physics_rate": 60,
+  "ray_queries": 1278,
+  "rendering_method": "gl_compatibility",
+  "reported_average_fps": 144.0,
+  "runtime_polygon_geometry": "Production world.scan(world) expands metadata polygons before native queries, exactly as setup does, without injecting combat controller.",
+  "scene_sha256": "cedb55dc41ed5e1ed65b0cfc9b7eb5ad725c41fb4b6c4baf3a19ec7db6131aa4",
+  "scope": "Native production CharacterBody input along nine first-section links both ways; .1m longitudinal/.12m full-width floor survey including mouths; independent initial placements, no recovery. Prop/presentation physical geometry and initial pickup/NPC support.",
+  "shape_queries": 0,
+  "spawn_pickup_checks": [],
+  "walks": [
+    {
+      "from": "entry",
+      "goal_floor": [
+        0.0,
+        1.5,
+        -31.0
+      ],
+      "goal_xz_error": 0.199886322021484,
+      "grounded": true,
+      "initial": [
+        0.0,
+        0.850638031959534,
+        -12.0
+      ],
+      "key": "W",
+      "link": 0,
+      "minimum_y": 0.850638031959534,
+      "path_distance": 18.8877072930336,
+      "physics_seconds": 2.4,
+      "reached": true,
+      "reverse": false,
+      "slide_colliders": [
+        "entry_Floor",
+        "Step_0_0",
+        "Step_0_1",
+        "Step_0_2",
+        "Step_0_3",
+        "Step_0_4",
+        "Step_0_5",
+        "Step_0_6",
+        "Step_0_7",
+        "Step_0_8",
+        "Step_0_9",
+        "Step_0_10",
+        "Step_0_11",
+        "service_Floor"
+      ],
+      "terminal": [
+        0.0,
+        2.34993290901184,
+        -31.1998863220215
+      ],
+      "ticks": 144,
+      "to": "service",
+      "trace": [
+        {
+          "grounded": false,
+          "position": [
+            0.0,
+            1.03063797950745,
+            -12.7699995040894
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.09717428684235,
+            -14.3699979782104
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.22506475448608,
+            -15.9699964523315
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.35002553462982,
+            -17.569995880127
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.47531032562256,
+            -19.1699123382568
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.60093522071838,
+            -20.7699108123779
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.72491943836212,
+            -22.369909286499
+          ],
+          "tick": 84
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.85054433345795,
+            -23.9699001312256
+          ],
+          "tick": 96
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.04305744171143,
+            -25.5698986053467
+          ],
+          "tick": 108
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.22594833374023,
+            -27.1698970794678
+          ],
+          "tick": 120
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.34993290901184,
+            -28.7698955535889
+          ],
+          "tick": 132
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.34993290901184,
+            -30.3698863983154
+          ],
+          "tick": 144
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "from": "entry",
+      "goal_floor": [
+        0.0,
+        0.0,
+        -12.0
+      ],
+      "goal_xz_error": 0.206002235412598,
+      "grounded": true,
+      "initial": [
+        0.0,
+        2.35010242462158,
+        -31.0
+      ],
+      "key": "S",
+      "link": 0,
+      "minimum_y": 0.850162625312805,
+      "path_distance": 18.7702229917049,
+      "physics_seconds": 2.4,
+      "reached": true,
+      "reverse": true,
+      "slide_colliders": [
+        "service_Floor",
+        "Step_0_11",
+        "Step_0_10",
+        "Step_0_9",
+        "Step_0_8",
+        "Step_0_7",
+        "Step_0_6",
+        "Step_0_5",
+        "Step_0_4",
+        "Step_0_3",
+        "Step_0_2",
+        "Step_0_1",
+        "Step_0_0"
+      ],
+      "terminal": [
+        0.0,
+        0.850162625312805,
+        -11.7939977645874
+      ],
+      "ticks": 144,
+      "to": "service",
+      "trace": [
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.35010242462158,
+            -30.2299995422363
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.35010242462158,
+            -28.6299991607666
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.19402170181274,
+            -27.0298881530762
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.97575998306274,
+            -25.4284820556641
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.85044097900391,
+            -23.828483581543
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.72567856311798,
+            -22.2266139984131
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.60006821155548,
+            -20.6259803771973
+          ],
+          "tick": 84
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.47506821155548,
+            -19.0258827209473
+          ],
+          "tick": 96
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.35092270374298,
+            -17.4254055023193
+          ],
+          "tick": 108
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.22535955905914,
+            -15.8252773284912
+          ],
+          "tick": 120
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.03444159030914,
+            -14.2242498397827
+          ],
+          "tick": 132
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.850162625312805,
+            -12.6239976882935
+          ],
+          "tick": 144
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "from": "service",
+      "goal_floor": [
+        0.0,
+        -1.0,
+        -57.0
+      ],
+      "goal_xz_error": 0.139621734619141,
+      "grounded": true,
+      "initial": [
+        0.0,
+        2.35010242462158,
+        -45.0
+      ],
+      "key": "W",
+      "link": 1,
+      "minimum_y": -0.149539470672607,
+      "path_distance": 11.9345749020576,
+      "physics_seconds": 1.51666666666667,
+      "reached": true,
+      "reverse": false,
+      "slide_colliders": [
+        "service_Floor",
+        "Step_1_19",
+        "Step_1_18",
+        "Step_1_17",
+        "Step_1_16",
+        "Step_1_15",
+        "Step_1_14",
+        "Step_1_13",
+        "Step_1_12",
+        "Step_1_11",
+        "Step_1_10",
+        "Step_1_9",
+        "Step_1_8",
+        "Step_1_7",
+        "Step_1_6",
+        "Step_1_5",
+        "Step_1_4",
+        "Step_1_3",
+        "Step_1_2",
+        "Step_1_1",
+        "Step_1_0"
+      ],
+      "terminal": [
+        0.0,
+        -0.149539470672607,
+        -57.1396217346191
+      ],
+      "ticks": 91,
+      "to": "arena_one",
+      "trace": [
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.35010242462158,
+            -45.7699966430664
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.10027170181274,
+            -47.370433807373
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.72539377212524,
+            -48.9714813232422
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.34226226806641,
+            -50.5723686218262
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.923608303070068,
+            -52.1732444763184
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.47504711151123,
+            -53.7746849060059
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.100338459014893,
+            -55.3761749267578
+          ],
+          "tick": 84
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "from": "service",
+      "goal_floor": [
+        0.0,
+        1.5,
+        -45.0
+      ],
+      "goal_xz_error": 0.208915710449219,
+      "grounded": true,
+      "initial": [
+        0.0,
+        -0.149897456169128,
+        -57.0
+      ],
+      "key": "S",
+      "link": 1,
+      "minimum_y": -0.149897456169128,
+      "path_distance": 12.2447348535061,
+      "physics_seconds": 1.53333333333333,
+      "reached": true,
+      "reverse": true,
+      "slide_colliders": [
+        "arena_one_Floor",
+        "Step_1_0",
+        "Step_1_1",
+        "Step_1_2",
+        "Step_1_3",
+        "Step_1_4",
+        "Step_1_5",
+        "Step_1_6",
+        "Step_1_7",
+        "Step_1_8",
+        "Step_1_9",
+        "Step_1_10",
+        "Step_1_11",
+        "Step_1_12",
+        "Step_1_13",
+        "Step_1_14",
+        "Step_1_15",
+        "Step_1_16",
+        "Step_1_17",
+        "Step_1_18",
+        "Step_1_19",
+        "service_Floor"
+      ],
+      "terminal": [
+        0.0,
+        2.35094714164734,
+        -44.7910842895508
+      ],
+      "ticks": 92,
+      "to": "arena_one",
+      "trace": [
+        {
+          "grounded": false,
+          "position": [
+            0.0,
+            0.0301025435328484,
+            -56.2300033569336
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.3135606944561,
+            -54.6478996276855
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.721456170082092,
+            -53.0553512573242
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.12070858478546,
+            -51.463623046875
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.47525894641876,
+            -49.8636016845703
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.85011029243469,
+            -48.2804641723633
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.28684544563293,
+            -46.6877632141113
+          ],
+          "tick": 84
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "from": "arena_one",
+      "goal_floor": [
+        29.0,
+        1.5,
+        -76.0
+      ],
+      "goal_xz_error": 0.20916748046875,
+      "grounded": true,
+      "initial": [
+        17.0,
+        -0.149897456169128,
+        -76.0
+      ],
+      "key": "W",
+      "link": 2,
+      "minimum_y": -0.149897456169128,
+      "path_distance": 12.3163755685091,
+      "physics_seconds": 1.53333333333333,
+      "reached": true,
+      "reverse": false,
+      "slide_colliders": [
+        "arena_one_Floor",
+        "Step_2_0",
+        "Step_2_1",
+        "Step_2_2",
+        "Step_2_3",
+        "Step_2_4",
+        "Step_2_5",
+        "Step_2_7",
+        "Step_2_8",
+        "Step_2_9",
+        "Step_2_10",
+        "Step_2_11",
+        "Step_2_12",
+        "Step_2_13",
+        "Step_2_14",
+        "Step_2_15",
+        "Step_2_16",
+        "Step_2_17",
+        "Step_2_18"
+      ],
+      "terminal": [
+        29.2091674804688,
+        2.35103678703308,
+        -76.0
+      ],
+      "ticks": 92,
+      "to": "key_wing",
+      "trace": [
+        {
+          "grounded": false,
+          "position": [
+            17.7700004577637,
+            0.0301025435328484,
+            -76.0
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            19.3533229827881,
+            0.314560920000076,
+            -76.0
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            20.9460582733154,
+            0.720806300640106,
+            -76.0
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            22.5369930267334,
+            1.12221491336823,
+            -76.0
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            24.1369915008545,
+            1.47530043125153,
+            -76.0
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            25.7198390960693,
+            1.85040330886841,
+            -76.0
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            27.3125019073486,
+            2.28791165351868,
+            -76.0
+          ],
+          "tick": 84
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "from": "arena_one",
+      "goal_floor": [
+        17.0,
+        -1.0,
+        -76.0
+      ],
+      "goal_xz_error": 0.140216827392578,
+      "grounded": true,
+      "initial": [
+        29.0,
+        2.35010242462158,
+        -76.0
+      ],
+      "key": "S",
+      "link": 2,
+      "minimum_y": -0.149905681610107,
+      "path_distance": 11.9345937222242,
+      "physics_seconds": 1.51666666666667,
+      "reached": true,
+      "reverse": true,
+      "slide_colliders": [
+        "key_wing_Floor",
+        "Step_2_19",
+        "Step_2_18",
+        "Step_2_17",
+        "Step_2_16",
+        "Step_2_15",
+        "Step_2_14",
+        "Step_2_13",
+        "Step_2_12",
+        "Step_2_11",
+        "Step_2_10",
+        "Step_2_9",
+        "Step_2_8",
+        "Step_2_7",
+        "Step_2_6",
+        "Step_2_4",
+        "Step_2_3",
+        "Step_2_2",
+        "Step_2_1",
+        "Step_2_0"
+      ],
+      "terminal": [
+        16.8597831726074,
+        -0.149905681610107,
+        -76.0
+      ],
+      "ticks": 91,
+      "to": "key_wing",
+      "trace": [
+        {
+          "grounded": true,
+          "position": [
+            28.2299995422363,
+            2.35010242462158,
+            -76.0
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            26.629581451416,
+            2.10027170181274,
+            -76.0
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            25.0283641815186,
+            1.72527170181274,
+            -76.0
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            23.4274501800537,
+            1.34214019775391,
+            -76.0
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            21.8266067504883,
+            0.923486232757568,
+            -76.0
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            20.2259292602539,
+            0.47590160369873,
+            -76.0
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            18.6237373352051,
+            0.100460529327393,
+            -76.0
+          ],
+          "tick": 84
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "from": "arena_one",
+      "goal_floor": [
+        0.0,
+        1.5,
+        -112.0
+      ],
+      "goal_xz_error": 0.199775695800781,
+      "grounded": true,
+      "initial": [
+        0.0,
+        -0.149897456169128,
+        -95.0
+      ],
+      "key": "W",
+      "link": 6,
+      "minimum_y": -0.149897456169128,
+      "path_distance": 17.3569428026676,
+      "physics_seconds": 2.15,
+      "reached": true,
+      "reverse": false,
+      "slide_colliders": [
+        "arena_one_Floor",
+        "Step_6_0",
+        "Step_6_1",
+        "Step_6_2",
+        "Step_6_3",
+        "Step_6_4",
+        "Step_6_5",
+        "Step_6_6",
+        "Step_6_7",
+        "Step_6_8",
+        "Step_6_9",
+        "Step_6_10",
+        "Step_6_11",
+        "Step_6_12",
+        "Step_6_13",
+        "Step_6_14",
+        "Step_6_15",
+        "Step_6_16",
+        "Step_6_17",
+        "Step_6_18",
+        "Step_6_19",
+        "spine_Floor"
+      ],
+      "terminal": [
+        0.0,
+        2.3502299785614,
+        -112.199775695801
+      ],
+      "ticks": 129,
+      "to": "spine",
+      "trace": [
+        {
+          "grounded": false,
+          "position": [
+            0.0,
+            0.0301025435328484,
+            -95.7700042724609
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.197849959135056,
+            -97.3699798583984
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.474139034748077,
+            -98.9699554443359
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.725493967533112,
+            -100.569931030273
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.975663065910339,
+            -102.169906616211
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.2252721786499,
+            -103.769882202148
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.47568488121033,
+            -105.36986541748
+          ],
+          "tick": 84
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.72546327114105,
+            -106.969841003418
+          ],
+          "tick": 96
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.04335451126099,
+            -108.569816589355
+          ],
+          "tick": 108
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.3411283493042,
+            -110.169792175293
+          ],
+          "tick": 120
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "from": "arena_one",
+      "goal_floor": [
+        0.0,
+        -1.0,
+        -95.0
+      ],
+      "goal_xz_error": 0.204147338867188,
+      "grounded": true,
+      "initial": [
+        0.0,
+        2.35010242462158,
+        -112.0
+      ],
+      "key": "S",
+      "link": 6,
+      "minimum_y": -0.149614334106445,
+      "path_distance": 17.0322137922049,
+      "physics_seconds": 2.15,
+      "reached": true,
+      "reverse": true,
+      "slide_colliders": [
+        "spine_Floor",
+        "Step_6_19",
+        "Step_6_18",
+        "Step_6_17",
+        "Step_6_16",
+        "Step_6_15",
+        "Step_6_14",
+        "Step_6_12",
+        "Step_6_11",
+        "Step_6_10",
+        "Step_6_9",
+        "Step_6_8",
+        "Step_6_7",
+        "Step_6_6",
+        "Step_6_5",
+        "Step_6_4",
+        "Step_6_3",
+        "Step_6_2",
+        "Step_6_1"
+      ],
+      "terminal": [
+        0.0,
+        -0.149614334106445,
+        -94.7958526611328
+      ],
+      "ticks": 129,
+      "to": "spine",
+      "trace": [
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.35010242462158,
+            -111.229995727539
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            2.22575998306274,
+            -109.629905700684
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.97575998306274,
+            -108.029281616211
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.71738433837891,
+            -106.428894042969
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.42380523681641,
+            -104.828414916992
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            1.10024404525757,
+            -103.227752685547
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.85065746307373,
+            -101.627555847168
+          ],
+          "tick": 84
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.60053539276123,
+            -100.02661895752
+          ],
+          "tick": 96
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.35053539276123,
+            -98.4265213012695
+          ],
+          "tick": 108
+        },
+        {
+          "grounded": true,
+          "position": [
+            0.0,
+            0.100704669952393,
+            -96.8260726928711
+          ],
+          "tick": 120
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "from": "arena_one",
+      "goal_floor": [
+        29.0,
+        1.5,
+        -76.0
+      ],
+      "goal_xz_error": 0.209819793701172,
+      "grounded": true,
+      "initial": [
+        17.0,
+        -0.149897456169128,
+        -76.0
+      ],
+      "key": "A",
+      "link": 2,
+      "minimum_y": -0.149897456169128,
+      "path_distance": 12.3931225836277,
+      "physics_seconds": 1.53333333333333,
+      "reached": true,
+      "reverse": false,
+      "slide_colliders": [
+        "arena_one_Floor",
+        "Step_2_0",
+        "Step_2_1",
+        "Step_2_2",
+        "Step_2_3",
+        "Step_2_4",
+        "Step_2_5",
+        "Step_2_7",
+        "Step_2_8",
+        "Step_2_9",
+        "Step_2_10",
+        "Step_2_11",
+        "Step_2_12",
+        "Step_2_13",
+        "Step_2_14",
+        "Step_2_16",
+        "Step_2_17",
+        "Step_2_18"
+      ],
+      "terminal": [
+        29.2098197937012,
+        2.35096526145935,
+        -76.0
+      ],
+      "ticks": 92,
+      "to": "key_wing",
+      "trace": [
+        {
+          "grounded": false,
+          "position": [
+            17.7700004577637,
+            0.0301025435328484,
+            -76.0
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            19.3533229827881,
+            0.314560920000076,
+            -76.0
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            20.9460582733154,
+            0.720806300640106,
+            -76.0
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            22.5371608734131,
+            1.12188458442688,
+            -76.0
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            24.1371593475342,
+            1.47497010231018,
+            -76.0
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            25.7204284667969,
+            1.85099267959595,
+            -76.0
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            27.3131542205811,
+            2.28784012794495,
+            -76.0
+          ],
+          "tick": 84
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "from": "arena_one",
+      "goal_floor": [
+        17.0,
+        -1.0,
+        -76.0
+      ],
+      "goal_xz_error": 0.140396118164062,
+      "grounded": true,
+      "initial": [
+        29.0,
+        2.35010242462158,
+        -76.0
+      ],
+      "key": "A",
+      "link": 2,
+      "minimum_y": -0.149783611297607,
+      "path_distance": 11.9324827939272,
+      "physics_seconds": 1.51666666666667,
+      "reached": true,
+      "reverse": true,
+      "slide_colliders": [
+        "key_wing_Floor",
+        "Step_2_19",
+        "Step_2_17",
+        "Step_2_16",
+        "Step_2_15",
+        "Step_2_14",
+        "Step_2_13",
+        "Step_2_12",
+        "Step_2_11",
+        "Step_2_10",
+        "Step_2_9",
+        "Step_2_8",
+        "Step_2_7",
+        "Step_2_6",
+        "Step_2_5",
+        "Step_2_4",
+        "Step_2_3",
+        "Step_2_0"
+      ],
+      "terminal": [
+        16.8596038818359,
+        -0.149783611297607,
+        -76.0
+      ],
+      "ticks": 91,
+      "to": "key_wing",
+      "trace": [
+        {
+          "grounded": true,
+          "position": [
+            28.2299995422363,
+            2.35010242462158,
+            -76.0
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            26.6292877197266,
+            2.09978342056274,
+            -76.0
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            25.0279884338379,
+            1.72527170181274,
+            -76.0
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            23.4272518157959,
+            1.34214019775391,
+            -76.0
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            21.8256053924561,
+            0.922021389007568,
+            -76.0
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            20.224702835083,
+            0.47565746307373,
+            -76.0
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            18.6237316131592,
+            0.100704669952393,
+            -76.0
+          ],
+          "tick": 84
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "from": "arena_one",
+      "goal_floor": [
+        29.0,
+        1.5,
+        -76.0
+      ],
+      "goal_xz_error": 0.209243774414062,
+      "grounded": true,
+      "initial": [
+        17.0,
+        -0.149897456169128,
+        -76.0
+      ],
+      "key": "D",
+      "link": 2,
+      "minimum_y": -0.149897456169128,
+      "path_distance": 12.3157743662596,
+      "physics_seconds": 1.53333333333333,
+      "reached": true,
+      "reverse": false,
+      "slide_colliders": [
+        "arena_one_Floor",
+        "Step_2_0",
+        "Step_2_1",
+        "Step_2_2",
+        "Step_2_3",
+        "Step_2_4",
+        "Step_2_5",
+        "Step_2_7",
+        "Step_2_8",
+        "Step_2_9",
+        "Step_2_10",
+        "Step_2_11",
+        "Step_2_12",
+        "Step_2_13",
+        "Step_2_14",
+        "Step_2_16",
+        "Step_2_17",
+        "Step_2_18"
+      ],
+      "terminal": [
+        29.2092437744141,
+        2.35102272033691,
+        -76.0
+      ],
+      "ticks": 92,
+      "to": "key_wing",
+      "trace": [
+        {
+          "grounded": false,
+          "position": [
+            17.7700004577637,
+            0.0301025435328484,
+            -76.0
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            19.3533229827881,
+            0.314560920000076,
+            -76.0
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            20.9460582733154,
+            0.720806300640106,
+            -76.0
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            22.5370807647705,
+            1.12203228473663,
+            -76.0
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            24.1370792388916,
+            1.47511780261993,
+            -76.0
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            25.7198867797852,
+            1.8509509563446,
+            -76.0
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            27.3125782012939,
+            2.28789758682251,
+            -76.0
+          ],
+          "tick": 84
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "from": "arena_one",
+      "goal_floor": [
+        17.0,
+        -1.0,
+        -76.0
+      ],
+      "goal_xz_error": 0.140396118164062,
+      "grounded": true,
+      "initial": [
+        29.0,
+        2.35010242462158,
+        -76.0
+      ],
+      "key": "D",
+      "link": 2,
+      "minimum_y": -0.149783611297607,
+      "path_distance": 11.9324827939272,
+      "physics_seconds": 1.51666666666667,
+      "reached": true,
+      "reverse": true,
+      "slide_colliders": [
+        "key_wing_Floor",
+        "Step_2_19",
+        "Step_2_17",
+        "Step_2_16",
+        "Step_2_15",
+        "Step_2_14",
+        "Step_2_13",
+        "Step_2_12",
+        "Step_2_11",
+        "Step_2_10",
+        "Step_2_9",
+        "Step_2_8",
+        "Step_2_7",
+        "Step_2_6",
+        "Step_2_5",
+        "Step_2_4",
+        "Step_2_3",
+        "Step_2_0"
+      ],
+      "terminal": [
+        16.8596038818359,
+        -0.149783611297607,
+        -76.0
+      ],
+      "ticks": 91,
+      "to": "key_wing",
+      "trace": [
+        {
+          "grounded": true,
+          "position": [
+            28.2299995422363,
+            2.35010242462158,
+            -76.0
+          ],
+          "tick": 12
+        },
+        {
+          "grounded": true,
+          "position": [
+            26.6292877197266,
+            2.09978342056274,
+            -76.0
+          ],
+          "tick": 24
+        },
+        {
+          "grounded": true,
+          "position": [
+            25.0279884338379,
+            1.72527170181274,
+            -76.0
+          ],
+          "tick": 36
+        },
+        {
+          "grounded": true,
+          "position": [
+            23.4272518157959,
+            1.34214019775391,
+            -76.0
+          ],
+          "tick": 48
+        },
+        {
+          "grounded": true,
+          "position": [
+            21.8256053924561,
+            0.922021389007568,
+            -76.0
+          ],
+          "tick": 60
+        },
+        {
+          "grounded": true,
+          "position": [
+            20.224702835083,
+            0.47565746307373,
+            -76.0
+          ],
+          "tick": 72
+        },
+        {
+          "grounded": true,
+          "position": [
+            18.6237316131592,
+            0.100704669952393,
+            -76.0
+          ],
+          "tick": 84
+        }
+      ],
+      "unsupported": []
+    }
+  ]
+}

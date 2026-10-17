@@ -1,0 +1,328 @@
+extends SceneTree
+## Source executable calibration, not exported release/human input acceptance.
+## tools/godot.sh --headless --fixed-fps 60 --script tools/check_combat_roles_v4.gd
+const KINDS := ["unsealed", "vessel", "ironbound", "censer", "reaver", "surveyor"]
+const GUNS := ["melee", "pistol", "shotgun", "twin_shotgun", "rivet_cannon", "siege_launcher"]
+const DT := 1.0 / 60.0
+const Combat := preload("res://scripts/combat.gd")
+const Hurt := preload("res://scripts/sprite_hurt_geometry.gd")
+var world: Node3D
+var combat: Node3D
+var player: CharacterBody3D
+var camera: Camera3D
+var art: Dictionary
+var events: Array[Dictionary] = []
+var clock := 0.0
+var checks := 0
+var failures: Array[String] = []
+var report := {"matrix": [], "material_precision": [], "attack_contracts": [], "siege_scenarios": [], "source": {}, "weapon_definitions": {}, "enemy_definitions": {}}
+var output := "res://verification/intake-v7/combat/weapon-roles.json"
+
+func _initialize() -> void:
+	Engine.physics_ticks_per_second = 60
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	call_deferred("run")
+
+func check(ok: bool, text: String) -> void:
+	checks += 1
+	if not ok: failures.append(text); push_error("COMBAT_ROLES_V4_FAILED: " + text)
+
+func xyz(v: Vector3) -> Array: return [v.x, v.y, v.z]
+
+func count(type: String, target := "", attack := -1) -> int:
+	var result := 0
+	for event in events:
+		if String(event.type) == type and (target == "" or String(event.get("target_id", "")) == target) and (attack < 0 or int(event.get("attack_id", -1)) == attack): result += 1
+	return result
+
+func receive(event: Dictionary) -> void:
+	var copy := event.duplicate(true); copy.fixture_seconds = clock; events.append(copy)
+
+func box(point: Vector3, size: Vector3) -> StaticBody3D:
+	var body := StaticBody3D.new(); body.position = point; body.collision_layer = 1; body.set_meta("hit_material", &"hard"); world.add_child(body)
+	var node := CollisionShape3D.new(); var shape := BoxShape3D.new(); shape.size = size; node.shape = shape; body.add_child(node)
+	return body
+
+func make_fixture(grant_arsenal := true) -> void:
+	world = Node3D.new(); root.add_child(world)
+	var markers := Node3D.new(); markers.name = "EnemySpawns"; world.add_child(markers)
+	box(Vector3(0, -.1, -20), Vector3(120, .2, 160))
+	player = CharacterBody3D.new(); player.collision_layer = 2; player.collision_mask = 3; player.position.y = .87; world.add_child(player)
+	var collision := CollisionShape3D.new(); var capsule := CapsuleShape3D.new(); capsule.height = 1.7; capsule.radius = .3; collision.shape = capsule; player.add_child(collision)
+	camera = Camera3D.new(); camera.name = "Camera3D"; camera.position.y = .4; player.add_child(camera)
+	combat = Combat.new(); world.add_child(combat); combat.setup(world, player); combat.set_physics_process(false); combat.combat_event.connect(receive)
+	if grant_arsenal:
+		combat.grant_weapon(&"twin_shotgun"); combat.grant_weapon(&"rivet_cannon", 100); combat.grant_weapon(&"siege_launcher", 100)
+	combat.ammo_pistol = 100; combat.ammo_shotgun = 100
+	clock = 0; events.clear()
+
+func retire_fixture() -> void:
+	combat.gore.reset()
+	world.free()
+	await physics_frame; await physics_frame
+
+func spawn(kind: String, distance: float, x := 0.0) -> CharacterBody3D:
+	var enemy: CharacterBody3D = combat.spawn_enemy(StringName(kind), Vector3(x, .87, -distance))
+	enemy.set_physics_process(false); enemy.rotation.y = PI
+	var data: Dictionary = art.enemies[kind]; var pivot: Array = data.foot_pivot
+	var clips := {}
+	for key in data.clips: clips[key] = Vector2i(data.clips[key][0], data.clips[key][1])
+	enemy.configure_sprite_sheet(data.file, data.columns, data.directions, clips, data.pixel_size, Vector2(pivot[0], pivot[1]), data.sprite_options)
+	combat.total_enemies = combat.enemies.size()
+	return enemy
+
+func aim(enemy: CharacterBody3D, material := "") -> Dictionary:
+	# The closest opaque triangle to a torso-height anchor is reproducible across
+	# poses. Camera remains at ordinary eye height; every weapon shoots its center.
+	var anchor: Vector3 = enemy.global_position + Vector3(0, .22, 0)
+	var best := INF; var result := {}
+	for key in enemy.sprite_bodies:
+		if material != "" and String(key) != material: continue
+		var body: StaticBody3D = enemy.sprite_bodies[key]
+		var shape: ConcavePolygonShape3D = body.get_node("HitSurface").shape
+		if shape == null or body.collision_layer != 4: continue
+		var faces := shape.get_faces()
+		for index in range(0, faces.size(), 3):
+			var point := body.to_global((faces[index] + faces[index + 1] + faces[index + 2]) / 3.0)
+			var distance := point.distance_squared_to(anchor)
+			if distance < best: best = distance; result = {"point": point, "material": String(key), "frame": enemy.sprite_frame}
+	if not result.is_empty(): camera.look_at(result.point)
+	return result
+
+func sync() -> void:
+	await physics_frame; await physics_frame
+
+func tick(live_enemy: CharacterBody3D = null) -> void:
+	clock += DT; combat._physics_process(DT)
+	if is_instance_valid(live_enemy): live_enemy._physics_process(DT)
+	for child in combat.get_children():
+		if child.has_method("is_combat_projectile"):
+			child.set_physics_process(false)
+			if not child.resolved: child._physics_process(DT)
+	await physics_frame
+
+func fire_once(enemy: CharacterBody3D, weapon: String, material := "") -> Dictionary:
+	var selected := aim(enemy, material)
+	if selected.is_empty(): return {"accepted": false, "reason": "No requested live opaque material"}
+	await sync()
+	var before: float = enemy.health; var hp: float = combat.health; var armor: float = combat.armor
+	var definition: WeaponDefinition = combat.weapons[StringName(weapon)]
+	var ammo_before: int = int(combat.get(String(definition.ammo_key))) if definition.ammo_key != &"" else 0
+	var start := events.size(); var accepted_at := clock
+	var explosions_before := count("ordnance_explosion")
+	var accepted: bool = combat.try_fire()
+	if accepted and definition.fire_mode == "projectile":
+		for limit in 300:
+			if count("ordnance_explosion") > explosions_before: break
+			await tick()
+	var impacts: Array = []; var damage := 0.0; var contact_pellets := 0; var hurt := 0; var deaths := 0; var explosion_count := 0
+	for index in range(start, events.size()):
+		var event: Dictionary = events[index]
+		if String(event.type) == "ordnance_explosion": explosion_count += 1
+		if String(event.get("target_id", "")) != enemy.target_id: continue
+		if String(event.type) == "impact":
+			contact_pellets += int(event.get("pellets", 0)); impacts.append({"material": String(event.material), "pellets": event.get("pellets", 0), "direct": event.get("direct", null)})
+		elif String(event.type) in ["enemy_hurt", "enemy_death"]:
+			damage += float(event.damage); hurt += int(String(event.type) == "enemy_hurt"); deaths += int(String(event.type) == "enemy_death")
+	return {"accepted": accepted, "accepted_at": accepted_at, "resolved_at": clock, "aim_point": xyz(selected.point), "aim_material": selected.material, "native_frame": selected.frame,
+		"requested_material": material, "health_before": before, "health_after": enemy.health, "resolved_damage": damage, "health_removed": before - enemy.health,
+		"ammo_spent": ammo_before - (int(combat.get(String(definition.ammo_key))) if definition.ammo_key != &"" else 0), "contact_pellets": contact_pellets,
+		"impacts": impacts, "hurt_events": hurt, "death_events": deaths, "enemy_state_after": String(enemy.state), "unreleased_invalidated": enemy.released,
+		"explosion_events": explosion_count, "self_health_loss": hp - combat.health, "self_armor_loss": armor - combat.armor}
+
+func matrix_case(kind: String, weapon: String, distance: float) -> void:
+	make_fixture(); var enemy := spawn(kind, distance)
+	combat.currentweapon = StringName(weapon); await sync()
+	var shots: Array = []; var first := -1.0; var finished := -1.0
+	var initial_hp: float = enemy.health
+	var in_range: bool = camera.global_position.distance_to(enemy.global_position + Vector3(0, .22, 0)) <= combat.weapons[StringName(weapon)].range_units
+	for limit in (20 if in_range else 1):
+		while combat.cooldown > 0: await tick()
+		# Stationary rows isolate weapon contacts, not pursuit/active encounters.
+		enemy.state = &"chase"; enemy.state_time = 0; enemy.update_presentation(); await sync()
+		var shot := await fire_once(enemy, weapon); shots.append(shot)
+		check(shot.accepted, "%s/%s/%sm accepted owned shot" % [kind, weapon, distance])
+		if shot.resolved_damage > 0 and not enemy.dead: check(enemy.state == &"pain" and enemy.released, kind + "/" + weapon + " nonlethal hit retains pain/attack interruption")
+		if first < 0: first = shot.accepted_at
+		if enemy.dead: finished = shot.resolved_at; break
+		if not in_range: break
+	var killed: bool = enemy.dead
+	check(not in_range or killed, "%s/%s/%sm bounded centered kill" % [kind, weapon, distance])
+	check(count("enemy_death", enemy.target_id) == (1 if killed else 0) and combat.kills == (1 if killed else 0), "one authoritative death/kill " + kind + "/" + weapon)
+	var spent := 0; var damage := 0.0
+	for shot in shots: spent += int(shot.get("ammo_spent", 0)); damage += float(shot.get("resolved_damage", 0))
+	report.matrix.append({"species": kind, "weapon": weapon, "horizontal_distance_m": distance, "stable_health": initial_hp, "in_range": in_range, "killed": killed,
+		"accepted_shots": shots.size(), "ammo_spent": spent, "raw_resolved_damage": damage, "ttk_seconds": finished - first if killed else null, "kills": combat.kills, "shots": shots})
+	await retire_fixture()
+
+func mapped_precision(kind: String) -> void:
+	for material in ["flesh", "armor"]:
+		for weapon in ["pistol", "rivet_cannon"]:
+			make_fixture(); var enemy := spawn(kind, 12); combat.currentweapon = StringName(weapon); await sync()
+			if aim(enemy, material).is_empty():
+				report.material_precision.append({"species": kind, "weapon": weapon, "material": material, "present": false})
+			else:
+				var shot := await fire_once(enemy, weapon, material)
+				check(shot.accepted and is_equal_approx(shot.resolved_damage, combat.weapons[StringName(weapon)].damage), kind + " actual " + material + " " + weapon + " damage")
+				check(shot.impacts.size() == 1 and shot.impacts[0].material == material, kind + " actual mapped " + material + " contact")
+				report.material_precision.append({"species": kind, "weapon": weapon, "material": material, "present": true, "shot": shot})
+			await retire_fixture()
+
+func attack_release_count(id: String, attack := -1) -> int:
+	var total := count("enemy_melee_release", id, attack)
+	# Enemy projectile_release uses target_id default blank; own warning attack id
+	# accompanies projectile event and enemy_kind is explicit.
+	for event in events:
+		if String(event.type) == "projectile_release" and (attack < 0 or int(event.get("attack_id", -1)) == attack): total += 1
+	return total
+
+func attack_contract(kind: String) -> void:
+	# At 1.5m all six can threaten; full real AI tick and collision run here.
+	make_fixture(); var enemy := spawn(kind, 1.5); await sync()
+	for limit in 240:
+		await tick(enemy)
+		if attack_release_count(enemy.target_id) > 0: break
+	for limit in 120:
+		if count("player_hurt") > 0: break
+		await tick()
+	var release_seconds := -1.0
+	for event in events:
+		if String(event.type) in ["projectile_release", "enemy_melee_release"]: release_seconds = event.fixture_seconds
+	var baseline := {"warnings": count("enemy_attack_warning", enemy.target_id), "releases": attack_release_count(enemy.target_id), "player_health": combat.health, "player_armor": combat.armor, "release_seconds": release_seconds, "player_contact_seconds": clock,
+		"player_damage_before_armor": 100.0 - combat.health + 50.0 - combat.armor}
+	check(baseline.warnings == 1 and baseline.releases == 1, kind + " baseline single warning/release")
+	check(count("player_hurt") == 1 and combat.health < 100, kind + " actual attack damages player once")
+	check(is_equal_approx(baseline.player_damage_before_armor, enemy.definition.damage), kind + " actual release matches stable damage resource")
+	var attack: int = enemy.attack_id; enemy.release_attack()
+	check(attack_release_count(enemy.target_id, attack) == 1, kind + " release guard cannot repeat")
+	await retire_fixture()
+	make_fixture(); enemy = spawn(kind, 1.5); combat.currentweapon = &"pistol"; await sync()
+	while enemy.state != &"windup": await tick(enemy)
+	var canceled_attack: int = enemy.attack_id
+	var interrupt := await fire_once(enemy, "pistol")
+	check(not enemy.dead and enemy.state == &"pain" and enemy.released, kind + " real pistol hurts and interrupts windup")
+	enemy.release_attack()
+	for limit in int(ceil((enemy.definition.pain_seconds + .05) / DT)): await tick(enemy)
+	check(attack_release_count(enemy.target_id, canceled_attack) == 0, kind + " canceled attack stays canceled")
+	while enemy.state != &"windup": await tick(enemy)
+	var new_attack: int = enemy.attack_id
+	check(new_attack > canceled_attack, kind + " after pain owns fresh warning/attack")
+	combat.currentweapon = &"siege_launcher"; combat.cooldown = 0; combat.weapon_phase = &"idle"
+	var lethal := await fire_once(enemy, "siege_launcher")
+	check(enemy.dead and count("enemy_death", enemy.target_id) == 1, kind + " actual siege lethal death once")
+	enemy.release_attack()
+	for limit in 90: await tick(enemy)
+	check(attack_release_count(enemy.target_id, new_attack) == 0, kind + " death cancels unreleased attack")
+	report.attack_contracts.append({"species": kind, "baseline": baseline, "interrupting_shot": interrupt, "canceled_attack_id": canceled_attack, "fresh_attack_id": new_attack, "lethal_shot": lethal,
+		"canceled_attack_releases": attack_release_count(enemy.target_id, canceled_attack), "post_death_attack_releases": attack_release_count(enemy.target_id, new_attack)})
+	await retire_fixture()
+	# Existing stable HP limits firing duration. Preserve actual damage/HP and
+	# measure maintained pressure until natural death, never an inflated dummy.
+	var pressure := {}
+	for weapon in ["pistol", "rivet_cannon"]:
+		make_fixture(); enemy = spawn(kind, 1.5); combat.currentweapon = StringName(weapon); await sync()
+		var pain_resets: Array = []; var last_hit := 0.0
+		for limit in 600:
+			if enemy.dead: break
+			if combat.cooldown <= 0:
+				var before_state: String = String(enemy.state); var before_time: float = enemy.state_time
+				var hit := await fire_once(enemy, weapon); last_hit = clock
+				pain_resets.append({"at": clock, "previous_state": before_state, "previous_state_time": before_time, "state_after": String(enemy.state), "damage": hit.resolved_damage})
+			await tick(enemy)
+		pressure[weapon] = {"seconds_until_death": last_hit, "stable_health": enemy.definition.health, "shots": pain_resets, "warnings": count("enemy_attack_warning", enemy.target_id), "releases": attack_release_count(enemy.target_id), "death_events": count("enemy_death", enemy.target_id)}
+		check(enemy.dead and count("enemy_death", enemy.target_id) == 1, kind + "/" + weapon + " finite-health repeated-pain pressure ends in one death")
+		await retire_fixture()
+	report.attack_contracts[-1].continuous_weapon_pressure = pressure
+
+func inventory_ownership() -> void:
+	make_fixture(false); await sync()
+	var records: Array = []
+	for id in [&"twin_shotgun", &"rivet_cannon", &"siege_launcher"]:
+		combat.currentweapon = id; combat.cooldown = 0; combat.weapon_phase = &"idle"
+		var accepted: bool = combat.try_fire()
+		check(not combat.has_weapon(id) and not accepted and count("shot") == 0, String(id) + " cannot fire before ownership grant")
+		check(combat.grant_weapon(id, 5), String(id) + " actual grant accepted")
+		records.append({"weapon": String(id), "unowned_fire_accepted": accepted, "owned_after_grant": combat.has_weapon(id)})
+	combat.currentweapon = &"twin_shotgun"; combat.ammo_shotgun = 1
+	check(not combat.try_fire() and combat.ammo_shotgun == 1 and count("shot") == 0, "Twin one shell rejected before accepted event")
+	combat.ammo_shotgun = 2; check(combat.try_fire() and combat.ammo_shotgun == 0 and count("shot") == 1, "Twin consumes exactly both shells in one acceptance")
+	check(not combat.try_fire() and count("shot") == 1, "Twin cooldown rejection owns no additional shot")
+	report.inventory_ownership = {"new_weapon_records": records, "twin_two_shell_gate": true, "accepted_twin_shots": count("shot")}
+	await retire_fixture()
+
+func siege_scenario(mode: String) -> void:
+	make_fixture(); var target := spawn("censer", 12)
+	var side := spawn("ironbound", 12, 2.0)
+	var wall: StaticBody3D
+	if mode == "splash_occluded": wall = box(Vector3(1.0, 1.5, -12), Vector3(.08, 3, 5))
+	elif mode == "direct_occluded": wall = box(Vector3(0, 1.5, -10), Vector3(8, 3, .04))
+	elif mode == "near_wall_self_risk": wall = box(Vector3(0, 1.5, -.8), Vector3(8, 3, .04))
+	combat.currentweapon = &"siege_launcher"; await sync()
+	var side_hp: float = side.health; var record := await fire_once(target, "siege_launcher")
+	var side_hurts := count("enemy_hurt", side.target_id); var side_deaths := count("enemy_death", side.target_id)
+	check(record.explosion_events == 1 and count("shot") == 1 and record.ammo_spent == 1, mode + " single accepted rocket/explosion/ammo ownership")
+	check(side_hurts + side_deaths <= 1 and record.hurt_events + record.death_events <= 1 and count("player_hurt") <= 1, mode + " aggregate direct/splash/self damage once")
+	if mode == "direct_and_splash": check(target.dead and side.health < side_hp, "actual direct plus nearby native-alpha splash")
+	elif mode == "splash_occluded": check(target.dead and side.health == side_hp, "world wall blocks nearby splash")
+	else: check(target.health == target.definition.health, mode + " wall intercepts direct and radial attack")
+	if mode == "near_wall_self_risk": check(record.self_health_loss > 0 and record.self_armor_loss > 0, "close wall inflicts actual player self blast")
+	report.siege_scenarios.append({"mode": mode, "target_shot": record, "side_target_health_before": side_hp, "side_target_health_after": side.health,
+		"side_hurt_events": side_hurts, "side_death_events": side_deaths, "player_hurt_events": count("player_hurt"), "kills": combat.kills})
+	await retire_fixture()
+
+func fingerprints() -> Dictionary:
+	var result := {}
+	for file in ["scripts/combat.gd", "scripts/combat_enemy.gd", "scripts/player_ordnance.gd", "scripts/weapon_definition.gd", "assets/combat_art.json"]:
+		result[file] = FileAccess.get_sha256("res://" + file)
+	for kind in KINDS: result["resources/enemies/" + kind + ".tres"] = FileAccess.get_sha256("res://resources/enemies/" + kind + ".tres")
+	for gun in GUNS: result["resources/weapons/" + gun + ".tres"] = FileAccess.get_sha256("res://resources/weapons/" + gun + ".tres")
+	return result
+
+func comparisons() -> void:
+	var rows := {}; var compare: Array = []
+	for row in report.matrix: rows["%s/%s/%s" % [row.species, row.weapon, row.horizontal_distance_m]] = row
+	for kind in KINDS:
+		for distance in [1.5, 12.0, 25.0]:
+			var shotgun: Dictionary = rows["%s/shotgun/%s" % [kind, distance]]
+			var twin: Dictionary = rows["%s/twin_shotgun/%s" % [kind, distance]]
+			compare.append({"species": kind, "horizontal_distance_m": distance,
+				"shotgun": {"shells": shotgun.ammo_spent, "volleys": shotgun.accepted_shots, "ttk_seconds": shotgun.ttk_seconds, "first_volley_damage": shotgun.shots[0].resolved_damage},
+				"twin": {"shells": twin.ammo_spent, "volleys": twin.accepted_shots, "ttk_seconds": twin.ttk_seconds, "first_volley_damage": twin.shots[0].resolved_damage},
+				"twin_shell_difference": twin.ammo_spent - shotgun.ammo_spent, "twin_ttk_difference_seconds": twin.ttk_seconds - shotgun.ttk_seconds})
+	report.twin_vs_shotgun = compare
+	report.bounded_recommendations = [
+		"Keep existing enemy HP for the first campaign budget pass; use measured finite ammo and actual encounter exposure before increasing durability.",
+		"Twin buys immediate close heavy-target removal for two shells, not general shell efficiency. Preserve Shotgun as the cheaper close/light-target and medium-range option; test clustered threats before any Twin spread changes.",
+		"Rivet is the rapid precise long-range role, including correctly mapped hardware contacts. Do not describe it as armor-piercing: armor currently changes contact feedback/gib threshold, not damage resistance.",
+		"Single-target perfect Pistol/Rivet aim suppresses all attacks with current guaranteed pain. Keep hurt interruption; create simultaneous threats from distinct angles, usable cover and finite precision ammo rather than adding stealth pain immunity or HP padding.",
+		"At25m every ranged species is outside its14/18/20m release range. Use encounter geometry/range that allows readable ranged commitments, rather than assuming distant visible shooters can immediately threaten.",
+		"Siege is one-rocket direct removal plus visible-area crowd damage; maintain physical blast blockers and close self-risk. Budget rockets against group opportunities, not only one-target HP totals."
+	]
+
+func run() -> void:
+	art = JSON.parse_string(FileAccess.get_file_as_string("res://assets/combat_art.json"))
+	report.source = fingerprints()
+	report.scope = "Independent source-runtime fixed-60Hz calibration using actual Combat.try_fire, native-alpha hurt geometry, swept ordnance, full AI attack ticks and authoritative events. Matrix targets/player stationary; torso aim uses nearest actual opaque triangle and camera-center shots, not physical mouse input, normal encounters, exported executable or human acceptance. Inventory grants are fixture-only, enemies retain current source HP/damage."
+	report.limitations = ["One deterministic accepted-shot seed sequence per stationary torso target; spread contact/TTK is not a statistical hit probability or all-angle moving-target estimate.", "TTK starts at the first accepted shot: one hitscan kill reads zero; reaction/aim/switch time excluded; projectile travel included.", "Matrix intentionally reselects the ordinary idle pose between volleys to isolate distance/native silhouette; full live AI and pain pose pressure measured separately."]
+	for gun in GUNS:
+		var weapon: WeaponDefinition = load("res://resources/weapons/" + gun + ".tres"); var entry := {}
+		for key in ["damage", "pellets", "spread_degrees", "vertical_spread_degrees", "range_units", "cooldown_seconds", "ammo_cost", "ammo_key", "fire_mode", "projectile_speed", "blast_radius", "blast_damage"]: entry[key] = weapon.get(key)
+		report.weapon_definitions[gun] = entry
+	for kind in KINDS:
+		var definition: EnemyDefinition = load("res://resources/enemies/" + kind + ".tres"); var entry := {}
+		for key in ["health", "damage", "ranged", "speed", "attack_range", "windup_seconds", "recovery_seconds", "pain_seconds"]: entry[key] = definition.get(key)
+		report.enemy_definitions[kind] = entry
+		for gun in GUNS:
+			for distance in [1.5, 12.0, 25.0]: await matrix_case(kind, gun, distance)
+		await mapped_precision(kind); await attack_contract(kind)
+		print("COMBAT_ROLES_SPECIES_OK: ", kind, " matrix/material/attack calibration")
+	for mode in ["direct_and_splash", "splash_occluded", "direct_occluded", "near_wall_self_risk"]: await siege_scenario(mode)
+	await inventory_ownership()
+	comparisons()
+	check(fingerprints() == report.source, "critical source definitions unchanged during calibration")
+	report.checks = checks; report.failures = failures; report.status = "passed" if failures.is_empty() else "failed"
+	report.source_facts = ["Rivet precise contact deals 36 on mapped flesh and armor; no armor-specific damage multiplier exists.", "Every nonlethal hit resets pain/state_time and cancels unreleased attacks; preserve that interruption contract.", "Siege aggregates 120 direct + 90 contact blast once; radial 90 falls off over 4.8m and world layer blocks it; player self blast uses separate60 maximum before armor."]
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output.get_base_dir()))
+	var file := FileAccess.open(output, FileAccess.WRITE); file.store_string(JSON.stringify(report, "  ") + "\n"); file.close()
+	print("COMBAT_ROLES_V4_%s: %d checks/%d failures; %d matrix rows" % [report.status.to_upper(), checks, failures.size(), report.matrix.size()])
+	quit(0 if failures.is_empty() else 1)

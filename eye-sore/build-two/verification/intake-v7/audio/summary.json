@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "baseline_commit": "694a5050205575cfc436b2118b295bd45acbc773",
+  "scene_sha256": "cedb55dc41ed5e1ed65b0cfc9b7eb5ad725c41fb4b6c4baf3a19ec7db6131aa4",
+  "reports": {
+    "pickups": {
+      "file": "verification/intake-v7/audio/pickups.json",
+      "sha256": "f66dc75870b80e72e51d240f4cf3419edace692ac32302b43648a85d54dc13bc",
+      "checks": 310,
+      "log": "verification/intake-v7/audio/pickups.log",
+      "log_sha256": "4531d209da1a80d75f50a8a93d11c6a665ed0e1943137cf43103260a86578b4a",
+      "cleanup_diagnostic_present": true
+    },
+    "combat-lifecycle": {
+      "file": "verification/intake-v7/audio/combat-lifecycle.json",
+      "sha256": "939d0122ec7f2dec13fe787d32d5f05c47ea6b5e44fd1f44b25f89230d21cb76",
+      "checks": 488,
+      "log": "verification/intake-v7/audio/combat-lifecycle.log",
+      "log_sha256": "4f394c1dd8a1f8875d3660431c69828429045160d6c2982e77af766481c659a7",
+      "cleanup_diagnostic_present": false
+    },
+    "ward": {
+      "file": "verification/intake-v7/audio/ward.json",
+      "sha256": "2419301ea95b4ec20a506f44912953ff93a122730b201990aab743dc1a11f576",
+      "checks": 272,
+      "log": "verification/intake-v7/audio/ward.log",
+      "log_sha256": "d6417fe110c031e3b02918780ccc31c4fa798832e0a858340380311087ae268b",
+      "cleanup_diagnostic_present": false
+    }
+  },
+  "checks": 1070,
+  "limitations": [
+    "Controlled method dispatch, explicit inventory/power prerequisites and fixture-only positioning; not physical campaign route or human-input proof.",
+    "Headless stream creation and bus routing do not establish subjective audibility, spatial listening quality, or final stereo playback. Coordinator captures actual native Master mix separately.",
+    "The existing 57-cue profile has no door-opening cue/event. Both rejected and accepted shortcut uses produce no false combat/pickup cue; door-audio once-only behavior is not implemented.",
+    "The retained pickup fixture passes all assertions and exits 0 but intermittently emits four ObjectDB/one resource cleanup diagnostics at process shutdown. Verbose rerun emitted none. Initial Ward fixture also emitted these, final Ward and combat/lifecycle logs are clean. No production audio change was made for fixture cleanup."
+  ],
+  "diagnostics": [
+    "diagnostics/assumed-return-store-ammo: initial fixture assumed ordinary ammo existed in sterile store; corrected fixture selects theatre ammo and store vitals, with zero production pickup changes.",
+    "diagnostics/initial-concurrent-exit-cleanup and diagnostics/immediate-fixture-quit retain initial and shutdown diagnostic fixtures/logs. Deferred quit did not reliably remove pickup-fixture shutdown warnings; original retained fixture quit restored."
+  ],
+  "audio_files_preserved": 161,
+  "fixture_sha256": {
+    "pickup_fixture.gd": "decf1e4b0be5ebd4e67449a47f94aa59203c68291ca47a39917c3770a02c9aa7",
+    "combat_fixture.gd": "08839180cced570921e7ee20b71fcb0e2195672a77e00343e1a3713294d51b7b",
+    "ward_fixture.gd": "b0778d48e1cfc1957fac4188099f653f9f64b5fd420de1b4ec9d5b6478a58330"
+  }
+}

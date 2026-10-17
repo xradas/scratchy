@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+CAMPAIGN_ROUTE_START pale_ward_01
+ERROR: RELEASE_STAGE_ROUTE: Sterile supply shortcut was not physically released
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (res://scripts/release_stage_playtest.gd:42)
+       [1] route_run (res://scripts/campaign_route_playtest.gd:569)
+       [2] travel_to (res://scripts/campaign_route_playtest.gd:498)
+       [3] connect_rooms (res://scripts/campaign_route_playtest.gd:259)
+       [4] connect_rooms (res://scripts/release_stage_playtest.gd:305)
+       [5] arena_floor_route (res://scripts/release_stage_playtest.gd:197)
+       [6] walk (res://scripts/campaign_route_playtest.gd:169)
+CAMPAIGN_ALL_ROUTE_FAILED {"failures":["Sterile supply shortcut was not physically released"],"levels_completed":0,"receipt":"/tmp/eyesore-intake-v7-source/normal/campaign-all-route.json"}

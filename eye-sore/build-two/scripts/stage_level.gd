@@ -136,6 +136,12 @@ func missing_requirements(node: Node) -> Array[String]:
 	var result: Array[String] = []
 	for requirement in node.get_meta("requires", []):
 		if not flags.get(String(requirement), false): result.append(String(requirement))
+	# Authored one-way release applies only until its first accepted opening.
+	# Use a world-space door-plane normal: corridor controls can lie outside rooms.
+	if node.has_meta("first_open_normal") and not bool(node.get("opened")):
+		var normal: Vector3 = node.get_meta("first_open_normal")
+		if not is_instance_valid(player) or normal.length_squared() < .0001 or (player.global_position - node.global_position).dot(normal.normalized()) < .05:
+			result.append("first_open_side")
 	return result
 func describe(node: Node3D) -> String:
 	if not missing_requirements(node).is_empty(): return String(node.get_meta("locked_message", "Access locked"))

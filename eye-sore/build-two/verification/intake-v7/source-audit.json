@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "checks": 666,
+  "baseline_commit": "694a5050205575cfc436b2118b295bd45acbc773",
+  "scene_sha256": "cedb55dc41ed5e1ed65b0cfc9b7eb5ad725c41fb4b6c4baf3a19ec7db6131aa4",
+  "changed_baseline_files": [
+    "resources/campaign/pale_ward_01-layout.json",
+    "resources/campaign/pale_ward_01-route.json",
+    "resources/campaign/room-fittings-v6.json",
+    "resources/campaign/room-program-inventory.json",
+    "scenes/campaign/pale_ward_01.tscn",
+    "scripts/campaign_route_playtest.gd",
+    "scripts/stage_level.gd",
+    "tools/package_pale_ward.py"
+  ],
+  "moved_pickups": [
+    "Key_brass_key",
+    "Supply_pistol_service",
+    "Supply_pistol_key_wing",
+    "Supply_pistol_key_console",
+    "Supply_shells_service",
+    "Supply_shells_key_wing",
+    "Supply_shells_key_console",
+    "Supply_health_entry",
+    "Supply_health_service",
+    "Supply_health_key_wing",
+    "Supply_health_key_console",
+    "Supply_health_return_store",
+    "Supply_armor_entry",
+    "Supply_armor_service",
+    "Supply_armor_key_wing",
+    "Supply_armor_key_console",
+    "Supply_armor_return_store"
+  ],
+  "failures": [],
+  "scope": "Source preservation, exact campaign budgets and pickup metadata, explicit first-section deltas and no-secret route solver. Native geometry, interactions, AI and exported run checked separately."
+}

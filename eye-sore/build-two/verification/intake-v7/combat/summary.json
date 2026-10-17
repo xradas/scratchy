@@ -1,0 +1,106 @@
+{
+  "status": "passed",
+  "contacts_checks": 21,
+  "contacts_scene_sha256": "cedb55dc41ed5e1ed65b0cfc9b7eb5ad725c41fb4b6c4baf3a19ec7db6131aa4",
+  "alignment_checks": 719,
+  "roles_checks": 921,
+  "roles_cases": 108,
+  "render_caps": [
+    {
+      "cap": 30,
+      "measured_fps": 30.0080785793569,
+      "accepted_shots": 11,
+      "visible_muzzle_draws": 22,
+      "failures": []
+    },
+    {
+      "cap": 60,
+      "measured_fps": 60.0051634695288,
+      "accepted_shots": 11,
+      "visible_muzzle_draws": 33,
+      "failures": []
+    },
+    {
+      "cap": 120,
+      "measured_fps": 120.048766028149,
+      "accepted_shots": 11,
+      "visible_muzzle_draws": 66,
+      "failures": []
+    }
+  ],
+  "same_physics_acceptance_and_ammo": true,
+  "windows": [
+    {
+      "weapon": "pistol",
+      "accepted_ticks": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "ammo_spent": 6
+    },
+    {
+      "weapon": "shotgun",
+      "accepted_ticks": [
+        0,
+        51,
+        102
+      ],
+      "ammo_spent": 3
+    },
+    {
+      "weapon": "twin_shotgun",
+      "accepted_ticks": [
+        0,
+        72
+      ],
+      "ammo_spent": 4
+    }
+  ],
+  "preserved_critical_sources": [
+    {
+      "file": "scripts/combat.gd",
+      "sha256": "84e8b3327b3cd77cbf1ebfeac5a5df6647834217afc0ab27541b3dcae041725f",
+      "byte_identical": true
+    },
+    {
+      "file": "scripts/weapon_presentation.gd",
+      "sha256": "c0eb8ffaec3a2bcafadb2e24f446a3e8c8f13c961ec82825fcbf5b4e4741ca0a",
+      "byte_identical": true
+    },
+    {
+      "file": "scripts/crosshair.gd",
+      "sha256": "3ac891f333c5d203bd777904199855bc7bec1a419e3efdfadf98a6bdc7a3fd63",
+      "byte_identical": true
+    },
+    {
+      "file": "scripts/player.gd",
+      "sha256": "8b1107491fa24cd6dd637431788e7724175394f701101798e8a9d3c0a4ea8600",
+      "byte_identical": true
+    },
+    {
+      "file": "scripts/main.gd",
+      "sha256": "46f22f5b9b3a8443172a18e799fb1639d20f3be7d3266365114223153b479133",
+      "byte_identical": true
+    },
+    {
+      "file": "assets/combat_art.json",
+      "sha256": "dd6149007fc2426a33c9825d20d2a9f5903243a67bb588432eba36129b9052d9",
+      "byte_identical": true
+    }
+  ],
+  "limitations": [
+    "Source Godot executable fixtures, not exported package playthrough.",
+    "Native rendering cadence uses actual Main Intake with all 36 AI removed, fixed actor/camera, declared ammo grants and a new fixture wall; does not measure live encounter performance.",
+    "Contact fixture moves existing enemy/player, raises target HP to1000, grants Twin shells and freezes AI. It verifies native silhouette/real furnishing contacts rather than ordinary progression or aim feel.",
+    "Role matrix uses its historical calibration world, six enemy species and stationary torso-aim distance cases; does not assert new room encounter balance.",
+    "Human physical mouse feel, visual alignment judgment, live finite-ammo route and listening remain coordinator/user acceptance.",
+    "Successful contact/alignment runs retain ObjectDB/resource-use shutdown warnings. A transient missing prop during concurrent scene authoring was terminated and retained separately; successful rerun is authoritative.",
+    "The first rate fixture treated already-selected pistol as failed no-op selection; diagnostic retained, fixture corrected without production changes."
+  ],
+  "final_contact_rerun": "contacts-current-final.log",
+  "render_cadence_scope": "Native cap receipts precede only the final Intake floor correction. Player/combat/weapon presentation scripts, weapon resources and ammo budgets remain byte-identical; final contacts and foundation rate probes separately cover corrected scene."
+}

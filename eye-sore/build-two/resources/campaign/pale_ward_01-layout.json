@@ -38,14 +38,14 @@
       "id": "entry",
       "label": "Patient intake",
       "center": [
-        0.0,
         0,
-        0.0
+        0,
+        0
       ],
       "size": [
-        24.0,
+        24,
         6,
-        32.0
+        26
       ],
       "secret": false,
       "arena_id": "",
@@ -57,14 +57,14 @@
       "id": "service",
       "label": "Decontamination",
       "center": [
-        0.0,
+        0,
         1.5,
-        -38.0
+        -38
       ],
       "size": [
-        12.0,
+        18,
         5,
-        28.0
+        16
       ],
       "secret": false,
       "arena_id": "",
@@ -76,19 +76,19 @@
       "id": "arena_one",
       "label": "Emergency triage",
       "center": [
-        0.0,
-        -1.0,
-        -76.0
+        0,
+        -1,
+        -76
       ],
       "size": [
-        36.0,
+        36,
         10,
-        40.0
+        40
       ],
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 2.0,
-      "encounter": "sealed weapon cache",
+      "encounter": "triage cache lure / far-alcove ranged warning / melee advance",
       "function": "triage_ward",
       "layout_mode": "bed_bays",
       "light_family": "clinical_sick_green"
@@ -97,14 +97,14 @@
       "id": "key_wing",
       "label": "Diagnostics corridor",
       "center": [
-        38.0,
+        36,
         1.5,
-        -76.0
+        -76
       ],
       "size": [
-        12,
+        16,
         5,
-        14
+        18
       ],
       "secret": false,
       "arena_id": "",
@@ -116,14 +116,14 @@
       "id": "key_console",
       "label": "Operating theatre",
       "center": [
-        38.0,
+        62,
         1.5,
-        -105.0
+        -76
       ],
       "size": [
-        12,
+        18,
         5,
-        14
+        20
       ],
       "secret": false,
       "arena_id": "",
@@ -135,14 +135,14 @@
       "id": "return_store",
       "label": "Sterile supply return",
       "center": [
-        34.0,
+        62,
         1.5,
-        -38.0
+        -38
       ],
       "size": [
-        12,
+        14,
         5,
-        10
+        14
       ],
       "secret": false,
       "arena_id": "",
@@ -446,7 +446,7 @@
       "lift": false
     },
     {
-      "from": "key_wing",
+      "from": "key_console",
       "to": "return_store",
       "width": 4.0,
       "gate": "",
@@ -460,10 +460,19 @@
       "to": "service",
       "width": 4.0,
       "gate": "shortcut_one",
-      "requires": [],
+      "requires": [
+        "breaker",
+        "brass_key"
+      ],
       "secret": false,
       "shortcut": true,
-      "lift": false
+      "lift": false,
+      "first_open_normal": [
+        1,
+        0,
+        0
+      ],
+      "locked_message": "Brass key and power required \u00b7 release from sterile supply side"
     },
     {
       "from": "arena_one",
@@ -803,6 +812,55 @@
     }
   },
   "campaign_level_id": "pale_ward_01",
+  "intake_section_version": 7,
+  "intake_v7_clearance": [
+    [
+      0,
+      -76,
+      6,
+      38
+    ],
+    [
+      0,
+      -76,
+      34,
+      4
+    ],
+    [
+      -14.2,
+      -76,
+      2,
+      30
+    ],
+    [
+      14.2,
+      -76,
+      2,
+      30
+    ]
+  ],
+  "intake_v7_encounter": {
+    "arena": "arena_one",
+    "bait": "Bait_arena_one",
+    "count": 5,
+    "ranged_slot": "west_north",
+    "wake": "all closet shutters fully open",
+    "control": "breaker",
+    "requires": [
+      "clear_arena_one"
+    ],
+    "retreat": "entry seals only beyond 3m threshold and empty actor sweep; reopens on clear",
+    "shortcut": "shortcut_one",
+    "shortcut_requirements": [
+      "breaker",
+      "brass_key"
+    ],
+    "shortcut_first_open_normal": [
+      1,
+      0,
+      0
+    ]
+  },
   "theme": "pale_ward",
   "title": "Intake",
   "subtitle": "Ward arrival / sunken triage"

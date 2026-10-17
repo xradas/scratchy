@@ -561,6 +561,13 @@ func route_run() -> void:
 	if not await travel_to("arena_one"): return
 	if not await clear_arena("arena_one") or not await button("breaker"): return
 	if not await travel_to("key_console") or not await key_room("key_console", "brass_key"): return
+	if level_id == "pale_ward_01" and route.get("intake_section_version", 0) == 7:
+		# Explicitly exercise the new authored return loop instead of allowing
+		# the graph's shortest path to backtrack through diagnostics.
+		if not await travel_to("return_store"): return
+		if not await connect_rooms("return_store", "service"): return
+		current_route_room = "service"
+		if not require(world.shortcuts.has("shortcut_one"), "Sterile supply shortcut was not physically released"): return
 	if not await travel_to("arena_two"): return
 	if not await clear_arena("arena_two") or not await button("release"): return
 	if not await travel_to("red_console") or not await key_room("red_console", "red_key"): return

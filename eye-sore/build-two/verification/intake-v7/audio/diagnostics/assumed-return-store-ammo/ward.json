@@ -1,0 +1,89 @@
+{
+  "actual_collections": [
+    {
+      "cue_count_delta": 1,
+      "events": [
+        {
+          "amount": 1,
+          "item_kind": "brass_key",
+          "material": "",
+          "new_weapon": false,
+          "pickup_id": 293114748255,
+          "position": "(62.0, 2.1, -79.0)",
+          "shot_id": 0,
+          "target_id": "",
+          "type": "item_collected",
+          "weapon_id": ""
+        }
+      ],
+      "kind": "brass_key",
+      "node": "Key_brass_key",
+      "position": "(62.0, 2.1, -79.0)"
+    },
+    {
+      "cue_count_delta": 1,
+      "events": [
+        {
+          "amount": 1.0,
+          "item_kind": "health",
+          "material": "",
+          "new_weapon": false,
+          "pickup_id": 297241939558,
+          "position": "(61.2, 2.0, -35.2)",
+          "shot_id": 0,
+          "target_id": "",
+          "type": "item_collected",
+          "weapon_id": ""
+        }
+      ],
+      "kind": "health",
+      "node": "Supply_health_return_store",
+      "position": "(61.2, 2.0, -35.2)"
+    },
+    {
+      "cue_count_delta": 1,
+      "events": [
+        {
+          "amount": 1.0,
+          "item_kind": "armor",
+          "material": "",
+          "new_weapon": false,
+          "pickup_id": 298902887998,
+          "position": "(62.8, 2.0, -35.2)",
+          "shot_id": 0,
+          "target_id": "",
+          "type": "item_collected",
+          "weapon_id": ""
+        }
+      ],
+      "kind": "armor",
+      "node": "Supply_armor_return_store",
+      "position": "(62.8, 2.0, -35.2)"
+    }
+  ],
+  "checks": 240,
+  "failures": [
+    "real authored final Ward pickup Supply_pistol_return_store",
+    "real authored final Ward pickup Supply_shells_return_store"
+  ],
+  "passed": false,
+  "pause_playback_drift_seconds": 0.0,
+  "preservation": {
+    "added_cues": 9,
+    "distinct_pickup_exports": 9,
+    "old_profile_cues": 48,
+    "prior_audio_files_unchanged": 59,
+    "source_recordings": 7
+  },
+  "scene_sha256": "cedb55dc41ed5e1ed65b0cfc9b7eb5ad725c41fb4b6c4baf3a19ec7db6131aa4",
+  "scope": "Controlled actual Main final Intake scene: authored brass key and four sterile-supply pickups collected directly, explicit inventory/power prerequisites, Stage.try_use with real selection and physics LOS from opposite shortcut sides. No human input, physical route completion, subjective audibility or stereo recording claimed.",
+  "shortcut": {
+    "accepted_side": "(33.4, 2.6, -38.0)",
+    "actual_stage_try_use": true,
+    "audio_cue_count_delta": 0,
+    "door_audio_present": false,
+    "door_opened": true,
+    "note": "Existing 57-cue profile has no door cue or door event; this is an explicit known limitation, not a once-only door-audio pass.",
+    "rejected_side": "(30.6, 2.6, -38.0)"
+  }
+}

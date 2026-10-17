@@ -1,0 +1,66 @@
+[
+  {
+    "original": "tools/check_weapon_alignment_v3.gd",
+    "original_sha256": "f5fc6ef78cc1019afcf4e6aa22b7caa088cb99b27f9ef8b4cde78f1f6a8765d1",
+    "fixture": "/tmp/eyesore-intake-v7-alignment.gd",
+    "fixture_sha256": "824532fc42f7cbc667cfc1603c2a38ab4e05264f3d3557883eff3d6d4f270bb1",
+    "replacements": [
+      [
+        "res://verification/weapon-alignment-v3",
+        "res://verification/intake-v7/combat/alignment"
+      ]
+    ],
+    "retained_fixture": "verification/intake-v7/combat/eyesore-intake-v7-alignment.gd.txt"
+  },
+  {
+    "original": "tools/check_combat_roles_v4.gd",
+    "original_sha256": "99f9dd6cf56da60ba6c203cf74fd7b5129d49bf55ffba296cd5fe8bef2e7d7b4",
+    "fixture": "/tmp/eyesore-intake-v7-roles.gd",
+    "fixture_sha256": "891079185c6637669ff6403658507830b38cfe45c3a05fb64c2d9bb348bb2725",
+    "replacements": [
+      [
+        "res://verification/combat-balance-v4/weapon-roles.json",
+        "res://verification/intake-v7/combat/weapon-roles.json"
+      ]
+    ],
+    "retained_fixture": "verification/intake-v7/combat/eyesore-intake-v7-roles.gd.txt"
+  },
+  {
+    "original": "tools/check_arsenal_render_rates.gd",
+    "original_sha256": "9e8dba8a9e47667ca80f26a9b292454bb2e0f0a17eab4117c60250f8fe4a3117",
+    "fixture": "/tmp/eyesore-intake-v7-rates.gd",
+    "fixture_sha256": "c9090526c42bbc6b7f542c9f8f27781e63192f7f567be19f2e1c0843e781b4c3",
+    "replacements": [
+      [
+        "res://verification/arsenal-architecture-v2/rates",
+        "res://verification/intake-v7/combat/rates"
+      ],
+      [
+        "[&\"twin_shotgun\",&\"rivet_cannon\",&\"siege_launcher\"]",
+        "[&\"pistol\",&\"shotgun\",&\"twin_shotgun\"]"
+      ],
+      [
+        "\"--calibration\" not in OS.get_cmdline_user_args()",
+        "\"--campaign-level=pale_ward_01\" not in OS.get_cmdline_user_args()"
+      ],
+      [
+        "\"--calibration --automated-input",
+        "\"--campaign-level=pale_ward_01 --automated-input"
+      ],
+      [
+        "Vector3(0,.87,10)",
+        "Vector3(0,.87,0)"
+      ],
+      [
+        "Vector3(0,1.52,-2)",
+        "Vector3(0,1.52,-10)"
+      ],
+      [
+        "check(explosions.size()==siege_shots.size(),",
+        "check(explosions.size()==siege_shots.size(),"
+      ]
+    ],
+    "additional_adaptation": "Accept already-selected pistol at first window; select_weapon correctly rejects no-op selection. First diagnostic retained.",
+    "retained_fixture": "verification/intake-v7/combat/eyesore-intake-v7-rates.gd.txt"
+  }
+]

@@ -1,0 +1,528 @@
+{
+  "schema_version": 1,
+  "id": "pale_ward_01",
+  "source_programme": "docs/room-program-v6/levels.json",
+  "design": "Six-room clinical opening; deliberately arranged east-side surgical return loop. All other room centres, footprints, roster and supply allocations stay unchanged.",
+  "rooms": [
+    {
+      "id": "entry",
+      "label": "Patient intake",
+      "function": "triage_reception",
+      "layout_mode": "triage_reception_fitted_workstations",
+      "objects": [
+        {
+          "id": "pale_ward_01.entry.intake_desk.01",
+          "type": "intake_desk",
+          "count": 1,
+          "purpose": "Patient intake: intake desk",
+          "placement": "Explicit v7 clinical work cell; checked against physical fixtures, portal lanes, pickups and NPC spawns.",
+          "authored_positions": [
+            [
+              7,
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.entry.waiting_bench.02",
+          "type": "waiting_bench",
+          "count": 1,
+          "purpose": "Patient intake: waiting bench",
+          "placement": "Explicit v7 clinical work cell; checked against physical fixtures, portal lanes, pickups and NPC spawns.",
+          "authored_positions": [
+            [
+              9,
+              5.8,
+              90
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.entry.records_cabinet.03",
+          "type": "records_cabinet",
+          "count": 1,
+          "purpose": "Patient intake: records cabinet",
+          "placement": "Explicit v7 clinical work cell; checked against physical fixtures, portal lanes, pickups and NPC spawns.",
+          "authored_positions": [
+            [
+              4,
+              9,
+              -90
+            ]
+          ]
+        }
+      ],
+      "presentation": "fitted room; clustered equipment and alcoves; central circulation remains readable",
+      "light_family": "clinical_sick_green",
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        24,
+        6,
+        26
+      ],
+      "authored_size_xz": [
+        24,
+        26
+      ]
+    },
+    {
+      "id": "service",
+      "label": "Decontamination",
+      "function": "decontamination",
+      "layout_mode": "decontamination_fitted_workstations",
+      "objects": [
+        {
+          "id": "pale_ward_01.service.decon_frame.01",
+          "type": "decon_frame",
+          "count": 1,
+          "purpose": "Decontamination: decon frame",
+          "placement": "perimeter work bay; reserve portals and authored traversal lanes"
+        },
+        {
+          "id": "pale_ward_01.service.filter_unit.02",
+          "type": "filter_unit",
+          "count": 1,
+          "purpose": "Decontamination: filter unit",
+          "placement": "perimeter work bay; reserve portals and authored traversal lanes"
+        },
+        {
+          "id": "pale_ward_01.service.ppe_locker.03",
+          "type": "ppe_locker",
+          "count": 1,
+          "purpose": "Decontamination: ppe locker",
+          "placement": "perimeter work bay; reserve portals and authored traversal lanes"
+        }
+      ],
+      "presentation": "fitted room; clustered equipment and alcoves; central circulation remains readable",
+      "light_family": "clinical_sick_green",
+      "center": [
+        0,
+        1.5,
+        -38
+      ],
+      "size": [
+        18,
+        5,
+        16
+      ],
+      "authored_size_xz": [
+        18,
+        16
+      ]
+    },
+    {
+      "id": "arena_one",
+      "label": "Emergency triage",
+      "function": "triage_ward",
+      "layout_mode": "bed_bays",
+      "objects": [
+        {
+          "id": "pale_ward_01.arena_one.medical_bed.01",
+          "type": "medical_bed",
+          "count": 4,
+          "purpose": "Emergency triage: medical bed",
+          "placement": "perimeter work bay; reserve portals and authored traversal lanes"
+        },
+        {
+          "id": "pale_ward_01.arena_one.privacy_screen.02",
+          "type": "privacy_screen",
+          "count": 2,
+          "purpose": "Emergency triage: privacy screen",
+          "placement": "perimeter work bay; reserve portals and authored traversal lanes"
+        },
+        {
+          "id": "pale_ward_01.arena_one.vital_monitor.03",
+          "type": "vital_monitor",
+          "count": 2,
+          "purpose": "Emergency triage: vital monitor",
+          "placement": "perimeter work bay; reserve portals and authored traversal lanes"
+        }
+      ],
+      "presentation": "fitted room; clustered equipment and alcoves; central circulation remains readable",
+      "light_family": "clinical_sick_green",
+      "center": [
+        0,
+        -1,
+        -76
+      ],
+      "size": [
+        36,
+        10,
+        40
+      ],
+      "authored_size_xz": [
+        36,
+        40
+      ]
+    },
+    {
+      "id": "key_wing",
+      "label": "Diagnostics corridor",
+      "function": "diagnostics",
+      "layout_mode": "diagnostics_fitted_workstations",
+      "objects": [
+        {
+          "id": "pale_ward_01.key_wing.scan_console.01",
+          "type": "scan_console",
+          "count": 1,
+          "purpose": "Diagnostics corridor: scan console",
+          "placement": "Explicit v7 clinical work cell; checked against physical fixtures, portal lanes, pickups and NPC spawns.",
+          "authored_positions": [
+            [
+              4,
+              -6.5,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.key_wing.instrument_bench.02",
+          "type": "instrument_bench",
+          "count": 1,
+          "purpose": "Diagnostics corridor: instrument bench",
+          "placement": "Explicit v7 clinical work cell; checked against physical fixtures, portal lanes, pickups and NPC spawns.",
+          "authored_positions": [
+            [
+              0,
+              -6.5,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.key_wing.specimen_fridge.03",
+          "type": "specimen_fridge",
+          "count": 1,
+          "purpose": "Diagnostics corridor: specimen fridge",
+          "placement": "Explicit v7 clinical work cell; checked against physical fixtures, portal lanes, pickups and NPC spawns.",
+          "authored_positions": [
+            [
+              -4,
+              -6.5,
+              0
+            ]
+          ]
+        }
+      ],
+      "presentation": "fitted room; clustered equipment and alcoves; central circulation remains readable",
+      "light_family": "clinical_sick_green",
+      "authored_size_xz": [
+        16,
+        18
+      ],
+      "geometry_reason": "Usable working room proportions from function, removing oversized empty margins; keep world centre/elevation and derive safe portal connectors.",
+      "center": [
+        36,
+        1.5,
+        -76
+      ],
+      "size": [
+        16,
+        5,
+        18
+      ]
+    },
+    {
+      "id": "key_console",
+      "label": "Operating theatre",
+      "function": "surgery",
+      "layout_mode": "surgery_fitted_workstations",
+      "objects": [
+        {
+          "id": "pale_ward_01.key_console.surgical_table.01",
+          "type": "surgical_table",
+          "count": 1,
+          "purpose": "Operating theatre: surgical table",
+          "placement": "Explicit v7 clinical work cell; checked against physical fixtures, portal lanes, pickups and NPC spawns.",
+          "authored_positions": [
+            [
+              4.6,
+              -3.5,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.key_console.instrument_bench.02",
+          "type": "instrument_bench",
+          "count": 1,
+          "purpose": "Operating theatre: instrument bench",
+          "placement": "Explicit v7 clinical work cell; checked against physical fixtures, portal lanes, pickups and NPC spawns.",
+          "authored_positions": [
+            [
+              4.6,
+              -5.8,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.key_console.surgical_lamp.03",
+          "type": "surgical_lamp",
+          "count": 1,
+          "purpose": "Operating theatre: surgical lamp",
+          "placement": "Explicit v7 clinical work cell; checked against physical fixtures, portal lanes, pickups and NPC spawns.",
+          "authored_positions": [
+            [
+              6.8,
+              -3.5,
+              0
+            ]
+          ]
+        }
+      ],
+      "presentation": "fitted room; clustered equipment and alcoves; central circulation remains readable",
+      "light_family": "clinical_sick_green",
+      "authored_size_xz": [
+        18,
+        20
+      ],
+      "geometry_reason": "Usable working room proportions from function, removing oversized empty margins; keep world centre/elevation and derive safe portal connectors.",
+      "center": [
+        62,
+        1.5,
+        -76
+      ],
+      "size": [
+        18,
+        5,
+        20
+      ]
+    },
+    {
+      "id": "return_store",
+      "label": "Sterile supply return",
+      "function": "medical_stores",
+      "layout_mode": "medical_stores_fitted_workstations",
+      "objects": [
+        {
+          "id": "pale_ward_01.return_store.medical_cabinet.01",
+          "type": "medical_cabinet",
+          "count": 1,
+          "purpose": "Sterile supply return: medical cabinet",
+          "placement": "perimeter work bay; reserve portals and authored traversal lanes"
+        },
+        {
+          "id": "pale_ward_01.return_store.supply_cart.02",
+          "type": "supply_cart",
+          "count": 1,
+          "purpose": "Sterile supply return: supply cart",
+          "placement": "perimeter work bay; reserve portals and authored traversal lanes"
+        },
+        {
+          "id": "pale_ward_01.return_store.records_cabinet.03",
+          "type": "records_cabinet",
+          "count": 1,
+          "purpose": "Sterile supply return: records cabinet",
+          "placement": "perimeter work bay; reserve portals and authored traversal lanes"
+        }
+      ],
+      "presentation": "fitted room; clustered equipment and alcoves; central circulation remains readable",
+      "light_family": "clinical_sick_green",
+      "authored_size_xz": [
+        14,
+        14
+      ],
+      "geometry_reason": "Usable working room proportions from function, removing oversized empty margins; keep world centre/elevation and derive safe portal connectors.",
+      "center": [
+        62,
+        1.5,
+        -38
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ]
+    }
+  ],
+  "portal_replacement": {
+    "remove": [
+      "key_wing",
+      "return_store"
+    ],
+    "add": [
+      "key_console",
+      "return_store"
+    ]
+  },
+  "shortcut": {
+    "id": "shortcut_one",
+    "requires": [
+      "breaker",
+      "brass_key"
+    ],
+    "first_open_normal": [
+      1,
+      0,
+      0
+    ],
+    "first_open_side": "sterile supply/east; traversable both ways after opening"
+  },
+  "ordered_route": [
+    "entry",
+    "service",
+    "arena_one",
+    "key_wing",
+    "key_console",
+    "return_store",
+    "service",
+    "arena_one",
+    "spine"
+  ],
+  "clearance_rectangles_xz": [
+    [
+      0,
+      -76,
+      6,
+      38
+    ],
+    [
+      0,
+      -76,
+      34,
+      4
+    ],
+    [
+      -14.2,
+      -76,
+      2,
+      30
+    ],
+    [
+      14.2,
+      -76,
+      2,
+      30
+    ]
+  ],
+  "progression_objects": [
+    {
+      "id": "breaker",
+      "type": "switch",
+      "room": "arena_one",
+      "requires": [
+        "clear_arena_one"
+      ],
+      "sets": [
+        "breaker",
+        "power"
+      ],
+      "opens": [
+        "breaker"
+      ],
+      "purpose": "Emergency triage power / access control"
+    },
+    {
+      "id": "brass_key",
+      "type": "key",
+      "room": "key_console",
+      "requires": [
+        "power"
+      ],
+      "sets": [
+        "brass_key"
+      ],
+      "opens": [
+        "brass_gate"
+      ],
+      "purpose": "Operating theatre access credential"
+    },
+    {
+      "id": "brass_gate",
+      "type": "gate",
+      "requires": [
+        "breaker",
+        "brass_key"
+      ],
+      "leads_to": "spine"
+    },
+    {
+      "id": "release",
+      "type": "switch",
+      "room": "arena_two",
+      "requires": [
+        "clear_arena_two"
+      ],
+      "sets": [
+        "release"
+      ],
+      "opens": [
+        "release"
+      ],
+      "purpose": "Isolation ward onward release"
+    },
+    {
+      "id": "red_key",
+      "type": "key",
+      "room": "red_console",
+      "requires": [
+        "power"
+      ],
+      "sets": [
+        "red_key"
+      ],
+      "opens": [
+        "red_gate"
+      ],
+      "purpose": "Pathology office high security credential",
+      "primary_route_access": [
+        "release"
+      ],
+      "note": "The primary route is released by the second control. Return shortcuts can expose this key earlier; the final red gate still requires release and red_key."
+    },
+    {
+      "id": "red_gate",
+      "type": "gate",
+      "requires": [
+        "release",
+        "red_key"
+      ],
+      "leads_to": "final_arena"
+    },
+    {
+      "id": "exit_control",
+      "type": "switch",
+      "room": "final_arena",
+      "requires": [
+        "clear_final_arena"
+      ],
+      "sets": [
+        "exit_control"
+      ],
+      "opens": [
+        "exit_gate"
+      ]
+    },
+    {
+      "id": "exit",
+      "type": "exit",
+      "room": "exit_gallery",
+      "requires": [
+        "brass_key",
+        "red_key",
+        "exit_control"
+      ]
+    }
+  ],
+  "unchanged_room_ids": [
+    "spine",
+    "arena_two",
+    "red_wing",
+    "red_console",
+    "final_arena",
+    "exit_gallery",
+    "supplies",
+    "maintenance",
+    "pump_room",
+    "armory",
+    "secret_one",
+    "secret_two",
+    "observation"
+  ]
+}

@@ -6,14 +6,14 @@
       "id": "entry",
       "label": "Patient intake",
       "center": [
-        0.0,
         0,
-        0.0
+        0,
+        0
       ],
       "size": [
-        24.0,
+        24,
         6,
-        32.0
+        26
       ],
       "secret": false,
       "arena_id": "",
@@ -25,14 +25,14 @@
       "id": "service",
       "label": "Decontamination",
       "center": [
-        0.0,
+        0,
         1.5,
-        -38.0
+        -38
       ],
       "size": [
-        12.0,
+        18,
         5,
-        28.0
+        16
       ],
       "secret": false,
       "arena_id": "",
@@ -44,19 +44,19 @@
       "id": "arena_one",
       "label": "Emergency triage",
       "center": [
-        0.0,
-        -1.0,
-        -76.0
+        0,
+        -1,
+        -76
       ],
       "size": [
-        36.0,
+        36,
         10,
-        40.0
+        40
       ],
       "secret": false,
       "arena_id": "arena_one",
       "chamfer": 2.0,
-      "encounter": "sealed weapon cache",
+      "encounter": "triage cache lure / far-alcove ranged warning / melee advance",
       "function": "triage_ward",
       "layout_mode": "bed_bays",
       "light_family": "clinical_sick_green"
@@ -65,14 +65,14 @@
       "id": "key_wing",
       "label": "Diagnostics corridor",
       "center": [
-        38.0,
+        36,
         1.5,
-        -76.0
+        -76
       ],
       "size": [
-        12,
+        16,
         5,
-        14
+        18
       ],
       "secret": false,
       "arena_id": "",
@@ -84,14 +84,14 @@
       "id": "key_console",
       "label": "Operating theatre",
       "center": [
-        38.0,
+        62,
         1.5,
-        -105.0
+        -76
       ],
       "size": [
-        12,
+        18,
         5,
-        14
+        20
       ],
       "secret": false,
       "arena_id": "",
@@ -103,14 +103,14 @@
       "id": "return_store",
       "label": "Sterile supply return",
       "center": [
-        34.0,
+        62,
         1.5,
-        -38.0
+        -38
       ],
       "size": [
-        12,
+        14,
         5,
-        10
+        14
       ],
       "secret": false,
       "arena_id": "",
@@ -381,19 +381,19 @@
       "shortcut": false,
       "lift": false,
       "start": [
-        0.0,
         0,
-        -16.0
+        0,
+        -13.0
       ],
       "end": [
-        0.0,
+        0,
         1.5,
-        -24.0
+        -30.0
       ],
       "middle": [
         0.0,
         0.75,
-        -20.0
+        -21.5
       ],
       "axis": 2,
       "door": "Door_entry_gate"
@@ -409,19 +409,19 @@
       "lift": false,
       "trap_entry": "TrapEntry_arena_one",
       "start": [
-        0.0,
+        0,
         1.5,
-        -52.0
+        -46.0
       ],
       "end": [
-        0.0,
-        -1.0,
+        0,
+        -1,
         -56.0
       ],
       "middle": [
         0.0,
         0.25,
-        -54.0
+        -51.0
       ],
       "axis": 2,
       "door": null
@@ -439,16 +439,16 @@
       "lift": false,
       "start": [
         18.0,
-        -1.0,
-        -76.0
+        -1,
+        -76
       ],
       "end": [
-        32.0,
+        28.0,
         1.5,
-        -76.0
+        -76
       ],
       "middle": [
-        25.0,
+        23.0,
         0.25,
         -76.0
       ],
@@ -465,25 +465,25 @@
       "shortcut": false,
       "lift": false,
       "start": [
-        38.0,
+        44.0,
         1.5,
-        -83.0
+        -76
       ],
       "end": [
-        38.0,
+        53.0,
         1.5,
-        -98.0
+        -76
       ],
       "middle": [
-        38.0,
+        48.5,
         1.5,
-        -90.5
+        -76.0
       ],
-      "axis": 2,
+      "axis": 0,
       "door": null
     },
     {
-      "from": "key_wing",
+      "from": "key_console",
       "to": "return_store",
       "width": 4.0,
       "gate": "",
@@ -492,19 +492,19 @@
       "shortcut": false,
       "lift": false,
       "start": [
-        38.0,
+        62,
         1.5,
-        -69.0
+        -66.0
       ],
       "end": [
-        38.0,
+        62,
         1.5,
-        -43.0
+        -45.0
       ],
       "middle": [
-        38.0,
+        62.0,
         1.5,
-        -56.0
+        -55.5
       ],
       "axis": 2,
       "door": null
@@ -514,22 +514,31 @@
       "to": "service",
       "width": 4.0,
       "gate": "shortcut_one",
-      "requires": [],
+      "requires": [
+        "breaker",
+        "brass_key"
+      ],
       "secret": false,
       "shortcut": true,
       "lift": false,
+      "first_open_normal": [
+        1,
+        0,
+        0
+      ],
+      "locked_message": "Brass key and power required \u00b7 release from sterile supply side",
       "start": [
-        28.0,
+        55.0,
         1.5,
-        -38.0
+        -38
       ],
       "end": [
-        6.0,
+        9.0,
         1.5,
-        -38.0
+        -38
       ],
       "middle": [
-        17.0,
+        32.0,
         1.5,
         -38.0
       ],
@@ -549,12 +558,12 @@
       "shortcut": false,
       "lift": false,
       "start": [
-        0.0,
-        -1.0,
+        0,
+        -1,
         -96.0
       ],
       "end": [
-        0.0,
+        0,
         1.5,
         -111.0
       ],
@@ -985,73 +994,51 @@
     }
   },
   "vertical_routes": {
-    "service_balcony": [
-      [
-        3.8,
-        1.5,
-        -25.0
-      ],
-      [
-        3.8,
-        4.0,
-        -34.0
-      ],
-      [
-        3.8,
-        4.0,
-        -42.0
-      ],
-      [
-        3.8,
-        1.5,
-        -51.0
-      ]
-    ],
     "arena_one_gallery": [
       [
-        -7.0,
-        -1.0,
+        -7,
+        -1,
         -59.400000000000006
       ],
       [
-        -7.0,
+        -7,
         1.5,
         -68.4
       ],
       [
-        -7.0,
+        -7,
         1.5,
         -83.6
       ],
       [
-        -7.0,
-        -1.0,
+        -7,
+        -1,
         -92.6
       ]
     ],
     "arena_one_rim": [
       [
-        7.0,
-        -1.0,
+        7,
+        -1,
         -59.400000000000006
       ],
       [
-        7.0,
+        7,
         1.5,
         -68.4
       ],
       [
-        -7.0,
+        -7,
         1.5,
         -70.2
       ],
       [
-        -7.0,
+        -7,
         1.5,
         -81.8
       ],
       [
-        7.0,
+        7,
         1.5,
         -81.8
       ]
@@ -1133,25 +1120,25 @@
       [
         [
           -4.3,
-          -1.0,
-          -66.0
+          -1,
+          -66
         ],
         [
           -4.3,
-          -1.0,
-          -86.0
+          -1,
+          -86
         ]
       ],
       [
         [
           4.3,
-          -1.0,
-          -66.0
+          -1,
+          -66
         ],
         [
           4.3,
-          -1.0,
-          -86.0
+          -1,
+          -86
         ]
       ]
     ],
@@ -1209,6 +1196,7 @@
     ]
   },
   "theme": "pale_ward",
+  "intake_section_version": 7,
   "title": "Intake",
   "subtitle": "Ward arrival / sunken triage",
   "entry_weapon": "twin_shotgun",
@@ -1216,63 +1204,63 @@
     "arena_one": [
       [
         -4.3,
-        -1.0,
-        -76.0
+        -1,
+        -76
       ],
       [
         -11.0,
-        -1.0,
-        -76.0
+        -1,
+        -76
       ],
       [
         -11.0,
-        -1.0,
-        -85.0
+        -1,
+        -85
       ],
       [
         -11.0,
-        -1.0,
-        -79.0
+        -1,
+        -79
       ],
       [
         -11.0,
-        -1.0,
-        -73.0
+        -1,
+        -73
       ],
       [
         -11.0,
-        -1.0,
-        -67.0
+        -1,
+        -67
       ],
       [
         4.3,
-        -1.0,
-        -76.0
+        -1,
+        -76
       ],
       [
         11.0,
-        -1.0,
-        -76.0
+        -1,
+        -76
       ],
       [
         11.0,
-        -1.0,
-        -85.0
+        -1,
+        -85
       ],
       [
         11.0,
-        -1.0,
-        -79.0
+        -1,
+        -79
       ],
       [
         11.0,
-        -1.0,
-        -73.0
+        -1,
+        -73
       ],
       [
         11.0,
-        -1.0,
-        -67.0
+        -1,
+        -67
       ]
     ],
     "arena_two": [

@@ -1,0 +1,18 @@
+{
+  "baseline_commit": "694a5050205575cfc436b2118b295bd45acbc773",
+  "original_fixtures": {
+    "tools/check_pickup_audio_v6.gd": "68a812ec3cd05330f407c777b3056a569919044540495124a4c3e1165d058923",
+    "tools/check_balance_audio_v4.gd": "fa975dbc057fc30bce9c26fe65c3b9d7bd6d5c8eb35df11b6524612ea6e3126b"
+  },
+  "changes": [
+    "Pickup fixture: redirect output only; original Ash01 actual Main 9-type pickup coverage retained.",
+    "Combat fixture: preservation baseline moved to accepted v6 694a5050, cue count 48\u219257, actual partial pickup now expects its existing v6 item_collected receipt and one UI cue; output redirected."
+  ],
+  "scope": "Retained adapted fixtures; old fixture source and prior receipts unchanged.",
+  "final_fixtures": {
+    "pickup_fixture.gd": "decf1e4b0be5ebd4e67449a47f94aa59203c68291ca47a39917c3770a02c9aa7",
+    "combat_fixture.gd": "08839180cced570921e7ee20b71fcb0e2195672a77e00343e1a3713294d51b7b",
+    "ward_fixture.gd": "b0778d48e1cfc1957fac4188099f653f9f64b5fd420de1b4ec9d5b6478a58330"
+  },
+  "ward_fixture": "New controlled Ward01 authored brass/theatre ammo/store vitals, six real hard-door weapon contacts, opposite-side Stage.try_use and original lifecycle coverage."
+}

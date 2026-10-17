@@ -1,0 +1,2493 @@
+{
+  "actor_voices": [
+    {
+      "actual_damage_methods": true,
+      "actual_windup": true,
+      "death_replaces_hurt": true,
+      "hurt_interrupts_warning": true,
+      "species": "unsealed"
+    },
+    {
+      "actual_damage_methods": true,
+      "actual_windup": true,
+      "death_replaces_hurt": true,
+      "hurt_interrupts_warning": true,
+      "species": "vessel"
+    },
+    {
+      "actual_damage_methods": true,
+      "actual_windup": true,
+      "death_replaces_hurt": true,
+      "hurt_interrupts_warning": true,
+      "species": "ironbound"
+    },
+    {
+      "actual_damage_methods": true,
+      "actual_windup": true,
+      "death_replaces_hurt": true,
+      "hurt_interrupts_warning": true,
+      "species": "censer"
+    },
+    {
+      "actual_damage_methods": true,
+      "actual_windup": true,
+      "death_replaces_hurt": true,
+      "hurt_interrupts_warning": true,
+      "species": "reaver"
+    },
+    {
+      "actual_damage_methods": true,
+      "actual_windup": true,
+      "death_replaces_hurt": true,
+      "hurt_interrupts_warning": true,
+      "species": "surveyor"
+    }
+  ],
+  "actual_contacts": [
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 1,
+        "melee_swing": 1,
+        "unsealed_hurt": 1
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_unsealed_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_unsealed_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 30.0,
+      "species": "unsealed",
+      "weapon": "melee"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 1,
+        "melee_swing": 1,
+        "pistol_fire": 1,
+        "pistol_flesh": 1,
+        "unsealed_hurt": 2
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_unsealed_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_unsealed_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 20.0,
+      "species": "unsealed",
+      "weapon": "pistol"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 1,
+        "melee_swing": 1,
+        "pistol_fire": 1,
+        "pistol_flesh": 1,
+        "shotgun_fire": 1,
+        "shotgun_flesh": 1,
+        "unsealed_hurt": 3
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 7,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 7,
+          "target": "enemy_unsealed_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_unsealed_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 112.0,
+      "species": "unsealed",
+      "weapon": "shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 1,
+        "melee_swing": 1,
+        "pistol_fire": 1,
+        "pistol_flesh": 1,
+        "shotgun_fire": 1,
+        "shotgun_flesh": 1,
+        "twin_shotgun_fire": 1,
+        "twin_shotgun_flesh": 1,
+        "unsealed_hurt": 4
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 16,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 16,
+          "target": "enemy_unsealed_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_unsealed_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 288.0,
+      "species": "unsealed",
+      "weapon": "twin_shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 1,
+        "melee_swing": 1,
+        "pistol_fire": 1,
+        "pistol_flesh": 1,
+        "rivet_cannon_fire": 1,
+        "rivet_cannon_flesh": 1,
+        "shotgun_fire": 1,
+        "shotgun_flesh": 1,
+        "twin_shotgun_fire": 1,
+        "twin_shotgun_flesh": 1,
+        "unsealed_hurt": 5
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_unsealed_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_unsealed_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 36.0,
+      "species": "unsealed",
+      "weapon": "rivet_cannon"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 1,
+        "melee_swing": 1,
+        "pistol_fire": 1,
+        "pistol_flesh": 1,
+        "player_hurt": 1,
+        "rivet_cannon_fire": 1,
+        "rivet_cannon_flesh": 1,
+        "shotgun_fire": 1,
+        "shotgun_flesh": 1,
+        "siege_explosion": 1,
+        "siege_launcher_fire": 1,
+        "siege_launcher_flesh": 1,
+        "twin_shotgun_fire": 1,
+        "twin_shotgun_flesh": 1,
+        "unsealed_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "",
+          "pellets": 0,
+          "target": "",
+          "type": "ordnance_explosion"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_unsealed_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_unsealed_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 210.0,
+      "species": "unsealed",
+      "weapon": "siege_launcher"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 2,
+        "melee_swing": 2,
+        "pistol_fire": 1,
+        "pistol_flesh": 1,
+        "player_hurt": 1,
+        "rivet_cannon_fire": 1,
+        "rivet_cannon_flesh": 1,
+        "shotgun_fire": 1,
+        "shotgun_flesh": 1,
+        "siege_explosion": 1,
+        "siege_launcher_fire": 1,
+        "siege_launcher_flesh": 1,
+        "twin_shotgun_fire": 1,
+        "twin_shotgun_flesh": 1,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 1
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_vessel_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_vessel_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 30.0,
+      "species": "vessel",
+      "weapon": "melee"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 2,
+        "melee_swing": 2,
+        "pistol_fire": 2,
+        "pistol_flesh": 2,
+        "player_hurt": 1,
+        "rivet_cannon_fire": 1,
+        "rivet_cannon_flesh": 1,
+        "shotgun_fire": 1,
+        "shotgun_flesh": 1,
+        "siege_explosion": 1,
+        "siege_launcher_fire": 1,
+        "siege_launcher_flesh": 1,
+        "twin_shotgun_fire": 1,
+        "twin_shotgun_flesh": 1,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 2
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_vessel_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_vessel_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 20.0,
+      "species": "vessel",
+      "weapon": "pistol"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 2,
+        "melee_swing": 2,
+        "pistol_fire": 2,
+        "pistol_flesh": 2,
+        "player_hurt": 1,
+        "rivet_cannon_fire": 1,
+        "rivet_cannon_flesh": 1,
+        "shotgun_fire": 2,
+        "shotgun_flesh": 2,
+        "siege_explosion": 1,
+        "siege_launcher_fire": 1,
+        "siege_launcher_flesh": 1,
+        "twin_shotgun_fire": 1,
+        "twin_shotgun_flesh": 1,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 3
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 7,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 7,
+          "target": "enemy_vessel_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_vessel_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 112.0,
+      "species": "vessel",
+      "weapon": "shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 2,
+        "melee_swing": 2,
+        "pistol_fire": 2,
+        "pistol_flesh": 2,
+        "player_hurt": 1,
+        "rivet_cannon_fire": 1,
+        "rivet_cannon_flesh": 1,
+        "shotgun_fire": 2,
+        "shotgun_flesh": 2,
+        "siege_explosion": 1,
+        "siege_launcher_fire": 1,
+        "siege_launcher_flesh": 1,
+        "twin_shotgun_fire": 2,
+        "twin_shotgun_flesh": 2,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 4
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 16,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 16,
+          "target": "enemy_vessel_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_vessel_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 288.0,
+      "species": "vessel",
+      "weapon": "twin_shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 2,
+        "melee_swing": 2,
+        "pistol_fire": 2,
+        "pistol_flesh": 2,
+        "player_hurt": 1,
+        "rivet_cannon_fire": 2,
+        "rivet_cannon_flesh": 2,
+        "shotgun_fire": 2,
+        "shotgun_flesh": 2,
+        "siege_explosion": 1,
+        "siege_launcher_fire": 1,
+        "siege_launcher_flesh": 1,
+        "twin_shotgun_fire": 2,
+        "twin_shotgun_flesh": 2,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 5
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_vessel_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_vessel_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 36.0,
+      "species": "vessel",
+      "weapon": "rivet_cannon"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "melee_flesh": 2,
+        "melee_swing": 2,
+        "pistol_fire": 2,
+        "pistol_flesh": 2,
+        "player_hurt": 2,
+        "rivet_cannon_fire": 2,
+        "rivet_cannon_flesh": 2,
+        "shotgun_fire": 2,
+        "shotgun_flesh": 2,
+        "siege_explosion": 2,
+        "siege_launcher_fire": 2,
+        "siege_launcher_flesh": 2,
+        "twin_shotgun_fire": 2,
+        "twin_shotgun_flesh": 2,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "",
+          "pellets": 0,
+          "target": "",
+          "type": "ordnance_explosion"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_vessel_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_vessel_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 210.0,
+      "species": "vessel",
+      "weapon": "siege_launcher"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "ironbound_hurt": 1,
+        "melee_flesh": 3,
+        "melee_swing": 3,
+        "pistol_fire": 2,
+        "pistol_flesh": 2,
+        "player_hurt": 2,
+        "rivet_cannon_fire": 2,
+        "rivet_cannon_flesh": 2,
+        "shotgun_fire": 2,
+        "shotgun_flesh": 2,
+        "siege_explosion": 2,
+        "siege_launcher_fire": 2,
+        "siege_launcher_flesh": 2,
+        "twin_shotgun_fire": 2,
+        "twin_shotgun_flesh": 2,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_ironbound_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_ironbound_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 30.0,
+      "species": "ironbound",
+      "weapon": "melee"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "ironbound_hurt": 2,
+        "melee_flesh": 3,
+        "melee_swing": 3,
+        "pistol_fire": 3,
+        "pistol_flesh": 3,
+        "player_hurt": 2,
+        "rivet_cannon_fire": 2,
+        "rivet_cannon_flesh": 2,
+        "shotgun_fire": 2,
+        "shotgun_flesh": 2,
+        "siege_explosion": 2,
+        "siege_launcher_fire": 2,
+        "siege_launcher_flesh": 2,
+        "twin_shotgun_fire": 2,
+        "twin_shotgun_flesh": 2,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_ironbound_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_ironbound_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 20.0,
+      "species": "ironbound",
+      "weapon": "pistol"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "ironbound_hurt": 3,
+        "melee_flesh": 3,
+        "melee_swing": 3,
+        "pistol_fire": 3,
+        "pistol_flesh": 3,
+        "player_hurt": 2,
+        "rivet_cannon_fire": 2,
+        "rivet_cannon_flesh": 2,
+        "shotgun_fire": 3,
+        "shotgun_flesh": 3,
+        "siege_explosion": 2,
+        "siege_launcher_fire": 2,
+        "siege_launcher_flesh": 2,
+        "twin_shotgun_fire": 2,
+        "twin_shotgun_flesh": 2,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 7,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 7,
+          "target": "enemy_ironbound_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_ironbound_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 112.0,
+      "species": "ironbound",
+      "weapon": "shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "ironbound_hurt": 4,
+        "melee_flesh": 3,
+        "melee_swing": 3,
+        "pistol_fire": 3,
+        "pistol_flesh": 3,
+        "player_hurt": 2,
+        "rivet_cannon_fire": 2,
+        "rivet_cannon_flesh": 2,
+        "shotgun_fire": 3,
+        "shotgun_flesh": 3,
+        "siege_explosion": 2,
+        "siege_launcher_fire": 2,
+        "siege_launcher_flesh": 2,
+        "twin_shotgun_fire": 3,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 16,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 16,
+          "target": "enemy_ironbound_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_ironbound_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 288.0,
+      "species": "ironbound",
+      "weapon": "twin_shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "ironbound_hurt": 5,
+        "melee_flesh": 3,
+        "melee_swing": 3,
+        "pistol_fire": 3,
+        "pistol_flesh": 3,
+        "player_hurt": 2,
+        "rivet_cannon_fire": 3,
+        "rivet_cannon_flesh": 3,
+        "shotgun_fire": 3,
+        "shotgun_flesh": 3,
+        "siege_explosion": 2,
+        "siege_launcher_fire": 2,
+        "siege_launcher_flesh": 2,
+        "twin_shotgun_fire": 3,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_ironbound_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_ironbound_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 36.0,
+      "species": "ironbound",
+      "weapon": "rivet_cannon"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "ironbound_hurt": 6,
+        "melee_flesh": 3,
+        "melee_swing": 3,
+        "pistol_fire": 3,
+        "pistol_flesh": 3,
+        "player_hurt": 3,
+        "rivet_cannon_fire": 3,
+        "rivet_cannon_flesh": 3,
+        "shotgun_fire": 3,
+        "shotgun_flesh": 3,
+        "siege_explosion": 3,
+        "siege_launcher_fire": 3,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_fire": 3,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "",
+          "pellets": 0,
+          "target": "",
+          "type": "ordnance_explosion"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_ironbound_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_ironbound_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 210.0,
+      "species": "ironbound",
+      "weapon": "siege_launcher"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 1,
+        "ironbound_hurt": 6,
+        "melee_armor": 1,
+        "melee_flesh": 3,
+        "melee_swing": 4,
+        "pistol_fire": 3,
+        "pistol_flesh": 3,
+        "player_hurt": 3,
+        "rivet_cannon_fire": 3,
+        "rivet_cannon_flesh": 3,
+        "shotgun_fire": 3,
+        "shotgun_flesh": 3,
+        "siege_explosion": 3,
+        "siege_launcher_fire": 3,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_fire": 3,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "armor",
+          "pellets": 1,
+          "target": "enemy_censer_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_censer_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 30.0,
+      "species": "censer",
+      "weapon": "melee"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 2,
+        "ironbound_hurt": 6,
+        "melee_armor": 1,
+        "melee_flesh": 3,
+        "melee_swing": 4,
+        "pistol_armor": 1,
+        "pistol_fire": 4,
+        "pistol_flesh": 3,
+        "player_hurt": 3,
+        "rivet_cannon_fire": 3,
+        "rivet_cannon_flesh": 3,
+        "shotgun_fire": 3,
+        "shotgun_flesh": 3,
+        "siege_explosion": 3,
+        "siege_launcher_fire": 3,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_fire": 3,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "armor",
+          "pellets": 1,
+          "target": "enemy_censer_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_censer_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 20.0,
+      "species": "censer",
+      "weapon": "pistol"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 3,
+        "ironbound_hurt": 6,
+        "melee_armor": 1,
+        "melee_flesh": 3,
+        "melee_swing": 4,
+        "pistol_armor": 1,
+        "pistol_fire": 4,
+        "pistol_flesh": 3,
+        "player_hurt": 3,
+        "rivet_cannon_fire": 3,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 1,
+        "shotgun_fire": 4,
+        "shotgun_flesh": 3,
+        "siege_explosion": 3,
+        "siege_launcher_fire": 3,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_fire": 3,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 7,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "armor",
+          "pellets": 7,
+          "target": "enemy_censer_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_censer_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 112.0,
+      "species": "censer",
+      "weapon": "shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 4,
+        "ironbound_hurt": 6,
+        "melee_armor": 1,
+        "melee_flesh": 3,
+        "melee_swing": 4,
+        "pistol_armor": 1,
+        "pistol_fire": 4,
+        "pistol_flesh": 3,
+        "player_hurt": 3,
+        "rivet_cannon_fire": 3,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 1,
+        "shotgun_fire": 4,
+        "shotgun_flesh": 3,
+        "siege_explosion": 3,
+        "siege_launcher_fire": 3,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_armor": 1,
+        "twin_shotgun_fire": 4,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 16,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "armor",
+          "pellets": 16,
+          "target": "enemy_censer_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_censer_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 288.0,
+      "species": "censer",
+      "weapon": "twin_shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 5,
+        "ironbound_hurt": 6,
+        "melee_armor": 1,
+        "melee_flesh": 3,
+        "melee_swing": 4,
+        "pistol_armor": 1,
+        "pistol_fire": 4,
+        "pistol_flesh": 3,
+        "player_hurt": 3,
+        "rivet_cannon_armor": 1,
+        "rivet_cannon_fire": 4,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 1,
+        "shotgun_fire": 4,
+        "shotgun_flesh": 3,
+        "siege_explosion": 3,
+        "siege_launcher_fire": 3,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_armor": 1,
+        "twin_shotgun_fire": 4,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "armor",
+          "pellets": 1,
+          "target": "enemy_censer_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_censer_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 36.0,
+      "species": "censer",
+      "weapon": "rivet_cannon"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 1,
+        "melee_flesh": 3,
+        "melee_swing": 4,
+        "pistol_armor": 1,
+        "pistol_fire": 4,
+        "pistol_flesh": 3,
+        "player_hurt": 4,
+        "rivet_cannon_armor": 1,
+        "rivet_cannon_fire": 4,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 1,
+        "shotgun_fire": 4,
+        "shotgun_flesh": 3,
+        "siege_explosion": 4,
+        "siege_launcher_armor": 1,
+        "siege_launcher_fire": 4,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_armor": 1,
+        "twin_shotgun_fire": 4,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "",
+          "pellets": 0,
+          "target": "",
+          "type": "ordnance_explosion"
+        },
+        {
+          "material": "armor",
+          "pellets": 1,
+          "target": "enemy_censer_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_censer_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 210.0,
+      "species": "censer",
+      "weapon": "siege_launcher"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 3,
+        "melee_swing": 5,
+        "pistol_armor": 1,
+        "pistol_fire": 4,
+        "pistol_flesh": 3,
+        "player_hurt": 4,
+        "reaver_hurt": 1,
+        "rivet_cannon_armor": 1,
+        "rivet_cannon_fire": 4,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 1,
+        "shotgun_fire": 4,
+        "shotgun_flesh": 3,
+        "siege_explosion": 4,
+        "siege_launcher_armor": 1,
+        "siege_launcher_fire": 4,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_armor": 1,
+        "twin_shotgun_fire": 4,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "armor",
+          "pellets": 1,
+          "target": "enemy_reaver_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_reaver_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 30.0,
+      "species": "reaver",
+      "weapon": "melee"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 3,
+        "melee_swing": 5,
+        "pistol_armor": 2,
+        "pistol_fire": 5,
+        "pistol_flesh": 3,
+        "player_hurt": 4,
+        "reaver_hurt": 2,
+        "rivet_cannon_armor": 1,
+        "rivet_cannon_fire": 4,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 1,
+        "shotgun_fire": 4,
+        "shotgun_flesh": 3,
+        "siege_explosion": 4,
+        "siege_launcher_armor": 1,
+        "siege_launcher_fire": 4,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_armor": 1,
+        "twin_shotgun_fire": 4,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "armor",
+          "pellets": 1,
+          "target": "enemy_reaver_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_reaver_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 20.0,
+      "species": "reaver",
+      "weapon": "pistol"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 3,
+        "melee_swing": 5,
+        "pistol_armor": 2,
+        "pistol_fire": 5,
+        "pistol_flesh": 3,
+        "player_hurt": 4,
+        "reaver_hurt": 3,
+        "rivet_cannon_armor": 1,
+        "rivet_cannon_fire": 4,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 2,
+        "shotgun_fire": 5,
+        "shotgun_flesh": 3,
+        "siege_explosion": 4,
+        "siege_launcher_armor": 1,
+        "siege_launcher_fire": 4,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_armor": 1,
+        "twin_shotgun_fire": 4,
+        "twin_shotgun_flesh": 3,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 7,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "armor",
+          "pellets": 7,
+          "target": "enemy_reaver_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_reaver_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 112.0,
+      "species": "reaver",
+      "weapon": "shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 3,
+        "melee_swing": 5,
+        "pistol_armor": 2,
+        "pistol_fire": 5,
+        "pistol_flesh": 3,
+        "player_hurt": 4,
+        "reaver_hurt": 4,
+        "rivet_cannon_armor": 1,
+        "rivet_cannon_fire": 4,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 2,
+        "shotgun_fire": 5,
+        "shotgun_flesh": 3,
+        "siege_explosion": 4,
+        "siege_launcher_armor": 1,
+        "siege_launcher_fire": 4,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_armor": 2,
+        "twin_shotgun_fire": 5,
+        "twin_shotgun_flesh": 3,
+        "twin_shotgun_hard": 1,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 16,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "armor",
+          "pellets": 13,
+          "target": "enemy_reaver_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_reaver_0",
+          "type": "enemy_hurt"
+        },
+        {
+          "material": "hard",
+          "pellets": 3,
+          "target": "45432702451",
+          "type": "impact"
+        }
+      ],
+      "health_removed": 234.0,
+      "species": "reaver",
+      "weapon": "twin_shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 3,
+        "melee_swing": 5,
+        "pistol_armor": 2,
+        "pistol_fire": 5,
+        "pistol_flesh": 3,
+        "player_hurt": 4,
+        "reaver_hurt": 5,
+        "rivet_cannon_armor": 2,
+        "rivet_cannon_fire": 5,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 2,
+        "shotgun_fire": 5,
+        "shotgun_flesh": 3,
+        "siege_explosion": 4,
+        "siege_launcher_armor": 1,
+        "siege_launcher_fire": 4,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_armor": 2,
+        "twin_shotgun_fire": 5,
+        "twin_shotgun_flesh": 3,
+        "twin_shotgun_hard": 1,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "armor",
+          "pellets": 1,
+          "target": "enemy_reaver_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_reaver_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 36.0,
+      "species": "reaver",
+      "weapon": "rivet_cannon"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 3,
+        "melee_swing": 5,
+        "pistol_armor": 2,
+        "pistol_fire": 5,
+        "pistol_flesh": 3,
+        "player_hurt": 5,
+        "reaver_hurt": 6,
+        "rivet_cannon_armor": 2,
+        "rivet_cannon_fire": 5,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 2,
+        "shotgun_fire": 5,
+        "shotgun_flesh": 3,
+        "siege_explosion": 5,
+        "siege_launcher_armor": 2,
+        "siege_launcher_fire": 5,
+        "siege_launcher_flesh": 3,
+        "twin_shotgun_armor": 2,
+        "twin_shotgun_fire": 5,
+        "twin_shotgun_flesh": 3,
+        "twin_shotgun_hard": 1,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "",
+          "pellets": 0,
+          "target": "",
+          "type": "ordnance_explosion"
+        },
+        {
+          "material": "armor",
+          "pellets": 1,
+          "target": "enemy_reaver_0",
+          "type": "impact"
+        },
+        {
+          "material": "armor",
+          "pellets": 0,
+          "target": "enemy_reaver_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 210.0,
+      "species": "reaver",
+      "weapon": "siege_launcher"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 4,
+        "melee_swing": 6,
+        "pistol_armor": 2,
+        "pistol_fire": 5,
+        "pistol_flesh": 3,
+        "player_hurt": 5,
+        "reaver_hurt": 6,
+        "rivet_cannon_armor": 2,
+        "rivet_cannon_fire": 5,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 2,
+        "shotgun_fire": 5,
+        "shotgun_flesh": 3,
+        "siege_explosion": 5,
+        "siege_launcher_armor": 2,
+        "siege_launcher_fire": 5,
+        "siege_launcher_flesh": 3,
+        "surveyor_hurt": 1,
+        "twin_shotgun_armor": 2,
+        "twin_shotgun_fire": 5,
+        "twin_shotgun_flesh": 3,
+        "twin_shotgun_hard": 1,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_surveyor_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_surveyor_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 30.0,
+      "species": "surveyor",
+      "weapon": "melee"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 4,
+        "melee_swing": 6,
+        "pistol_armor": 2,
+        "pistol_fire": 6,
+        "pistol_flesh": 4,
+        "player_hurt": 5,
+        "reaver_hurt": 6,
+        "rivet_cannon_armor": 2,
+        "rivet_cannon_fire": 5,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 2,
+        "shotgun_fire": 5,
+        "shotgun_flesh": 3,
+        "siege_explosion": 5,
+        "siege_launcher_armor": 2,
+        "siege_launcher_fire": 5,
+        "siege_launcher_flesh": 3,
+        "surveyor_hurt": 2,
+        "twin_shotgun_armor": 2,
+        "twin_shotgun_fire": 5,
+        "twin_shotgun_flesh": 3,
+        "twin_shotgun_hard": 1,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_surveyor_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_surveyor_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 20.0,
+      "species": "surveyor",
+      "weapon": "pistol"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 4,
+        "melee_swing": 6,
+        "pistol_armor": 2,
+        "pistol_fire": 6,
+        "pistol_flesh": 4,
+        "player_hurt": 5,
+        "reaver_hurt": 6,
+        "rivet_cannon_armor": 2,
+        "rivet_cannon_fire": 5,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 2,
+        "shotgun_fire": 6,
+        "shotgun_flesh": 4,
+        "siege_explosion": 5,
+        "siege_launcher_armor": 2,
+        "siege_launcher_fire": 5,
+        "siege_launcher_flesh": 3,
+        "surveyor_hurt": 3,
+        "twin_shotgun_armor": 2,
+        "twin_shotgun_fire": 5,
+        "twin_shotgun_flesh": 3,
+        "twin_shotgun_hard": 1,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 7,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 7,
+          "target": "enemy_surveyor_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_surveyor_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 112.0,
+      "species": "surveyor",
+      "weapon": "shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 4,
+        "melee_swing": 6,
+        "pistol_armor": 2,
+        "pistol_fire": 6,
+        "pistol_flesh": 4,
+        "player_hurt": 5,
+        "reaver_hurt": 6,
+        "rivet_cannon_armor": 2,
+        "rivet_cannon_fire": 5,
+        "rivet_cannon_flesh": 3,
+        "shotgun_armor": 2,
+        "shotgun_fire": 6,
+        "shotgun_flesh": 4,
+        "siege_explosion": 5,
+        "siege_launcher_armor": 2,
+        "siege_launcher_fire": 5,
+        "siege_launcher_flesh": 3,
+        "surveyor_hurt": 4,
+        "twin_shotgun_armor": 2,
+        "twin_shotgun_fire": 6,
+        "twin_shotgun_flesh": 4,
+        "twin_shotgun_hard": 2,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 16,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 15,
+          "target": "enemy_surveyor_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_surveyor_0",
+          "type": "enemy_hurt"
+        },
+        {
+          "material": "hard",
+          "pellets": 1,
+          "target": "45432702451",
+          "type": "impact"
+        }
+      ],
+      "health_removed": 270.0,
+      "species": "surveyor",
+      "weapon": "twin_shotgun"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 4,
+        "melee_swing": 6,
+        "pistol_armor": 2,
+        "pistol_fire": 6,
+        "pistol_flesh": 4,
+        "player_hurt": 5,
+        "reaver_hurt": 6,
+        "rivet_cannon_armor": 2,
+        "rivet_cannon_fire": 6,
+        "rivet_cannon_flesh": 4,
+        "shotgun_armor": 2,
+        "shotgun_fire": 6,
+        "shotgun_flesh": 4,
+        "siege_explosion": 5,
+        "siege_launcher_armor": 2,
+        "siege_launcher_fire": 5,
+        "siege_launcher_flesh": 3,
+        "surveyor_hurt": 5,
+        "twin_shotgun_armor": 2,
+        "twin_shotgun_fire": 6,
+        "twin_shotgun_flesh": 4,
+        "twin_shotgun_hard": 2,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_surveyor_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_surveyor_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 36.0,
+      "species": "surveyor",
+      "weapon": "rivet_cannon"
+    },
+    {
+      "actual_native_sprite_triangles": true,
+      "cue_counts": {
+        "censer_hurt": 6,
+        "ironbound_hurt": 6,
+        "melee_armor": 2,
+        "melee_flesh": 4,
+        "melee_swing": 6,
+        "pistol_armor": 2,
+        "pistol_fire": 6,
+        "pistol_flesh": 4,
+        "player_hurt": 6,
+        "reaver_hurt": 6,
+        "rivet_cannon_armor": 2,
+        "rivet_cannon_fire": 6,
+        "rivet_cannon_flesh": 4,
+        "shotgun_armor": 2,
+        "shotgun_fire": 6,
+        "shotgun_flesh": 4,
+        "siege_explosion": 6,
+        "siege_launcher_armor": 2,
+        "siege_launcher_fire": 6,
+        "siege_launcher_flesh": 4,
+        "surveyor_hurt": 6,
+        "twin_shotgun_armor": 2,
+        "twin_shotgun_fire": 6,
+        "twin_shotgun_flesh": 4,
+        "twin_shotgun_hard": 2,
+        "unsealed_hurt": 6,
+        "vessel_hurt": 6
+      },
+      "events": [
+        {
+          "material": "",
+          "pellets": 1,
+          "target": "",
+          "type": "shot"
+        },
+        {
+          "material": "",
+          "pellets": 0,
+          "target": "",
+          "type": "ordnance_explosion"
+        },
+        {
+          "material": "flesh",
+          "pellets": 1,
+          "target": "enemy_surveyor_0",
+          "type": "impact"
+        },
+        {
+          "material": "flesh",
+          "pellets": 0,
+          "target": "enemy_surveyor_0",
+          "type": "enemy_hurt"
+        }
+      ],
+      "health_removed": 210.0,
+      "species": "surveyor",
+      "weapon": "siege_launcher"
+    }
+  ],
+  "campaign_lifecycle": [
+    {
+      "completion_trigger": "controlled Main.on_level_completed; NOT a played route or physical exit",
+      "level": "pale_ward_01",
+      "music": "res://assets/audio/music/level_music_biotech_candidate.ogg",
+      "mute_preserves_processing": true,
+      "pause_freezes": true,
+      "retry_retires_old_owner": true,
+      "theme": "pale_ward"
+    },
+    {
+      "completion_trigger": "controlled Main.on_level_completed; NOT a played route or physical exit",
+      "level": "pale_ward_02",
+      "music": "res://assets/audio/music/level_music_biotech_candidate.ogg",
+      "mute_preserves_processing": true,
+      "pause_freezes": true,
+      "retry_retires_old_owner": true,
+      "theme": "pale_ward"
+    },
+    {
+      "completion_trigger": "controlled Main.on_level_completed; NOT a played route or physical exit",
+      "level": "pale_ward_03",
+      "music": "res://assets/audio/music/level_music_biotech_candidate.ogg",
+      "mute_preserves_processing": true,
+      "pause_freezes": true,
+      "retry_retires_old_owner": true,
+      "theme": "pale_ward"
+    },
+    {
+      "completion_trigger": "controlled Main.on_level_completed; NOT a played route or physical exit",
+      "level": "ash_citadel_01",
+      "music": "res://assets/audio/music/level_music_fortress_candidate.ogg",
+      "mute_preserves_processing": true,
+      "pause_freezes": true,
+      "retry_retires_old_owner": true,
+      "theme": "ash_citadel"
+    },
+    {
+      "completion_trigger": "controlled Main.on_level_completed; NOT a played route or physical exit",
+      "level": "ash_citadel_02",
+      "music": "res://assets/audio/music/level_music_fortress_candidate.ogg",
+      "mute_preserves_processing": true,
+      "pause_freezes": true,
+      "retry_retires_old_owner": true,
+      "theme": "ash_citadel"
+    },
+    {
+      "completion_trigger": "controlled Main.on_level_completed; NOT a played route or physical exit",
+      "level": "ash_citadel_03",
+      "music": "res://assets/audio/music/level_music_fortress_candidate.ogg",
+      "mute_preserves_processing": true,
+      "pause_freezes": true,
+      "retry_retires_old_owner": true,
+      "theme": "ash_citadel"
+    },
+    {
+      "completion_trigger": "controlled Main.on_level_completed; NOT a played route or physical exit",
+      "level": "occupied_line_01",
+      "music": "res://assets/audio/music/level_music_biotech_candidate.ogg",
+      "mute_preserves_processing": true,
+      "pause_freezes": true,
+      "retry_retires_old_owner": true,
+      "theme": "occupied_line"
+    },
+    {
+      "completion_trigger": "controlled Main.on_level_completed; NOT a played route or physical exit",
+      "level": "occupied_line_02",
+      "music": "res://assets/audio/music/level_music_biotech_candidate.ogg",
+      "mute_preserves_processing": true,
+      "pause_freezes": true,
+      "retry_retires_old_owner": true,
+      "theme": "occupied_line"
+    },
+    {
+      "completion_trigger": "controlled Main.on_level_completed; NOT a played route or physical exit",
+      "level": "occupied_line_03",
+      "music": "res://assets/audio/music/level_music_biotech_candidate.ogg",
+      "mute_preserves_processing": true,
+      "pause_freezes": true,
+      "retry_retires_old_owner": true,
+      "theme": "occupied_line"
+    }
+  ],
+  "checks": 488,
+  "failures": [],
+  "passed": true,
+  "preservation": {
+    "audio_generation_or_sourcing": false,
+    "baseline_commit": "694a5050205575cfc436b2118b295bd45acbc773",
+    "changed_paths": [],
+    "cue_count": 57,
+    "git_diff_paths": [
+      "eye-sore/build-two/assets/audio",
+      "eye-sore/build-two/resources/combat_audio.tres",
+      "eye-sore/build-two/resources/default_bus_layout.tres",
+      "eye-sore/build-two/scripts/combat_audio.gd",
+      "eye-sore/build-two/scripts/combat_audio_profile.gd",
+      "eye-sore/build-two/scripts/combat_cue.gd",
+      "eye-sore/build-two/concepts/audio-v2",
+      "eye-sore/build-two/concepts/audio-v3",
+      "eye-sore/build-two/concepts/audio-v4",
+      "eye-sore/build-two/concepts/audio-v5",
+      "eye-sore/build-two/concepts/audio-v6",
+      "eye-sore/build-two/concepts/audio"
+    ],
+    "runtime_stream_hashes": [
+      {
+        "bus": "Weapons",
+        "cue": "pistol_fire",
+        "duration_seconds": 1.14999997615814,
+        "file": "res://assets/audio/cues/pistol_fire.ogg",
+        "gain_db": 0.0,
+        "sha256": "628a1dfc571d4ec1082ba12c70d5c8eda0037ecc1f4a3da40b4264ced90ac80f",
+        "spatial": false
+      },
+      {
+        "bus": "Weapons",
+        "cue": "shotgun_fire",
+        "duration_seconds": 1.66666662693024,
+        "file": "res://assets/audio/cues/shotgun_fire.ogg",
+        "gain_db": 0.0,
+        "sha256": "7ad0715c00860b2aab32bc7c7f18e00129468a6a5577ed4ae8612047eb2a7a64",
+        "spatial": false
+      },
+      {
+        "bus": "Weapons",
+        "cue": "melee_swing",
+        "duration_seconds": 0.467395842075348,
+        "file": "res://assets/audio/cues/melee_swing.ogg",
+        "gain_db": 0.0,
+        "sha256": "d8607ede2d82d6f63bbc6361532296ccb55448953839af644eb5c6df5790c635",
+        "spatial": false
+      },
+      {
+        "bus": "Weapons",
+        "cue": "empty",
+        "duration_seconds": 0.150000005960464,
+        "file": "res://assets/audio/cues/empty.ogg",
+        "gain_db": 0.0,
+        "sha256": "f916a38c87a9951978cfa82d5cd0665bd72e6f3282f44308894460f73d1bbe57",
+        "spatial": false
+      },
+      {
+        "bus": "World",
+        "cue": "pistol_flesh",
+        "duration_seconds": 0.1875,
+        "file": "res://assets/audio/cues/pistol_flesh.ogg",
+        "gain_db": 0.0,
+        "sha256": "99197a2f9fdc6f74f8109b0b53436ffe5523c396e2490c27f7a18391abc00ae3",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "shotgun_flesh",
+        "duration_seconds": 0.32222917675972,
+        "file": "res://assets/audio/cues/shotgun_flesh.ogg",
+        "gain_db": 0.0,
+        "sha256": "927683b2112712e5947973bb8da5b2d09953173e9c2f31f3764c51b2b8f5798e",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "melee_flesh",
+        "duration_seconds": 0.244916662573814,
+        "file": "res://assets/audio/cues/melee_flesh.ogg",
+        "gain_db": 0.0,
+        "sha256": "ab50e8b9d4b82967c2c76a320b57e363b058ea0518f68880fbf90408fe22530a",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "pistol_armor",
+        "duration_seconds": 0.16666667163372,
+        "file": "res://assets/audio/cues/pistol_armor.ogg",
+        "gain_db": 0.0,
+        "sha256": "9c6c9fdd28e968e3c2ba73091da1a544122eb0db3c49e37fecca11b9fea13160",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "shotgun_armor",
+        "duration_seconds": 0.300000011920929,
+        "file": "res://assets/audio/cues/shotgun_armor.ogg",
+        "gain_db": 0.0,
+        "sha256": "8f6f9cd6aa83d67451eb4e7d821d15c386ca5dc06d79f49df348db2899c377e1",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "melee_armor",
+        "duration_seconds": 0.265312492847443,
+        "file": "res://assets/audio/cues/melee_armor.ogg",
+        "gain_db": 0.0,
+        "sha256": "0b59634b303c553d8f23c8cce64c92314406319644e4b744f259545866460c0f",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "pistol_hard",
+        "duration_seconds": 0.154562503099442,
+        "file": "res://assets/audio/cues/pistol_hard.ogg",
+        "gain_db": 0.0,
+        "sha256": "1dde3a71c783e57e273505dcb4e042c4f93624e8e424cedc9af4197c421d944e",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "shotgun_hard",
+        "duration_seconds": 0.25,
+        "file": "res://assets/audio/cues/shotgun_hard.ogg",
+        "gain_db": 0.0,
+        "sha256": "e56b38140a3a478bfdfe5e01c4c22004e8293f866687dbb6a835cb6b8c20d02d",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "melee_hard",
+        "duration_seconds": 0.234708338975906,
+        "file": "res://assets/audio/cues/melee_hard.ogg",
+        "gain_db": 0.0,
+        "sha256": "3e38a377ab14572925d339c1d7b45d977778f145fb660e2806645b2c74f14f1d",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "projectile_impact",
+        "duration_seconds": 0.22916667163372,
+        "file": "res://assets/audio/cues/projectile_impact.ogg",
+        "gain_db": 0.0,
+        "sha256": "733f8361a8ff005ed54ada57ef02a047dbf45327bf9e73f9e55e0e4c4104cabb",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "projectile_hard",
+        "duration_seconds": 0.202145829796791,
+        "file": "res://assets/audio/cues/projectile_hard.ogg",
+        "gain_db": 0.0,
+        "sha256": "690400ed966d2ee2449657c61c2d97b502028e0f939a248c8d4a69ea4767f749",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "projectile_release",
+        "duration_seconds": 0.208708330988884,
+        "file": "res://assets/audio/cues/projectile_release.ogg",
+        "gain_db": 0.0,
+        "sha256": "31964d22a66665d26ef337f53911c8f9cad3ab00149b668d38650d85fb706c3f",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "unsealed_hurt",
+        "duration_seconds": 0.354166656732559,
+        "file": "res://assets/audio/demonic-v1/unsealed_hurt.ogg",
+        "gain_db": 0.0,
+        "sha256": "0a3e09c8d15ed85d673067621f92d965eb60af33dd7b707879c6bece64dfea40",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "vessel_hurt",
+        "duration_seconds": 0.411770820617676,
+        "file": "res://assets/audio/demonic-v1/vessel_hurt.ogg",
+        "gain_db": 0.0,
+        "sha256": "2892be222b705820c1afbbd1289a75fe1e56334780e5863e8e694b2abc9c109d",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "unsealed_death",
+        "duration_seconds": 1.5534166097641,
+        "file": "res://assets/audio/demonic-v1/unsealed_death.ogg",
+        "gain_db": 0.0,
+        "sha256": "b7451b70f27c3f3809eb217c14104fe2e9fdaa37a0ab878ba6d6b0fa72867c07",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "vessel_death",
+        "duration_seconds": 1.88889586925507,
+        "file": "res://assets/audio/demonic-v1/vessel_death.ogg",
+        "gain_db": 0.0,
+        "sha256": "c1f937f8c53b5e6ac04743ce9ab4e442852f59397d992e9238a4cb8f6586fdc5",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "unsealed_attack_warning",
+        "duration_seconds": 0.306124985218048,
+        "file": "res://assets/audio/demonic-v1/unsealed_attack_warning.ogg",
+        "gain_db": 0.0,
+        "sha256": "6c19d56dc0d427ce60cf382ab10aa55e723520aa6be6c3b91c106825d7f0a149",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "vessel_attack_warning",
+        "duration_seconds": 0.372104167938232,
+        "file": "res://assets/audio/demonic-v1/vessel_attack_warning.ogg",
+        "gain_db": 0.0,
+        "sha256": "f7bc0574bf8b7b5bc903b9f690e924236c480bc3167ad39db06e7e2e9c4e5962",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "player_hurt",
+        "duration_seconds": 0.28999999165535,
+        "file": "res://assets/audio/cues/player_hurt.ogg",
+        "gain_db": 0.0,
+        "sha256": "c31b5c86262594cff5d2a4fed47bd2f5c365ed3355a7748bb5d6bd9cf5be40b4",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "ironbound_attack_warning",
+        "duration_seconds": 0.306124985218048,
+        "file": "res://assets/audio/demonic-v2/ironbound_attack_warning.ogg",
+        "gain_db": 0.0,
+        "sha256": "91437f532eaec2e629506df52bb34a3e87fd0cc63dfaf405802d6a699a2575cb",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "ironbound_hurt",
+        "duration_seconds": 0.354166656732559,
+        "file": "res://assets/audio/demonic-v2/ironbound_hurt.ogg",
+        "gain_db": 0.0,
+        "sha256": "ceb39634459ecf4303fda5b8cf922dd36dc5e1bb1743c23f5b8ca4ae2145daed",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "ironbound_death",
+        "duration_seconds": 1.5534166097641,
+        "file": "res://assets/audio/demonic-v2/ironbound_death.ogg",
+        "gain_db": 0.0,
+        "sha256": "654b120586b532739a61cf260f1285e32f37fd40d8e2a119e7bccce3a521578e",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "censer_attack_warning",
+        "duration_seconds": 0.372104167938232,
+        "file": "res://assets/audio/demonic-v2/censer_attack_warning.ogg",
+        "gain_db": 0.0,
+        "sha256": "4d2597aae1953f0b86c4c13b0b9808e6f35105c974d8b1755777d96c57d8c4ac",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "censer_hurt",
+        "duration_seconds": 0.411770820617676,
+        "file": "res://assets/audio/demonic-v2/censer_hurt.ogg",
+        "gain_db": 0.0,
+        "sha256": "355a4337325bde00d337e7a04035a4b03adcfcdd14d4c4e868187058d060d6f5",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "censer_death",
+        "duration_seconds": 1.88889586925507,
+        "file": "res://assets/audio/demonic-v2/censer_death.ogg",
+        "gain_db": 0.0,
+        "sha256": "50ab098829926eb30fcc239b817d322e7a87901f732c75f994e1318bbc3f9068",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "reaver_attack_warning",
+        "duration_seconds": 0.306124985218048,
+        "file": "res://assets/audio/demonic-v2/reaver_attack_warning.ogg",
+        "gain_db": 0.0,
+        "sha256": "dea14a7606fa84bc176997443e75e46fea955c881eee3a2622cc4c670052a535",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "reaver_hurt",
+        "duration_seconds": 0.354166656732559,
+        "file": "res://assets/audio/demonic-v2/reaver_hurt.ogg",
+        "gain_db": 0.0,
+        "sha256": "5df424139db34663a40eb3dba1088147b2855f16b43fffab8484b32648ffca9b",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "reaver_death",
+        "duration_seconds": 1.5534166097641,
+        "file": "res://assets/audio/demonic-v2/reaver_death.ogg",
+        "gain_db": 0.0,
+        "sha256": "8ed50048f3f9d0664082a72d26a0a08b6812788c77128fe307240a6f355c4726",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "surveyor_attack_warning",
+        "duration_seconds": 0.372104167938232,
+        "file": "res://assets/audio/demonic-v2/surveyor_attack_warning.ogg",
+        "gain_db": 0.0,
+        "sha256": "f1631c6fbabe74ad259189d6c05320bc10e34fc471228dc77861842ae0e0aab2",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "surveyor_hurt",
+        "duration_seconds": 0.411770820617676,
+        "file": "res://assets/audio/demonic-v2/surveyor_hurt.ogg",
+        "gain_db": 0.0,
+        "sha256": "ec555b9d7b60b1d3ca24e50774783d116d36dad1548093e1858fbe2a07606eaf",
+        "spatial": true
+      },
+      {
+        "bus": "Creatures",
+        "cue": "surveyor_death",
+        "duration_seconds": 1.88889586925507,
+        "file": "res://assets/audio/demonic-v2/surveyor_death.ogg",
+        "gain_db": 0.0,
+        "sha256": "0d4d60dc0bdd37cc1a4c67d610327ff091aca8b42205011e1b56e1252c6bfe7a",
+        "spatial": true
+      },
+      {
+        "bus": "Weapons",
+        "cue": "twin_shotgun_fire",
+        "duration_seconds": 0.649999976158142,
+        "file": "res://assets/audio/arsenal-v2/twin_shotgun_fire.ogg",
+        "gain_db": 0.0,
+        "sha256": "6dedeb5766e50fe8a8f5e1bff8f25f75fc486ec801ceb62111f057f4c8f2114b",
+        "spatial": false
+      },
+      {
+        "bus": "Weapons",
+        "cue": "rivet_cannon_fire",
+        "duration_seconds": 0.159999996423721,
+        "file": "res://assets/audio/arsenal-v2/rivet_cannon_fire.ogg",
+        "gain_db": 0.0,
+        "sha256": "600b35a431e1e7c054c43918942d4ddd7233117714cd31bf4381d5c0d7bef146",
+        "spatial": false
+      },
+      {
+        "bus": "Weapons",
+        "cue": "siege_launcher_fire",
+        "duration_seconds": 0.449999988079071,
+        "file": "res://assets/audio/arsenal-v2/siege_launcher_fire.ogg",
+        "gain_db": 0.0,
+        "sha256": "9a9f107bb4e3ee3da5e120c7a9a371029ac06b201368732f1ed8331539a73334",
+        "spatial": false
+      },
+      {
+        "bus": "World",
+        "cue": "siege_explosion",
+        "duration_seconds": 0.800000011920929,
+        "file": "res://assets/audio/arsenal-v2/siege_explosion.ogg",
+        "gain_db": 0.0,
+        "sha256": "b8db34bf5187b78e74ee967803a039aaaba8e413a6987851ed8256286ec6a72e",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "twin_shotgun_flesh",
+        "duration_seconds": 0.349999994039536,
+        "file": "res://assets/audio/arsenal-v2/twin_shotgun_flesh.ogg",
+        "gain_db": 0.0,
+        "sha256": "d569d04c1f3f01a902129f1147d8de671472fee8476eaa30e8ac7fe598a0d503",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "twin_shotgun_armor",
+        "duration_seconds": 0.349999994039536,
+        "file": "res://assets/audio/arsenal-v2/twin_shotgun_armor.ogg",
+        "gain_db": 0.0,
+        "sha256": "3cb4c8ddbef33eaac66cdb35fe206c086dd5fecde2d52453f51ef4e4511aeaa5",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "twin_shotgun_hard",
+        "duration_seconds": 0.349999994039536,
+        "file": "res://assets/audio/arsenal-v2/twin_shotgun_hard.ogg",
+        "gain_db": 0.0,
+        "sha256": "39512ba7b37f1c840e6238f31a207671cbc01fd95dbfd095073ed03cc949b8bf",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "rivet_cannon_flesh",
+        "duration_seconds": 0.119999997317791,
+        "file": "res://assets/audio/arsenal-v2/rivet_cannon_flesh.ogg",
+        "gain_db": 0.0,
+        "sha256": "c8f810ea56c6149d084bfb0367cd8cea49f615a5db3bcc9b1d07ac497240fa62",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "rivet_cannon_armor",
+        "duration_seconds": 0.119999997317791,
+        "file": "res://assets/audio/arsenal-v2/rivet_cannon_armor.ogg",
+        "gain_db": 0.0,
+        "sha256": "bf1e933e42c170d380f1a76c5f27a02eefaaafde699657e79a861896172a29ab",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "rivet_cannon_hard",
+        "duration_seconds": 0.119999997317791,
+        "file": "res://assets/audio/arsenal-v2/rivet_cannon_hard.ogg",
+        "gain_db": 0.0,
+        "sha256": "e5e384cef91b556d4ae0b7d1747054d42a4387094da28ce42bbab361ba43dd71",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "siege_launcher_flesh",
+        "duration_seconds": 0.449999988079071,
+        "file": "res://assets/audio/arsenal-v2/siege_launcher_flesh.ogg",
+        "gain_db": 0.0,
+        "sha256": "7d15950bb9a94edad3cbd5867a2dd6e34e1e3bceec10f48074f6c64a9903b5d9",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "siege_launcher_armor",
+        "duration_seconds": 0.449999988079071,
+        "file": "res://assets/audio/arsenal-v2/siege_launcher_armor.ogg",
+        "gain_db": 0.0,
+        "sha256": "2f21daa6cd0a755a8cc01c865eed1b1e28f488dc157c719a241ba80609d73878",
+        "spatial": true
+      },
+      {
+        "bus": "World",
+        "cue": "siege_launcher_hard",
+        "duration_seconds": 0.449999988079071,
+        "file": "res://assets/audio/arsenal-v2/siege_launcher_hard.ogg",
+        "gain_db": 0.0,
+        "sha256": "931ef2c8019c26e247ad38c7bf716b5b2514d05aed442a554e2628e10c12a78c",
+        "spatial": true
+      },
+      {
+        "bus": "UI",
+        "cue": "pickup_pistol",
+        "duration_seconds": 0.125354170799255,
+        "file": "res://assets/audio/pickups-v6/pickup_pistol.ogg",
+        "gain_db": 0.0,
+        "sha256": "9e78e561deedab9ad3b5cbfcfda9e0f583d57989f459d4d9206723f4cc983e21",
+        "spatial": false
+      },
+      {
+        "bus": "UI",
+        "cue": "pickup_shells",
+        "duration_seconds": 0.175437495112419,
+        "file": "res://assets/audio/pickups-v6/pickup_shells.ogg",
+        "gain_db": 0.0,
+        "sha256": "1f863b3b5b15dbbdbf1dbd57ee6d25f78ea0360e7651ad18f6be65b41fb49188",
+        "spatial": false
+      },
+      {
+        "bus": "UI",
+        "cue": "pickup_rivets",
+        "duration_seconds": 0.120750002563,
+        "file": "res://assets/audio/pickups-v6/pickup_rivets.ogg",
+        "gain_db": 0.0,
+        "sha256": "9b92ebc75014f68af9a2cce33f48e529e9e022f1f03aafe1c53c1708b12167ae",
+        "spatial": false
+      },
+      {
+        "bus": "UI",
+        "cue": "pickup_rockets",
+        "duration_seconds": 0.307708323001862,
+        "file": "res://assets/audio/pickups-v6/pickup_rockets.ogg",
+        "gain_db": 0.0,
+        "sha256": "7bd0f3536517e1a90e5efccbe97eb5e94c00a104d4b2557f13ff1a8d6447486d",
+        "spatial": false
+      },
+      {
+        "bus": "UI",
+        "cue": "pickup_health",
+        "duration_seconds": 0.15316666662693,
+        "file": "res://assets/audio/pickups-v6/pickup_health.ogg",
+        "gain_db": 0.0,
+        "sha256": "bf1036ea345f4d579d860b37d1d5fc0ab5384bd411e9d1bd31c981d1e68d30f5",
+        "spatial": false
+      },
+      {
+        "bus": "UI",
+        "cue": "pickup_armor",
+        "duration_seconds": 0.200000002980232,
+        "file": "res://assets/audio/pickups-v6/pickup_armor.ogg",
+        "gain_db": 0.0,
+        "sha256": "857fef9d8bc9c95154797dfc736f1b0fc55a4b169c5c052f156c98dea70596c0",
+        "spatial": false
+      },
+      {
+        "bus": "UI",
+        "cue": "pickup_brass_key",
+        "duration_seconds": 0.106562502682209,
+        "file": "res://assets/audio/pickups-v6/pickup_brass_key.ogg",
+        "gain_db": 0.0,
+        "sha256": "07e7561008fe1a628d294d43ad7bb201775f133d1c0f075d545e248df4ed1595",
+        "spatial": false
+      },
+      {
+        "bus": "UI",
+        "cue": "pickup_red_key",
+        "duration_seconds": 0.192604169249535,
+        "file": "res://assets/audio/pickups-v6/pickup_red_key.ogg",
+        "gain_db": 0.0,
+        "sha256": "b2a23d0fee3f966bc91b96e34b5b11fdcfd8bc39db14ded2e9558cf78363f91e",
+        "spatial": false
+      },
+      {
+        "bus": "UI",
+        "cue": "pickup_weapon",
+        "duration_seconds": 0.26137501001358,
+        "file": "res://assets/audio/pickups-v6/pickup_weapon.ogg",
+        "gain_db": 0.0,
+        "sha256": "fcee377dfde1c40352d8a1f220c6c1e422c337f02fcd826d5d94504dee1a6adc",
+        "spatial": false
+      }
+    ],
+    "tracked_files_compared": 998
+  },
+  "scope": "Headless real imported streams, actual 36 native-sprite weapon contacts and six species windup/damage method dispatch; actual Main nine-level scene replacements/Retry with controlled simulated completion. Not physical campaign route proof, listening approval, audible stereo capture or human input.",
+  "supply_events": [
+    {
+      "duplicate_full_grant_events": 0,
+      "full_ammo_events": 0,
+      "level": "pale_ward_01",
+      "partial_accepted": 1,
+      "paused_collect_events": 0,
+      "pickup_receipt_voices": 1
+    },
+    {
+      "duplicate_full_grant_events": 0,
+      "full_ammo_events": 0,
+      "level": "pale_ward_02",
+      "partial_accepted": 1,
+      "paused_collect_events": 0,
+      "pickup_receipt_voices": 1
+    },
+    {
+      "duplicate_full_grant_events": 0,
+      "full_ammo_events": 0,
+      "level": "pale_ward_03",
+      "partial_accepted": 1,
+      "paused_collect_events": 0,
+      "pickup_receipt_voices": 1
+    },
+    {
+      "duplicate_full_grant_events": 0,
+      "full_ammo_events": 0,
+      "level": "ash_citadel_01",
+      "partial_accepted": 1,
+      "paused_collect_events": 0,
+      "pickup_receipt_voices": 1
+    },
+    {
+      "duplicate_full_grant_events": 0,
+      "full_ammo_events": 0,
+      "level": "ash_citadel_02",
+      "partial_accepted": 1,
+      "paused_collect_events": 0,
+      "pickup_receipt_voices": 1
+    },
+    {
+      "duplicate_full_grant_events": 0,
+      "full_ammo_events": 0,
+      "level": "ash_citadel_03",
+      "partial_accepted": 1,
+      "paused_collect_events": 0,
+      "pickup_receipt_voices": 1
+    },
+    {
+      "duplicate_full_grant_events": 0,
+      "full_ammo_events": 0,
+      "level": "occupied_line_01",
+      "partial_accepted": 1,
+      "paused_collect_events": 0,
+      "pickup_receipt_voices": 1
+    },
+    {
+      "duplicate_full_grant_events": 0,
+      "full_ammo_events": 0,
+      "level": "occupied_line_02",
+      "partial_accepted": 1,
+      "paused_collect_events": 0,
+      "pickup_receipt_voices": 1
+    },
+    {
+      "duplicate_full_grant_events": 0,
+      "full_ammo_events": 0,
+      "level": "occupied_line_03",
+      "partial_accepted": 1,
+      "paused_collect_events": 0,
+      "pickup_receipt_voices": 1
+    }
+  ]
+}

@@ -69,7 +69,10 @@
               "id": "shortcut_one",
               "from": "return_store",
               "to": "service",
-              "requires": []
+              "requires": [
+                "breaker",
+                "brass_key"
+              ]
             },
             {
               "id": "brass_gate",
@@ -213,8 +216,7 @@
           },
           {
             "new_rooms": [
-              "arena_one",
-              "return_store"
+              "arena_one"
             ],
             "new_flags": []
           },
@@ -235,6 +237,7 @@
           },
           {
             "new_rooms": [
+              "return_store",
               "spine"
             ],
             "new_flags": [

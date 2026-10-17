@@ -97,6 +97,7 @@ def provenance_files() -> list[Path]:
              "concepts/arsenal-architecture-v2", "docs/arsenal-architecture-v2",
              "concepts/campaign-v3", "docs/campaign-v3", "docs/combat-balance-v4",
              "docs/map-safety-v5", "docs/room-program-v6", "docs/pickup-art-v6",
+             "docs/intake-v7",
              "concepts/pickups-rooms-v6",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")

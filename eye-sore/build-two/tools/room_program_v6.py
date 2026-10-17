@@ -179,6 +179,8 @@ def combat_flanks_for_room(room: dict, theme: str) -> list[list[float]]:
 def _static_reservations(room: dict, stage: dict, routes: list[dict], vertical_routes: dict) -> list[tuple[float, float, float, float]]:
     rid = room["id"]; x, _, z = room["center"]
     reserved = _portal_reservations(rid, routes, stage)
+    if stage.get('campaign_level_id') == 'pale_ward_01' and rid == 'arena_one':
+        reserved.extend(tuple(rect) for rect in stage.get('intake_v7_clearance', []))
     if rid in ("arena_one", "arena_two", "final_arena"):
         # The two proven combat lanes, raised gallery and enemy closet flanks
         # remain physically traversable while fitted bays occupy the edge.
@@ -397,7 +399,9 @@ def furnish(sc, stage: dict, programme: dict, routes: list[dict], vertical_route
             silhouette,w,d,h = SHAPES[typ]
             for ordinal in range(1,object_group["count"]+1):
                 selected = None; reason = "no safe perimeter bay"
-                for lx,lz,heading in _candidates(room, planned_room["layout_mode"], w, d):
+                authored = object_group.get('authored_positions', []) if stage.get('campaign_level_id') == 'pale_ward_01' else []
+                candidates = [authored[ordinal-1]] if ordinal <= len(authored) else _candidates(room, planned_room["layout_mode"], w, d)
+                for lx,lz,heading in candidates:
                     rw,rd = (d,w) if abs(heading)==90 else (w,d)
                     footprint = (x+lx,z+lz,rw,rd)
                     if abs(lx)+rw/2 > sx/2-.35 or abs(lz)+rd/2 > sz/2-.35:
