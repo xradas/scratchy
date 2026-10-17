@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CombatAudioProfile" format=3]
 
 [ext_resource type="Script" path="res://scripts/combat_cue.gd" id="1_ch4yb"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/pistol_fire.ogg" id="2_2bpjd"]
-[ext_resource type="AudioStream" path="res://assets/audio/cues/shotgun_fire.ogg" id="3_qh3ym"]
+[ext_resource type="AudioStream" path="res://assets/audio/selected-v10/pistol_fire.ogg" id="2_2bpjd"]
+[ext_resource type="AudioStream" path="res://assets/audio/selected-v10/shotgun_fire.ogg" id="3_qh3ym"]
 [ext_resource type="AudioStream" path="res://assets/audio/cues/melee_swing.ogg" id="4_mnstr"]
 [ext_resource type="AudioStream" path="res://assets/audio/cues/empty.ogg" id="5_ckovq"]
 [ext_resource type="AudioStream" path="res://assets/audio/cues/pistol_flesh.ogg" id="6_6s05y"]
@@ -36,7 +36,7 @@
 [ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/surveyor_attack_warning.ogg" id="34_k14e7"]
 [ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/surveyor_hurt.ogg" id="35_0hy5u"]
 [ext_resource type="AudioStream" path="res://assets/audio/demonic-v2/surveyor_death.ogg" id="36_g56ka"]
-[ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/twin_shotgun_fire.ogg" id="37_rjmg3"]
+[ext_resource type="AudioStream" path="res://assets/audio/selected-v10/twin_shotgun_fire.ogg" id="37_rjmg3"]
 [ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/rivet_cannon_fire.ogg" id="38_1ogs4"]
 [ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/siege_launcher_fire.ogg" id="39_t343t"]
 [ext_resource type="AudioStream" path="res://assets/audio/arsenal-v2/siege_explosion.ogg" id="40_fwvow"]
@@ -66,6 +66,7 @@
 script = ExtResource("1_ch4yb")
 identifier = &"pistol_fire"
 bus = &"Weapons"
+gain_db = 4.0
 variations = Array[AudioStream]([ExtResource("2_2bpjd")])
 spatial = false
 
@@ -73,6 +74,7 @@ spatial = false
 script = ExtResource("1_ch4yb")
 identifier = &"shotgun_fire"
 bus = &"Weapons"
+gain_db = 4.0
 variations = Array[AudioStream]([ExtResource("3_qh3ym")])
 spatial = false
 
@@ -269,6 +271,7 @@ variations = Array[AudioStream]([ExtResource("36_g56ka")])
 script = ExtResource("1_ch4yb")
 identifier = &"twin_shotgun_fire"
 bus = &"Weapons"
+gain_db = 4.0
 variations = Array[AudioStream]([ExtResource("37_rjmg3")])
 spatial = false
 

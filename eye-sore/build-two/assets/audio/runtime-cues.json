@@ -1,14 +1,26 @@
 {
   "cues": {
     "pistol_fire": {
-      "file": "res://assets/audio/cues/pistol_fire.ogg",
+      "file": "res://assets/audio/selected-v10/pistol_fire.ogg",
       "bus": "Weapons",
-      "gain_db": 0
+      "gain_db": 4.0,
+      "source_manifest": "concepts/audio-v9/manifest.json",
+      "source_ids": [
+        "pistol"
+      ],
+      "selected_row": "dry",
+      "selection_manifest": "docs/production-v10/audio-selection.json"
     },
     "shotgun_fire": {
-      "file": "res://assets/audio/cues/shotgun_fire.ogg",
+      "file": "res://assets/audio/selected-v10/shotgun_fire.ogg",
       "bus": "Weapons",
-      "gain_db": 0
+      "gain_db": 4.0,
+      "source_manifest": "concepts/audio-v9/manifest.json",
+      "source_ids": [
+        "shotgun"
+      ],
+      "selected_row": "A",
+      "selection_manifest": "docs/production-v10/audio-selection.json"
     },
     "melee_swing": {
       "file": "res://assets/audio/cues/melee_swing.ogg",
@@ -200,14 +212,15 @@
       "source_id": "dry-yell11"
     },
     "twin_shotgun_fire": {
-      "file": "res://assets/audio/arsenal-v2/twin_shotgun_fire.ogg",
+      "file": "res://assets/audio/selected-v10/twin_shotgun_fire.ogg",
       "bus": "Weapons",
-      "gain_db": 0,
-      "source_manifest": "concepts/audio-v6/manifest.json",
+      "gain_db": 4.0,
+      "source_manifest": "concepts/audio-v9/manifest.json",
       "source_ids": [
-        "shotgun",
-        "shotgun"
-      ]
+        "twin_shotgun"
+      ],
+      "selected_row": "B",
+      "selection_manifest": "docs/production-v10/audio-selection.json"
     },
     "rivet_cannon_fire": {
       "file": "res://assets/audio/arsenal-v2/rivet_cannon_fire.ogg",

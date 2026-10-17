@@ -36,6 +36,7 @@ STYLE_PASS_LIMITATIONS = [
     "The four new creatures have eight directional stance images and frontal combat/death sequences; the Ward creatures retain frontal sequences. Complete animation in eight directions remains work.",
 ]
 DEFAULT_LIMITATIONS = [
+    "V10 adopts the selected pistol original, shotgunA and TwinB fire recordings; human acceptance of their in-game mix remains open.",
     "Clinical v9 ordered work cells/equipment surfaces are scoped to Intake; further room density and other maps remain later work.",
     "Physical crouch/sprint and bob pass automated checks; human comfort and movement acceptance remain pending.",
     "Presentation v8 material families apply to the first six Intake rooms and source corridors; other campaign maps retain previous surfaces.",
@@ -104,6 +105,7 @@ def provenance_files() -> list[Path]:
              "docs/intake-v7",
              "docs/production-v8", "concepts/production-v8",
              "docs/production-v9", "concepts/production-v9", "concepts/audio-v9",
+             "docs/production-v10", "concepts/audio-v10",
              "concepts/pickups-rooms-v6",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")

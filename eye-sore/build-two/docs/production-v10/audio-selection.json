@@ -1,0 +1,454 @@
+{
+  "schema_version": 10,
+  "status": "User-selected exact audio bytes registered at common4dB playback gain, with corrected source provenance. ActualMain and exported-mix verification pending.",
+  "approval": {
+    "request_as_relayed_by_coordinator": "pistol New original take; show candidatea interpreted as shotgun Candidate A; Twin Candidate B.",
+    "confirmed_mapping": {
+      "pistol": "dry/pistol-dry.ogg",
+      "shotgun": "cues/shotgun-A.ogg",
+      "twin_shotgun": "cues/twin_shotgun-B.ogg"
+    },
+    "coordinator_note": "Coordinator stated mapping to user and explicitly authorized preparing registration. Worker does not infer additional audio approval."
+  },
+  "audition_manifest": "concepts/audio-v9/manifest.json",
+  "audition_manifest_sha256": "20c7ee674107cd64d66cb3d0fb24e5446eef248de25c0673a907fe21eab2fe23",
+  "archive_path": "/home/rikki/Downloads/eyesore-firearm-library-v9.7z",
+  "archive_sha256": "cc1ab5a99a0a365105c7c5dd783f4b0b1fe90938114d3ceec53856bfe005f7d6",
+  "selected": [
+    {
+      "weapon": "pistol",
+      "cue": "pistol_fire",
+      "selected_row": "dry",
+      "user_choice_label": "New original take",
+      "runtime_file": "res://assets/audio/selected-v10/pistol_fire.ogg",
+      "gain_db": 4.0,
+      "selected_assets": {
+        "ogg": "assets/audio/selected-v10/pistol_fire.ogg",
+        "wav": "assets/audio/selected-v10/pistol_fire.wav"
+      },
+      "audition_files": {
+        "ogg": "concepts/audio-v9/dry/pistol-dry.ogg",
+        "wav": "concepts/audio-v9/dry/pistol-dry.wav"
+      },
+      "selected_sha256": {
+        "ogg": "5cc00fcbc36f9eca7f629e8e9585831814d0b9cedeb4be114abd1f248e16e691",
+        "wav": "5264af4f4e139871d9f2d49b46af80e32b9b189697ce143fa84ba8260c600c7b"
+      },
+      "before": {
+        "file": "res://assets/audio/cues/pistol_fire.ogg",
+        "bus": "Weapons",
+        "gain_db": 0
+      },
+      "profile_ext_resource_id": "2_2bpjd",
+      "profile_gain_line_before": null,
+      "source_original": "concepts/audio-v9/originals/pistol/A_34P.wav",
+      "source_original_sha256": "df95fc52049f3d1e4cf0a8c018fc0f0b4abded12de1d615a279422206c415935",
+      "creator": "Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney",
+      "source_url": "https://opengameart.org/content/the-free-firearm-sound-library",
+      "download_url": "https://opengameart.org/sites/default/files/Prepared%20SFX%20Library.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": "concepts/audio-v9/provenance/the-free-firearm-sound-library.html",
+      "license_evidence_sha256": "e69ddc51c1b8a34a6446f8298486e11a6167a75c4e15b46e704d602976831798",
+      "inherited_edits": {
+        "source_start_seconds": 1.5403125,
+        "source_duration_seconds": 0.55,
+        "ffmpeg_filtergraph": "aformat=sample_fmts=flt:sample_rates=48000:channel_layouts=mono,atrim=start=1.540312500000:duration=0.550000000000,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.0005,afade=t=out:st=0.510000000000:d=0.04",
+        "post_filter_alignment_samples": 0,
+        "rms_match_gain_db": -11.845739002892113,
+        "total_gain_db": -14.273184397907519,
+        "total_gain_linear": 0.1933484879547702,
+        "gain_application": "After FFmpeg graph and exact leading-sample alignment: multiply by10**(rms_match_gain_db/20), storefloat32; multiply by10**(global_final_attenuation_db/20), storefloat32; encodePCM24 withoutdither, then Vorbisquality7. No limiter."
+      },
+      "audition_measurement": {
+        "samples": 26272,
+        "seconds": 0.5473333333333333,
+        "rms_first_150ms_dbfs": -28.45535636619653,
+        "peak_dbfs": -11.10531640889699,
+        "peak_linear": 0.2784416377544403,
+        "nonzero_samples": 26272,
+        "clipped_samples": 0
+      },
+      "expected_playback_rms_first150ms_dbfs": -24.45535636619653,
+      "expected_playback_peak_dbfs": -7.105316408896989,
+      "after": {
+        "file": "res://assets/audio/selected-v10/pistol_fire.ogg",
+        "bus": "Weapons",
+        "gain_db": 4.0,
+        "source_manifest": "concepts/audio-v9/manifest.json",
+        "source_ids": [
+          "pistol"
+        ],
+        "selected_row": "dry",
+        "selection_manifest": "docs/production-v10/audio-selection.json"
+      }
+    },
+    {
+      "weapon": "shotgun",
+      "cue": "shotgun_fire",
+      "selected_row": "A",
+      "user_choice_label": "Candidate A",
+      "runtime_file": "res://assets/audio/selected-v10/shotgun_fire.ogg",
+      "gain_db": 4.0,
+      "selected_assets": {
+        "ogg": "assets/audio/selected-v10/shotgun_fire.ogg",
+        "wav": "assets/audio/selected-v10/shotgun_fire.wav"
+      },
+      "audition_files": {
+        "ogg": "concepts/audio-v9/cues/shotgun-A.ogg",
+        "wav": "concepts/audio-v9/cues/shotgun-A.wav"
+      },
+      "selected_sha256": {
+        "ogg": "580f9cc57040861116472ca21e87e97a1a339185d4d36bdff113135f7e3e1d3f",
+        "wav": "d79ad587a3dcedf761a1b1f7f97f17d773501b8cc4196f9a2af4481a2751f6cc"
+      },
+      "before": {
+        "file": "res://assets/audio/cues/shotgun_fire.ogg",
+        "bus": "Weapons",
+        "gain_db": 0
+      },
+      "profile_ext_resource_id": "3_qh3ym",
+      "profile_gain_line_before": null,
+      "source_original": "concepts/audio-v9/originals/shotgun/O_17P.wav",
+      "source_original_sha256": "878bdcaaa96ecbf04f7841b75219de57c41e38189f3c8371d52d68026f4e9d2c",
+      "creator": "Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney",
+      "source_url": "https://opengameart.org/content/the-free-firearm-sound-library",
+      "download_url": "https://opengameart.org/sites/default/files/Prepared%20SFX%20Library.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": "concepts/audio-v9/provenance/the-free-firearm-sound-library.html",
+      "license_evidence_sha256": "e69ddc51c1b8a34a6446f8298486e11a6167a75c4e15b46e704d602976831798",
+      "inherited_edits": {
+        "source_start_seconds": 0.691875,
+        "source_duration_seconds": 0.8,
+        "ffmpeg_filtergraph": "aformat=sample_fmts=flt:sample_rates=48000:channel_layouts=mono,atrim=start=0.691875000000:duration=0.800000000000,asetpts=PTS-STARTPTS,highpass=f=45,lowpass=f=15000,afade=t=in:st=0:d=0.0005,afade=t=out:st=0.760000000000:d=0.04",
+        "post_filter_alignment_samples": 1,
+        "rms_match_gain_db": -10.84228147626164,
+        "total_gain_db": -13.269726871277046,
+        "total_gain_linear": 0.21702694468488387,
+        "gain_application": "After FFmpeg graph and exact leading-sample alignment: multiply by10**(rms_match_gain_db/20), storefloat32; multiply by10**(global_final_attenuation_db/20), storefloat32; encodePCM24 withoutdither, then Vorbisquality7. No limiter."
+      },
+      "audition_measurement": {
+        "samples": 38271,
+        "seconds": 0.7973125,
+        "rms_first_150ms_dbfs": -28.435670424267204,
+        "peak_dbfs": -9.371058081387586,
+        "peak_linear": 0.3399750888347626,
+        "nonzero_samples": 38271,
+        "clipped_samples": 0
+      },
+      "expected_playback_rms_first150ms_dbfs": -24.435670424267204,
+      "expected_playback_peak_dbfs": -5.371058081387586,
+      "after": {
+        "file": "res://assets/audio/selected-v10/shotgun_fire.ogg",
+        "bus": "Weapons",
+        "gain_db": 4.0,
+        "source_manifest": "concepts/audio-v9/manifest.json",
+        "source_ids": [
+          "shotgun"
+        ],
+        "selected_row": "A",
+        "selection_manifest": "docs/production-v10/audio-selection.json"
+      }
+    },
+    {
+      "weapon": "twin_shotgun",
+      "cue": "twin_shotgun_fire",
+      "selected_row": "B",
+      "user_choice_label": "Candidate B",
+      "runtime_file": "res://assets/audio/selected-v10/twin_shotgun_fire.ogg",
+      "gain_db": 4.0,
+      "selected_assets": {
+        "ogg": "assets/audio/selected-v10/twin_shotgun_fire.ogg",
+        "wav": "assets/audio/selected-v10/twin_shotgun_fire.wav"
+      },
+      "audition_files": {
+        "ogg": "concepts/audio-v9/cues/twin_shotgun-B.ogg",
+        "wav": "concepts/audio-v9/cues/twin_shotgun-B.wav"
+      },
+      "selected_sha256": {
+        "ogg": "6876e3e0e67dddc7829f86ac4cd69d4634dbd7069da738085cfdd879a773f6d0",
+        "wav": "3e3554e265a384925cfc97337ef1fe15a62511b83420f00d8656709e1fca34f6"
+      },
+      "before": {
+        "file": "res://assets/audio/arsenal-v2/twin_shotgun_fire.ogg",
+        "bus": "Weapons",
+        "gain_db": 0,
+        "source_manifest": "concepts/audio-v6/manifest.json",
+        "source_ids": [
+          "shotgun",
+          "shotgun"
+        ]
+      },
+      "profile_ext_resource_id": "37_rjmg3",
+      "profile_gain_line_before": null,
+      "source_original": "concepts/audio-v9/originals/twin_shotgun/N_26P.wav",
+      "source_original_sha256": "311a5b016bebc21e7d812ef0756174fbdc77454229512bd5a64101ec055e8807",
+      "creator": "Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney",
+      "source_url": "https://opengameart.org/content/the-free-firearm-sound-library",
+      "download_url": "https://opengameart.org/sites/default/files/Prepared%20SFX%20Library.7z",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_evidence": "concepts/audio-v9/provenance/the-free-firearm-sound-library.html",
+      "license_evidence_sha256": "e69ddc51c1b8a34a6446f8298486e11a6167a75c4e15b46e704d602976831798",
+      "inherited_edits": {
+        "source_start_seconds": 0.7843333333333333,
+        "source_duration_seconds": 0.8,
+        "ffmpeg_filtergraph": "aformat=sample_fmts=flt:sample_rates=48000:channel_layouts=mono,atrim=start=0.784333333333:duration=0.800000000000,asetpts=PTS-STARTPTS,highpass=f=45,equalizer=f=140:t=q:w=0.8:g=1.5,acompressor=threshold=0.10:ratio=3:attack=0.2:release=65:makeup=1,lowpass=f=15000,afade=t=in:st=0:d=0.0005,afade=t=out:st=0.760000000000:d=0.04",
+        "post_filter_alignment_samples": -20,
+        "rms_match_gain_db": 2.7194113654847243,
+        "total_gain_db": 0.2919659704693185,
+        "total_gain_linear": 1.0341851527003492,
+        "gain_application": "After FFmpeg graph and exact leading-sample alignment: multiply by10**(rms_match_gain_db/20), storefloat32; multiply by10**(global_final_attenuation_db/20), storefloat32; encodePCM24 withoutdither, then Vorbisquality7. No limiter."
+      },
+      "audition_measurement": {
+        "samples": 38292,
+        "seconds": 0.79775,
+        "rms_first_150ms_dbfs": -28.404274183091303,
+        "peak_dbfs": -10.513458828698399,
+        "peak_linear": 0.2980760335922241,
+        "nonzero_samples": 38292,
+        "clipped_samples": 0
+      },
+      "expected_playback_rms_first150ms_dbfs": -24.404274183091303,
+      "expected_playback_peak_dbfs": -6.513458828698399,
+      "after": {
+        "file": "res://assets/audio/selected-v10/twin_shotgun_fire.ogg",
+        "bus": "Weapons",
+        "gain_db": 4.0,
+        "source_manifest": "concepts/audio-v9/manifest.json",
+        "source_ids": [
+          "twin_shotgun"
+        ],
+        "selected_row": "B",
+        "selection_manifest": "docs/production-v10/audio-selection.json"
+      }
+    }
+  ],
+  "playback_gain": {
+    "gain_db": 4.0,
+    "application": "Existing cue playback gain only, identical4dB for allthree. Selected OGG/WAV bytes are exact audition copies; no rerender, filtering, resynthesis, layer or pitch change.",
+    "purpose": "Moves matched first150ms RMS from approximately\u221228.4 to\u221224.4dBFS, preserving relative audition matching.",
+    "before_three_gains_db": [
+      0,
+      0,
+      0
+    ]
+  },
+  "preservation": {
+    "other_54_cues_sha256": "2b1a745062c92fb3b53df05204b9d8aff784fcb7ac307dd5310bec3ff08c6fe7",
+    "ledger_other_fields_sha256": "ea45d409d4aa8eb728f809810369e5b44f511b3e6270faff426de1394936c1f3",
+    "profile_outside_allowed_fields_sha256": "b5531d11f1f09fded307bdbaea09cba6538888946831d253165575558a562e89",
+    "runtime_ledger_sha256_before": "18dcff65357ad59d23dacf99029764ea23fc03eb23943b5dd757585e40d2fc27",
+    "profile_sha256_before": "99b112e026e34f2073aea4271c3f148f89b0981ffa36933ab43466fa04727576",
+    "old_selected_stream_sha256": {
+      "res://assets/audio/cues/pistol_fire.ogg": "628a1dfc571d4ec1082ba12c70d5c8eda0037ecc1f4a3da40b4264ced90ac80f",
+      "res://assets/audio/cues/shotgun_fire.ogg": "7ad0715c00860b2aab32bc7c7f18e00129468a6a5577ed4ae8612047eb2a7a64",
+      "res://assets/audio/arsenal-v2/twin_shotgun_fire.ogg": "6dedeb5766e50fe8a8f5e1bff8f25f75fc486ec801ceb62111f057f4c8f2114b"
+    },
+    "credits_sha256_before": "4a386acf5ff8f82774c9b0f8e21ac3242e0348ad371db49f8bfd216ab2123a07",
+    "scope": "Applier changes only three selected cue file/gain and literal provenance fields in ledger, plus their three existing TRES AudioStream paths/gain lines. Other54 cue records and all other profile bytes/buses/music/definitions preserved. Accepts baseline, intermediate path/gain-only state, and final selected provenance; final is idempotent."
+  },
+  "baseline": {
+    "selected_cue_records": {
+      "pistol_fire": {
+        "file": "res://assets/audio/cues/pistol_fire.ogg",
+        "bus": "Weapons",
+        "gain_db": 0
+      },
+      "shotgun_fire": {
+        "file": "res://assets/audio/cues/shotgun_fire.ogg",
+        "bus": "Weapons",
+        "gain_db": 0
+      },
+      "twin_shotgun_fire": {
+        "file": "res://assets/audio/arsenal-v2/twin_shotgun_fire.ogg",
+        "bus": "Weapons",
+        "gain_db": 0,
+        "source_manifest": "concepts/audio-v6/manifest.json",
+        "source_ids": [
+          "shotgun",
+          "shotgun"
+        ]
+      }
+    },
+    "note": "Original pre-v10 registration preserved unchanged, including historical Twin v6 two-shotgun-layer provenance. That historical description does not describe the selected v9 Mossberg B stream."
+  },
+  "previous_file_gain_only_verification": {
+    "passed": true,
+    "method": "Dryrun +apply +second idempotentapply on temporary ledger/profile copies; sharedruntime files not written.",
+    "temp_copy_root": "/tmp/eyesore-audio-v10-scope-5d2jkdut",
+    "applier_sha256": "f0f0b47cbc9c6b8d10b336000256872fac772c18c17a5de83016200c00d69f00",
+    "apply_results": [
+      {
+        "mode": "dry_run",
+        "changed_cues": [
+          "pistol_fire",
+          "shotgun_fire",
+          "twin_shotgun_fire"
+        ],
+        "playback_gain_db": 4.0,
+        "stream_bytes": "unchanged from user-selected v9 auditions",
+        "other_cues_preserved": 54,
+        "profile_music_buses_definitions_preserved": true,
+        "ledger_changed": true,
+        "profile_changed": true
+      },
+      {
+        "mode": "applied",
+        "changed_cues": [
+          "pistol_fire",
+          "shotgun_fire",
+          "twin_shotgun_fire"
+        ],
+        "playback_gain_db": 4.0,
+        "stream_bytes": "unchanged from user-selected v9 auditions",
+        "other_cues_preserved": 54,
+        "profile_music_buses_definitions_preserved": true,
+        "ledger_changed": true,
+        "profile_changed": true
+      },
+      {
+        "mode": "applied",
+        "changed_cues": [
+          "pistol_fire",
+          "shotgun_fire",
+          "twin_shotgun_fire"
+        ],
+        "playback_gain_db": 4.0,
+        "stream_bytes": "unchanged from user-selected v9 auditions",
+        "other_cues_preserved": 54,
+        "profile_music_buses_definitions_preserved": true,
+        "ledger_changed": false,
+        "profile_changed": false
+      }
+    ],
+    "shared_runtime_profile_ledger_credits_unchanged_sha256": {
+      "assets/audio/runtime-cues.json": "18dcff65357ad59d23dacf99029764ea23fc03eb23943b5dd757585e40d2fc27",
+      "resources/combat_audio.tres": "99b112e026e34f2073aea4271c3f148f89b0981ffa36933ab43466fa04727576",
+      "assets/audio/CREDITS.md": "cf2f0f259671719ddc54bf89db12fd49e93cc99b9a1b3982fbec40c8f8be17e2"
+    },
+    "selected_asset_count": 6,
+    "selected_ogg_wav_byte_identity_against_v9_manifest": true,
+    "tres_diff": "--- before\n+++ proposed\n@@ -1,8 +1,8 @@\n [gd_resource type=\"Resource\" script_class=\"CombatAudioProfile\" format=3]\n \n [ext_resource type=\"Script\" path=\"res://scripts/combat_cue.gd\" id=\"1_ch4yb\"]\n-[ext_resource type=\"AudioStream\" path=\"res://assets/audio/cues/pistol_fire.ogg\" id=\"2_2bpjd\"]\n-[ext_resource type=\"AudioStream\" path=\"res://assets/audio/cues/shotgun_fire.ogg\" id=\"3_qh3ym\"]\n+[ext_resource type=\"AudioStream\" path=\"res://assets/audio/selected-v10/pistol_fire.ogg\" id=\"2_2bpjd\"]\n+[ext_resource type=\"AudioStream\" path=\"res://assets/audio/selected-v10/shotgun_fire.ogg\" id=\"3_qh3ym\"]\n [ext_resource type=\"AudioStream\" path=\"res://assets/audio/cues/melee_swing.ogg\" id=\"4_mnstr\"]\n [ext_resource type=\"AudioStream\" path=\"res://assets/audio/cues/empty.ogg\" id=\"5_ckovq\"]\n [ext_resource type=\"AudioStream\" path=\"res://assets/audio/cues/pistol_flesh.ogg\" id=\"6_6s05y\"]\n@@ -36,7 +36,7 @@\n [ext_resource type=\"AudioStream\" path=\"res://assets/audio/demonic-v2/surveyor_attack_warning.ogg\" id=\"34_k14e7\"]\n [ext_resource type=\"AudioStream\" path=\"res://assets/audio/demonic-v2/surveyor_hurt.ogg\" id=\"35_0hy5u\"]\n [ext_resource type=\"AudioStream\" path=\"res://assets/audio/demonic-v2/surveyor_death.ogg\" id=\"36_g56ka\"]\n-[ext_resource type=\"AudioStream\" path=\"res://assets/audio/arsenal-v2/twin_shotgun_fire.ogg\" id=\"37_rjmg3\"]\n+[ext_resource type=\"AudioStream\" path=\"res://assets/audio/selected-v10/twin_shotgun_fire.ogg\" id=\"37_rjmg3\"]\n [ext_resource type=\"AudioStream\" path=\"res://assets/audio/arsenal-v2/rivet_cannon_fire.ogg\" id=\"38_1ogs4\"]\n [ext_resource type=\"AudioStream\" path=\"res://assets/audio/arsenal-v2/siege_launcher_fire.ogg\" id=\"39_t343t\"]\n [ext_resource type=\"AudioStream\" path=\"res://assets/audio/arsenal-v2/siege_explosion.ogg\" id=\"40_fwvow\"]\n@@ -66,6 +66,7 @@\n script = ExtResource(\"1_ch4yb\")\n identifier = &\"pistol_fire\"\n bus = &\"Weapons\"\n+gain_db = 4.0\n variations = Array[AudioStream]([ExtResource(\"2_2bpjd\")])\n spatial = false\n \n@@ -73,6 +74,7 @@\n script = ExtResource(\"1_ch4yb\")\n identifier = &\"shotgun_fire\"\n bus = &\"Weapons\"\n+gain_db = 4.0\n variations = Array[AudioStream]([ExtResource(\"3_qh3ym\")])\n spatial = false\n \n@@ -269,6 +271,7 @@\n script = ExtResource(\"1_ch4yb\")\n identifier = &\"twin_shotgun_fire\"\n bus = &\"Weapons\"\n+gain_db = 4.0\n variations = Array[AudioStream]([ExtResource(\"37_rjmg3\")])\n spatial = false\n \n"
+  },
+  "verification": {
+    "passed": true,
+    "applier_sha256": "fcf1560a0a25b9a84462fc8373159e686194c2b032064fe6c733713c24fbc701",
+    "provenance_states_tested": [
+      {
+        "starting_state": "baseline",
+        "first_apply": {
+          "mode": "applied",
+          "changed_cues": [
+            "pistol_fire",
+            "shotgun_fire",
+            "twin_shotgun_fire"
+          ],
+          "playback_gain_db": 4.0,
+          "stream_bytes": "unchanged from user-selected v9 auditions",
+          "selected_provenance": "v9 source weapon + selected row + v10 selection ledger",
+          "other_cues_preserved": 54,
+          "profile_music_buses_definitions_preserved": true,
+          "ledger_changed": true,
+          "profile_changed": false
+        },
+        "second_apply": {
+          "mode": "applied",
+          "changed_cues": [
+            "pistol_fire",
+            "shotgun_fire",
+            "twin_shotgun_fire"
+          ],
+          "playback_gain_db": 4.0,
+          "stream_bytes": "unchanged from user-selected v9 auditions",
+          "selected_provenance": "v9 source weapon + selected row + v10 selection ledger",
+          "other_cues_preserved": 54,
+          "profile_music_buses_definitions_preserved": true,
+          "ledger_changed": false,
+          "profile_changed": false
+        },
+        "idempotent": true,
+        "tres_bytes_unchanged": true,
+        "other54_records_unchanged": true
+      },
+      {
+        "starting_state": "intermediate",
+        "first_apply": {
+          "mode": "applied",
+          "changed_cues": [
+            "pistol_fire",
+            "shotgun_fire",
+            "twin_shotgun_fire"
+          ],
+          "playback_gain_db": 4.0,
+          "stream_bytes": "unchanged from user-selected v9 auditions",
+          "selected_provenance": "v9 source weapon + selected row + v10 selection ledger",
+          "other_cues_preserved": 54,
+          "profile_music_buses_definitions_preserved": true,
+          "ledger_changed": true,
+          "profile_changed": false
+        },
+        "second_apply": {
+          "mode": "applied",
+          "changed_cues": [
+            "pistol_fire",
+            "shotgun_fire",
+            "twin_shotgun_fire"
+          ],
+          "playback_gain_db": 4.0,
+          "stream_bytes": "unchanged from user-selected v9 auditions",
+          "selected_provenance": "v9 source weapon + selected row + v10 selection ledger",
+          "other_cues_preserved": 54,
+          "profile_music_buses_definitions_preserved": true,
+          "ledger_changed": false,
+          "profile_changed": false
+        },
+        "idempotent": true,
+        "tres_bytes_unchanged": true,
+        "other54_records_unchanged": true
+      },
+      {
+        "starting_state": "final",
+        "first_apply": {
+          "mode": "applied",
+          "changed_cues": [
+            "pistol_fire",
+            "shotgun_fire",
+            "twin_shotgun_fire"
+          ],
+          "playback_gain_db": 4.0,
+          "stream_bytes": "unchanged from user-selected v9 auditions",
+          "selected_provenance": "v9 source weapon + selected row + v10 selection ledger",
+          "other_cues_preserved": 54,
+          "profile_music_buses_definitions_preserved": true,
+          "ledger_changed": false,
+          "profile_changed": false
+        },
+        "second_apply": {
+          "mode": "applied",
+          "changed_cues": [
+            "pistol_fire",
+            "shotgun_fire",
+            "twin_shotgun_fire"
+          ],
+          "playback_gain_db": 4.0,
+          "stream_bytes": "unchanged from user-selected v9 auditions",
+          "selected_provenance": "v9 source weapon + selected row + v10 selection ledger",
+          "other_cues_preserved": 54,
+          "profile_music_buses_definitions_preserved": true,
+          "ledger_changed": false,
+          "profile_changed": false
+        },
+        "idempotent": true,
+        "tres_bytes_unchanged": true,
+        "other54_records_unchanged": true
+      }
+    ],
+    "shared_ledger_profile_not_written_sha256": {
+      "assets/audio/runtime-cues.json": "bf079250b9d99e8d9f7f65590d32ccf6125e49af1db1be56dd3ba73d5d2f4c9e",
+      "resources/combat_audio.tres": "3b224ccd355103a451e8f6075f809ea7fab99dafec75936cb7e3c1b28aa09ac1"
+    },
+    "source_stream_copy_hashes_still_verified_by_applier": true
+  }
+}

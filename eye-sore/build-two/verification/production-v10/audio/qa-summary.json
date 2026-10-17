@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "main_headless_checks": 280,
+  "main_native_gl_checks": 280,
+  "archive_source_preflight_checks": 7997,
+  "fingerprints": 611,
+  "fixture_corrections": [
+    {
+      "issue": "Headless first-frame wall-time comparison",
+      "evidence": "main-diagnostic.native.json",
+      "observed": "First pistol interval0.226 wall seconds contained21 authoritative physics frames=.350 simulation seconds for.320 configured cadence. Startup catch-up affects wall/simulation relation.",
+      "correction": "Native/headless capped60FPS and warmed; cadence oracle compares actual physics frames with at most one-step tolerance. Original wall timestamps retained. No forced cooldown update or gameplay change."
+    },
+    {
+      "issue": "Fresh voice readiness read after pausing",
+      "evidence": "pause-oracle-main.native.json;pause-oracle-main-native.native.json",
+      "observed": "Voice position.093333s proved started; playing becomes false automatically while paused, then true after resume. Resume.106667\u2192.200000s and pause drift.013333s.",
+      "correction": "Read/retain active playing and positive playback position BEFORE pause; retain strict paused processing/drift and resumed muted playback advancement checks."
+    }
+  ],
+  "final_headless_mute": {
+    "after_resume_position": 0.200000002980232,
+    "before_pause_playing": true,
+    "before_pause_position": 0.0933333337306976,
+    "master_muted": true,
+    "mix_rate": 44100.0,
+    "paused_position": 0.0933333337306976,
+    "paused_voice_playing": false,
+    "resumed_position": 0.106666669249535,
+    "stream_length": 0.800416648387909,
+    "stream_paused": false,
+    "voice_can_process": true,
+    "voice_playing": true
+  },
+  "final_native_mute": {
+    "after_resume_position": 0.200000002980232,
+    "before_pause_playing": true,
+    "before_pause_position": 0.0933333337306976,
+    "master_muted": true,
+    "mix_rate": 44100.0,
+    "paused_position": 0.0933333337306976,
+    "paused_voice_playing": false,
+    "resumed_position": 0.106666669249535,
+    "stream_length": 0.800416648387909,
+    "stream_paused": false,
+    "voice_can_process": true,
+    "voice_playing": true
+  },
+  "scope": "No runtime/gameplay/sourceasset/provenance changes by QA. Actual Main uses real combat physics cadence, one cue per accepted shot/exact ammo, silent rejected duplicates, correct selected files/+4dB, pause/mute/Retry. Driver Dummy with native GL rendering is technical ownership/playback-clock evidence; root records actual exported stereo/listening separately."
+}

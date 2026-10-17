@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "error": "Actual Main audio QA failed: Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSELECTED_AUDIO_V10 failed 279 [\"pistol repeats respect real cadence\", \"mute changes audibility only; selected voice keeps processing after resume\"]\nERROR: SELECTED_AUDIO_V10: pistol repeats respect real cadence\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] check (res://tools/check_selected_audio_v10.gd:17)\n       [1] run (res://tools/check_selected_audio_v10.gd:93)\nERROR: SELECTED_AUDIO_V10: mute changes audibility only; selected voice keeps processing after resume\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] check (res://tools/check_selected_audio_v10.gd:17)\n       [1] run (res://tools/check_selected_audio_v10.gd:115)\n",
+  "scope": "Required selected-audio check failed; no acceptance claim.",
+  "auditor_sha256": "35c4a42dd4bf3867126a7c1ab7f1b8c56c4017320ecef9a33af4b45f0a338388"
+}

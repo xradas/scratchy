@@ -1,0 +1,156 @@
+{
+  "cadence_clock": "Engine physics frames, one-step tolerance; wall timestamps retained as diagnostics. Initial headless startup catch-up example preserved separately.",
+  "checks": 280,
+  "failures": [
+    "fresh selected Twin voice is advancing before pause measurement"
+  ],
+  "mute_metrics": {
+    "after_resume_position": 0.200000002980232,
+    "master_muted": true,
+    "mix_rate": 44100.0,
+    "paused_position": 0.0933333337306976,
+    "resumed_position": 0.106666669249535,
+    "stream_length": 0.800416648387909,
+    "stream_paused": false,
+    "voice_can_process": true,
+    "voice_playing": true
+  },
+  "other_native_cues_preserved": 54,
+  "pause_playback_drift_seconds": 0.013333335518837,
+  "repeated_shots": [
+    {
+      "accepted_msec": 2076,
+      "ammo_cost": 1,
+      "configured_cadence": 0.32,
+      "cue": "pistol_fire",
+      "gain_db": 4.0,
+      "physics_frame": 30,
+      "repeat": 0,
+      "stream": "res://assets/audio/selected-v10/pistol_fire.ogg",
+      "weapon": "pistol"
+    },
+    {
+      "accepted_msec": 2443,
+      "ammo_cost": 1,
+      "configured_cadence": 0.32,
+      "cue": "pistol_fire",
+      "gain_db": 4.0,
+      "physics_frame": 52,
+      "repeat": 1,
+      "stream": "res://assets/audio/selected-v10/pistol_fire.ogg",
+      "weapon": "pistol"
+    },
+    {
+      "accepted_msec": 2809,
+      "ammo_cost": 1,
+      "configured_cadence": 0.32,
+      "cue": "pistol_fire",
+      "gain_db": 4.0,
+      "physics_frame": 74,
+      "repeat": 2,
+      "stream": "res://assets/audio/selected-v10/pistol_fire.ogg",
+      "weapon": "pistol"
+    },
+    {
+      "accepted_msec": 3176,
+      "ammo_cost": 1,
+      "configured_cadence": 0.32,
+      "cue": "pistol_fire",
+      "gain_db": 4.0,
+      "physics_frame": 96,
+      "repeat": 3,
+      "stream": "res://assets/audio/selected-v10/pistol_fire.ogg",
+      "weapon": "pistol"
+    },
+    {
+      "accepted_msec": 3843,
+      "ammo_cost": 1,
+      "configured_cadence": 0.85,
+      "cue": "shotgun_fire",
+      "gain_db": 4.0,
+      "physics_frame": 136,
+      "repeat": 0,
+      "stream": "res://assets/audio/selected-v10/shotgun_fire.ogg",
+      "weapon": "shotgun"
+    },
+    {
+      "accepted_msec": 4743,
+      "ammo_cost": 1,
+      "configured_cadence": 0.85,
+      "cue": "shotgun_fire",
+      "gain_db": 4.0,
+      "physics_frame": 190,
+      "repeat": 1,
+      "stream": "res://assets/audio/selected-v10/shotgun_fire.ogg",
+      "weapon": "shotgun"
+    },
+    {
+      "accepted_msec": 5643,
+      "ammo_cost": 1,
+      "configured_cadence": 0.85,
+      "cue": "shotgun_fire",
+      "gain_db": 4.0,
+      "physics_frame": 244,
+      "repeat": 2,
+      "stream": "res://assets/audio/selected-v10/shotgun_fire.ogg",
+      "weapon": "shotgun"
+    },
+    {
+      "accepted_msec": 6543,
+      "ammo_cost": 1,
+      "configured_cadence": 0.85,
+      "cue": "shotgun_fire",
+      "gain_db": 4.0,
+      "physics_frame": 298,
+      "repeat": 3,
+      "stream": "res://assets/audio/selected-v10/shotgun_fire.ogg",
+      "weapon": "shotgun"
+    },
+    {
+      "accepted_msec": 7743,
+      "ammo_cost": 2,
+      "configured_cadence": 1.2,
+      "cue": "twin_shotgun_fire",
+      "gain_db": 4.0,
+      "physics_frame": 370,
+      "repeat": 0,
+      "stream": "res://assets/audio/selected-v10/twin_shotgun_fire.ogg",
+      "weapon": "twin_shotgun"
+    },
+    {
+      "accepted_msec": 8993,
+      "ammo_cost": 2,
+      "configured_cadence": 1.2,
+      "cue": "twin_shotgun_fire",
+      "gain_db": 4.0,
+      "physics_frame": 445,
+      "repeat": 1,
+      "stream": "res://assets/audio/selected-v10/twin_shotgun_fire.ogg",
+      "weapon": "twin_shotgun"
+    },
+    {
+      "accepted_msec": 10242,
+      "ammo_cost": 2,
+      "configured_cadence": 1.2,
+      "cue": "twin_shotgun_fire",
+      "gain_db": 4.0,
+      "physics_frame": 520,
+      "repeat": 2,
+      "stream": "res://assets/audio/selected-v10/twin_shotgun_fire.ogg",
+      "weapon": "twin_shotgun"
+    },
+    {
+      "accepted_msec": 11493,
+      "ammo_cost": 2,
+      "configured_cadence": 1.2,
+      "cue": "twin_shotgun_fire",
+      "gain_db": 4.0,
+      "physics_frame": 595,
+      "repeat": 3,
+      "stream": "res://assets/audio/selected-v10/twin_shotgun_fire.ogg",
+      "weapon": "twin_shotgun"
+    }
+  ],
+  "scope": "Actual source/packed Main, authored Intake and real combat timers; manual accepted trigger calls, no forced cooldown stepping. Actual camera aimed into empty sky to isolate firing cue from legitimate impact audio; actors/world physics frozen while combat timers run. Controlled full ammo/Twin grant, real pause/mute CheckButton/Retry. No subjective listening, actual ELF execution, player-route or stereo recording claim.",
+  "status": "failed"
+}
