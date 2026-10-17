@@ -21,12 +21,20 @@ var world: Node3D
 var combat: Node3D
 var combat_audio: Node3D
 var menu_music: AudioStreamPlayer
+var menu_music_entries: Array[Dictionary] = []
+var menu_music_index := 0
+var menu_music_controls: HBoxContainer
+var menu_music_label: Label
+var menu_music_heading: Label
 var weapon_image: TextureRect
 var hud: Control
 var menu_title: Label
 var menu_note: Label
 var resume_button: Button
 var restart_button: Button
+var title_screen_button: Button
+var settings_panel: VBoxContainer
+var settings_button: Button
 var damage_overlay: ColorRect
 var texture_cache: Dictionary = {}
 var music_started: bool = false
@@ -37,6 +45,8 @@ var muzzle_time: float = 0.0
 var art_data: Dictionary = {}
 var closing: bool = false
 var title_art: TextureRect
+var menu_flythrough: Node3D
+var menu_scene_fade: ColorRect
 var weapon_layer: Control
 var weapon_canvas: CanvasLayer
 var muzzle_pending: bool = false
@@ -66,11 +76,15 @@ func selected_level_music_path() -> String:
 		if not original.is_empty(): return original
 	return String(selected_stage().get("music", ""))
 
+func menu_preview_level_id() -> String:
+	return String(campaign.current_level().get("id", "")) if campaign_mode else ""
+
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
 	var expansion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://resources/stages/catalog.json"))
 	stage_catalog = expansion.stages
 	campaign.load_catalog("res://resources/campaign/catalog.json")
+	build_menu_music_playlist()
 	var direct_campaign_level := ""
 	var standalone_requested := false
 	for argument in OS.get_cmdline_user_args():
@@ -135,6 +149,11 @@ func _ready() -> void:
 		title_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(title_art)
 		update_title_art()
+	menu_scene_fade = ColorRect.new()
+	menu_scene_fade.color = Color.BLACK
+	menu_scene_fade.color.a = 0.0
+	menu_scene_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(menu_scene_fade)
 	# One persistent presentation canvas shares the world render target. Retry
 	# replaces the world only, so it cannot duplicate or orphan weapon overlays.
 	weapon_canvas = CanvasLayer.new()
@@ -185,6 +204,10 @@ func _ready() -> void:
 	add_child(automap)
 	build_menu()
 	setup_menu_music()
+	menu_flythrough = preload("res://scripts/menu_flythrough.gd").new()
+	world_view.add_child(menu_flythrough)
+	menu_flythrough.setup(combat, player.get_node("Camera3D"), menu_scene_fade, menu_preview_level_id())
+	start_menu_preview()
 	resized.connect(layout_view)
 	layout_view()
 	set_paused(true)
@@ -304,6 +327,9 @@ func layout_view() -> void:
 	if is_instance_valid(title_art):
 		title_art.size = world_image.size
 		title_art.position = world_image.position
+	if is_instance_valid(menu_scene_fade):
+		menu_scene_fade.size = world_image.size
+		menu_scene_fade.position = world_image.position
 	weapon_layer.position = Vector2.ZERO
 	weapon_layer.size = Vector2(world_view.size)
 	weapon_image.size = weapon_layer.size
@@ -316,25 +342,29 @@ func layout_view() -> void:
 	if is_instance_valid(automap):
 		automap.position = world_image.position
 		automap.size = world_image.size
-	menu.custom_minimum_size = Vector2(minf(656, size.x - 24), minf(702, size.y - 24))
+	var title_mode := not started
+	var width := minf(390.0 if title_mode else 560.0, size.x - 32.0)
+	var height := minf(510.0 if title_mode else 630.0, size.y - 32.0)
+	menu.custom_minimum_size = Vector2(width, height)
 	menu.size = menu.custom_minimum_size
-	menu.position = (size - menu.size) * 0.5
+	menu.position = Vector2(28.0, (size.y - height) * 0.5) if title_mode and size.x >= 850.0 else (size - menu.size) * 0.5
 
 func build_menu() -> void:
 	menu = PanelContainer.new()
-	menu.custom_minimum_size = Vector2(420, 0)
+	menu.custom_minimum_size = Vector2(390, 0)
 	var menu_style := StyleBoxFlat.new()
-	menu_style.bg_color = Color(0.025, 0.035, 0.027, 0.95)
-	menu_style.border_color = Color(0.4, 0.42, 0.28)
-	menu_style.set_border_width_all(2)
-	menu_style.content_margin_left = 24
-	menu_style.content_margin_right = 24
-	menu_style.content_margin_top = 18
-	menu_style.content_margin_bottom = 18
+	menu_style.bg_color = Color(0.014, 0.021, 0.020, 0.93)
+	menu_style.border_color = Color(0.54, 0.67, 0.42)
+	menu_style.set_border_width_all(1)
+	menu_style.border_width_left = 4
+	menu_style.content_margin_left = 20
+	menu_style.content_margin_right = 20
+	menu_style.content_margin_top = 19
+	menu_style.content_margin_bottom = 19
 	menu.add_theme_stylebox_override("panel", menu_style)
 	add_child(menu)
 	var column := VBoxContainer.new()
-	column.add_theme_constant_override("separation", 12)
+	column.add_theme_constant_override("separation", 9)
 	var scroll := ScrollContainer.new()
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.follow_focus = true
@@ -342,21 +372,25 @@ func build_menu() -> void:
 	column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(column)
 	menu_title = Label.new()
-	menu_title.text = "EYESORE / THE PALE WARD"
-	menu_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	menu_title.text = "EYESORE"
+	menu_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	menu_title.add_theme_font_size_override("font_size", 32)
+	menu_title.add_theme_color_override("font_color", Color(0.75, 0.89, 0.59))
 	column.add_child(menu_title)
 	menu_note = Label.new()
 	menu_note.text = "WASD move · mouse look · left click fire · E use · Tab map\n1 pistol · 2 shotgun · 3 melee · 4 twin shotgun · 5 rivet cannon · 6 siege launcher\nFind the heavy weapons in each stage."
 	menu_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	menu_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	menu_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	menu_note.add_theme_font_size_override("font_size", 14)
+	menu_note.add_theme_color_override("font_color", Color(0.72, 0.77, 0.70))
 	column.add_child(menu_note)
 	campaign_button = Button.new()
-	campaign_button.text = "New Game"
+	campaign_button.text = "New Campaign"
 	campaign_button.visible = not campaign.levels.is_empty()
 	campaign_button.pressed.connect(start_new_campaign)
 	column.add_child(campaign_button)
 	stage_mode_button = Button.new()
-	stage_mode_button.text = "Stage Select / Playtest"
+	stage_mode_button.text = "Stage Select"
 	stage_mode_button.pressed.connect(switch_to_stage_select)
 	column.add_child(stage_mode_button)
 	stage_selector = OptionButton.new()
@@ -367,28 +401,64 @@ func build_menu() -> void:
 	column.add_child(stage_selector)
 	resume_button = Button.new()
 	resume_button.text = "Play"
+	resume_button.custom_minimum_size.y = 42
+	resume_button.add_theme_color_override("font_color", Color(0.83, 0.97, 0.68))
 	resume_button.pressed.connect(enter_combat)
 	column.add_child(resume_button)
+	menu_music_heading = Label.new()
+	menu_music_heading.text = "SOUNDTRACK  /  PREVIEW"
+	menu_music_heading.add_theme_font_size_override("font_size", 12)
+	menu_music_heading.add_theme_color_override("font_color", Color(0.59, 0.72, 0.52))
+	column.add_child(menu_music_heading)
+	menu_music_controls = HBoxContainer.new()
+	menu_music_controls.add_theme_constant_override("separation", 8)
+	var previous_music := Button.new()
+	previous_music.text = "◀"
+	previous_music.tooltip_text = "Previous menu track"
+	previous_music.pressed.connect(func() -> void: cycle_menu_music(-1))
+	menu_music_controls.add_child(previous_music)
+	menu_music_label = Label.new()
+	menu_music_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	menu_music_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	menu_music_label.clip_text = true
+	menu_music_controls.add_child(menu_music_label)
+	var next_music := Button.new()
+	next_music.text = "▶"
+	next_music.tooltip_text = "Next menu track"
+	next_music.pressed.connect(func() -> void: cycle_menu_music(1))
+	menu_music_controls.add_child(next_music)
+	column.add_child(menu_music_controls)
+	update_menu_music_label()
 	restart_button = Button.new()
 	restart_button.text = "Restart"
 	restart_button.pressed.connect(restart_level)
 	column.add_child(restart_button)
-	var title_screen := Button.new()
-	title_screen.text = "Return to title"
-	title_screen.pressed.connect(return_to_title)
-	column.add_child(title_screen)
+	title_screen_button = Button.new()
+	title_screen_button.text = "Return to title"
+	title_screen_button.pressed.connect(return_to_title)
+	column.add_child(title_screen_button)
 	var credits_button := Button.new()
 	credits_button.text = "Credits"
 	credits_button.pressed.connect(show_credits)
 	column.add_child(credits_button)
-	add_slider(column, "Mouse sensitivity", 0.0005, 0.006, 0.0001, sensitivity, func(value: float): sensitivity = value; player.sensitivity = value; save_settings())
-	add_slider(column, "Horizontal field of view", 60, 110, 1, field_of_view, func(value: float): field_of_view = value; player.get_node("Camera3D").fov = value; save_settings())
-	add_slider(column, "View bob (0 = off)", 0.0, 1.0, 0.05, bob_intensity, func(value: float): bob_intensity = value; player.set_motion_settings(value); save_settings())
+	settings_button = Button.new()
+	settings_button.text = "Settings  +"
+	column.add_child(settings_button)
+	settings_panel = VBoxContainer.new()
+	settings_panel.visible = false
+	settings_panel.add_theme_constant_override("separation", 7)
+	settings_button.pressed.connect(func() -> void:
+		settings_panel.visible = not settings_panel.visible
+		settings_button.text = "Settings  −" if settings_panel.visible else "Settings  +")
+	column.add_child(settings_panel)
+	add_slider(settings_panel, "Mouse sensitivity", 0.0005, 0.006, 0.0001, sensitivity, func(value: float): sensitivity = value; player.sensitivity = value; save_settings())
+	add_slider(settings_panel, "Horizontal field of view", 60, 110, 1, field_of_view, func(value: float): field_of_view = value; player.get_node("Camera3D").fov = value; save_settings())
+	add_slider(settings_panel, "View bob (0 = off)", 0.0, 1.0, 0.05, bob_intensity, func(value: float): bob_intensity = value; player.set_motion_settings(value); save_settings())
 	var mini_map := CheckButton.new()
 	mini_map.text = "Visited-area mini-map"
 	mini_map.button_pressed = minimap_enabled
 	mini_map.toggled.connect(func(value: bool): minimap_enabled = value; hud.set_minimap_enabled(value); save_settings())
-	column.add_child(mini_map)
+	settings_panel.add_child(mini_map)
 	var flicker := CheckButton.new()
 	flicker.text = "Damaged light flicker"
 	flicker.button_pressed = light_flicker_enabled
@@ -396,12 +466,12 @@ func build_menu() -> void:
 		light_flicker_enabled = value
 		get_tree().call_group("intake_lighting_v11", "set_flicker_enabled", value)
 		save_settings())
-	column.add_child(flicker)
+	settings_panel.add_child(flicker)
 	var mute := CheckButton.new()
 	mute.text = "Mute all audio"
 	mute.button_pressed = muted
 	mute.toggled.connect(func(value: bool): muted = value; AudioServer.set_bus_mute(0, value); save_settings())
-	column.add_child(mute)
+	settings_panel.add_child(mute)
 	var quit := Button.new()
 	quit.text = "Quit"
 	quit.pressed.connect(quit_game)
@@ -448,6 +518,11 @@ func update_title_art() -> void:
 	image.region = Rect2(region[0], region[1], region[2], region[3])
 	image.filter_clip = true
 	title_art.texture = image
+
+func start_menu_preview() -> void:
+	var preview_active: bool = is_instance_valid(menu_flythrough) and bool(menu_flythrough.start())
+	if is_instance_valid(title_art): title_art.visible = not preview_active
+	if is_instance_valid(weapon_image): weapon_image.visible = false
 
 func create_world() -> void:
 	var scene_path: String = selected_stage().scene
@@ -530,20 +605,59 @@ func quit_game() -> void:
 	get_tree().quit()
 
 func setup_menu_music() -> void:
-	var path := "res://assets/audio/music/original-v17/menu.ogg"
-	if not ResourceLoader.exists(path): return
 	menu_music = AudioStreamPlayer.new()
 	menu_music.name = "MenuMusic"
 	menu_music.process_mode = Node.PROCESS_MODE_ALWAYS
 	menu_music.bus = &"Music"
-	var stream: AudioStreamOggVorbis = load(path).duplicate()
-	stream.loop = true
-	menu_music.stream = stream
 	menu_music.volume_db = -3.0
 	add_child(menu_music)
+	play_selected_menu_music()
+
+func build_menu_music_playlist() -> void:
+	menu_music_entries.clear()
+	menu_music_entries.append({"path": "res://assets/audio/music/original-v17/menu.ogg", "label": "Title — Threshold · ambient"})
+	var cue_titles := {
+		"pale_ward_01": "Cold Intake · dark ambient", "pale_ward_02": "Containment Pressure · industrial", "pale_ward_03": "Breach Circuit · breakbeat",
+		"ash_citadel_01": "Cinder March · ritual", "ash_citadel_02": "Furnace Litany · drone", "ash_citadel_03": "Reliquary · dark ambient",
+		"occupied_line_01": "Last Platform · transit dub", "occupied_line_02": "Civic Lockdown · electro", "occupied_line_03": "Occupation Engine · industrial",
+	}
+	for level in campaign.levels:
+		var path := String(level.get("music", ""))
+		if path.is_empty(): continue
+		var cue_title := String(cue_titles.get(String(level.id), String(level.title)))
+		menu_music_entries.append({"path": path, "label": "%s — %s" % [String(level.title), cue_title]})
+	menu_music_index = clampi(menu_music_index, 0, maxi(0, menu_music_entries.size() - 1))
+
+func update_menu_music_label() -> void:
+	if not is_instance_valid(menu_music_label): return
+	if menu_music_entries.is_empty():
+		menu_music_label.text = "Music unavailable"
+		return
+	var selected: Dictionary = menu_music_entries[menu_music_index]
+	menu_music_label.text = "♫ %d/%d  %s" % [menu_music_index + 1, menu_music_entries.size(), String(selected.label)]
+	menu_music_label.tooltip_text = String(selected.label)
+
+func cycle_menu_music(direction: int) -> void:
+	if menu_music_entries.is_empty(): return
+	menu_music_index = posmod(menu_music_index + direction, menu_music_entries.size())
+	update_menu_music_label()
+	save_settings()
+	play_selected_menu_music()
+
+func play_selected_menu_music() -> void:
+	if not is_instance_valid(menu_music) or menu_music_entries.is_empty(): return
+	menu_music.stop()
+	var path := String(menu_music_entries[menu_music_index].path)
+	if not ResourceLoader.exists(path): return
+	var stream := load(path) as AudioStreamOggVorbis
+	if stream == null: return
+	var looping_stream: AudioStreamOggVorbis = stream.duplicate()
+	looping_stream.loop = true
+	menu_music.stream = looping_stream
 	menu_music.play()
 
 func enter_combat() -> void:
+	if is_instance_valid(menu_flythrough): menu_flythrough.stop()
 	if campaign_mode and level_complete:
 		if campaign.next_level().is_empty():
 			start_new_campaign()
@@ -584,7 +698,8 @@ func return_to_title() -> void:
 	replace_world({})
 	if campaign_mode: campaign.entry_snapshot = campaign.capture(combat)
 	started = false
-	if is_instance_valid(menu_music): menu_music.play()
+	start_menu_preview()
+	play_selected_menu_music()
 	update_title_art()
 	update_window_title()
 	set_paused(true)
@@ -623,11 +738,13 @@ func continue_campaign() -> void:
 	enter_combat()
 
 func replace_world(snapshot: Dictionary) -> void:
+	if is_instance_valid(menu_flythrough): menu_flythrough.stop()
 	if is_instance_valid(combat_audio): combat_audio.stop_all()
 	combat_audio = null
 	combat = null
 	if is_instance_valid(world): world.free()
 	create_world()
+	if is_instance_valid(menu_flythrough): menu_flythrough.setup(combat, player.get_node("Camera3D"), menu_scene_fade, menu_preview_level_id())
 	if campaign_mode and not snapshot.is_empty(): campaign.restore(combat, snapshot)
 	damage_flash = 0
 	muzzle_time = 0
@@ -689,7 +806,7 @@ func _process(delta: float) -> void:
 		return
 	var state: Dictionary = combat.get_hud_state()
 	player.set_movement_active(started and not get_tree().paused and not state.dead and not level_complete and not campaign_transitioning)
-	if is_instance_valid(title_art): title_art.visible = not started
+	if is_instance_valid(title_art): title_art.visible = not started and not (is_instance_valid(menu_flythrough) and menu_flythrough.active)
 	hud.visible = started
 	status.visible = started and not get_tree().paused
 	var level_state: Dictionary = {}
@@ -816,16 +933,16 @@ func set_paused(value: bool) -> void:
 		if campaign_mode:
 			var next: Dictionary = campaign.next_level()
 			var chapter_end := campaign.is_chapter_end()
-			menu_title.text = ("CAMPAIGN COMPLETE" if next.is_empty() else ("CHAPTER CLEARED" if chapter_end else "LEVEL CLEARED")) if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / CAMPAIGN"))
+			menu_title.text = ("CAMPAIGN COMPLETE" if next.is_empty() else ("CHAPTER CLEARED" if chapter_end else "LEVEL CLEARED")) if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE"))
 			resume_button.text = ("New Game" if next.is_empty() else "Continue") if level_complete else ("Retry" if dead else ("Resume" if started else "Play " + String(campaign.current_level().title)))
 			if level_complete:
 				menu_note.text = "%s cleared.\n%s" % [current_level_label(), "The occupation is broken." if next.is_empty() else ("Next chapter: " + String(next.chapter_title) if chapter_end else "Next: " + String(next.title))]
 			else:
-				menu_note.text = "%s\n%s" % [current_level_label(), "Retry from this level's entrance." if dead else "WASD move · mouse look · left click fire\n1–6 weapons · E use · Tab map · Ctrl crouch · Shift sprint"]
+				menu_note.text = "%s\n%s" % [current_level_label(), "Retry from this level's entrance." if dead else ("WASD · mouse look · fire · E use · Tab map" if started else "Select a level or start a new campaign.")]
 		else:
-			menu_title.text = "STAGE COMPLETE" if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / " + String(selected_stage().title).to_upper()))
+			menu_title.text = "STAGE COMPLETE" if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE"))
 			resume_button.text = "Play again" if level_complete else ("Retry" if dead else ("Resume" if started else "Play"))
-			menu_note.text = ("%s completed.\nKills %d/%d" % [selected_stage().title, combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1–6 weapons · E use · Tab map · Ctrl crouch · Shift sprint")
+			menu_note.text = ("%s completed.\nKills %d/%d" % [selected_stage().title, combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else ("WASD · mouse look · fire · E use · Tab map" if started else String(selected_stage().title) + " · standalone playtest"))
 		if not checkpoint_level_id().is_empty():
 			restart_button.text="Restart Level"
 			if dead:
@@ -835,6 +952,13 @@ func set_paused(value: bool) -> void:
 		stage_selector.visible = not campaign_mode
 		campaign_button.visible = not started and not campaign.levels.is_empty()
 		stage_mode_button.visible = not started and campaign_mode
+		restart_button.visible = started
+		title_screen_button.visible = started
+		if is_instance_valid(menu_music_controls): menu_music_controls.visible = not started
+		if is_instance_valid(menu_music_heading): menu_music_heading.visible = not started
+		if is_instance_valid(settings_panel) and not value: settings_panel.visible = false
+		if is_instance_valid(settings_button) and not value: settings_button.text = "Settings  +"
+	layout_view()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value or automated_input else Input.MOUSE_MODE_CAPTURED
 
 func load_settings() -> void:
@@ -846,6 +970,7 @@ func load_settings() -> void:
 		minimap_enabled = bool(config.get_value("display", "minimap", true))
 		light_flicker_enabled = bool(config.get_value("display", "light_flicker", true))
 		muted = bool(config.get_value("audio", "muted", false))
+		menu_music_index = clampi(int(config.get_value("audio", "menu_music_index", 0)), 0, maxi(0, menu_music_entries.size() - 1))
 	AudioServer.set_bus_mute(0, muted)
 
 func save_settings() -> void:
@@ -857,6 +982,7 @@ func save_settings() -> void:
 	config.set_value("display", "bob_intensity", bob_intensity)
 	config.set_value("display", "light_flicker", light_flicker_enabled)
 	config.set_value("audio", "muted", muted)
+	config.set_value("audio", "menu_music_index", menu_music_index)
 	var error := config.save(SETTINGS_PATH)
 	if error != OK: push_warning("Could not save calibration settings: " + error_string(error))
 

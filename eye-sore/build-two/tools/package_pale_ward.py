@@ -114,7 +114,7 @@ def provenance_files() -> list[Path]:
              "docs/level-redesign-v13", "concepts/level-redesign-v13",
              "docs/ward-spatial-v14", "concepts/ward-spatial-v14",
              "docs/ash-approach-v15", "concepts/ash-approach-v15",
-             "concepts/audio-v16", "concepts/audio-v17", "docs/ward02-v16", "docs/music-v17",
+             "concepts/audio-v16", "concepts/audio-v17", "concepts/menu-v18", "docs/ward02-v16", "docs/music-v17", "docs/menu-v18",
              "concepts/pickups-rooms-v6",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")
@@ -140,7 +140,7 @@ def provenance_files() -> list[Path]:
     for root in roots:
         paths.extend(p for p in (PROJECT / root).rglob("*")
                      if p.is_file() and (p.suffix in {".json", ".txt", ".md"}
-                         or (root in {"docs/level-redesign-v13", "concepts/level-redesign-v13", "docs/ward-spatial-v14", "concepts/ward-spatial-v14", "docs/ash-approach-v15", "concepts/ash-approach-v15", "concepts/audio-v16", "concepts/audio-v17"}
+                         or (root in {"docs/level-redesign-v13", "concepts/level-redesign-v13", "docs/ward-spatial-v14", "concepts/ward-spatial-v14", "docs/ash-approach-v15", "concepts/ash-approach-v15", "concepts/audio-v16", "concepts/audio-v17", "concepts/menu-v18"}
                              and p.suffix in {".svg", ".html", ".png"}))
                      and not (root in {"concepts/arsenal-architecture-v2", "concepts/campaign-v3"}
                               and "review" in p.relative_to(PROJECT / root).parts))

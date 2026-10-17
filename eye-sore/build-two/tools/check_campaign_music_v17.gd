@@ -8,6 +8,7 @@ func _initialize() -> void:
 	var main: Control = load("res://scripts/main.gd").new()
 	main.stage_catalog = JSON.parse_string(FileAccess.get_file_as_string("res://resources/stages/catalog.json")).stages
 	main.campaign.load_catalog("res://resources/campaign/catalog.json")
+	main.build_menu_music_playlist()
 	main.campaign_mode = true
 	var seen: Dictionary = {}
 	for level in main.campaign.levels:
@@ -35,11 +36,10 @@ func _initialize() -> void:
 		failures.append("Wrong combat audio fallback")
 	var menu_path := MUSIC_DIR + "menu.ogg"
 	_check_stream(menu_path, failures)
+	if main.menu_music_entries.size() != 10 or String(main.menu_music_entries[0].get("path", "")) != menu_path:
+		failures.append("Menu playlist must include the title and nine campaign cues")
 	var packed := "--packed" in OS.get_cmdline_user_args()
 	if not packed:
-		var main_source := FileAccess.get_file_as_string("res://scripts/main.gd")
-		if not main_source.contains('var path := "' + menu_path + '"'):
-			failures.append("Menu does not use original cue")
 		for source_path in ["res://scripts/main.gd", "res://resources/combat_audio.tres", "res://resources/stages/catalog.json", "res://resources/campaign/catalog.json"]:
 			var source := FileAccess.get_file_as_string(source_path)
 			if source.contains("menu_abelian.ogg") or source.contains("level_music_biotech_candidate.ogg") or source.contains("level_music_fortress_candidate.ogg") or source.contains("original-v16/"):
