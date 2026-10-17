@@ -26,4 +26,6 @@ Presentation v8 adds triage, surgery and utility surface atlases from built-in i
 
 Staff pass v11: original infected scientist and facility security sprite atlases generated with OpenAI image_gen using the approved Pale Ward scene as style reference. Native source PNGs retained unchanged in `assets/enemies/staff-v11/`. Prompts, hashes, measured source rectangles, pivots and observed limitations are recorded in `docs/production-v11/staff-art*`. Geometry for light housings is authored in project code with existing material references.
 
+Staff presentation v19: the security guard's frontal windup and muzzle-flash frames were regenerated with the built-in image_gen tool using the v11 atlas as the exact character reference. The transparent two-pose source PNG is retained unchanged in `assets/enemies/staff-v19/`; registration and provenance are recorded in `docs/production-v19/security-front-attack.md`. Other directional, pain and corpse frames still use the unchanged v11 atlas.
+
 Gore pass v12: closed volumetric chunks are original project-authored procedural meshes. Front/back source pixels reuse the unchanged approved gore atlases and staff-v11 sprites; cut surfaces and side shading are code-authored materials. No new raster image generation or image editing. Source regions, bounds and lifecycle contracts are recorded under `docs/production-v12/`.

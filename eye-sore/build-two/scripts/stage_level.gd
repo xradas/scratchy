@@ -319,22 +319,27 @@ func collect(item: Node3D) -> void:
 			if not objective_profile.unmet(encounter.get("requires",[]),flags).is_empty():return
 	var kind := String(item.get_meta("stage_pickup"))
 	var amount := int(item.get_meta("amount", 25))
+	var overdrive := bool(item.get_meta("overdrive", false))
 	var receipt_kind := kind
 	var accepted_amount: Variant = amount
 	var receipt_accepted := true
 	var new_weapon := false
 	if kind == "health":
-		if combat.health >= 100: return
+		var limit := 200.0 if overdrive else 100.0
+		if combat.health >= limit: return
 		var before: float = combat.health
-		combat.health = minf(100, combat.health + amount)
+		combat.health = minf(limit, combat.health + amount)
 		accepted_amount = combat.health - before
 		receipt_accepted = accepted_amount > 0
+		if overdrive: receipt_kind = "overdrive_health"
 	elif kind == "armor":
-		if combat.armor >= 100: return
+		var limit := 200.0 if overdrive else 100.0
+		if combat.armor >= limit: return
 		var before: float = combat.armor
-		combat.armor = minf(100, combat.armor + amount)
+		combat.armor = minf(limit, combat.armor + amount)
 		accepted_amount = combat.armor - before
 		receipt_accepted = accepted_amount > 0
+		if overdrive: receipt_kind = "overdrive_armor"
 	elif kind in ["pistol","shells","rivets","rockets"]:
 		var before: int = combat.ammo_amount(StringName(kind))
 		if not combat.add_ammo(StringName(kind),amount): return
@@ -379,7 +384,7 @@ func collect(item: Node3D) -> void:
 		var equip_key: int = {"twin_shotgun":4,"rivet_cannon":5,"siege_launcher":6}[kind]
 		message_changed.emit("%s cache · [%d] equip · AMBUSH" % [kind.replace("_"," ").capitalize(),equip_key])
 	else:
-		message_changed.emit(kind.trim_suffix("_key").capitalize() + " access key acquired" if kind in ["brass", "red", "brass_key", "red_key"] else "%s +%d" % [kind.capitalize(), amount])
+		message_changed.emit(kind.trim_suffix("_key").capitalize() + " access key acquired" if kind in ["brass", "red", "brass_key", "red_key"] else "%s %s+%d" % [kind.capitalize(), "overdrive " if overdrive else "", amount])
 func refresh_objective() -> void:
 	if objective_profile!=null:
 		objective=objective_profile.objective_text(flags)

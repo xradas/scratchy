@@ -4,7 +4,7 @@
   "portals": 22,
   "enemies": 84,
   "fittings": 134,
-  "mounted_lights": 68,
+  "mounted_lights": 76,
   "height_bands": [
     -4,
     -2,
@@ -14,11 +14,11 @@
     6,
     8
   ],
-  "protected_scene_art_files": 319,
+  "protected_scene_art_files": 386,
   "outputs": {
-    "scenes/campaign/pale_ward_03.tscn": "75713f66e0681ba2281c5087f730d662967b2ee328787b4df02cb4a6babf8fd0",
-    "resources/campaign/pale_ward_03-layout.json": "9b0ed76bb37cb64bca64626587f18edaba1de2da024a2bc68e1e8f06366ca755",
-    "resources/campaign/pale_ward_03-route.json": "352391e1b81e6a116b6bc9cd6e74bb28183b4209bb6383c2ba9464441d22d371",
+    "scenes/campaign/pale_ward_03.tscn": "ecd3d4c996e25fb6d6c474d51b9740b285a6497a9b6c3d0f32446b5835858387",
+    "resources/campaign/pale_ward_03-layout.json": "1738b7cd36f38886b97e0c677b458606191da4634be3727f72d94373ad8cde91",
+    "resources/campaign/pale_ward_03-route.json": "00420a30b8d7bd3c2ac0a788f0eb74bcc8a3cb4a071647a3179262a11c64f449",
     "resources/campaign/v13/pale_ward_03-objectives.tres": "8d27c7652dbf091f5175c34568289836383e4c606aaad54c5e1453678d08f629"
   },
   "geometry": [
@@ -9863,47 +9863,7 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Floor",
-      "parent": ".",
-      "position": [
-        40,
-        7.7,
-        -40
-      ],
-      "size": [
-        32.12,
-        0.6,
-        26.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Roof",
-      "parent": ".",
-      "position": [
-        40,
-        18.2,
-        -40
-      ],
-      "size": [
-        32.8,
-        0.4,
-        26.8
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_N0",
+      "name": "upper_gallery_OutlineWall_0_0_0",
       "parent": ".",
       "position": [
         40.0,
@@ -9911,499 +9871,79 @@
         -53.0
       ],
       "size": [
-        32.0,
+        28.015,
         10,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Wall_S0",
+      "name": "upper_gallery_OutlineWall_1_0_0",
       "parent": ".",
       "position": [
-        25.625,
-        8.5,
-        -27.0
+        55.0,
+        13.0,
+        -52.0
       ],
       "size": [
-        3.25,
-        1,
+        2.8434271247461904,
+        10,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -45.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Wall_S1",
-      "parent": ".",
-      "position": [
-        25.625,
-        10.4,
-        -27.0
-      ],
-      "size": [
-        3.25,
-        2.8000000000000007,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S2",
-      "parent": ".",
-      "position": [
-        25.625,
-        12.65,
-        -27.0
-      ],
-      "size": [
-        3.25,
-        1.6999999999999993,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S3",
-      "parent": ".",
-      "position": [
-        25.625,
-        15.75,
-        -27.0
-      ],
-      "size": [
-        3.25,
-        4.5,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S4",
-      "parent": ".",
-      "position": [
-        31.5,
-        8.5,
-        -27.0
-      ],
-      "size": [
-        8.5,
-        1,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S5",
-      "parent": ".",
-      "position": [
-        31.5,
-        15.75,
-        -27.0
-      ],
-      "size": [
-        8.5,
-        4.5,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S6",
-      "parent": ".",
-      "position": [
-        36.625,
-        8.5,
-        -27.0
-      ],
-      "size": [
-        1.75,
-        1,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S7",
-      "parent": ".",
-      "position": [
-        36.625,
-        10.4,
-        -27.0
-      ],
-      "size": [
-        1.75,
-        2.8000000000000007,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S8",
-      "parent": ".",
-      "position": [
-        36.625,
-        12.65,
-        -27.0
-      ],
-      "size": [
-        1.75,
-        1.6999999999999993,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S9",
-      "parent": ".",
-      "position": [
-        36.625,
-        15.75,
-        -27.0
-      ],
-      "size": [
-        1.75,
-        4.5,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S10",
-      "parent": ".",
-      "position": [
-        40.0,
-        12.65,
-        -27.0
-      ],
-      "size": [
-        5.0,
-        1.6999999999999993,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S11",
-      "parent": ".",
-      "position": [
-        40.0,
-        15.75,
-        -27.0
-      ],
-      "size": [
-        5.0,
-        4.5,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S12",
-      "parent": ".",
-      "position": [
-        43.375,
-        8.5,
-        -27.0
-      ],
-      "size": [
-        1.75,
-        1,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S13",
-      "parent": ".",
-      "position": [
-        43.375,
-        10.4,
-        -27.0
-      ],
-      "size": [
-        1.75,
-        2.8000000000000007,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S14",
-      "parent": ".",
-      "position": [
-        43.375,
-        12.65,
-        -27.0
-      ],
-      "size": [
-        1.75,
-        1.6999999999999993,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S15",
-      "parent": ".",
-      "position": [
-        43.375,
-        15.75,
-        -27.0
-      ],
-      "size": [
-        1.75,
-        4.5,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S16",
-      "parent": ".",
-      "position": [
-        48.5,
-        8.5,
-        -27.0
-      ],
-      "size": [
-        8.5,
-        1,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S17",
-      "parent": ".",
-      "position": [
-        48.5,
-        15.75,
-        -27.0
-      ],
-      "size": [
-        8.5,
-        4.5,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S18",
-      "parent": ".",
-      "position": [
-        54.375,
-        8.5,
-        -27.0
-      ],
-      "size": [
-        3.25,
-        1,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S19",
-      "parent": ".",
-      "position": [
-        54.375,
-        10.4,
-        -27.0
-      ],
-      "size": [
-        3.25,
-        2.8000000000000007,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S20",
-      "parent": ".",
-      "position": [
-        54.375,
-        12.65,
-        -27.0
-      ],
-      "size": [
-        3.25,
-        1.6999999999999993,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_S21",
-      "parent": ".",
-      "position": [
-        54.375,
-        15.75,
-        -27.0
-      ],
-      "size": [
-        3.25,
-        4.5,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "upper_gallery_Wall_E0",
+      "name": "upper_gallery_OutlineWall_2_0_0",
       "parent": ".",
       "position": [
         56.0,
         9.9,
-        -47.75
+        -46.75
       ],
       "size": [
-        0.4,
+        8.515,
         3.8000000000000007,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Wall_E1",
+      "name": "upper_gallery_OutlineWall_2_0_1",
       "parent": ".",
       "position": [
         56.0,
         14.9,
-        -47.75
+        -46.75
       ],
       "size": [
-        0.4,
+        8.515,
         6.199999999999999,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Wall_E2",
+      "name": "upper_gallery_OutlineWall_2_1_1",
       "parent": ".",
       "position": [
         56.0,
@@ -10411,99 +9951,579 @@
         -40.0
       ],
       "size": [
-        0.4,
+        5.015,
         6.199999999999999,
-        5.0
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Wall_E3",
+      "name": "upper_gallery_OutlineWall_2_2_0",
       "parent": ".",
       "position": [
         56.0,
         9.9,
-        -32.25
+        -33.25
       ],
       "size": [
-        0.4,
+        8.515,
         3.8000000000000007,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Wall_E4",
+      "name": "upper_gallery_OutlineWall_2_2_1",
       "parent": ".",
       "position": [
         56.0,
         14.9,
-        -32.25
+        -33.25
       ],
       "size": [
-        0.4,
+        8.515,
         6.199999999999999,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Wall_W0",
+      "name": "upper_gallery_OutlineWall_3_0_0",
+      "parent": ".",
+      "position": [
+        55.0,
+        13.0,
+        -28.0
+      ],
+      "size": [
+        2.8434271247461904,
+        10,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -135.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_0_0",
+      "parent": ".",
+      "position": [
+        53.375,
+        8.5,
+        -27.0
+      ],
+      "size": [
+        1.265,
+        1,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_0_1",
+      "parent": ".",
+      "position": [
+        53.375,
+        10.4,
+        -27.0
+      ],
+      "size": [
+        1.265,
+        2.8000000000000007,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_0_2",
+      "parent": ".",
+      "position": [
+        53.375,
+        12.65,
+        -27.0
+      ],
+      "size": [
+        1.265,
+        1.6999999999999993,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_0_3",
+      "parent": ".",
+      "position": [
+        53.375,
+        15.75,
+        -27.0
+      ],
+      "size": [
+        1.265,
+        4.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_1_0",
+      "parent": ".",
+      "position": [
+        48.5,
+        8.5,
+        -27.0
+      ],
+      "size": [
+        8.515,
+        1,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_1_3",
+      "parent": ".",
+      "position": [
+        48.5,
+        15.75,
+        -27.0
+      ],
+      "size": [
+        8.515,
+        4.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_2_0",
+      "parent": ".",
+      "position": [
+        43.375,
+        8.5,
+        -27.0
+      ],
+      "size": [
+        1.765,
+        1,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_2_1",
+      "parent": ".",
+      "position": [
+        43.375,
+        10.4,
+        -27.0
+      ],
+      "size": [
+        1.765,
+        2.8000000000000007,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_2_2",
+      "parent": ".",
+      "position": [
+        43.375,
+        12.65,
+        -27.0
+      ],
+      "size": [
+        1.765,
+        1.6999999999999993,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_2_3",
+      "parent": ".",
+      "position": [
+        43.375,
+        15.75,
+        -27.0
+      ],
+      "size": [
+        1.765,
+        4.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_3_2",
+      "parent": ".",
+      "position": [
+        40.0,
+        12.65,
+        -27.0
+      ],
+      "size": [
+        5.015,
+        1.6999999999999993,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_3_3",
+      "parent": ".",
+      "position": [
+        40.0,
+        15.75,
+        -27.0
+      ],
+      "size": [
+        5.015,
+        4.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_4_0",
+      "parent": ".",
+      "position": [
+        36.625,
+        8.5,
+        -27.0
+      ],
+      "size": [
+        1.765,
+        1,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_4_1",
+      "parent": ".",
+      "position": [
+        36.625,
+        10.4,
+        -27.0
+      ],
+      "size": [
+        1.765,
+        2.8000000000000007,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_4_2",
+      "parent": ".",
+      "position": [
+        36.625,
+        12.65,
+        -27.0
+      ],
+      "size": [
+        1.765,
+        1.6999999999999993,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_4_3",
+      "parent": ".",
+      "position": [
+        36.625,
+        15.75,
+        -27.0
+      ],
+      "size": [
+        1.765,
+        4.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_5_0",
+      "parent": ".",
+      "position": [
+        31.5,
+        8.5,
+        -27.0
+      ],
+      "size": [
+        8.515,
+        1,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_5_3",
+      "parent": ".",
+      "position": [
+        31.5,
+        15.75,
+        -27.0
+      ],
+      "size": [
+        8.515,
+        4.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_6_0",
+      "parent": ".",
+      "position": [
+        26.625,
+        8.5,
+        -27.0
+      ],
+      "size": [
+        1.265,
+        1,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_6_1",
+      "parent": ".",
+      "position": [
+        26.625,
+        10.4,
+        -27.0
+      ],
+      "size": [
+        1.265,
+        2.8000000000000007,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_6_2",
+      "parent": ".",
+      "position": [
+        26.625,
+        12.65,
+        -27.0
+      ],
+      "size": [
+        1.265,
+        1.6999999999999993,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_4_6_3",
+      "parent": ".",
+      "position": [
+        26.625,
+        15.75,
+        -27.0
+      ],
+      "size": [
+        1.265,
+        4.5,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_5_0_0",
+      "parent": ".",
+      "position": [
+        25.0,
+        13.0,
+        -28.0
+      ],
+      "size": [
+        2.8434271247461904,
+        10,
+        0.4
+      ],
+      "rotation": [
+        0,
+        135.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_6_0_0",
       "parent": ".",
       "position": [
         24.0,
         9.9,
-        -47.75
+        -33.25
       ],
       "size": [
-        0.4,
+        8.515,
         3.8000000000000007,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Wall_W1",
+      "name": "upper_gallery_OutlineWall_6_0_1",
       "parent": ".",
       "position": [
         24.0,
         14.9,
-        -47.75
+        -33.25
       ],
       "size": [
-        0.4,
+        8.515,
         6.199999999999999,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Wall_W2",
+      "name": "upper_gallery_OutlineWall_6_1_1",
       "parent": ".",
       "position": [
         24.0,
@@ -10511,53 +10531,73 @@
         -40.0
       ],
       "size": [
-        0.4,
+        5.015,
         6.199999999999999,
-        5.0
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Wall_W3",
+      "name": "upper_gallery_OutlineWall_6_2_0",
       "parent": ".",
       "position": [
         24.0,
         9.9,
-        -32.25
+        -46.75
       ],
       "size": [
-        0.4,
+        8.515,
         3.8000000000000007,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "upper_gallery_Wall_W4",
+      "name": "upper_gallery_OutlineWall_6_2_1",
       "parent": ".",
       "position": [
         24.0,
         14.9,
-        -32.25
+        -46.75
       ],
       "size": [
-        0.4,
+        8.515,
         6.199999999999999,
-        10.5
+        0.4
       ],
       "rotation": [
         0,
+        90.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "upper_gallery_OutlineWall_7_0_0",
+      "parent": ".",
+      "position": [
+        25.0,
+        13.0,
+        -52.0
+      ],
+      "size": [
+        2.8434271247461904,
+        10,
+        0.4
+      ],
+      "rotation": [
         0,
+        45.0,
         0
       ],
       "type": "StaticBody3D"
@@ -10608,7 +10648,7 @@
       "position": [
         25.1,
         12.5,
-        -51.0
+        -50.13
       ],
       "size": [
         0.9,
@@ -10628,7 +10668,7 @@
       "position": [
         25.1,
         12.5,
-        -29.0
+        -29.87
       ],
       "size": [
         0.9,
@@ -10668,7 +10708,7 @@
       "position": [
         54.9,
         12.5,
-        -51.0
+        -50.13
       ],
       "size": [
         0.9,
@@ -10688,7 +10728,7 @@
       "position": [
         54.9,
         12.5,
-        -29.0
+        -29.87
       ],
       "size": [
         0.9,
@@ -18483,406 +18523,6 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "bridge_Roof",
-      "parent": ".",
-      "position": [
-        0,
-        3.2,
-        120
-      ],
-      "size": [
-        26.8,
-        0.4,
-        24.8
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_N0",
-      "parent": ".",
-      "position": [
-        0.0,
-        -0.5,
-        108.0
-      ],
-      "size": [
-        26.0,
-        7,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_S0",
-      "parent": ".",
-      "position": [
-        -7.75,
-        -2.1,
-        132.0
-      ],
-      "size": [
-        10.5,
-        3.8,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_S1",
-      "parent": ".",
-      "position": [
-        -7.75,
-        1.4,
-        132.0
-      ],
-      "size": [
-        10.5,
-        3.2,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_S2",
-      "parent": ".",
-      "position": [
-        0.0,
-        1.4,
-        132.0
-      ],
-      "size": [
-        5.0,
-        3.2,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_S3",
-      "parent": ".",
-      "position": [
-        7.75,
-        -2.1,
-        132.0
-      ],
-      "size": [
-        10.5,
-        3.8,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_S4",
-      "parent": ".",
-      "position": [
-        7.75,
-        1.4,
-        132.0
-      ],
-      "size": [
-        10.5,
-        3.2,
-        0.4
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_E0",
-      "parent": ".",
-      "position": [
-        13.0,
-        -2.1,
-        112.75
-      ],
-      "size": [
-        0.4,
-        3.8,
-        9.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_E1",
-      "parent": ".",
-      "position": [
-        13.0,
-        1.4,
-        112.75
-      ],
-      "size": [
-        0.4,
-        3.2,
-        9.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_E2",
-      "parent": ".",
-      "position": [
-        13.0,
-        1.4,
-        120.0
-      ],
-      "size": [
-        0.4,
-        3.2,
-        5.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_E3",
-      "parent": ".",
-      "position": [
-        13.0,
-        -2.1,
-        127.25
-      ],
-      "size": [
-        0.4,
-        3.8,
-        9.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_E4",
-      "parent": ".",
-      "position": [
-        13.0,
-        1.4,
-        127.25
-      ],
-      "size": [
-        0.4,
-        3.2,
-        9.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_W0",
-      "parent": ".",
-      "position": [
-        -13.0,
-        -2.1,
-        112.75
-      ],
-      "size": [
-        0.4,
-        3.8,
-        9.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_W1",
-      "parent": ".",
-      "position": [
-        -13.0,
-        1.4,
-        112.75
-      ],
-      "size": [
-        0.4,
-        3.2,
-        9.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_W2",
-      "parent": ".",
-      "position": [
-        -13.0,
-        1.4,
-        120.0
-      ],
-      "size": [
-        0.4,
-        3.2,
-        5.0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_W3",
-      "parent": ".",
-      "position": [
-        -13.0,
-        -2.1,
-        127.25
-      ],
-      "size": [
-        0.4,
-        3.8,
-        9.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_Wall_W4",
-      "parent": ".",
-      "position": [
-        -13.0,
-        1.4,
-        127.25
-      ],
-      "size": [
-        0.4,
-        3.2,
-        9.5
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_LoweredCeiling",
-      "parent": ".",
-      "position": [
-        0,
-        1.92,
-        120
-      ],
-      "size": [
-        25.6,
-        0.24,
-        23.6
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_CeilingRib0",
-      "parent": ".",
-      "position": [
-        0,
-        1.4799999999999998,
-        112.8
-      ],
-      "size": [
-        25.5,
-        0.45,
-        0.35
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "bridge_CeilingRib1",
-      "parent": ".",
-      "position": [
-        0,
-        1.4799999999999998,
-        127.2
-      ],
-      "size": [
-        25.5,
-        0.45,
-        0.35
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
       "name": "BuriedGatePillar-1",
       "parent": ".",
       "position": [
@@ -22443,6 +22083,1686 @@
       "type": "StaticBody3D"
     },
     {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_upper_intake_prop_4",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_upper_intake_prop_4",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_upper_intake_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_upper_intake_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FloorCabinet",
+      "parent": "RoomProp_pale_ward_03_upper_intake_prop_6",
+      "position": [
+        0,
+        0.65,
+        0
+      ],
+      "size": [
+        1.1,
+        1.3,
+        0.55
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19ServicePlinth",
+      "parent": "RoomProp_pale_ward_03_upper_intake_prop_6",
+      "position": [
+        0,
+        0.08,
+        0
+      ],
+      "size": [
+        1.28,
+        0.16,
+        0.68
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_upper_gallery_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_upper_gallery_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_anchor_a_prop_4",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_anchor_a_prop_4",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_anchor_a_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_anchor_a_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FloorCabinet",
+      "parent": "RoomProp_pale_ward_03_anchor_a_prop_6",
+      "position": [
+        0,
+        0.65,
+        0
+      ],
+      "size": [
+        1.1,
+        1.3,
+        0.55
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19ServicePlinth",
+      "parent": "RoomProp_pale_ward_03_anchor_a_prop_6",
+      "position": [
+        0,
+        0.08,
+        0
+      ],
+      "size": [
+        1.28,
+        0.16,
+        0.68
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_service_descent_prop_4",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_service_descent_prop_4",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_service_descent_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_service_descent_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FloorCabinet",
+      "parent": "RoomProp_pale_ward_03_service_descent_prop_6",
+      "position": [
+        0,
+        0.65,
+        0
+      ],
+      "size": [
+        1.1,
+        1.3,
+        0.55
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19ServicePlinth",
+      "parent": "RoomProp_pale_ward_03_service_descent_prop_6",
+      "position": [
+        0,
+        0.08,
+        0
+      ],
+      "size": [
+        1.28,
+        0.16,
+        0.68
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_crossfire_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_crossfire_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_anchor_b_prop_4",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_anchor_b_prop_4",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_anchor_b_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_anchor_b_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FloorCabinet",
+      "parent": "RoomProp_pale_ward_03_anchor_b_prop_6",
+      "position": [
+        0,
+        0.65,
+        0
+      ],
+      "size": [
+        1.1,
+        1.3,
+        0.55
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19ServicePlinth",
+      "parent": "RoomProp_pale_ward_03_anchor_b_prop_6",
+      "position": [
+        0,
+        0.08,
+        0
+      ],
+      "size": [
+        1.28,
+        0.16,
+        0.68
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_lower_access_prop_4",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_lower_access_prop_4",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_lower_access_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_lower_access_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FloorCabinet",
+      "parent": "RoomProp_pale_ward_03_lower_access_prop_6",
+      "position": [
+        0,
+        0.65,
+        0
+      ],
+      "size": [
+        1.1,
+        1.3,
+        0.55
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19ServicePlinth",
+      "parent": "RoomProp_pale_ward_03_lower_access_prop_6",
+      "position": [
+        0,
+        0.08,
+        0
+      ],
+      "size": [
+        1.28,
+        0.16,
+        0.68
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_cultivation_prop_4",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_cultivation_prop_4",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_cultivation_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_cultivation_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_machinery_prop_4",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_machinery_prop_4",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_machinery_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_machinery_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FloorCabinet",
+      "parent": "RoomProp_pale_ward_03_machinery_prop_6",
+      "position": [
+        0,
+        0.65,
+        0
+      ],
+      "size": [
+        1.1,
+        1.3,
+        0.55
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19ServicePlinth",
+      "parent": "RoomProp_pale_ward_03_machinery_prop_6",
+      "position": [
+        0,
+        0.08,
+        0
+      ],
+      "size": [
+        1.28,
+        0.16,
+        0.68
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_anchor_c_prop_4",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_anchor_c_prop_4",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_anchor_c_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_anchor_c_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FloorCabinet",
+      "parent": "RoomProp_pale_ward_03_anchor_c_prop_6",
+      "position": [
+        0,
+        0.65,
+        0
+      ],
+      "size": [
+        1.1,
+        1.3,
+        0.55
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19ServicePlinth",
+      "parent": "RoomProp_pale_ward_03_anchor_c_prop_6",
+      "position": [
+        0,
+        0.08,
+        0
+      ],
+      "size": [
+        1.28,
+        0.16,
+        0.68
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_rupture_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_rupture_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_bridge_prop_4",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_bridge_prop_4",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe-1",
+      "parent": "RoomProp_pale_ward_03_bridge_prop_5",
+      "position": [
+        -0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FeedShoe1",
+      "parent": "RoomProp_pale_ward_03_bridge_prop_5",
+      "position": [
+        0.36,
+        0.09,
+        0
+      ],
+      "size": [
+        0.31,
+        0.18,
+        0.31
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19FloorCabinet",
+      "parent": "RoomProp_pale_ward_03_bridge_prop_6",
+      "position": [
+        0,
+        0.65,
+        0
+      ],
+      "size": [
+        1.1,
+        1.3,
+        0.55
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19ServicePlinth",
+      "parent": "RoomProp_pale_ward_03_bridge_prop_6",
+      "position": [
+        0,
+        0.08,
+        0
+      ],
+      "size": [
+        1.28,
+        0.16,
+        0.68
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeParapet0",
+      "parent": ".",
+      "position": [
+        0.0,
+        -3.2800000000000002,
+        108.0
+      ],
+      "size": [
+        26.0,
+        1.44,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeParapet1",
+      "parent": ".",
+      "position": [
+        -7.75,
+        -3.2800000000000002,
+        132.0
+      ],
+      "size": [
+        10.5,
+        1.44,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeParapet4",
+      "parent": ".",
+      "position": [
+        7.75,
+        -3.2800000000000002,
+        132.0
+      ],
+      "size": [
+        10.5,
+        1.44,
+        0.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeParapet6",
+      "parent": ".",
+      "position": [
+        13.0,
+        -3.2800000000000002,
+        112.75
+      ],
+      "size": [
+        0.4,
+        1.44,
+        9.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeParapet9",
+      "parent": ".",
+      "position": [
+        13.0,
+        -3.2800000000000002,
+        127.25
+      ],
+      "size": [
+        0.4,
+        1.44,
+        9.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeParapet11",
+      "parent": ".",
+      "position": [
+        -13.0,
+        -3.2800000000000002,
+        112.75
+      ],
+      "size": [
+        0.4,
+        1.44,
+        9.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeParapet14",
+      "parent": ".",
+      "position": [
+        -13.0,
+        -3.2800000000000002,
+        127.25
+      ],
+      "size": [
+        0.4,
+        1.44,
+        9.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19WasteCatch",
+      "parent": ".",
+      "position": [
+        0,
+        -11.7,
+        120
+      ],
+      "size": [
+        25.5,
+        0.6,
+        23.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19WasteTower-1-1",
+      "parent": ".",
+      "position": [
+        -46,
+        -6.4,
+        91
+      ],
+      "size": [
+        6.4,
+        10.6,
+        6.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19TowerCap-1-1",
+      "parent": ".",
+      "position": [
+        -46,
+        -1,
+        91
+      ],
+      "size": [
+        8,
+        0.28,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19WasteTower-11",
+      "parent": ".",
+      "position": [
+        -46,
+        -6.4,
+        149
+      ],
+      "size": [
+        6.4,
+        10.6,
+        6.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19TowerCap-11",
+      "parent": ".",
+      "position": [
+        -46,
+        -1,
+        149
+      ],
+      "size": [
+        8,
+        0.28,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19WasteTower1-1",
+      "parent": ".",
+      "position": [
+        46,
+        -6.4,
+        91
+      ],
+      "size": [
+        6.4,
+        10.6,
+        6.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19TowerCap1-1",
+      "parent": ".",
+      "position": [
+        46,
+        -1,
+        91
+      ],
+      "size": [
+        8,
+        0.28,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19WasteTower11",
+      "parent": ".",
+      "position": [
+        46,
+        -6.4,
+        149
+      ],
+      "size": [
+        6.4,
+        10.6,
+        6.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19TowerCap11",
+      "parent": ".",
+      "position": [
+        46,
+        -1,
+        149
+      ],
+      "size": [
+        8,
+        0.28,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeGantryPost-1-1",
+      "parent": ".",
+      "position": [
+        -12.3,
+        -1.2000000000000002,
+        113.04
+      ],
+      "size": [
+        0.38,
+        5.6,
+        0.38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeGantryPost-11",
+      "parent": ".",
+      "position": [
+        12.3,
+        -1.2000000000000002,
+        113.04
+      ],
+      "size": [
+        0.38,
+        5.6,
+        0.38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeGantry-1",
+      "parent": ".",
+      "position": [
+        0,
+        1.5999999999999996,
+        113.04
+      ],
+      "size": [
+        25.4,
+        0.36,
+        0.42
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeFloodMount-1-1",
+      "parent": ".",
+      "position": [
+        -12.62,
+        -2.25,
+        113.04
+      ],
+      "size": [
+        0.42,
+        0.42,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeFloodMount-11",
+      "parent": ".",
+      "position": [
+        12.62,
+        -2.25,
+        113.04
+      ],
+      "size": [
+        0.42,
+        0.42,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeGantryPost1-1",
+      "parent": ".",
+      "position": [
+        -12.3,
+        -1.2000000000000002,
+        126.96
+      ],
+      "size": [
+        0.38,
+        5.6,
+        0.38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeGantryPost11",
+      "parent": ".",
+      "position": [
+        12.3,
+        -1.2000000000000002,
+        126.96
+      ],
+      "size": [
+        0.38,
+        5.6,
+        0.38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeGantry1",
+      "parent": ".",
+      "position": [
+        0,
+        1.5999999999999996,
+        126.96
+      ],
+      "size": [
+        25.4,
+        0.36,
+        0.42
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeFloodMount1-1",
+      "parent": ".",
+      "position": [
+        -12.62,
+        -2.25,
+        126.96
+      ],
+      "size": [
+        0.42,
+        0.42,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "V19BridgeFloodMount11",
+      "parent": ".",
+      "position": [
+        12.62,
+        -2.25,
+        126.96
+      ],
+      "size": [
+        0.42,
+        0.42,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
       "name": "Reserve_v14_security_store_reserve_Left",
       "parent": ".",
       "position": [
@@ -24754,7 +26074,7 @@
         -5.04
       ],
       "energy": 2.1,
-      "damaged": false
+      "damaged": true
     },
     {
       "id": "Fixture_service_descent_1",
@@ -24826,7 +26146,7 @@
         33.7
       ],
       "energy": 2.1,
-      "damaged": false
+      "damaged": true
     },
     {
       "id": "Fixture_crossfire_1",
@@ -24970,7 +26290,7 @@
         113.7
       ],
       "energy": 2.1,
-      "damaged": false
+      "damaged": true
     },
     {
       "id": "Fixture_rupture_1",
@@ -24994,7 +26314,7 @@
         114.96
       ],
       "energy": 2.1,
-      "damaged": false
+      "damaged": true
     },
     {
       "id": "Fixture_bridge_1",
@@ -25174,6 +26494,102 @@
         165.04
       ],
       "energy": 2.1,
+      "damaged": false
+    },
+    {
+      "id": "V19BridgeDeckLamp-1-1",
+      "room": "bridge",
+      "kind": "surgical",
+      "position": [
+        -4.5,
+        1.4800000000000004,
+        113.04
+      ],
+      "energy": 3.6,
+      "damaged": false
+    },
+    {
+      "id": "V19BridgeDeckLamp-11",
+      "room": "bridge",
+      "kind": "surgical",
+      "position": [
+        4.5,
+        1.4800000000000004,
+        113.04
+      ],
+      "energy": 3.6,
+      "damaged": false
+    },
+    {
+      "id": "V19BridgeFlood-1-1",
+      "room": "bridge",
+      "kind": "warning",
+      "position": [
+        -12.4,
+        -2.25,
+        113.04
+      ],
+      "energy": 2.8,
+      "damaged": false
+    },
+    {
+      "id": "V19BridgeFlood-11",
+      "room": "bridge",
+      "kind": "warning",
+      "position": [
+        12.4,
+        -2.25,
+        113.04
+      ],
+      "energy": 2.8,
+      "damaged": false
+    },
+    {
+      "id": "V19BridgeDeckLamp1-1",
+      "room": "bridge",
+      "kind": "surgical",
+      "position": [
+        -4.5,
+        1.4800000000000004,
+        126.96
+      ],
+      "energy": 3.6,
+      "damaged": false
+    },
+    {
+      "id": "V19BridgeDeckLamp11",
+      "room": "bridge",
+      "kind": "surgical",
+      "position": [
+        4.5,
+        1.4800000000000004,
+        126.96
+      ],
+      "energy": 3.6,
+      "damaged": false
+    },
+    {
+      "id": "V19BridgeFlood1-1",
+      "room": "bridge",
+      "kind": "warning",
+      "position": [
+        -12.4,
+        -2.25,
+        126.96
+      ],
+      "energy": 2.8,
+      "damaged": false
+    },
+    {
+      "id": "V19BridgeFlood11",
+      "room": "bridge",
+      "kind": "warning",
+      "position": [
+        12.4,
+        -2.25,
+        126.96
+      ],
+      "energy": 2.8,
       "damaged": false
     }
   ],
@@ -25759,6 +27175,83 @@
       "floor_y": 8,
       "roof_y": 17
     },
+    "upper_gallery": {
+      "outline_xz": [
+        [
+          -14,
+          -13
+        ],
+        [
+          14,
+          -13
+        ],
+        [
+          16,
+          -11
+        ],
+        [
+          16,
+          11
+        ],
+        [
+          14,
+          13
+        ],
+        [
+          -14,
+          13
+        ],
+        [
+          -16,
+          11
+        ],
+        [
+          -16,
+          -11
+        ]
+      ],
+      "convex_floor_cells": [
+        {
+          "kind": "convex",
+          "outline_xz": [
+            [
+              -14,
+              -13
+            ],
+            [
+              14,
+              -13
+            ],
+            [
+              16,
+              -11
+            ],
+            [
+              16,
+              11
+            ],
+            [
+              14,
+              13
+            ],
+            [
+              -14,
+              13
+            ],
+            [
+              -16,
+              11
+            ],
+            [
+              -16,
+              -11
+            ]
+          ]
+        }
+      ],
+      "floor_y": 8,
+      "roof_y": 18
+    },
     "cultivation": {
       "outline_xz": [
         [
@@ -25964,6 +27457,218 @@
         0.35
       ],
       "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "upper_gallery",
+      "node": "upper_gallery_Duct-1",
+      "action": "trim_shell_box",
+      "old_position": [
+        25.25,
+        17.45,
+        -40
+      ],
+      "position": [
+        25.25,
+        17.45,
+        -40.0
+      ],
+      "old_size": [
+        0.7,
+        0.55,
+        24.5
+      ],
+      "size": [
+        0.7,
+        0.55,
+        22.92
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "upper_gallery",
+      "node": "upper_gallery_DuctFlange-1-1",
+      "action": "trim_shell_box",
+      "old_position": [
+        25.25,
+        17.45,
+        -51.9
+      ],
+      "position": [
+        25.537499999999998,
+        17.45,
+        -51.9
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "size": [
+        0.2650000000000077,
+        0.68,
+        0.13
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "upper_gallery",
+      "node": "upper_gallery_DuctFlange-11",
+      "action": "trim_shell_box",
+      "old_position": [
+        25.25,
+        17.45,
+        -28.1
+      ],
+      "position": [
+        25.5375,
+        17.45,
+        -28.1
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "size": [
+        0.2650000000000041,
+        0.68,
+        0.13
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "upper_gallery",
+      "node": "upper_gallery_Duct1",
+      "action": "trim_shell_box",
+      "old_position": [
+        54.75,
+        17.45,
+        -40
+      ],
+      "position": [
+        54.75,
+        17.45,
+        -40.0
+      ],
+      "old_size": [
+        0.7,
+        0.55,
+        24.5
+      ],
+      "size": [
+        0.7,
+        0.55,
+        22.92
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "upper_gallery",
+      "node": "upper_gallery_DuctFlange1-1",
+      "action": "trim_shell_box",
+      "old_position": [
+        54.75,
+        17.45,
+        -51.9
+      ],
+      "position": [
+        54.462500000000006,
+        17.45,
+        -51.9
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "size": [
+        0.2650000000000077,
+        0.68,
+        0.13
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "upper_gallery",
+      "node": "upper_gallery_DuctFlange11",
+      "action": "trim_shell_box",
+      "old_position": [
+        54.75,
+        17.45,
+        -28.1
+      ],
+      "position": [
+        54.4625,
+        17.45,
+        -28.1
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "size": [
+        0.26500000000000057,
+        0.68,
+        0.13
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "upper_gallery",
+      "node": "upper_gallery_SiloButtress-1-1",
+      "action": "fit_shell_buttress",
+      "old_xz": [
+        25.1,
+        -51.0
+      ],
+      "xz": [
+        25.1,
+        -50.13
+      ],
+      "reason": "Inset closed structural rib/feed assembly from actual chamfer."
+    },
+    {
+      "room": "upper_gallery",
+      "node": "upper_gallery_SiloButtress-11",
+      "action": "fit_shell_buttress",
+      "old_xz": [
+        25.1,
+        -29.0
+      ],
+      "xz": [
+        25.1,
+        -29.87
+      ],
+      "reason": "Inset closed structural rib/feed assembly from actual chamfer."
+    },
+    {
+      "room": "upper_gallery",
+      "node": "upper_gallery_SiloButtress1-1",
+      "action": "fit_shell_buttress",
+      "old_xz": [
+        54.9,
+        -51.0
+      ],
+      "xz": [
+        54.9,
+        -50.13
+      ],
+      "reason": "Inset closed structural rib/feed assembly from actual chamfer."
+    },
+    {
+      "room": "upper_gallery",
+      "node": "upper_gallery_SiloButtress11",
+      "action": "fit_shell_buttress",
+      "old_xz": [
+        54.9,
+        -29.0
+      ],
+      "xz": [
+        54.9,
+        -29.87
+      ],
+      "reason": "Inset closed structural rib/feed assembly from actual chamfer."
     },
     {
       "room": "cultivation",

@@ -1,0 +1,89 @@
+{
+  "purpose": "Pale Ward distinct dry enemy calls and heavy shutter movement",
+  "license": "Door cues: original procedural synthesis. Creature derivatives: CC0 HaelDB performances documented in concepts/audio-v4/manifest.json; demonic-v1 intermediary unchanged.",
+  "creative_notes": "No reverberation or wet layers. Scientist calls are tense and wiry; guard calls are lower and more constricted; Unsealed and Vessel retain their original attack, hurt and death identity.",
+  "outputs": {
+    "door_open.ogg": {
+      "source": "original deterministic synthesis",
+      "seed": 19017,
+      "sha256": "f854bb0f78f8014de2c4e9216d40d978c444e07f7270f77a03f3aa192c2a76e2"
+    },
+    "door_close.ogg": {
+      "source": "original deterministic synthesis",
+      "seed": 19017,
+      "sha256": "89caf952f75489b0cf8bc0e4013007f85a794b8c6fe2601d4a34d4e8b2505744"
+    },
+    "infected_scientist_attack_warning.ogg": {
+      "source": "assets/audio/demonic-v1/unsealed_attack_warning.ogg",
+      "source_sha256": "6c19d56dc0d427ce60cf382ab10aa55e723520aa6be6c3b91c106825d7f0a149",
+      "filters": "asetrate=48000*1.15,aresample=48000,atempo=0.869565,highpass=f=75,lowpass=f=5100,alimiter=limit=0.76",
+      "sha256": "678d17fabd212e3950d0f820fb53d6e6b23b292b1b9af63091b951f842769072"
+    },
+    "infected_scientist_hurt.ogg": {
+      "source": "assets/audio/demonic-v1/unsealed_hurt.ogg",
+      "source_sha256": "0a3e09c8d15ed85d673067621f92d965eb60af33dd7b707879c6bece64dfea40",
+      "filters": "asetrate=48000*1.15,aresample=48000,atempo=0.869565,highpass=f=75,lowpass=f=5100,alimiter=limit=0.76",
+      "sha256": "a543f811446e4e71c9452be1d77972215b85edd00ec35d1df0a823dfefebfd9b"
+    },
+    "infected_scientist_death.ogg": {
+      "source": "assets/audio/demonic-v1/unsealed_death.ogg",
+      "source_sha256": "b7451b70f27c3f3809eb217c14104fe2e9fdaa37a0ab878ba6d6b0fa72867c07",
+      "filters": "asetrate=48000*1.15,aresample=48000,atempo=0.869565,highpass=f=75,lowpass=f=5100,alimiter=limit=0.76",
+      "sha256": "1b4b78a2e18243f2fedaff258e55ee0cd47a2a4236930ee25f844d2ff555df3f"
+    },
+    "infected_security_attack_warning.ogg": {
+      "source": "assets/audio/demonic-v1/vessel_attack_warning.ogg",
+      "source_sha256": "f7bc0574bf8b7b5bc903b9f690e924236c480bc3167ad39db06e7e2e9c4e5962",
+      "filters": "asetrate=48000*0.83,aresample=48000,atempo=1.204819,highpass=f=75,lowpass=f=3100,alimiter=limit=0.76",
+      "sha256": "fd71aaff619f7657b4cf79ed8af36b65c816f8d4e8a86a472c130a1f77cc98b1"
+    },
+    "infected_security_hurt.ogg": {
+      "source": "assets/audio/demonic-v1/vessel_hurt.ogg",
+      "source_sha256": "2892be222b705820c1afbbd1289a75fe1e56334780e5863e8e694b2abc9c109d",
+      "filters": "asetrate=48000*0.83,aresample=48000,atempo=1.204819,highpass=f=75,lowpass=f=3100,alimiter=limit=0.76",
+      "sha256": "0cda157aa3d20b6c4280f60d6aba66aaf4460ecdb56e848e7855609dbb5f1efd"
+    },
+    "infected_security_death.ogg": {
+      "source": "assets/audio/demonic-v1/vessel_death.ogg",
+      "source_sha256": "c1f937f8c53b5e6ac04743ce9ab4e442852f59397d992e9238a4cb8f6586fdc5",
+      "filters": "asetrate=48000*0.83,aresample=48000,atempo=1.204819,highpass=f=75,lowpass=f=3100,alimiter=limit=0.76",
+      "sha256": "0b03438231f38a43a88047c6f240175dada3cc472cbedcf4b4c51b133a5e133e"
+    },
+    "unsealed_detect.ogg": {
+      "source": "assets/audio/demonic-v1/unsealed_attack_warning.ogg",
+      "source_sha256": "6c19d56dc0d427ce60cf382ab10aa55e723520aa6be6c3b91c106825d7f0a149",
+      "filters": "atrim=0:0.34,asetrate=48000*0.86,aresample=48000,atempo=1.13,highpass=f=72,lowpass=f=4400,afade=t=in:st=0:d=0.012,afade=t=out:st=0.31:d=0.07,alimiter=limit=0.76",
+      "sha256": "e29f02dc1df62f9679505fd4a27141aa9e9f8fcbd1c21c10b3ff5aca9d55a6ab"
+    },
+    "vessel_detect.ogg": {
+      "source": "assets/audio/demonic-v1/vessel_attack_warning.ogg",
+      "source_sha256": "f7bc0574bf8b7b5bc903b9f690e924236c480bc3167ad39db06e7e2e9c4e5962",
+      "filters": "atrim=0:0.42,asetrate=48000*0.74,aresample=48000,atempo=1.23,highpass=f=65,lowpass=f=2900,afade=t=in:st=0:d=0.012,afade=t=out:st=0.37:d=0.08,alimiter=limit=0.76",
+      "sha256": "06a85cab6fe49ea97e5d3b98cd3a328a2a3383ce66cc93dd0feb9d269c2bea8b"
+    },
+    "infected_scientist_detect.ogg": {
+      "source": "assets/audio/demonic-v1/unsealed_attack_warning.ogg",
+      "source_sha256": "6c19d56dc0d427ce60cf382ab10aa55e723520aa6be6c3b91c106825d7f0a149",
+      "filters": "atrim=0:0.30,asetrate=48000*1.12,aresample=48000,atempo=0.90,highpass=f=170,lowpass=f=5500,afade=t=in:st=0:d=0.012,afade=t=out:st=0.25:d=0.07,alimiter=limit=0.76",
+      "sha256": "d4c2065999d27c69d5d1841d8006eaa099b12b7926d102b3b615579e88f1cae5"
+    },
+    "infected_security_detect.ogg": {
+      "source": "assets/audio/demonic-v1/vessel_attack_warning.ogg",
+      "source_sha256": "f7bc0574bf8b7b5bc903b9f690e924236c480bc3167ad39db06e7e2e9c4e5962",
+      "filters": "atrim=0:0.34,asetrate=48000*0.92,aresample=48000,atempo=1.09,highpass=f=100,lowpass=f=3500,afade=t=in:st=0:d=0.012,afade=t=out:st=0.30:d=0.07,alimiter=limit=0.76",
+      "sha256": "7ffcd1a929a4a36d85edac533d094f79abe08ff491d476f2dc82065ca18f7272"
+    },
+    "overdrive_health.ogg": {
+      "source": "assets/audio/pickups-v6/pickup_health.ogg",
+      "source_sha256": "bf1036ea345f4d579d860b37d1d5fc0ab5384bd411e9d1bd31c981d1e68d30f5",
+      "filters": "asetrate=48000*1.3,aresample=48000,atempo=0.769231,highpass=f=130,alimiter=limit=0.76",
+      "sha256": "167ef0d9ef0966062c418c82da66e6332eabb1923960f60c67a53e5ea23228a3"
+    },
+    "overdrive_armor.ogg": {
+      "source": "assets/audio/pickups-v6/pickup_armor.ogg",
+      "source_sha256": "857fef9d8bc9c95154797dfc736f1b0fc55a4b169c5c052f156c98dea70596c0",
+      "filters": "asetrate=48000*0.82,aresample=48000,atempo=1.219512,highpass=f=130,alimiter=limit=0.76",
+      "sha256": "ef65dfd6d4a4cb3bacafffffbcaac955ef7b7cf8e570703bef11753a17ae048a"
+    }
+  }
+}

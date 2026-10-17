@@ -296,7 +296,41 @@
           "heading": -90
         }
       ],
-      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+      "outline_xz": [
+        [
+          -14,
+          -13
+        ],
+        [
+          14,
+          -13
+        ],
+        [
+          16,
+          -11
+        ],
+        [
+          16,
+          11
+        ],
+        [
+          14,
+          13
+        ],
+        [
+          -14,
+          13
+        ],
+        [
+          -16,
+          11
+        ],
+        [
+          -16,
+          -11
+        ]
+      ]
     },
     {
       "id": "anchor_a",
@@ -3031,6 +3065,12 @@
     "objective_text": {
       "note": "Keep exact existing objective IDs/order; replace text with actual next destination/anchor label from authored profile, no new visit-based prerequisites."
     }
+  },
+  "enemy_roster_counts": {
+    "infected_scientist": 5,
+    "infected_security": 12,
+    "unsealed": 47,
+    "vessel": 20
   },
   "spawn_position": [
     0,

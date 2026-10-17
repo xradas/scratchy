@@ -86,12 +86,14 @@ func build_housing() -> void:
 
 func intensity_at(time: float) -> float:
 	if not damaged or not flicker_enabled: return 1.0
-	var phase := fposmod(time+flicker_offset,maxf(flicker_period,12.0))
-	# One smooth0.42second sag per19–23seconds, ≤14%; never black or rapid flash.
-	var distance := absf(phase-13.0)
-	if distance >= .21: return 1.0
-	var blend := .5+.5*cos(PI*distance/.21)
-	return 1.0-clampf(flicker_depth,0.0,.18)*blend
+	var period := maxf(flicker_period,4.0)
+	var phase := fposmod(time+flicker_offset,period)
+	# A failing ballast stutters twice, then recovers. The intact partner lamp
+	# in the room remains on, so the route never depends on a flashing cue.
+	var pulse_a := maxf(0.0,1.0-absf(phase-period*.43)/.16)
+	var pulse_b := maxf(0.0,1.0-absf(phase-period*.53)/.09)
+	var pulse := maxf(pulse_a,pulse_b)
+	return 1.0-clampf(flicker_depth,0.0,.7)*pulse
 
 func apply_intensity() -> void:
 	if not is_instance_valid(light): return

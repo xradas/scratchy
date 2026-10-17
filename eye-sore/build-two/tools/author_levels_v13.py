@@ -17,6 +17,7 @@ import author_themed_stages as base
 import room_program_v6 as props
 import room_materials_v8 as surfaces
 import ward_shell_v14 as shell
+import ward_environment_v19
 
 ROOT=Path(__file__).resolve().parents[1]
 INPUT=ROOT/'docs/level-redesign-v13/levels.json'
@@ -134,16 +135,24 @@ def doors(sc,p,points,rooms):
     at=list(start);at[axis]-=sign*.35;at[1]=a['center'][1]+1.9
     size=[p['width'],3.8,p['width']];size[axis]=.24
     name='Door_'+p['id']
-    extra='script = ExtResource("door")\nmetadata/stage_door = '+quote(p['id'])+'\nmetadata/stable_id = '+quote(sc.level['id']+'.door.'+p['id'])+'\nmetadata/requires = '+arr(p['requires'])+'\nmetadata/open_offset = Vector3(0,5,0)\nmetadata/use_anchor = Vector3(0,-1,0)\nmetadata/label = '+quote('release shortcut' if p['shortcut'] else 'open concealed service panel' if p['secret'] else 'open containment bulkhead' if p.get('service_door') else 'open access gate')+'\nmetadata/locked_message = '+quote('Complete the marked objective to release this gate')
+    extra='script = ExtResource("door")\nmetadata/stage_door = '+quote(p['id'])+'\nmetadata/stable_id = '+quote(sc.level['id']+'.door.'+p['id'])+'\nmetadata/requires = '+arr(p['requires'])+'\nmetadata/open_offset = Vector3(0,5,0)\nmetadata/use_anchor = Vector3(0,-1,0)\nmetadata/label = '+quote('release shortcut' if p['shortcut'] else 'inspect damaged wall panel' if p['secret'] else 'open containment bulkhead' if p.get('service_door') else 'open access gate')+'\nmetadata/locked_message = '+quote('Complete the marked objective to release this gate')
     if p['secret']:extra+='\nmetadata/secret = true'
     if p['shortcut']:extra+='\nmetadata/shortcut = true'
     if p.get('first_open_from'):
         normal=[0,0,0];normal[axis]=sign if p['first_open_from']==p['to'] else -sign
         extra+='\nmetadata/first_open_normal = '+vec(normal)
-    sc.box(name,at,size,sc.materials[family(a)]['door'],typ='AnimatableBody3D',extra=extra)
-    for face in [-1,1]:
-        pp=[0,.1,0];pp[axis]=face*.135;ss=[1.3,.12,1.3];ss[axis]=.025
-        sc.box('AccessStrip'+str(face),pp,ss,'brass' if p['requires'] else 'glow',False,name)
+    sc.box(name,at,size,sc.materials[family(a)]['wall' if p['secret'] else 'door'],typ='AnimatableBody3D',extra=extra)
+    if p['secret']:
+        # These leaves read as worn wall cladding, with a small asymmetric
+        # service seam as a clue rather than the usual lit access strips.
+        for face in [-1,1]:
+            pp=[0,.55,0];pp[axis]=face*.137;pp[2 if axis==0 else 0]=size[2 if axis==0 else 0]*.27
+            ss=[.025,1.0,.025];ss[axis]=.025
+            sc.box('DamagedSeam'+str(face),pp,ss,'recess',False,name)
+    else:
+        for face in [-1,1]:
+            pp=[0,.1,0];pp[axis]=face*.135;ss=[1.3,.12,1.3];ss[axis]=.025
+            sc.box('AccessStrip'+str(face),pp,ss,'brass' if p['requires'] else 'glow',False,name)
     return name
 
 
@@ -506,6 +515,11 @@ def furnishing(sc,room):
 
 def stable_pickup(sc,name,kind,at,amount):
     sc.pickup(name,kind,at,amount)
+    if kind in {'health','armor'}:
+        # The box artwork identifies the category; the front badge makes the
+        # 1/25/50 denomination readable before contact.
+        sc.label('DoseValue','+'+str(amount),(0,.29,.255),name,size=20,
+                 color=(.96,.67,.53,1) if kind=='health' else (.55,.88,.96,1))
     for i,block in enumerate(sc.nodes):
         if block.startswith('[node name="'+name+'" '):sc.nodes[i]=block.rstrip()+'\nmetadata/stable_id = '+quote(sc.level['id']+'.pickup.'+name)+'\n'
 
@@ -516,12 +530,60 @@ def distribute(total,rooms):
     return values
 
 
+RANGED_PROMOTIONS={
+    'pale_ward_01': {'generator','surgical_access','decon','transfer'},
+    'pale_ward_02': {'cultures','waste_lab','reservoir','purge'},
+    'pale_ward_03': {'upper_gallery','crossfire','cultivation','rupture'},
+}
+
+
+def survival_denominations(kind,total):
+    # One-value shards are frequent but small. Only two 50-point reserves per
+    # route; the same original route budget remains available without secrets.
+    fifties=2
+    singles=25
+    assert kind in {'health','armor'} and (total-singles-50*fifties)%25==0
+    quarters=(total-singles-50*fifties)//25
+    large=[25]*quarters+[50]*fifties
+    amounts=[]
+    for value in large:
+        amounts.append(value)
+        for _ in range(2):
+            if singles:amounts.append(1);singles-=1
+    amounts.extend([1]*singles)
+    return amounts
+
+
+def scatter_supply(sc,level,rooms,supply_rooms,kind,total,pickups):
+    amounts=survival_denominations(kind,total) if kind in {'health','armor'} else [n for n in distribute(total,supply_rooms)]
+    # All six supply families share each room's placement cursor. Keeping a
+    # cursor per kind piled several cases on the same spot, including directly
+    # behind the physical anchor-C pylon in Breach Circuit.
+    assigned=sc.__dict__.setdefault('supply_slots',{})
+    bays=[(-2,-1),(-1,-1),(0,-1),(-2,0),(-1,0),(0,0),(1,0),(2,0),(-1,1),(0,1),(1,1),(2,1)]
+    for index,amount in enumerate(amounts):
+        if amount<=0:continue
+        room=supply_rooms[index%len(supply_rooms)] if kind in {'health','armor'} else supply_rooms[index]
+        slot=assigned.get(room['id'],0);assigned[room['id']]=slot+1
+        assert slot<len(bays),(level['id'],room['id'],'not enough authored supply bays')
+        x,y,z=room['center'];sx,_,sz=room['size']
+        # The south row stays on the left/centre, clear of controls and
+        # shootable anchors at +X/-Z. Later cases fan across the open centre
+        # and north bays; no stacked pickup hotspots.
+        bx,bz=bays[slot]
+        at=[x+bx*min(2.1,sx*.08),y+.5,z+bz*min(5.0,sz*.21)]
+        name='Supply_'+kind+'_'+room['id']+'_'+str(slot)
+        stable_pickup(sc,name,kind,at,amount)
+        pickups.append({'node':name,'kind':kind,'amount':amount,'room':room['id'],'position':at})
+
+
 def populate(sc,rooms):
     level=sc.level;sc.node('EnemySpawns');enemy_records=[]
     for room in rooms.values():
         for i in range(room['enemies']):
             staff=room['function'] in {'triage_reception','triage_ward','control_room','diagnostics','surgery','medical_stores','security','records','staff_room'}
             kind=('infected_security' if i%3==2 or room['function']=='security' else 'infected_scientist') if staff else ('vessel' if i%3==2 else 'unsealed')
+            if i==0 and room['id'] in RANGED_PROMOTIONS[level['id']]:kind='infected_security'
             x,y,z=room['center'];at=[x+((i%3)-1)*5,y+.87,z-4+(i//3)*4]
             stable=level['id']+'.'+room['id']+'.enemy.'+str(i)
             activation_room=room['id'];arena=level['encounters'].get(room['id'],{}).get('arena_id','')
@@ -533,6 +595,7 @@ def populate(sc,rooms):
             actual=next((r['id'] for r in rooms.values() if abs(at[0]-r['center'][0])<=r['size'][0]/2 and abs(at[2]-r['center'][2])<=r['size'][2]/2 and (not r.get('outline_xz') or shell.inside((at[0]-r['center'][0],at[2]-r['center'][2]),r['outline_xz']))),None)
             sc.marker('Spawn_'+str(len(enemy_records)),at,'metadata/stable_id = '+quote(stable)+'\nmetadata/kind = '+quote(kind)+'\nmetadata/arena_id = '+quote(arena)+'\nmetadata/activate_room = '+quote(activation_room),'EnemySpawns')
             enemy_records.append({'stable_id':stable,'room':actual or activation_room,'source_room':room['id'],'actual_room':actual,'activation_room':activation_room,'arena_id':arena,'kind':kind,'position':at})
+    level['enemy_roster_counts']={kind:sum(1 for enemy in enemy_records if enemy['kind']==kind) for kind in sorted({enemy['kind'] for enemy in enemy_records})}
     for item in level['controls']:
         room=rooms[item['room']];x,y,z=room['center'];at=[x+3.5,y+.95,z-4];name='Control_'+item['id'];rules=level['objective_profile']['controls'][item['id']]
         sc.box(name,at,(1.1,1.5,.5),sc.equipment[family(room)]['control'],extra='metadata/stage_button = '+quote(item['id'])+'\nmetadata/stable_id = '+quote(level['id']+'.control.'+item['id'])+'\nmetadata/requires = '+arr(rules.get('requires',[]))+'\nmetadata/label = '+quote(item['id'].replace('_',' '))+'\nmetadata/activated_message = '+quote(item['id'].replace('_',' ')+' engaged'))
@@ -570,15 +633,21 @@ def populate(sc,rooms):
     pickups=[]
     for kind,total in dict(level['main_route_ammo'],health=level['main_route_health'],armor=level['main_route_armor']).items():
         if kind==WEAPON_AMMO[weapon['kind']]:total-=weapon['amount']
-        for room,amount in zip(supply_rooms,distribute(total,supply_rooms)):
-            if not amount:continue
-            x,y,z=room['center'];slot=list(CAPS).index(kind) if kind in CAPS else 4 if kind=='health' else 5
-            at=[x+(-2 if slot%2==0 else 2),y+.5,z+room['size'][2]/2-3-(slot//2)*1.0]
-            assert amount<=CAPS.get(kind,100),(kind,amount)
-            name='Supply_'+kind+'_'+room['id'];stable_pickup(sc,name,kind,at,amount);pickups.append({'node':name,'kind':kind,'amount':amount,'room':room['id'],'position':at})
+        scatter_supply(sc,level,rooms,supply_rooms,kind,total,pickups)
     for room in rooms.values():
         if room['optional'] or room['secret']:
-            x,y,z=room['center'];stable_pickup(sc,'Bonus_'+room['id'],'shells',[x,y+.5,z+2],12);stable_pickup(sc,'BonusHealth_'+room['id'],'health',[x+1,y+.5,z+2],25)
+            x,y,z=room['center'];stable_pickup(sc,'Bonus_'+room['id'],'shells',[x-2,y+.5,z+2],12);stable_pickup(sc,'BonusHealth_'+room['id'],'health',[x+2,y+.5,z-2],25)
+    # Rare overdrive is distinct from ordinary top-ups; one secret per level
+    # rewards exploration without making the main route depend on it.
+    secret_room=rooms[level['secret_rooms'][0]]
+    overdrive_kind='health' if level['id']!='pale_ward_02' else 'armor'
+    x,y,z=secret_room['center'];overdrive_name='Overdrive_'+overdrive_kind
+    stable_pickup(sc,overdrive_name,overdrive_kind,[x,y+.5,z-2],100)
+    for index,block in enumerate(sc.nodes):
+        if block.startswith('[node name="'+overdrive_name+'" '):
+            sc.nodes[index]=block.rstrip()+'\nmetadata/overdrive = true\n'
+            break
+    sc.box('OverdriveHalo',(0,-.475,0),(.82,.04,.82),'glow',False,overdrive_name)
     room=rooms[level['exit']['room']];x,y,z=room['center'];at=[x,y+1,z-4]
     sc.box('ExitControl',at,(1.5,1.8,.5),sc.equipment[family(room)]['exit'],extra='metadata/stage_exit = true\nmetadata/stable_id = '+quote(level['id']+'.exit')+'\nmetadata/requires = '+arr(level['exit']['requires'])+'\nmetadata/locked_message = "Complete the remaining objectives"')
     sc.box('ExitFoot',(0,-.95,0),(1.1,.1,.45),sc.materials[family(room)]['trim'],True,'ExitControl');sc.node('ControlPresentationV9',parent='ExitControl',props='script = ExtResource("v13_control_presentation")\nis_exit = true\nrequired_flags = PackedStringArray('+', '.join(map(quote,level['exit']['requires']))+')\nsurface_material = SubResource("'+sc.equipment[family(room)]['exit']+'")');sc.label('ExitLabel',{'pale_ward_01':'TO CONTAINMENT / RESERVOIR TRANSFER','pale_ward_02':'TO BREACH / SPECIMEN SILO','pale_ward_03':'ASH CITADEL / BURIED PASSAGE'}[level['id']],(0,1.3,.3),'ExitControl',size=34);level['exit'].update(node='ExitControl',position=at)
@@ -683,6 +752,7 @@ def author_selected(level_id,path=INPUT):
     structural_connections(sc,rooms)
     for room in rooms.values():
         walls(sc,room,cuts[room['id']]);sc.shell_room=room;authored_architecture(sc,room);chapter_architecture(sc,room);sc.shell_room=None;furnishing(sc,room)
+    ward_environment_v19.apply(sc,level,rooms)
     optional_reserve(sc,rooms);navigation_signs(sc)
     enemies,supplies=populate(sc,rooms)
     assert len(enemies)==level['enemy_total']

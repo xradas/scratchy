@@ -30,6 +30,8 @@ Original prepared firearm recordings: 1911/A_34P.wav (pistol), Nova/O_17P.wav (s
 
 Staff pass v11: infected scientist warning/hurt/death use the existing demonic Unsealed voice family; infected security uses the existing demonic Vessel voice family. These are resource aliases to unchanged CC0-derived recordings, not new recordings or new processing. Original sources, creators and edit recipes remain in `concepts/audio-v4/manifest.json`. The accepted v10 firing cues and music are unchanged.
 
+Pale Ward pass v19 replaces those staff aliases with distinct scientist and security detection, attack, hurt and death cues; Unsealed and Vessel also gain distinct detection cues. The voice edits derive from the existing CC0 HaelDB recordings above. Door and overdrive pickup cues are original project synthesis. Exact source hashes, edits, exported files and cue assignments are recorded in `assets/audio/ward-v19/provenance.json` and `assets/audio/runtime-cues.json`.
+
 ## Original campaign score v16
 
 This historical pass added nine project cues while Abelian was still the menu theme. The cues used authored note, drum and arrangement patterns plus deterministic oscillator/noise synthesis. No external sample or previous recording entered their render. `tools/compose_campaign_v16.py` is the source; `assets/audio/music/original-v16/manifest.json` records stage mapping, tempo, pattern, duration and hashes. The prior review player is `concepts/audio-v16/index.html`. These files remain available for comparison but are not selected by the current game.

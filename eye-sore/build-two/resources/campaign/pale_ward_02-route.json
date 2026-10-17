@@ -1358,7 +1358,33 @@
           "heading": -90
         }
       ],
-      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+      "outline_xz": [
+        [
+          -13,
+          -12
+        ],
+        [
+          9,
+          -12
+        ],
+        [
+          13,
+          -7
+        ],
+        [
+          13,
+          8
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          -13,
+          12
+        ]
+      ]
     },
     "exit": {
       "id": "exit",
@@ -4551,6 +4577,12 @@
       "discharge": "Both feeds isolated \u00b7 return to Overlook; descend into the drained basin."
     }
   },
+  "enemy_roster_counts": {
+    "infected_scientist": 29,
+    "infected_security": 18,
+    "unsealed": 21,
+    "vessel": 8
+  },
   "spawn_position": [
     0,
     4.95,
@@ -4692,7 +4724,7 @@
       "actual_room": "cultures",
       "activation_room": "cultures",
       "arena_id": "",
-      "kind": "infected_scientist",
+      "kind": "infected_security",
       "position": [
         -85,
         4.87,
@@ -5028,7 +5060,7 @@
       "actual_room": "waste_lab",
       "activation_room": "waste_lab",
       "arena_id": "",
-      "kind": "infected_scientist",
+      "kind": "infected_security",
       "position": [
         75,
         4.87,
@@ -5308,7 +5340,7 @@
       "actual_room": "reservoir",
       "activation_room": "reservoir",
       "arena_id": "",
-      "kind": "unsealed",
+      "kind": "infected_security",
       "position": [
         -5,
         0.87,
@@ -5462,7 +5494,7 @@
       "actual_room": "purge",
       "activation_room": "purge",
       "arena_id": "",
-      "kind": "unsealed",
+      "kind": "infected_security",
       "position": [
         35,
         0.87,
@@ -5626,718 +5658,1180 @@
   ],
   "supplies": [
     {
-      "node": "Supply_pistol_overlook",
+      "node": "Supply_pistol_overlook_0",
       "kind": "pistol",
       "amount": 10,
       "room": "overlook",
       "position": [
-        -2,
+        -4.2,
         4.5,
-        10.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_pistol_culture_access",
+      "node": "Supply_pistol_culture_access_0",
       "kind": "pistol",
       "amount": 13,
       "room": "culture_access",
       "position": [
-        -42,
+        -44.16,
         4.5,
-        9.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_pistol_cultures",
+      "node": "Supply_pistol_cultures_0",
       "kind": "pistol",
       "amount": 20,
       "room": "cultures",
       "position": [
-        -82,
+        -84.2,
         4.5,
-        11.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_pistol_filters",
+      "node": "Supply_pistol_filters_0",
       "kind": "pistol",
       "amount": 13,
       "room": "filters",
       "position": [
-        -82,
+        -84.16,
         2.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_pistol_isolation_a",
+      "node": "Supply_pistol_isolation_a_0",
       "kind": "pistol",
       "amount": 15,
       "room": "isolation_a",
       "position": [
-        -42,
+        -44.16,
         2.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_pistol_waste_access",
+      "node": "Supply_pistol_waste_access_0",
       "kind": "pistol",
       "amount": 12,
       "room": "waste_access",
       "position": [
-        38,
+        35.84,
         4.5,
-        9.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_pistol_waste_lab",
+      "node": "Supply_pistol_waste_lab_0",
       "kind": "pistol",
       "amount": 20,
       "room": "waste_lab",
       "position": [
-        78,
+        75.8,
         4.5,
-        11.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_pistol_sterilizer",
+      "node": "Supply_pistol_sterilizer_0",
       "kind": "pistol",
       "amount": 15,
       "room": "sterilizer",
       "position": [
-        78,
+        75.84,
         6.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_pistol_isolation_b",
+      "node": "Supply_pistol_isolation_b_0",
       "kind": "pistol",
       "amount": 15,
       "room": "isolation_b",
       "position": [
-        38,
+        35.84,
         6.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_pistol_reservoir",
+      "node": "Supply_pistol_reservoir_0",
       "kind": "pistol",
       "amount": 17,
       "room": "reservoir",
       "position": [
-        -2,
+        -4.2,
         0.5,
-        -29.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_pistol_outfall",
+      "node": "Supply_pistol_outfall_0",
       "kind": "pistol",
       "amount": 10,
       "room": "outfall",
       "position": [
-        -2,
+        -4.16,
         0.5,
-        -71.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_pistol_purge",
+      "node": "Supply_pistol_purge_0",
       "kind": "pistol",
       "amount": 10,
       "room": "purge",
       "position": [
-        38,
+        35.84,
         0.5,
-        -71.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_pistol_discharge",
+      "node": "Supply_pistol_discharge_0",
       "kind": "pistol",
       "amount": 10,
       "room": "discharge",
       "position": [
-        78,
+        75.84,
         2.5,
-        -71.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_shells_overlook",
+      "node": "Supply_shells_overlook_1",
       "kind": "shells",
       "amount": 4,
       "room": "overlook",
       "position": [
-        2,
+        -2.1,
         4.5,
-        10.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_shells_culture_access",
+      "node": "Supply_shells_culture_access_1",
       "kind": "shells",
       "amount": 6,
       "room": "culture_access",
       "position": [
-        -38,
+        -42.08,
         4.5,
-        9.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_shells_cultures",
+      "node": "Supply_shells_cultures_1",
       "kind": "shells",
       "amount": 9,
       "room": "cultures",
       "position": [
-        -78,
+        -82.1,
         4.5,
-        11.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_shells_filters",
+      "node": "Supply_shells_filters_1",
       "kind": "shells",
       "amount": 6,
       "room": "filters",
       "position": [
-        -78,
+        -82.08,
         2.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_shells_isolation_a",
+      "node": "Supply_shells_isolation_a_1",
       "kind": "shells",
       "amount": 7,
       "room": "isolation_a",
       "position": [
-        -38,
+        -42.08,
         2.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_shells_waste_access",
+      "node": "Supply_shells_waste_access_1",
       "kind": "shells",
       "amount": 5,
       "room": "waste_access",
       "position": [
-        42,
+        37.92,
         4.5,
-        9.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_shells_waste_lab",
+      "node": "Supply_shells_waste_lab_1",
       "kind": "shells",
       "amount": 9,
       "room": "waste_lab",
       "position": [
-        82,
+        77.9,
         4.5,
-        11.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_shells_sterilizer",
+      "node": "Supply_shells_sterilizer_1",
       "kind": "shells",
       "amount": 7,
       "room": "sterilizer",
       "position": [
-        82,
+        77.92,
         6.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_shells_isolation_b",
+      "node": "Supply_shells_isolation_b_1",
       "kind": "shells",
       "amount": 7,
       "room": "isolation_b",
       "position": [
-        42,
+        37.92,
         6.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_shells_reservoir",
+      "node": "Supply_shells_reservoir_1",
       "kind": "shells",
       "amount": 8,
       "room": "reservoir",
       "position": [
-        2,
+        -2.1,
         0.5,
-        -29.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_shells_outfall",
+      "node": "Supply_shells_outfall_1",
       "kind": "shells",
       "amount": 4,
       "room": "outfall",
       "position": [
-        2,
+        -2.08,
         0.5,
-        -71.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_shells_purge",
+      "node": "Supply_shells_purge_1",
       "kind": "shells",
       "amount": 4,
       "room": "purge",
       "position": [
-        42,
+        37.92,
         0.5,
-        -71.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_shells_discharge",
+      "node": "Supply_shells_discharge_1",
       "kind": "shells",
       "amount": 4,
       "room": "discharge",
       "position": [
-        82,
+        77.92,
         2.5,
-        -71.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_rivets_overlook",
+      "node": "Supply_rivets_overlook_2",
       "kind": "rivets",
       "amount": 8,
       "room": "overlook",
       "position": [
-        -2,
+        0.0,
         4.5,
-        9.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_rivets_culture_access",
+      "node": "Supply_rivets_culture_access_2",
       "kind": "rivets",
       "amount": 10,
       "room": "culture_access",
       "position": [
-        -42,
+        -40.0,
         4.5,
-        8.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_rivets_cultures",
+      "node": "Supply_rivets_cultures_2",
       "kind": "rivets",
       "amount": 16,
       "room": "cultures",
       "position": [
-        -82,
+        -80.0,
         4.5,
-        10.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_rivets_filters",
+      "node": "Supply_rivets_filters_2",
       "kind": "rivets",
       "amount": 10,
       "room": "filters",
       "position": [
-        -82,
+        -80.0,
         2.5,
-        -32.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_rivets_isolation_a",
+      "node": "Supply_rivets_isolation_a_2",
       "kind": "rivets",
       "amount": 12,
       "room": "isolation_a",
       "position": [
-        -42,
+        -40.0,
         2.5,
-        -32.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_rivets_waste_access",
+      "node": "Supply_rivets_waste_access_2",
       "kind": "rivets",
       "amount": 10,
       "room": "waste_access",
       "position": [
-        38,
+        40.0,
         4.5,
-        8.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_rivets_waste_lab",
+      "node": "Supply_rivets_waste_lab_2",
       "kind": "rivets",
       "amount": 16,
       "room": "waste_lab",
       "position": [
-        78,
+        80.0,
         4.5,
-        10.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_rivets_sterilizer",
+      "node": "Supply_rivets_sterilizer_2",
       "kind": "rivets",
       "amount": 12,
       "room": "sterilizer",
       "position": [
-        78,
+        80.0,
         6.5,
-        -32.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_rivets_isolation_b",
+      "node": "Supply_rivets_isolation_b_2",
       "kind": "rivets",
       "amount": 12,
       "room": "isolation_b",
       "position": [
-        38,
+        40.0,
         6.5,
-        -32.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_rivets_reservoir",
+      "node": "Supply_rivets_reservoir_2",
       "kind": "rivets",
       "amount": 14,
       "room": "reservoir",
       "position": [
-        -2,
+        0.0,
         0.5,
-        -30.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_rivets_outfall",
+      "node": "Supply_rivets_outfall_2",
       "kind": "rivets",
       "amount": 8,
       "room": "outfall",
       "position": [
-        -2,
+        0.0,
         0.5,
-        -72.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_rivets_purge",
+      "node": "Supply_rivets_purge_2",
       "kind": "rivets",
       "amount": 8,
       "room": "purge",
       "position": [
-        38,
+        40.0,
         0.5,
-        -72.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_rivets_discharge",
+      "node": "Supply_rivets_discharge_2",
       "kind": "rivets",
       "amount": 8,
       "room": "discharge",
       "position": [
-        78,
+        80.0,
         2.5,
-        -72.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_health_overlook",
+      "node": "Supply_health_overlook_3",
       "kind": "health",
-      "amount": 20,
+      "amount": 25,
       "room": "overlook",
       "position": [
-        -2,
+        -4.2,
         4.5,
-        8.0
+        0.0
       ]
     },
     {
-      "node": "Supply_health_culture_access",
+      "node": "Supply_health_culture_access_3",
       "kind": "health",
-      "amount": 24,
+      "amount": 1,
       "room": "culture_access",
       "position": [
-        -42,
+        -44.16,
         4.5,
-        7.0
+        0.0
       ]
     },
     {
-      "node": "Supply_health_cultures",
+      "node": "Supply_health_cultures_3",
       "kind": "health",
-      "amount": 39,
+      "amount": 1,
       "room": "cultures",
       "position": [
-        -82,
+        -84.2,
         4.5,
-        9.0
+        0.0
       ]
     },
     {
-      "node": "Supply_health_filters",
+      "node": "Supply_health_filters_3",
       "kind": "health",
-      "amount": 24,
+      "amount": 25,
       "room": "filters",
       "position": [
-        -82,
+        -84.16,
         2.5,
-        -33.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_health_isolation_a",
+      "node": "Supply_health_isolation_a_3",
       "kind": "health",
-      "amount": 29,
+      "amount": 1,
       "room": "isolation_a",
       "position": [
-        -42,
+        -44.16,
         2.5,
-        -33.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_health_waste_access",
+      "node": "Supply_health_waste_access_3",
       "kind": "health",
-      "amount": 24,
+      "amount": 1,
       "room": "waste_access",
       "position": [
-        38,
+        35.84,
         4.5,
-        7.0
+        0.0
       ]
     },
     {
-      "node": "Supply_health_waste_lab",
+      "node": "Supply_health_waste_lab_3",
       "kind": "health",
-      "amount": 39,
+      "amount": 25,
       "room": "waste_lab",
       "position": [
-        78,
+        75.8,
         4.5,
-        9.0
+        0.0
       ]
     },
     {
-      "node": "Supply_health_sterilizer",
+      "node": "Supply_health_sterilizer_3",
       "kind": "health",
-      "amount": 29,
+      "amount": 1,
       "room": "sterilizer",
       "position": [
-        78,
+        75.84,
         6.5,
-        -33.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_health_isolation_b",
+      "node": "Supply_health_isolation_b_3",
       "kind": "health",
-      "amount": 29,
+      "amount": 1,
       "room": "isolation_b",
       "position": [
-        38,
+        35.84,
         6.5,
-        -33.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_health_reservoir",
+      "node": "Supply_health_reservoir_3",
       "kind": "health",
-      "amount": 34,
+      "amount": 25,
       "room": "reservoir",
       "position": [
-        -2,
+        -4.2,
         0.5,
-        -31.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_health_outfall",
+      "node": "Supply_health_outfall_3",
       "kind": "health",
-      "amount": 20,
+      "amount": 1,
       "room": "outfall",
       "position": [
-        -2,
+        -4.16,
         0.5,
-        -73.0
+        -80.0
       ]
     },
     {
-      "node": "Supply_health_purge",
+      "node": "Supply_health_purge_3",
       "kind": "health",
-      "amount": 20,
+      "amount": 1,
       "room": "purge",
       "position": [
-        38,
+        35.84,
         0.5,
-        -73.0
+        -80.0
       ]
     },
     {
-      "node": "Supply_health_discharge",
+      "node": "Supply_health_discharge_3",
       "kind": "health",
-      "amount": 19,
+      "amount": 25,
       "room": "discharge",
       "position": [
-        78,
+        75.84,
         2.5,
-        -73.0
+        -80.0
       ]
     },
     {
-      "node": "Supply_armor_overlook",
-      "kind": "armor",
-      "amount": 14,
+      "node": "Supply_health_overlook_4",
+      "kind": "health",
+      "amount": 1,
       "room": "overlook",
       "position": [
-        2,
+        -2.1,
         4.5,
-        8.0
+        0.0
       ]
     },
     {
-      "node": "Supply_armor_culture_access",
-      "kind": "armor",
-      "amount": 17,
+      "node": "Supply_health_culture_access_4",
+      "kind": "health",
+      "amount": 1,
       "room": "culture_access",
       "position": [
-        -38,
+        -42.08,
         4.5,
-        7.0
+        0.0
       ]
     },
     {
-      "node": "Supply_armor_cultures",
-      "kind": "armor",
-      "amount": 28,
+      "node": "Supply_health_cultures_4",
+      "kind": "health",
+      "amount": 25,
       "room": "cultures",
       "position": [
-        -78,
+        -82.1,
         4.5,
-        9.0
+        0.0
       ]
     },
     {
-      "node": "Supply_armor_filters",
-      "kind": "armor",
-      "amount": 17,
+      "node": "Supply_health_filters_4",
+      "kind": "health",
+      "amount": 1,
       "room": "filters",
       "position": [
-        -78,
+        -82.08,
         2.5,
-        -33.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_armor_isolation_a",
-      "kind": "armor",
-      "amount": 21,
+      "node": "Supply_health_isolation_a_4",
+      "kind": "health",
+      "amount": 1,
       "room": "isolation_a",
       "position": [
-        -38,
+        -42.08,
         2.5,
-        -33.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_armor_waste_access",
-      "kind": "armor",
-      "amount": 17,
+      "node": "Supply_health_waste_access_4",
+      "kind": "health",
+      "amount": 25,
       "room": "waste_access",
       "position": [
-        42,
+        37.92,
         4.5,
-        7.0
+        0.0
       ]
     },
     {
-      "node": "Supply_armor_waste_lab",
-      "kind": "armor",
-      "amount": 28,
+      "node": "Supply_health_waste_lab_4",
+      "kind": "health",
+      "amount": 1,
       "room": "waste_lab",
       "position": [
-        82,
+        77.9,
         4.5,
-        9.0
+        0.0
       ]
     },
     {
-      "node": "Supply_armor_sterilizer",
-      "kind": "armor",
-      "amount": 21,
+      "node": "Supply_health_sterilizer_4",
+      "kind": "health",
+      "amount": 1,
       "room": "sterilizer",
       "position": [
-        82,
+        77.92,
         6.5,
-        -33.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_armor_isolation_b",
-      "kind": "armor",
-      "amount": 21,
+      "node": "Supply_health_isolation_b_4",
+      "kind": "health",
+      "amount": 25,
       "room": "isolation_b",
       "position": [
-        42,
+        37.92,
         6.5,
-        -33.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_armor_reservoir",
-      "kind": "armor",
-      "amount": 24,
+      "node": "Supply_health_reservoir_4",
+      "kind": "health",
+      "amount": 1,
       "room": "reservoir",
       "position": [
-        2,
+        -2.1,
         0.5,
-        -31.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_armor_outfall",
-      "kind": "armor",
-      "amount": 14,
+      "node": "Supply_health_outfall_4",
+      "kind": "health",
+      "amount": 1,
       "room": "outfall",
       "position": [
-        2,
+        -2.08,
         0.5,
-        -73.0
+        -80.0
       ]
     },
     {
-      "node": "Supply_armor_purge",
-      "kind": "armor",
-      "amount": 14,
+      "node": "Supply_health_purge_4",
+      "kind": "health",
+      "amount": 25,
       "room": "purge",
       "position": [
-        42,
+        37.92,
         0.5,
-        -73.0
+        -80.0
       ]
     },
     {
-      "node": "Supply_armor_discharge",
-      "kind": "armor",
-      "amount": 14,
+      "node": "Supply_health_discharge_4",
+      "kind": "health",
+      "amount": 1,
       "room": "discharge",
       "position": [
-        82,
+        77.92,
         2.5,
-        -73.0
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_health_overlook_5",
+      "kind": "health",
+      "amount": 1,
+      "room": "overlook",
+      "position": [
+        0.0,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_health_culture_access_5",
+      "kind": "health",
+      "amount": 50,
+      "room": "culture_access",
+      "position": [
+        -40.0,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_health_cultures_5",
+      "kind": "health",
+      "amount": 1,
+      "room": "cultures",
+      "position": [
+        -80.0,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_health_filters_5",
+      "kind": "health",
+      "amount": 1,
+      "room": "filters",
+      "position": [
+        -80.0,
+        2.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_health_isolation_a_5",
+      "kind": "health",
+      "amount": 50,
+      "room": "isolation_a",
+      "position": [
+        -40.0,
+        2.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_health_waste_access_5",
+      "kind": "health",
+      "amount": 1,
+      "room": "waste_access",
+      "position": [
+        40.0,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_health_waste_lab_5",
+      "kind": "health",
+      "amount": 1,
+      "room": "waste_lab",
+      "position": [
+        80.0,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_health_sterilizer_5",
+      "kind": "health",
+      "amount": 1,
+      "room": "sterilizer",
+      "position": [
+        80.0,
+        6.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_health_isolation_b_5",
+      "kind": "health",
+      "amount": 1,
+      "room": "isolation_b",
+      "position": [
+        40.0,
+        6.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_health_reservoir_5",
+      "kind": "health",
+      "amount": 1,
+      "room": "reservoir",
+      "position": [
+        0.0,
+        0.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_overlook_6",
+      "kind": "armor",
+      "amount": 25,
+      "room": "overlook",
+      "position": [
+        2.1,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_culture_access_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "culture_access",
+      "position": [
+        -37.92,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_cultures_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "cultures",
+      "position": [
+        -77.9,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_filters_6",
+      "kind": "armor",
+      "amount": 25,
+      "room": "filters",
+      "position": [
+        -77.92,
+        2.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_isolation_a_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "isolation_a",
+      "position": [
+        -37.92,
+        2.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_waste_access_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "waste_access",
+      "position": [
+        42.08,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_waste_lab_6",
+      "kind": "armor",
+      "amount": 25,
+      "room": "waste_lab",
+      "position": [
+        82.1,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_sterilizer_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "sterilizer",
+      "position": [
+        82.08,
+        6.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_isolation_b_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "isolation_b",
+      "position": [
+        42.08,
+        6.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_reservoir_6",
+      "kind": "armor",
+      "amount": 25,
+      "room": "reservoir",
+      "position": [
+        2.1,
+        0.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_outfall_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "outfall",
+      "position": [
+        0.0,
+        0.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_purge_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "purge",
+      "position": [
+        40.0,
+        0.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_discharge_5",
+      "kind": "armor",
+      "amount": 25,
+      "room": "discharge",
+      "position": [
+        80.0,
+        2.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_overlook_7",
+      "kind": "armor",
+      "amount": 1,
+      "room": "overlook",
+      "position": [
+        4.2,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_culture_access_7",
+      "kind": "armor",
+      "amount": 1,
+      "room": "culture_access",
+      "position": [
+        -35.84,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_cultures_7",
+      "kind": "armor",
+      "amount": 50,
+      "room": "cultures",
+      "position": [
+        -75.8,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_filters_7",
+      "kind": "armor",
+      "amount": 1,
+      "room": "filters",
+      "position": [
+        -75.84,
+        2.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_isolation_a_7",
+      "kind": "armor",
+      "amount": 1,
+      "room": "isolation_a",
+      "position": [
+        -35.84,
+        2.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_waste_access_7",
+      "kind": "armor",
+      "amount": 50,
+      "room": "waste_access",
+      "position": [
+        44.16,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_waste_lab_7",
+      "kind": "armor",
+      "amount": 1,
+      "room": "waste_lab",
+      "position": [
+        84.2,
+        4.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_sterilizer_7",
+      "kind": "armor",
+      "amount": 1,
+      "room": "sterilizer",
+      "position": [
+        84.16,
+        6.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_isolation_b_7",
+      "kind": "armor",
+      "amount": 1,
+      "room": "isolation_b",
+      "position": [
+        44.16,
+        6.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_reservoir_7",
+      "kind": "armor",
+      "amount": 1,
+      "room": "reservoir",
+      "position": [
+        4.2,
+        0.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_outfall_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "outfall",
+      "position": [
+        2.08,
+        0.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_purge_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "purge",
+      "position": [
+        42.08,
+        0.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_discharge_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "discharge",
+      "position": [
+        82.08,
+        2.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_overlook_8",
+      "kind": "armor",
+      "amount": 1,
+      "room": "overlook",
+      "position": [
+        -2.1,
+        4.5,
+        5.0
+      ]
+    },
+    {
+      "node": "Supply_armor_culture_access_8",
+      "kind": "armor",
+      "amount": 1,
+      "room": "culture_access",
+      "position": [
+        -42.08,
+        4.5,
+        5.0
+      ]
+    },
+    {
+      "node": "Supply_armor_cultures_8",
+      "kind": "armor",
+      "amount": 1,
+      "room": "cultures",
+      "position": [
+        -82.1,
+        4.5,
+        5.0
+      ]
+    },
+    {
+      "node": "Supply_armor_filters_8",
+      "kind": "armor",
+      "amount": 1,
+      "room": "filters",
+      "position": [
+        -82.08,
+        2.5,
+        -35.0
+      ]
+    },
+    {
+      "node": "Supply_armor_isolation_a_8",
+      "kind": "armor",
+      "amount": 1,
+      "room": "isolation_a",
+      "position": [
+        -42.08,
+        2.5,
+        -35.0
+      ]
+    },
+    {
+      "node": "Supply_armor_waste_access_8",
+      "kind": "armor",
+      "amount": 1,
+      "room": "waste_access",
+      "position": [
+        37.92,
+        4.5,
+        5.0
       ]
     }
   ],

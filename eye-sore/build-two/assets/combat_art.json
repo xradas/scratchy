@@ -5666,6 +5666,8 @@
       "sprite_options": {
         "rows": 8,
         "direction_count": 8,
+        "walk_columns": [1, 0, 2, 0],
+        "walk_fps": 9.0,
         "source_regions": {
           "0": [
             0,
@@ -6359,6 +6361,12 @@
       "sprite_options": {
         "rows": 8,
         "direction_count": 8,
+        "walk_columns": [1, 0, 2, 0],
+        "walk_fps": 9.0,
+        "visual_overrides": {
+          "3": {"file": "res://assets/enemies/staff-v19/infected_security-front-attack.png", "region": [0, 0, 887, 887], "pixel_size": 0.0022, "foot_pivot": [535, 865], "hurt_material_regions": [{"material": "flesh", "rect": [0.45, 0.13, 0.17, 0.17]}], "projectile_origin_uv": [0.6, 0.35], "hurt_material_default": "armor"},
+          "4": {"file": "res://assets/enemies/staff-v19/infected_security-front-attack.png", "region": [887, 0, 887, 887], "pixel_size": 0.0022, "foot_pivot": [381, 865], "hurt_material_regions": [{"material": "flesh", "rect": [0.45, 0.13, 0.17, 0.17]}], "projectile_origin_uv": [0.42, 0.35], "hurt_material_default": "armor"}
+        },
         "source_regions": {
           "0": [
             0,
@@ -9921,7 +9929,7 @@
         "release_pose_seconds": 0.075,
         "recovery_rest_column": 3
       },
-      "presentation": "Original generated painted pixel staff atlas; eight view rows and eight state columns. Native PNG retained byte-for-byte with explicit integer source regions and measured ground pivots. First pass: some attack views are approximate.",
+      "presentation": "Original generated painted pixel staff atlas; eight view rows and eight state columns. Native PNG retained byte-for-byte with explicit integer source regions and measured ground pivots. The frontal windup and firing frames use a separate v19 painted sprite; oblique attack views remain approximate.",
       "sha256": "3074484ebe3ec4b1c3f6d6eeeb2aa19f25099b9e6efa68561c2e4f6fdc682fc1",
       "source_dimensions": [
         1254,

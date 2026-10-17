@@ -620,7 +620,41 @@
           "heading": -90
         }
       ],
-      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas"
+      "enemy_mix": "scientist/security staff in medical/security work areas; unsealed/vessel in contaminated utility areas",
+      "outline_xz": [
+        [
+          -12,
+          -13
+        ],
+        [
+          12,
+          -13
+        ],
+        [
+          15,
+          -10
+        ],
+        [
+          15,
+          10
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          -12,
+          13
+        ],
+        [
+          -15,
+          10
+        ],
+        [
+          -15,
+          -10
+        ]
+      ]
     },
     "diagnostics": {
       "id": "diagnostics",
@@ -4687,6 +4721,12 @@
       "leave": "Decon clear \u00b7 take the signed transfer lift to Containment."
     }
   },
+  "enemy_roster_counts": {
+    "infected_scientist": 27,
+    "infected_security": 15,
+    "unsealed": 16,
+    "vessel": 6
+  },
   "spawn_position": [
     0,
     0.95,
@@ -4898,7 +4938,7 @@
       "actual_room": "generator",
       "activation_room": "generator",
       "arena_id": "",
-      "kind": "unsealed",
+      "kind": "infected_security",
       "position": [
         -5,
         -1.13,
@@ -5178,7 +5218,7 @@
       "actual_room": "surgical_access",
       "activation_room": "surgical_access",
       "arena_id": "",
-      "kind": "unsealed",
+      "kind": "infected_security",
       "position": [
         -5,
         2.87,
@@ -5360,7 +5400,7 @@
       "actual_room": "decon",
       "activation_room": "decon",
       "arena_id": "decon",
-      "kind": "unsealed",
+      "kind": "infected_security",
       "position": [
         -5,
         2.87,
@@ -5472,7 +5512,7 @@
       "actual_room": "transfer",
       "activation_room": "transfer",
       "arena_id": "",
-      "kind": "unsealed",
+      "kind": "infected_security",
       "position": [
         35,
         4.87,
@@ -5594,663 +5634,1081 @@
   ],
   "supplies": [
     {
-      "node": "Supply_pistol_reception",
+      "node": "Supply_pistol_reception_0",
       "kind": "pistol",
       "amount": 10,
       "room": "reception",
       "position": [
-        -2,
+        -4.2,
         0.5,
-        11.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_pistol_triage",
+      "node": "Supply_pistol_triage_0",
       "kind": "pistol",
       "amount": 24,
       "room": "triage",
       "position": [
-        -2,
+        -4.2,
         0.5,
-        -29.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_pistol_nurse",
+      "node": "Supply_pistol_nurse_0",
       "kind": "pistol",
       "amount": 10,
       "room": "nurse",
       "position": [
-        -42,
+        -44.16,
         0.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_pistol_maintenance",
+      "node": "Supply_pistol_maintenance_0",
       "kind": "pistol",
       "amount": 14,
       "room": "maintenance",
       "position": [
-        -42,
+        -44.16,
         -1.5,
-        -71.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_pistol_generator",
+      "node": "Supply_pistol_generator_0",
       "kind": "pistol",
       "amount": 17,
       "room": "generator",
       "position": [
-        -2,
+        -4.2,
         -1.5,
-        -70.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_pistol_diagnostics",
+      "node": "Supply_pistol_diagnostics_0",
       "kind": "pistol",
       "amount": 10,
       "room": "diagnostics",
       "position": [
-        38,
+        35.84,
         2.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_pistol_imaging",
+      "node": "Supply_pistol_imaging_0",
       "kind": "pistol",
       "amount": 17,
       "room": "imaging",
       "position": [
-        78,
+        75.8,
         2.5,
-        -29.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_pistol_theatre",
+      "node": "Supply_pistol_theatre_0",
       "kind": "pistol",
       "amount": 17,
       "room": "theatre",
       "position": [
-        78,
+        75.8,
         2.5,
-        11.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_pistol_sterile",
+      "node": "Supply_pistol_sterile_0",
       "kind": "pistol",
       "amount": 10,
       "room": "sterile",
       "position": [
-        38,
+        35.84,
         2.5,
-        9.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_pistol_surgical_access",
+      "node": "Supply_pistol_surgical_access_0",
       "kind": "pistol",
       "amount": 14,
       "room": "surgical_access",
       "position": [
-        -2,
+        -4.16,
         2.5,
-        49.0
+        35.0
       ]
     },
     {
-      "node": "Supply_pistol_recovery",
+      "node": "Supply_pistol_recovery_0",
       "kind": "pistol",
       "amount": 20,
       "room": "recovery",
       "position": [
-        -42,
+        -44.2,
         2.5,
-        50.0
+        35.0
       ]
     },
     {
-      "node": "Supply_pistol_processing",
+      "node": "Supply_pistol_processing_0",
       "kind": "pistol",
       "amount": 10,
       "room": "processing",
       "position": [
-        -42,
+        -44.16,
         2.5,
-        89.0
+        75.0
       ]
     },
     {
-      "node": "Supply_pistol_decon",
+      "node": "Supply_pistol_decon_0",
       "kind": "pistol",
       "amount": 27,
       "room": "decon",
       "position": [
-        -2,
+        -4.2,
         2.5,
-        91.0
+        75.0
       ]
     },
     {
-      "node": "Supply_pistol_transfer",
+      "node": "Supply_pistol_transfer_0",
       "kind": "pistol",
       "amount": 10,
       "room": "transfer",
       "position": [
-        38,
+        35.84,
         4.5,
-        89.0
+        75.0
       ]
     },
     {
-      "node": "Supply_pistol_lift_lobby",
+      "node": "Supply_pistol_lift_lobby_0",
       "kind": "pistol",
       "amount": 10,
       "room": "lift_lobby",
       "position": [
-        38,
+        35.84,
         4.5,
-        129.0
+        115.0
       ]
     },
     {
-      "node": "Supply_shells_reception",
+      "node": "Supply_shells_reception_1",
       "kind": "shells",
       "amount": 4,
       "room": "reception",
       "position": [
-        2,
+        -2.1,
         0.5,
-        11.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_shells_triage",
+      "node": "Supply_shells_triage_1",
       "kind": "shells",
       "amount": 9,
       "room": "triage",
       "position": [
-        2,
+        -2.1,
         0.5,
-        -29.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_shells_nurse",
+      "node": "Supply_shells_nurse_1",
       "kind": "shells",
       "amount": 4,
       "room": "nurse",
       "position": [
-        -38,
+        -42.08,
         0.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_shells_maintenance",
+      "node": "Supply_shells_maintenance_1",
       "kind": "shells",
       "amount": 5,
       "room": "maintenance",
       "position": [
-        -38,
+        -42.08,
         -1.5,
-        -71.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_shells_generator",
+      "node": "Supply_shells_generator_1",
       "kind": "shells",
       "amount": 6,
       "room": "generator",
       "position": [
-        2,
+        -2.1,
         -1.5,
-        -70.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_shells_diagnostics",
+      "node": "Supply_shells_diagnostics_1",
       "kind": "shells",
       "amount": 4,
       "room": "diagnostics",
       "position": [
-        42,
+        37.92,
         2.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_shells_imaging",
+      "node": "Supply_shells_imaging_1",
       "kind": "shells",
       "amount": 6,
       "room": "imaging",
       "position": [
-        82,
+        77.9,
         2.5,
-        -29.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_shells_theatre",
+      "node": "Supply_shells_theatre_1",
       "kind": "shells",
       "amount": 6,
       "room": "theatre",
       "position": [
-        82,
+        77.9,
         2.5,
-        11.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_shells_sterile",
+      "node": "Supply_shells_sterile_1",
       "kind": "shells",
       "amount": 4,
       "room": "sterile",
       "position": [
-        42,
+        37.92,
         2.5,
-        9.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_shells_surgical_access",
+      "node": "Supply_shells_surgical_access_1",
       "kind": "shells",
       "amount": 5,
       "room": "surgical_access",
       "position": [
-        2,
+        -2.08,
         2.5,
-        49.0
+        35.0
       ]
     },
     {
-      "node": "Supply_shells_recovery",
+      "node": "Supply_shells_recovery_1",
       "kind": "shells",
       "amount": 7,
       "room": "recovery",
       "position": [
-        -38,
+        -42.1,
         2.5,
-        50.0
+        35.0
       ]
     },
     {
-      "node": "Supply_shells_processing",
+      "node": "Supply_shells_processing_1",
       "kind": "shells",
       "amount": 4,
       "room": "processing",
       "position": [
-        -38,
+        -42.08,
         2.5,
-        89.0
+        75.0
       ]
     },
     {
-      "node": "Supply_shells_decon",
+      "node": "Supply_shells_decon_1",
       "kind": "shells",
       "amount": 10,
       "room": "decon",
       "position": [
-        2,
+        -2.1,
         2.5,
-        91.0
+        75.0
       ]
     },
     {
-      "node": "Supply_shells_transfer",
+      "node": "Supply_shells_transfer_1",
       "kind": "shells",
       "amount": 4,
       "room": "transfer",
       "position": [
-        42,
+        37.92,
         4.5,
-        89.0
+        75.0
       ]
     },
     {
-      "node": "Supply_shells_lift_lobby",
+      "node": "Supply_shells_lift_lobby_1",
       "kind": "shells",
       "amount": 4,
       "room": "lift_lobby",
       "position": [
-        42,
+        37.92,
         4.5,
-        129.0
+        115.0
       ]
     },
     {
-      "node": "Supply_health_reception",
+      "node": "Supply_health_reception_2",
       "kind": "health",
-      "amount": 16,
+      "amount": 25,
       "room": "reception",
       "position": [
-        -2,
+        0.0,
         0.5,
-        9.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_health_triage",
+      "node": "Supply_health_triage_2",
       "kind": "health",
-      "amount": 38,
+      "amount": 1,
       "room": "triage",
       "position": [
-        -2,
+        0.0,
         0.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_health_nurse",
+      "node": "Supply_health_nurse_2",
       "kind": "health",
-      "amount": 16,
+      "amount": 1,
       "room": "nurse",
       "position": [
-        -42,
+        -40.0,
         0.5,
-        -33.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_health_maintenance",
+      "node": "Supply_health_maintenance_2",
       "kind": "health",
-      "amount": 22,
+      "amount": 25,
       "room": "maintenance",
       "position": [
-        -42,
+        -40.0,
         -1.5,
-        -73.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_health_generator",
+      "node": "Supply_health_generator_2",
       "kind": "health",
-      "amount": 27,
+      "amount": 1,
       "room": "generator",
       "position": [
-        -2,
+        0.0,
         -1.5,
-        -72.0
+        -85.0
       ]
     },
     {
-      "node": "Supply_health_diagnostics",
+      "node": "Supply_health_diagnostics_2",
       "kind": "health",
-      "amount": 16,
+      "amount": 1,
       "room": "diagnostics",
       "position": [
-        38,
+        40.0,
         2.5,
-        -33.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_health_imaging",
+      "node": "Supply_health_imaging_2",
       "kind": "health",
-      "amount": 27,
+      "amount": 25,
       "room": "imaging",
       "position": [
-        78,
+        80.0,
         2.5,
-        -31.0
+        -45.0
       ]
     },
     {
-      "node": "Supply_health_theatre",
+      "node": "Supply_health_theatre_2",
       "kind": "health",
-      "amount": 27,
+      "amount": 1,
       "room": "theatre",
       "position": [
-        78,
+        80.0,
         2.5,
-        9.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_health_sterile",
+      "node": "Supply_health_sterile_2",
       "kind": "health",
-      "amount": 16,
+      "amount": 1,
       "room": "sterile",
       "position": [
-        38,
+        40.0,
         2.5,
-        7.0
+        -5.0
       ]
     },
     {
-      "node": "Supply_health_surgical_access",
+      "node": "Supply_health_surgical_access_2",
       "kind": "health",
-      "amount": 22,
+      "amount": 25,
       "room": "surgical_access",
       "position": [
-        -2,
+        0.0,
         2.5,
-        47.0
+        35.0
       ]
     },
     {
-      "node": "Supply_health_recovery",
+      "node": "Supply_health_recovery_2",
       "kind": "health",
-      "amount": 32,
+      "amount": 1,
       "room": "recovery",
       "position": [
-        -42,
+        -40.0,
         2.5,
-        48.0
+        35.0
       ]
     },
     {
-      "node": "Supply_health_processing",
+      "node": "Supply_health_processing_2",
       "kind": "health",
-      "amount": 16,
+      "amount": 1,
       "room": "processing",
       "position": [
-        -42,
+        -40.0,
         2.5,
-        87.0
+        75.0
       ]
     },
     {
-      "node": "Supply_health_decon",
+      "node": "Supply_health_decon_2",
       "kind": "health",
-      "amount": 43,
+      "amount": 25,
       "room": "decon",
       "position": [
-        -2,
+        0.0,
         2.5,
-        89.0
+        75.0
       ]
     },
     {
-      "node": "Supply_health_transfer",
+      "node": "Supply_health_transfer_2",
       "kind": "health",
-      "amount": 16,
+      "amount": 1,
       "room": "transfer",
       "position": [
-        38,
+        40.0,
         4.5,
-        87.0
+        75.0
       ]
     },
     {
-      "node": "Supply_health_lift_lobby",
+      "node": "Supply_health_lift_lobby_2",
       "kind": "health",
-      "amount": 16,
+      "amount": 1,
       "room": "lift_lobby",
       "position": [
-        38,
+        40.0,
         4.5,
-        127.0
+        115.0
       ]
     },
     {
-      "node": "Supply_armor_reception",
-      "kind": "armor",
-      "amount": 12,
+      "node": "Supply_health_reception_3",
+      "kind": "health",
+      "amount": 25,
       "room": "reception",
       "position": [
-        2,
+        -4.2,
         0.5,
-        9.0
+        0.0
       ]
     },
     {
-      "node": "Supply_armor_triage",
-      "kind": "armor",
-      "amount": 27,
+      "node": "Supply_health_triage_3",
+      "kind": "health",
+      "amount": 1,
       "room": "triage",
       "position": [
-        2,
+        -4.2,
         0.5,
-        -31.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_armor_nurse",
-      "kind": "armor",
-      "amount": 12,
+      "node": "Supply_health_nurse_3",
+      "kind": "health",
+      "amount": 1,
       "room": "nurse",
       "position": [
-        -38,
+        -44.16,
         0.5,
-        -33.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_armor_maintenance",
-      "kind": "armor",
-      "amount": 15,
+      "node": "Supply_health_maintenance_3",
+      "kind": "health",
+      "amount": 25,
       "room": "maintenance",
       "position": [
-        -38,
+        -44.16,
         -1.5,
-        -73.0
+        -80.0
       ]
     },
     {
-      "node": "Supply_armor_generator",
-      "kind": "armor",
-      "amount": 19,
+      "node": "Supply_health_generator_3",
+      "kind": "health",
+      "amount": 1,
       "room": "generator",
       "position": [
-        2,
+        -4.2,
         -1.5,
-        -72.0
+        -80.0
       ]
     },
     {
-      "node": "Supply_armor_diagnostics",
-      "kind": "armor",
-      "amount": 12,
+      "node": "Supply_health_diagnostics_3",
+      "kind": "health",
+      "amount": 1,
       "room": "diagnostics",
       "position": [
-        42,
+        35.84,
         2.5,
-        -33.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_armor_imaging",
-      "kind": "armor",
-      "amount": 19,
+      "node": "Supply_health_imaging_3",
+      "kind": "health",
+      "amount": 25,
       "room": "imaging",
       "position": [
-        82,
+        75.8,
         2.5,
-        -31.0
+        -40.0
       ]
     },
     {
-      "node": "Supply_armor_theatre",
-      "kind": "armor",
-      "amount": 19,
+      "node": "Supply_health_theatre_3",
+      "kind": "health",
+      "amount": 1,
       "room": "theatre",
       "position": [
-        82,
+        75.8,
         2.5,
-        9.0
+        0.0
       ]
     },
     {
-      "node": "Supply_armor_sterile",
-      "kind": "armor",
-      "amount": 12,
+      "node": "Supply_health_sterile_3",
+      "kind": "health",
+      "amount": 1,
       "room": "sterile",
       "position": [
-        42,
+        35.84,
         2.5,
-        7.0
+        0.0
       ]
     },
     {
-      "node": "Supply_armor_surgical_access",
-      "kind": "armor",
-      "amount": 15,
+      "node": "Supply_health_surgical_access_3",
+      "kind": "health",
+      "amount": 25,
       "room": "surgical_access",
       "position": [
-        2,
+        -4.16,
         2.5,
-        47.0
+        40.0
       ]
     },
     {
-      "node": "Supply_armor_recovery",
-      "kind": "armor",
-      "amount": 23,
+      "node": "Supply_health_recovery_3",
+      "kind": "health",
+      "amount": 1,
       "room": "recovery",
       "position": [
-        -38,
+        -44.2,
         2.5,
-        48.0
+        40.0
       ]
     },
     {
-      "node": "Supply_armor_processing",
-      "kind": "armor",
-      "amount": 12,
+      "node": "Supply_health_processing_3",
+      "kind": "health",
+      "amount": 1,
       "room": "processing",
       "position": [
-        -38,
+        -44.16,
         2.5,
-        87.0
+        80.0
       ]
     },
     {
-      "node": "Supply_armor_decon",
-      "kind": "armor",
-      "amount": 31,
+      "node": "Supply_health_decon_3",
+      "kind": "health",
+      "amount": 50,
       "room": "decon",
       "position": [
-        2,
+        -4.2,
         2.5,
-        89.0
+        80.0
       ]
     },
     {
-      "node": "Supply_armor_transfer",
-      "kind": "armor",
-      "amount": 11,
+      "node": "Supply_health_transfer_3",
+      "kind": "health",
+      "amount": 1,
       "room": "transfer",
       "position": [
-        42,
+        35.84,
         4.5,
-        87.0
+        80.0
       ]
     },
     {
-      "node": "Supply_armor_lift_lobby",
-      "kind": "armor",
-      "amount": 11,
+      "node": "Supply_health_lift_lobby_3",
+      "kind": "health",
+      "amount": 1,
       "room": "lift_lobby",
       "position": [
-        42,
+        35.84,
         4.5,
-        127.0
+        120.0
+      ]
+    },
+    {
+      "node": "Supply_health_reception_4",
+      "kind": "health",
+      "amount": 50,
+      "room": "reception",
+      "position": [
+        -2.1,
+        0.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_health_triage_4",
+      "kind": "health",
+      "amount": 1,
+      "room": "triage",
+      "position": [
+        -2.1,
+        0.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_health_nurse_4",
+      "kind": "health",
+      "amount": 1,
+      "room": "nurse",
+      "position": [
+        -42.08,
+        0.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_health_maintenance_4",
+      "kind": "health",
+      "amount": 1,
+      "room": "maintenance",
+      "position": [
+        -42.08,
+        -1.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_health_generator_4",
+      "kind": "health",
+      "amount": 1,
+      "room": "generator",
+      "position": [
+        -2.1,
+        -1.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_health_diagnostics_4",
+      "kind": "health",
+      "amount": 1,
+      "room": "diagnostics",
+      "position": [
+        37.92,
+        2.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_reception_5",
+      "kind": "armor",
+      "amount": 25,
+      "room": "reception",
+      "position": [
+        0.0,
+        0.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_triage_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "triage",
+      "position": [
+        0.0,
+        0.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_nurse_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "nurse",
+      "position": [
+        -40.0,
+        0.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_maintenance_5",
+      "kind": "armor",
+      "amount": 25,
+      "room": "maintenance",
+      "position": [
+        -40.0,
+        -1.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_generator_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "generator",
+      "position": [
+        0.0,
+        -1.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_diagnostics_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "diagnostics",
+      "position": [
+        40.0,
+        2.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_imaging_4",
+      "kind": "armor",
+      "amount": 25,
+      "room": "imaging",
+      "position": [
+        77.9,
+        2.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_theatre_4",
+      "kind": "armor",
+      "amount": 1,
+      "room": "theatre",
+      "position": [
+        77.9,
+        2.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_sterile_4",
+      "kind": "armor",
+      "amount": 1,
+      "room": "sterile",
+      "position": [
+        37.92,
+        2.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_surgical_access_4",
+      "kind": "armor",
+      "amount": 25,
+      "room": "surgical_access",
+      "position": [
+        -2.08,
+        2.5,
+        40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_recovery_4",
+      "kind": "armor",
+      "amount": 1,
+      "room": "recovery",
+      "position": [
+        -42.1,
+        2.5,
+        40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_processing_4",
+      "kind": "armor",
+      "amount": 1,
+      "room": "processing",
+      "position": [
+        -42.08,
+        2.5,
+        80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_decon_4",
+      "kind": "armor",
+      "amount": 25,
+      "room": "decon",
+      "position": [
+        -2.1,
+        2.5,
+        80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_transfer_4",
+      "kind": "armor",
+      "amount": 1,
+      "room": "transfer",
+      "position": [
+        37.92,
+        4.5,
+        80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_lift_lobby_4",
+      "kind": "armor",
+      "amount": 1,
+      "room": "lift_lobby",
+      "position": [
+        37.92,
+        4.5,
+        120.0
+      ]
+    },
+    {
+      "node": "Supply_armor_reception_6",
+      "kind": "armor",
+      "amount": 50,
+      "room": "reception",
+      "position": [
+        2.1,
+        0.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_triage_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "triage",
+      "position": [
+        2.1,
+        0.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_nurse_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "nurse",
+      "position": [
+        -37.92,
+        0.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_maintenance_6",
+      "kind": "armor",
+      "amount": 50,
+      "room": "maintenance",
+      "position": [
+        -37.92,
+        -1.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_generator_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "generator",
+      "position": [
+        2.1,
+        -1.5,
+        -80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_diagnostics_6",
+      "kind": "armor",
+      "amount": 1,
+      "room": "diagnostics",
+      "position": [
+        42.08,
+        2.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_imaging_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "imaging",
+      "position": [
+        80.0,
+        2.5,
+        -40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_theatre_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "theatre",
+      "position": [
+        80.0,
+        2.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_sterile_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "sterile",
+      "position": [
+        40.0,
+        2.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_surgical_access_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "surgical_access",
+      "position": [
+        0.0,
+        2.5,
+        40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_recovery_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "recovery",
+      "position": [
+        -40.0,
+        2.5,
+        40.0
+      ]
+    },
+    {
+      "node": "Supply_armor_processing_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "processing",
+      "position": [
+        -40.0,
+        2.5,
+        80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_decon_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "decon",
+      "position": [
+        0.0,
+        2.5,
+        80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_transfer_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "transfer",
+      "position": [
+        40.0,
+        4.5,
+        80.0
+      ]
+    },
+    {
+      "node": "Supply_armor_lift_lobby_5",
+      "kind": "armor",
+      "amount": 1,
+      "room": "lift_lobby",
+      "position": [
+        40.0,
+        4.5,
+        120.0
+      ]
+    },
+    {
+      "node": "Supply_armor_reception_7",
+      "kind": "armor",
+      "amount": 1,
+      "room": "reception",
+      "position": [
+        4.2,
+        0.5,
+        0.0
+      ]
+    },
+    {
+      "node": "Supply_armor_triage_7",
+      "kind": "armor",
+      "amount": 1,
+      "room": "triage",
+      "position": [
+        4.2,
+        0.5,
+        -40.0
       ]
     }
   ],

@@ -11,11 +11,11 @@
     4,
     6
   ],
-  "protected_scene_art_files": 336,
+  "protected_scene_art_files": 386,
   "outputs": {
-    "scenes/campaign/pale_ward_02.tscn": "e3774f0cd061b5a5e97aad83c0843dd40aaade8975247ae0faa946a4e7ef71fd",
-    "resources/campaign/pale_ward_02-layout.json": "ab2998e71d5df040d703b7528c5c0b56d5d830ad5ccb67a50ae78159ea35add5",
-    "resources/campaign/pale_ward_02-route.json": "977c3da345a3f816df32294f8079791bd8b5e4d6a330cff8b5ab68f994481667",
+    "scenes/campaign/pale_ward_02.tscn": "220d816ab75cc36a8c816750ca6a94100cc64505e4f5f724a7c6ec881ffb0dfd",
+    "resources/campaign/pale_ward_02-layout.json": "563c3612f061952390a5912805176d29984791aebd60a59a93d28ff4fb011991",
+    "resources/campaign/pale_ward_02-route.json": "8b8632d4544ed8df4b0d84951b42fe74ade4490780e71bfbec33f68e639d861b",
     "resources/campaign/v13/pale_ward_02-objectives.tres": "727593dd5dee37dc210d714a53454b3fe61384c71f6f742b586aa2545958061f"
   },
   "geometry": [
@@ -19200,47 +19200,7 @@
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Floor",
-      "parent": ".",
-      "position": [
-        80,
-        1.7,
-        -80
-      ],
-      "size": [
-        26.12,
-        0.6,
-        24.12
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "discharge_Roof",
-      "parent": ".",
-      "position": [
-        80,
-        9.2,
-        -80
-      ],
-      "size": [
-        26.8,
-        0.4,
-        24.8
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "discharge_Wall_N0",
+      "name": "discharge_OutlineWall_0_0_0",
       "parent": ".",
       "position": [
         72.25,
@@ -19248,19 +19208,19 @@
         -92.0
       ],
       "size": [
-        10.5,
+        10.515,
         3.8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Wall_N1",
+      "name": "discharge_OutlineWall_0_0_1",
       "parent": ".",
       "position": [
         72.25,
@@ -19268,19 +19228,19 @@
         -92.0
       ],
       "size": [
-        10.5,
+        10.515,
         3.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Wall_N2",
+      "name": "discharge_OutlineWall_0_1_1",
       "parent": ".",
       "position": [
         80.0,
@@ -19288,139 +19248,179 @@
         -92.0
       ],
       "size": [
-        5.0,
+        5.015,
         3.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Wall_N3",
+      "name": "discharge_OutlineWall_0_2_0",
       "parent": ".",
       "position": [
-        87.75,
+        85.75,
         3.9,
         -92.0
       ],
       "size": [
-        10.5,
+        6.515,
         3.8,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Wall_N4",
+      "name": "discharge_OutlineWall_0_2_1",
       "parent": ".",
       "position": [
-        87.75,
+        85.75,
         7.4,
         -92.0
       ],
       "size": [
-        10.5,
+        6.515,
         3.2,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -0.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Wall_S0",
+      "name": "discharge_OutlineWall_1_0_0",
       "parent": ".",
       "position": [
-        80.0,
+        91.0,
         5.5,
-        -68.0
+        -89.5
       ],
       "size": [
-        26.0,
+        6.418124237432848,
         7,
         0.4
       ],
       "rotation": [
         0,
-        0,
+        -51.34019174590991,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Wall_E0",
+      "name": "discharge_OutlineWall_2_0_0",
       "parent": ".",
       "position": [
         93.0,
         5.5,
-        -80.0
+        -79.5
       ],
       "size": [
-        0.4,
+        15.015,
         7,
-        24.0
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        -90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Wall_W0",
+      "name": "discharge_OutlineWall_3_0_0",
+      "parent": ".",
+      "position": [
+        91.0,
+        5.5,
+        -70.0
+      ],
+      "size": [
+        5.67185424949238,
+        7,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -135.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "discharge_OutlineWall_4_0_0",
+      "parent": ".",
+      "position": [
+        78.0,
+        5.5,
+        -68.0
+      ],
+      "size": [
+        22.015,
+        7,
+        0.4
+      ],
+      "rotation": [
+        0,
+        -180.0,
+        0
+      ],
+      "type": "StaticBody3D"
+    },
+    {
+      "name": "discharge_OutlineWall_5_0_0",
       "parent": ".",
       "position": [
         67.0,
         3.9,
-        -87.25
+        -72.75
       ],
       "size": [
-        0.4,
+        9.515,
         3.8,
-        9.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Wall_W1",
+      "name": "discharge_OutlineWall_5_0_1",
       "parent": ".",
       "position": [
         67.0,
         7.4,
-        -87.25
+        -72.75
       ],
       "size": [
-        0.4,
+        9.515,
         3.2,
-        9.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Wall_W2",
+      "name": "discharge_OutlineWall_5_1_1",
       "parent": ".",
       "position": [
         67.0,
@@ -19428,73 +19428,53 @@
         -80.0
       ],
       "size": [
-        0.4,
+        5.015,
         3.2,
-        5.0
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Wall_W3",
+      "name": "discharge_OutlineWall_5_2_0",
       "parent": ".",
       "position": [
         67.0,
         3.9,
-        -72.75
+        -87.25
       ],
       "size": [
-        0.4,
+        9.515,
         3.8,
-        9.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
     },
     {
-      "name": "discharge_Wall_W4",
+      "name": "discharge_OutlineWall_5_2_1",
       "parent": ".",
       "position": [
         67.0,
         7.4,
-        -72.75
+        -87.25
       ],
       "size": [
-        0.4,
+        9.515,
         3.2,
-        9.5
+        0.4
       ],
       "rotation": [
         0,
-        0,
-        0
-      ],
-      "type": "StaticBody3D"
-    },
-    {
-      "name": "discharge_LoweredCeiling",
-      "parent": ".",
-      "position": [
-        80,
-        7.92,
-        -80
-      ],
-      "size": [
-        25.6,
-        0.24,
-        23.6
-      ],
-      "rotation": [
-        0,
-        0,
+        90.0,
         0
       ],
       "type": "StaticBody3D"
@@ -19503,12 +19483,12 @@
       "name": "discharge_CeilingRib0",
       "parent": ".",
       "position": [
-        80,
+        79.777,
         7.4799999999999995,
         -87.2
       ],
       "size": [
-        25.5,
+        25.054000000000002,
         0.45,
         0.35
       ],
@@ -24561,7 +24541,7 @@
         -45.04
       ],
       "energy": 2.1,
-      "damaged": false
+      "damaged": true
     },
     {
       "id": "Fixture_filters_1",
@@ -24729,7 +24709,7 @@
         -45.88
       ],
       "energy": 2.1,
-      "damaged": false
+      "damaged": true
     },
     {
       "id": "Fixture_reservoir_1",
@@ -24753,7 +24733,7 @@
         -85.04
       ],
       "energy": 2.1,
-      "damaged": false
+      "damaged": true
     },
     {
       "id": "Fixture_outfall_1",
@@ -26176,6 +26156,67 @@
       ],
       "floor_y": 4,
       "roof_y": 13
+    },
+    "discharge": {
+      "outline_xz": [
+        [
+          -13,
+          -12
+        ],
+        [
+          9,
+          -12
+        ],
+        [
+          13,
+          -7
+        ],
+        [
+          13,
+          8
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          -13,
+          12
+        ]
+      ],
+      "convex_floor_cells": [
+        {
+          "kind": "convex",
+          "outline_xz": [
+            [
+              -13,
+              -12
+            ],
+            [
+              9,
+              -12
+            ],
+            [
+              13,
+              -7
+            ],
+            [
+              13,
+              8
+            ],
+            [
+              9,
+              12
+            ],
+            [
+              -13,
+              12
+            ]
+          ]
+        }
+      ],
+      "floor_y": 2,
+      "roof_y": 9
     }
   },
   "shell_fits": [
@@ -26480,6 +26521,90 @@
         5.75
       ],
       "reason": "Actual straight east boundary ends at chamfer/notch; closed nontraversable alcove fits its aperture."
+    },
+    {
+      "room": "discharge",
+      "node": "discharge_Duct1",
+      "action": "trim_shell_box",
+      "old_position": [
+        91.75,
+        7.25,
+        -80
+      ],
+      "position": [
+        91.75,
+        7.25,
+        -79.58500000000001
+      ],
+      "old_size": [
+        0.7,
+        0.55,
+        22.5
+      ],
+      "size": [
+        0.7,
+        0.55,
+        16.090000000000018
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
+    },
+    {
+      "room": "discharge",
+      "node": "discharge_DuctFlange1-1",
+      "action": "omit_shell_trim",
+      "old_position": [
+        91.75,
+        7.25,
+        -90.9
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "discharge",
+      "node": "discharge_DuctFlange11",
+      "action": "omit_shell_trim",
+      "old_position": [
+        91.75,
+        7.25,
+        -69.1
+      ],
+      "old_size": [
+        0.84,
+        0.68,
+        0.13
+      ],
+      "reason": "Named shell fitting crosses actual outline; no gameplay prop removed."
+    },
+    {
+      "room": "discharge",
+      "node": "discharge_CeilingRib0",
+      "action": "trim_shell_box",
+      "old_position": [
+        80,
+        7.4799999999999995,
+        -87.2
+      ],
+      "position": [
+        79.777,
+        7.4799999999999995,
+        -87.2
+      ],
+      "old_size": [
+        25.5,
+        0.45,
+        0.35
+      ],
+      "size": [
+        25.054000000000002,
+        0.45,
+        0.35
+      ],
+      "reason": "Fit closed beam/duct/trim to actual outline."
     }
   ],
   "optional_reserve": {

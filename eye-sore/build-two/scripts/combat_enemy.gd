@@ -8,6 +8,7 @@ var health: float = 1.0
 var dead: bool = false
 var gibbed: bool = false
 var awake: bool = true
+var detection_emitted: bool = false
 var state: StringName = &"chase"
 var state_time: float = 0.0
 var attack_id: int = 0
@@ -24,6 +25,10 @@ var sprite: Sprite3D
 var sprite_source_texture: Texture2D
 var sprite_source_columns: int = 1
 var sprite_source_rows: int = 1
+var sprite_base_pixel_size: float = 0.015
+var sprite_base_atlas: AtlasTexture
+var sprite_visual_overrides: Dictionary = {}
+var sprite_override_atlases: Dictionary = {}
 var sprite_pivot: Node3D
 var sprite_data: Dictionary = {}
 var sprite_foot: Vector2
@@ -85,6 +90,7 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 			update_presentation()
 			return
+	announce_detection()
 	if state == &"pain":
 		velocity.x = 0; velocity.z = 0
 		if state_time >= definition.pain_seconds: change_state(&"chase")
@@ -138,6 +144,11 @@ func _physics_process(delta: float) -> void:
 func change_state(next: StringName) -> void:
 	state = next; state_time = 0.0
 	update_presentation()
+
+func announce_detection() -> void:
+	if detection_emitted or dead or not awake: return
+	detection_emitted = true
+	combat.emit_event({"type": &"enemy_detect", "enemy_kind": definition.identifier, "target_id": target_id, "position": global_position})
 
 func can_see_player() -> bool:
 	if dead or not is_instance_valid(player): return false
@@ -245,10 +256,12 @@ func release_attack() -> void:
 
 func apply_damage(amount: float, shot_id: int, weapon_id: StringName, hit_position: Vector3, impact_material: StringName = &"") -> Dictionary:
 	if dead or amount <= 0.0 or seen_shots.has(shot_id): return {}
+	var was_awake := awake
 	awake = true
 	seen_shots[shot_id] = true
 	var overkill := maxf(0.0, amount - health)
 	health = maxf(0.0, health - amount)
+	if not was_awake and health > 0.0: announce_detection()
 	var struck_material := definition.hit_material if impact_material == &"" else impact_material
 	var direction: Vector3 = -combat.camera.global_basis.z
 	var event := {"type": &"enemy_hurt", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": struck_material, "position": hit_position, "damage": amount, "direction":direction}
@@ -384,6 +397,20 @@ func configure_sprite_texture(texture: Texture2D, columns: int, rows: int, clips
 	elif is_instance_valid(sprite): sprite.queue_free()
 	sprite_data = data.duplicate(true)
 	sprite_source_texture = texture; sprite_source_columns = columns; sprite_source_rows = rows
+	sprite_base_pixel_size = pixel_size
+	sprite_visual_overrides.clear(); sprite_override_atlases.clear(); sprite_base_atlas = null
+	for frame_key in sprite_data.get("visual_overrides", {}):
+		var override: Dictionary = sprite_data.visual_overrides[frame_key]
+		var override_texture: Texture2D = load(String(override.get("file", "")))
+		if override_texture == null:
+			push_warning("Missing enemy visual override: " + String(override.get("file", "")))
+			continue
+		var region_data: Array = override.get("region", [])
+		if region_data.size() != 4: continue
+		var atlas := AtlasTexture.new(); atlas.atlas = override_texture
+		atlas.region = Rect2(region_data[0], region_data[1], region_data[2], region_data[3]); atlas.filter_clip = true
+		sprite_visual_overrides[String(frame_key)] = override
+		sprite_override_atlases[String(frame_key)] = atlas
 	if sprite_data.has("pose_frames"):
 		sprite_data.layout = "poses"
 		var poses: Dictionary = sprite_data.pose_frames.duplicate(true)
@@ -405,7 +432,7 @@ func configure_sprite_texture(texture: Texture2D, columns: int, rows: int, clips
 		# unequal rounded grid cells; no rescale, padding or canvas rewrite.
 		var atlas := AtlasTexture.new(); atlas.atlas = texture
 		atlas.region = Rect2(SpriteHurt.frame_region(texture, columns, rows, 0, sprite_data)); atlas.filter_clip = true
-		sprite.texture = atlas; sprite.hframes = 1; sprite.vframes = 1
+		sprite.texture = atlas; sprite_base_atlas = atlas; sprite.hframes = 1; sprite.vframes = 1
 	sprite.pixel_size = pixel_size; sprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
@@ -437,6 +464,13 @@ func foot_for_frame(frame: int) -> Vector2:
 	return sprite_base_foot
 
 func sprite_projectile_origin() -> Vector3:
+	var visual: Dictionary = sprite_visual_overrides.get(str(sprite_frame), {})
+	if visual.has("projectile_origin_uv"):
+		var visual_uv: Array = visual.projectile_origin_uv
+		var visual_region: Array = visual.region
+		var visual_foot: Array = visual.foot_pivot
+		var visual_pixels: float = float(visual.pixel_size)
+		return sprite_pivot.to_global(Vector3((float(visual_uv[0]) * float(visual_region[2]) - float(visual_foot[0])) * visual_pixels, (float(visual_foot[1]) - float(visual_uv[1]) * float(visual_region[3])) * visual_pixels, 0.0))
 	if sprite_data.has("projectile_origin_local"):
 		var point: Array = sprite_data.projectile_origin_local
 		return sprite_pivot.to_global(Vector3(point[0], point[1], point[2]))
@@ -486,7 +520,12 @@ func update_sprite() -> void:
 		var clip: Vector2i = sprite_clips.get(state, sprite_clips.get(&"chase", Vector2i(0, 1)))
 		var count := maxi(clip.y, 1)
 		var index: int
-		if state == &"chase": index = int(state_time * 8.0) % count
+		if state == &"chase":
+			var walk_columns: Array = sprite_data.get("walk_columns", [])
+			if walk_columns.size() > 0:
+				count = walk_columns.size()
+				index = int(state_time * float(sprite_data.get("walk_fps", 8.0))) % count
+			else: index = int(state_time * 8.0) % count
 		else:
 			var duration := 0.65
 			if state == &"windup": duration = definition.windup_seconds
@@ -494,22 +533,40 @@ func update_sprite() -> void:
 			elif state == &"pain": duration = definition.pain_seconds
 			index = mini(count-1,int(clampf(state_time/maxf(duration,.001),0,1)*count))
 		var column := clip.x + index
+		if state == &"chase" and sprite_data.get("walk_columns", []).size() > 0:
+			column = int(sprite_data.walk_columns[index])
 		if state == &"recovery" and sprite_data.has("release_pose_seconds") and sprite_data.has("recovery_rest_column"):
 			if burst_release_blocked or state_time >= float(sprite_data.release_pose_seconds):
 				column = int(sprite_data.recovery_rest_column)
 		selected = sprite_direction_row() * sprite_source_columns + column
 	if selected != sprite_frame:
 		assert(selected >= 0 and selected < sprite_source_columns * sprite_source_rows)
-		if sprite_data.has("source_regions"):
-			(sprite.texture as AtlasTexture).region = Rect2(SpriteHurt.frame_region(sprite_source_texture, sprite_source_columns, sprite_source_rows, selected, sprite_data))
+		var visual: Dictionary = sprite_visual_overrides.get(str(selected), {})
+		var visual_texture: Texture2D = sprite_source_texture
+		var visual_data: Dictionary = sprite_data
+		var visual_columns := sprite_source_columns
+		var visual_rows := sprite_source_rows
+		var visual_frame := selected
+		var visual_pixels := sprite_base_pixel_size
+		var visual_foot := foot_for_frame(selected)
+		if not visual.is_empty():
+			sprite.texture = sprite_override_atlases[str(selected)]
+			visual_texture = (sprite.texture as AtlasTexture).atlas
+			visual_data = {"source_regions": {"0": visual.region}, "alpha_threshold": sprite_data.get("alpha_threshold", 0.5), "hurt_resolution": sprite_data.get("hurt_resolution", [128, 192]), "hurt_material_default": visual.get("hurt_material_default", sprite_data.get("hurt_material_default", "flesh")), "hurt_material_regions": {"0": visual.get("hurt_material_regions", [])}}
+			visual_columns = 1; visual_rows = 1; visual_frame = 0
+			visual_pixels = float(visual.pixel_size)
+			visual_foot = Vector2(visual.foot_pivot[0], visual.foot_pivot[1])
+		elif sprite_data.has("source_regions"):
+			sprite.texture = sprite_base_atlas
+			sprite_base_atlas.region = Rect2(SpriteHurt.frame_region(sprite_source_texture, sprite_source_columns, sprite_source_rows, selected, sprite_data))
 			sprite.frame = 0
 		else: sprite.frame = selected
 		sprite_frame = selected
-		sprite_foot = foot_for_frame(selected)
-		var frame_size := Vector2(SpriteHurt.frame_region(sprite_source_texture, sprite_source_columns, sprite_source_rows, selected, sprite_data).size)
-		sprite.position.y = (sprite_foot.y-frame_size.y*.5)*sprite.pixel_size
+		sprite_foot = visual_foot; sprite.pixel_size = visual_pixels
+		var frame_size := Vector2(SpriteHurt.frame_region(visual_texture, visual_columns, visual_rows, visual_frame, visual_data).size)
+		sprite.position.y = (sprite_foot.y-frame_size.y*.5)*visual_pixels
 		sprite.offset.x = frame_size.x*.5-sprite_foot.x
-		var geometry: Dictionary = SpriteHurt.build(sprite_source_texture,sprite_source_columns,sprite_source_rows,selected,sprite.pixel_size,sprite_foot,sprite_data)
+		var geometry: Dictionary = SpriteHurt.build(visual_texture,visual_columns,visual_rows,visual_frame,visual_pixels,sprite_foot,visual_data)
 		for body in sprite_bodies.values(): body.collision_layer = 0; body.get_node("HitSurface").shape = null
 		for material in geometry.shapes:
 			var body: StaticBody3D

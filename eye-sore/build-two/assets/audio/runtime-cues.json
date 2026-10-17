@@ -436,48 +436,92 @@
       ]
     },
     "infected_scientist_attack_warning": {
-      "file": "res://assets/audio/demonic-v1/unsealed_attack_warning.ogg",
+      "file": "res://assets/audio/ward-v19/infected_scientist_attack_warning.ogg",
       "bus": "Creatures",
       "gain_db": 0,
-      "source_alias": "unsealed_attack_warning",
-      "source_manifest": "concepts/audio-v4/manifest.json"
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
     },
     "infected_scientist_hurt": {
-      "file": "res://assets/audio/demonic-v1/unsealed_hurt.ogg",
+      "file": "res://assets/audio/ward-v19/infected_scientist_hurt.ogg",
       "bus": "Creatures",
       "gain_db": 0,
-      "source_alias": "unsealed_hurt",
-      "source_manifest": "concepts/audio-v4/manifest.json"
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
     },
     "infected_scientist_death": {
-      "file": "res://assets/audio/demonic-v1/unsealed_death.ogg",
+      "file": "res://assets/audio/ward-v19/infected_scientist_death.ogg",
       "bus": "Creatures",
       "gain_db": 0,
-      "source_alias": "unsealed_death",
-      "source_manifest": "concepts/audio-v4/manifest.json"
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
     },
     "infected_security_attack_warning": {
-      "file": "res://assets/audio/demonic-v1/vessel_attack_warning.ogg",
+      "file": "res://assets/audio/ward-v19/infected_security_attack_warning.ogg",
       "bus": "Creatures",
       "gain_db": 0,
-      "source_alias": "vessel_attack_warning",
-      "source_manifest": "concepts/audio-v4/manifest.json"
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
     },
     "infected_security_hurt": {
-      "file": "res://assets/audio/demonic-v1/vessel_hurt.ogg",
+      "file": "res://assets/audio/ward-v19/infected_security_hurt.ogg",
       "bus": "Creatures",
       "gain_db": 0,
-      "source_alias": "vessel_hurt",
-      "source_manifest": "concepts/audio-v4/manifest.json"
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
     },
     "infected_security_death": {
-      "file": "res://assets/audio/demonic-v1/vessel_death.ogg",
+      "file": "res://assets/audio/ward-v19/infected_security_death.ogg",
       "bus": "Creatures",
       "gain_db": 0,
-      "source_alias": "vessel_death",
-      "source_manifest": "concepts/audio-v4/manifest.json"
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
+    },
+    "unsealed_detect": {
+      "file": "res://assets/audio/ward-v19/unsealed_detect.ogg",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
+    },
+    "vessel_detect": {
+      "file": "res://assets/audio/ward-v19/vessel_detect.ogg",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
+    },
+    "infected_scientist_detect": {
+      "file": "res://assets/audio/ward-v19/infected_scientist_detect.ogg",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
+    },
+    "infected_security_detect": {
+      "file": "res://assets/audio/ward-v19/infected_security_detect.ogg",
+      "bus": "Creatures",
+      "gain_db": 0,
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
+    },
+    "pickup_overdrive_health": {
+      "file": "res://assets/audio/ward-v19/overdrive_health.ogg",
+      "bus": "UI",
+      "gain_db": 0,
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
+    },
+    "pickup_overdrive_armor": {
+      "file": "res://assets/audio/ward-v19/overdrive_armor.ogg",
+      "bus": "UI",
+      "gain_db": 0,
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
+    },
+    "door_open": {
+      "file": "res://assets/audio/ward-v19/door_open.ogg",
+      "bus": "World",
+      "gain_db": -4.0,
+      "spatial": true,
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
+    },
+    "door_close": {
+      "file": "res://assets/audio/ward-v19/door_close.ogg",
+      "bus": "World",
+      "gain_db": -4.0,
+      "spatial": true,
+      "source_manifest": "assets/audio/ward-v19/provenance.json"
     }
   },
   "level_music": "res://assets/audio/music/level_music_biotech_candidate.ogg",
-  "status": "Demonic creature voice revision awaiting listening review; dry contacts/player cues unchanged. Abelian menu only, Bestial Paragon Interface in Pale Ward."
+  "status": "Pale Ward v19: four distinct detection calls and unique scientist/security attacks, pain, deaths; spatial door sounds and overdrive pickups."
 }

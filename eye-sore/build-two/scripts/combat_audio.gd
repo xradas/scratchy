@@ -46,7 +46,7 @@ func handle_event(event: Dictionary) -> void:
 		"item_collected":
 			var item_kind := String(event.get("item_kind", ""))
 			if item_kind in ["brass", "red"]: item_kind += "_key"
-			if item_kind in ["pistol", "shells", "rivets", "rockets", "health", "armor", "brass_key", "red_key", "weapon"]: key = "pickup_" + item_kind
+			if item_kind in ["pistol", "shells", "rivets", "rockets", "health", "armor", "overdrive_health", "overdrive_armor", "brass_key", "red_key", "weapon"]: key = "pickup_" + item_kind
 		"shot": key = "melee_swing" if weapon == "melee" else weapon + "_fire"
 		"impact":
 			var material := String(event.get("material", "hard"))
@@ -54,16 +54,21 @@ func handle_event(event: Dictionary) -> void:
 			key = weapon + "_" + material
 		"enemy_hurt": key = kind + "_hurt"
 		"enemy_death": key = kind + "_death"
+		"enemy_detect": key = kind + "_detect"
 		"enemy_attack_warning": key = kind + "_attack_warning"
 		"projectile_impact": key = "projectile_impact" if event.get("material") == &"flesh" else "projectile_hard"
 		"ordnance_explosion": key = "siege_explosion"
 		"projectile_release", "player_hurt", "empty": key = type
 	if key.is_empty(): return
+	# Other campaign species do not yet have authored detection calls.
+	if type == "enemy_detect" and not cue_map.has(StringName(key)): return
 	# A shotgun's valid pellet damage is aggregated by combat before reaching here.
 	# Suppress duplicate presentation only; this code never suppresses gameplay damage.
 	var identity := ""
 	if type == "item_collected" and event.has("pickup_id"):
 		identity = "item_collected:%s" % event.pickup_id
+	elif type == "enemy_detect":
+		identity = "enemy_detect:%s" % event.get("target_id", "")
 	elif event.has("shot_id") and int(event.shot_id) > 0:
 		identity = "%s:%s:%s" % [type, event.shot_id, event.get("target_id", "player")]
 	elif event.has("attack_id"):
@@ -74,7 +79,7 @@ func handle_event(event: Dictionary) -> void:
 		if seen_events.size() > 256: seen_events.pop_front()
 	var target_id := String(event.get("target_id", ""))
 	if type in ["enemy_hurt", "enemy_death"]:
-		stop_actor_voices(target_id, ["enemy_attack_warning", "enemy_hurt"])
+		stop_actor_voices(target_id, ["enemy_detect", "enemy_attack_warning", "enemy_hurt"])
 	elif type == "player_hurt":
 		stop_actor_voices("player", ["player_hurt"])
 	play_cue(StringName(key), event.get("position", Vector3.ZERO), target_id, type)
