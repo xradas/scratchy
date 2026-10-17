@@ -411,7 +411,7 @@ func build_menu() -> void:
 func show_credits() -> void:
 	var credits := AcceptDialog.new()
 	credits.title = "Eyesore / credits"
-	credits.dialog_text = "Eyesore — The Pale Ward / The Ash Citadel / The Occupied Line\nOriginal environment geometry and gameplay: Eyesore project\nVisual assets adapted from the approved theme boards with OpenAI imagegen\n\nMusic: Zander Noriega\nAbelian — menu (CC BY 3.0)\nBestial Paragon Interface — Ward / Line (CC BY 3.0)\nDragged Through Hellfire (Abomination) — Citadel (CC BY 4.0)\n\nFirearms: Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney\nOther sound sources: qubodup, rubberduck, HaelDB (CC0)\nGodot Engine 4.7.2 — MIT\n\nFull source links, licenses and edits accompany the portable package."
+	credits.dialog_text = "Eyesore — The Pale Ward / The Ash Citadel / The Occupied Line\nOriginal environment geometry and gameplay: Eyesore project\nVisual assets adapted from the approved theme boards with OpenAI imagegen\n\nActive music: original Eyesore score for the menu and nine campaign levels\nArchived licensed references: Zander Noriega\nAbelian (CC BY 3.0), Bestial Paragon Interface (CC BY 3.0),\nDragged Through Hellfire (Abomination) (CC BY 4.0)\n\nFirearms: Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney\nOther sound sources: qubodup, rubberduck, HaelDB (CC0)\nGodot Engine 4.7.2 — MIT\n\nFull source links, licenses and edits accompany the portable package."
 	credits.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(credits)
 	credits.confirmed.connect(credits.queue_free)
@@ -530,10 +530,10 @@ func quit_game() -> void:
 	get_tree().quit()
 
 func setup_menu_music() -> void:
-	var path := "res://assets/audio/music/menu_abelian.ogg"
+	var path := "res://assets/audio/music/original-v17/menu.ogg"
 	if not ResourceLoader.exists(path): return
 	menu_music = AudioStreamPlayer.new()
-	menu_music.name = "MenuAbelian"
+	menu_music.name = "MenuMusic"
 	menu_music.process_mode = Node.PROCESS_MODE_ALWAYS
 	menu_music.bus = &"Music"
 	var stream: AudioStreamOggVorbis = load(path).duplicate()

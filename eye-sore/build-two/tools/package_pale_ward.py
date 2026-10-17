@@ -50,7 +50,7 @@ DEFAULT_LIMITATIONS = [
     "Ward redesign targets 20–25 minute human exploration; actual pacing remains human review.",
     "Sustained human combat, interaction audio, and final mix review remain pending.",
     "Nine connected campaign levels; campaign saves remain deferred.",
-    "Nine original first-pass campaign cues are integrated; musical development, warning audibility and human listening approval remain pending.",
+    "Ten original menu/campaign cues have distinct ambient, ritual, electronic and combat roles; warning audibility and human listening approval remain pending.",
 ]
 
 
@@ -114,7 +114,7 @@ def provenance_files() -> list[Path]:
              "docs/level-redesign-v13", "concepts/level-redesign-v13",
              "docs/ward-spatial-v14", "concepts/ward-spatial-v14",
              "docs/ash-approach-v15", "concepts/ash-approach-v15",
-             "concepts/audio-v16", "docs/ward02-v16",
+             "concepts/audio-v16", "concepts/audio-v17", "docs/ward02-v16", "docs/music-v17",
              "concepts/pickups-rooms-v6",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")
@@ -134,10 +134,13 @@ def provenance_files() -> list[Path]:
     paths.extend([PROJECT / "assets/audio/music/original-v16/manifest.json",
                   PROJECT / "tools/compose_campaign_v16.py"])
     paths.extend(sorted((PROJECT / "assets/audio/music/original-v16").glob("*.ogg")))
+    paths.extend([PROJECT / "assets/audio/music/original-v17/manifest.json",
+                  PROJECT / "tools/compose_campaign_v17.py"])
+    paths.extend(sorted((PROJECT / "assets/audio/music/original-v17").glob("*.ogg")))
     for root in roots:
         paths.extend(p for p in (PROJECT / root).rglob("*")
                      if p.is_file() and (p.suffix in {".json", ".txt", ".md"}
-                         or (root in {"docs/level-redesign-v13", "concepts/level-redesign-v13", "docs/ward-spatial-v14", "concepts/ward-spatial-v14", "docs/ash-approach-v15", "concepts/ash-approach-v15", "concepts/audio-v16"}
+                         or (root in {"docs/level-redesign-v13", "concepts/level-redesign-v13", "docs/ward-spatial-v14", "concepts/ward-spatial-v14", "docs/ash-approach-v15", "concepts/ash-approach-v15", "concepts/audio-v16", "concepts/audio-v17"}
                              and p.suffix in {".svg", ".html", ".png"}))
                      and not (root in {"concepts/arsenal-architecture-v2", "concepts/campaign-v3"}
                               and "review" in p.relative_to(PROJECT / root).parts))
