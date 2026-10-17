@@ -19,6 +19,8 @@ import intake_section_v7 as intake_section
 import intake_encounter_v7 as intake_encounter
 import intake_presentation_v7 as intake_presentation
 import room_materials_v8
+import clinical_layout_v9
+import equipment_surfaces_v9
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = {stage["id"]: stage for stage in json.loads((ROOT / "docs/expansion-v1/layouts.json").read_text())["stages"]}
@@ -584,6 +586,7 @@ def main():
             if "authored_size_xz" in plan:
                 room["size"][0], room["size"][2] = plan["authored_size_xz"]
         programme = intake_section.prepare_programme(stage, programme)
+        programme = clinical_layout_v9.prepare_programme(stage, programme)
         intake_encounter.apply_stage(stage)
         programmes[level_id] = programme
         inventories.append(room_program.validate_level_program(stage, programme))
@@ -646,7 +649,7 @@ def main():
                     def save(self, path):
                         augment(self, level_id, title, level[6])
                         furnishing_reports.append(room_program.furnish(self, self.stage, programme,
-                            self.room_program_routes, self.vertical_routes, list(getattr(self, '_physical_obstacles', []))))
+                            self.room_program_routes, self.vertical_routes, list(getattr(self, '_physical_obstacles', [])), emitter=clinical_layout_v9.emit_prop))
                         if intake_section.applies(self.stage):
                             intake_encounter.apply_scene(self, self.stage, self.room_program_routes)
                             report = intake_presentation.decorate(self)
@@ -654,6 +657,8 @@ def main():
                             room_materials_v8.register_materials(self)
                             material_report = room_materials_v8.apply_room_materials(self)
                             (OUT / 'room-materials-v8.json').write_text(json.dumps(material_report, indent=2) + '\n')
+                            surface_report = equipment_surfaces_v9.apply_equipment_surfaces(self)
+                            (OUT / 'equipment-surfaces-v9.json').write_text(json.dumps(surface_report, indent=2) + '\n')
                         super().save(path)
                 globals()["Scene"] = CampaignScene
                 author_campaign(stage, contract)

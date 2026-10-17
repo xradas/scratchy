@@ -384,7 +384,7 @@ def _emit_prop(sc, name: str, obj: dict, room: dict, at: tuple[float, float, int
         raise AssertionError((typ, silhouette))
 
 
-def furnish(sc, stage: dict, programme: dict, routes: list[dict], vertical_routes: dict, obstacles: list[dict]) -> dict:
+def furnish(sc, stage: dict, programme: dict, routes: list[dict], vertical_routes: dict, obstacles: list[dict], emitter=None) -> dict:
     """Place typed fittings in checked perimeter bays; report rejected counts."""
     materials = setup_materials(sc, stage["id"])
     by_room = {r["id"]: r for r in stage["rooms"]}
@@ -425,7 +425,7 @@ def furnish(sc, stage: dict, programme: dict, routes: list[dict], vertical_route
                     rejected.append({"id":instance_id,"room":room["id"],"type":typ,"reason":reason})
                     continue
                 lx,lz,heading,rw,rd=selected
-                _emit_prop(sc,instance_id,object_group,room,(lx,lz,heading),materials,planned_room["layout_mode"])
+                (emitter or _emit_prop)(sc,instance_id,object_group,room,(lx,lz,heading),materials,planned_room["layout_mode"])
                 placed.append({"id":instance_id,"room":room["id"],"type":typ,
                                "x":x+lx,"z":z+lz,"w":rw,"d":rd,"height":h,
                                "heading":heading})

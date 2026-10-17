@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "headless_checks": 802,
+  "native_checks_per_rate": {
+    "30": 764,
+    "60": 764,
+    "120": 764
+  },
+  "actual_shot_events_per_run": 3,
+  "fixed_physics_rate": 60,
+  "native_comparisons": [
+    {
+      "render_fps": 30,
+      "profile": "walk",
+      "physics_ticks": 120,
+      "rendered_frames": 60,
+      "identical_travel_bob_and_speed": true
+    },
+    {
+      "render_fps": 30,
+      "profile": "sprint",
+      "physics_ticks": 120,
+      "rendered_frames": 60,
+      "identical_travel_bob_and_speed": true
+    },
+    {
+      "render_fps": 30,
+      "profile": "crouch",
+      "physics_ticks": 120,
+      "rendered_frames": 60,
+      "identical_travel_bob_and_speed": true
+    },
+    {
+      "render_fps": 60,
+      "profile": "walk",
+      "physics_ticks": 120,
+      "rendered_frames": 120,
+      "identical_travel_bob_and_speed": true
+    },
+    {
+      "render_fps": 60,
+      "profile": "sprint",
+      "physics_ticks": 120,
+      "rendered_frames": 120,
+      "identical_travel_bob_and_speed": true
+    },
+    {
+      "render_fps": 60,
+      "profile": "crouch",
+      "physics_ticks": 120,
+      "rendered_frames": 120,
+      "identical_travel_bob_and_speed": true
+    },
+    {
+      "render_fps": 120,
+      "profile": "walk",
+      "physics_ticks": 120,
+      "rendered_frames": 240,
+      "identical_travel_bob_and_speed": true
+    },
+    {
+      "render_fps": 120,
+      "profile": "sprint",
+      "physics_ticks": 120,
+      "rendered_frames": 240,
+      "identical_travel_bob_and_speed": true
+    },
+    {
+      "render_fps": 120,
+      "profile": "crouch",
+      "physics_ticks": 120,
+      "rendered_frames": 240,
+      "identical_travel_bob_and_speed": true
+    }
+  ],
+  "player_sha256": "adb67f028635811db1e401abd514eaef66b472b0c2d21934c93a08d2970ff08f",
+  "check_sha256": "928b3384eeffb9c94790a46a8146412f4ec21b0c07cad9478aebd769a80b219b",
+  "weapon_geometry_sha256": "3f906ea69d266f34bf701385af2c89c9260f7021b053bf3e75405f6387e015e8",
+  "grounded_step_sha256": "47051c39404e1b488ea9888c1b33b16e6fb1868d7da3078d330512c2ca870bdd",
+  "scene_sha256": {
+    "scenes/campaign/pale_ward_01.tscn": "8063e98c44cad7953a2ebd76beabb9b9abaec6c1e745ffe3448143e630eb19a4",
+    "scenes/campaign/ash_citadel_01.tscn": "70d6f39cafebdeae6dce7ccd8ad0ef88fd3c99ddb222c4d2ea217d40da936ab9",
+    "scenes/campaign/occupied_line_01.tscn": "9dd873050a6cef81ce588d02b8b60f3e55b80a248737434360e1951743dfb760"
+  },
+  "evidence": {
+    "headless_final": "headless-wall-fix.json",
+    "native": [
+      "render-30.json",
+      "render-60.json",
+      "render-120.json"
+    ],
+    "ward_stair_baseline": "ward-baseline/stair-cadence.json"
+  },
+  "corrected_issue": "Initial extra wall-adjacent stand test found redundant1mmquerymargin falseblockedstanding. Removed extraquerymargin, retaining2mmupwardclearance. Both lowroofstandblocking and ordinarywallstand nowpass; initial failing headless-final.json retained.",
+  "integration": "Coordinator ownsMainsettings/statebindings; no Main/scenes/sharedstep/weapon edits by movement worker. Nativecapfixture real productionCharacterBody but isolated geometry, not inMain artacceptance."
+}

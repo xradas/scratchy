@@ -1,0 +1,83 @@
+{
+  "source_preflight": true,
+  "source_fingerprints_verified": 596,
+  "source_tree_sha256": "a7735cca7c189d5d02ccb6fb6da78a30f14740c69fc56165cee7d3692f7274d3",
+  "source_snapshot_policy": {
+    "collector": "Restricted AST literal policy read from tools/package_pale_ward.py; no packager import/execution",
+    "collector_sha256": "3e6616c15437a4b966a777586746b2f4885343aa2b0aea0667040c10425df555",
+    "packager_sha256": "63bca05b32bd9bf5f1bdf102c29b212894526d4bbf1c91e4b2186a77279a04e6",
+    "provenance_roots": [
+      "concepts/environment-art-v1",
+      "concepts/gore-art-v1",
+      "concepts/sprite-art-v1",
+      "concepts/style-art-v2",
+      "concepts/weapon-style-v3",
+      "concepts/expansion-v1",
+      "docs/expansion-v1",
+      "concepts/arsenal-architecture-v2",
+      "docs/arsenal-architecture-v2",
+      "concepts/campaign-v3",
+      "docs/campaign-v3",
+      "docs/combat-balance-v4",
+      "docs/map-safety-v5",
+      "docs/room-program-v6",
+      "docs/pickup-art-v6",
+      "docs/intake-v7",
+      "docs/production-v8",
+      "concepts/production-v8",
+      "docs/production-v9",
+      "concepts/production-v9",
+      "concepts/audio-v9",
+      "concepts/pickups-rooms-v6",
+      "concepts/visual-v2/corrupted-biotech",
+      "concepts/visual-v2/occult-fortress",
+      "concepts/visual-v2/civic-invasion"
+    ],
+    "excluded_directories": [
+      ".git",
+      ".godot",
+      "build",
+      "concepts",
+      "docs",
+      "tools",
+      "verification"
+    ]
+  },
+  "git_checkpoint_blobs_verified": null,
+  "protected_v8_baseline_files": 431,
+  "protected_assets": 281,
+  "protected_other_campaign_maps": 8,
+  "explicit_changed_existing_inputs": [
+    "resources/campaign/room-fittings-v6.json",
+    "scenes/campaign/pale_ward_01.tscn",
+    "scripts/main.gd",
+    "scripts/player.gd"
+  ],
+  "unreviewed_runtime_asset_exceptions": [],
+  "status": "passed",
+  "native": {
+    "checks": 7815,
+    "cue_count": 57,
+    "engine": "4.7.2-stable (official)",
+    "failures": [],
+    "physical_parts": 1091,
+    "pickups": 711,
+    "props": 508,
+    "scope": "External pinned Godot reader of source or archived --main-pack; no shipped ELF execution or player route claim.",
+    "status": "passed"
+  },
+  "clinical_native": {
+    "checks": 153,
+    "clinical_placements": 23,
+    "failures": [],
+    "scope": "Supplemental trusted source/PCK structural reader: actual23 root transforms/types, exact8 approved table-piece geometry/collision/envelope and unchanged raw embedded combat/audio JSON. No shipped ELF execution.",
+    "status": "passed",
+    "surgical_table_parts": 8
+  },
+  "trusted_native_reader_sha256": "d3b3cd31438bc488ccca64b50cf51f245b064d35d492d7648ac51fd10e47d506",
+  "supplemental_native_reader_sha256": "e9c8bd7d36bfa9699fb9da1fd1db9f280f1a11cb0dc65b31ea81a80d6a48f622",
+  "frozen_theme_checker": "Known frozen35cue incompatibility retained in verification/production-v8/archive/frozen-theme-pack-failure.json; not rerun or relaxed.",
+  "related_surface_proof": "verification/production-v9/surfaces/checks.json",
+  "scope": "Source preflight only; no packaged release claim.",
+  "auditor_sha256": "a9e4dbbda5c23c6c0aa3b50d8fb40ac347307105063ca6748a5bbff429e38bec"
+}

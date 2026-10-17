@@ -1,0 +1,1456 @@
+{
+  "baseline_geometry_equals_current": true,
+  "baseline_scene_sha256": "8063e98c44cad7953a2ebd76beabb9b9abaec6c1e745ffe3448143e630eb19a4",
+  "current_scene_sha256": "7c06137c531c017dce5318654d63dc9e9419b25612b9ba5bc5c1aef63c5d033d",
+  "display_server": "X11",
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": [],
+  "geometry": [
+    {
+      "door": "none; portal14 has empty gate",
+      "floors": [
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "entry_Floor",
+          "position": [
+            0.0,
+            -0.25,
+            0.0
+          ],
+          "size": [
+            24.0400009155273,
+            0.5,
+            26.0400009155273
+          ]
+        },
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "Link_14_Floor",
+          "position": [
+            -16.0,
+            -0.25,
+            -1.0
+          ],
+          "size": [
+            8.03999996185303,
+            0.5,
+            4.0
+          ]
+        },
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "supplies_Floor",
+          "position": [
+            -26.0,
+            -0.25,
+            -4.0
+          ],
+          "size": [
+            12.039999961853,
+            0.5,
+            10.039999961853
+          ]
+        }
+      ],
+      "scene": "committed-v8"
+    },
+    {
+      "door": "none; portal14 has empty gate",
+      "floors": [
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "entry_Floor",
+          "position": [
+            0.0,
+            -0.25,
+            0.0
+          ],
+          "size": [
+            24.0400009155273,
+            0.5,
+            26.0400009155273
+          ]
+        },
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "Link_14_Floor",
+          "position": [
+            -16.0,
+            -0.25,
+            -1.0
+          ],
+          "size": [
+            8.03999996185303,
+            0.5,
+            4.0
+          ]
+        },
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "supplies_Floor",
+          "position": [
+            -26.0,
+            -0.25,
+            -4.0
+          ],
+          "size": [
+            12.039999961853,
+            0.5,
+            10.039999961853
+          ]
+        }
+      ],
+      "scene": "current-v9"
+    }
+  ],
+  "limits": [
+    "Only four declared walks using committed v8 movement; no motion repair, door opening or geometry edits.",
+    "If no snag occurs, this does not explain the earlier failure or prove focus/input interference.",
+    "The contemporaneous v9 movement script is deliberately excluded to separate layout from movement changes."
+  ],
+  "passed": true,
+  "physics_hz": 60,
+  "player_script_sha256": "8b1107491fa24cd6dd637431788e7724175394f701101798e8a9d3c0a4ea8600",
+  "rendering_method": "gl_compatibility",
+  "reported_average_fps": 60.0,
+  "walks": [
+    {
+      "goal": [
+        -21.0,
+        0.870000004768372,
+        -1.0
+      ],
+      "goal_xz_error": 0.133325576782227,
+      "grounded": true,
+      "initial": [
+        -11.0,
+        0.870000004768372,
+        -1.0
+      ],
+      "key": "W",
+      "lost_input_ticks": [
+        1
+      ],
+      "reached": true,
+      "reverse": false,
+      "scene": "committed-v8",
+      "stagnant_samples": [],
+      "terminal": [
+        -21.1333255767822,
+        0.850638031959534,
+        -1.0
+      ],
+      "ticks": 77,
+      "trace": [
+        {
+          "contacts": [
+            {
+              "body": "entry_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -11.1166667938232,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 6,
+          "velocity": [
+            -2.79999995231628,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "entry_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -11.6416664123535,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 12,
+          "velocity": [
+            -6.99999904632568,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -12.4366655349731,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 18,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -13.2366647720337,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 24,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -14.0366640090942,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 30,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -14.8366632461548,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 36,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -15.6366624832153,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 42,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -16.4366626739502,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 48,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -17.2366619110107,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 54,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -18.0366611480713,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 60,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -18.8366603851318,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 66,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -19.6366596221924,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 72,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        }
+      ]
+    },
+    {
+      "goal": [
+        -11.0,
+        0.870000004768372,
+        -1.0
+      ],
+      "goal_xz_error": 0.133336067199707,
+      "grounded": true,
+      "initial": [
+        -21.0,
+        0.870000004768372,
+        -1.0
+      ],
+      "key": "S",
+      "lost_input_ticks": [],
+      "reached": true,
+      "reverse": true,
+      "scene": "committed-v8",
+      "stagnant_samples": [],
+      "terminal": [
+        -10.8666639328003,
+        0.850102543830872,
+        -1.0
+      ],
+      "ticks": 76,
+      "trace": [
+        {
+          "contacts": [
+            {
+              "body": "supplies_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -20.8250007629395,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 6,
+          "velocity": [
+            3.5,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "supplies_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -20.2299995422363,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 12,
+          "velocity": [
+            7.69999885559082,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -19.4299907684326,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 18,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -18.6299915313721,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 24,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -17.8299922943115,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 30,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -17.029993057251,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 36,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -16.2299938201904,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 42,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -15.4299945831299,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 48,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -14.6299953460693,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 54,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -13.8299961090088,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 60,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -13.0299968719482,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 66,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -12.2299976348877,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 72,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        }
+      ]
+    },
+    {
+      "goal": [
+        -21.0,
+        0.870000004768372,
+        -1.0
+      ],
+      "goal_xz_error": 0.133325576782227,
+      "grounded": true,
+      "initial": [
+        -11.0,
+        0.870000004768372,
+        -1.0
+      ],
+      "key": "W",
+      "lost_input_ticks": [
+        1
+      ],
+      "reached": true,
+      "reverse": false,
+      "scene": "current-v9",
+      "stagnant_samples": [],
+      "terminal": [
+        -21.1333255767822,
+        0.850638031959534,
+        -1.0
+      ],
+      "ticks": 77,
+      "trace": [
+        {
+          "contacts": [
+            {
+              "body": "entry_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -11.1166667938232,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 6,
+          "velocity": [
+            -2.79999995231628,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "entry_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -11.6416664123535,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 12,
+          "velocity": [
+            -6.99999904632568,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -12.4366655349731,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 18,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -13.2366647720337,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 24,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -14.0366640090942,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 30,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -14.8366632461548,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 36,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -15.6366624832153,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 42,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -16.4366626739502,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 48,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -17.2366619110107,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 54,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -18.0366611480713,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 60,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -18.8366603851318,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 66,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -19.6366596221924,
+            0.850638031959534,
+            -1.0
+          ],
+          "tick": 72,
+          "velocity": [
+            -8.0,
+            0.0,
+            0.000000349691106293903
+          ]
+        }
+      ]
+    },
+    {
+      "goal": [
+        -11.0,
+        0.870000004768372,
+        -1.0
+      ],
+      "goal_xz_error": 0.133336067199707,
+      "grounded": true,
+      "initial": [
+        -21.0,
+        0.870000004768372,
+        -1.0
+      ],
+      "key": "S",
+      "lost_input_ticks": [],
+      "reached": true,
+      "reverse": true,
+      "scene": "current-v9",
+      "stagnant_samples": [],
+      "terminal": [
+        -10.8666639328003,
+        0.850102543830872,
+        -1.0
+      ],
+      "ticks": 76,
+      "trace": [
+        {
+          "contacts": [
+            {
+              "body": "supplies_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -20.8250007629395,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 6,
+          "velocity": [
+            3.5,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "supplies_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -20.2299995422363,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 12,
+          "velocity": [
+            7.69999885559082,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -19.4299907684326,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 18,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -18.6299915313721,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 24,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -17.8299922943115,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 30,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -17.029993057251,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 36,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -16.2299938201904,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 42,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -15.4299945831299,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 48,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -14.6299953460693,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 54,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -13.8299961090088,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 60,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -13.0299968719482,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 66,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        },
+        {
+          "contacts": [
+            {
+              "body": "Link_14_Floor",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "grounded": true,
+          "input_pressed": true,
+          "position": [
+            -12.2299976348877,
+            0.850102543830872,
+            -1.0
+          ],
+          "tick": 72,
+          "velocity": [
+            8.0,
+            0.0,
+            -0.000000349691106293903
+          ]
+        }
+      ]
+    }
+  ]
+}

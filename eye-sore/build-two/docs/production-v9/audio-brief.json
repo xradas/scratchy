@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task": "AUD-01 preparation only",
+  "status": "Candidate packet implemented at concepts/audio-v9/index.html; technical matching/format/hash checks; no runtime replacement or listening approval.",
+  "source_url": "https://opengameart.org/content/the-free-firearm-sound-library",
+  "license": "CC0",
+  "creator": "Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney",
+  "archive_sha256": "cc1ab5a99a0a365105c7c5dd783f4b0b1fe90938114d3ceec53856bfe005f7d6",
+  "private_reference_analysis": "audio-reference-analysis.json",
+  "reference_findings": "User private USP and shotgun examples have stronger sustained energy relative to peak than current selected dry sources. This is numerical evidence supporting body-controlled alternatives, not a claim about perceived realism or punch. Private MP3s remain outside project; no redistribution or runtime registration.",
+  "source_survey": "firearm-source-survey.json",
+  "routing": "Existing Weapons bus, one accepted firing event. Music, creature/material/pickup voices remain unchanged.",
+  "selected": [
+    {
+      "weapon": "pistol",
+      "source": "/home/rikki/Downloads/eyesore-firearm-library-v9/Prepared SFX Library/1911/A_34P.wav",
+      "source_sha256": "df95fc52049f3d1e4cf0a8c018fc0f0b4abded12de1d615a279422206c415935",
+      "start_seconds": 1.5403125,
+      "duration_seconds": 0.55,
+      "candidate_A": "highpass=f=45,lowpass=f=15000 (natural recorded transient, no pitch)",
+      "candidate_B": "highpass=f=45,equalizer=f=140:t=q:w=0.8:g=1.5,acompressor=threshold=0.10:ratio=3:attack=0.2:release=65:makeup=1,lowpass=f=15000 (body compression; levelmatchafterfilters)",
+      "pitch_ratio": 1.0,
+      "fade_in_seconds": 0.0005,
+      "fade_out_seconds": 0.04,
+      "selection_reason": "Alternate original take with longer relative body; investigate through matched listening, not louder-only comparison."
+    },
+    {
+      "weapon": "shotgun",
+      "source": "/home/rikki/Downloads/eyesore-firearm-library-v9/Prepared SFX Library/Nova/O_17P.wav",
+      "source_sha256": "878bdcaaa96ecbf04f7841b75219de57c41e38189f3c8371d52d68026f4e9d2c",
+      "start_seconds": 0.691875,
+      "duration_seconds": 0.8,
+      "candidate_A": "highpass=f=45,lowpass=f=15000 (natural recorded transient, no pitch)",
+      "candidate_B": "highpass=f=45,equalizer=f=140:t=q:w=0.8:g=1.5,acompressor=threshold=0.10:ratio=3:attack=0.2:release=65:makeup=1,lowpass=f=15000 (body compression; levelmatchafterfilters)",
+      "pitch_ratio": 1.0,
+      "fade_in_seconds": 0.0005,
+      "fade_out_seconds": 0.04,
+      "selection_reason": "Alternate original take with longer relative body; investigate through matched listening, not louder-only comparison."
+    },
+    {
+      "weapon": "twin_shotgun",
+      "source": "/home/rikki/Downloads/eyesore-firearm-library-v9/Prepared SFX Library/Mossberg/N_26P.wav",
+      "source_sha256": "311a5b016bebc21e7d812ef0756174fbdc77454229512bd5a64101ec055e8807",
+      "start_seconds": 0.7843333333333333,
+      "duration_seconds": 0.8,
+      "candidate_A": "highpass=f=45,lowpass=f=15000 (natural recorded transient, no pitch)",
+      "candidate_B": "highpass=f=45,equalizer=f=140:t=q:w=0.8:g=1.5,acompressor=threshold=0.10:ratio=3:attack=0.2:release=65:makeup=1,lowpass=f=15000 (body compression; levelmatchafterfilters)",
+      "pitch_ratio": 1.0,
+      "fade_in_seconds": 0.0005,
+      "fade_out_seconds": 0.04,
+      "selection_reason": "Alternate original take with longer relative body; investigate through matched listening, not louder-only comparison."
+    }
+  ],
+  "comparison_protocol": {
+    "rows": [
+      "current runtime cue",
+      "new source dry excerpt",
+      "candidate A natural",
+      "candidate B controlled body"
+    ],
+    "alignment": "Align first5%-peak onset minus2ms, fadein0.0005s to retain crack. Same exact source starts and durations logged.",
+    "level_match": "First150ms RMS target\u221226dBFS, commonpeakceiling\u22129dBFS, common final attenuation ifany rowneedsceiling (document exact actuallevels). Matching is technical, not perceptual approval. No loudnessadvantage.",
+    "playback": "Individual controls plus dry/current/A/B sequence and repeated-shot strings at actualweaponcooldowns; no autoplay. Label packet candidates, do notclaimapproved.",
+    "provenance": "Copy chosen original WAV bytes under concepts/audio-v9/originals, cached CC0 evidence unchanged; record source/archive/downloadURL/SHA, edits exact ffmpeggraph, exportedwave/OGGhashes andmeasurements. Preserve all current runtimefiles/profile/ledgers unchanged.",
+    "formats": "48kHz mono PCM24+Vorbis audition, no runtime registrations yet.",
+    "no_layers": [
+      "No wet/slosh/bodyimpact layers",
+      "No synthesizedsub/bass",
+      "No convolution/reverb",
+      "No delayed double-shot flam forTwin",
+      "No stolen Doom/Quake audio"
+    ]
+  }
+}

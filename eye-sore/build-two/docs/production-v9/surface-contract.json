@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    "ART-02",
+    "LVL-02"
+  ],
+  "status": "Integrated by coordinator in actual author/Main; isolated and actual-bound native checks pass; coordinator visual review pending",
+  "campaign_level_id": "pale_ward_01",
+  "source_manifest": "resources/materials/v8/room-families.json",
+  "sources": {
+    "triage": {
+      "identity": "Worn ivory tile, dirty institutional paint and steel",
+      "path": "res://assets/materials/room-families-v8/triage-atlas.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "b22441bb02b9f66717b713cbf91fc0a113dfe1e5961d452fe997962ff48b186b",
+      "regions": {
+        "wall": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "floor": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "ceiling": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "trim": [
+          0,
+          512,
+          512,
+          512
+        ],
+        "door": [
+          512,
+          512,
+          512,
+          512
+        ],
+        "panel": [
+          1024,
+          512,
+          512,
+          512
+        ]
+      }
+    },
+    "surgery": {
+      "identity": "Warm off-white enamel, stainless steel and sealed floor",
+      "path": "res://assets/materials/room-families-v8/surgery-atlas.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "6c815a50adf2845c9d8a36704fc832e1d05a666d00c7fee64566fc853e2cf8b7",
+      "regions": {
+        "wall": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "floor": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "ceiling": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "trim": [
+          0,
+          512,
+          512,
+          512
+        ],
+        "door": [
+          512,
+          512,
+          512,
+          512
+        ],
+        "panel": [
+          1024,
+          512,
+          512,
+          512
+        ]
+      }
+    },
+    "utility": {
+      "identity": "Exposed charcoal service panels and grates",
+      "path": "res://assets/materials/room-families-v8/utility-atlas.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "ad4a5f9ffff4364c02e9aa9d883a3da3497b83ef89197ceffdda04de4e121505",
+      "regions": {
+        "wall": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "floor": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "ceiling": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "trim": [
+          0,
+          512,
+          512,
+          512
+        ],
+        "door": [
+          512,
+          512,
+          512,
+          512
+        ],
+        "panel": [
+          1024,
+          512,
+          512,
+          512
+        ]
+      }
+    }
+  },
+  "pixels_per_metre": 64,
+  "module": "tools/equipment_surfaces_v9.py",
+  "shader": "shaders/equipment_surface_v9.gdshader",
+  "component": "scripts/control_presentation_v9.gd",
+  "generator_api": {
+    "register_materials(sc,manifest=None)": "Call before apply. Returns family/mode material IDs; validates native source SHA/dimensions/cellbounds first; no-op on other levels.",
+    "apply_equipment_surfaces(sc,routes=None,manifest=None)": "Call after v8 room bindings and final furnishing groups. Binds stable room_program_object identities, route button IDs, stage_exit metadata and authored platform roots. Does not write files. Returns audit report and sc.equipment_surfaces_v9_report."
+  },
+  "runtime_api": {
+    "group": "equipment_controls_v9",
+    "set_display_state(stage:Dictionary)": "Root discovers world-scoped components once create_world, then supplies actual get_level_state per display refresh. Consumes flags duplicate, never writes flags or polls. Inactive/active changes small stripe+glyph geometry and color, keeps gritty physical plate.",
+    "exports": [
+      "target_path:NodePath",
+      "flag_key:StringName",
+      "required_flags:PackedStringArray",
+      "is_exit:bool",
+      "surface_material:Material (optional generated-prism visual override)",
+      "surface_mode is selected by registered ShaderMaterial; no state polling"
+    ],
+    "exit": "Read all actual required flags; do not equate exit-control-only with fully unlocked exit."
+  },
+  "surface_policy": {
+    "equipment": "Existing shell/dark metal supports use trim; semantic equipment face/soft/light atlas registrations retained. Existing mesh material resources unchanged, only MeshInstance3D.material_override added.",
+    "platform": "Top=floor nativecell, allside/riser/underside=trim. Generated prism binder MUST be a level-root sibling SurfacePresentationV9_arena_two_RaisedAltar with target_path ../arena_two_RaisedAltar. StageLevel.scan requires original polygon node child_count==0 to generate both mesh and collision. Deferred sibling binder changes only runtime material_override; original polygon metadata/outline/height unchanged.",
+    "controls": "Body and existing Face use panel front/trim sides. Added indicators noncolliding and within original combined body+Face AABB. Existing transforms/metadata/collision untouched.",
+    "exit": "Actual closed1.5x1.8x.5 ExitControl box gets door-cell centre and integral trim border/frontthreshold/allside/back/underside faces. No added portal/fakewalkableplatform."
+  },
+  "diagnosis": {
+    "boxes": "Existing BoxMesh produces complete sixfaces with default backface culling and matching BoxShape3D. No absent mesh faces found in source; older UV face packing/different surface treatments caused inconsistent appearance.",
+    "prisms": "stage_level.gd builds cap/side triangles and outwardnormals from convexoutline; no UV emitted. World-position projection removes UV requirement without changing topology/collision.",
+    "exit": "Existing ExitControl has fullBoxMesh andBoxShape; no physical outer doorway authored at that node, so integral face framing preserves envelope."
+  },
+  "invariants": [
+    "No old source resource edits",
+    "No physical mesh/collider/transform or original metadata edits",
+    "No other eight campaign map writes",
+    "No raster generation or transforms",
+    "No gameplay state mutation/input ownership",
+    "New decorative meshes have no collision and stay in existing local envelope"
+  ],
+  "validation": {
+    "status": "passed",
+    "checks": 67,
+    "original_runtime_geometry_records": 3773,
+    "binding_count": 512,
+    "binding_modes": {
+      "platform": 283,
+      "equipment": 222,
+      "control": 6,
+      "exit": 1
+    },
+    "commands": [
+      "python3 tools/check_equipment_surfaces_v9.py",
+      "python3 tools/check_equipment_surfaces_v9.py --capture"
+    ],
+    "evidence": "verification/production-v9/surfaces/",
+    "scope": "Actual production-bound Main scene and actual Main per-frame stage-snapshot group refresh. A temporary copy stripped only of v9 presentation compares original runtime mesh vertices/colliders/local transforms/hit tags. No injected replacement for state checks/captures and no production edit. Controlled actual flags/free inspection camera; actors frozen. Native views include real deck underside. Cabinet lower-side view does not claim a physical gap beneath a floor-supported body. Not route/human visual acceptance.",
+    "coverage": [
+      "Material registration source SHA/nativebounds/idempotence",
+      "All other eight campaign IDs are strict no-ops",
+      "Actual Main per-frame flags drive distinct inactive/active control glyph+stripe and locked/ready exit respecting all real requirements",
+      "Every new indicator mesh lies within old combined body/Face AABB and adds no collider",
+      "Actual bound mesh vertices, physical shapes, local transforms, collision masks/layers/hit tags equal presentation-stripped comparison",
+      "Generated prism retains both caps/allsidefaces and its existing physical collider; sibling binder does not suppress StageLevel.scan generation",
+      "Native NVIDIA GL Compatibility front/side/back/realdeckunderside and control/exit state captures"
+    ],
+    "source_scene_sha256": "7c06137c531c017dce5318654d63dc9e9419b25612b9ba5bc5c1aef63c5d033d",
+    "inspection_note": "Control off/on, real deck underside and ready exit captures visually self-inspected. Floor-supported cabinet has a low-side view; no fake underside gap claimed. No human visual or route approval."
+  },
+  "implementation_files": {
+    "tools/equipment_surfaces_v9.py": "de0fbd2f33404ec127386ff7ca270b1abdb67e42f8ec5a2fc5e86f3d4b14a7a0",
+    "scripts/control_presentation_v9.gd": "82fd81f0c83ac94dd17c452312b1040ac1fe5e5bf6dba1354afb7b08df5392d8",
+    "shaders/equipment_surface_v9.gdshader": "2e984087a699008f7d0d5ede80022ca30781236a30b95d35f1eeda7699426add",
+    "tools/check_equipment_surfaces_v9.py": "7082ea6c8b7902a21b94d729e9538c62544fbbb7f7a7bcb5dd143218c3cf0988",
+    "tools/check_equipment_surfaces_v9.gd": "bcf37a80b4b9af2a2f7c7ae5189c41177ec27dc41d8e7471463edad9c0461759"
+  },
+  "known_limits": [
+    "Integral exit framing follows existing physical box; no new doorway is implied.",
+    "Equipment semantic front/soft/light sources remain existing artwork; trim replaces only metal body/support roles.",
+    "Dynamic control presentation is driven by actual flags; checker uses controlled accepted snapshots rather than live enemy-clear traversal.",
+    "Comparison isolates surface additions from current clinical/movement integration; does not claim clinical furnishing never moved relative to v8."
+  ]
+}

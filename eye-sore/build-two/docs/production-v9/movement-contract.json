@@ -1,0 +1,60 @@
+{
+  "version": 9,
+  "tasks": [
+    "MOV-01",
+    "MOV-02",
+    "MOV-03"
+  ],
+  "status": "implementation_and_native_physics_verification_passed_ready_for_Main_integration",
+  "owner": "scripts/player.gd",
+  "baseline_head": "de5c92f0baab7ad98315806c7bfa6edaeb646bba",
+  "api": {
+    "set_motion_settings(bob_intensity:float)": "Clamps0..1; default.35; zero immediately neutral. Safe before_ready.",
+    "set_movement_active(active:bool)": "Callfalse onmenu/death/transition; zerosvelocity+sprint+bob. Reactivation requires heldWASD/Ctrl/Shift released before movement resumes. Repeatedtrue doesnotreset active motion.",
+    "is_crouching": "Actual physical stance, including blockedstand after Ctrl released.",
+    "is_sprinting": "Only moving+grounded+Shift+notcrouching."
+  },
+  "main_integration": {
+    "settings": "Persist bob_intensity default.35, slider0..1 withzero; apply to current and every new Player.",
+    "activity": "set_movement_active(started and notpaused and notdead and nottransitioning). Mouse look gated too. Player also handles treepause notifications.",
+    "retry": "Newinstance owns duplicatecapsule and initializes standing; heldmovement keys suppressed untilrelease.",
+    "aim": "Use actualcamera.global_position and -actualcamera.global_basis.z; existing centeredray ownership unchanged. No2Dweaponbob or crosshairshift."
+  },
+  "unchanged": {
+    "speed": 8,
+    "acceleration": 42,
+    "gravity": 24,
+    "step_height": 0.18,
+    "grounded_step_script_sha256": "47051c39404e1b488ea9888c1b33b16e6fb1868d7da3078d330512c2ca870bdd",
+    "weapon_presentation_sha256": "3f906ea69d266f34bf701385af2c89c9260f7021b053bf3e75405f6387e015e8"
+  },
+  "controls": {
+    "Ctrl": "Hold crouch; actual capsule1.7\u21921.1m, bodycenter\u2212.3m preservesfeet, camera derives authoredheight (.68\u2192.38 currentcampaign; .65\u2192.35 calibration). Stand only if fullstandingcapsule clears physicalcolliders excluding self.",
+    "Shift": "Hold groundedsprint1.35\u00d78=10.8m/s, firing allowed, no stamina; Ctrlwins4.4m/s.",
+    "jump_dash": "None added."
+  },
+  "bob": {
+    "drive": "Actual grounded horizontal distance after collision/step handling,3.2m phaseperiod. No airborne/blocked-wall distance contribution.",
+    "max_at_intensity1": {
+      "lateral_m": 0.018,
+      "downward_m": 0.022,
+      "upward_m": 0
+    },
+    "default_intensity": 0.35,
+    "range": [
+      0,
+      1
+    ],
+    "transition": "Exponential offset settling18/s; zero/pause/inactive immediately neutral relativecurrentphysicalstance. Cameraorientation unchanged."
+  },
+  "physics": {
+    "resource": "CapsuleShape3D duplicated in_ready; standingquery separate duplicate. All3 currentfamilies inspected1.7m/.3radius withcamera.68; localoffset derived, nothardcoded.",
+    "standing_query": "Full original capsule atfeet-preservingprospectivecenter,2mmupwardclearance,querymargin0 toretain safeexistingwallcontacts, selfRIDexcluded, inheritedcollisionmask.",
+    "floor_snap": "Existing.25 untouched; same shared grounded_step.climb."
+  },
+  "test_tool": "tools/check_movement_v9.gd",
+  "acceptance": "802 actualheadless checks and764 nativechecks each at30/60/120rendercaps pass. Travel+speed+bobidentical atfixed60physics, real authoritativefiring duringwalk/sprint/crouch. CoordinatorMainnative review pending; no humanvisualapprovalclaim.",
+  "verification": "verification/production-v9/movement/summary.json",
+  "player_sha256": "adb67f028635811db1e401abd514eaef66b472b0c2d21934c93a08d2970ff08f",
+  "test_tool_sha256": "928b3384eeffb9c94790a46a8146412f4ec21b0c07cad9478aebd769a80b219b"
+}

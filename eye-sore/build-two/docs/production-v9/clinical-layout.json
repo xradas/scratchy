@@ -1,0 +1,667 @@
+{
+  "schema_version": 1,
+  "version": 9,
+  "task": "LVL-01",
+  "campaign_level_id": "pale_ward_01",
+  "baseline_source_commit": "de5c92f0",
+  "status": "Integrated by coordinator; actual furnishing and native capsule validation passed. Visual/user acceptance remains separate.",
+  "scope": "Complete explicit positions for every existing furnishing group in the first six Intake rooms. No stage, collision architecture, progression, count, type or ID changes; all other programme fields and eight maps preserved.",
+  "coordinate_contract": "[room-local X, room-local Z, yaw_degrees]; floorY is unchanged room centerY. Yaw uses0,90,180,-90 only. No random or perimeter fallback is permitted for these23 instances.",
+  "inventory": {
+    "rooms": 6,
+    "groups": 18,
+    "instances": 23,
+    "campaign_instances_unchanged": 508
+  },
+  "bed_banks": {
+    "pitch_m": 3.4,
+    "west": {
+      "bed_ordinals": [
+        1,
+        2
+      ],
+      "heading": 0,
+      "monitor_ordinal": 1,
+      "screen_ordinal": 1,
+      "nurse_aisle_x": -14.2
+    },
+    "east": {
+      "bed_ordinals": [
+        3,
+        4
+      ],
+      "heading": 180,
+      "monitor_ordinal": 2,
+      "screen_ordinal": 2,
+      "nurse_aisle_x": 14.2
+    },
+    "native_bed_size_m": [
+      2.4,
+      1.1,
+      0.9
+    ],
+    "note": "Two beds share each monitor/screen station. This preserves four beds/two monitors/two screens; beds are parallel with mirrored head-to-wall orientation."
+  },
+  "rooms": [
+    {
+      "id": "entry",
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        24,
+        6,
+        26
+      ],
+      "workflow": "Arrival-facing intake desk with an inward-facing waiting bench and records return; central arrivals/portal lanes preserved.",
+      "groups": [
+        {
+          "id": "pale_ward_01.entry.intake_desk.01",
+          "type": "intake_desk",
+          "count": 1,
+          "authored_positions": [
+            [
+              7,
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.entry.waiting_bench.02",
+          "type": "waiting_bench",
+          "count": 1,
+          "authored_positions": [
+            [
+              9,
+              5.8,
+              -90
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.entry.records_cabinet.03",
+          "type": "records_cabinet",
+          "count": 1,
+          "authored_positions": [
+            [
+              4,
+              9,
+              -90
+            ]
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "id": "intake-approach",
+          "points_local_xz": [
+            [
+              5.2,
+              10.3
+            ],
+            [
+              7,
+              10.3
+            ],
+            [
+              7,
+              8.4
+            ]
+          ],
+          "minimum_clear_width_m": 1.2
+        }
+      ]
+    },
+    {
+      "id": "service",
+      "center": [
+        0,
+        1.5,
+        -38
+      ],
+      "size": [
+        18,
+        5,
+        16
+      ],
+      "workflow": "PPE station on the arrival side; decontamination frame/filter pair in the northwest equipment bay; central room crossing remains free.",
+      "groups": [
+        {
+          "id": "pale_ward_01.service.decon_frame.01",
+          "type": "decon_frame",
+          "count": 1,
+          "authored_positions": [
+            [
+              -8.075,
+              -5.28,
+              90
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.service.filter_unit.02",
+          "type": "filter_unit",
+          "count": 1,
+          "authored_positions": [
+            [
+              -6.2,
+              -6.7,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.service.ppe_locker.03",
+          "type": "ppe_locker",
+          "count": 1,
+          "authored_positions": [
+            [
+              -6.2,
+              6.7,
+              180
+            ]
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "id": "central-transfer",
+          "points_local_xz": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              -6
+            ]
+          ],
+          "minimum_clear_width_m": 2.0
+        },
+        {
+          "id": "equipment-access",
+          "points_local_xz": [
+            [
+              -5.7,
+              5
+            ],
+            [
+              -5.7,
+              0
+            ],
+            [
+              -6.3,
+              -4.0
+            ],
+            [
+              -6.3,
+              -5.3
+            ]
+          ],
+          "minimum_clear_width_m": 0.9
+        }
+      ]
+    },
+    {
+      "id": "arena_one",
+      "center": [
+        0,
+        -1,
+        -76
+      ],
+      "size": [
+        36,
+        10,
+        40
+      ],
+      "workflow": "Two mirrored north-end bed banks, two uniformly oriented beds per bank at regular3.4m pitch; each bank has one shared monitor and one end privacy screen. Feet face protected nurse aisles; both nurse aisles connect through one north cross-aisle. Existing galleries, traps and flank reservations remain unchanged.",
+      "groups": [
+        {
+          "id": "pale_ward_01.arena_one.medical_bed.01",
+          "type": "medical_bed",
+          "count": 4,
+          "authored_positions": [
+            [
+              -16.44,
+              -16.3,
+              0
+            ],
+            [
+              -16.44,
+              -12.9,
+              0
+            ],
+            [
+              16.44,
+              -16.3,
+              180
+            ],
+            [
+              16.44,
+              -12.9,
+              180
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.arena_one.privacy_screen.02",
+          "type": "privacy_screen",
+          "count": 2,
+          "authored_positions": [
+            [
+              -16.44,
+              -11.75,
+              0
+            ],
+            [
+              16.44,
+              -11.75,
+              180
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.arena_one.vital_monitor.03",
+          "type": "vital_monitor",
+          "count": 2,
+          "authored_positions": [
+            [
+              -16.44,
+              -14.6,
+              90
+            ],
+            [
+              16.44,
+              -14.6,
+              -90
+            ]
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "id": "north-cross-aisle",
+          "points_local_xz": [
+            [
+              -14.2,
+              -18
+            ],
+            [
+              0,
+              -18
+            ],
+            [
+              14.2,
+              -18
+            ]
+          ],
+          "minimum_clear_width_m": 1.2
+        },
+        {
+          "id": "west-nurse-aisle",
+          "points_local_xz": [
+            [
+              -14.2,
+              -18
+            ],
+            [
+              -14.2,
+              -12.2
+            ]
+          ],
+          "minimum_clear_width_m": 1.2
+        },
+        {
+          "id": "east-nurse-aisle",
+          "points_local_xz": [
+            [
+              14.2,
+              -18
+            ],
+            [
+              14.2,
+              -12.2
+            ]
+          ],
+          "minimum_clear_width_m": 1.2
+        },
+        {
+          "id": "arrival-to-cross-aisle",
+          "points_local_xz": [
+            [
+              0,
+              -19
+            ],
+            [
+              0,
+              -18
+            ]
+          ],
+          "minimum_clear_width_m": 1.2
+        }
+      ]
+    },
+    {
+      "id": "key_wing",
+      "center": [
+        36,
+        1.5,
+        -76
+      ],
+      "size": [
+        16,
+        5,
+        18
+      ],
+      "workflow": "North wall diagnostic/isolation-support bank: fridge, instrument preparation and scan console. Existing inventory contains no isolation bed; none is invented.",
+      "groups": [
+        {
+          "id": "pale_ward_01.key_wing.scan_console.01",
+          "type": "scan_console",
+          "count": 1,
+          "authored_positions": [
+            [
+              4,
+              -6.5,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.key_wing.instrument_bench.02",
+          "type": "instrument_bench",
+          "count": 1,
+          "authored_positions": [
+            [
+              0,
+              -6.5,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.key_wing.specimen_fridge.03",
+          "type": "specimen_fridge",
+          "count": 1,
+          "authored_positions": [
+            [
+              -4,
+              -6.5,
+              0
+            ]
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "id": "diagnostic-working-aisle",
+          "points_local_xz": [
+            [
+              -4,
+              -5.3
+            ],
+            [
+              4,
+              -5.3
+            ]
+          ],
+          "minimum_clear_width_m": 0.85
+        },
+        {
+          "id": "through-route",
+          "points_local_xz": [
+            [
+              -6,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "minimum_clear_width_m": 2.0
+        }
+      ]
+    },
+    {
+      "id": "key_console",
+      "center": [
+        62,
+        1.5,
+        -76
+      ],
+      "size": [
+        18,
+        5,
+        20
+      ],
+      "workflow": "Distinct theatre work cell: table, rear instrument bench and rear-right lamp; unobstructed operator loop around table. Table visual distinction requires separately approved renderer integration.",
+      "groups": [
+        {
+          "id": "pale_ward_01.key_console.surgical_table.01",
+          "type": "surgical_table",
+          "count": 1,
+          "authored_positions": [
+            [
+              4.6,
+              -3.5,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.key_console.instrument_bench.02",
+          "type": "instrument_bench",
+          "count": 1,
+          "authored_positions": [
+            [
+              4.6,
+              -5.8,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.key_console.surgical_lamp.03",
+          "type": "surgical_lamp",
+          "count": 1,
+          "authored_positions": [
+            [
+              6.8,
+              -5.8,
+              0
+            ]
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "id": "table-operator-loop",
+          "points_local_xz": [
+            [
+              2.5,
+              -4.7
+            ],
+            [
+              6.6,
+              -4.7
+            ],
+            [
+              6.6,
+              -2.1
+            ],
+            [
+              2.5,
+              -2.1
+            ],
+            [
+              2.5,
+              -4.7
+            ]
+          ],
+          "minimum_clear_width_m": 0.8
+        },
+        {
+          "id": "theatre-approach",
+          "points_local_xz": [
+            [
+              0,
+              0
+            ],
+            [
+              2.5,
+              0
+            ],
+            [
+              2.5,
+              -2.1
+            ]
+          ],
+          "minimum_clear_width_m": 1.0
+        }
+      ]
+    },
+    {
+      "id": "return_store",
+      "center": [
+        62,
+        1.5,
+        -38
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "workflow": "Aligned west-wall cabinet bank with inward-facing doors and an independent east cart staging position; west doorway and north transfer route remain clear.",
+      "groups": [
+        {
+          "id": "pale_ward_01.return_store.medical_cabinet.01",
+          "type": "medical_cabinet",
+          "count": 1,
+          "authored_positions": [
+            [
+              -5.6,
+              -4.8,
+              90
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.return_store.supply_cart.02",
+          "type": "supply_cart",
+          "count": 1,
+          "authored_positions": [
+            [
+              5.2,
+              -4.8,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pale_ward_01.return_store.records_cabinet.03",
+          "type": "records_cabinet",
+          "count": 1,
+          "authored_positions": [
+            [
+              -5.6,
+              4.8,
+              90
+            ]
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "id": "cabinet-working-aisle",
+          "points_local_xz": [
+            [
+              -4.6,
+              -5.5
+            ],
+            [
+              -4.6,
+              5.5
+            ]
+          ],
+          "minimum_clear_width_m": 0.8
+        },
+        {
+          "id": "cart-approach",
+          "points_local_xz": [
+            [
+              3.5,
+              0
+            ],
+            [
+              3.5,
+              -4.8
+            ]
+          ],
+          "minimum_clear_width_m": 1.0
+        },
+        {
+          "id": "through-transfer",
+          "points_local_xz": [
+            [
+              0,
+              -5
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              -5,
+              0
+            ]
+          ],
+          "minimum_clear_width_m": 1.4
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "author": "room_program_v6.furnish with real portal/static/vertical reservations and existing physical fixture obstacles. Reject any authored failure; do not weaken reservations or invoke fallback.",
+    "native": "Independent candidate scene: player radius.30 and actual enemy radius.38, height1.70 capsules swept along authored passages; inspect relevant initial spawn/pickup support and unchanged corridor floors.",
+    "limits": [
+      "No new isolation-bed type/count is added. Diagnostics is isolation support.",
+      "Coordinator approved Intake-only segmented enamel table/pedestal/T-base emitter within existing2.4\u00d71.1\u00d7.9m envelope.",
+      "Native geometry evidence does not establish visual/pacing acceptance."
+    ],
+    "evidence": {
+      "native": "verification/production-v9/clinical/native-04/native.json",
+      "furnishing": "verification/production-v9/clinical/native-04/actual-furnishing.json",
+      "prebuild_objects": "verification/production-v9/clinical/native-04/prebuild-objects.json",
+      "native_checks": 138,
+      "capsule_samples": 8016,
+      "exact_target_instances": 23,
+      "physical_parts_checked": 55,
+      "Intake_placed": 70,
+      "Intake_rejected": 0,
+      "capsule_radii_m": [
+        0.3,
+        0.38
+      ],
+      "capsule_height_m": 1.7,
+      "aisle_sampling_m": 0.1,
+      "table_envelope_m": [
+        2.4,
+        1.1,
+        0.9
+      ]
+    },
+    "visual_review": {
+      "native_captures": "verification/production-v9/clinical/art/captures.json",
+      "west_bank": "verification/production-v9/clinical/art/clinical-west-bank.png",
+      "east_bank": "verification/production-v9/clinical/art/clinical-east-bank.png",
+      "elevated_triage": "verification/production-v9/clinical/art/clinical-triage-overview.png",
+      "measured_six_room_plan": "verification/production-v9/clinical/layout-overview.svg",
+      "scope": "Ground-level bank views are controlled actual Main/native perspectives; elevated image is an explicitly labelled inspection camera. The six-room23-object overview is a measured diagram, not gameplay."
+    }
+  }
+}

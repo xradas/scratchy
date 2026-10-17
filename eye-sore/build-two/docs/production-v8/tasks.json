@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "phase": "First parallel presentation batch integrated and component/native checks passed; campaign/export verification follows; human review pending",
+  "phase": "Presentation v8 provisionally accepted by user; clinical/movement v9 integrated with technical checks, release verification pending",
   "baseline_commit": "0461086edbbda510b31d44093678524d8bea763f",
   "baseline_package": "/home/rikki/Builds/eyesore-intake-rework-2026-10-17/eyesore-intake-v7.x86_64",
   "focus": "Use Intake and existing first Pale Ward chapter as the integration/playtest bed. Preserve other chapter identities; widen rollout after the first integrated review.",
@@ -58,7 +58,7 @@
       "id": "ART-01",
       "owner": "environment_materials",
       "title": "Three distinct Pale Ward room material families",
-      "status": "integrated; component/native checks passed; human review pending",
+      "status": "v8 playable delivered; user provisional acceptance, further concept fidelity remains open",
       "depends_on": [],
       "write_scope": [
         "New versioned assets/materials set and material definitions; no shared author or main edits"
@@ -82,7 +82,7 @@
       "id": "ART-02",
       "owner": "environment_materials",
       "title": "Matching equipment, control and exit surface set",
-      "status": "planned",
+      "status": "v9 integrated; native/component checks passed; release and human acceptance pending",
       "depends_on": [
         "ART-01"
       ],
@@ -107,7 +107,7 @@
       "id": "WPN-01",
       "owner": "weapon_presentation",
       "title": "Fix Twin Shotgun idle silhouette and resting pose",
-      "status": "integrated; component/native checks passed; human review pending",
+      "status": "v8 playable delivered; user provisional acceptance, further concept fidelity remains open",
       "depends_on": [],
       "write_scope": [
         "Versioned Twin artwork registration and isolated presentation component; shared main integration by coordinator"
@@ -131,7 +131,7 @@
       "id": "WPN-02",
       "owner": "weapon_presentation",
       "title": "Match Twin firing, recovery and switch frames to corrected idle",
-      "status": "integrated; component/native checks passed; human review pending",
+      "status": "v8 playable delivered; user provisional acceptance, further concept fidelity remains open",
       "depends_on": [
         "WPN-01"
       ],
@@ -154,7 +154,7 @@
       "id": "HUD-01",
       "owner": "hud_interface",
       "title": "Concept-style status bar with inventory",
-      "status": "integrated; component/native checks passed; human review pending",
+      "status": "v8 playable delivered; user provisional acceptance, further concept fidelity remains open",
       "depends_on": [],
       "write_scope": [
         "New HUD component, layout/style assets; coordinator owns scripts/main.gd binding"
@@ -179,7 +179,7 @@
       "id": "HUD-02",
       "owner": "hud_interface",
       "title": "Right-hand visited-area mini-map",
-      "status": "integrated; component/native checks passed; human review pending",
+      "status": "v8 playable delivered; user provisional acceptance, further concept fidelity remains open",
       "depends_on": [
         "HUD-01"
       ],
@@ -203,7 +203,7 @@
       "id": "LVL-01",
       "owner": "level_layout",
       "title": "Explicit ward rows and clinical work-cell layouts",
-      "status": "planned",
+      "status": "v9 integrated; native/component checks passed; release and human acceptance pending",
       "depends_on": [],
       "write_scope": [
         "New versioned room furnishing recipe data; coordinator integrates shared generator"
@@ -227,7 +227,7 @@
       "id": "LVL-02",
       "owner": "level_layout",
       "title": "Repair platform, button and exit geometry/material bindings",
-      "status": "planned",
+      "status": "v9 integrated; native/component checks passed; release and human acceptance pending",
       "depends_on": [
         "ART-02"
       ],
@@ -402,7 +402,7 @@
       "id": "MOV-01",
       "owner": "foundation_movement",
       "title": "Adjustable grounded view bob",
-      "status": "planned",
+      "status": "v9 integrated; native/component checks passed; release and human acceptance pending",
       "depends_on": [
         "WPN-02"
       ],
@@ -428,7 +428,7 @@
       "id": "MOV-02",
       "owner": "foundation_movement",
       "title": "Real crouch with clearance-safe standing",
-      "status": "planned",
+      "status": "v9 integrated; native/component checks passed; release and human acceptance pending",
       "depends_on": [
         "MOV-01"
       ],
@@ -452,7 +452,7 @@
       "id": "MOV-03",
       "owner": "foundation_movement",
       "title": "Sprint without stamina",
-      "status": "planned",
+      "status": "v9 integrated; native/component checks passed; release and human acceptance pending",
       "depends_on": [
         "MOV-02"
       ],
@@ -524,7 +524,7 @@
       "id": "AUD-01",
       "owner": "sound_design",
       "title": "Reference-led physical gunshot redesign",
-      "status": "planned",
+      "status": "matched source/current/candidate listening packet prepared; runtime adoption pending listening selection",
       "depends_on": [],
       "write_scope": [
         "New versioned audio cues and explicit edit recipe; shared profile registration integrated by coordinator"

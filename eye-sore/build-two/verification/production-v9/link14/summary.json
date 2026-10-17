@@ -1,0 +1,134 @@
+{
+  "passed": true,
+  "baseline": "de5c92f0",
+  "baseline_geometry_equals_current": true,
+  "walks": 8,
+  "modes": [
+    "headless fixed60",
+    "native X11 OpenGL capped60FPS /60Hz physics"
+  ],
+  "worst_terminal_error_m": 0.133336067199707,
+  "stagnant_samples": 0,
+  "geometry": [
+    {
+      "door": "none; portal14 has empty gate",
+      "floors": [
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "entry_Floor",
+          "position": [
+            0.0,
+            -0.25,
+            0.0
+          ],
+          "size": [
+            24.0400009155273,
+            0.5,
+            26.0400009155273
+          ]
+        },
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "Link_14_Floor",
+          "position": [
+            -16.0,
+            -0.25,
+            -1.0
+          ],
+          "size": [
+            8.03999996185303,
+            0.5,
+            4.0
+          ]
+        },
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "supplies_Floor",
+          "position": [
+            -26.0,
+            -0.25,
+            -4.0
+          ],
+          "size": [
+            12.039999961853,
+            0.5,
+            10.039999961853
+          ]
+        }
+      ],
+      "scene": "committed-v8"
+    },
+    {
+      "door": "none; portal14 has empty gate",
+      "floors": [
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "entry_Floor",
+          "position": [
+            0.0,
+            -0.25,
+            0.0
+          ],
+          "size": [
+            24.0400009155273,
+            0.5,
+            26.0400009155273
+          ]
+        },
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "Link_14_Floor",
+          "position": [
+            -16.0,
+            -0.25,
+            -1.0
+          ],
+          "size": [
+            8.03999996185303,
+            0.5,
+            4.0
+          ]
+        },
+        {
+          "disabled": false,
+          "layer": 1,
+          "mask": 3,
+          "name": "supplies_Floor",
+          "position": [
+            -26.0,
+            -0.25,
+            -4.0
+          ],
+          "size": [
+            12.039999961853,
+            0.5,
+            10.039999961853
+          ]
+        }
+      ],
+      "scene": "current-v9"
+    }
+  ],
+  "findings": [
+    "Both directions reached their goals on committed-v8 and current-v9 geometry; terminal positions agree exactly for each direction.",
+    "Three corridor/room floor transforms, shape dimensions, layers/masks and enabled states are identical; portal14 has no gate.",
+    "Native capped60 runs record one initial not-pressed tick on forward walks in BOTH versions, then continuous held input and no stagnation. This does not establish the cause of the older failed trace.",
+    "Earlier exported-data reader01 failures remain preserved at verification/production-v8/integration/export/reader-01-failed/v7-physics.json; bounded repro did not reproduce that snag. No geometry/player/grounded_step fix is justified by this result."
+  ],
+  "scope": "Exactly eight initial-placement walks; committed v8 player and unchanged grounded_step used to exclude concurrent v9 movement changes. No motion repairs or world edits.",
+  "limits": [
+    "No claim that a rare seam/input issue is impossible.",
+    "No asserted focus/interference cause.",
+    "Current-v9 movement behavior is covered by the separate movement owner, not this v8-script comparison."
+  ]
+}

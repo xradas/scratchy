@@ -11,6 +11,8 @@ var sensitivity: float = 0.002
 var field_of_view: float = 90.0
 var muted: bool = false
 var minimap_enabled: bool = true
+var bob_intensity: float = 0.35
+var control_presentations: Array[Node] = []
 var started: bool = false
 var smoke: bool = false
 var automated_input: bool = false
@@ -365,6 +367,7 @@ func build_menu() -> void:
 	column.add_child(credits_button)
 	add_slider(column, "Mouse sensitivity", 0.0005, 0.006, 0.0001, sensitivity, func(value: float): sensitivity = value; player.sensitivity = value; save_settings())
 	add_slider(column, "Horizontal field of view", 60, 110, 1, field_of_view, func(value: float): field_of_view = value; player.get_node("Camera3D").fov = value; save_settings())
+	add_slider(column, "View bob (0 = off)", 0.0, 1.0, 0.05, bob_intensity, func(value: float): bob_intensity = value; player.set_motion_settings(value); save_settings())
 	var mini_map := CheckButton.new()
 	mini_map.text = "Visited-area mini-map"
 	mini_map.button_pressed = minimap_enabled
@@ -436,6 +439,8 @@ func create_world() -> void:
 	if "--view=annex" in OS.get_cmdline_user_args() and world.has_node("AnnexPreviewPose"):
 		player.transform = world.get_node("AnnexPreviewPose").transform
 	player.sensitivity = sensitivity
+	player.set_motion_settings(bob_intensity)
+	player.set_movement_active(false)
 	player.get_node("Camera3D").keep_aspect = Camera3D.KEEP_WIDTH
 	player.get_node("Camera3D").fov = field_of_view
 	if ResourceLoader.exists("res://scripts/combat.gd"):
@@ -456,6 +461,9 @@ func create_world() -> void:
 			world.setup(combat, player)
 			world.completed.connect(on_level_completed)
 			world.message_changed.connect(func(text: String): level_message = text)
+	control_presentations.clear()
+	for component in get_tree().get_nodes_in_group("equipment_controls_v9"):
+		if world.is_ancestor_of(component): control_presentations.append(component)
 
 func configure_combat_art() -> void:
 	var manifest_path := "res://assets/combat_art.json"
@@ -606,11 +614,13 @@ func on_combat_event(event: Dictionary) -> void:
 		muzzle_pending = true
 
 func on_player_died() -> void:
+	player.set_movement_active(false)
 	call_deferred("set_paused", true)
 
 func on_level_completed() -> void:
 	if level_complete or campaign_transitioning: return
 	level_complete = true
+	player.set_movement_active(false)
 	if campaign_mode and is_instance_valid(combat_audio): combat_audio.stop_all()
 	call_deferred("set_paused", true)
 
@@ -621,12 +631,15 @@ func _process(delta: float) -> void:
 		hud.text = "MOVEMENT PREVIEW"
 		return
 	var state: Dictionary = combat.get_hud_state()
+	player.set_movement_active(started and not get_tree().paused and not state.dead and not level_complete and not campaign_transitioning)
 	if is_instance_valid(title_art): title_art.visible = not started
 	hud.visible = started
 	status.visible = started and not get_tree().paused
 	var level_state: Dictionary = {}
 	if world.has_method("get_level_state"):
 		level_state = world.get_level_state()
+		for component in control_presentations:
+			if is_instance_valid(component): component.set_display_state(level_state)
 		status.text = current_level_label() + "\n" + String(level_state.get("objective", "")) + "\n" + String(level_state.get("prompt", ""))
 		if not level_message.is_empty(): status.text += "\n" + level_message
 		if weapon_hint_time > 0.0: status.text += "\n" + weapon_hint
@@ -736,6 +749,8 @@ func _input(event: InputEvent) -> void:
 
 func set_paused(value: bool) -> void:
 	get_tree().paused = value
+	if is_instance_valid(player):
+		player.set_movement_active(started and not value and not (is_instance_valid(combat) and combat.dead) and not level_complete and not campaign_transitioning)
 	if value and is_instance_valid(automap): automap.visible = false
 	menu.visible = value
 	crosshair.visible = not value
@@ -749,11 +764,11 @@ func set_paused(value: bool) -> void:
 			if level_complete:
 				menu_note.text = "%s cleared.\n%s" % [current_level_label(), "The occupation is broken." if next.is_empty() else ("Next chapter: " + String(next.chapter_title) if chapter_end else "Next: " + String(next.title))]
 			else:
-				menu_note.text = "%s\n%s" % [current_level_label(), "Retry from this level's entrance." if dead else "WASD move · mouse look · left click fire\n1–6 weapons · E use · Tab map"]
+				menu_note.text = "%s\n%s" % [current_level_label(), "Retry from this level's entrance." if dead else "WASD move · mouse look · left click fire\n1–6 weapons · E use · Tab map · Ctrl crouch · Shift sprint"]
 		else:
 			menu_title.text = "STAGE COMPLETE" if level_complete else ("YOU DIED" if dead else ("PAUSED" if started else "EYESORE / " + String(selected_stage().title).to_upper()))
 			resume_button.text = "Play again" if level_complete else ("Retry" if dead else ("Resume" if started else "Play"))
-			menu_note.text = ("%s completed.\nKills %d/%d" % [selected_stage().title, combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1–6 weapons · E use · Tab map")
+			menu_note.text = ("%s completed.\nKills %d/%d" % [selected_stage().title, combat.kills, combat.total_enemies]) if level_complete else ("Retry from the start." if dead else "WASD move · mouse look · left click fire\n1–6 weapons · E use · Tab map · Ctrl crouch · Shift sprint")
 		stage_selector.visible = not campaign_mode
 		campaign_button.visible = not started and not campaign.levels.is_empty()
 		stage_mode_button.visible = not started and campaign_mode
@@ -764,6 +779,7 @@ func load_settings() -> void:
 	if config.load(SETTINGS_PATH) == OK:
 		sensitivity = clampf(float(config.get_value("input", "sensitivity", sensitivity)), 0.0005, 0.006)
 		field_of_view = clampf(float(config.get_value("display", "fov", field_of_view)), 60, 110)
+		bob_intensity = clampf(float(config.get_value("display", "bob_intensity", 0.35)), 0.0, 1.0)
 		minimap_enabled = bool(config.get_value("display", "minimap", true))
 		muted = bool(config.get_value("audio", "muted", false))
 	AudioServer.set_bus_mute(0, muted)
@@ -774,6 +790,7 @@ func save_settings() -> void:
 	config.set_value("display", "fov", field_of_view)
 	config.set_value("display", "fov_axis", "horizontal")
 	config.set_value("display", "minimap", minimap_enabled)
+	config.set_value("display", "bob_intensity", bob_intensity)
 	config.set_value("audio", "muted", muted)
 	var error := config.save(SETTINGS_PATH)
 	if error != OK: push_warning("Could not save calibration settings: " + error_string(error))

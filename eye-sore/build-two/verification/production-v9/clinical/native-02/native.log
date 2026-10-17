@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Condition "!int_resources.has(id)" is true. Returning: ERR_INVALID_PARAMETER
+   at: _parse_sub_resource (scene/resources/resource_format_text.cpp:114)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tools/check_clinical_layout_v9.gd:46)
+ERROR: res://verification/production-v9/clinical/native-02/candidate.tscn:7539 - Parse Error: .
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tools/check_clinical_layout_v9.gd:46)
+ERROR: Failed loading resource: res://verification/production-v9/clinical/native-02/candidate.tscn.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tools/check_clinical_layout_v9.gd:46)
+SCRIPT ERROR: Attempt to call function 'instantiate' in base 'null instance' on a null instance.
+          at: run (res://tools/check_clinical_layout_v9.gd:46)
+          GDScript backtrace (most recent call first):
+              [0] run (res://tools/check_clinical_layout_v9.gd:46)
