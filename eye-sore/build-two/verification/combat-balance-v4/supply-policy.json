@@ -5,22 +5,9 @@
     "rockets": 12,
     "shells": 40
   },
-  "checks": 109,
+  "checks": 96,
   "failures": [],
   "levels": [
-    {
-      "arena_active": true,
-      "bait_triggered_at_full": true,
-      "bait_weapon": "twin_shotgun",
-      "level": "pale_ward_01",
-      "ordinary_full_pickup_kinds": [
-        "pistol",
-        "shells"
-      ],
-      "ordinary_full_pickups_retained": true,
-      "partial_accepted_delta": 1,
-      "physical_shutters_open": true
-    },
     {
       "arena_active": true,
       "bait_triggered_at_full": true,
@@ -29,6 +16,7 @@
       "ordinary_full_pickup_kinds": [
         "pistol",
         "shells",
+        "rivets",
         "rockets"
       ],
       "ordinary_full_pickups_retained": true,
@@ -50,7 +38,7 @@
       "physical_shutters_open": true
     }
   ],
-  "scope": "Release-safe real Combat/Stage/CampaignState fixtures; actual accepted pistol/twin/rivet/siege shots and exact refill deltas, controlled physical player positions and frozen enemies isolate pickup/trap behavior on one authored campaign level per theme. Actual animated closet doors and contact range; not ordinary route, balance completion, art, listening or human-play acceptance.",
+  "scope": "Release-safe Combat/Stage/CampaignState inventory fixtures plus physical bait checks in Ash Citadel and Occupied Line. Pale Ward's redesigned supply geometry is covered by check_ward_supplies_v19.gd. This is not an ordinary route, balance completion, art, listening or human-play acceptance.",
   "status": "passed",
   "unlimited_sentinel": -1
 }

@@ -2,7 +2,7 @@ extends RefCounted
 ## Session-only data, stable authored identities, no emitted gameplay events.
 const WORLD_DICTIONARIES := ["flags","collected","visited","dead_ids","arena_remaining","arena_active","enemy_groups","ambush_triggered","traps","secrets","shortcuts","checkpoint_used"]
 const WORLD_VALUES := ["current_room","finished","prompt","objective","secret_found","shortcut_open"]
-const ENEMY_VALUES := ["health","dead","gibbed","awake","state","state_time","attack_id","released","committed_direction","burst_rounds_remaining","burst_cycle_id","burst_round_index","burst_release_blocked","corpse_integrity","collision_layer","collision_mask"]
+const ENEMY_VALUES := ["health","dead","gibbed","awake","state","state_time","attack_id","released","committed_direction","burst_rounds_remaining","burst_cycle_id","burst_round_index","burst_release_blocked","corpse_integrity","collision_layer","collision_mask","drop_collected"]
 const MECHANISM_VALUES := ["opened","sealing","upper","moving","obstructed","departure_pending"]
 
 static func has_property(node: Object, field: String) -> bool:
@@ -75,6 +75,7 @@ static func restore(stage: Node, data: Dictionary) -> bool:
 		if enemy.dead:
 			for body in enemy.hurt_shapes:body.collision_layer=0
 			if not enemy.gibbed and not is_instance_valid(enemy.sprite):enemy.build_rig_corpse_surfaces()
+		enemy.sync_weapon_drop()
 	for node in stage.checkpoint_mechanisms():
 		if node.has_method("refresh_landing_gates"):node.refresh_landing_gates()
 	stage.refresh_objective();stage.checkpoint_dwell=0.0

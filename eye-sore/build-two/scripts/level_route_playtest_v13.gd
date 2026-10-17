@@ -47,7 +47,7 @@ func run() -> void:
 			if not require(int(world.get_meta("design_version",0))==15 and world.objective_profile!=null,"Authored Ash Approach scene/profile required"):break
 		var entry: Dictionary=app.campaign.entry_snapshot.duplicate(true)
 		if index==0 and app.campaign.current_index==0:
-			require(entry.health==100 and entry.armor==50 and entry.ammo_pistol==36 and entry.ammo_shotgun==12 and entry.ammo_rivets==0 and entry.ammo_rockets==0 and entry.owned_weapons.size()==3,"Normal campaign entry loadout; no test seed")
+			require(entry.health==100 and entry.armor==50 and entry.ammo_pistol==36 and entry.ammo_shotgun==0 and entry.ammo_rivets==0 and entry.ammo_rockets==0 and entry.owned_weapons.size()==2,"Normal campaign entry loadout; no test seed")
 		elif not expected_carry.is_empty():
 			for field in app.campaign.COMBAT_FIELDS:require(entry[field]==expected_carry[field],"Exact Continue carry "+field+" into "+level_id)
 		if not failures.is_empty():break

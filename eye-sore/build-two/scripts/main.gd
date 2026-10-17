@@ -378,7 +378,7 @@ func build_menu() -> void:
 	menu_title.add_theme_color_override("font_color", Color(0.75, 0.89, 0.59))
 	column.add_child(menu_title)
 	menu_note = Label.new()
-	menu_note.text = "WASD move · mouse look · left click fire · E use · Tab map\n1 pistol · 2 shotgun · 3 melee · 4 twin shotgun · 5 rivet cannon · 6 siege launcher\nFind the heavy weapons in each stage."
+	menu_note.text = "WASD move · mouse look · left click fire · E use · Tab map\nStart with pistol; find the other guns in the level. 3 is melee fallback.\n1 pistol · 2 shotgun · 4 twin · 5 rivet · 6 siege."
 	menu_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	menu_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	menu_note.add_theme_font_size_override("font_size", 14)
@@ -798,6 +798,32 @@ func on_level_completed() -> void:
 	if campaign_mode and is_instance_valid(combat_audio): combat_audio.stop_all()
 	call_deferred("set_paused", true)
 
+func weapon_light_tint() -> Color:
+	# The painted first-person gun is a canvas image, so world lights cannot
+	# shade it directly. Sample the same live fixture emitters near the player
+	# to make its colour respond as the player crosses lit and dim areas.
+	if not is_instance_valid(player): return Color.WHITE
+	var fixtures: Array[Node] = get_tree().get_nodes_in_group("intake_lighting_v11")
+	if fixtures.is_empty(): return Color.WHITE
+	var glow := Vector3.ZERO
+	for fixture in fixtures:
+		if not is_instance_valid(fixture) or not is_instance_valid(fixture.light): continue
+		var lamp: Light3D = fixture.light
+		var to_player: Vector3 = player.global_position - lamp.global_position
+		var reach_value: float = maxf(0.1, float(fixture.reach))
+		var distance: float = to_player.length()
+		if distance >= reach_value: continue
+		var weight: float = pow(1.0 - distance / reach_value, 2.0) * clampf(lamp.light_energy / 2.0, 0.0, 1.5)
+		if lamp is SpotLight3D:
+			var facing: float = (-lamp.global_basis.z).dot(to_player.normalized())
+			var edge: float = cos(deg_to_rad(lamp.spot_angle))
+			weight *= smoothstep(edge, minf(1.0, edge + 0.25), facing)
+		if weight <= 0.0: continue
+		glow += Vector3(lamp.light_color.r, lamp.light_color.g, lamp.light_color.b) * weight
+	var lit := Vector3(0.66, 0.65, 0.63) + glow * 0.15
+	if muzzle_time > 0.0: lit += Vector3(0.20, 0.16, 0.11)
+	return Color(clampf(lit.x, 0.5, 1.0), clampf(lit.y, 0.5, 1.0), clampf(lit.z, 0.5, 1.0), 1.0)
+
 func _process(delta: float) -> void:
 	if not get_tree().paused: weapon_hint_time = maxf(0.0, weapon_hint_time - delta)
 	if not is_instance_valid(hud): return
@@ -847,6 +873,7 @@ func _process(delta: float) -> void:
 			texture_cache[cache_key] = texture
 		weapon_image.texture = texture_cache[cache_key]
 	weapon_image.visible = started and not state.dead
+	weapon_image.modulate = weapon_light_tint() if weapon_image.visible else Color.WHITE
 	weapon_image.size = weapon_layer.size
 	if not atlas_definition.is_empty() and weapon_image.texture:
 		var frame_size := weapon_image.texture.get_size()

@@ -22,7 +22,7 @@ func run() -> void:
 	app.start_new_campaign()
 	await process_frame
 	require(app.campaign_mode and app.campaign.current_index == 0, "New Game starts at first level")
-	require(app.campaign.entry_snapshot.owned_weapons.size() == 3, "normal campaign start owns three weapons")
+	require(app.campaign.entry_snapshot.owned_weapons.size() == 2, "normal campaign start owns pistol and melee")
 	var locked_key := InputEventKey.new()
 	locked_key.keycode = KEY_4
 	locked_key.pressed = true
@@ -44,9 +44,10 @@ func run() -> void:
 		require(app.world.scene_file_path == String(level.scene), "scene for " + String(level.id))
 		require(String(app.world.get_meta("stage_id", "")) == String(level.theme), "theme metadata for " + String(level.id))
 		var theme: Dictionary = app.selected_stage()
-		require(app.combat_audio.profile.music.resource_path == String(theme.music), "music for " + String(level.id))
+		require(app.combat_audio.profile.music.resource_path == app.selected_level_music_path(), "music for " + String(level.id))
+		var allowed_kinds: Array = ["infected_scientist", "infected_security", "unsealed", "vessel"] if String(level.theme) == "pale_ward" else theme.enemy_kinds
 		for enemy in app.combat.enemies:
-			require(String(enemy.definition.identifier) in theme.enemy_kinds, "creature theme for " + String(level.id))
+			require(String(enemy.definition.identifier) in allowed_kinds, "creature theme for " + String(level.id))
 		if index == 1:
 			# Entry snapshot is made after the first transition. Death and retry must
 			# discard damage/pickups from this attempt only.

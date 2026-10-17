@@ -111,6 +111,7 @@ def provenance_files() -> list[Path]:
              "docs/production-v10", "concepts/audio-v10",
              "docs/production-v11", "concepts/production-v11",
              "docs/production-v12", "concepts/production-v12",
+             "docs/ward-gameplay-v21",
              "docs/level-redesign-v13", "concepts/level-redesign-v13",
              "docs/ward-spatial-v14", "concepts/ward-spatial-v14",
              "docs/ash-approach-v15", "concepts/ash-approach-v15",

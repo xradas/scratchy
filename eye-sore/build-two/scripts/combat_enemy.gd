@@ -43,6 +43,15 @@ var corpse_bodies: Dictionary = {}
 var corpse_integrity: float = 0.0
 var corpse_frame: int = -1
 var corpse_seen_shots: Dictionary = {}
+var carried_weapon: StringName = &""
+var drop_collected: bool = false
+var weapon_drop: Node3D
+var carried_visual: Node3D
+const HEAVY_CARRIERS := {
+	"pale_ward_01.generator.enemy.0": &"twin_shotgun",
+	"pale_ward_02.culture_access.enemy.2": &"rivet_cannon",
+	"pale_ward_03.upper_gallery.enemy.0": &"siege_launcher",
+}
 const SIGHT_ACQUIRE_DISTANCE: float = 10.0
 const HEARING_DISTANCE: Dictionary = {
 	&"melee": 2.0,
@@ -55,12 +64,24 @@ const HEARING_DISTANCE: Dictionary = {
 
 func setup(controller: Node3D, actor: CharacterBody3D, data: EnemyDefinition, id: String) -> void:
 	combat = controller; player = actor; definition = data; target_id = id; health = definition.health
+	if definition.identifier == &"infected_security":
+		# The first triage guard introduces the shotgun before the Ward's larger fights.
+		carried_weapon = HEAVY_CARRIERS.get(target_id, &"shotgun" if target_id == "pale_ward_01.triage.enemy.5" else &"pistol")
+		build_carried_visual()
 	set_meta("hit_material", definition.hit_material)
 	$Visual.material_override = make_proxy_material(Color(0.53, 0.35, 0.3) if not definition.ranged else Color(0.33, 0.46, 0.4))
 
 func make_proxy_material(color: Color) -> StandardMaterial3D:
 	var material := StandardMaterial3D.new(); material.albedo_color = color; material.roughness = 0.9
 	return material
+
+func build_carried_visual() -> void:
+	carried_visual = preload("res://scripts/enemy_weapon_drop.gd").make_model(carried_weapon)
+	carried_visual.name = "CarriedWeapon_" + String(carried_weapon)
+	carried_visual.position = Vector3(0.26, 0.08, -0.47)
+	carried_visual.scale = Vector3.ONE * 1.18
+	add_child(carried_visual)
+	set_meta("carried_weapon", carried_weapon)
 
 func _physics_process(delta: float) -> void:
 	# Explicit guard also covers controlled direct callbacks while paused.
@@ -235,6 +256,9 @@ func release_attack() -> void:
 			return
 	released = true
 	if definition.ranged:
+		if carried_weapon != &"":
+			release_carried_weapon()
+			return
 		if definition.burst_round_count > 1:
 			var origin: Variant = prepare_burst_release_origin()
 			if origin == null: return
@@ -253,6 +277,55 @@ func release_attack() -> void:
 	else:
 		combat.receive_player_damage(definition.damage, target_id, player.global_position)
 		combat.emit_event({"type": &"enemy_melee_release", "enemy_kind": definition.identifier, "target_id": target_id, "attack_id": attack_id, "position": global_position})
+
+func release_carried_weapon() -> void:
+	# Enemy fire uses the same physical line of sight and pellet count as the
+	# corresponding player weapon. One committed release owns damage and sound.
+	# Present the exact release pose before resolving its muzzle and ray.
+	state = &"recovery"; state_time = 0.0; update_presentation()
+	var origin := attack_origin()
+	if not release_path_clear(origin): return
+	var target := player.global_position + Vector3(0, 0.3, 0)
+	var forward := (target - origin).normalized()
+	var pellet_count: int = combat.weapons[carried_weapon].pellets
+	var spread: float = combat.weapons[carried_weapon].spread_degrees
+	if carried_weapon == &"siege_launcher":
+		var rocket := preload("res://scripts/enemy_siege_rocket.gd").new()
+		combat.add_child(rocket)
+		rocket.global_position = origin + forward * 0.23
+		rocket.setup(combat, self, forward * 11.0)
+		combat.emit_event({"type": &"enemy_weapon_release", "enemy_kind": definition.identifier, "target_id": target_id, "attack_id": attack_id, "weapon_id": carried_weapon, "position": origin, "pellets": 1})
+		return
+	var tangent := forward.cross(Vector3.UP).normalized()
+	if tangent.length_squared() < 0.01: tangent = Vector3.RIGHT
+	var vertical := tangent.cross(forward).normalized()
+	var damage := 0.0
+	for index in pellet_count:
+		var angle := TAU * float(index - 1) / float(maxi(1, pellet_count - 1)) + float(attack_id % 7) * 0.31
+		var yaw := 0.0 if index == 0 else cos(angle) * spread
+		var pitch := 0.0 if index == 0 else sin(angle) * spread * 0.4
+		var direction := (forward + tangent * tan(deg_to_rad(yaw)) + vertical * tan(deg_to_rad(pitch))).normalized()
+		var hit: Dictionary = combat.ray(origin, origin + direction * definition.attack_range, [get_rid()])
+		if not hit.is_empty() and hit.collider == player:
+			damage += {&"pistol":7.0, &"shotgun":2.0, &"twin_shotgun":1.15, &"rivet_cannon":18.0}.get(carried_weapon, 0.0)
+	combat.emit_event({"type": &"enemy_weapon_release", "enemy_kind": definition.identifier, "target_id": target_id, "attack_id": attack_id, "weapon_id": carried_weapon, "position": origin, "pellets": pellet_count})
+	if damage > 0.0: combat.receive_player_damage(damage, target_id, player.global_position)
+
+func spawn_weapon_drop() -> void:
+	if carried_weapon == &"" or drop_collected or is_instance_valid(weapon_drop): return
+	weapon_drop = preload("res://scripts/enemy_weapon_drop.gd").new()
+	weapon_drop.name = "WeaponDrop"
+	add_child(weapon_drop)
+	weapon_drop.position = Vector3(0, -0.57, 0)
+	var amounts := {&"pistol":9, &"shotgun":3, &"twin_shotgun":4, &"rivet_cannon":12, &"siege_launcher":2}
+	weapon_drop.setup(self, combat, carried_weapon, amounts.get(carried_weapon, 0))
+
+func sync_weapon_drop() -> void:
+	if dead and not drop_collected:
+		spawn_weapon_drop()
+	elif is_instance_valid(weapon_drop):
+		weapon_drop.queue_free()
+		weapon_drop = null
 
 func apply_damage(amount: float, shot_id: int, weapon_id: StringName, hit_position: Vector3, impact_material: StringName = &"") -> Dictionary:
 	if dead or amount <= 0.0 or seen_shots.has(shot_id): return {}
@@ -280,6 +353,7 @@ func apply_damage(amount: float, shot_id: int, weapon_id: StringName, hit_positi
 		if gibbed: $Visual.visible = false
 		if gibbed and is_instance_valid(visual_rig): visual_rig.visible = false
 		if not gibbed and not is_instance_valid(sprite): build_rig_corpse_surfaces()
+		spawn_weapon_drop()
 		event = {"type": &"enemy_death", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": struck_material, "position": global_position, "contact_position":hit_position, "direction":direction, "damage":amount, "overkill":overkill, "gibbed":gibbed}
 		combat.emit_event(event)
 		combat.enemy_killed(self)
@@ -376,6 +450,9 @@ func attach_hurt_geometry(node: Node3D) -> void:
 func update_presentation() -> void:
 	if is_instance_valid(visual_rig):
 		visual_rig.present(state, state_time, definition.windup_seconds, definition.recovery_seconds, definition.pain_seconds)
+	if is_instance_valid(carried_visual):
+		carried_visual.visible = not dead
+		carried_visual.rotation.x = -0.45 if state == &"windup" else (0.28 if state == &"recovery" else 0.0)
 	update_sprite()
 
 ## Legacy direction-row sheets remain supported. Optional data.layout="poses" uses

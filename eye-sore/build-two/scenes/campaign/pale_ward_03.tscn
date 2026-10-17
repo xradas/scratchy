@@ -42380,7 +42380,7 @@ shaded = true
 
 
 [node name="FirstGunCache" type="Node3D" parent="."]
-position = Vector3(0, 8.65, 4)
+position = Vector3(40, 4.65, 44)
 metadata/stage_pickup = "siege_launcher"
 metadata/amount = 4
 metadata/stable_id = "pale_ward_03.pickup.FirstGunCache"
@@ -43668,6 +43668,7 @@ mesh = SubResource("pickup_face_2369")
 position = Vector3(-4.16, 8.5, -45)
 metadata/stage_pickup = "health"
 metadata/amount = 25
+scale = Vector3(1, 1, 1)
 metadata/stable_id = "pale_ward_03.pickup.Supply_health_upper_intake_0"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_health_upper_intake_0"]
@@ -43722,7 +43723,8 @@ shaded = true
 [node name="Supply_health_anchor_a_0" type="Node3D" parent="."]
 position = Vector3(75.84, 8.5, -45)
 metadata/stage_pickup = "health"
-metadata/amount = 1
+metadata/amount = 25
+scale = Vector3(1, 1, 1)
 metadata/stable_id = "pale_ward_03.pickup.Supply_health_anchor_a_0"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_health_anchor_a_0"]
@@ -43766,7 +43768,7 @@ mesh = SubResource("pickup_face_2381")
 [node name="DoseValue" type="Label3D" parent="Supply_health_anchor_a_0"]
 position = Vector3(0, 0.29, 0.255)
 rotation_degrees = Vector3(0, 0, 0)
-text = "+1"
+text = "+25"
 font_size = 20
 pixel_size = 0.008
 outline_size = 0
@@ -43778,6 +43780,7 @@ shaded = true
 position = Vector3(75.8, 4.5, 35)
 metadata/stage_pickup = "health"
 metadata/amount = 25
+scale = Vector3(1, 1, 1)
 metadata/stable_id = "pale_ward_03.pickup.Supply_health_specimens_0"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_health_specimens_0"]
@@ -43832,7 +43835,8 @@ shaded = true
 [node name="Supply_health_anchor_b_0" type="Node3D" parent="."]
 position = Vector3(-4.16, 4.5, 35)
 metadata/stage_pickup = "health"
-metadata/amount = 25
+metadata/amount = 50
+scale = Vector3(1.16, 1.16, 1.16)
 metadata/stable_id = "pale_ward_03.pickup.Supply_health_anchor_b_0"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_health_anchor_b_0"]
@@ -43876,7 +43880,7 @@ mesh = SubResource("pickup_face_2393")
 [node name="DoseValue" type="Label3D" parent="Supply_health_anchor_b_0"]
 position = Vector3(0, 0.29, 0.255)
 rotation_degrees = Vector3(0, 0, 0)
-text = "+25"
+text = "+50"
 font_size = 20
 pixel_size = 0.008
 outline_size = 0
@@ -43887,7 +43891,8 @@ shaded = true
 [node name="Supply_health_cultivation_0" type="Node3D" parent="."]
 position = Vector3(-44.2, 0.5, 75)
 metadata/stage_pickup = "health"
-metadata/amount = 25
+metadata/amount = 50
+scale = Vector3(1.16, 1.16, 1.16)
 metadata/stable_id = "pale_ward_03.pickup.Supply_health_cultivation_0"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_health_cultivation_0"]
@@ -43931,7 +43936,7 @@ mesh = SubResource("pickup_face_2399")
 [node name="DoseValue" type="Label3D" parent="Supply_health_cultivation_0"]
 position = Vector3(0, 0.29, 0.255)
 rotation_degrees = Vector3(0, 0, 0)
-text = "+25"
+text = "+50"
 font_size = 20
 pixel_size = 0.008
 outline_size = 0
@@ -43942,7 +43947,8 @@ shaded = true
 [node name="Supply_health_anchor_c_0" type="Node3D" parent="."]
 position = Vector3(35.84, 0.5, 75)
 metadata/stage_pickup = "health"
-metadata/amount = 50
+metadata/amount = 1
+scale = Vector3(0.68, 0.68, 0.68)
 metadata/stable_id = "pale_ward_03.pickup.Supply_health_anchor_c_0"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_health_anchor_c_0"]
@@ -43986,7 +43992,7 @@ mesh = SubResource("pickup_face_2405")
 [node name="DoseValue" type="Label3D" parent="Supply_health_anchor_c_0"]
 position = Vector3(0, 0.29, 0.255)
 rotation_degrees = Vector3(0, 0, 0)
-text = "+50"
+text = "+1"
 font_size = 20
 pixel_size = 0.008
 outline_size = 0
@@ -43997,7 +44003,8 @@ shaded = true
 [node name="Supply_health_bridge_0" type="Node3D" parent="."]
 position = Vector3(-4.16, -3.5, 115)
 metadata/stage_pickup = "health"
-metadata/amount = 50
+metadata/amount = 5
+scale = Vector3(0.82, 0.82, 0.82)
 metadata/stable_id = "pale_ward_03.pickup.Supply_health_bridge_0"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_health_bridge_0"]
@@ -44041,7 +44048,7 @@ mesh = SubResource("pickup_face_2411")
 [node name="DoseValue" type="Label3D" parent="Supply_health_bridge_0"]
 position = Vector3(0, 0.29, 0.255)
 rotation_degrees = Vector3(0, 0, 0)
-text = "+50"
+text = "+5"
 font_size = 20
 pixel_size = 0.008
 outline_size = 0
@@ -44053,6 +44060,7 @@ shaded = true
 position = Vector3(-2.08, 8.5, -45)
 metadata/stage_pickup = "armor"
 metadata/amount = 25
+scale = Vector3(1, 1, 1)
 metadata/stable_id = "pale_ward_03.pickup.Supply_armor_upper_intake_1"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_armor_upper_intake_1"]
@@ -44107,7 +44115,8 @@ shaded = true
 [node name="Supply_armor_anchor_a_1" type="Node3D" parent="."]
 position = Vector3(77.92, 8.5, -45)
 metadata/stage_pickup = "armor"
-metadata/amount = 1
+metadata/amount = 50
+scale = Vector3(1.16, 1.16, 1.16)
 metadata/stable_id = "pale_ward_03.pickup.Supply_armor_anchor_a_1"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_armor_anchor_a_1"]
@@ -44151,7 +44160,7 @@ mesh = SubResource("pickup_face_2423")
 [node name="DoseValue" type="Label3D" parent="Supply_armor_anchor_a_1"]
 position = Vector3(0, 0.29, 0.255)
 rotation_degrees = Vector3(0, 0, 0)
-text = "+1"
+text = "+50"
 font_size = 20
 pixel_size = 0.008
 outline_size = 0
@@ -44162,7 +44171,8 @@ shaded = true
 [node name="Supply_armor_specimens_1" type="Node3D" parent="."]
 position = Vector3(77.9, 4.5, 35)
 metadata/stage_pickup = "armor"
-metadata/amount = 25
+metadata/amount = 50
+scale = Vector3(1.16, 1.16, 1.16)
 metadata/stable_id = "pale_ward_03.pickup.Supply_armor_specimens_1"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_armor_specimens_1"]
@@ -44206,7 +44216,7 @@ mesh = SubResource("pickup_face_2429")
 [node name="DoseValue" type="Label3D" parent="Supply_armor_specimens_1"]
 position = Vector3(0, 0.29, 0.255)
 rotation_degrees = Vector3(0, 0, 0)
-text = "+25"
+text = "+50"
 font_size = 20
 pixel_size = 0.008
 outline_size = 0
@@ -44217,7 +44227,8 @@ shaded = true
 [node name="Supply_armor_anchor_b_1" type="Node3D" parent="."]
 position = Vector3(-2.08, 4.5, 35)
 metadata/stage_pickup = "armor"
-metadata/amount = 50
+metadata/amount = 1
+scale = Vector3(0.68, 0.68, 0.68)
 metadata/stable_id = "pale_ward_03.pickup.Supply_armor_anchor_b_1"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_armor_anchor_b_1"]
@@ -44261,7 +44272,7 @@ mesh = SubResource("pickup_face_2435")
 [node name="DoseValue" type="Label3D" parent="Supply_armor_anchor_b_1"]
 position = Vector3(0, 0.29, 0.255)
 rotation_degrees = Vector3(0, 0, 0)
-text = "+50"
+text = "+1"
 font_size = 20
 pixel_size = 0.008
 outline_size = 0
@@ -44272,7 +44283,8 @@ shaded = true
 [node name="Supply_armor_cultivation_1" type="Node3D" parent="."]
 position = Vector3(-42.1, 0.5, 75)
 metadata/stage_pickup = "armor"
-metadata/amount = 50
+metadata/amount = 5
+scale = Vector3(0.82, 0.82, 0.82)
 metadata/stable_id = "pale_ward_03.pickup.Supply_armor_cultivation_1"
 
 [node name="PresentationV6" type="Node3D" parent="Supply_armor_cultivation_1"]
@@ -44316,7 +44328,7 @@ mesh = SubResource("pickup_face_2441")
 [node name="DoseValue" type="Label3D" parent="Supply_armor_cultivation_1"]
 position = Vector3(0, 0.29, 0.255)
 rotation_degrees = Vector3(0, 0, 0)
-text = "+50"
+text = "+5"
 font_size = 20
 pixel_size = 0.008
 outline_size = 0
@@ -44328,6 +44340,7 @@ shaded = true
 position = Vector3(-38, 8.5, -2)
 metadata/stage_pickup = "health"
 metadata/amount = 25
+scale = Vector3(1, 1, 1)
 metadata/stable_id = "pale_ward_03.pickup.BonusHealth_security_store"
 
 [node name="PresentationV6" type="Node3D" parent="BonusHealth_security_store"]
@@ -44427,6 +44440,7 @@ mesh = SubResource("pickup_face_2453")
 position = Vector3(-78, 0.5, 78)
 metadata/stage_pickup = "health"
 metadata/amount = 25
+scale = Vector3(1, 1, 1)
 metadata/stable_id = "pale_ward_03.pickup.BonusHealth_lower_pump"
 
 [node name="PresentationV6" type="Node3D" parent="BonusHealth_lower_pump"]
@@ -44614,6 +44628,7 @@ mesh = SubResource("pickup_face_2477")
 position = Vector3(80, 8.5, -82)
 metadata/stage_pickup = "health"
 metadata/amount = 100
+scale = Vector3(1.34, 1.34, 1.34)
 metadata/stable_id = "pale_ward_03.pickup.Overdrive_health"
 metadata/overdrive = true
 

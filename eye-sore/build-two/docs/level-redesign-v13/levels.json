@@ -430,7 +430,7 @@
             -80
           ],
           "size": [
-            26,
+            34,
             7,
             24
           ],
@@ -1029,9 +1029,9 @@
             0
           ],
           "size": [
-            26,
+            36,
             7,
-            24
+            18
           ],
           "district": "clinical",
           "function": "medical_stores",
@@ -1045,7 +1045,7 @@
               "position_local": [
                 -8,
                 0,
-                -7
+                -6
               ],
               "heading": 90
             },
@@ -1055,7 +1055,7 @@
               "position_local": [
                 -8,
                 0,
-                -3
+                -2
               ],
               "heading": 90
             },
@@ -1065,7 +1065,7 @@
               "position_local": [
                 -8,
                 0,
-                5
+                2
               ],
               "heading": 90
             },
@@ -1075,7 +1075,7 @@
               "position_local": [
                 -8,
                 0,
-                8
+                6
               ],
               "heading": 90
             },
@@ -1085,7 +1085,7 @@
               "position_local": [
                 8,
                 0,
-                -7
+                -6
               ],
               "heading": -90
             },
@@ -1095,7 +1095,7 @@
               "position_local": [
                 8,
                 0,
-                -3
+                -2
               ],
               "heading": -90
             },
@@ -1105,7 +1105,7 @@
               "position_local": [
                 8,
                 0,
-                5
+                2
               ],
               "heading": -90
             },
@@ -1115,7 +1115,7 @@
               "position_local": [
                 8,
                 0,
-                8
+                6
               ],
               "heading": -90
             },
@@ -1482,10 +1482,19 @@
             80
           ],
           "size": [
-            26,
+            36,
             7,
-            24
+            30
           ],
+          "outline_xz": [
+            [-18, -15],
+            [18, -15],
+            [18, 4],
+            [6, 4],
+            [6, 15],
+            [-18, 15]
+          ],
+          "outline_purpose": "L-shaped processing bay: eastern machine wing and southern instrument return",
           "district": "transfer",
           "function": "medical_stores",
           "optional": false,
@@ -1556,9 +1565,9 @@
               "id": "processing.prop.6",
               "type": "medical_cabinet",
               "position_local": [
-                8,
+                -8,
                 0,
-                5
+                12
               ],
               "heading": -90
             },
@@ -1566,9 +1575,9 @@
               "id": "processing.prop.7",
               "type": "medical_cabinet",
               "position_local": [
-                8,
+                -4,
                 0,
-                8
+                12
               ],
               "heading": -90
             },
@@ -1586,9 +1595,9 @@
               "id": "processing.prop.9",
               "type": "supply_cart",
               "position_local": [
-                5,
                 0,
-                7
+                0,
+                9
               ],
               "heading": -90
             }
@@ -1706,7 +1715,7 @@
             80
           ],
           "size": [
-            26,
+            32,
             7,
             24
           ],
@@ -2743,8 +2752,8 @@
         "rivets": 0,
         "rockets": 0
       },
-      "main_route_health": 201,
-      "main_route_armor": 151,
+      "main_route_health": 181,
+      "main_route_armor": 131,
       "enemy_total": 64,
       "enemy_roster": [
         "infected_scientist",
@@ -3626,7 +3635,7 @@
           "size": [
             26,
             7,
-            24
+            32
           ],
           "district": "culture",
           "function": "diagnostics",
@@ -4059,9 +4068,9 @@
             0
           ],
           "size": [
-            26,
+            36,
             7,
-            24
+            18
           ],
           "district": "waste",
           "function": "utility",
@@ -4133,9 +4142,9 @@
               "id": "waste_access.prop.6",
               "type": "filter_unit",
               "position_local": [
-                -10,
+                -13,
                 0,
-                9
+                4
               ],
               "heading": 90
             },
@@ -4143,9 +4152,9 @@
               "id": "waste_access.prop.7",
               "type": "containment_console",
               "position_local": [
-                10,
+                13,
                 0,
-                9
+                4
               ],
               "heading": -90
             }
@@ -4312,7 +4321,7 @@
           "size": [
             26,
             7,
-            24
+            30
           ],
           "district": "waste",
           "function": "utility",
@@ -4678,10 +4687,19 @@
             -80
           ],
           "size": [
-            26,
+            36,
             7,
-            24
+            30
           ],
+          "outline_xz": [
+            [-6, -15],
+            [18, -15],
+            [18, 15],
+            [-18, 15],
+            [-18, -6],
+            [-6, -6]
+          ],
+          "outline_purpose": "L-shaped purge plant: northern pressure-vessel wing and southern return aisle",
           "district": "discharge",
           "function": "utility",
           "optional": false,
@@ -4692,9 +4710,9 @@
               "id": "purge.prop.0",
               "type": "pump_rig",
               "position_local": [
-                -8,
                 0,
-                -7
+                0,
+                -9
               ],
               "heading": 90
             },
@@ -5701,7 +5719,7 @@
       ],
       "weapon": {
         "kind": "rivet_cannon",
-        "room": "overlook",
+        "room": "filters",
         "amount": 36
       },
       "main_route_ammo": {
@@ -5710,8 +5728,8 @@
         "rivets": 180,
         "rockets": 0
       },
-      "main_route_health": 201,
-      "main_route_armor": 151,
+      "main_route_health": 181,
+      "main_route_armor": 131,
       "enemy_total": 76,
       "enemy_roster": [
         "infected_scientist",
@@ -9199,7 +9217,7 @@
       ],
       "weapon": {
         "kind": "siege_launcher",
-        "room": "loading",
+        "room": "crossfire",
         "amount": 4
       },
       "main_route_ammo": {
@@ -9208,8 +9226,8 @@
         "rivets": 120,
         "rockets": 20
       },
-      "main_route_health": 201,
-      "main_route_armor": 151,
+      "main_route_health": 181,
+      "main_route_armor": 131,
       "enemy_total": 84,
       "enemy_roster": [
         "infected_scientist",

@@ -5,7 +5,7 @@ signal player_died
 var health: float = 100.0
 var armor: float = 50.0
 var ammo_pistol: int = 36
-var ammo_shotgun: int = 12
+var ammo_shotgun: int = 0
 var ammo_rivets: int = 0
 var ammo_rockets: int = 0
 var owned_weapons: Dictionary = {}
@@ -63,10 +63,10 @@ func reset() -> void:
 	for projectile in get_children():
 		if projectile.has_method("is_combat_projectile"):
 			projectile.resolved = true; projectile.set_physics_process(false); projectile.queue_free()
-	health = 100.0; armor = 50.0; ammo_pistol = 36; ammo_shotgun = 12
+	health = 100.0; armor = 50.0; ammo_pistol = 36; ammo_shotgun = 0
 	ammo_rivets = 0; ammo_rockets = 0
 	normalize_ammo()
-	owned_weapons = {&"pistol": true, &"shotgun": true, &"melee": true}
+	owned_weapons = {&"pistol": true, &"melee": true}
 	currentweapon = &"pistol"; weapon_phase = &"idle"; phase_time = 0.0
 	cooldown = 0.0; empty_cooldown = 0.0; shot_counter = 0; kills = 0; dead = false
 	recoil_remaining = 0.0

@@ -78,7 +78,7 @@ func inventory_checks() -> void:
 	combat.ammo_pistol = -5; combat.normalize_ammo()
 	check(combat.ammo_pistol == 0, "malformed negative campaign carry normalized")
 	combat.reset()
-	check(combat.ammo_pistol == 36 and combat.ammo_shotgun == 12 and combat.ammo_rivets == 0 and combat.ammo_rockets == 0 and combat.owned_weapons.size() == 3, "ordinary reset inventory preserved")
+	check(combat.ammo_pistol == 36 and combat.ammo_shotgun == 0 and combat.ammo_rivets == 0 and combat.ammo_rockets == 0 and combat.owned_weapons.size() == 2, "ordinary reset inventory preserved")
 	fixture.world.queue_free(); await process_frame
 	fixture = bare_world(false); combat = fixture.combat
 	for index in KINDS.size():
@@ -145,9 +145,12 @@ func physical_level_checks(level: Dictionary) -> void:
 func run() -> void:
 	await inventory_checks()
 	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://resources/campaign/catalog.json"))
-	for index in catalog.chapters.size(): await physical_level_checks(catalog.chapters[index].levels[index])
-	check(records.size() == 3 and records[0].bait_weapon == "twin_shotgun" and records[1].bait_weapon == "rivet_cannon" and records[2].bait_weapon == "siege_launcher", "actual full-capacity bait tested for all three heavy guns/themes")
-	var receipt := {"status":"passed" if failures.is_empty() else "failed","checks":checks,"failures":failures,"capacities":{"pistol":96,"shells":40,"rivets":160,"rockets":12},"unlimited_sentinel":-1,"levels":records,"scope":"Release-safe real Combat/Stage/CampaignState fixtures; actual accepted pistol/twin/rivet/siege shots and exact refill deltas, controlled physical player positions and frozen enemies isolate pickup/trap behavior on one authored campaign level per theme. Actual animated closet doors and contact range; not ordinary route, balance completion, art, listening or human-play acceptance."}
+	# Ward's new key/control route has no old heavy bait; its physical supplies
+	# are covered by check_ward_supplies_v19.gd. Keep these arena-bait checks for
+	# the two chapters that still use them.
+	for index in range(1,catalog.chapters.size()): await physical_level_checks(catalog.chapters[index].levels[index])
+	check(records.size() == 2 and records[0].bait_weapon == "rivet_cannon" and records[1].bait_weapon == "siege_launcher", "actual full-capacity bait tested for remaining arena themes")
+	var receipt := {"status":"passed" if failures.is_empty() else "failed","checks":checks,"failures":failures,"capacities":{"pistol":96,"shells":40,"rivets":160,"rockets":12},"unlimited_sentinel":-1,"levels":records,"scope":"Release-safe Combat/Stage/CampaignState inventory fixtures plus physical bait checks in Ash Citadel and Occupied Line. Pale Ward's redesigned supply geometry is covered by check_ward_supplies_v19.gd. This is not an ordinary route, balance completion, art, listening or human-play acceptance."}
 	DirAccess.make_dir_recursive_absolute("res://verification/combat-balance-v4")
 	var output := FileAccess.open("res://verification/combat-balance-v4/supply-policy.json", FileAccess.WRITE)
 	output.store_string(JSON.stringify(receipt, "  ") + "\n")

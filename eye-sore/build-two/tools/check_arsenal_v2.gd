@@ -197,6 +197,6 @@ func run() -> void:
 	if not check(paused_projectile.global_position != pos, "resume moves existing shot"): return
 	combat.reset(); combat.set_physics_process(false)
 	if not check(paused_projectile.resolved and count(&"ordnance_explosion") == 0, "reset cancels live ordnance without late explosion"): return
-	if not check(combat.ammo_rivets == 0 and combat.ammo_rockets == 0 and combat.get_hud_state().owned_weapons.size() == 3 and not combat.has_weapon(&"twin_shotgun"), "ordinary reset clears new weapons and ammo"): return
+	if not check(combat.ammo_rivets == 0 and combat.ammo_rockets == 0 and combat.get_hud_state().owned_weapons.size() == 2 and not combat.has_weapon(&"twin_shotgun"), "ordinary reset clears new weapons and ammo"): return
 	print("ARSENAL_V2_OK: %d release-safe checks; actual twin/rivet shots, owned inventory, ammo, recoil/flash, swept siege 30/60/120 Hz, moved-door splash occlusion, direct+radial dedup, finite corpses, miss lifetime, pause and reset" % checks)
 	world.free(); quit(0)

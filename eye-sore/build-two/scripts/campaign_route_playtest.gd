@@ -144,9 +144,9 @@ func choose_weapon(target: CharacterBody3D, distance: float) -> StringName:
 		return &"twin_shotgun"
 	if combat.has_weapon(&"rivet_cannon") and combat.ammo_rivets > 0 and distance >= 8.0 and distance < 36.0:
 		return &"rivet_cannon"
-	if combat.ammo_shotgun > 0 and distance < 17.0: return &"shotgun"
+	if combat.has_weapon(&"shotgun") and combat.ammo_shotgun > 0 and distance < 17.0: return &"shotgun"
 	if combat.ammo_pistol > 0: return &"pistol"
-	if combat.ammo_shotgun > 0: return &"shotgun"
+	if combat.has_weapon(&"shotgun") and combat.ammo_shotgun > 0: return &"shotgun"
 	if combat.has_weapon(&"rivet_cannon") and combat.ammo_rivets > 0: return &"rivet_cannon"
 	return &"melee"
 
@@ -356,7 +356,7 @@ func run_all_levels() -> void:
 		var active_entry: Dictionary = app.campaign.capture(combat)
 		reset_ammo_ledger()
 		if index == 0:
-			require(entry.health == 100.0 and entry.armor == 50.0 and entry.ammo_pistol == 36 and entry.ammo_shotgun == 12 and entry.ammo_rivets == 0 and entry.ammo_rockets == 0 and entry.owned_weapons.size() == 3, "Continuous campaign initial loadout is not normal")
+			require(entry.health == 100.0 and entry.armor == 50.0 and entry.ammo_pistol == 36 and entry.ammo_shotgun == 0 and entry.ammo_rivets == 0 and entry.ammo_rockets == 0 and entry.owned_weapons.size() == 2, "Continuous campaign initial loadout is not normal")
 		else:
 			for field in app.campaign.COMBAT_FIELDS:
 				require(entry[field] == expected_carry[field], "Exit state failed to carry " + field + " into " + level_id)
@@ -582,6 +582,11 @@ func route_run() -> void:
 	if not require(exit != null, "Authored exit absent"): return
 	if not await walk(exit.global_position + Vector3(0, -0.18, 1.3), "Enabled campaign exit"): return
 	if not await use("ExitControl"): return
+	# Main shows the completion menu through a deferred callback. The physical
+	# E interaction has already completed; allow that UI transition to settle.
+	for frame in 12:
+		if world.finished and app.level_complete and get_tree().paused: break
+		await get_tree().process_frame
 	require(world.finished and app.level_complete and get_tree().paused, "Main completion screen absent after physical E use")
 
 func finish() -> void:

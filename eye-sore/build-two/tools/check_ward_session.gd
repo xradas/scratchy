@@ -55,7 +55,7 @@ func run() -> void:
 	app.restart_combat(); Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	assert(not is_instance_valid(old_world) and not is_instance_valid(old_audio))
 	assert(not app.world.has_key and not app.world.get_node("Door_Rear").opened)
-	assert(app.combat.health == 100 and app.combat.ammo_shotgun == 12)
+	assert(app.combat.health == 100 and app.combat.ammo_shotgun == 0)
 	assert(app.combat.kills == 0 and app.combat.enemies.size() == 11)
 	assert(app.combat_audio.voices.is_empty() and not app.automap.visible)
 	app.return_to_title()

@@ -516,8 +516,12 @@ def furnishing(sc,room):
 def stable_pickup(sc,name,kind,at,amount):
     sc.pickup(name,kind,at,amount)
     if kind in {'health','armor'}:
-        # The box artwork identifies the category; the front badge makes the
-        # 1/25/50 denomination readable before contact.
+        # Distinct package silhouettes back up the front value badge.
+        size={1:.68,5:.82,25:1.0,50:1.16,100:1.34}[amount]
+        for i,block in enumerate(sc.nodes):
+            if block.startswith('[node name="'+name+'" '):
+                sc.nodes[i]=block.rstrip()+'\nscale = '+vec((size,size,size))+'\n'
+                break
         sc.label('DoseValue','+'+str(amount),(0,.29,.255),name,size=20,
                  color=(.96,.67,.53,1) if kind=='health' else (.55,.88,.96,1))
     for i,block in enumerate(sc.nodes):
@@ -538,24 +542,26 @@ RANGED_PROMOTIONS={
 
 
 def survival_denominations(kind,total):
-    # Keep a rare +1 pickup, with the rest in legible 25/50-point caches.
-    # Dozens of +1 shards made every room feel stocked despite the route cap.
-    singles=total%25
-    fifties=min(2,(total-singles)//50)
-    assert kind in {'health','armor'} and (total-singles-50*fifties)%25==0
-    quarters=(total-singles-50*fifties)//25
+    # One small shard of each value, then deliberate large caches. The 100
+    # unit overdrive is authored separately in a secret area.
+    singles=1
+    fives=1
+    fifties=2
+    assert kind in {'health','armor'} and (total-singles-5*fives-50*fifties)%25==0
+    quarters=(total-singles-5*fives-50*fifties)//25
     large=[25]*quarters+[50]*fifties
-    amounts=[]
-    for value in large:
-        amounts.append(value)
-        for _ in range(2):
-            if singles:amounts.append(1);singles-=1
-    amounts.extend([1]*singles)
+    amounts=large+[1]*singles+[5]*fives
     return amounts
 
 
 def scatter_supply(sc,level,rooms,supply_rooms,kind,total,pickups):
     amounts=survival_denominations(kind,total) if kind in {'health','armor'} else [n for n in distribute(total,supply_rooms)]
+    if level['id']=='pale_ward_02' and kind=='health':
+        # The opening culture assault now includes the armed rivet carrier.
+        # Move an existing large kit forward; the route total stays fixed.
+        amounts[0],amounts[3]=amounts[3],amounts[0]
+    if level['id']=='pale_ward_02' and kind=='armor':
+        amounts[0],amounts[1]=amounts[1],amounts[0]
     # All six supply families share each room's placement cursor. Keeping a
     # cursor per kind piled several cases on the same spot, including directly
     # behind the physical anchor-C pylon in Breach Circuit.
@@ -637,6 +643,11 @@ def populate(sc,rooms):
         # pickup therefore signals a particular room purpose rather than a
         # universal pile of every resource in every room.
         selected=supply_rooms[1::2] if kind in {'health','armor'} else supply_rooms[::2]
+        if level['id']=='pale_ward_01':
+            # Recovery follows a long firefight; put its 50-point medical
+            # stop there and move its ammunition to Surgical Access.
+            exchange={'surgical_access':'recovery'} if kind=='health' else {'recovery':'surgical_access'} if kind not in {'armor'} else {}
+            selected=[rooms[exchange[r['id']]] if r['id'] in exchange else r for r in selected]
         scatter_supply(sc,level,rooms,selected,kind,total,pickups)
     for room in rooms.values():
         if room['optional'] or room['secret']:

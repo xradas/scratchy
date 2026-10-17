@@ -31,126 +31,49 @@
       "passed": true
     },
     {
-      "check": "one warning before security burst",
+      "check": "one warning before security pistol fire",
       "details": {},
       "passed": true
     },
     {
-      "check": "first projectile uses exact displayed release-frame muzzle",
+      "check": "one actual pistol release with matching pellet count",
       "details": {},
       "passed": true
     },
     {
-      "check": "security visible windup before first round",
+      "check": "pistol shot uses displayed release pose",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "security visible windup before pistol fire",
       "details": {
-        "first_round_tick": 45
+        "release_tick": 35
       },
       "passed": true
     },
     {
-      "check": "duplicate callbacks do not release extra first/early round",
+      "check": "pistol muzzle agrees with displayed release pose",
       "details": {},
       "passed": true
     },
     {
-      "check": "first flash ends after075ms and returns to rest3",
+      "check": "one pistol shot owns one 7-damage contact",
       "details": {},
       "passed": true
     },
     {
-      "check": "security releases exactly two rounds",
+      "check": "one pistol release owns one matching fire cue",
       "details": {},
       "passed": true
     },
     {
-      "check": "second accepted round restarts flash4",
+      "check": "duplicate callbacks cannot fire or sound again",
       "details": {},
       "passed": true
     },
     {
-      "check": "accepted round muzzle equals displayed release-frame muzzle",
-      "details": {
-        "round": 1
-      },
-      "passed": true
-    },
-    {
-      "check": "accepted round muzzle equals displayed release-frame muzzle",
-      "details": {
-        "round": 2
-      },
-      "passed": true
-    },
-    {
-      "check": "distinct dedup IDs share warning cycle",
-      "details": {},
-      "passed": true
-    },
-    {
-      "check": "two round order and interval",
-      "details": {
-        "rounds": [
-          {
-            "attack_cycle_id": 1,
-            "attack_id": 1,
-            "displayed_frame": 4,
-            "displayed_muzzle": "(0.481677, 1.288086, -8.0)",
-            "enemy_kind": "infected_security",
-            "fixture_tick": 45,
-            "material": "",
-            "position": "(0.481677, 1.288086, -8.0)",
-            "round_count": 2,
-            "round_index": 1,
-            "shot_id": 0,
-            "target_id": "enemy_infected_security_0",
-            "type": "projectile_release",
-            "weapon_id": ""
-          },
-          {
-            "attack_cycle_id": 1,
-            "attack_id": 2,
-            "displayed_frame": 4,
-            "displayed_muzzle": "(0.481677, 1.288086, -8.0)",
-            "enemy_kind": "infected_security",
-            "fixture_tick": 55,
-            "material": "",
-            "position": "(0.481677, 1.288086, -8.0)",
-            "round_count": 2,
-            "round_index": 2,
-            "shot_id": 0,
-            "target_id": "enemy_infected_security_0",
-            "type": "projectile_release",
-            "weapon_id": ""
-          }
-        ]
-      },
-      "passed": true
-    },
-    {
-      "check": "second flash ends after075ms and returns to rest3",
-      "details": {},
-      "passed": true
-    },
-    {
-      "check": "two projectiles each hurt once, no duplicate release",
-      "details": {},
-      "passed": true
-    },
-    {
-      "check": "two 7 damage rounds use existing armor pipeline",
-      "details": {
-        "armor": 41.6,
-        "health": 94.4
-      },
-      "passed": true
-    },
-    {
-      "check": "pain immediately removes release flash",
-      "details": {},
-      "passed": true
-    },
-    {
-      "check": "pain before first round cancels release and requires fresh windup",
+      "check": "pistol flash returns to rest pose",
       "details": {},
       "passed": true
     },
@@ -160,12 +83,22 @@
       "passed": true
     },
     {
-      "check": "pain between rounds cancels unreleased round",
+      "check": "pain before fire cancels shot and sound",
       "details": {},
       "passed": true
     },
     {
-      "check": "post-pain attack uses new warning cycle",
+      "check": "pain immediately removes release flash",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "pain after fire does not repeat committed shot",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "post-pain attack uses a fresh warning and release ID",
       "details": {},
       "passed": true
     },
@@ -175,7 +108,12 @@
       "passed": true
     },
     {
-      "check": "death cancels pending rounds: true",
+      "check": "death prevents further pistol fire: true",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "death prevents further pistol audio: true",
       "details": {},
       "passed": true
     },
@@ -195,7 +133,12 @@
       "passed": true
     },
     {
-      "check": "death cancels pending rounds: false",
+      "check": "death prevents further pistol fire: false",
+      "details": {},
+      "passed": true
+    },
+    {
+      "check": "death prevents further pistol audio: false",
       "details": {},
       "passed": true
     },
@@ -210,17 +153,17 @@
       "passed": true
     },
     {
-      "check": "pause freezes pending burst even with direct callback",
+      "check": "pause freezes pending pistol fire and audio",
       "details": {},
       "passed": true
     },
     {
-      "check": "resume releases one remaining round",
+      "check": "resume releases one pistol shot and sound",
       "details": {},
       "passed": true
     },
     {
-      "check": "new shared wall cancels second round and blocks first projectile",
+      "check": "new shared wall blocks committed pistol shot and sound",
       "details": {},
       "passed": true
     },
@@ -261,7 +204,7 @@
     }
   ],
   "failed": 0,
-  "fixture": "production Combat/CharacterBody/enemy/projectile with shared physics solids",
+  "fixture": "production Combat/CharacterBody/armed-security hitscan with shared physics solids",
   "native_art_ids": [
     "unsealed",
     "vessel",

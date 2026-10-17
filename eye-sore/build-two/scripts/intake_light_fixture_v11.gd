@@ -51,6 +51,14 @@ func _ready() -> void:
 	light.shadow_enabled = cast_shadow
 	light.shadow_bias = .025
 	light.shadow_normal_bias = .35
+	# The source stays bolted to its lens. Godot fades distant local lights as
+	# the active camera moves through the ward, keeping each lamp's nearby spill
+	# without spending a light pass on fixtures several rooms away. Fade starts
+	# well beyond the emitter's reach, so a visible floor/wall pool cannot pop.
+	light.distance_fade_enabled = true
+	light.distance_fade_begin = maxf(28.0, reach * 2.5)
+	light.distance_fade_length = maxf(12.0, reach * 1.5)
+	light.distance_fade_shadow = maxf(22.0, reach * 2.0)
 	add_child(light)
 	reset_lighting()
 

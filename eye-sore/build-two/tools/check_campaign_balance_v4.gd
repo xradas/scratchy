@@ -23,7 +23,7 @@ func run() -> void:
 	require(caps == {"pistol": 96, "shells": 40, "rivets": 160, "rockets": 12}, "campaign capacity Resource differs")
 	# Entry snapshot precedes ordinary nearby-item contact on the first frame.
 	var initial: Dictionary = app.campaign.entry_snapshot.duplicate(true)
-	require(initial.health == 100.0 and initial.armor == 50.0 and initial.ammo_pistol == 36 and initial.ammo_shotgun == 12 and initial.ammo_rivets == 0 and initial.ammo_rockets == 0 and initial.owned_weapons.size() == 3, "New Game is not normal initial loadout")
+	require(initial.health == 100.0 and initial.armor == 50.0 and initial.ammo_pistol == 36 and initial.ammo_shotgun == 0 and initial.ammo_rivets == 0 and initial.ammo_rockets == 0 and initial.owned_weapons.size() == 2, "New Game is not normal initial loadout")
 	# Simulate a legacy/overfilled carried state at the boundary. Completion
 	# and Continue are real Main methods; the new combat world must normalize.
 	app.combat.ammo_pistol = 109

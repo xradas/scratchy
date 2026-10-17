@@ -17,6 +17,9 @@ func count(kind: String, id := "", attack := -1) -> int:
 	for event in trace:
 		if String(event.get("phase", "")) == phase and String(event.get("type", "")) == kind and (id.is_empty() or String(event.get("target_id", "")) == id) and (attack < 0 or event.get("attack_id", -1) == attack): n += 1
 	return n
+func release_type(enemy: Node3D) -> String:
+	if enemy.carried_weapon != &"": return "enemy_weapon_release"
+	return "projectile_release" if enemy.definition.ranged else "enemy_melee_release"
 func frames(n: int) -> void:
 	for i in n: await physics_frame
 func setup() -> Array:
@@ -100,7 +103,7 @@ func run() -> void:
 		check(enemy.can_see_player(),"natural windup has line of sight")
 		check(count("enemy_attack_warning",enemy.target_id,attack)==1,"one committed warning")
 		check(initial-enemy.global_position.distance_to(app.player.global_position)>3.0 or enemy.definition.ranged,"melee physically advances more than 3m from alcove")
-		var release := "projectile_release" if enemy.definition.ranged else "enemy_melee_release"
+		var release := release_type(enemy)
 		await frames(int(ceil(enemy.definition.windup_seconds*60))+3)
 		check(count(release,enemy.target_id,attack)==1,"natural warning produces exactly one release")
 		var release_tick := -1
@@ -122,7 +125,7 @@ func run() -> void:
 		check(shoot(enemy),"genuine opaque-surface pistol ray accepted")
 		check(enemy.health<before and enemy.state==&"pain" and enemy.released,"nonlethal damage cancels pending windup")
 		await frames(int(ceil(enemy.definition.pain_seconds*60))+3)
-		check(count("projectile_release" if ranged else "enemy_melee_release",enemy.target_id,attack)==0,"cancelled attack never releases")
+		check(count(release_type(enemy),enemy.target_id,attack)==0,"cancelled attack never releases")
 		# Setup lowers health by genuine repeated pistol hits, preserving production max-health definition.
 		for i in 30:
 			if enemy.health <= 20: break
@@ -134,12 +137,12 @@ func run() -> void:
 			var terminal_attack: int=enemy.attack_id
 			check(not enemy.released,"lethal contact starts in fresh unreleased natural windup")
 			check(shoot(enemy),"terminal genuine opaque-surface pistol ray accepted")
-			check(count("projectile_release" if ranged else "enemy_melee_release",enemy.target_id,terminal_attack)==0,"lethal interrupted attack has no release")
+			check(count(release_type(enemy),enemy.target_id,terminal_attack)==0,"lethal interrupted attack has no release")
 		check(enemy.dead,"actual contacts reach death")
 		enemy.set_physics_process(true)
-		var dead_release:=count("projectile_release" if ranged else "enemy_melee_release",enemy.target_id)
+		var dead_release:=count(release_type(enemy),enemy.target_id)
 		await frames(150)
-		check(count("projectile_release" if ranged else "enemy_melee_release",enemy.target_id)==dead_release,"dead target never releases on later live physics")
+		check(count(release_type(enemy),enemy.target_id)==dead_release,"dead target never releases on later live physics")
 		check(count("enemy_death",enemy.target_id)==1,"one terminal ownership event")
 	phase="hard-geometry-projectile"
 	actors=await setup()

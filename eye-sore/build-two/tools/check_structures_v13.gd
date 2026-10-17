@@ -138,7 +138,7 @@ func shutter_states(connection: Dictionary,original: Dictionary) -> void:
 				events.clear();basin_actor.set_physics_process(true);await frames(90);basin_actor.set_physics_process(false)
 				var releases:=0
 				for event in events:
-					if String(event.type)=="projectile_release" and String(event.target_id)==String(basin_actor.target_id):releases+=1
+					if String(event.type) in ["projectile_release","enemy_weapon_release"] and String(event.target_id)==String(basin_actor.target_id):releases+=1
 				check(releases==0,"No early basin attacks through closed shutter "+str(flags),{"releases":releases})
 		if both:
 			paused=true;var before: Vector3=app.world.get_node(String(connection.shutters[0].id)).position
@@ -191,7 +191,7 @@ func actor_angle(connection: Dictionary) -> void:
 		var releases:=0
 		var contacts_received:=0
 		for event in events:
-			if String(event.type)=="projectile_release" and String(event.target_id)==String(actor.target_id):releases+=1
+			if String(event.type) in ["projectile_release","enemy_weapon_release"] and String(event.target_id)==String(actor.target_id):releases+=1
 			if String(event.type)=="player_hurt" and String(event.get("source_id",""))==String(actor.target_id):contacts_received+=1
 		check(releases>0,"Natural actual actor emits attack across new opening "+String(actor.target_id),{"releases":releases,"state":actor.state,"awake":actor.awake})
 		check(contacts_received>0,"Actual natural cross-area attack reaches player "+String(actor.target_id),{"player_contacts":contacts_received})

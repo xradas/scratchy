@@ -17,7 +17,7 @@ func run() -> void:
 			if kinds.has("health"):
 				for ammo in ["pistol","shells","rivets","rockets"]:
 					if kinds.has(ammo):failures.append(id+" health/ammo clustered in "+room)
-		if int(route_totals.get("health",0))!=201 or int(route_totals.get("armor",0))!=151:
+		if int(route_totals.get("health",0))!=181 or int(route_totals.get("armor",0))!=131:
 			failures.append(id+" main route medical budget drifted")
 		var world: Node3D=load("res://scenes/campaign/"+id+".tscn").instantiate()
 		root.add_child(world);world.scan(world);world.set_physics_process(false)
@@ -46,16 +46,21 @@ func run() -> void:
 		print("WARD_SUPPLY_CLEARANCE ",id," checked=",checked)
 		var amounts := {"health": {}, "armor": {}}
 		var ordinary: Node3D
+		var small: Node3D
 		var overdrive: Node3D
 		for item in world.pickups:
 			var kind := String(item.get_meta("stage_pickup", ""))
 			if kind not in amounts:continue
-			if item.get_meta("overdrive", false):overdrive=item;continue
 			var amount := int(item.get_meta("amount", 0))
-			if amount in [1,25,50]:amounts[kind][amount]=int(amounts[kind].get(amount,0))+1
+			var scale_by_amount := {1:.68,5:.82,25:1.0,50:1.16,100:1.34}
+			if scale_by_amount.has(amount) and not is_equal_approx(item.scale.x,float(scale_by_amount[amount])):
+				failures.append(id+" "+item.name+" package size mismatch")
+			if item.get_meta("overdrive", false):overdrive=item;continue
+			if amount in [1,5,25,50]:amounts[kind][amount]=int(amounts[kind].get(amount,0))+1
 			if ordinary==null and amount==25:ordinary=item
+			if small==null and amount==5:small=item
 		for kind in ["health","armor"]:
-			for amount in [1,25,50]:
+			for amount in [1,5,25,50]:
 				if int(amounts[kind].get(amount,0))==0:failures.append(id+" missing "+kind+" +"+str(amount))
 		if overdrive==null or int(overdrive.get_meta("amount",0))!=100:failures.append(id+" missing 100-point overdrive")
 		var combat: Node3D=load("res://scripts/combat.gd").new()
@@ -66,6 +71,10 @@ func run() -> void:
 			var ordinary_kind:=String(ordinary.get_meta("stage_pickup"))
 			combat.set(ordinary_kind,99.0);world.collect(ordinary)
 			if combat.get(ordinary_kind)!=100.0:failures.append(id+" ordinary cap failed")
+		if small!=null:
+			var small_kind:=String(small.get_meta("stage_pickup"))
+			combat.set(small_kind,97.0);world.collect(small)
+			if combat.get(small_kind)!=100.0:failures.append(id+" +5 cap failed")
 		if overdrive!=null:
 			var overdrive_kind:=String(overdrive.get_meta("stage_pickup"))
 			combat.set(overdrive_kind,190.0);world.collect(overdrive)

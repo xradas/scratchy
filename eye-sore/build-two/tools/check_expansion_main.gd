@@ -50,7 +50,7 @@ func fresh_world(entry: Dictionary, expected_arenas: Dictionary) -> void:
 		if mechanism.has_method("reset_door"): check(not mechanism.opened and mechanism.position == mechanism.origin,"retry resets visible/colliding gate")
 		if mechanism.has_method("reset_lift"): check(not mechanism.upper and not mechanism.moving and mechanism.position == mechanism.origin,"retry resets real lift")
 	check(app.combat.kills == 0 and not app.combat.dead,"retry clears combat kills/death")
-	check(app.combat.health == 100 and app.combat.armor == 50 and app.combat.ammo_pistol == 36 and app.combat.ammo_shotgun == 12,"retry restores starting combat resources")
+	check(app.combat.health == 100 and app.combat.armor == 50 and app.combat.ammo_pistol == 36 and app.combat.ammo_shotgun == 0,"retry restores starting combat resources")
 	check(app.combat.gore.death_count == 0 and app.combat.gore.death_records.is_empty() and app.combat.gore.stains.is_empty() and app.combat.gore.remains.is_empty() and app.combat.gore.particles.is_empty(),"retry clears all gore collections")
 	check(app.combat_audio.voices.is_empty() and app.combat_audio.seen_events.is_empty(),"retry clears voice/event ownership")
 	check(not app.level_complete and app.level_message.is_empty() and app.damage_flash == 0 and app.muzzle_time == 0 and not app.muzzle_pending,"retry clears main completion/message/hit/flash flags")

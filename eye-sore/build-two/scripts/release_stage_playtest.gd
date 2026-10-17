@@ -70,7 +70,7 @@ func run() -> void:
 	route = parsed
 	combat.combat_event.connect(observe_weapon_event)
 	baseline = {"health":combat.health,"armor":combat.armor,"pistol":combat.ammo_pistol,"shells":combat.ammo_shotgun,"kills":combat.kills,"total":combat.total_enemies,"shots":combat.shot_counter}
-	require(combat.health == 100.0 and combat.armor == 50.0 and combat.ammo_pistol == 36 and combat.ammo_shotgun == 12 and combat.kills == 0 and combat.shot_counter == 0 and combat.total_enemies == 42, "Initial normal health/ammo/roster baseline changed")
+	require(combat.health == 100.0 and combat.armor == 50.0 and combat.ammo_pistol == 36 and combat.ammo_shotgun == 0 and combat.kills == 0 and combat.shot_counter == 0 and combat.total_enemies == 42, "Initial normal health/ammo/roster baseline changed")
 	require(world.flags.is_empty() and world.shortcuts.is_empty() and not world.secret_found and not world.finished, "Initial stage progression was already modified")
 	require(get_tree().paused and not app.started, "Main title/menu was not initially paused")
 	var initial: Vector3 = combat.enemies[0].position
@@ -139,9 +139,10 @@ func choose_weapon(target: CharacterBody3D,distance: float) -> StringName:
 		if combat.has_weapon(&"siege_launcher") and combat.ammo_rockets>0 and distance>9 and distance<25 and target.can_see_player():return &"siege_launcher"
 		if combat.has_weapon(&"twin_shotgun") and distance<11 and combat.ammo_shotgun>=2:return &"twin_shotgun"
 		if combat.has_weapon(&"rivet_cannon") and combat.ammo_rivets>0 and distance>=11 and distance<32:return &"rivet_cannon"
-	var weapon: StringName = &"shotgun" if distance < 17 and combat.ammo_shotgun > 0 else &"pistol"
-	if combat.ammo_pistol == 0 and combat.ammo_shotgun > 0: weapon = &"shotgun"
-	if combat.ammo_shotgun == 0 and combat.ammo_pistol == 0: weapon = &"melee"
+	var has_shell_gun: bool = combat.has_weapon(&"shotgun") and combat.ammo_shotgun > 0
+	var weapon: StringName = &"shotgun" if distance < 17 and has_shell_gun else &"pistol"
+	if combat.ammo_pistol == 0 and has_shell_gun: weapon = &"shotgun"
+	if not has_shell_gun and combat.ammo_pistol == 0: weapon = &"melee"
 	return weapon
 func closest_enemy() -> CharacterBody3D:
 	var target: CharacterBody3D; var closest := 38.0

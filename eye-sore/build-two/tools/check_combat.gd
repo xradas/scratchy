@@ -23,6 +23,7 @@ func run_check() -> void:
 	var ranged: CharacterBody3D = combat.enemies[1]
 	enemy.position=Vector3(0,.87,-4); enemy.health=200; ranged.position=Vector3(10,.87,-4)
 	await physics_frame; await physics_frame
+	combat.grant_weapon(&"shotgun",12)
 	combat.currentweapon=&"shotgun"
 	assert(combat.try_fire()); assert(combat.ammo_shotgun==11); assert(combat.shot_counter==1)
 	assert(enemy.health==88.0, "Seven pellets must aggregate to exactly 112 damage")
@@ -92,7 +93,7 @@ func run_check() -> void:
 	assert(count_event(&"player_death")==1)
 	combat.reset(); combat.set_physics_process(false)
 	for actor in combat.enemies: actor.set_physics_process(false)
-	assert(combat.health==100 and combat.armor==50 and combat.ammo_pistol==36 and combat.ammo_shotgun==12)
+	assert(combat.health==100 and combat.armor==50 and combat.ammo_pistol==36 and combat.ammo_shotgun==0)
 	assert(not combat.dead and combat.kills==0 and combat.shot_counter==0 and combat.currentweapon==&"pistol")
 	print("COMBAT_CHECK_OK: one-shell seven-pellet aggregation; rate-limited empty; finite cooldown; interrupted/dead attacks; wall-blocked rays/sweeps; unobstructed projectile hurts once; melee ammo-free armor contact; armor/death/reset")
 	quit()

@@ -32,9 +32,26 @@
   "scope": "Actual main.tscn calibration encounter, live enemy/combat physics at 60 Hz, player movement disabled, genuine accepted pistol rays; fixture health=10 only for death. Direct release calls are defensive guards only.",
   "trace": [
     {
+      "audio_cue_counts": {
+        "unsealed_detect": 1
+      },
+      "enemy_kind": "unsealed",
+      "material": "",
+      "observed_state": "chase",
+      "observed_state_time": 0.0166666666666667,
+      "physics_tick": 4,
+      "position": "(0.0, 0.87, 9.6)",
+      "shot_id": 0,
+      "stage": "unsealed/setup",
+      "target_id": "enemy_unsealed_0",
+      "type": "enemy_detect",
+      "weapon_id": ""
+    },
+    {
       "attack_id": 1,
       "audio_cue_counts": {
-        "unsealed_attack_warning": 1
+        "unsealed_attack_warning": 1,
+        "unsealed_detect": 1
       },
       "enemy_kind": "unsealed",
       "material": "",
@@ -51,7 +68,8 @@
     {
       "audio_cue_counts": {
         "pistol_fire": 1,
-        "unsealed_attack_warning": 1
+        "unsealed_attack_warning": 1,
+        "unsealed_detect": 1
       },
       "direction": "(-0.0, -0.287315, -0.957836)",
       "material": "",
@@ -72,7 +90,8 @@
       "audio_cue_counts": {
         "pistol_fire": 1,
         "pistol_flesh": 1,
-        "unsealed_attack_warning": 1
+        "unsealed_attack_warning": 1,
+        "unsealed_detect": 1
       },
       "material": "flesh",
       "observed_state": "windup",
@@ -91,6 +110,7 @@
         "pistol_fire": 1,
         "pistol_flesh": 1,
         "unsealed_attack_warning": 1,
+        "unsealed_detect": 1,
         "unsealed_hurt": 1
       },
       "damage": 20.0,
@@ -113,6 +133,7 @@
         "pistol_fire": 1,
         "pistol_flesh": 1,
         "unsealed_attack_warning": 2,
+        "unsealed_detect": 1,
         "unsealed_hurt": 1
       },
       "enemy_kind": "unsealed",
@@ -133,6 +154,7 @@
         "pistol_flesh": 1,
         "player_hurt": 1,
         "unsealed_attack_warning": 2,
+        "unsealed_detect": 1,
         "unsealed_hurt": 1
       },
       "damage": 12.0,
@@ -155,6 +177,7 @@
         "pistol_flesh": 1,
         "player_hurt": 1,
         "unsealed_attack_warning": 2,
+        "unsealed_detect": 1,
         "unsealed_hurt": 1
       },
       "enemy_kind": "unsealed",
@@ -170,9 +193,26 @@
       "weapon_id": ""
     },
     {
+      "audio_cue_counts": {
+        "unsealed_detect": 1
+      },
+      "enemy_kind": "unsealed",
+      "material": "",
+      "observed_state": "chase",
+      "observed_state_time": 0.0166666666666667,
+      "physics_tick": 97,
+      "position": "(0.0, 0.87, 9.6)",
+      "shot_id": 0,
+      "stage": "unsealed/lethal-windup-shot",
+      "target_id": "enemy_unsealed_0",
+      "type": "enemy_detect",
+      "weapon_id": ""
+    },
+    {
       "attack_id": 1,
       "audio_cue_counts": {
-        "unsealed_attack_warning": 1
+        "unsealed_attack_warning": 1,
+        "unsealed_detect": 1
       },
       "enemy_kind": "unsealed",
       "material": "",
@@ -189,7 +229,8 @@
     {
       "audio_cue_counts": {
         "pistol_fire": 1,
-        "unsealed_attack_warning": 1
+        "unsealed_attack_warning": 1,
+        "unsealed_detect": 1
       },
       "direction": "(-0.0, -0.287315, -0.957836)",
       "material": "",
@@ -210,7 +251,8 @@
       "audio_cue_counts": {
         "pistol_fire": 1,
         "pistol_flesh": 1,
-        "unsealed_attack_warning": 1
+        "unsealed_attack_warning": 1,
+        "unsealed_detect": 1
       },
       "material": "flesh",
       "observed_state": "windup",
@@ -229,7 +271,8 @@
         "pistol_fire": 1,
         "pistol_flesh": 1,
         "unsealed_attack_warning": 1,
-        "unsealed_death": 1
+        "unsealed_death": 1,
+        "unsealed_detect": 1
       },
       "contact_position": "(-0.0, 1.100052, 9.6)",
       "damage": 20.0,
@@ -249,9 +292,26 @@
       "weapon_id": "pistol"
     },
     {
+      "audio_cue_counts": {
+        "vessel_detect": 1
+      },
+      "enemy_kind": "vessel",
+      "material": "",
+      "observed_state": "chase",
+      "observed_state_time": 0.0166666666666667,
+      "physics_tick": 216,
+      "position": "(0.0, 0.87, 7.0)",
+      "shot_id": 0,
+      "stage": "vessel/setup",
+      "target_id": "enemy_vessel_1",
+      "type": "enemy_detect",
+      "weapon_id": ""
+    },
+    {
       "attack_id": 1,
       "audio_cue_counts": {
-        "vessel_attack_warning": 1
+        "vessel_attack_warning": 1,
+        "vessel_detect": 1
       },
       "enemy_kind": "vessel",
       "material": "",
@@ -268,7 +328,8 @@
     {
       "audio_cue_counts": {
         "pistol_fire": 1,
-        "vessel_attack_warning": 1
+        "vessel_attack_warning": 1,
+        "vessel_detect": 1
       },
       "direction": "(0.0, -0.104269, -0.994549)",
       "material": "",
@@ -289,7 +350,8 @@
       "audio_cue_counts": {
         "pistol_fire": 1,
         "pistol_flesh": 1,
-        "vessel_attack_warning": 1
+        "vessel_attack_warning": 1,
+        "vessel_detect": 1
       },
       "material": "flesh",
       "observed_state": "windup",
@@ -308,6 +370,7 @@
         "pistol_fire": 1,
         "pistol_flesh": 1,
         "vessel_attack_warning": 1,
+        "vessel_detect": 1,
         "vessel_hurt": 1
       },
       "damage": 20.0,
@@ -330,6 +393,7 @@
         "pistol_fire": 1,
         "pistol_flesh": 1,
         "vessel_attack_warning": 2,
+        "vessel_detect": 1,
         "vessel_hurt": 1
       },
       "enemy_kind": "vessel",
@@ -351,6 +415,7 @@
         "pistol_flesh": 1,
         "projectile_release": 1,
         "vessel_attack_warning": 2,
+        "vessel_detect": 1,
         "vessel_hurt": 1
       },
       "enemy_kind": "vessel",
@@ -366,9 +431,26 @@
       "weapon_id": ""
     },
     {
+      "audio_cue_counts": {
+        "vessel_detect": 1
+      },
+      "enemy_kind": "vessel",
+      "material": "",
+      "observed_state": "chase",
+      "observed_state_time": 0.0166666666666667,
+      "physics_tick": 330,
+      "position": "(0.0, 0.87, 7.0)",
+      "shot_id": 0,
+      "stage": "vessel/lethal-windup-shot",
+      "target_id": "enemy_vessel_1",
+      "type": "enemy_detect",
+      "weapon_id": ""
+    },
+    {
       "attack_id": 1,
       "audio_cue_counts": {
-        "vessel_attack_warning": 1
+        "vessel_attack_warning": 1,
+        "vessel_detect": 1
       },
       "enemy_kind": "vessel",
       "material": "",
@@ -385,7 +467,8 @@
     {
       "audio_cue_counts": {
         "pistol_fire": 1,
-        "vessel_attack_warning": 1
+        "vessel_attack_warning": 1,
+        "vessel_detect": 1
       },
       "direction": "(0.0, -0.104269, -0.994549)",
       "material": "",
@@ -406,7 +489,8 @@
       "audio_cue_counts": {
         "pistol_fire": 1,
         "pistol_flesh": 1,
-        "vessel_attack_warning": 1
+        "vessel_attack_warning": 1,
+        "vessel_detect": 1
       },
       "material": "flesh",
       "observed_state": "windup",
@@ -425,7 +509,8 @@
         "pistol_fire": 1,
         "pistol_flesh": 1,
         "vessel_attack_warning": 1,
-        "vessel_death": 1
+        "vessel_death": 1,
+        "vessel_detect": 1
       },
       "contact_position": "(0.0, 1.100638, 7.0)",
       "damage": 20.0,
