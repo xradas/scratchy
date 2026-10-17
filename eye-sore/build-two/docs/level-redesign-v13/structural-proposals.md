@@ -18,9 +18,9 @@ Existing centres: overlook `[0,4,0]`, size `[32,9,26]`; reservoir `[0,0,-40]`, s
 
 Open the galleries to real traversal from the overlook and real firing into the reservoir. Remove the glass ends; lower the overlook opening sill to floor4. At the reservoir edge install visible solid1.4m parapets and real side guards. Corresponding reservoir apertures: x[4,13]/[-13,-4], y[4,8.3]. Retain the central gate requiring both feed flags. No movement-only invisible wall.
 
-Use existing basin columns and balcony returns as cover. Relocate one existing ranged vessel to a position within14m horizontal attack reach of an exposed balcony segment, with its stable ID/count preserved. This exact actor placement remains to be designed.
+Use existing basin columns and balcony returns as cover. Coordinator decision after specialist review: make the reservoir firing connection open only after BOTH `isolation_a` and `isolation_b` drain the basin. Use visible physical shutters tied to those existing flags, with actual shot/visibility collision before opening and exposed-face textures after opening. Do not add a new objective or a dry enemy platform. Initial cosmetic liquid reaches3.5m above floor0, so submerged floor0 actors must not be presented as a fair early ranged threat. After draining, an existing vessel may be positioned within14m horizontal attack reach of the balcony, retaining its stable ID/count; exact placement and safe shutter motion remain construction work.
 
-Risks: the new early sightline can activate basin enemies before draining; verify both branch orders and checkpoint safety. Test actual standing/crouching, item reach and every climbable object around the parapet. The undrained basin must remain inaccessible; no shortcut through a ledge or furniture step chain.
+Risks: a prematurely opening shutter could activate basin enemies before draining; verify both branch orders, actual liquid/shutter synchronization, restore states and checkpoint safety. Test actual standing/crouching, item reach and every climbable object around the parapet. The undrained basin must remain inaccessible; no shortcut through a ledge or furniture step chain.
 
 ## Breach: specimens / crossfire broken transfer front
 
