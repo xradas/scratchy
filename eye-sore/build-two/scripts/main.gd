@@ -12,6 +12,7 @@ var field_of_view: float = 90.0
 var muted: bool = false
 var minimap_enabled: bool = true
 var bob_intensity: float = 0.35
+var light_flicker_enabled: bool = true
 var control_presentations: Array[Node] = []
 var started: bool = false
 var smoke: bool = false
@@ -373,6 +374,14 @@ func build_menu() -> void:
 	mini_map.button_pressed = minimap_enabled
 	mini_map.toggled.connect(func(value: bool): minimap_enabled = value; hud.set_minimap_enabled(value); save_settings())
 	column.add_child(mini_map)
+	var flicker := CheckButton.new()
+	flicker.text = "Damaged light flicker"
+	flicker.button_pressed = light_flicker_enabled
+	flicker.toggled.connect(func(value: bool):
+		light_flicker_enabled = value
+		get_tree().call_group("intake_lighting_v11", "set_flicker_enabled", value)
+		save_settings())
+	column.add_child(flicker)
 	var mute := CheckButton.new()
 	mute.text = "Mute all audio"
 	mute.button_pressed = muted
@@ -433,6 +442,7 @@ func create_world() -> void:
 	world = (load(scene_path) as PackedScene).instantiate()
 	world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	world_view.add_child(world)
+	get_tree().call_group("intake_lighting_v11", "set_flicker_enabled", light_flicker_enabled)
 	player = world.get_node("Player")
 	player.collision_layer = 2
 	player.collision_mask = 3
@@ -781,6 +791,7 @@ func load_settings() -> void:
 		field_of_view = clampf(float(config.get_value("display", "fov", field_of_view)), 60, 110)
 		bob_intensity = clampf(float(config.get_value("display", "bob_intensity", 0.35)), 0.0, 1.0)
 		minimap_enabled = bool(config.get_value("display", "minimap", true))
+		light_flicker_enabled = bool(config.get_value("display", "light_flicker", true))
 		muted = bool(config.get_value("audio", "muted", false))
 	AudioServer.set_bus_mute(0, muted)
 
@@ -791,6 +802,7 @@ func save_settings() -> void:
 	config.set_value("display", "fov_axis", "horizontal")
 	config.set_value("display", "minimap", minimap_enabled)
 	config.set_value("display", "bob_intensity", bob_intensity)
+	config.set_value("display", "light_flicker", light_flicker_enabled)
 	config.set_value("audio", "muted", muted)
 	var error := config.save(SETTINGS_PATH)
 	if error != OK: push_warning("Could not save calibration settings: " + error_string(error))

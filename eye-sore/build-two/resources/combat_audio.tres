@@ -402,7 +402,43 @@ bus = &"UI"
 variations = Array[AudioStream]([ExtResource("pickup_weapon")])
 spatial = false
 
+[sub_resource type="Resource" id="V11_infected_scientist_attack_warning"]
+script = ExtResource("1_ch4yb")
+identifier = &"infected_scientist_attack_warning"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("22_7v8lv")])
+
+[sub_resource type="Resource" id="V11_infected_scientist_hurt"]
+script = ExtResource("1_ch4yb")
+identifier = &"infected_scientist_hurt"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("18_543pp")])
+
+[sub_resource type="Resource" id="V11_infected_scientist_death"]
+script = ExtResource("1_ch4yb")
+identifier = &"infected_scientist_death"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("20_w1jdh")])
+
+[sub_resource type="Resource" id="V11_infected_security_attack_warning"]
+script = ExtResource("1_ch4yb")
+identifier = &"infected_security_attack_warning"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("23_cekb0")])
+
+[sub_resource type="Resource" id="V11_infected_security_hurt"]
+script = ExtResource("1_ch4yb")
+identifier = &"infected_security_hurt"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("19_2yc7l")])
+
+[sub_resource type="Resource" id="V11_infected_security_death"]
+script = ExtResource("1_ch4yb")
+identifier = &"infected_security_death"
+bus = &"Creatures"
+variations = Array[AudioStream]([ExtResource("21_nw6lo")])
+
 [resource]
 script = ExtResource("51_jwtui")
-cues = Array[ExtResource("1_ch4yb")]([SubResource("Resource_kqw2p"), SubResource("Resource_dvwsd"), SubResource("Resource_e4pat"), SubResource("Resource_ak6cj"), SubResource("Resource_rin0i"), SubResource("Resource_vjjp8"), SubResource("Resource_c3xjg"), SubResource("Resource_idrf5"), SubResource("Resource_xh7nf"), SubResource("Resource_hbneu"), SubResource("Resource_8dkui"), SubResource("Resource_g166v"), SubResource("Resource_k6p0o"), SubResource("Resource_d5clj"), SubResource("Resource_oekpy"), SubResource("Resource_rogqo"), SubResource("Resource_jrvti"), SubResource("Resource_adyuf"), SubResource("Resource_tf742"), SubResource("Resource_7xc8h"), SubResource("Resource_3smh4"), SubResource("Resource_80hdo"), SubResource("Resource_75re4"), SubResource("Resource_4mri0"), SubResource("Resource_boqk7"), SubResource("Resource_fwjb6"), SubResource("Resource_nldr1"), SubResource("Resource_0jqgm"), SubResource("Resource_o87ax"), SubResource("Resource_j6aom"), SubResource("Resource_01giq"), SubResource("Resource_gqh7u"), SubResource("Resource_1ea5q"), SubResource("Resource_cd8wq"), SubResource("Resource_s5agc"), SubResource("Resource_rw7yo"), SubResource("Resource_6itos"), SubResource("Resource_bk1if"), SubResource("Resource_mvtw6"), SubResource("Resource_tqjsv"), SubResource("Resource_qulq2"), SubResource("Resource_7rb25"), SubResource("Resource_ip82e"), SubResource("Resource_yxw5b"), SubResource("Resource_bsdfb"), SubResource("Resource_p7rav"), SubResource("Resource_56l4j"), SubResource("Resource_7yw7w"), SubResource("Pickup_pistol"), SubResource("Pickup_shells"), SubResource("Pickup_rivets"), SubResource("Pickup_rockets"), SubResource("Pickup_health"), SubResource("Pickup_armor"), SubResource("Pickup_brass_key"), SubResource("Pickup_red_key"), SubResource("Pickup_weapon")])
+cues = Array[ExtResource("1_ch4yb")]([SubResource("Resource_kqw2p"), SubResource("Resource_dvwsd"), SubResource("Resource_e4pat"), SubResource("Resource_ak6cj"), SubResource("Resource_rin0i"), SubResource("Resource_vjjp8"), SubResource("Resource_c3xjg"), SubResource("Resource_idrf5"), SubResource("Resource_xh7nf"), SubResource("Resource_hbneu"), SubResource("Resource_8dkui"), SubResource("Resource_g166v"), SubResource("Resource_k6p0o"), SubResource("Resource_d5clj"), SubResource("Resource_oekpy"), SubResource("Resource_rogqo"), SubResource("Resource_jrvti"), SubResource("Resource_adyuf"), SubResource("Resource_tf742"), SubResource("Resource_7xc8h"), SubResource("Resource_3smh4"), SubResource("Resource_80hdo"), SubResource("Resource_75re4"), SubResource("Resource_4mri0"), SubResource("Resource_boqk7"), SubResource("Resource_fwjb6"), SubResource("Resource_nldr1"), SubResource("Resource_0jqgm"), SubResource("Resource_o87ax"), SubResource("Resource_j6aom"), SubResource("Resource_01giq"), SubResource("Resource_gqh7u"), SubResource("Resource_1ea5q"), SubResource("Resource_cd8wq"), SubResource("Resource_s5agc"), SubResource("Resource_rw7yo"), SubResource("Resource_6itos"), SubResource("Resource_bk1if"), SubResource("Resource_mvtw6"), SubResource("Resource_tqjsv"), SubResource("Resource_qulq2"), SubResource("Resource_7rb25"), SubResource("Resource_ip82e"), SubResource("Resource_yxw5b"), SubResource("Resource_bsdfb"), SubResource("Resource_p7rav"), SubResource("Resource_56l4j"), SubResource("Resource_7yw7w"), SubResource("Pickup_pistol"), SubResource("Pickup_shells"), SubResource("Pickup_rivets"), SubResource("Pickup_rockets"), SubResource("Pickup_health"), SubResource("Pickup_armor"), SubResource("Pickup_brass_key"), SubResource("Pickup_red_key"), SubResource("Pickup_weapon"), SubResource("V11_infected_scientist_attack_warning"), SubResource("V11_infected_scientist_hurt"), SubResource("V11_infected_scientist_death"), SubResource("V11_infected_security_attack_warning"), SubResource("V11_infected_security_hurt"), SubResource("V11_infected_security_death")])
 music = ExtResource("50_lyc2n")

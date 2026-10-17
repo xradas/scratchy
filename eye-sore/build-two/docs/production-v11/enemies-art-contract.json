@@ -1,0 +1,137 @@
+{
+  "schema_version": 11,
+  "ids": [
+    "infected_scientist",
+    "infected_security"
+  ],
+  "layout": "classic direction rows, pose columns; unchanged existing Sprite3D directional runtime",
+  "atlas": {
+    "columns": 8,
+    "rows": [
+      {
+        "row": 0,
+        "observer_offset_local_xz": [
+          -0.0,
+          -1.0
+        ]
+      },
+      {
+        "row": 1,
+        "observer_offset_local_xz": [
+          -0.707107,
+          -0.707107
+        ]
+      },
+      {
+        "row": 2,
+        "observer_offset_local_xz": [
+          -1.0,
+          -0.0
+        ]
+      },
+      {
+        "row": 3,
+        "observer_offset_local_xz": [
+          -0.707107,
+          0.707107
+        ]
+      },
+      {
+        "row": 4,
+        "observer_offset_local_xz": [
+          -0.0,
+          1.0
+        ]
+      },
+      {
+        "row": 5,
+        "observer_offset_local_xz": [
+          0.707107,
+          0.707107
+        ]
+      },
+      {
+        "row": 6,
+        "observer_offset_local_xz": [
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "row": 7,
+        "observer_offset_local_xz": [
+          0.707107,
+          -0.707107
+        ]
+      }
+    ],
+    "directions": 8,
+    "source_dimensions": "Supplied native1254x1254 PNGs remain byte-identical. Both axes use explicit64 integer source_regions in row-major order; cells need not be uniform or atlas dimensions divisible by8. Root measures exact per-frame foot pivots and keeps source pixels untouched.",
+    "row_contract": "Row0 observer stands in actor forward(-Z). Observer offsets listed below are exact runtime sprite_direction_row coordinates; subsequent rows follow its clockwise indexing.",
+    "columns_contract": {
+      "0": "idle/rest stance, also first chase loop frame",
+      "1": "chase left-foot step",
+      "2": "chase right-foot step",
+      "3": "attack windup, readable committed warning; scientist anticipates/extends lunge, security raises aimed firearm",
+      "4": "attack release/recovery hold; security first+second rounds share this source geometry",
+      "5": "pain flinch",
+      "6": "first death collapse",
+      "7": "settled dead corpse"
+    },
+    "clips": {
+      "chase": [
+        0,
+        3
+      ],
+      "windup": [
+        3,
+        1
+      ],
+      "recovery": [
+        4,
+        1
+      ],
+      "pain": [
+        5,
+        1
+      ],
+      "dead": [
+        6,
+        2
+      ]
+    },
+    "frame_index": "direction_row*8+pose_column",
+    "death_seconds": 0.65,
+    "pivot": "One consistent floor contact per cell. Standing soles and settled corpse bottom retain same floor baseline; root registers measured foot_pivot or frame_pivots without modifying sourcepixels.",
+    "pixel_size": "Root derives from actual opaque standing height (scientist1.7m/security1.8m), not whole transparent cell. Same pixelsize all64frames."
+  },
+  "hurt_geometry": {
+    "method": "Existing sprite_hurt_geometry native-source alpha triangulation and same frame/pivot asrender. Keep source region/index/crop immutable, hurt_resolution<=128x192, alpha_threshold.5. Corpse frames6/7 retain registered nativealpha boundaries.",
+    "scientist": {
+      "hurt_material_default": "flesh",
+      "hurt_material_regions": {}
+    },
+    "security": {
+      "hurt_material_default": "flesh",
+      "hurt_material_regions": "Explicit authored per-frame/row torso-vest/helmet-ifpresent/gun armor polygons. Face/neck/exposedarms/legs remainflesh. Do not classify material from colors or a global full-body armor proxy. Root must inspect finalnative generated anatomy and set these polygons.",
+      "provisional_registration_only": {
+        "default": [
+          {
+            "material": "armor",
+            "rect": [
+              0.3,
+              0.28,
+              0.4,
+              0.4
+            ]
+          }
+        ]
+      },
+      "warning": "Provisional torso box is an integration startingpoint, not final anatomical verification; use measured polygons peractual source."
+    },
+    "nonbody_pixels": "For baked security muzzleflash outside the illustrated barrel, register explicit per-frame region material empty-string to exclude luminous nonbody pixels from hurt/corpse triangles while retaining source rendering. Actual muzzle UV stays on barrel opening, never flash tip."
+  },
+  "projectile_origin": "Security requires projectile_origin_uv or frame_projectile_origins_uv at illustrated gunmuzzle, especially pose4; root supplies exact selected markers from incoming atlas. Existing attack_origin consumes the registeredsprite worldpoint. Swept projectile starts exactly there (no forward skip).",
+  "integration_owner": "Root owns combat_art.json registration and atlas assets. Worker edits no art/manifest/Main/audio/scenes.",
+  "approval": "Generated sources received; root owns source anatomy review and final64frame regions/pivots/materials/muzzle registration. This contract makes no visual approval claim."
+}

@@ -1,0 +1,105 @@
+{
+  "checks": 1437,
+  "failures": [],
+  "observations": [
+    {
+      "actual_arena_counts": {
+        "arena_one": 5,
+        "arena_two": 5,
+        "final_arena": 6
+      },
+      "expected_arena_counts": {
+        "arena_one": 5.0,
+        "arena_two": 5.0,
+        "final_arena": 6.0
+      },
+      "phase": "initial"
+    },
+    {
+      "actual_physics_materials": [
+        "flesh"
+      ],
+      "frames_visited": 64,
+      "kind": "infected_scientist",
+      "opaque_flash_noncontact_probes": 0
+    },
+    {
+      "actual_physics_materials": [
+        "flesh",
+        "armor"
+      ],
+      "frames_visited": 64,
+      "kind": "infected_security",
+      "opaque_flash_noncontact_probes": 13
+    },
+    {
+      "can_see_room_centre": false,
+      "health": 100.0,
+      "kind": "infected_security",
+      "marker": "Spawn_2",
+      "position": "(-4.5, 2.37, -42.0)",
+      "ranged": true,
+      "room": "service"
+    },
+    {
+      "can_see_room_centre": false,
+      "health": 45.0,
+      "kind": "infected_scientist",
+      "marker": "Spawn_9",
+      "position": "(32.0, 2.37, -80.0)",
+      "ranged": false,
+      "room": "key_wing"
+    },
+    {
+      "can_see_room_centre": false,
+      "health": 45.0,
+      "kind": "infected_scientist",
+      "marker": "Spawn_12",
+      "position": "(57.5, 2.37, -80.0)",
+      "ranged": false,
+      "room": "key_console"
+    },
+    {
+      "can_see_room_centre": false,
+      "health": 45.0,
+      "kind": "infected_scientist",
+      "marker": "Spawn_22",
+      "position": "(-43.0, 2.37, -162.0)",
+      "ranged": false,
+      "room": "red_wing"
+    },
+    {
+      "can_see_room_centre": false,
+      "health": 45.0,
+      "kind": "infected_scientist",
+      "marker": "Spawn_25",
+      "position": "(-43.0, 2.37, -196.0)",
+      "ranged": false,
+      "room": "red_console"
+    },
+    {
+      "can_see_room_centre": false,
+      "health": 100.0,
+      "kind": "infected_security",
+      "marker": "Spawn_33",
+      "position": "(-43.0, 2.37, -121.0)",
+      "ranged": true,
+      "room": "armory"
+    },
+    {
+      "actual_arena_counts": {
+        "arena_one": 5,
+        "arena_two": 5,
+        "final_arena": 6
+      },
+      "expected_arena_counts": {
+        "arena_one": 5.0,
+        "arena_two": 5.0,
+        "final_arena": 6.0
+      },
+      "phase": "Retry"
+    }
+  ],
+  "scope": "Controlled actual Main authored Intake. Native resource/position/capsule/floor/presentation checks; actual room activation/cache shutters and real actor apply_damage/death ownership; Retry. Player repositioned, other physics frozen. No live route traversal, balance, human visual approval or listening claim.",
+  "status": "passed"
+}

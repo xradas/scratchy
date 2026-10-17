@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "protected_files": 114,
+  "explicit_existing_code_changes": [
+    "scripts/enemy_definition.gd",
+    "scripts/main.gd",
+    "scripts/combat_enemy.gd"
+  ],
+  "old_cues_preserved": 57,
+  "exact_voice_aliases": {
+    "infected_scientist_attack_warning": "unsealed_attack_warning",
+    "infected_scientist_hurt": "unsealed_hurt",
+    "infected_scientist_death": "unsealed_death",
+    "infected_security_attack_warning": "vessel_attack_warning",
+    "infected_security_hurt": "vessel_hurt",
+    "infected_security_death": "vessel_death"
+  },
+  "placements": [
+    {
+      "marker": "Spawn_2",
+      "before_kind": "unsealed",
+      "after_kind": "infected_security",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_9",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_12",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_22",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_25",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_33",
+      "before_kind": "unsealed",
+      "after_kind": "infected_security",
+      "changed": false
+    }
+  ],
+  "actor_total": 36,
+  "arena_counts": {
+    "arena_one": 5,
+    "arena_two": 5,
+    "final_arena": 6
+  },
+  "fixture_sha256": "a9c4753b2f2d78b8ec5b0598c602199391e2554b9379553d1ddbabc8a933cc04"
+}

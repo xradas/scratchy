@@ -1,0 +1,55 @@
+{
+  "schema_version": 11,
+  "status": "Technical runtime implemented; visual/source and live Main acceptance belong to coordinator.",
+  "definitions": {
+    "infected_scientist": {
+      "health": 45,
+      "chase_speed_m_s": 2.4,
+      "attack_trigger_m": 2.3,
+      "contact_range_m": 1.35,
+      "windup_seconds": 0.68,
+      "committed_lunge_seconds": 0.18,
+      "committed_lunge_speed_m_s": 6,
+      "measured_60hz_lunge_distance_m": 1.0,
+      "damage": 9,
+      "recovery_seconds": 0.9,
+      "pain_seconds": 0.28,
+      "material": "flesh"
+    },
+    "infected_security": {
+      "health": 100,
+      "chase_speed_m_s": 1.6,
+      "attack_range_m": 14,
+      "windup_seconds": 0.72,
+      "round_count": 2,
+      "round_interval_seconds": 0.16,
+      "damage_per_round": 7,
+      "projectile_speed_m_s": 13,
+      "recovery_after_final_round_seconds": 0.95,
+      "pain_seconds": 0.24,
+      "material": "registered armor regions, flesh elsewhere"
+    }
+  },
+  "ownership": {
+    "warning": "One enemy_attack_warning at cycle start; attack_id reserves first round identity.",
+    "scientist": "Heading committed at warning. Last windup segment moves actual CharacterBody with existing shared grounded step/move_and_slide. No retarget/teleport at release; contact requires current distance and unobstructed actual shared-geometry ray. One melee release applies existing armor/damage pipeline.",
+    "security": "First release switches to recovery pose4 before resolving registered native muzzle. Both rounds use that source pose. Each projectile launches exactly from that authored muzzle; existing swept sphere projectile is sole damage owner. Second round requires interval, range and muzzle LOS. Each released round has unique attack_id and same attack_cycle_id; round_index1/2 with round_count2. No extra warning for second round.",
+    "interruption": "Pain/death clear pending rounds and committed lunge; pain immediately zeros scientist horizontal velocity. Fresh attack requires fresh warning. Pause freezes AI and blocks direct release calls. Death disables living collider, existing hurt/corpse geometry and gib rules remain authoritative.",
+    "legacy": "Only opt-in lunge/burst definitions take new release/range/muzzle paths. Old defaults lunge0/contact-1/burst1 retain existing single-release event schema, range+0.2 and origin+direction0.12. Existing six definition resources unchanged."
+  },
+  "tests": {
+    "command": "tools/godot.sh [--headless] --script tools/check_infected_enemies_v11.gd",
+    "fixture": "Production Combat, enemy CharacterBody, registered atlas/hurt/corpse, shared solid floor/wall, existing swept projectile; fixed60Hz controlled callbacks. Not an actual Main traversal or human art approval.",
+    "reports": [
+      "verification/production-v11/enemies/runtime-headless.json",
+      "verification/production-v11/enemies/runtime-native.json"
+    ],
+    "legacy_command": "tools/godot.sh --headless --script tools/check_combat.gd",
+    "legacy_log": "verification/production-v11/enemies/legacy-combat.log"
+  },
+  "limits": [
+    "Security rounds track the current target at release while holding stance; scientist heading does not track after warning.",
+    "Native eight-angle artwork quality and source anatomy require coordinator review, separate from runtime geometry checks.",
+    "Scientist trigger narrowed2.6 to2.3 after actual60Hz physical lunge measured1m; this keeps a stationary max-trigger target within1.35m contact."
+  ]
+}

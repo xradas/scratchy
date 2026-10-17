@@ -1,0 +1,1636 @@
+{
+  "schema_version": 1,
+  "version": 11,
+  "level_id": "pale_ward_01",
+  "target_scene": "scenes/campaign/pale_ward_01.tscn",
+  "legacy_emitters": [
+    "ExitStairApproachLight",
+    "Light_entry",
+    "EntryDownlight0-1",
+    "EntryDownlight01",
+    "EntryDownlight1-1",
+    "EntryDownlight11",
+    "EntryDownlight2-1",
+    "EntryDownlight21",
+    "EntryDownlight3-1",
+    "EntryDownlight31",
+    "Light_service",
+    "Light_arena_one",
+    "V2Light_arena_one",
+    "Light_key_wing",
+    "Light_key_console",
+    "Light_return_store",
+    "Light_spine",
+    "Light_arena_two",
+    "V2Light_arena_two",
+    "Light_red_wing",
+    "Light_red_console",
+    "Light_final_arena",
+    "V2Light_final_arena",
+    "Light_exit_gallery",
+    "Light_supplies",
+    "Light_maintenance",
+    "Light_pump_room",
+    "Light_armory",
+    "Light_secret_one",
+    "Light_secret_two",
+    "Light_observation",
+    "CacheLight_arena_one",
+    "CacheLight_arena_two",
+    "CacheLight_final_arena",
+    "FirstGunCacheLight",
+    "RoomBayLight_entry_E",
+    "RoomBayLight_entry_S",
+    "RoomBayLight_service_W",
+    "RoomBayLight_service_S",
+    "RoomBayLight_arena_one_W",
+    "RoomBayLight_arena_one_E",
+    "RoomBayLight_key_wing_N",
+    "RoomBayLight_key_console_E",
+    "RoomBayLight_key_console_N",
+    "RoomBayLight_return_store_W",
+    "RoomBayLight_return_store_E",
+    "RoomBayLight_spine_W",
+    "RoomBayLight_spine_S",
+    "RoomBayLight_arena_two_S",
+    "RoomBayLight_arena_two_N",
+    "RoomBayLight_arena_two_E",
+    "RoomBayLight_red_wing_W",
+    "RoomBayLight_red_wing_E",
+    "RoomBayLight_red_console_W",
+    "RoomBayLight_red_console_N",
+    "RoomBayLight_final_arena_W",
+    "RoomBayLight_final_arena_E",
+    "RoomBayLight_final_arena_S",
+    "RoomBayLight_final_arena_N",
+    "RoomBayLight_exit_gallery_W",
+    "RoomBayLight_exit_gallery_S",
+    "RoomBayLight_supplies_W",
+    "RoomBayLight_supplies_S",
+    "RoomBayLight_maintenance_W",
+    "RoomBayLight_maintenance_S",
+    "RoomBayLight_pump_room_W",
+    "RoomBayLight_pump_room_N",
+    "RoomBayLight_armory_W",
+    "RoomBayLight_armory_S",
+    "RoomBayLight_secret_one_W",
+    "RoomBayLight_secret_one_S",
+    "RoomBayLight_secret_two_W",
+    "RoomBayLight_secret_two_E",
+    "RoomBayLight_observation_W",
+    "RoomBayLight_observation_S",
+    "IntakePresentation_entry_BayPool0",
+    "IntakePresentation_entry_BayPool1",
+    "IntakePresentation_service_BayPool0",
+    "IntakePresentation_service_BayPool1",
+    "IntakePresentation_arena_one_BayPool0",
+    "IntakePresentation_arena_one_BayPool1",
+    "IntakePresentation_arena_one_TriageBay-1",
+    "IntakePresentation_arena_one_TriageBay1",
+    "IntakePresentation_key_wing_BayPool0",
+    "IntakePresentation_key_wing_BayPool1",
+    "IntakePresentation_key_console_BayPool0",
+    "IntakePresentation_key_console_BayPool1",
+    "IntakePresentation_key_console_SurgicalPool",
+    "IntakePresentation_return_store_BayPool0",
+    "IntakePresentation_return_store_BayPool1"
+  ],
+  "fixtures": [
+    {
+      "id": "entry_tube_0_-1",
+      "room": "entry",
+      "position": [
+        -5.8,
+        5.24,
+        -10
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 3.0,
+      "reach": 11.5,
+      "color": [
+        0.83,
+        0.85,
+        0.73,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "EntryLampFace0-1/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "entry_tube_0_1",
+      "room": "entry",
+      "position": [
+        5.8,
+        5.24,
+        -10
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 3.0,
+      "reach": 11.5,
+      "color": [
+        0.83,
+        0.85,
+        0.73,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "EntryLampFace01/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "entry_tube_1_-1",
+      "room": "entry",
+      "position": [
+        -5.8,
+        5.24,
+        -2
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 3.0,
+      "reach": 11.5,
+      "color": [
+        0.83,
+        0.85,
+        0.73,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "EntryLampFace1-1/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "entry_tube_1_1",
+      "room": "entry",
+      "position": [
+        5.8,
+        5.24,
+        -2
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 3.0,
+      "reach": 11.5,
+      "color": [
+        0.83,
+        0.85,
+        0.73,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "EntryLampFace11/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "entry_tube_2_-1",
+      "room": "entry",
+      "position": [
+        -5.8,
+        5.24,
+        6
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 3.0,
+      "reach": 11.5,
+      "color": [
+        0.83,
+        0.85,
+        0.73,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "EntryLampFace2-1/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "entry_tube_2_1",
+      "room": "entry",
+      "position": [
+        5.8,
+        5.24,
+        6
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 3.0,
+      "reach": 11.5,
+      "color": [
+        0.83,
+        0.85,
+        0.73,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "EntryLampFace21/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "entry_tube_3_-1",
+      "room": "entry",
+      "position": [
+        -5.8,
+        5.24,
+        13
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 3.0,
+      "reach": 11.5,
+      "color": [
+        0.83,
+        0.85,
+        0.73,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "EntryLampFace3-1/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "entry_tube_3_1",
+      "room": "entry",
+      "position": [
+        5.8,
+        5.24,
+        13
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 3.0,
+      "reach": 11.5,
+      "color": [
+        0.83,
+        0.85,
+        0.73,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "EntryLampFace31/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "service_ceiling_0",
+      "room": "service",
+      "position": [
+        3.42,
+        5.563,
+        -42.0
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 0.82,
+      "reach": 8,
+      "color": [
+        0.76,
+        0.84,
+        0.83,
+        1
+      ],
+      "cone_angle": 58,
+      "existing_lens": "IntakePresentation_service/Lens0/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "service_ceiling_1",
+      "room": "service",
+      "position": [
+        -2.16,
+        5.563,
+        -34.16
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 0.82,
+      "reach": 8,
+      "color": [
+        0.88,
+        0.79,
+        0.64,
+        1
+      ],
+      "cone_angle": 58,
+      "existing_lens": "IntakePresentation_service/Lens1/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "arena_one_ceiling_0",
+      "room": "arena_one",
+      "position": [
+        6.84,
+        8.063,
+        -86.0
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.812,
+      "reach": 14.95,
+      "color": [
+        0.76,
+        0.84,
+        0.83,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "IntakePresentation_arena_one/Lens0/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "arena_one_ceiling_1",
+      "room": "arena_one",
+      "position": [
+        -4.32,
+        8.063,
+        -66.4
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.812,
+      "reach": 14.95,
+      "color": [
+        0.88,
+        0.79,
+        0.64,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "IntakePresentation_arena_one/Lens1/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "triage_bank_-1",
+      "room": "arena_one",
+      "position": [
+        -15.74,
+        8.82,
+        -90.6
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 8,
+      "reach": 18,
+      "color": [
+        0.86,
+        0.82,
+        0.7,
+        1
+      ],
+      "cone_angle": 62,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "triage_bank_1",
+      "room": "arena_one",
+      "position": [
+        15.74,
+        8.82,
+        -90.6
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 8,
+      "reach": 18,
+      "color": [
+        0.86,
+        0.82,
+        0.7,
+        1
+      ],
+      "cone_angle": 62,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "key_wing_ceiling_0",
+      "room": "key_wing",
+      "position": [
+        39.04,
+        5.563,
+        -80.5
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.157,
+      "reach": 9.2,
+      "color": [
+        0.76,
+        0.84,
+        0.83,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "IntakePresentation_key_wing/Lens0/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "key_wing_ceiling_1",
+      "room": "key_wing",
+      "position": [
+        34.08,
+        5.563,
+        -71.68
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.157,
+      "reach": 9.2,
+      "color": [
+        0.88,
+        0.79,
+        0.64,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "IntakePresentation_key_wing/Lens1/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "diagnostic_scanner",
+      "room": "key_wing",
+      "position": [
+        36,
+        5.58,
+        -78.52
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 1.5,
+      "reach": 5.75,
+      "color": [
+        0.73,
+        0.84,
+        0.82,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "IntakePresentation_key_wing/ScannerLens/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "key_console_ceiling_0",
+      "room": "key_console",
+      "position": [
+        65.42,
+        5.563,
+        -81.0
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.157,
+      "reach": 9.2,
+      "color": [
+        0.76,
+        0.84,
+        0.83,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "IntakePresentation_key_console/Lens0/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "key_console_ceiling_1",
+      "room": "key_console",
+      "position": [
+        59.84,
+        5.563,
+        -71.2
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.157,
+      "reach": 9.2,
+      "color": [
+        0.88,
+        0.79,
+        0.64,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "IntakePresentation_key_console/Lens1/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "theatre_head_0",
+      "room": "key_console",
+      "position": [
+        66.14,
+        5.224,
+        -79.5
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "surgical",
+      "energy": 4,
+      "reach": 5,
+      "color": [
+        0.92,
+        0.86,
+        0.74,
+        1
+      ],
+      "cone_angle": 35,
+      "existing_lens": "IntakePresentation_key_console/SurgicalLens0/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "theatre_head_1",
+      "room": "key_console",
+      "position": [
+        67.05999999999999,
+        5.224,
+        -79.5
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "surgical",
+      "energy": 4,
+      "reach": 5,
+      "color": [
+        0.92,
+        0.86,
+        0.74,
+        1
+      ],
+      "cone_angle": 35,
+      "existing_lens": "IntakePresentation_key_console/SurgicalLens1/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "return_store_ceiling_0",
+      "room": "return_store",
+      "position": [
+        64.66,
+        5.563,
+        -41.5
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 0.85,
+      "reach": 8,
+      "color": [
+        0.76,
+        0.84,
+        0.83,
+        1
+      ],
+      "cone_angle": 58,
+      "existing_lens": "IntakePresentation_return_store/Lens0/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "return_store_ceiling_1",
+      "room": "return_store",
+      "position": [
+        60.32,
+        5.563,
+        -34.64
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 0.85,
+      "reach": 8,
+      "color": [
+        0.88,
+        0.79,
+        0.64,
+        1
+      ],
+      "cone_angle": 58,
+      "existing_lens": "IntakePresentation_return_store/Lens1/Visual",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "spine_ceiling_0",
+      "room": "spine",
+      "position": [
+        -3.52,
+        7.32,
+        -128.28
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 10.35,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "spine_ceiling_1",
+      "room": "spine",
+      "position": [
+        3.52,
+        7.32,
+        -117.72
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 10.35,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "arena_two_ceiling_0",
+      "room": "arena_two",
+      "position": [
+        -8.36,
+        11.82,
+        -165.04
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 17.25,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "arena_two_ceiling_1",
+      "room": "arena_two",
+      "position": [
+        8.36,
+        11.82,
+        -150.96
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 17.25,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "red_wing_ceiling_0",
+      "room": "red_wing",
+      "position": [
+        -42.64,
+        7.32,
+        -160.64
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 10.35,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "red_wing_ceiling_1",
+      "room": "red_wing",
+      "position": [
+        -37.36,
+        7.32,
+        -155.36
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 10.35,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "red_console_ceiling_0",
+      "room": "red_console",
+      "position": [
+        -42.64,
+        7.32,
+        -195.08
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 3.093,
+      "reach": 10.35,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "red_console_ceiling_1",
+      "room": "red_console",
+      "position": [
+        -37.36,
+        7.32,
+        -188.92
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 3.093,
+      "reach": 10.35,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "final_arena_ceiling_0",
+      "room": "final_arena",
+      "position": [
+        -7.48,
+        11.32,
+        -218.8
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 14.95,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "final_arena_ceiling_1",
+      "room": "final_arena",
+      "position": [
+        7.48,
+        11.32,
+        -201.2
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 14.95,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "exit_gallery_ceiling_0",
+      "room": "exit_gallery",
+      "position": [
+        -4.4,
+        8.82,
+        -250.96
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 5,
+      "reach": 12,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 68,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "exit_gallery_ceiling_1",
+      "room": "exit_gallery",
+      "position": [
+        4.4,
+        8.82,
+        -243.04
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 5,
+      "reach": 12,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 68,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "supplies_ceiling_0",
+      "room": "supplies",
+      "position": [
+        -28.64,
+        4.82,
+        -6.2
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 9.2,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "supplies_ceiling_1",
+      "room": "supplies",
+      "position": [
+        -23.36,
+        4.82,
+        -1.7999999999999998
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 9.2,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "maintenance_ceiling_0",
+      "room": "maintenance",
+      "position": [
+        24.92,
+        4.82,
+        2.48
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 0.85,
+      "reach": 8,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 58,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "maintenance_ceiling_1",
+      "room": "maintenance",
+      "position": [
+        31.08,
+        4.82,
+        9.52
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 0.85,
+      "reach": 8,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 58,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "pump_room_ceiling_0",
+      "room": "pump_room",
+      "position": [
+        34.92,
+        6.32,
+        -138.52
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 0.85,
+      "reach": 8,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 58,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "pump_room_ceiling_1",
+      "room": "pump_room",
+      "position": [
+        41.08,
+        6.32,
+        -131.48
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 0.85,
+      "reach": 8,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 58,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "armory_ceiling_0",
+      "room": "armory",
+      "position": [
+        -42.64,
+        6.32,
+        -120.08
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 1.593,
+      "reach": 9.2,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "armory_ceiling_1",
+      "room": "armory",
+      "position": [
+        -37.36,
+        6.32,
+        -113.92
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 1.593,
+      "reach": 9.2,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "secret_one_ceiling_0",
+      "room": "secret_one",
+      "position": [
+        -43.76,
+        4.82,
+        -5.76
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 1.593,
+      "reach": 9.2,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "secret_one_ceiling_1",
+      "room": "secret_one",
+      "position": [
+        -40.24,
+        4.82,
+        -2.24
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 1.593,
+      "reach": 9.2,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "secret_two_ceiling_0",
+      "room": "secret_two",
+      "position": [
+        -62.2,
+        6.32,
+        -194.2
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 1.593,
+      "reach": 9.2,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "secret_two_ceiling_1",
+      "room": "secret_two",
+      "position": [
+        -57.8,
+        6.32,
+        -189.8
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 1.593,
+      "reach": 9.2,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "observation_ceiling_0",
+      "room": "observation",
+      "position": [
+        34.04,
+        10.82,
+        -213.96
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 9.2,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "observation_ceiling_1",
+      "room": "observation",
+      "position": [
+        41.96,
+        10.82,
+        -206.04
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 2.532,
+      "reach": 9.2,
+      "color": [
+        0.83,
+        0.81,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": false
+    },
+    {
+      "id": "cache_arena_one",
+      "room": "arena_one",
+      "position": [
+        0,
+        8.82,
+        -76
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 6.0,
+      "reach": 16.1,
+      "color": [
+        0.88,
+        0.83,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": true
+    },
+    {
+      "id": "cache_arena_two",
+      "room": "arena_two",
+      "position": [
+        0.0,
+        11.82,
+        -158.0
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 6.0,
+      "reach": 18.4,
+      "color": [
+        0.88,
+        0.83,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": true
+    },
+    {
+      "id": "cache_final_arena",
+      "room": "final_arena",
+      "position": [
+        -7.0,
+        11.32,
+        -210.0
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 6.0,
+      "reach": 16.1,
+      "color": [
+        0.88,
+        0.83,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": true
+    },
+    {
+      "id": "arrival_weapon",
+      "room": "entry",
+      "position": [
+        0,
+        5.82,
+        4
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 6.0,
+      "reach": 11.5,
+      "color": [
+        0.91,
+        0.84,
+        0.67,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": true
+    },
+    {
+      "id": "exit_stair_landmark",
+      "room": "final_arena",
+      "position": [
+        0,
+        11.32,
+        -227.6
+      ],
+      "rotation_degrees": [
+        -90,
+        0,
+        0
+      ],
+      "kind": "tube",
+      "energy": 5.625,
+      "reach": 16.1,
+      "color": [
+        0.91,
+        0.85,
+        0.7,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": false,
+      "shadow": true
+    },
+    {
+      "id": "service_damaged_warning",
+      "room": "service",
+      "position": [
+        8.72,
+        5.0,
+        -34
+      ],
+      "rotation_degrees": [
+        0,
+        90,
+        0
+      ],
+      "kind": "warning",
+      "energy": 0.26,
+      "reach": 3,
+      "color": [
+        1,
+        0.52,
+        0.12,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": true,
+      "shadow": false
+    },
+    {
+      "id": "maintenance_damaged_warning",
+      "room": "maintenance",
+      "position": [
+        34.72,
+        3.5,
+        10.0
+      ],
+      "rotation_degrees": [
+        0,
+        90,
+        0
+      ],
+      "kind": "warning",
+      "energy": 0.26,
+      "reach": 3,
+      "color": [
+        1,
+        0.52,
+        0.12,
+        1
+      ],
+      "cone_angle": 66,
+      "existing_lens": "",
+      "damaged": true,
+      "shadow": false
+    }
+  ],
+  "ambient_energy": 0.38,
+  "group": "intake_lighting_v11",
+  "api": {
+    "toggle": "set_flicker_enabled(bool)",
+    "reset": "reset_lighting()",
+    "inspection": "lighting_state()"
+  },
+  "flicker": {
+    "damaged_fixtures": [
+      "service_damaged_warning",
+      "maintenance_damaged_warning"
+    ],
+    "depth": 0.14,
+    "period_seconds": [
+      19,
+      23
+    ],
+    "dip_seconds": 0.42,
+    "policy": "Smooth deterministic local sag only; stable other fixtures, stairs, keys, weapon caches and exit. No RNG or gameplay writes. Pausable local phase; disabled restores full steady energy immediately."
+  },
+  "geometry": "Non-colliding visual geometry mounted at existing lenses or within.18m of ceiling /wall plate. Existing physical shapes and transforms untouched. Existing tube/surgical lenses are reused rather than duplicated.",
+  "source_policy": "Existing approved native triage trim atlas plus code-native housing/lens geometry; no new raster generation or source image edits.",
+  "integration": "Root applies exact-target patch, then binds persisted default-on toggle through SceneTree group. Retry rebuild resets phases; direct stage reset can call group reset_lighting.",
+  "status": "Implementation candidate; native tests and actual room visual review pending"
+}

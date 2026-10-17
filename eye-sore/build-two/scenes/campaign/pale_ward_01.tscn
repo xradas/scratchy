@@ -1,4 +1,4 @@
-[gd_scene load_steps=2858 format=3]
+[gd_scene load_steps=2859 format=3]
 
 [ext_resource type="Script" path="res://scripts/stage_level.gd" id="level"]
 [ext_resource type="Script" path="res://scripts/stage_door.gd" id="door"]
@@ -30,6 +30,8 @@
 [ext_resource type="Texture2D" path="res://assets/materials/room-families-v8/utility-atlas.png" id="v8_source_utility"]
 [ext_resource type="Shader" path="res://shaders/equipment_surface_v9.gdshader" id="equipment_surface_v9"]
 [ext_resource type="Script" path="res://scripts/control_presentation_v9.gd" id="equipment_control_v9"]
+
+[ext_resource type="PackedScene" path="res://scenes/fixtures/intake_light_v11.tscn" id="lighting_v11_prefab"]
 
 [sub_resource type="CapsuleShape3D" id="player_shape"]
 radius = 0.3
@@ -238,7 +240,7 @@ background_mode = 1
 background_color = Color(0.025,0.025,0.035,1)
 ambient_light_source = 2
 ambient_light_color = Color(0.53,0.55,0.58,1)
-ambient_light_energy = 0.45
+ambient_light_energy = 0.38
 tonemap_mode = 0
 
 [sub_resource type="BoxMesh" id="m1"]
@@ -13801,17 +13803,6 @@ modulate = Color(0.82,0.75,0.58,1)
 shaded = true
 
 
-[node name="ExitStairApproachLight" type="SpotLight3D" parent="."]
-position = Vector3(0, 5.5, -227.6)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 5
-spot_range = 9
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
-
 [node name="Link_13_Roof" type="StaticBody3D" parent="."]
 position = Vector3(0, 9.15, -234)
 
@@ -14806,13 +14797,6 @@ mesh = SubResource("m258")
 [node name="Collision" type="CollisionShape3D" parent="entry_W1"]
 shape = SubResource("s258")
 
-[node name="Light_entry" type="OmniLight3D" parent="."]
-position = Vector3(0, 5.3, 0)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 20.8
-
-
 [node name="RoomName_entry" type="Label3D" parent="."]
 position = Vector3(0, 3, -12.7)
 rotation_degrees = Vector3(0, 0, 0)
@@ -15283,17 +15267,6 @@ position = Vector3(-5.8, 5.24, -10)
 [node name="Visual" type="MeshInstance3D" parent="EntryLampFace0-1"]
 mesh = SubResource("m290")
 
-[node name="EntryDownlight0-1" type="SpotLight3D" parent="."]
-position = Vector3(-5.8, 5.15, -10)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 3.2
-spot_range = 13
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
-
 [node name="EntryLampHousing01" type="Node3D" parent="."]
 position = Vector3(5.8, 5.38, -10)
 
@@ -15308,17 +15281,6 @@ position = Vector3(5.8, 5.24, -10)
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampFace01"]
 mesh = SubResource("m292")
-
-[node name="EntryDownlight01" type="SpotLight3D" parent="."]
-position = Vector3(5.8, 5.15, -10)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 3.2
-spot_range = 13
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
 
 [node name="EntryConduitBrace0" type="Node3D" parent="."]
 position = Vector3(-1.3, 5.32, -10)
@@ -15357,17 +15319,6 @@ position = Vector3(-5.8, 5.24, -2)
 [node name="Visual" type="MeshInstance3D" parent="EntryLampFace1-1"]
 mesh = SubResource("m296")
 
-[node name="EntryDownlight1-1" type="SpotLight3D" parent="."]
-position = Vector3(-5.8, 5.15, -2)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 3.2
-spot_range = 13
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
-
 [node name="EntryLampHousing11" type="Node3D" parent="."]
 position = Vector3(5.8, 5.38, -2)
 
@@ -15382,17 +15333,6 @@ position = Vector3(5.8, 5.24, -2)
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampFace11"]
 mesh = SubResource("m298")
-
-[node name="EntryDownlight11" type="SpotLight3D" parent="."]
-position = Vector3(5.8, 5.15, -2)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 3.2
-spot_range = 13
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
 
 [node name="EntryConduitBrace1" type="Node3D" parent="."]
 position = Vector3(-1.3, 5.32, -2)
@@ -15431,17 +15371,6 @@ position = Vector3(-5.8, 5.24, 6)
 [node name="Visual" type="MeshInstance3D" parent="EntryLampFace2-1"]
 mesh = SubResource("m302")
 
-[node name="EntryDownlight2-1" type="SpotLight3D" parent="."]
-position = Vector3(-5.8, 5.15, 6)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 3.2
-spot_range = 13
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
-
 [node name="EntryLampHousing21" type="Node3D" parent="."]
 position = Vector3(5.8, 5.38, 6)
 
@@ -15456,17 +15385,6 @@ position = Vector3(5.8, 5.24, 6)
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampFace21"]
 mesh = SubResource("m304")
-
-[node name="EntryDownlight21" type="SpotLight3D" parent="."]
-position = Vector3(5.8, 5.15, 6)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 3.2
-spot_range = 13
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
 
 [node name="EntryConduitBrace2" type="Node3D" parent="."]
 position = Vector3(-1.3, 5.32, 6)
@@ -15505,17 +15423,6 @@ position = Vector3(-5.8, 5.24, 13)
 [node name="Visual" type="MeshInstance3D" parent="EntryLampFace3-1"]
 mesh = SubResource("m308")
 
-[node name="EntryDownlight3-1" type="SpotLight3D" parent="."]
-position = Vector3(-5.8, 5.15, 13)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 3.2
-spot_range = 13
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
-
 [node name="EntryLampHousing31" type="Node3D" parent="."]
 position = Vector3(5.8, 5.38, 13)
 
@@ -15530,17 +15437,6 @@ position = Vector3(5.8, 5.24, 13)
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampFace31"]
 mesh = SubResource("m310")
-
-[node name="EntryDownlight31" type="SpotLight3D" parent="."]
-position = Vector3(5.8, 5.15, 13)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 3.2
-spot_range = 13
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
 
 [node name="EntryConduitBrace3" type="Node3D" parent="."]
 position = Vector3(-1.3, 5.32, 13)
@@ -15923,13 +15819,6 @@ mesh = SubResource("m339")
 [node name="Collision" type="CollisionShape3D" parent="service_W0"]
 shape = SubResource("s339")
 
-[node name="Light_service" type="OmniLight3D" parent="."]
-position = Vector3(0, 5.8, -38)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 14.4
-
-
 [node name="RoomName_service" type="Label3D" parent="."]
 position = Vector3(0, 4.5, -45.7)
 rotation_degrees = Vector3(0, 0, 0)
@@ -16133,13 +16022,6 @@ mesh = SubResource("m353")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_W0"]
 shape = SubResource("s353")
-
-[node name="Light_arena_one" type="OmniLight3D" parent="."]
-position = Vector3(0, 8.3, -76)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 32.0
-
 
 [node name="RoomName_arena_one" type="Label3D" parent="."]
 position = Vector3(0, 2, -95.7)
@@ -17432,13 +17314,6 @@ mesh = SubResource("m442")
 [node name="Collision" type="CollisionShape3D" parent="arena_one_AngledFeed11"]
 shape = SubResource("s442")
 
-[node name="V2Light_arena_one" type="OmniLight3D" parent="."]
-position = Vector3(0, 4, -76)
-light_color = Color(0.72,0.8,0.62,1)
-light_energy = 3
-omni_range = 25
-
-
 [node name="Room_key_wing" type="Marker3D" parent="."]
 position = Vector3(36, 4, -76)
 metadata/stage_room = "key_wing"
@@ -17587,13 +17462,6 @@ mesh = SubResource("m452")
 
 [node name="Collision" type="CollisionShape3D" parent="key_wing_W1"]
 shape = SubResource("s452")
-
-[node name="Light_key_wing" type="OmniLight3D" parent="."]
-position = Vector3(36, 5.8, -76)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 14.4
-
 
 [node name="RoomName_key_wing" type="Label3D" parent="."]
 position = Vector3(36, 4.5, -84.7)
@@ -17755,13 +17623,6 @@ mesh = SubResource("m462")
 [node name="Collision" type="CollisionShape3D" parent="key_console_W1"]
 shape = SubResource("s462")
 
-[node name="Light_key_console" type="OmniLight3D" parent="."]
-position = Vector3(62, 5.8, -76)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 16.0
-
-
 [node name="RoomName_key_console" type="Label3D" parent="."]
 position = Vector3(62, 4.5, -85.7)
 rotation_degrees = Vector3(0, 0, 0)
@@ -17921,13 +17782,6 @@ mesh = SubResource("m472")
 
 [node name="Collision" type="CollisionShape3D" parent="return_store_W1"]
 shape = SubResource("s472")
-
-[node name="Light_return_store" type="OmniLight3D" parent="."]
-position = Vector3(62, 5.8, -38)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 11.200000000000001
-
 
 [node name="RoomName_return_store" type="Label3D" parent="."]
 position = Vector3(62, 4.5, -44.7)
@@ -18131,13 +17985,6 @@ mesh = SubResource("m486")
 [node name="Collision" type="CollisionShape3D" parent="spine_W1"]
 shape = SubResource("s486")
 
-[node name="Light_spine" type="OmniLight3D" parent="."]
-position = Vector3(0, 6.8, -123)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 19.200000000000003
-
-
 [node name="RoomName_spine" type="Label3D" parent="."]
 position = Vector3(0, 4.5, -134.7)
 rotation_degrees = Vector3(0, 0, 0)
@@ -18314,13 +18161,6 @@ mesh = SubResource("m498")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_two_W1"]
 shape = SubResource("s498")
-
-[node name="Light_arena_two" type="OmniLight3D" parent="."]
-position = Vector3(0, 11.3, -158)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 30.400000000000002
-
 
 [node name="RoomName_arena_two" type="Label3D" parent="."]
 position = Vector3(0, 3, -173.7)
@@ -19435,13 +19275,6 @@ position = Vector3(8, 0.018, -164)
 [node name="Visual" type="MeshInstance3D" parent="arena_two_CultureSumpSurface"]
 mesh = SubResource("m577")
 
-[node name="V2Light_arena_two" type="OmniLight3D" parent="."]
-position = Vector3(0, 5, -158)
-light_color = Color(0.72,0.8,0.62,1)
-light_energy = 3
-omni_range = 25
-
-
 [node name="Room_red_wing" type="Marker3D" parent="."]
 position = Vector3(-40, 4.5, -158)
 metadata/stage_room = "red_wing"
@@ -19607,13 +19440,6 @@ mesh = SubResource("m589")
 [node name="Collision" type="CollisionShape3D" parent="red_wing_W0"]
 shape = SubResource("s589")
 
-[node name="Light_red_wing" type="OmniLight3D" parent="."]
-position = Vector3(-40, 6.8, -158)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 9.600000000000001
-
-
 [node name="RoomName_red_wing" type="Label3D" parent="."]
 position = Vector3(-40, 4.5, -163.7)
 rotation_degrees = Vector3(0, 0, 0)
@@ -19763,13 +19589,6 @@ mesh = SubResource("m599")
 
 [node name="Collision" type="CollisionShape3D" parent="red_console_W1"]
 shape = SubResource("s599")
-
-[node name="Light_red_console" type="OmniLight3D" parent="."]
-position = Vector3(-40, 6.8, -192)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 11.200000000000001
-
 
 [node name="RoomName_red_console" type="Label3D" parent="."]
 position = Vector3(-40, 4.5, -198.7)
@@ -19947,13 +19766,6 @@ mesh = SubResource("m611")
 
 [node name="Collision" type="CollisionShape3D" parent="final_arena_W0"]
 shape = SubResource("s611")
-
-[node name="Light_final_arena" type="OmniLight3D" parent="."]
-position = Vector3(0, 10.8, -210)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 32.0
-
 
 [node name="RoomName_final_arena" type="Label3D" parent="."]
 position = Vector3(0, 4.5, -229.7)
@@ -20646,13 +20458,6 @@ position = Vector3(8, 1.518, -216)
 [node name="Visual" type="MeshInstance3D" parent="final_arena_CultureSumpSurface"]
 mesh = SubResource("m658")
 
-[node name="V2Light_final_arena" type="OmniLight3D" parent="."]
-position = Vector3(0, 6.5, -210)
-light_color = Color(0.72,0.8,0.62,1)
-light_energy = 3
-omni_range = 25
-
-
 [node name="Room_exit_gallery" type="Marker3D" parent="."]
 position = Vector3(0, 6, -247)
 metadata/stage_room = "exit_gallery"
@@ -20765,13 +20570,6 @@ mesh = SubResource("m666")
 
 [node name="Collision" type="CollisionShape3D" parent="exit_gallery_W0"]
 shape = SubResource("s666")
-
-[node name="Light_exit_gallery" type="OmniLight3D" parent="."]
-position = Vector3(0, 8.3, -247)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 16.0
-
 
 [node name="RoomName_exit_gallery" type="Label3D" parent="."]
 position = Vector3(0, 6, -255.7)
@@ -20910,13 +20708,6 @@ mesh = SubResource("m675")
 [node name="Collision" type="CollisionShape3D" parent="supplies_W1"]
 shape = SubResource("s675")
 
-[node name="Light_supplies" type="OmniLight3D" parent="."]
-position = Vector3(-26, 4.3, -4)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 9.600000000000001
-
-
 [node name="RoomName_supplies" type="Label3D" parent="."]
 position = Vector3(-26, 3, -8.7)
 rotation_degrees = Vector3(0, 0, 0)
@@ -21028,13 +20819,6 @@ mesh = SubResource("m682")
 [node name="Collision" type="CollisionShape3D" parent="maintenance_W1"]
 shape = SubResource("s682")
 
-[node name="Light_maintenance" type="OmniLight3D" parent="."]
-position = Vector3(28, 4.3, 6)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 12.8
-
-
 [node name="RoomName_maintenance" type="Label3D" parent="."]
 position = Vector3(28, 3, -1.7)
 rotation_degrees = Vector3(0, 0, 0)
@@ -21145,13 +20929,6 @@ mesh = SubResource("m689")
 
 [node name="Collision" type="CollisionShape3D" parent="pump_room_LintelW0"]
 shape = SubResource("s689")
-
-[node name="Light_pump_room" type="OmniLight3D" parent="."]
-position = Vector3(38, 5.8, -135)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 12.8
-
 
 [node name="RoomName_pump_room" type="Label3D" parent="."]
 position = Vector3(38, 4.5, -142.7)
@@ -21303,13 +21080,6 @@ mesh = SubResource("m699")
 [node name="Collision" type="CollisionShape3D" parent="armory_W0"]
 shape = SubResource("s699")
 
-[node name="Light_armory" type="OmniLight3D" parent="."]
-position = Vector3(-40, 5.8, -117)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 11.200000000000001
-
-
 [node name="RoomName_armory" type="Label3D" parent="."]
 position = Vector3(-40, 4.5, -123.7)
 rotation_degrees = Vector3(0, 0, 0)
@@ -21433,13 +21203,6 @@ mesh = SubResource("m707")
 
 [node name="Collision" type="CollisionShape3D" parent="secret_one_W0"]
 shape = SubResource("s707")
-
-[node name="Light_secret_one" type="OmniLight3D" parent="."]
-position = Vector3(-42, 4.3, -4)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 6.4
-
 
 [node name="RoomName_secret_one" type="Label3D" parent="."]
 position = Vector3(-42, 3, -7.7)
@@ -21565,13 +21328,6 @@ mesh = SubResource("m715")
 [node name="Collision" type="CollisionShape3D" parent="secret_two_W0"]
 shape = SubResource("s715")
 
-[node name="Light_secret_two" type="OmniLight3D" parent="."]
-position = Vector3(-60, 5.8, -192)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 8.0
-
-
 [node name="RoomName_secret_two" type="Label3D" parent="."]
 position = Vector3(-60, 4.5, -196.7)
 rotation_degrees = Vector3(0, 0, 0)
@@ -21696,13 +21452,6 @@ mesh = SubResource("m723")
 [node name="Collision" type="CollisionShape3D" parent="observation_W1"]
 shape = SubResource("s723")
 
-[node name="Light_observation" type="OmniLight3D" parent="."]
-position = Vector3(38, 10.3, -210)
-light_color = Color(0.9,0.9,0.72,1)
-light_energy = 2.5
-omni_range = 14.4
-
-
 [node name="RoomName_observation" type="Label3D" parent="."]
 position = Vector3(38, 9, -218.7)
 rotation_degrees = Vector3(0, 0, 0)
@@ -21731,7 +21480,7 @@ metadata/activate_room = "entry"
 
 [node name="Spawn_2" type="Marker3D" parent="EnemySpawns"]
 position = Vector3(-4.5, 2.37, -42)
-metadata/kind = "unsealed"
+metadata/kind = "infected_security"
 metadata/arena_id = ""
 metadata/activate_room = "service"
 
@@ -22108,7 +21857,7 @@ metadata/activate_room = "arena_one"
 
 [node name="Spawn_9" type="Marker3D" parent="EnemySpawns"]
 position = Vector3(32, 2.37, -80)
-metadata/kind = "unsealed"
+metadata/kind = "infected_scientist"
 metadata/arena_id = ""
 metadata/activate_room = "key_wing"
 
@@ -22126,7 +21875,7 @@ metadata/activate_room = "key_wing"
 
 [node name="Spawn_12" type="Marker3D" parent="EnemySpawns"]
 position = Vector3(57.5, 2.37, -80)
-metadata/kind = "unsealed"
+metadata/kind = "infected_scientist"
 metadata/arena_id = ""
 metadata/activate_room = "key_console"
 
@@ -22521,7 +22270,7 @@ metadata/activate_room = "arena_two"
 
 [node name="Spawn_22" type="Marker3D" parent="EnemySpawns"]
 position = Vector3(-43, 2.37, -162)
-metadata/kind = "unsealed"
+metadata/kind = "infected_scientist"
 metadata/arena_id = ""
 metadata/activate_room = "red_wing"
 
@@ -22539,7 +22288,7 @@ metadata/activate_room = "red_wing"
 
 [node name="Spawn_25" type="Marker3D" parent="EnemySpawns"]
 position = Vector3(-43, 2.37, -196)
-metadata/kind = "unsealed"
+metadata/kind = "infected_scientist"
 metadata/arena_id = ""
 metadata/activate_room = "red_console"
 
@@ -22989,7 +22738,7 @@ metadata/activate_room = "pump_room"
 
 [node name="Spawn_33" type="Marker3D" parent="EnemySpawns"]
 position = Vector3(-43, 2.37, -121)
-metadata/kind = "unsealed"
+metadata/kind = "infected_security"
 metadata/arena_id = ""
 metadata/activate_room = "armory"
 
@@ -23073,17 +22822,6 @@ modulate = Color(0.82,0.75,0.58,1)
 shaded = true
 
 
-[node name="CacheLight_arena_one" type="SpotLight3D" parent="."]
-position = Vector3(0, 8.5, -76)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 7
-spot_range = 14
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
-
 [node name="CachePedestal_arena_two" type="Node3D" parent="."]
 position = Vector3(0, 2.15, -158)
 
@@ -23152,17 +22890,6 @@ modulate = Color(0.82,0.75,0.58,1)
 shaded = true
 
 
-[node name="CacheLight_arena_two" type="SpotLight3D" parent="."]
-position = Vector3(0, 11.5, -158)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 7
-spot_range = 14
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
-
 [node name="CachePedestal_final_arena" type="Node3D" parent="."]
 position = Vector3(-7, 4.15, -210)
 
@@ -23230,17 +22957,6 @@ outline_size = 0
 modulate = Color(0.82,0.75,0.58,1)
 shaded = true
 
-
-[node name="CacheLight_final_arena" type="SpotLight3D" parent="."]
-position = Vector3(-7, 11, -210)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 7
-spot_range = 14
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
 
 [node name="Button_breaker" type="StaticBody3D" parent="."]
 position = Vector3(4.5, 0.05, -93)
@@ -25888,17 +25604,6 @@ modulate = Color(0.82,0.75,0.58,1)
 shaded = true
 
 
-[node name="FirstGunCacheLight" type="SpotLight3D" parent="."]
-position = Vector3(0, 5.5, 4)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 8
-spot_range = 12
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
-
 [node name="FirstGunCacheSign" type="Label3D" parent="."]
 position = Vector3(0, 2.6, 4)
 rotation_degrees = Vector3(0, 0, 0)
@@ -26182,20 +25887,6 @@ position = Vector3(0, 2.27, 0)
 material_override = SubResource("v9_triage_equipment")
 mesh = SubResource("m1201")
 
-[node name="RoomBayLight_entry_E" type="OmniLight3D" parent="."]
-position = Vector3(7.3, 3.4, 6.4)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_entry_S" type="OmniLight3D" parent="."]
-position = Vector3(4, 3.4, 8.3)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
 [node name="RoomProp_pale_ward_01_service_decon_frame_01_1" type="Node3D" parent="."]
 position = Vector3(-8.075, 1.5, -43.28)
 rotation_degrees = Vector3(0,90,0)
@@ -26352,20 +26043,6 @@ position = Vector3(0, 2.27, 0)
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_service_ppe_locker_03_1/Crown"]
 material_override = SubResource("v9_utility_equipment")
 mesh = SubResource("m1214")
-
-[node name="RoomBayLight_service_W" type="OmniLight3D" parent="."]
-position = Vector3(-7.375, 4.9, -43.28)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_service_S" type="OmniLight3D" parent="."]
-position = Vector3(-6.2, 4.9, -32)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
 
 [node name="RoomProp_pale_ward_01_arena_one_medical_bed_01_1" type="Node3D" parent="."]
 position = Vector3(-16.44, -1, -92.3)
@@ -26815,20 +26492,6 @@ position = Vector3(0.35, 1.17, 0.47)
 material_override = SubResource("v9_triage_equipment")
 mesh = SubResource("m1248")
 
-[node name="RoomBayLight_arena_one_W" type="OmniLight3D" parent="."]
-position = Vector3(-15.74, 2.4, -89.8875)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_arena_one_E" type="OmniLight3D" parent="."]
-position = Vector3(15.74, 2.4, -89.8875)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
 [node name="RoomProp_pale_ward_01_key_wing_scan_console_01_1" type="Node3D" parent="."]
 position = Vector3(40, 1.5, -82.5)
 rotation_degrees = Vector3(0,0,0)
@@ -27004,13 +26667,6 @@ position = Vector3(0, 2.27, 0)
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_key_wing_specimen_fridge_03_1/Crown"]
 material_override = SubResource("v9_surgery_equipment")
 mesh = SubResource("m1264")
-
-[node name="RoomBayLight_key_wing_N" type="OmniLight3D" parent="."]
-position = Vector3(36, 4.9, -81.8)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
 
 [node name="RoomProp_pale_ward_01_key_console_surgical_table_01_1" type="Node3D" parent="."]
 position = Vector3(66.6, 1.5, -79.5)
@@ -27237,20 +26893,6 @@ position = Vector3(0, 1.9, 0.33)
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_key_console_surgical_lamp_03_1/Readout"]
 mesh = SubResource("m1280")
 
-[node name="RoomBayLight_key_console_E" type="OmniLight3D" parent="."]
-position = Vector3(67, 4.9, -80.65)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_key_console_N" type="OmniLight3D" parent="."]
-position = Vector3(66.6, 4.9, -81.1)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
 [node name="RoomProp_pale_ward_01_return_store_medical_cabinet_01_1" type="Node3D" parent="."]
 position = Vector3(56.4, 1.5, -42.8)
 rotation_degrees = Vector3(0,90,0)
@@ -27412,20 +27054,6 @@ position = Vector3(0, 2.27, 0)
 material_override = SubResource("v9_utility_equipment")
 mesh = SubResource("m1296")
 
-[node name="RoomBayLight_return_store_W" type="OmniLight3D" parent="."]
-position = Vector3(57.1, 4.9, -38)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_return_store_E" type="OmniLight3D" parent="."]
-position = Vector3(66.5, 4.9, -42.8)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
 [node name="RoomProp_pale_ward_01_spine_decon_frame_01_1" type="Node3D" parent="."]
 position = Vector3(-7.075, 1.5, -130.92)
 rotation_degrees = Vector3(0,90,0)
@@ -27582,20 +27210,6 @@ position = Vector3(0, 2.27, 0)
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_spine_ppe_locker_03_1/Crown"]
 material_override = SubResource("v9_utility_equipment")
 mesh = SubResource("m1309")
-
-[node name="RoomBayLight_spine_W" type="OmniLight3D" parent="."]
-position = Vector3(-6.375, 4.9, -130.92)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_spine_S" type="OmniLight3D" parent="."]
-position = Vector3(-5.28, 4.9, -112.76)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
 
 [node name="RoomProp_pale_ward_01_arena_two_isolation_bed_01_1" type="Node3D" parent="."]
 position = Vector3(6.460000000000001, 0.0, -146.3)
@@ -28045,27 +27659,6 @@ position = Vector3(0.35, 1.17, 0.47)
 material_override = SubResource("v9_triage_equipment")
 mesh = SubResource("m1343")
 
-[node name="RoomBayLight_arena_two_S" type="OmniLight3D" parent="."]
-position = Vector3(3.545, 3.4, -144.924)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_arena_two_N" type="OmniLight3D" parent="."]
-position = Vector3(2.15333, 3.4, -171.285)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_arena_two_E" type="OmniLight3D" parent="."]
-position = Vector3(17.19, 3.4, -158)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
 [node name="RoomProp_pale_ward_01_red_wing_instrument_bench_01_1" type="Node3D" parent="."]
 position = Vector3(-44.775, 1.5, -161.96)
 rotation_degrees = Vector3(0,90,0)
@@ -28288,20 +27881,6 @@ position = Vector3(0, 2, 0.182)
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_red_wing_sample_rack_03_1/Contents2"]
 mesh = SubResource("m1362")
 
-[node name="RoomBayLight_red_wing_W" type="OmniLight3D" parent="."]
-position = Vector3(-44.15, 4.9, -158)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_red_wing_E" type="OmniLight3D" parent="."]
-position = Vector3(-35.81, 4.9, -161.96)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
 [node name="RoomProp_pale_ward_01_red_console_scan_console_01_1" type="Node3D" parent="."]
 position = Vector3(-44.89, 1.5, -196.62)
 rotation_degrees = Vector3(0,90,0)
@@ -28511,20 +28090,6 @@ position = Vector3(0, 2, 0.182)
 
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_red_console_sample_rack_03_1/Contents2"]
 mesh = SubResource("m1381")
-
-[node name="RoomBayLight_red_console_W" type="OmniLight3D" parent="."]
-position = Vector3(-44.19, 4.9, -196.62)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_red_console_N" type="OmniLight3D" parent="."]
-position = Vector3(-43.96, 4.9, -197.225)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
 
 [node name="RoomProp_pale_ward_01_final_arena_specimen_tank_01_1" type="Node3D" parent="."]
 position = Vector3(15.350000000000001, 1.5, -223.2)
@@ -28916,34 +28481,6 @@ position = Vector3(0, 2.27, 0)
 material_override = SubResource("v9_utility_equipment")
 mesh = SubResource("m1419")
 
-[node name="RoomBayLight_final_arena_W" type="OmniLight3D" parent="."]
-position = Vector3(-14.83, 4.9, -215.6)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_final_arena_E" type="OmniLight3D" parent="."]
-position = Vector3(14.83, 4.9, -215.6)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_final_arena_S" type="OmniLight3D" parent="."]
-position = Vector3(-14.28, 4.9, -191.81)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_final_arena_N" type="OmniLight3D" parent="."]
-position = Vector3(-14.28, 4.9, -228.19)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
 [node name="RoomProp_pale_ward_01_exit_gallery_decon_frame_01_1" type="Node3D" parent="."]
 position = Vector3(-9.075, 3.0, -252.94)
 rotation_degrees = Vector3(0,90,0)
@@ -29100,20 +28637,6 @@ position = Vector3(0, 2.27, 0)
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_exit_gallery_ppe_locker_03_1/Crown"]
 material_override = SubResource("v9_utility_equipment")
 mesh = SubResource("m1432")
-
-[node name="RoomBayLight_exit_gallery_W" type="OmniLight3D" parent="."]
-position = Vector3(-8.375, 6.4, -252.94)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_exit_gallery_S" type="OmniLight3D" parent="."]
-position = Vector3(-6.6, 6.4, -239.81)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
 
 [node name="RoomProp_pale_ward_01_supplies_medical_cabinet_01_1" type="Node3D" parent="."]
 position = Vector3(-30.89, 0, -7.300000000000001)
@@ -29317,20 +28840,6 @@ position = Vector3(0, 2, 0.182)
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_supplies_sample_rack_03_1/Contents2"]
 mesh = SubResource("m1450")
 
-[node name="RoomBayLight_supplies_W" type="OmniLight3D" parent="."]
-position = Vector3(-30.19, 3.4, -7.3)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_supplies_S" type="OmniLight3D" parent="."]
-position = Vector3(-29.96, 3.4, -0.775)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
 [node name="RoomProp_pale_ward_01_maintenance_pump_rig_01_1" type="Node3D" parent="."]
 position = Vector3(33.525, 0, 0.7199999999999998)
 rotation_degrees = Vector3(0,-90,0)
@@ -29496,20 +29005,6 @@ position = Vector3(0, 2.27, 0)
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_maintenance_tool_cabinet_03_1/Crown"]
 material_override = SubResource("v9_utility_equipment")
 mesh = SubResource("m1465")
-
-[node name="RoomBayLight_maintenance_W" type="OmniLight3D" parent="."]
-position = Vector3(22.81, 3.4, 11.28)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_maintenance_S" type="OmniLight3D" parent="."]
-position = Vector3(23.38, 3.4, 12.24)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
 
 [node name="RoomProp_pale_ward_01_pump_room_pump_rig_01_1" type="Node3D" parent="."]
 position = Vector3(32.475, 1.5, -140.28)
@@ -29677,20 +29172,6 @@ position = Vector3(0, 2.27, 0)
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_pump_room_tool_cabinet_03_1/Crown"]
 material_override = SubResource("v9_utility_equipment")
 mesh = SubResource("m1480")
-
-[node name="RoomBayLight_pump_room_W" type="OmniLight3D" parent="."]
-position = Vector3(33.175, 4.9, -140.28)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_pump_room_N" type="OmniLight3D" parent="."]
-position = Vector3(33.38, 4.9, -141.19)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
 
 [node name="RoomProp_pale_ward_01_armory_weapon_rack_01_1" type="Node3D" parent="."]
 position = Vector3(-44.925, 1.5, -121.62)
@@ -29926,20 +29407,6 @@ position = Vector3(0, 2.27, 0)
 material_override = SubResource("v9_utility_equipment")
 mesh = SubResource("m1502")
 
-[node name="RoomBayLight_armory_W" type="OmniLight3D" parent="."]
-position = Vector3(-44.225, 4.9, -121.62)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_armory_S" type="OmniLight3D" parent="."]
-position = Vector3(-43.96, 4.9, -111.81)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
 [node name="RoomProp_pale_ward_01_secret_one_medical_cabinet_01_1" type="Node3D" parent="."]
 position = Vector3(-44.64, 0, -1.1099999999999999)
 rotation_degrees = Vector3(0,180,0)
@@ -30042,20 +29509,6 @@ position = Vector3(0.364, 0.625, 0.57)
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_secret_one_supply_cart_02_1/Strap1"]
 material_override = SubResource("v9_utility_equipment")
 mesh = SubResource("m1512")
-
-[node name="RoomBayLight_secret_one_W" type="OmniLight3D" parent="."]
-position = Vector3(-44, 3.4, -5.36)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_secret_one_S" type="OmniLight3D" parent="."]
-position = Vector3(-44.64, 3.4, -1.81)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
 
 [node name="RoomProp_pale_ward_01_secret_two_specimen_tank_01_1" type="Node3D" parent="."]
 position = Vector3(-56.65, 1.5, -195.3)
@@ -30197,20 +29650,6 @@ position = Vector3(0, 2, 0.182)
 
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_secret_two_sample_rack_02_1/Contents2"]
 mesh = SubResource("m1524")
-
-[node name="RoomBayLight_secret_two_W" type="OmniLight3D" parent="."]
-position = Vector3(-63.225, 4.9, -195.3)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_secret_two_E" type="OmniLight3D" parent="."]
-position = Vector3(-57.35, 4.9, -195.3)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
 
 [node name="RoomProp_pale_ward_01_observation_containment_console_01_1" type="Node3D" parent="."]
 position = Vector3(30.11, 6.0, -215.94)
@@ -30375,20 +29814,6 @@ position = Vector3(0.35, 1.17, 0.47)
 [node name="Visual" type="MeshInstance3D" parent="RoomProp_pale_ward_01_observation_vital_monitor_03_1/Key1"]
 material_override = SubResource("v9_utility_equipment")
 mesh = SubResource("m1540")
-
-[node name="RoomBayLight_observation_W" type="OmniLight3D" parent="."]
-position = Vector3(30.81, 9.4, -215.94)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
-
-[node name="RoomBayLight_observation_S" type="OmniLight3D" parent="."]
-position = Vector3(32.06, 9.4, -202.81)
-light_color = Color(0.72,0.91,0.78,1)
-light_energy = 2.5
-omni_range = 14
-
 
 [node name="IntakePresentation_entry" type="Node3D" parent="."]
 position = Vector3(0, 0, 0)
@@ -30583,13 +30008,6 @@ position = Vector3(4.56, 5.063, -6.5)
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/Lens0"]
 mesh = SubResource("m1554")
 
-[node name="IntakePresentation_entry_BayPool0" type="OmniLight3D" parent="."]
-position = Vector3(4.56, 4.15, -6.5)
-light_color = Color(0.57,0.72,0.65,1)
-light_energy = 0.75
-omni_range = 7
-
-
 [node name="Luminaire1" type="StaticBody3D" parent="IntakePresentation_entry"]
 position = Vector3(-2.88, 5.15, 6.24)
 
@@ -30610,13 +30028,6 @@ position = Vector3(-2.88, 5.063, 6.24)
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/Lens1"]
 mesh = SubResource("m1556")
-
-[node name="IntakePresentation_entry_BayPool1" type="OmniLight3D" parent="."]
-position = Vector3(-2.88, 4.15, 6.24)
-light_color = Color(0.84,0.73,0.52,1)
-light_energy = 0.75
-omni_range = 7
-
 
 [node name="ReceptionCanopy" type="StaticBody3D" parent="IntakePresentation_entry"]
 position = Vector3(5.76, 3.72, 7.02)
@@ -30838,13 +30249,6 @@ position = Vector3(3.42, 4.063, -4)
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/Lens0"]
 mesh = SubResource("m1572")
 
-[node name="IntakePresentation_service_BayPool0" type="OmniLight3D" parent="."]
-position = Vector3(3.42, 5.45, -42)
-light_color = Color(0.57,0.72,0.65,1)
-light_energy = 0.75
-omni_range = 7
-
-
 [node name="Luminaire1" type="StaticBody3D" parent="IntakePresentation_service"]
 position = Vector3(-2.16, 4.15, 3.84)
 
@@ -30865,13 +30269,6 @@ position = Vector3(-2.16, 4.063, 3.84)
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/Lens1"]
 mesh = SubResource("m1574")
-
-[node name="IntakePresentation_service_BayPool1" type="OmniLight3D" parent="."]
-position = Vector3(-2.16, 5.45, -34.16)
-light_color = Color(0.84,0.73,0.52,1)
-light_energy = 0.75
-omni_range = 7
-
 
 [node name="AirPlenum-1" type="StaticBody3D" parent="IntakePresentation_service"]
 position = Vector3(-8.75, 4.63, 0)
@@ -31246,13 +30643,6 @@ position = Vector3(6.84, 9.063, -10)
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/Lens0"]
 mesh = SubResource("m1601")
 
-[node name="IntakePresentation_arena_one_BayPool0" type="OmniLight3D" parent="."]
-position = Vector3(6.84, 3.15, -86)
-light_color = Color(0.57,0.72,0.65,1)
-light_energy = 1.0
-omni_range = 10
-
-
 [node name="Luminaire1" type="StaticBody3D" parent="IntakePresentation_arena_one"]
 position = Vector3(-4.32, 9.15, 9.6)
 
@@ -31273,13 +30663,6 @@ position = Vector3(-4.32, 9.063, 9.6)
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/Lens1"]
 mesh = SubResource("m1603")
-
-[node name="IntakePresentation_arena_one_BayPool1" type="OmniLight3D" parent="."]
-position = Vector3(-4.32, 3.15, -66.4)
-light_color = Color(0.84,0.73,0.52,1)
-light_energy = 1.0
-omni_range = 10
-
 
 [node name="TriageGantry-1" type="StaticBody3D" parent="IntakePresentation_arena_one"]
 position = Vector3(-9.72, 6.25, 0)
@@ -31392,20 +30775,6 @@ mesh = SubResource("m1611")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/GantryHanger12"]
 shape = SubResource("s1611")
-
-[node name="IntakePresentation_arena_one_TriageBay-1" type="OmniLight3D" parent="."]
-position = Vector3(-12.6, 2.4, -80)
-light_color = Color(0.57,0.72,0.65,1)
-light_energy = 0.65
-omni_range = 8
-
-
-[node name="IntakePresentation_arena_one_TriageBay1" type="OmniLight3D" parent="."]
-position = Vector3(12.6, 2.4, -80)
-light_color = Color(0.57,0.72,0.65,1)
-light_energy = 0.65
-omni_range = 8
-
 
 [node name="IntakePresentation_key_wing" type="Node3D" parent="."]
 position = Vector3(36, 1.5, -76)
@@ -31600,13 +30969,6 @@ position = Vector3(3.04, 4.063, -4.5)
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/Lens0"]
 mesh = SubResource("m1625")
 
-[node name="IntakePresentation_key_wing_BayPool0" type="OmniLight3D" parent="."]
-position = Vector3(39.04, 5.45, -80.5)
-light_color = Color(0.57,0.72,0.65,1)
-light_energy = 0.75
-omni_range = 7
-
-
 [node name="Luminaire1" type="StaticBody3D" parent="IntakePresentation_key_wing"]
 position = Vector3(-1.92, 4.15, 4.32)
 
@@ -31627,13 +30989,6 @@ position = Vector3(-1.92, 4.063, 4.32)
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/Lens1"]
 mesh = SubResource("m1627")
-
-[node name="IntakePresentation_key_wing_BayPool1" type="OmniLight3D" parent="."]
-position = Vector3(34.08, 5.45, -71.68)
-light_color = Color(0.84,0.73,0.52,1)
-light_energy = 0.75
-omni_range = 7
-
 
 [node name="ScannerTrack" type="StaticBody3D" parent="IntakePresentation_key_wing"]
 position = Vector3(0, 4.67, 0)
@@ -31861,13 +31216,6 @@ position = Vector3(3.42, 4.063, -5)
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/Lens0"]
 mesh = SubResource("m1644")
 
-[node name="IntakePresentation_key_console_BayPool0" type="OmniLight3D" parent="."]
-position = Vector3(65.42, 5.45, -81)
-light_color = Color(0.57,0.72,0.65,1)
-light_energy = 0.75
-omni_range = 7
-
-
 [node name="Luminaire1" type="StaticBody3D" parent="IntakePresentation_key_console"]
 position = Vector3(-2.16, 4.15, 4.8)
 
@@ -31888,13 +31236,6 @@ position = Vector3(-2.16, 4.063, 4.8)
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/Lens1"]
 mesh = SubResource("m1646")
-
-[node name="IntakePresentation_key_console_BayPool1" type="OmniLight3D" parent="."]
-position = Vector3(59.84, 5.45, -71.2)
-light_color = Color(0.84,0.73,0.52,1)
-light_energy = 0.75
-omni_range = 7
-
 
 [node name="SurgicalCeilingMount" type="StaticBody3D" parent="IntakePresentation_key_console"]
 position = Vector3(4.6, 4.86, -3.5)
@@ -31972,17 +31313,6 @@ mesh = SubResource("m1653")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/SurgicalArm"]
 shape = SubResource("s1653")
-
-[node name="IntakePresentation_key_console_SurgicalPool" type="SpotLight3D" parent="."]
-position = Vector3(66.6, 5.1, -79.5)
-rotation_degrees = Vector3(-90,0,0)
-light_color = Color(0.9,0.88,0.8,1)
-light_energy = 2.2
-spot_range = 6
-spot_angle = 62
-shadow_enabled = true
-shadow_bias = 0.025
-shadow_normal_bias = 0.35
 
 [node name="IntakePresentation_return_store" type="Node3D" parent="."]
 position = Vector3(62, 1.5, -38)
@@ -32177,13 +31507,6 @@ position = Vector3(2.66, 4.063, -3.5)
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/Lens0"]
 mesh = SubResource("m1667")
 
-[node name="IntakePresentation_return_store_BayPool0" type="OmniLight3D" parent="."]
-position = Vector3(64.66, 5.45, -41.5)
-light_color = Color(0.57,0.72,0.65,1)
-light_energy = 0.75
-omni_range = 7
-
-
 [node name="Luminaire1" type="StaticBody3D" parent="IntakePresentation_return_store"]
 position = Vector3(-1.68, 4.15, 3.36)
 
@@ -32204,13 +31527,6 @@ position = Vector3(-1.68, 4.063, 3.36)
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/Lens1"]
 mesh = SubResource("m1669")
-
-[node name="IntakePresentation_return_store_BayPool1" type="OmniLight3D" parent="."]
-position = Vector3(60.32, 5.45, -34.64)
-light_color = Color(0.84,0.73,0.52,1)
-light_energy = 0.75
-omni_range = 7
-
 
 [node name="SupplyTrack-1" type="StaticBody3D" parent="IntakePresentation_return_store"]
 position = Vector3(-3.08, 4.55, 0)
@@ -32287,3 +31603,812 @@ target_path = NodePath("..")
 required_flags = PackedStringArray("brass_key", "red_key", "exit_control")
 is_exit = true
 surface_material = SubResource("v9_utility_exit")
+
+[node name="LightingV11" type="Node3D" parent="."]
+metadata/lighting_version = 11
+metadata/flicker_fixture_count = 2
+
+[node name="entry_tube_0_-1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-5.8, 5.24, -10)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 3.0
+reach = 11.5
+cone_angle = 66
+lamp_color = Color(0.83, 0.85, 0.73, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "entry"
+existing_lens_path = NodePath("../../EntryLampFace0-1/Visual")
+
+[node name="entry_tube_0_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(5.8, 5.24, -10)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 3.0
+reach = 11.5
+cone_angle = 66
+lamp_color = Color(0.83, 0.85, 0.73, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "entry"
+existing_lens_path = NodePath("../../EntryLampFace01/Visual")
+
+[node name="entry_tube_1_-1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-5.8, 5.24, -2)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 3.0
+reach = 11.5
+cone_angle = 66
+lamp_color = Color(0.83, 0.85, 0.73, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "entry"
+existing_lens_path = NodePath("../../EntryLampFace1-1/Visual")
+
+[node name="entry_tube_1_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(5.8, 5.24, -2)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 3.0
+reach = 11.5
+cone_angle = 66
+lamp_color = Color(0.83, 0.85, 0.73, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "entry"
+existing_lens_path = NodePath("../../EntryLampFace11/Visual")
+
+[node name="entry_tube_2_-1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-5.8, 5.24, 6)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 3.0
+reach = 11.5
+cone_angle = 66
+lamp_color = Color(0.83, 0.85, 0.73, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "entry"
+existing_lens_path = NodePath("../../EntryLampFace2-1/Visual")
+
+[node name="entry_tube_2_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(5.8, 5.24, 6)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 3.0
+reach = 11.5
+cone_angle = 66
+lamp_color = Color(0.83, 0.85, 0.73, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "entry"
+existing_lens_path = NodePath("../../EntryLampFace21/Visual")
+
+[node name="entry_tube_3_-1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-5.8, 5.24, 13)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 3.0
+reach = 11.5
+cone_angle = 66
+lamp_color = Color(0.83, 0.85, 0.73, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "entry"
+existing_lens_path = NodePath("../../EntryLampFace3-1/Visual")
+
+[node name="entry_tube_3_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(5.8, 5.24, 13)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 3.0
+reach = 11.5
+cone_angle = 66
+lamp_color = Color(0.83, 0.85, 0.73, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "entry"
+existing_lens_path = NodePath("../../EntryLampFace31/Visual")
+
+[node name="service_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(3.42, 5.563, -42.0)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 0.82
+reach = 8
+cone_angle = 58
+lamp_color = Color(0.76, 0.84, 0.83, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "service"
+existing_lens_path = NodePath("../../IntakePresentation_service/Lens0/Visual")
+
+[node name="service_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-2.16, 5.563, -34.16)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 0.82
+reach = 8
+cone_angle = 58
+lamp_color = Color(0.88, 0.79, 0.64, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "service"
+existing_lens_path = NodePath("../../IntakePresentation_service/Lens1/Visual")
+
+[node name="arena_one_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(6.84, 8.063, -86.0)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.812
+reach = 14.95
+cone_angle = 66
+lamp_color = Color(0.76, 0.84, 0.83, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "arena_one"
+existing_lens_path = NodePath("../../IntakePresentation_arena_one/Lens0/Visual")
+
+[node name="arena_one_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-4.32, 8.063, -66.4)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.812
+reach = 14.95
+cone_angle = 66
+lamp_color = Color(0.88, 0.79, 0.64, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "arena_one"
+existing_lens_path = NodePath("../../IntakePresentation_arena_one/Lens1/Visual")
+
+[node name="triage_bank_-1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-15.74, 8.82, -90.6)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 8
+reach = 18
+cone_angle = 62
+lamp_color = Color(0.86, 0.82, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "arena_one"
+
+[node name="triage_bank_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(15.74, 8.82, -90.6)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 8
+reach = 18
+cone_angle = 62
+lamp_color = Color(0.86, 0.82, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "arena_one"
+
+[node name="key_wing_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(39.04, 5.563, -80.5)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.157
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.76, 0.84, 0.83, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "key_wing"
+existing_lens_path = NodePath("../../IntakePresentation_key_wing/Lens0/Visual")
+
+[node name="key_wing_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(34.08, 5.563, -71.68)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.157
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.88, 0.79, 0.64, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "key_wing"
+existing_lens_path = NodePath("../../IntakePresentation_key_wing/Lens1/Visual")
+
+[node name="diagnostic_scanner" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(36, 5.58, -78.52)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 1.5
+reach = 5.75
+cone_angle = 66
+lamp_color = Color(0.73, 0.84, 0.82, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "key_wing"
+existing_lens_path = NodePath("../../IntakePresentation_key_wing/ScannerLens/Visual")
+
+[node name="key_console_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(65.42, 5.563, -81.0)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.157
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.76, 0.84, 0.83, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "key_console"
+existing_lens_path = NodePath("../../IntakePresentation_key_console/Lens0/Visual")
+
+[node name="key_console_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(59.84, 5.563, -71.2)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.157
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.88, 0.79, 0.64, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "key_console"
+existing_lens_path = NodePath("../../IntakePresentation_key_console/Lens1/Visual")
+
+[node name="theatre_head_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(66.14, 5.224, -79.5)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "surgical"
+energy = 4
+reach = 5
+cone_angle = 35
+lamp_color = Color(0.92, 0.86, 0.74, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "key_console"
+existing_lens_path = NodePath("../../IntakePresentation_key_console/SurgicalLens0/Visual")
+
+[node name="theatre_head_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(67.05999999999999, 5.224, -79.5)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "surgical"
+energy = 4
+reach = 5
+cone_angle = 35
+lamp_color = Color(0.92, 0.86, 0.74, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "key_console"
+existing_lens_path = NodePath("../../IntakePresentation_key_console/SurgicalLens1/Visual")
+
+[node name="return_store_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(64.66, 5.563, -41.5)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 0.85
+reach = 8
+cone_angle = 58
+lamp_color = Color(0.76, 0.84, 0.83, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "return_store"
+existing_lens_path = NodePath("../../IntakePresentation_return_store/Lens0/Visual")
+
+[node name="return_store_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(60.32, 5.563, -34.64)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 0.85
+reach = 8
+cone_angle = 58
+lamp_color = Color(0.88, 0.79, 0.64, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "return_store"
+existing_lens_path = NodePath("../../IntakePresentation_return_store/Lens1/Visual")
+
+[node name="spine_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-3.52, 7.32, -128.28)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 10.35
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "spine"
+
+[node name="spine_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(3.52, 7.32, -117.72)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 10.35
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "spine"
+
+[node name="arena_two_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-8.36, 11.82, -165.04)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 17.25
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "arena_two"
+
+[node name="arena_two_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(8.36, 11.82, -150.96)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 17.25
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "arena_two"
+
+[node name="red_wing_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-42.64, 7.32, -160.64)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 10.35
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "red_wing"
+
+[node name="red_wing_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-37.36, 7.32, -155.36)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 10.35
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "red_wing"
+
+[node name="red_console_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-42.64, 7.32, -195.08)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 3.093
+reach = 10.35
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "red_console"
+
+[node name="red_console_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-37.36, 7.32, -188.92)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 3.093
+reach = 10.35
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "red_console"
+
+[node name="final_arena_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-7.48, 11.32, -218.8)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 14.95
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "final_arena"
+
+[node name="final_arena_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(7.48, 11.32, -201.2)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 14.95
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "final_arena"
+
+[node name="exit_gallery_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-4.4, 8.82, -250.96)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 5
+reach = 12
+cone_angle = 68
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "exit_gallery"
+
+[node name="exit_gallery_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(4.4, 8.82, -243.04)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 5
+reach = 12
+cone_angle = 68
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "exit_gallery"
+
+[node name="supplies_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-28.64, 4.82, -6.2)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "supplies"
+
+[node name="supplies_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-23.36, 4.82, -1.7999999999999998)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "supplies"
+
+[node name="maintenance_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(24.92, 4.82, 2.48)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 0.85
+reach = 8
+cone_angle = 58
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "maintenance"
+
+[node name="maintenance_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(31.08, 4.82, 9.52)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 0.85
+reach = 8
+cone_angle = 58
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "maintenance"
+
+[node name="pump_room_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(34.92, 6.32, -138.52)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 0.85
+reach = 8
+cone_angle = 58
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "pump_room"
+
+[node name="pump_room_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(41.08, 6.32, -131.48)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 0.85
+reach = 8
+cone_angle = 58
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "pump_room"
+
+[node name="armory_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-42.64, 6.32, -120.08)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 1.593
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "armory"
+
+[node name="armory_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-37.36, 6.32, -113.92)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 1.593
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "armory"
+
+[node name="secret_one_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-43.76, 4.82, -5.76)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 1.593
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "secret_one"
+
+[node name="secret_one_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-40.24, 4.82, -2.24)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 1.593
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "secret_one"
+
+[node name="secret_two_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-62.2, 6.32, -194.2)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 1.593
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "secret_two"
+
+[node name="secret_two_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-57.8, 6.32, -189.8)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 1.593
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "secret_two"
+
+[node name="observation_ceiling_0" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(34.04, 10.82, -213.96)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "observation"
+
+[node name="observation_ceiling_1" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(41.96, 10.82, -206.04)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 2.532
+reach = 9.2
+cone_angle = 66
+lamp_color = Color(0.83, 0.81, 0.7, 1)
+cast_shadow = false
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "observation"
+
+[node name="cache_arena_one" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(0, 8.82, -76)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 6.0
+reach = 16.1
+cone_angle = 66
+lamp_color = Color(0.88, 0.83, 0.7, 1)
+cast_shadow = true
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "arena_one"
+
+[node name="cache_arena_two" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(0.0, 11.82, -158.0)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 6.0
+reach = 18.4
+cone_angle = 66
+lamp_color = Color(0.88, 0.83, 0.7, 1)
+cast_shadow = true
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "arena_two"
+
+[node name="cache_final_arena" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(-7.0, 11.32, -210.0)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 6.0
+reach = 16.1
+cone_angle = 66
+lamp_color = Color(0.88, 0.83, 0.7, 1)
+cast_shadow = true
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "final_arena"
+
+[node name="arrival_weapon" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(0, 5.82, 4)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 6.0
+reach = 11.5
+cone_angle = 66
+lamp_color = Color(0.91, 0.84, 0.67, 1)
+cast_shadow = true
+damaged = false
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "entry"
+
+[node name="exit_stair_landmark" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(0, 11.32, -227.6)
+rotation_degrees = Vector3(-90, 0, 0)
+fixture_kind = "tube"
+energy = 5.625
+reach = 16.1
+cone_angle = 66
+lamp_color = Color(0.91, 0.85, 0.7, 1)
+cast_shadow = true
+damaged = false
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "final_arena"
+
+[node name="service_damaged_warning" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(8.72, 5.0, -34)
+rotation_degrees = Vector3(0, 90, 0)
+fixture_kind = "warning"
+energy = 0.26
+reach = 3
+cone_angle = 66
+lamp_color = Color(1, 0.52, 0.12, 1)
+cast_shadow = false
+damaged = true
+flicker_period = 19.0
+flicker_offset = 0.0
+metadata/room_id = "service"
+
+[node name="maintenance_damaged_warning" parent="LightingV11" instance=ExtResource("lighting_v11_prefab")]
+position = Vector3(34.72, 3.5, 10.0)
+rotation_degrees = Vector3(0, 90, 0)
+fixture_kind = "warning"
+energy = 0.26
+reach = 3
+cone_angle = 66
+lamp_color = Color(1, 0.52, 0.12, 1)
+cast_shadow = false
+damaged = true
+flicker_period = 23.0
+flicker_offset = 3.7
+metadata/room_id = "maintenance"

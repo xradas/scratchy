@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "version": 11,
+  "level_id": "pale_ward_01",
+  "implementation": {
+    "patcher": "tools/apply_lighting_v11.py",
+    "plan": "docs/production-v11/lighting-plan.json",
+    "prefab": "scenes/fixtures/intake_light_v11.tscn",
+    "script": "scripts/intake_light_fixture_v11.gd",
+    "housing_material": "resources/materials/lighting-v11/housing.tres",
+    "reused_art": "assets/materials/room-families-v8/triage-atlas.png",
+    "source_region_pixels": [0, 512, 512, 512],
+    "new_raster_art": false
+  },
+  "scope": {
+    "legacy_emitters_replaced": 90,
+    "mounted_fixture_instances": 56,
+    "existing_lens_meshes_reused": 21,
+    "new_collider_count": 0,
+    "non_light_scene_nodes_byte_preserved": true,
+    "ambient_energy": 0.38,
+    "other_levels_modified": false,
+    "stable_parameters": true
+  },
+  "physical_sources": {
+    "tube": "One OmniLight3D just beyond the diffuser; ceiling and wall spill from the mounted source.",
+    "surgical": "One downward SpotLight3D just beneath each existing theatre lens.",
+    "warning": "One wall-facing SpotLight3D just beyond each amber lens.",
+    "no_duplicate_light_pools": "All 90 named legacy scene Light3D nodes removed before inserting the 56 prefab emitters.",
+    "service_contrast": "Service and return-store tube energy retained at 0.82/0.85; brighter clinical work areas and stable exit/stair/cache landmarks.",
+    "geometry": "New housings use code-native boxes/cylinders; existing lens/housing geometry is reused at 21 mounts. Fixture meshes cast no shadows. No physical bodies or collision shapes are introduced."
+  },
+  "flicker": {
+    "group": "intake_lighting_v11",
+    "set_flicker_enabled": "set_flicker_enabled(bool): immediately applies steady energy when false; enabling resumes the local deterministic phase.",
+    "reset": "reset_lighting(): resets local phase to zero and immediately applies full energy.",
+    "inspection": "lighting_state(): elapsed, enabled, damaged, factor, energy, lens_emission.",
+    "damaged_fixture_ids": ["service_damaged_warning", "maintenance_damaged_warning"],
+    "base_energy": 0.26,
+    "period_seconds": [19, 23],
+    "phase_offsets_seconds": [0, 3.7],
+    "sag_duration_seconds": 0.42,
+    "depth": 0.14,
+    "shape": "Smooth cosine sag; no blackout, stochastic RNG, rapid flashes, timers or audio.",
+    "pause": "PROCESS_MODE_PAUSABLE plus explicit tree.paused guard freezes phase, lens and emitter.",
+    "reset_ownership": "Retry creates a fresh scene and zero phases; root may call reset_lighting on the group for any in-place reset path.",
+    "protected_landmarks": "All stairs, controls, key access, caches and exits remain steady."
+  },
+  "verification": {
+    "source": "python tools/test_lighting_v11.py",
+    "native": "tools/check_lighting_v11.gd",
+    "native_scope": "Cold scene collider equality after building authored stage polygons; physical lens/emitter alignment; deterministic waveform bounds; pause/reset/toggle; representative native room captures and wall-clock frame timing.",
+    "runtime_scope": "Independent Main fixture checks persisted display/light_flicker and Retry binding; root owns that evidence.",
+    "limits": "Offscreen automated frames at 640x360 are not human playtesting or a hardware performance guarantee. Forced draws include presentation overhead and can be refresh-limited. Full campaign combat and exported application acceptance belong to root release checks."
+  }
+}

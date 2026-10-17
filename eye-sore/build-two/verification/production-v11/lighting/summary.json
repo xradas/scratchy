@@ -1,0 +1,47 @@
+{
+  "version": 11,
+  "passed": true,
+  "target_scene_sha256": "37d56122e3b4011defa69b7a5c5f7f0c0a27bd3031a8d277285326cfcb1c838b",
+  "baseline_scene_sha256": "95e845ec403270c1a438ac111cec91f887c7f0e71122f995ff52ee6fda818a1c",
+  "checks_each": 20800,
+  "native_collider_records_unchanged": 1033,
+  "source_unit_tests": 3,
+  "mounted_emitters": 56,
+  "varying_warning_emitters": 2,
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "native_method": "X11/gl_compatibility, offscreen no-focus640x360, forced draws",
+  "views": [
+    "triage-bank",
+    "surgery",
+    "service",
+    "exit",
+    "triage-control",
+    "exit-control",
+    "exit-stair"
+  ],
+  "visual_review": "Native final captures inspected: clinical furniture and table readable, services distinctly dim with visible doorway/pickup silhouette, steady exit stair and control outline visible. Root independently reviews actual Main frames.",
+  "iterations": [
+    {
+      "path": "/tmp/eyesore-lighting-v11-native",
+      "status": "superseded .30 ambient: triage/exit too dark"
+    },
+    {
+      "path": "/tmp/eyesore-lighting-v11-native-brighter",
+      "status": "superseded .38 weaker downward spots"
+    },
+    {
+      "path": "/tmp/eyesore-lighting-v11-native-readable",
+      "status": "superseded .38 strong spots"
+    },
+    {
+      "path": "/tmp/eyesore-lighting-v11-native-diffuse",
+      "status": "superseded weaker broad tube spill"
+    },
+    {
+      "path": "/tmp/eyesore-lighting-v11-native-final",
+      "status": "private final candidate; same final production parameters"
+    }
+  ],
+  "test_method_correction": "Initial comparator sampled running scenes after physics ticks and reported a collider mismatch. Corrected verifier builds authored polygon colliders on both cold native trees before any frame advances; all1033 records match. No production collider changes were made. Earlier transient comparator output was overwritten during development; no failed release evidence is represented as passed.",
+  "limits": "No enemy combat, full campaign or export execution claim from this fixture. Frame timing includes presentation overhead and is refresh-limited. Main persisted toggle and Retry are independently checked by HUD specialist."
+}

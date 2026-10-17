@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "phase": "Clinical movement v9 delivered; selected gunshot audio integration v10 in progress",
+  "phase": "Intake staff and mounted lighting v11 integration; accepted gun sounds v10 preserved; original per-level music deferred",
   "baseline_commit": "0461086edbbda510b31d44093678524d8bea763f",
   "baseline_package": "/home/rikki/Builds/eyesore-intake-rework-2026-10-17/eyesore-intake-v7.x86_64",
   "focus": "Use Intake and existing first Pale Ward chapter as the integration/playtest bed. Preserve other chapter identities; widen rollout after the first integrated review.",
@@ -303,7 +303,7 @@
       "id": "ENE-01",
       "owner": "enemies",
       "title": "Infected scientist for Pale Ward",
-      "status": "planned",
+      "status": "v11 first Intake integration under native review; human playtest pending",
       "depends_on": [],
       "write_scope": [
         "New Ward-only enemy resource, atlas registration and isolated behavior/animation data"
@@ -327,7 +327,7 @@
       "id": "ENE-02",
       "owner": "enemies",
       "title": "Infected facility security for Pale Ward",
-      "status": "planned",
+      "status": "v11 first Intake integration under native review; human playtest pending",
       "depends_on": [
         "ENE-01"
       ],
@@ -352,7 +352,7 @@
       "id": "LIT-01",
       "owner": "environment_lighting",
       "title": "Physical light fixture kit",
-      "status": "planned",
+      "status": "v11 first Intake integration under native review; human playtest pending",
       "depends_on": [
         "ART-01"
       ],
@@ -377,7 +377,7 @@
       "id": "LIT-02",
       "owner": "environment_lighting",
       "title": "Room-specific darkness and occasional flicker",
-      "status": "planned",
+      "status": "v11 first Intake integration under native review; human playtest pending",
       "depends_on": [
         "LIT-01",
         "LVL-01"
@@ -524,7 +524,7 @@
       "id": "AUD-01",
       "owner": "sound_design",
       "title": "Reference-led physical gunshot redesign",
-      "status": "User selected pistol new original, shotgunA, TwinB; v10 runtime integration/verification in progress",
+      "status": "v10 delivered; user accepted gun sounds as okay; original music for every level noted separately and deferred",
       "depends_on": [],
       "write_scope": [
         "New versioned audio cues and explicit edit recipe; shared profile registration integrated by coordinator"

@@ -1,0 +1,196 @@
+{
+  "status": "passed",
+  "protected_files": 114,
+  "explicit_existing_code_changes": [
+    "scripts/enemy_definition.gd",
+    "scripts/main.gd",
+    "scripts/combat_enemy.gd"
+  ],
+  "old_cues_preserved": 57,
+  "exact_voice_aliases": {
+    "infected_scientist_attack_warning": "unsealed_attack_warning",
+    "infected_scientist_hurt": "unsealed_hurt",
+    "infected_scientist_death": "unsealed_death",
+    "infected_security_attack_warning": "vessel_attack_warning",
+    "infected_security_hurt": "vessel_hurt",
+    "infected_security_death": "vessel_death"
+  },
+  "native_art_sources": {
+    "infected_scientist": {
+      "sha256": "e8a48d92c1ba8609087bedc93e72ecde359d85704e531b75299d381a0fd8b02e",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "explicit_native_regions": 64,
+      "pixel_processing": "No resizing, repainting, padding, masking, alpha editing or PNG re-encoding. Only byte-for-byte copy. Source rectangle registration samples original pixels."
+    },
+    "infected_security": {
+      "sha256": "3074484ebe3ec4b1c3f6d6eeeb2aa19f25099b9e6efa68561c2e4f6fdc682fc1",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "explicit_native_regions": 64,
+      "pixel_processing": "No resizing, repainting, padding, masking, alpha editing or PNG re-encoding. Only byte-for-byte copy. Source rectangle registration samples original pixels."
+    }
+  },
+  "placements": [
+    {
+      "marker": "Spawn_2",
+      "before_kind": "unsealed",
+      "after_kind": "infected_security",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_9",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_12",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_22",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_25",
+      "before_kind": "unsealed",
+      "after_kind": "infected_scientist",
+      "changed": false
+    },
+    {
+      "marker": "Spawn_33",
+      "before_kind": "unsealed",
+      "after_kind": "infected_security",
+      "changed": false
+    }
+  ],
+  "actor_total": 36,
+  "arena_counts": {
+    "arena_one": 5,
+    "arena_two": 5,
+    "final_arena": 6
+  },
+  "native": {
+    "checks": 1668,
+    "failures": [],
+    "observations": [
+      {
+        "actual_arena_counts": {
+          "arena_one": 5,
+          "arena_two": 5,
+          "final_arena": 6
+        },
+        "expected_arena_counts": {
+          "arena_one": 5.0,
+          "arena_two": 5.0,
+          "final_arena": 6.0
+        },
+        "phase": "initial"
+      },
+      {
+        "actual_physics_materials": [
+          "flesh"
+        ],
+        "frames_visited": 64,
+        "kind": "infected_scientist",
+        "opaque_flash_noncontact_probes": 0
+      },
+      {
+        "actual_physics_materials": [
+          "flesh",
+          "armor"
+        ],
+        "frames_visited": 64,
+        "kind": "infected_security",
+        "opaque_flash_noncontact_probes": 13
+      },
+      {
+        "actual_mounted_lights": 56,
+        "flicker_persisted": false,
+        "profile_isolation": "Temporary XDG_DATA_HOME supplied by checker wrapper"
+      },
+      {
+        "can_see_room_centre": false,
+        "health": 100.0,
+        "kind": "infected_security",
+        "marker": "Spawn_2",
+        "position": "(-4.5, 2.37, -42.0)",
+        "ranged": true,
+        "room": "service"
+      },
+      {
+        "can_see_room_centre": false,
+        "health": 45.0,
+        "kind": "infected_scientist",
+        "marker": "Spawn_9",
+        "position": "(32.0, 2.37, -80.0)",
+        "ranged": false,
+        "room": "key_wing"
+      },
+      {
+        "can_see_room_centre": false,
+        "health": 45.0,
+        "kind": "infected_scientist",
+        "marker": "Spawn_12",
+        "position": "(57.5, 2.37, -80.0)",
+        "ranged": false,
+        "room": "key_console"
+      },
+      {
+        "can_see_room_centre": false,
+        "health": 45.0,
+        "kind": "infected_scientist",
+        "marker": "Spawn_22",
+        "position": "(-43.0, 2.37, -162.0)",
+        "ranged": false,
+        "room": "red_wing"
+      },
+      {
+        "can_see_room_centre": false,
+        "health": 45.0,
+        "kind": "infected_scientist",
+        "marker": "Spawn_25",
+        "position": "(-43.0, 2.37, -196.0)",
+        "ranged": false,
+        "room": "red_console"
+      },
+      {
+        "can_see_room_centre": false,
+        "health": 100.0,
+        "kind": "infected_security",
+        "marker": "Spawn_33",
+        "position": "(-43.0, 2.37, -121.0)",
+        "ranged": true,
+        "room": "armory"
+      },
+      {
+        "actual_arena_counts": {
+          "arena_one": 5,
+          "arena_two": 5,
+          "final_arena": 6
+        },
+        "expected_arena_counts": {
+          "arena_one": 5.0,
+          "arena_two": 5.0,
+          "final_arena": 6.0
+        },
+        "phase": "Retry"
+      }
+    ],
+    "scope": "Controlled actual Main authored Intake. Native resource/position/capsule/floor/presentation checks; actual room activation/cache shutters and real actor apply_damage/death ownership; Retry. Player repositioned, other physics frozen. No live route traversal, balance, human visual approval or listening claim.",
+    "status": "passed"
+  },
+  "fixture_sha256": "d90d759e4cf8836012d147b368886fd74c24fd3fa5fdad1532830b144e3a0169",
+  "packed": false,
+  "native_renderer": true,
+  "fixture_mode": "Source resources; temporary user profile."
+}

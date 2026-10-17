@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/enemy_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+identifier = &"infected_scientist"
+display_name = "Infected Scientist"
+health = 45.0
+speed = 2.4
+ranged = false
+damage = 9.0
+attack_range = 2.3
+windup_seconds = 0.68
+recovery_seconds = 0.9
+pain_seconds = 0.28
+hit_material = &"flesh"
+committed_lunge_speed = 6.0
+committed_lunge_seconds = 0.18
+melee_contact_range = 1.35
+metadata/visible_height_m = 1.7
+metadata/source_theme = "clinical-infection"

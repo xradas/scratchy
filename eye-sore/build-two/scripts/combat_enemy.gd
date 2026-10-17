@@ -12,6 +12,10 @@ var state: StringName = &"chase"
 var state_time: float = 0.0
 var attack_id: int = 0
 var released: bool = false
+var committed_direction := Vector3.ZERO
+var burst_rounds_remaining: int = 0
+var burst_cycle_id: int = 0
+var burst_round_index: int = 0
 var seen_shots: Dictionary = {}
 var sprite_clips: Dictionary = {}
 var sprite_directions: int = 1
@@ -44,6 +48,8 @@ func make_proxy_material(color: Color) -> StandardMaterial3D:
 	return material
 
 func _physics_process(delta: float) -> void:
+	# Explicit guard also covers controlled direct callbacks while paused.
+	if get_tree().paused: return
 	if dead:
 		state_time += delta
 		update_presentation()
@@ -71,17 +77,27 @@ func _physics_process(delta: float) -> void:
 		if state_time >= definition.pain_seconds: change_state(&"chase")
 	elif state == &"windup":
 		velocity.x = 0; velocity.z = 0
+		if has_committed_lunge() and state_time >= maxf(0.0, definition.windup_seconds - definition.committed_lunge_seconds):
+			velocity.x = committed_direction.x * definition.committed_lunge_speed
+			velocity.z = committed_direction.z * definition.committed_lunge_speed
 		if state_time >= definition.windup_seconds:
-			if visible and distance <= definition.attack_range + 0.2:
+			if visible and distance <= release_contact_range():
 				release_attack()
+			velocity.x = 0; velocity.z = 0
 			change_state(&"recovery")
 	elif state == &"recovery":
 		velocity.x = 0; velocity.z = 0
-		if state_time >= definition.recovery_seconds: change_state(&"chase")
+		if definition.ranged and definition.burst_round_count > 1 and burst_rounds_remaining > 0:
+			if state_time >= maxf(0.01, definition.burst_interval_seconds):
+				release_burst_followup()
+				change_state(&"recovery")
+		elif state_time >= definition.recovery_seconds: change_state(&"chase")
 	else:
 		if visible and distance <= definition.attack_range:
 			rotation.y = atan2(-offset.x, -offset.z)
 			attack_id += 1; released = false; change_state(&"windup")
+			committed_direction = Vector3(offset.x, 0, offset.z).normalized()
+			burst_rounds_remaining = 0; burst_round_index = 0; burst_cycle_id = attack_id
 			combat.emit_event({"type": &"enemy_attack_warning", "enemy_kind": definition.identifier, "target_id": target_id, "attack_id": attack_id, "position": global_position})
 			velocity.x = 0; velocity.z = 0
 		else:
@@ -116,10 +132,73 @@ func can_see_player() -> bool:
 	var hit: Dictionary = combat.ray(global_position + Vector3(0, 0.45, 0), player.global_position + Vector3(0, 0.3, 0), [get_rid()])
 	return not hit.is_empty() and hit.collider == player
 
+func has_committed_lunge() -> bool:
+	return not definition.ranged and definition.committed_lunge_speed > 0.0 and definition.committed_lunge_seconds > 0.0
+
+func has_extended_attack() -> bool:
+	return has_committed_lunge() or (definition.ranged and definition.burst_round_count > 1)
+
+func release_contact_range() -> float:
+	if not definition.ranged and definition.melee_contact_range > 0.0: return definition.melee_contact_range
+	return definition.attack_range + 0.2
+
+func attack_origin() -> Vector3:
+	if is_instance_valid(visual_rig) and visual_rig.has_method("get_projectile_origin"):
+		return visual_rig.get_projectile_origin()
+	if is_instance_valid(sprite_pivot): return sprite_projectile_origin()
+	return global_position + Vector3(0, 0.4, 0)
+
+func clear_pending_attack() -> void:
+	burst_rounds_remaining = 0
+	committed_direction = Vector3.ZERO
+
+func release_path_clear(origin: Vector3) -> bool:
+	if dead or not is_instance_valid(player) or combat.dead: return false
+	var target := player.global_position + Vector3(0, 0.3, 0)
+	var hit: Dictionary = combat.ray(origin, target, [get_rid()])
+	return not hit.is_empty() and hit.collider == player
+
+func launch_burst_round(origin: Vector3) -> void:
+	var direction := (player.global_position + Vector3(0, 0.3, 0) - origin).normalized()
+	# Start at the authored muzzle, not beyond a thin intervening wall. The
+	# existing swept projectile collision remains the only projectile damage owner.
+	combat.launch_projectile(self, origin, direction)
+	burst_round_index += 1
+	combat.emit_event({"type": &"projectile_release", "enemy_kind": definition.identifier, "target_id": target_id, "attack_id": attack_id, "attack_cycle_id": burst_cycle_id, "round_index": burst_round_index, "round_count": definition.burst_round_count, "position": origin})
+
+func release_burst_followup() -> void:
+	if get_tree().paused or dead or combat.dead or state != &"recovery" or burst_rounds_remaining <= 0 or state_time < maxf(0.01, definition.burst_interval_seconds): return
+	var origin := attack_origin()
+	var offset := player.global_position - global_position
+	if Vector2(offset.x, offset.z).length() > release_contact_range() or not release_path_clear(origin):
+		clear_pending_attack()
+		return
+	# Existing audio dedup keys include attack_id. Each actual round consumes a
+	# distinct ID; attack_cycle_id retains correlation with the one warning.
+	attack_id += 1
+	burst_rounds_remaining -= 1
+	launch_burst_round(origin)
+	# A duplicate direct callback cannot release another round in this interval.
+	state_time = 0.0
+
 func release_attack() -> void:
+	if get_tree().paused: return
 	if dead or released or state != &"windup": return
+	if has_extended_attack():
+		if combat.dead or state_time < definition.windup_seconds: return
+		var offset := player.global_position - global_position
+		if Vector2(offset.x, offset.z).length() > release_contact_range() or not release_path_clear(attack_origin()):
+			released = true; clear_pending_attack()
+			return
 	released = true
 	if definition.ranged:
+		if definition.burst_round_count > 1:
+			burst_cycle_id = attack_id; burst_round_index = 0
+			burst_rounds_remaining = definition.burst_round_count - 1
+			# Resolve the release-frame muzzle before launching either burst round.
+			change_state(&"recovery")
+			launch_burst_round(attack_origin())
+			return
 		var origin := global_position + Vector3(0, 0.4, 0)
 		if is_instance_valid(visual_rig) and visual_rig.has_method("get_projectile_origin"):
 			origin = visual_rig.get_projectile_origin()
@@ -143,6 +222,8 @@ func apply_damage(amount: float, shot_id: int, weapon_id: StringName, hit_positi
 	var event := {"type": &"enemy_hurt", "enemy_kind": definition.identifier, "target_id": target_id, "shot_id": shot_id, "weapon_id": weapon_id, "material": struck_material, "position": hit_position, "damage": amount, "direction":direction}
 	# Pain always cancels a pending unreleased strike; a fresh windup is needed after pain.
 	released = true
+	clear_pending_attack()
+	if has_committed_lunge(): velocity.x = 0; velocity.z = 0
 	if health <= 0.0:
 		gibbed = is_instance_valid(combat.gore) and combat.gore.should_gib(weapon_id, overkill, struck_material)
 		dead = true

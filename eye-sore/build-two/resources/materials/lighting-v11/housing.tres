@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3]
+[ext_resource type="Shader" path="res://shaders/room_surface_v8.gdshader" id="shader"]
+[ext_resource type="Texture2D" path="res://assets/materials/room-families-v8/triage-atlas.png" id="source"]
+[resource]
+shader = ExtResource("shader")
+shader_parameter/painted_surface = ExtResource("source")
+shader_parameter/source_region_pixels = Vector4(0, 512, 512, 512)
+shader_parameter/pixels_per_metre = 64.0
+shader_parameter/metal = 0.65
+shader_parameter/base_roughness = 0.84

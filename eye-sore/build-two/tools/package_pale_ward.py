@@ -106,6 +106,7 @@ def provenance_files() -> list[Path]:
              "docs/production-v8", "concepts/production-v8",
              "docs/production-v9", "concepts/production-v9", "concepts/audio-v9",
              "docs/production-v10", "concepts/audio-v10",
+             "docs/production-v11", "concepts/production-v11",
              "concepts/pickups-rooms-v6",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")

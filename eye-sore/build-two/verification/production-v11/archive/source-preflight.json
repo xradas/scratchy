@@ -1,0 +1,143 @@
+{
+  "status": "passed",
+  "source_preflight": true,
+  "source_fingerprints_verified": 624,
+  "source_tree_sha256": "860751248ef5f0f2c65ec2b24a389b52f3dc03c87f5c54833b4f595ad3f56556",
+  "source_snapshot_policy": {
+    "collector": "Restricted AST literal policy read from tools/package_pale_ward.py; no packager import/execution",
+    "collector_sha256": "3e6616c15437a4b966a777586746b2f4885343aa2b0aea0667040c10425df555",
+    "packager_sha256": "a6405406652de247dd16c2a39387d24601fde5afba062cc004c26cef8f8375ae",
+    "provenance_roots": [
+      "concepts/environment-art-v1",
+      "concepts/gore-art-v1",
+      "concepts/sprite-art-v1",
+      "concepts/style-art-v2",
+      "concepts/weapon-style-v3",
+      "concepts/expansion-v1",
+      "docs/expansion-v1",
+      "concepts/arsenal-architecture-v2",
+      "docs/arsenal-architecture-v2",
+      "concepts/campaign-v3",
+      "docs/campaign-v3",
+      "docs/combat-balance-v4",
+      "docs/map-safety-v5",
+      "docs/room-program-v6",
+      "docs/pickup-art-v6",
+      "docs/intake-v7",
+      "docs/production-v8",
+      "concepts/production-v8",
+      "docs/production-v9",
+      "concepts/production-v9",
+      "concepts/audio-v9",
+      "docs/production-v10",
+      "concepts/audio-v10",
+      "docs/production-v11",
+      "concepts/production-v11",
+      "concepts/pickups-rooms-v6",
+      "concepts/visual-v2/corrupted-biotech",
+      "concepts/visual-v2/occult-fortress",
+      "concepts/visual-v2/civic-invasion"
+    ],
+    "excluded_directories": [
+      ".git",
+      ".godot",
+      "build",
+      "concepts",
+      "docs",
+      "tools",
+      "verification"
+    ]
+  },
+  "git_checkpoint_blobs_verified": null,
+  "archival_wav_ignore_git_blob_verified": null,
+  "protected_source": {
+    "status": "passed",
+    "protected_files": 114,
+    "explicit_existing_code_changes": [
+      "scripts/enemy_definition.gd",
+      "scripts/main.gd",
+      "scripts/combat_enemy.gd"
+    ],
+    "old_cues_preserved": 57,
+    "exact_voice_aliases": {
+      "infected_scientist_attack_warning": "unsealed_attack_warning",
+      "infected_scientist_hurt": "unsealed_hurt",
+      "infected_scientist_death": "unsealed_death",
+      "infected_security_attack_warning": "vessel_attack_warning",
+      "infected_security_hurt": "vessel_hurt",
+      "infected_security_death": "vessel_death"
+    },
+    "native_art_sources": {
+      "infected_scientist": {
+        "sha256": "e8a48d92c1ba8609087bedc93e72ecde359d85704e531b75299d381a0fd8b02e",
+        "source_dimensions": [
+          1254,
+          1254
+        ],
+        "explicit_native_regions": 64,
+        "pixel_processing": "No resizing, repainting, padding, masking, alpha editing or PNG re-encoding. Only byte-for-byte copy. Source rectangle registration samples original pixels."
+      },
+      "infected_security": {
+        "sha256": "3074484ebe3ec4b1c3f6d6eeeb2aa19f25099b9e6efa68561c2e4f6fdc682fc1",
+        "source_dimensions": [
+          1254,
+          1254
+        ],
+        "explicit_native_regions": 64,
+        "pixel_processing": "No resizing, repainting, padding, masking, alpha editing or PNG re-encoding. Only byte-for-byte copy. Source rectangle registration samples original pixels."
+      }
+    },
+    "placements": [
+      {
+        "marker": "Spawn_2",
+        "before_kind": "unsealed",
+        "after_kind": "infected_security",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_9",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_12",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_22",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_25",
+        "before_kind": "unsealed",
+        "after_kind": "infected_scientist",
+        "changed": false
+      },
+      {
+        "marker": "Spawn_33",
+        "before_kind": "unsealed",
+        "after_kind": "infected_security",
+        "changed": false
+      }
+    ],
+    "actor_total": 36,
+    "arena_counts": {
+      "arena_one": 5,
+      "arena_two": 5,
+      "final_arena": 6
+    },
+    "fixture_sha256": "d90d759e4cf8836012d147b368886fd74c24fd3fa5fdad1532830b144e3a0169",
+    "packed": false,
+    "native_renderer": false,
+    "fixture_mode": "Source resources; temporary user profile."
+  },
+  "frozen_v7_reader": "Not run: frozen57-cue native fixture is incompatible with approved63 cues. Its old expectations are preserved unchanged. New exact57-old+6-alias actual Main checks replace it for this release only.",
+  "geometry_proof": "Separate verification/production-v11/lighting cold geometry proof; no aggregate geometry-equivalence claim from this archive fixture.",
+  "scope": "Protected source/provenance dynamic snapshot preflight; no export or packed-runtime acceptance claim.",
+  "auditor_sha256": "a59ddae331faeb7233fc64a7269358932086c73f7ec151b89aa600ad00501167"
+}
