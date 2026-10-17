@@ -21,5 +21,48 @@
   "limits": [
     "AB final-route and full campaign receipts use the final accented Ward02 scene. BA route preceded the purely visual accent regeneration; door geometry and routing did not change.",
     "Automated route and fixture checks do not establish human combat pacing, object recognition or music appeal."
-  ]
+  ],
+  "controlled_visuals": {
+    "scope": "Actual Main controlled player camera, frozen actors; no live route or human recognition proof.",
+    "overlook": {
+      "file": "overlook-controlled.png",
+      "sha256": "3fe2382c65d10b54df344e669119a5ebd33e87a68459131bcf369f34aaf6e327"
+    },
+    "filter_close": {
+      "file": "filter-close-controlled.png",
+      "sha256": "b355ba0bb00e23784009a252f59d8ffe80b4105474c2027fb8908c482965dee8"
+    }
+  },
+  "enemy_hearing_fixture": {
+    "status": "passed",
+    "fixed_fps": [
+      30,
+      60,
+      120
+    ],
+    "ward02_opening_awake": 4,
+    "checks": [
+      "accepted pistol 7m",
+      "pistol outside 10m silent",
+      "closed physical blocker silent",
+      "open path audible",
+      "shotgun 13m beyond passive sight"
+    ]
+  },
+  "packed_music_fixture": {
+    "status": "passed",
+    "cues": 9,
+    "log": "packed-music-check.log",
+    "main_pack": "e71aba27 packaged ELF"
+  },
+  "exported_campaign": {
+    "status": "passed",
+    "levels": 9,
+    "order": "AB",
+    "launch": "export-full-AB.launch.json",
+    "route": "export-full-AB.json",
+    "source_commit": "e71aba27b62ac8d8b237e86e1044cdc999af3860",
+    "executable_sha256": "6af330a2ca1b913f06238d0a6d9d5dcdd19e33215601b8e60b718fa3d2032cef",
+    "real_carry_transitions": 8
+  }
 }
