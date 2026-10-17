@@ -18,6 +18,7 @@ import room_program_v6 as room_program
 import intake_section_v7 as intake_section
 import intake_encounter_v7 as intake_encounter
 import intake_presentation_v7 as intake_presentation
+import room_materials_v8
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = {stage["id"]: stage for stage in json.loads((ROOT / "docs/expansion-v1/layouts.json").read_text())["stages"]}
@@ -650,6 +651,9 @@ def main():
                             intake_encounter.apply_scene(self, self.stage, self.room_program_routes)
                             report = intake_presentation.decorate(self)
                             (OUT / 'intake-presentation-v7.json').write_text(json.dumps(report, indent=2) + '\n')
+                            room_materials_v8.register_materials(self)
+                            material_report = room_materials_v8.apply_room_materials(self)
+                            (OUT / 'room-materials-v8.json').write_text(json.dumps(material_report, indent=2) + '\n')
                         super().save(path)
                 globals()["Scene"] = CampaignScene
                 author_campaign(stage, contract)

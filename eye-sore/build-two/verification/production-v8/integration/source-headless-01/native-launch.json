@@ -1,0 +1,27 @@
+{
+  "command": [
+    "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+    "--path",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+    "--headless",
+    "--fixed-fps",
+    "60",
+    "--script",
+    "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/check_presentation_v8.gd",
+    "--",
+    "--automated-input",
+    "--campaign-level=pale_ward_01",
+    "--report=/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v8/integration/source-headless-01/native.json",
+    "--expected=/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v8/integration/source-headless-01/native-expected.json"
+  ],
+  "cwd": "/tmp",
+  "executable_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "exit_code": 0,
+  "wall_seconds": 2.521812677383423,
+  "report_sha256": "3a6d7b6e77ffd106bf507880264b17524b3423fc3da5960879420cc30886793b",
+  "script_sha256": "399beace4ecdbd1bc0ac3ade3e5113540a7fcca416c4d798ba557bdb506eba1c",
+  "native_errors": [
+    "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+  ],
+  "mode": "source project"
+}

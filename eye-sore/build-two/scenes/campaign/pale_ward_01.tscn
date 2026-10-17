@@ -1,4 +1,4 @@
-[gd_scene load_steps=2797 format=3]
+[gd_scene load_steps=2837 format=3]
 
 [ext_resource type="Script" path="res://scripts/stage_level.gd" id="level"]
 [ext_resource type="Script" path="res://scripts/stage_door.gd" id="door"]
@@ -24,6 +24,10 @@
 [ext_resource type="Texture2D" path="res://assets/pickups/pickup-v6-atlas.png" id="pickup_v6_source"]
 [ext_resource type="Shader" path="res://shaders/room_prop_local_uv.gdshader" id="room_prop_uv_shader"]
 [ext_resource type="Texture2D" path="res://assets/materials/room-props-v6/pale_ward-atlas.png" id="room_prop_atlas_pale_ward"]
+[ext_resource type="Shader" path="res://shaders/room_surface_v8.gdshader" id="v8_room_surface"]
+[ext_resource type="Texture2D" path="res://assets/materials/room-families-v8/triage-atlas.png" id="v8_source_triage"]
+[ext_resource type="Texture2D" path="res://assets/materials/room-families-v8/surgery-atlas.png" id="v8_source_surgery"]
+[ext_resource type="Texture2D" path="res://assets/materials/room-families-v8/utility-atlas.png" id="v8_source_utility"]
 
 [sub_resource type="CapsuleShape3D" id="player_shape"]
 radius = 0.3
@@ -10518,6 +10522,240 @@ material = SubResource("panel")
 [sub_resource type="BoxShape3D" id="s1669"]
 size = Vector3(6.86, 0.2, 0.2)
 
+[sub_resource type="AtlasTexture" id="v8_triage_wall_native"]
+atlas = ExtResource("v8_source_triage")
+region = Rect2(0, 0, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_triage_wall"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_triage")
+shader_parameter/source_region_pixels = Vector4(0, 0, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.02
+shader_parameter/base_roughness = 0.9
+
+[sub_resource type="AtlasTexture" id="v8_triage_floor_native"]
+atlas = ExtResource("v8_source_triage")
+region = Rect2(512, 0, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_triage_floor"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_triage")
+shader_parameter/source_region_pixels = Vector4(512, 0, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.02
+shader_parameter/base_roughness = 0.9
+
+[sub_resource type="AtlasTexture" id="v8_triage_ceiling_native"]
+atlas = ExtResource("v8_source_triage")
+region = Rect2(1024, 0, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_triage_ceiling"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_triage")
+shader_parameter/source_region_pixels = Vector4(1024, 0, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.02
+shader_parameter/base_roughness = 0.9
+
+[sub_resource type="AtlasTexture" id="v8_triage_trim_native"]
+atlas = ExtResource("v8_source_triage")
+region = Rect2(0, 512, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_triage_trim"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_triage")
+shader_parameter/source_region_pixels = Vector4(0, 512, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.72
+shader_parameter/base_roughness = 0.9
+
+[sub_resource type="AtlasTexture" id="v8_triage_door_native"]
+atlas = ExtResource("v8_source_triage")
+region = Rect2(512, 512, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_triage_door"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_triage")
+shader_parameter/source_region_pixels = Vector4(512, 512, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.72
+shader_parameter/base_roughness = 0.9
+
+[sub_resource type="AtlasTexture" id="v8_triage_panel_native"]
+atlas = ExtResource("v8_source_triage")
+region = Rect2(1024, 512, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_triage_panel"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_triage")
+shader_parameter/source_region_pixels = Vector4(1024, 512, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.72
+shader_parameter/base_roughness = 0.9
+
+[sub_resource type="AtlasTexture" id="v8_surgery_wall_native"]
+atlas = ExtResource("v8_source_surgery")
+region = Rect2(0, 0, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_surgery_wall"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_surgery")
+shader_parameter/source_region_pixels = Vector4(0, 0, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.24
+shader_parameter/base_roughness = 0.73
+
+[sub_resource type="AtlasTexture" id="v8_surgery_floor_native"]
+atlas = ExtResource("v8_source_surgery")
+region = Rect2(512, 0, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_surgery_floor"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_surgery")
+shader_parameter/source_region_pixels = Vector4(512, 0, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.24
+shader_parameter/base_roughness = 0.73
+
+[sub_resource type="AtlasTexture" id="v8_surgery_ceiling_native"]
+atlas = ExtResource("v8_source_surgery")
+region = Rect2(1024, 0, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_surgery_ceiling"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_surgery")
+shader_parameter/source_region_pixels = Vector4(1024, 0, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.24
+shader_parameter/base_roughness = 0.73
+
+[sub_resource type="AtlasTexture" id="v8_surgery_trim_native"]
+atlas = ExtResource("v8_source_surgery")
+region = Rect2(0, 512, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_surgery_trim"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_surgery")
+shader_parameter/source_region_pixels = Vector4(0, 512, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.72
+shader_parameter/base_roughness = 0.73
+
+[sub_resource type="AtlasTexture" id="v8_surgery_door_native"]
+atlas = ExtResource("v8_source_surgery")
+region = Rect2(512, 512, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_surgery_door"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_surgery")
+shader_parameter/source_region_pixels = Vector4(512, 512, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.72
+shader_parameter/base_roughness = 0.73
+
+[sub_resource type="AtlasTexture" id="v8_surgery_panel_native"]
+atlas = ExtResource("v8_source_surgery")
+region = Rect2(1024, 512, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_surgery_panel"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_surgery")
+shader_parameter/source_region_pixels = Vector4(1024, 512, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.72
+shader_parameter/base_roughness = 0.73
+
+[sub_resource type="AtlasTexture" id="v8_utility_wall_native"]
+atlas = ExtResource("v8_source_utility")
+region = Rect2(0, 0, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_utility_wall"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_utility")
+shader_parameter/source_region_pixels = Vector4(0, 0, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.48
+shader_parameter/base_roughness = 0.86
+
+[sub_resource type="AtlasTexture" id="v8_utility_floor_native"]
+atlas = ExtResource("v8_source_utility")
+region = Rect2(512, 0, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_utility_floor"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_utility")
+shader_parameter/source_region_pixels = Vector4(512, 0, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.48
+shader_parameter/base_roughness = 0.86
+
+[sub_resource type="AtlasTexture" id="v8_utility_ceiling_native"]
+atlas = ExtResource("v8_source_utility")
+region = Rect2(1024, 0, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_utility_ceiling"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_utility")
+shader_parameter/source_region_pixels = Vector4(1024, 0, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.48
+shader_parameter/base_roughness = 0.86
+
+[sub_resource type="AtlasTexture" id="v8_utility_trim_native"]
+atlas = ExtResource("v8_source_utility")
+region = Rect2(0, 512, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_utility_trim"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_utility")
+shader_parameter/source_region_pixels = Vector4(0, 512, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.72
+shader_parameter/base_roughness = 0.86
+
+[sub_resource type="AtlasTexture" id="v8_utility_door_native"]
+atlas = ExtResource("v8_source_utility")
+region = Rect2(512, 512, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_utility_door"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_utility")
+shader_parameter/source_region_pixels = Vector4(512, 512, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.72
+shader_parameter/base_roughness = 0.86
+
+[sub_resource type="AtlasTexture" id="v8_utility_panel_native"]
+atlas = ExtResource("v8_source_utility")
+region = Rect2(1024, 512, 512, 512)
+filter_clip = true
+
+[sub_resource type="ShaderMaterial" id="v8_utility_panel"]
+shader = ExtResource("v8_room_surface")
+shader_parameter/painted_surface = ExtResource("v8_source_utility")
+shader_parameter/source_region_pixels = Vector4(1024, 512, 512, 512)
+shader_parameter/pixels_per_metre = 64
+shader_parameter/metal = 0.72
+shader_parameter/base_roughness = 0.86
+
 [node name="PaleWard" type="Node3D"]
 script = ExtResource("level")
 metadata/stage_id = "pale_ward"
@@ -10536,6 +10774,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_0"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m1")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_0"]
@@ -10549,6 +10788,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_1"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m2")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_1"]
@@ -10562,6 +10802,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_2"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m3")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_2"]
@@ -10575,6 +10816,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_3"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m4")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_3"]
@@ -10588,6 +10830,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_4"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m5")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_4"]
@@ -10601,6 +10844,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_5"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m6")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_5"]
@@ -10614,6 +10858,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_6"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m7")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_6"]
@@ -10627,6 +10872,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_7"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m8")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_7"]
@@ -10640,6 +10886,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_8"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m9")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_8"]
@@ -10653,6 +10900,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_9"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m10")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_9"]
@@ -10666,6 +10914,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_10"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m11")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_10"]
@@ -10679,6 +10928,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_0_11"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m12")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_0_11"]
@@ -10692,6 +10942,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_0_Roof"]
+material_override = SubResource("v8_triage_ceiling")
 mesh = SubResource("m13")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_0_Roof"]
@@ -10705,6 +10956,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_0_Wall-1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m14")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_0_Wall-1"]
@@ -10718,6 +10970,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_0_Wall1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m15")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_0_Wall1"]
@@ -10737,6 +10990,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="Door_entry_gate"]
+material_override = SubResource("v8_triage_door")
 mesh = SubResource("m16")
 
 [node name="Collision" type="CollisionShape3D" parent="Door_entry_gate"]
@@ -10775,6 +11029,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryGateJamb-1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m19")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryGateJamb-1"]
@@ -10788,6 +11043,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryGateJamb1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m20")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryGateJamb1"]
@@ -10801,6 +11057,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryGateHeader"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m21")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryGateHeader"]
@@ -10829,6 +11086,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_0"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m22")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_0"]
@@ -10842,6 +11100,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_1"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m23")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_1"]
@@ -10855,6 +11114,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_2"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m24")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_2"]
@@ -10868,6 +11128,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_3"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m25")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_3"]
@@ -10881,6 +11142,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_4"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m26")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_4"]
@@ -10894,6 +11156,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_5"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m27")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_5"]
@@ -10907,6 +11170,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_6"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m28")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_6"]
@@ -10920,6 +11184,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_7"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m29")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_7"]
@@ -10933,6 +11198,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_8"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m30")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_8"]
@@ -10946,6 +11212,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_9"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m31")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_9"]
@@ -10959,6 +11226,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_10"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m32")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_10"]
@@ -10972,6 +11240,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_11"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m33")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_11"]
@@ -10985,6 +11254,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_12"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m34")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_12"]
@@ -10998,6 +11268,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_13"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m35")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_13"]
@@ -11011,6 +11282,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_14"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m36")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_14"]
@@ -11024,6 +11296,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_15"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m37")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_15"]
@@ -11037,6 +11310,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_16"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m38")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_16"]
@@ -11050,6 +11324,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_17"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m39")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_17"]
@@ -11063,6 +11338,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_18"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m40")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_18"]
@@ -11076,6 +11352,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_1_19"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m41")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_1_19"]
@@ -11089,6 +11366,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_1_Roof"]
+material_override = SubResource("v8_utility_ceiling")
 mesh = SubResource("m42")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_1_Roof"]
@@ -11102,6 +11380,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_1_Wall-1"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m43")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_1_Wall-1"]
@@ -11115,6 +11394,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_1_Wall1"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m44")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_1_Wall1"]
@@ -11133,6 +11413,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="TrapEntry_arena_one"]
+material_override = SubResource("v8_utility_door")
 mesh = SubResource("m45")
 
 [node name="Collision" type="CollisionShape3D" parent="TrapEntry_arena_one"]
@@ -11158,6 +11439,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_0"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m46")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_0"]
@@ -11171,6 +11453,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_1"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m47")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_1"]
@@ -11184,6 +11467,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_2"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m48")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_2"]
@@ -11197,6 +11481,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_3"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m49")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_3"]
@@ -11210,6 +11495,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_4"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m50")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_4"]
@@ -11223,6 +11509,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_5"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m51")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_5"]
@@ -11236,6 +11523,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_6"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m52")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_6"]
@@ -11249,6 +11537,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_7"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m53")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_7"]
@@ -11262,6 +11551,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_8"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m54")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_8"]
@@ -11275,6 +11565,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_9"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m55")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_9"]
@@ -11288,6 +11579,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_10"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m56")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_10"]
@@ -11301,6 +11593,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_11"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m57")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_11"]
@@ -11314,6 +11607,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_12"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m58")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_12"]
@@ -11327,6 +11621,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_13"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m59")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_13"]
@@ -11340,6 +11635,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_14"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m60")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_14"]
@@ -11353,6 +11649,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_15"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m61")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_15"]
@@ -11366,6 +11663,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_16"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m62")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_16"]
@@ -11379,6 +11677,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_17"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m63")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_17"]
@@ -11392,6 +11691,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_18"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m64")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_18"]
@@ -11405,6 +11705,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_2_19"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m65")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_2_19"]
@@ -11418,6 +11719,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_2_Roof"]
+material_override = SubResource("v8_triage_ceiling")
 mesh = SubResource("m66")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_2_Roof"]
@@ -11431,6 +11733,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_2_Wall-1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m67")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_2_Wall-1"]
@@ -11444,6 +11747,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_2_Wall1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m68")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_2_Wall1"]
@@ -11463,6 +11767,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Door_breaker"]
+material_override = SubResource("v8_triage_door")
 mesh = SubResource("m69")
 
 [node name="Collision" type="CollisionShape3D" parent="Door_breaker"]
@@ -11516,6 +11821,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_3_Floor"]
+material_override = SubResource("v8_surgery_floor")
 mesh = SubResource("m72")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_3_Floor"]
@@ -11529,6 +11835,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_3_Roof"]
+material_override = SubResource("v8_surgery_ceiling")
 mesh = SubResource("m73")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_3_Roof"]
@@ -11542,6 +11849,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_3_Wall-1"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m74")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_3_Wall-1"]
@@ -11555,6 +11863,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_3_Wall1"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m75")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_3_Wall1"]
@@ -11580,6 +11889,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_4_Floor"]
+material_override = SubResource("v8_surgery_floor")
 mesh = SubResource("m76")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_4_Floor"]
@@ -11593,6 +11903,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_4_Roof"]
+material_override = SubResource("v8_surgery_ceiling")
 mesh = SubResource("m77")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_4_Roof"]
@@ -11606,6 +11917,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_4_Wall-1"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m78")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_4_Wall-1"]
@@ -11619,6 +11931,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_4_Wall1"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m79")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_4_Wall1"]
@@ -11644,6 +11957,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_5_Floor"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m80")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_5_Floor"]
@@ -11657,6 +11971,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_5_Roof"]
+material_override = SubResource("v8_utility_ceiling")
 mesh = SubResource("m81")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_5_Roof"]
@@ -11670,6 +11985,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_5_Wall-1"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m82")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_5_Wall-1"]
@@ -11683,6 +11999,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_5_Wall1"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m83")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_5_Wall1"]
@@ -11704,6 +12021,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Door_shortcut_one"]
+material_override = SubResource("v8_utility_door")
 mesh = SubResource("m84")
 
 [node name="Collision" type="CollisionShape3D" parent="Door_shortcut_one"]
@@ -11757,6 +12075,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_0"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m87")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_0"]
@@ -11770,6 +12089,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_1"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m88")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_1"]
@@ -11783,6 +12103,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_2"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m89")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_2"]
@@ -11796,6 +12117,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_3"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m90")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_3"]
@@ -11809,6 +12131,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_4"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m91")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_4"]
@@ -11822,6 +12145,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_5"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m92")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_5"]
@@ -11835,6 +12159,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_6"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m93")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_6"]
@@ -11848,6 +12173,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_7"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m94")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_7"]
@@ -11861,6 +12187,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_8"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m95")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_8"]
@@ -11874,6 +12201,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_9"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m96")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_9"]
@@ -11887,6 +12215,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_10"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m97")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_10"]
@@ -11900,6 +12229,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_11"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m98")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_11"]
@@ -11913,6 +12243,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_12"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m99")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_12"]
@@ -11926,6 +12257,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_13"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m100")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_13"]
@@ -11939,6 +12271,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_14"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m101")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_14"]
@@ -11952,6 +12285,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_15"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m102")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_15"]
@@ -11965,6 +12299,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_16"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m103")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_16"]
@@ -11978,6 +12313,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_17"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m104")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_17"]
@@ -11991,6 +12327,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_18"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m105")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_18"]
@@ -12004,6 +12341,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Step_6_19"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m106")
 
 [node name="Collision" type="CollisionShape3D" parent="Step_6_19"]
@@ -12017,6 +12355,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_6_Roof"]
+material_override = SubResource("v8_triage_ceiling")
 mesh = SubResource("m107")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_6_Roof"]
@@ -12030,6 +12369,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_6_Wall-1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m108")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_6_Wall-1"]
@@ -12043,6 +12383,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_6_Wall1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m109")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_6_Wall1"]
@@ -12062,6 +12403,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Door_brass_gate"]
+material_override = SubResource("v8_triage_door")
 mesh = SubResource("m110")
 
 [node name="Collision" type="CollisionShape3D" parent="Door_brass_gate"]
@@ -13382,6 +13724,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_14_Floor"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m199")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_14_Floor"]
@@ -13395,6 +13738,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_14_Roof"]
+material_override = SubResource("v8_triage_ceiling")
 mesh = SubResource("m200")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_14_Roof"]
@@ -13408,6 +13752,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_14_Wall-1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m201")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_14_Wall-1"]
@@ -13421,6 +13766,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_14_Wall1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m202")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_14_Wall1"]
@@ -13446,6 +13792,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_15_Floor"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m203")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_15_Floor"]
@@ -13459,6 +13806,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_15_Roof"]
+material_override = SubResource("v8_triage_ceiling")
 mesh = SubResource("m204")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_15_Roof"]
@@ -13472,6 +13820,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_15_Wall-1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m205")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_15_Wall-1"]
@@ -13485,6 +13834,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="Link_15_Wall1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m206")
 
 [node name="Collision" type="CollisionShape3D" parent="Link_15_Wall1"]
@@ -14102,6 +14452,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_Floor"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m247")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_Floor"]
@@ -14115,6 +14466,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_Roof"]
+material_override = SubResource("v8_triage_ceiling")
 mesh = SubResource("m248")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_Roof"]
@@ -14128,6 +14480,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_N0"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m249")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_N0"]
@@ -14141,6 +14494,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_LintelN0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m250")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_LintelN0"]
@@ -14154,6 +14508,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_N1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m251")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_N1"]
@@ -14167,6 +14522,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_S0"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m252")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_S0"]
@@ -14180,6 +14536,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_E0"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m253")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_E0"]
@@ -14193,6 +14550,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_LintelE0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m254")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_LintelE0"]
@@ -14206,6 +14564,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_E1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m255")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_E1"]
@@ -14219,6 +14578,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_W0"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m256")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_W0"]
@@ -14232,6 +14592,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_LintelW0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m257")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_LintelW0"]
@@ -14245,6 +14606,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_W1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m258")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_W1"]
@@ -14276,6 +14638,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_Pier-1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m259")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_Pier-1"]
@@ -14289,6 +14652,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_PierBand-11.1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m260")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_PierBand-11.1"]
@@ -14302,6 +14666,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_PierBand-15"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m261")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_PierBand-15"]
@@ -14336,6 +14701,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankBand-100.2"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m263")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankBand-100.2"]
@@ -14348,6 +14714,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankBand-103.5"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m264")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankBand-103.5"]
@@ -14361,6 +14728,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankStrut-10-0.62"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m265")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankStrut-10-0.62"]
@@ -14374,6 +14742,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankStrut-100.62"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m266")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankStrut-100.62"]
@@ -14408,6 +14777,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankBand-120.2"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m268")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankBand-120.2"]
@@ -14420,6 +14790,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankBand-123.5"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m269")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankBand-123.5"]
@@ -14433,6 +14804,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankStrut-12-0.62"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m270")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankStrut-12-0.62"]
@@ -14446,6 +14818,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankStrut-120.62"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m271")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankStrut-120.62"]
@@ -14459,6 +14832,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_Pier1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m272")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_Pier1"]
@@ -14472,6 +14846,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_PierBand11.1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m273")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_PierBand11.1"]
@@ -14485,6 +14860,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_PierBand15"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m274")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_PierBand15"]
@@ -14519,6 +14895,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankBand100.2"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m276")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankBand100.2"]
@@ -14531,6 +14908,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankBand103.5"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m277")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankBand103.5"]
@@ -14544,6 +14922,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankStrut10-0.62"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m278")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankStrut10-0.62"]
@@ -14557,6 +14936,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankStrut100.62"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m279")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankStrut100.62"]
@@ -14591,6 +14971,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankBand120.2"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m281")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankBand120.2"]
@@ -14603,6 +14984,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankBand123.5"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m282")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankBand123.5"]
@@ -14616,6 +14998,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankStrut12-0.62"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m283")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankStrut12-0.62"]
@@ -14629,6 +15012,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_TankStrut120.62"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m284")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_TankStrut120.62"]
@@ -14642,6 +15026,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_OverheadFeed-2"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m285")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_OverheadFeed-2"]
@@ -14655,6 +15040,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_OverheadFeed-1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m286")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_OverheadFeed-1"]
@@ -14668,6 +15054,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="entry_OverheadFeed2"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m287")
 
 [node name="Collision" type="CollisionShape3D" parent="entry_OverheadFeed2"]
@@ -14681,6 +15068,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryRoofRib0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m288")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryRoofRib0"]
@@ -14691,6 +15079,7 @@ position = Vector3(-5.8, 5.38, -10)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampHousing0-1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m289")
 
 [node name="EntryLampFace0-1" type="Node3D" parent="."]
@@ -14716,6 +15105,7 @@ position = Vector3(5.8, 5.38, -10)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampHousing01"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m291")
 
 [node name="EntryLampFace01" type="Node3D" parent="."]
@@ -14741,6 +15131,7 @@ position = Vector3(-1.3, 5.32, -10)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryConduitBrace0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m293")
 
 [node name="EntryRoofRib1" type="StaticBody3D" parent="."]
@@ -14751,6 +15142,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryRoofRib1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m294")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryRoofRib1"]
@@ -14761,6 +15153,7 @@ position = Vector3(-5.8, 5.38, -2)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampHousing1-1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m295")
 
 [node name="EntryLampFace1-1" type="Node3D" parent="."]
@@ -14786,6 +15179,7 @@ position = Vector3(5.8, 5.38, -2)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampHousing11"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m297")
 
 [node name="EntryLampFace11" type="Node3D" parent="."]
@@ -14811,6 +15205,7 @@ position = Vector3(-1.3, 5.32, -2)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryConduitBrace1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m299")
 
 [node name="EntryRoofRib2" type="StaticBody3D" parent="."]
@@ -14821,6 +15216,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryRoofRib2"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m300")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryRoofRib2"]
@@ -14831,6 +15227,7 @@ position = Vector3(-5.8, 5.38, 6)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampHousing2-1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m301")
 
 [node name="EntryLampFace2-1" type="Node3D" parent="."]
@@ -14856,6 +15253,7 @@ position = Vector3(5.8, 5.38, 6)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampHousing21"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m303")
 
 [node name="EntryLampFace21" type="Node3D" parent="."]
@@ -14881,6 +15279,7 @@ position = Vector3(-1.3, 5.32, 6)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryConduitBrace2"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m305")
 
 [node name="EntryRoofRib3" type="StaticBody3D" parent="."]
@@ -14891,6 +15290,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryRoofRib3"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m306")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryRoofRib3"]
@@ -14901,6 +15301,7 @@ position = Vector3(-5.8, 5.38, 13)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampHousing3-1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m307")
 
 [node name="EntryLampFace3-1" type="Node3D" parent="."]
@@ -14926,6 +15327,7 @@ position = Vector3(5.8, 5.38, 13)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryLampHousing31"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m309")
 
 [node name="EntryLampFace31" type="Node3D" parent="."]
@@ -14951,6 +15353,7 @@ position = Vector3(-1.3, 5.32, 13)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryConduitBrace3"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m311")
 
 [node name="EntryCylinderFeed0" type="StaticBody3D" parent="."]
@@ -14961,6 +15364,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryCylinderFeed0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m312")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryCylinderFeed0"]
@@ -14974,6 +15378,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryCylinderFeed1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m313")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryCylinderFeed1"]
@@ -14987,6 +15392,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryCylinderFeed2"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m314")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryCylinderFeed2"]
@@ -15000,6 +15406,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryOverheadDuct"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m315")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryOverheadDuct"]
@@ -15010,6 +15417,7 @@ position = Vector3(-5.2, 4.95, -12)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryDuctBand0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m316")
 
 [node name="EntryDuctBand1" type="Node3D" parent="."]
@@ -15017,6 +15425,7 @@ position = Vector3(-5.2, 4.95, -4)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryDuctBand1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m317")
 
 [node name="EntryDuctBand2" type="Node3D" parent="."]
@@ -15024,6 +15433,7 @@ position = Vector3(-5.2, 4.95, 4)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryDuctBand2"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m318")
 
 [node name="EntryDuctBand3" type="Node3D" parent="."]
@@ -15031,6 +15441,7 @@ position = Vector3(-5.2, 4.95, 12)
 
 
 [node name="Visual" type="MeshInstance3D" parent="EntryDuctBand3"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m319")
 
 [node name="EntryInstrumentPier-1" type="StaticBody3D" parent="."]
@@ -15041,6 +15452,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryInstrumentPier-1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m320")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryInstrumentPier-1"]
@@ -15054,6 +15466,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryInstrumentFoot-1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m321")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryInstrumentFoot-1"]
@@ -15067,6 +15480,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryInstrumentGauge-1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m322")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryInstrumentGauge-1"]
@@ -15087,6 +15501,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryInstrumentPier1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m324")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryInstrumentPier1"]
@@ -15100,6 +15515,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryInstrumentFoot1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m325")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryInstrumentFoot1"]
@@ -15113,6 +15529,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="EntryInstrumentGauge1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m326")
 
 [node name="Collision" type="CollisionShape3D" parent="EntryInstrumentGauge1"]
@@ -15152,6 +15569,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="service_Floor"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m328")
 
 [node name="Collision" type="CollisionShape3D" parent="service_Floor"]
@@ -15165,6 +15583,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="service_Roof"]
+material_override = SubResource("v8_utility_ceiling")
 mesh = SubResource("m329")
 
 [node name="Collision" type="CollisionShape3D" parent="service_Roof"]
@@ -15178,6 +15597,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="service_N0"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m330")
 
 [node name="Collision" type="CollisionShape3D" parent="service_N0"]
@@ -15191,6 +15611,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="service_LintelN0"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m331")
 
 [node name="Collision" type="CollisionShape3D" parent="service_LintelN0"]
@@ -15204,6 +15625,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="service_N1"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m332")
 
 [node name="Collision" type="CollisionShape3D" parent="service_N1"]
@@ -15217,6 +15639,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="service_S0"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m333")
 
 [node name="Collision" type="CollisionShape3D" parent="service_S0"]
@@ -15230,6 +15653,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="service_LintelS0"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m334")
 
 [node name="Collision" type="CollisionShape3D" parent="service_LintelS0"]
@@ -15243,6 +15667,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="service_S1"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m335")
 
 [node name="Collision" type="CollisionShape3D" parent="service_S1"]
@@ -15256,6 +15681,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="service_E0"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m336")
 
 [node name="Collision" type="CollisionShape3D" parent="service_E0"]
@@ -15269,6 +15695,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="service_LintelE0"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m337")
 
 [node name="Collision" type="CollisionShape3D" parent="service_LintelE0"]
@@ -15282,6 +15709,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="service_E1"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m338")
 
 [node name="Collision" type="CollisionShape3D" parent="service_E1"]
@@ -15295,6 +15723,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="service_W0"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m339")
 
 [node name="Collision" type="CollisionShape3D" parent="service_W0"]
@@ -15336,6 +15765,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_Floor"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m340")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_Floor"]
@@ -15346,6 +15776,7 @@ position = Vector3(8, -0.994, -82)
 
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_DrainGrate"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m341")
 
 [node name="arena_one_BloodSurface" type="Node3D" parent="."]
@@ -15363,6 +15794,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_Roof"]
+material_override = SubResource("v8_triage_ceiling")
 mesh = SubResource("m343")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_Roof"]
@@ -15376,6 +15808,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_N0"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m344")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_N0"]
@@ -15389,6 +15822,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_LintelN0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m345")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_LintelN0"]
@@ -15402,6 +15836,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_N1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m346")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_N1"]
@@ -15415,6 +15850,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_S0"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m347")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_S0"]
@@ -15428,6 +15864,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_LintelS0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m348")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_LintelS0"]
@@ -15441,6 +15878,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_S1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m349")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_S1"]
@@ -15454,6 +15892,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_E0"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m350")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_E0"]
@@ -15467,6 +15906,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_LintelE0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m351")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_LintelE0"]
@@ -15480,6 +15920,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_E1"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m352")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_E1"]
@@ -15493,6 +15934,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_W0"]
+material_override = SubResource("v8_triage_wall")
 mesh = SubResource("m353")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_W0"]
@@ -15520,37 +15962,37 @@ shaded = true
 position = Vector3(-18, -1, -96)
 metadata/stage_polygon = PackedVector2Array(0, 0, 2.0, 0, 0, 2.0)
 metadata/polygon_height = 10
-metadata/polygon_material = SubResource("pillar")
+metadata/polygon_material = SubResource("v8_triage_wall")
 
 [node name="arena_one_Chamfer-11" type="Node3D" parent="."]
 position = Vector3(-18, -1, -56)
 metadata/stage_polygon = PackedVector2Array(0, 0, 2.0, 0, 0, -2.0)
 metadata/polygon_height = 10
-metadata/polygon_material = SubResource("pillar")
+metadata/polygon_material = SubResource("v8_triage_wall")
 
 [node name="arena_one_Chamfer1-1" type="Node3D" parent="."]
 position = Vector3(18, -1, -96)
 metadata/stage_polygon = PackedVector2Array(0, 0, -2.0, 0, 0, 2.0)
 metadata/polygon_height = 10
-metadata/polygon_material = SubResource("pillar")
+metadata/polygon_material = SubResource("v8_triage_wall")
 
 [node name="arena_one_Chamfer11" type="Node3D" parent="."]
 position = Vector3(18, -1, -56)
 metadata/stage_polygon = PackedVector2Array(0, 0, -2.0, 0, 0, -2.0)
 metadata/polygon_height = 10
-metadata/polygon_material = SubResource("pillar")
+metadata/polygon_material = SubResource("v8_triage_wall")
 
 [node name="arena_one_AngularCover-1" type="Node3D" parent="."]
 position = Vector3(-9, -1, -70)
 metadata/stage_polygon = PackedVector2Array(-1.8, -2, 1.3, -2.8, 2, 1.4, -0.8, 2.4)
 metadata/polygon_height = 1.3
-metadata/polygon_material = SubResource("damaged")
+metadata/polygon_material = SubResource("v8_triage_wall")
 
 [node name="arena_one_AngularCover1" type="Node3D" parent="."]
 position = Vector3(9, -1, -70)
 metadata/stage_polygon = PackedVector2Array(-1.8, -2, 1.3, -2.8, 2, 1.4, -0.8, 2.4)
 metadata/polygon_height = 1.3
-metadata/polygon_material = SubResource("damaged")
+metadata/polygon_material = SubResource("v8_triage_wall")
 
 [node name="arena_one_GalleryDeck" type="StaticBody3D" parent="."]
 position = Vector3(-7, 1.32, -76)
@@ -15560,6 +16002,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryDeck"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m354")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryDeck"]
@@ -15573,6 +16016,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-10"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m355")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-10"]
@@ -15586,6 +16030,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-11"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m356")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-11"]
@@ -15599,6 +16044,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-12"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m357")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-12"]
@@ -15612,6 +16058,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-13"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m358")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-13"]
@@ -15625,6 +16072,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-14"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m359")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-14"]
@@ -15638,6 +16086,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-15"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m360")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-15"]
@@ -15651,6 +16100,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-16"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m361")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-16"]
@@ -15664,6 +16114,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-17"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m362")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-17"]
@@ -15677,6 +16128,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-18"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m363")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-18"]
@@ -15690,6 +16142,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-19"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m364")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-19"]
@@ -15703,6 +16156,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-110"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m365")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-110"]
@@ -15716,6 +16170,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-111"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m366")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-111"]
@@ -15729,6 +16184,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-112"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m367")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-112"]
@@ -15742,6 +16198,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-113"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m368")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-113"]
@@ -15755,6 +16212,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-114"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m369")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-114"]
@@ -15768,6 +16226,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-115"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m370")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-115"]
@@ -15781,6 +16240,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-116"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m371")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-116"]
@@ -15794,6 +16254,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-117"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m372")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-117"]
@@ -15807,6 +16268,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-118"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m373")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-118"]
@@ -15820,6 +16282,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs-119"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m374")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs-119"]
@@ -15833,6 +16296,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs10"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m375")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs10"]
@@ -15846,6 +16310,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs11"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m376")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs11"]
@@ -15859,6 +16324,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs12"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m377")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs12"]
@@ -15872,6 +16338,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs13"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m378")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs13"]
@@ -15885,6 +16352,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs14"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m379")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs14"]
@@ -15898,6 +16366,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs15"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m380")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs15"]
@@ -15911,6 +16380,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs16"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m381")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs16"]
@@ -15924,6 +16394,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs17"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m382")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs17"]
@@ -15937,6 +16408,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs18"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m383")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs18"]
@@ -15950,6 +16422,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs19"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m384")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs19"]
@@ -15963,6 +16436,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs110"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m385")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs110"]
@@ -15976,6 +16450,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs111"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m386")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs111"]
@@ -15989,6 +16464,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs112"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m387")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs112"]
@@ -16002,6 +16478,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs113"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m388")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs113"]
@@ -16015,6 +16492,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs114"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m389")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs114"]
@@ -16028,6 +16506,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs115"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m390")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs115"]
@@ -16041,6 +16520,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs116"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m391")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs116"]
@@ -16054,6 +16534,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs117"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m392")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs117"]
@@ -16067,6 +16548,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs118"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m393")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs118"]
@@ -16080,6 +16562,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_GalleryStairs119"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m394")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_GalleryStairs119"]
@@ -16093,6 +16576,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRim"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m395")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRim"]
@@ -16106,6 +16590,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_RimCrossing-1"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m396")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_RimCrossing-1"]
@@ -16119,6 +16604,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-10"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m397")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-10"]
@@ -16132,6 +16618,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-11"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m398")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-11"]
@@ -16145,6 +16632,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-12"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m399")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-12"]
@@ -16158,6 +16646,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-13"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m400")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-13"]
@@ -16171,6 +16660,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-14"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m401")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-14"]
@@ -16184,6 +16674,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-15"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m402")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-15"]
@@ -16197,6 +16688,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-16"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m403")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-16"]
@@ -16210,6 +16702,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-17"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m404")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-17"]
@@ -16223,6 +16716,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-18"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m405")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-18"]
@@ -16236,6 +16730,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-19"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m406")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-19"]
@@ -16249,6 +16744,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-110"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m407")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-110"]
@@ -16262,6 +16758,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-111"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m408")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-111"]
@@ -16275,6 +16772,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-112"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m409")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-112"]
@@ -16288,6 +16786,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-113"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m410")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-113"]
@@ -16301,6 +16800,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-114"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m411")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-114"]
@@ -16314,6 +16814,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-115"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m412")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-115"]
@@ -16327,6 +16828,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-116"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m413")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-116"]
@@ -16340,6 +16842,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-117"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m414")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-117"]
@@ -16353,6 +16856,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-118"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m415")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-118"]
@@ -16366,6 +16870,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs-119"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m416")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs-119"]
@@ -16379,6 +16884,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_RimCrossing1"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m417")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_RimCrossing1"]
@@ -16392,6 +16898,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs10"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m418")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs10"]
@@ -16405,6 +16912,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs11"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m419")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs11"]
@@ -16418,6 +16926,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs12"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m420")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs12"]
@@ -16431,6 +16940,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs13"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m421")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs13"]
@@ -16444,6 +16954,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs14"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m422")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs14"]
@@ -16457,6 +16968,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs15"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m423")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs15"]
@@ -16470,6 +16982,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs16"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m424")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs16"]
@@ -16483,6 +16996,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs17"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m425")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs17"]
@@ -16496,6 +17010,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs18"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m426")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs18"]
@@ -16509,6 +17024,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs19"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m427")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs19"]
@@ -16522,6 +17038,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs110"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m428")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs110"]
@@ -16535,6 +17052,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs111"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m429")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs111"]
@@ -16548,6 +17066,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs112"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m430")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs112"]
@@ -16561,6 +17080,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs113"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m431")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs113"]
@@ -16574,6 +17094,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs114"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m432")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs114"]
@@ -16587,6 +17108,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs115"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m433")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs115"]
@@ -16600,6 +17122,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs116"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m434")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs116"]
@@ -16613,6 +17136,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs117"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m435")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs117"]
@@ -16626,6 +17150,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs118"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m436")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs118"]
@@ -16639,6 +17164,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_EastRimStairs119"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m437")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_EastRimStairs119"]
@@ -16649,6 +17175,7 @@ position = Vector3(0, -0.992, -76)
 
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_InsetZone"]
+material_override = SubResource("v8_triage_floor")
 mesh = SubResource("m438")
 
 [node name="arena_one_AngledFeed0-1" type="StaticBody3D" parent="."]
@@ -16660,6 +17187,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_AngledFeed0-1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m439")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_AngledFeed0-1"]
@@ -16674,6 +17202,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_AngledFeed01"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m440")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_AngledFeed01"]
@@ -16688,6 +17217,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_AngledFeed1-1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m441")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_AngledFeed1-1"]
@@ -16702,6 +17232,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="arena_one_AngledFeed11"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m442")
 
 [node name="Collision" type="CollisionShape3D" parent="arena_one_AngledFeed11"]
@@ -16731,6 +17262,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_wing_Floor"]
+material_override = SubResource("v8_surgery_floor")
 mesh = SubResource("m443")
 
 [node name="Collision" type="CollisionShape3D" parent="key_wing_Floor"]
@@ -16744,6 +17276,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_wing_Roof"]
+material_override = SubResource("v8_surgery_ceiling")
 mesh = SubResource("m444")
 
 [node name="Collision" type="CollisionShape3D" parent="key_wing_Roof"]
@@ -16757,6 +17290,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_wing_N0"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m445")
 
 [node name="Collision" type="CollisionShape3D" parent="key_wing_N0"]
@@ -16770,6 +17304,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_wing_S0"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m446")
 
 [node name="Collision" type="CollisionShape3D" parent="key_wing_S0"]
@@ -16783,6 +17318,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_wing_E0"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m447")
 
 [node name="Collision" type="CollisionShape3D" parent="key_wing_E0"]
@@ -16796,6 +17332,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="key_wing_LintelE0"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m448")
 
 [node name="Collision" type="CollisionShape3D" parent="key_wing_LintelE0"]
@@ -16809,6 +17346,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_wing_E1"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m449")
 
 [node name="Collision" type="CollisionShape3D" parent="key_wing_E1"]
@@ -16822,6 +17360,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_wing_W0"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m450")
 
 [node name="Collision" type="CollisionShape3D" parent="key_wing_W0"]
@@ -16835,6 +17374,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="key_wing_LintelW0"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m451")
 
 [node name="Collision" type="CollisionShape3D" parent="key_wing_LintelW0"]
@@ -16848,6 +17388,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_wing_W1"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m452")
 
 [node name="Collision" type="CollisionShape3D" parent="key_wing_W1"]
@@ -16888,6 +17429,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_console_Floor"]
+material_override = SubResource("v8_surgery_floor")
 mesh = SubResource("m453")
 
 [node name="Collision" type="CollisionShape3D" parent="key_console_Floor"]
@@ -16901,6 +17443,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_console_Roof"]
+material_override = SubResource("v8_surgery_ceiling")
 mesh = SubResource("m454")
 
 [node name="Collision" type="CollisionShape3D" parent="key_console_Roof"]
@@ -16914,6 +17457,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_console_N0"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m455")
 
 [node name="Collision" type="CollisionShape3D" parent="key_console_N0"]
@@ -16927,6 +17471,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_console_S0"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m456")
 
 [node name="Collision" type="CollisionShape3D" parent="key_console_S0"]
@@ -16940,6 +17485,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="key_console_LintelS0"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m457")
 
 [node name="Collision" type="CollisionShape3D" parent="key_console_LintelS0"]
@@ -16953,6 +17499,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_console_S1"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m458")
 
 [node name="Collision" type="CollisionShape3D" parent="key_console_S1"]
@@ -16966,6 +17513,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_console_E0"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m459")
 
 [node name="Collision" type="CollisionShape3D" parent="key_console_E0"]
@@ -16979,6 +17527,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_console_W0"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m460")
 
 [node name="Collision" type="CollisionShape3D" parent="key_console_W0"]
@@ -16992,6 +17541,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="key_console_LintelW0"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m461")
 
 [node name="Collision" type="CollisionShape3D" parent="key_console_LintelW0"]
@@ -17005,6 +17555,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="key_console_W1"]
+material_override = SubResource("v8_surgery_wall")
 mesh = SubResource("m462")
 
 [node name="Collision" type="CollisionShape3D" parent="key_console_W1"]
@@ -17045,6 +17596,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="return_store_Floor"]
+material_override = SubResource("v8_utility_floor")
 mesh = SubResource("m463")
 
 [node name="Collision" type="CollisionShape3D" parent="return_store_Floor"]
@@ -17058,6 +17610,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="return_store_Roof"]
+material_override = SubResource("v8_utility_ceiling")
 mesh = SubResource("m464")
 
 [node name="Collision" type="CollisionShape3D" parent="return_store_Roof"]
@@ -17071,6 +17624,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="return_store_N0"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m465")
 
 [node name="Collision" type="CollisionShape3D" parent="return_store_N0"]
@@ -17084,6 +17638,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="return_store_LintelN0"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m466")
 
 [node name="Collision" type="CollisionShape3D" parent="return_store_LintelN0"]
@@ -17097,6 +17652,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="return_store_N1"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m467")
 
 [node name="Collision" type="CollisionShape3D" parent="return_store_N1"]
@@ -17110,6 +17666,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="return_store_S0"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m468")
 
 [node name="Collision" type="CollisionShape3D" parent="return_store_S0"]
@@ -17123,6 +17680,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="return_store_E0"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m469")
 
 [node name="Collision" type="CollisionShape3D" parent="return_store_E0"]
@@ -17136,6 +17694,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="return_store_W0"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m470")
 
 [node name="Collision" type="CollisionShape3D" parent="return_store_W0"]
@@ -17149,6 +17708,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="return_store_LintelW0"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m471")
 
 [node name="Collision" type="CollisionShape3D" parent="return_store_LintelW0"]
@@ -17162,6 +17722,7 @@ collision_mask = 3
 metadata/hit_material = "hard"
 
 [node name="Visual" type="MeshInstance3D" parent="return_store_W1"]
+material_override = SubResource("v8_utility_wall")
 mesh = SubResource("m472")
 
 [node name="Collision" type="CollisionShape3D" parent="return_store_W1"]
@@ -29307,6 +29868,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/RoofRib0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1538")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/RoofRib0"]
@@ -29320,6 +29882,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/RibShoe0-1"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1539")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/RibShoe0-1"]
@@ -29333,6 +29896,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/RibShoe01"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1540")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/RibShoe01"]
@@ -29346,6 +29910,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/RoofRib1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1541")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/RoofRib1"]
@@ -29359,6 +29924,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/RibShoe1-1"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1542")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/RibShoe1-1"]
@@ -29372,6 +29938,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/RibShoe11"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1543")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/RibShoe11"]
@@ -29398,6 +29965,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/PipeClamp00"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1545")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/PipeClamp00"]
@@ -29411,6 +29979,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/PipeClamp01"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1546")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/PipeClamp01"]
@@ -29437,6 +30006,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/PipeClamp10"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1548")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/PipeClamp10"]
@@ -29450,6 +30020,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/PipeClamp11"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1549")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/PipeClamp11"]
@@ -29463,6 +30034,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/Luminaire0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1550")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/Luminaire0"]
@@ -29490,6 +30062,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/Luminaire1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1552")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/Luminaire1"]
@@ -29517,6 +30090,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_entry/ReceptionCanopy"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1554")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_entry/ReceptionCanopy"]
@@ -29549,6 +30123,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/RoofRib0"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1556")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/RoofRib0"]
@@ -29562,6 +30137,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/RibShoe0-1"]
+material_override = SubResource("v8_utility_panel")
 mesh = SubResource("m1557")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/RibShoe0-1"]
@@ -29575,6 +30151,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/RibShoe01"]
+material_override = SubResource("v8_utility_panel")
 mesh = SubResource("m1558")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/RibShoe01"]
@@ -29588,6 +30165,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/RoofRib1"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1559")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/RoofRib1"]
@@ -29601,6 +30179,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/RibShoe1-1"]
+material_override = SubResource("v8_utility_panel")
 mesh = SubResource("m1560")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/RibShoe1-1"]
@@ -29614,6 +30193,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/RibShoe11"]
+material_override = SubResource("v8_utility_panel")
 mesh = SubResource("m1561")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/RibShoe11"]
@@ -29640,6 +30220,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/PipeClamp00"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1563")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/PipeClamp00"]
@@ -29653,6 +30234,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/PipeClamp01"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1564")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/PipeClamp01"]
@@ -29679,6 +30261,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/PipeClamp10"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1566")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/PipeClamp10"]
@@ -29692,6 +30275,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/PipeClamp11"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1567")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/PipeClamp11"]
@@ -29705,6 +30289,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/Luminaire0"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1568")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/Luminaire0"]
@@ -29732,6 +30317,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/Luminaire1"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1570")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/Luminaire1"]
@@ -29772,6 +30358,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/AirNozzle-10"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1573")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/AirNozzle-10"]
@@ -29785,6 +30372,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/AirNozzle-11"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1574")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/AirNozzle-11"]
@@ -29798,6 +30386,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/AirNozzle-12"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1575")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/AirNozzle-12"]
@@ -29824,6 +30413,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/AirNozzle10"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1577")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/AirNozzle10"]
@@ -29837,6 +30427,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/AirNozzle11"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1578")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/AirNozzle11"]
@@ -29850,6 +30441,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_service/AirNozzle12"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1579")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_service/AirNozzle12"]
@@ -29869,6 +30461,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/RoofRib0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1580")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/RoofRib0"]
@@ -29882,6 +30475,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/RibShoe0-1"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1581")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/RibShoe0-1"]
@@ -29895,6 +30489,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/RibShoe01"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1582")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/RibShoe01"]
@@ -29908,6 +30503,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/RoofRib1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1583")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/RoofRib1"]
@@ -29921,6 +30517,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/RibShoe1-1"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1584")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/RibShoe1-1"]
@@ -29934,6 +30531,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/RibShoe11"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1585")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/RibShoe11"]
@@ -29947,6 +30545,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/RoofRib2"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1586")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/RoofRib2"]
@@ -29960,6 +30559,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/RibShoe2-1"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1587")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/RibShoe2-1"]
@@ -29973,6 +30573,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/RibShoe21"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1588")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/RibShoe21"]
@@ -29999,6 +30600,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/PipeClamp00"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1590")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/PipeClamp00"]
@@ -30012,6 +30614,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/PipeClamp01"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1591")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/PipeClamp01"]
@@ -30025,6 +30628,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/PipeClamp02"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1592")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/PipeClamp02"]
@@ -30051,6 +30655,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/PipeClamp10"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1594")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/PipeClamp10"]
@@ -30064,6 +30669,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/PipeClamp11"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1595")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/PipeClamp11"]
@@ -30077,6 +30683,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/PipeClamp12"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1596")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/PipeClamp12"]
@@ -30090,6 +30697,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/Luminaire0"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1597")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/Luminaire0"]
@@ -30117,6 +30725,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/Luminaire1"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1599")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/Luminaire1"]
@@ -30144,6 +30753,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/TriageGantry-1"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1601")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/TriageGantry-1"]
@@ -30157,6 +30767,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/GantryHanger-10"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1602")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/GantryHanger-10"]
@@ -30170,6 +30781,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/GantryHanger-11"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1603")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/GantryHanger-11"]
@@ -30183,6 +30795,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/GantryHanger-12"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1604")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/GantryHanger-12"]
@@ -30196,6 +30809,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/TriageGantry1"]
+material_override = SubResource("v8_triage_panel")
 mesh = SubResource("m1605")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/TriageGantry1"]
@@ -30209,6 +30823,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/GantryHanger10"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1606")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/GantryHanger10"]
@@ -30222,6 +30837,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/GantryHanger11"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1607")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/GantryHanger11"]
@@ -30235,6 +30851,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_arena_one/GantryHanger12"]
+material_override = SubResource("v8_triage_trim")
 mesh = SubResource("m1608")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_arena_one/GantryHanger12"]
@@ -30268,6 +30885,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/RoofRib0"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1609")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/RoofRib0"]
@@ -30281,6 +30899,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/RibShoe0-1"]
+material_override = SubResource("v8_surgery_panel")
 mesh = SubResource("m1610")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/RibShoe0-1"]
@@ -30294,6 +30913,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/RibShoe01"]
+material_override = SubResource("v8_surgery_panel")
 mesh = SubResource("m1611")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/RibShoe01"]
@@ -30307,6 +30927,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/RoofRib1"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1612")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/RoofRib1"]
@@ -30320,6 +30941,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/RibShoe1-1"]
+material_override = SubResource("v8_surgery_panel")
 mesh = SubResource("m1613")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/RibShoe1-1"]
@@ -30333,6 +30955,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/RibShoe11"]
+material_override = SubResource("v8_surgery_panel")
 mesh = SubResource("m1614")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/RibShoe11"]
@@ -30359,6 +30982,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/PipeClamp00"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1616")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/PipeClamp00"]
@@ -30372,6 +30996,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/PipeClamp01"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1617")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/PipeClamp01"]
@@ -30398,6 +31023,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/PipeClamp10"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1619")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/PipeClamp10"]
@@ -30411,6 +31037,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/PipeClamp11"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1620")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/PipeClamp11"]
@@ -30424,6 +31051,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/Luminaire0"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1621")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/Luminaire0"]
@@ -30451,6 +31079,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_wing/Luminaire1"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1623")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_wing/Luminaire1"]
@@ -30517,6 +31146,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/RoofRib0"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1628")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/RoofRib0"]
@@ -30530,6 +31160,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/RibShoe0-1"]
+material_override = SubResource("v8_surgery_panel")
 mesh = SubResource("m1629")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/RibShoe0-1"]
@@ -30543,6 +31174,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/RibShoe01"]
+material_override = SubResource("v8_surgery_panel")
 mesh = SubResource("m1630")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/RibShoe01"]
@@ -30556,6 +31188,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/RoofRib1"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1631")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/RoofRib1"]
@@ -30569,6 +31202,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/RibShoe1-1"]
+material_override = SubResource("v8_surgery_panel")
 mesh = SubResource("m1632")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/RibShoe1-1"]
@@ -30582,6 +31216,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/RibShoe11"]
+material_override = SubResource("v8_surgery_panel")
 mesh = SubResource("m1633")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/RibShoe11"]
@@ -30608,6 +31243,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/PipeClamp00"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1635")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/PipeClamp00"]
@@ -30621,6 +31257,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/PipeClamp01"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1636")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/PipeClamp01"]
@@ -30647,6 +31284,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/PipeClamp10"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1638")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/PipeClamp10"]
@@ -30660,6 +31298,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/PipeClamp11"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1639")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/PipeClamp11"]
@@ -30673,6 +31312,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/Luminaire0"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1640")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/Luminaire0"]
@@ -30700,6 +31340,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/Luminaire1"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1642")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/Luminaire1"]
@@ -30727,6 +31368,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/SurgicalCeilingMount"]
+material_override = SubResource("v8_surgery_panel")
 mesh = SubResource("m1644")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/SurgicalCeilingMount"]
@@ -30739,6 +31381,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/SurgicalStem"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1645")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/SurgicalStem"]
@@ -30788,6 +31431,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_key_console/SurgicalArm"]
+material_override = SubResource("v8_surgery_trim")
 mesh = SubResource("m1650")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_key_console/SurgicalArm"]
@@ -30818,6 +31462,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/RoofRib0"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1651")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/RoofRib0"]
@@ -30831,6 +31476,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/RibShoe0-1"]
+material_override = SubResource("v8_utility_panel")
 mesh = SubResource("m1652")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/RibShoe0-1"]
@@ -30844,6 +31490,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/RibShoe01"]
+material_override = SubResource("v8_utility_panel")
 mesh = SubResource("m1653")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/RibShoe01"]
@@ -30857,6 +31504,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/RoofRib1"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1654")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/RoofRib1"]
@@ -30870,6 +31518,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/RibShoe1-1"]
+material_override = SubResource("v8_utility_panel")
 mesh = SubResource("m1655")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/RibShoe1-1"]
@@ -30883,6 +31532,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/RibShoe11"]
+material_override = SubResource("v8_utility_panel")
 mesh = SubResource("m1656")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/RibShoe11"]
@@ -30909,6 +31559,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/PipeClamp00"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1658")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/PipeClamp00"]
@@ -30922,6 +31573,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/PipeClamp01"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1659")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/PipeClamp01"]
@@ -30948,6 +31600,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/PipeClamp10"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1661")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/PipeClamp10"]
@@ -30961,6 +31614,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/PipeClamp11"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1662")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/PipeClamp11"]
@@ -30974,6 +31628,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/Luminaire0"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1663")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/Luminaire0"]
@@ -31001,6 +31656,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/Luminaire1"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1665")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/Luminaire1"]
@@ -31028,6 +31684,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/SupplyTrack-1"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1667")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/SupplyTrack-1"]
@@ -31041,6 +31698,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/SupplyTrack1"]
+material_override = SubResource("v8_utility_trim")
 mesh = SubResource("m1668")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/SupplyTrack1"]
@@ -31054,6 +31712,7 @@ collision_mask = 3
 metadata/hit_material = "armor"
 
 [node name="Visual" type="MeshInstance3D" parent="IntakePresentation_return_store/SupplyCrossbar"]
+material_override = SubResource("v8_utility_panel")
 mesh = SubResource("m1669")
 
 [node name="Collision" type="CollisionShape3D" parent="IntakePresentation_return_store/SupplyCrossbar"]

@@ -36,6 +36,8 @@ STYLE_PASS_LIMITATIONS = [
     "The four new creatures have eight directional stance images and frontal combat/death sequences; the Ward creatures retain frontal sequences. Complete animation in eight directions remains work.",
 ]
 DEFAULT_LIMITATIONS = [
+    "Presentation v8 material families apply to the first six Intake rooms and source corridors; other campaign maps retain previous surfaces.",
+    "Twin Shotgun uses its coherent existing idle art with continuous recoil/switch transforms; replacement painted active animation remains future art work.",
     "Playable reference-based art/layout pass; full production and human release acceptance pending.",
     "Dedicated architecture materials and original-board signs retain native source pixels; source-byte preservation does not establish whole-scene visual acceptance.",
     *STYLE_PASS_LIMITATIONS,
@@ -98,6 +100,7 @@ def provenance_files() -> list[Path]:
              "concepts/campaign-v3", "docs/campaign-v3", "docs/combat-balance-v4",
              "docs/map-safety-v5", "docs/room-program-v6", "docs/pickup-art-v6",
              "docs/intake-v7",
+             "docs/production-v8", "concepts/production-v8",
              "concepts/pickups-rooms-v6",
              "concepts/visual-v2/corrupted-biotech", "concepts/visual-v2/occult-fortress",
              "concepts/visual-v2/civic-invasion")

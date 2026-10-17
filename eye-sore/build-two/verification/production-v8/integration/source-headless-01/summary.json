@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "passed": false,
+  "checks": 8674,
+  "failures": [
+    "native native runtime checks pass"
+  ],
+  "baseline_commit": "14a6ec9bc01867c6229809f2bf325749500a51ba",
+  "source": {
+    "protected_files": 417,
+    "protected_file_groups": {
+      "assets": 272,
+      "resources": 63,
+      "scenes": 18,
+      "scripts": 58,
+      "shaders": 6
+    },
+    "other_campaign_scenes": [
+      "scenes/campaign/ash_citadel_01.tscn",
+      "scenes/campaign/ash_citadel_02.tscn",
+      "scenes/campaign/ash_citadel_03.tscn",
+      "scenes/campaign/occupied_line_01.tscn",
+      "scenes/campaign/occupied_line_02.tscn",
+      "scenes/campaign/occupied_line_03.tscn",
+      "scenes/campaign/pale_ward_02.tscn",
+      "scenes/campaign/pale_ward_03.tscn"
+    ],
+    "main_changed_functions": [
+      "_ready",
+      "layout_view",
+      "build_menu",
+      "_process",
+      "load_settings",
+      "save_settings"
+    ],
+    "material_bindings": 427,
+    "room_bindings": {
+      "entry": 107,
+      "service": 54,
+      "arena_one": 181,
+      "key_wing": 26,
+      "key_console": 29,
+      "return_store": 30
+    },
+    "scene_sha256": "8063e98c44cad7953a2ebd76beabb9b9abaec6c1e745ffe3448143e630eb19a4",
+    "baseline_scene_sha256": "cedb55dc41ed5e1ed65b0cfc9b7eb5ad725c41fb4b6c4baf3a19ec7db6131aa4",
+    "intentional_combat_art_delta": [
+      "weapon_atlases.twin_shotgun",
+      "flash.anchors.twin_shotgun"
+    ],
+    "atlas_sources": {
+      "triage": {
+        "identity": "Worn ivory tile, dirty institutional paint and steel",
+        "path": "res://assets/materials/room-families-v8/triage-atlas.png",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "sha256": "b22441bb02b9f66717b713cbf91fc0a113dfe1e5961d452fe997962ff48b186b",
+        "regions": {
+          "wall": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "floor": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ceiling": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "trim": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "door": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "panel": [
+            1024,
+            512,
+            512,
+            512
+          ]
+        }
+      },
+      "utility": {
+        "identity": "Exposed charcoal service panels and grates",
+        "path": "res://assets/materials/room-families-v8/utility-atlas.png",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "sha256": "ad4a5f9ffff4364c02e9aa9d883a3da3497b83ef89197ceffdda04de4e121505",
+        "regions": {
+          "wall": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "floor": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ceiling": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "trim": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "door": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "panel": [
+            1024,
+            512,
+            512,
+            512
+          ]
+        }
+      },
+      "surgery": {
+        "identity": "Warm off-white enamel, stainless steel and sealed floor",
+        "path": "res://assets/materials/room-families-v8/surgery-atlas.png",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "sha256": "6c815a50adf2845c9d8a36704fc832e1d05a666d00c7fee64566fc853e2cf8b7",
+        "regions": {
+          "wall": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "floor": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ceiling": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "trim": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "door": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "panel": [
+            1024,
+            512,
+            512,
+            512
+          ]
+        }
+      }
+    }
+  },
+  "runtime": {
+    "presentation": {
+      "passed": true,
+      "checks": 23570,
+      "failures": [],
+      "launch": {
+        "command": [
+          "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+          "--path",
+          "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+          "--headless",
+          "--fixed-fps",
+          "60",
+          "--script",
+          "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/check_presentation_v8.gd",
+          "--",
+          "--automated-input",
+          "--campaign-level=pale_ward_01",
+          "--report=/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v8/integration/source-headless-01/native.json",
+          "--expected=/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v8/integration/source-headless-01/native-expected.json"
+        ],
+        "cwd": "/tmp",
+        "executable_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+        "exit_code": 0,
+        "wall_seconds": 2.521812677383423,
+        "report_sha256": "3a6d7b6e77ffd106bf507880264b17524b3423fc3da5960879420cc30886793b",
+        "script_sha256": "399beace4ecdbd1bc0ac3ade3e5113540a7fcca416c4d798ba557bdb506eba1c",
+        "native_errors": [
+          "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+        ],
+        "mode": "source project"
+      }
+    },
+    "physics": {
+      "passed": true,
+      "checks": 321,
+      "failures": [],
+      "launch": {
+        "command": [
+          "/home/rikki/.local/share/eyesore-tools/4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+          "--path",
+          "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two",
+          "--headless",
+          "--fixed-fps",
+          "60",
+          "--script",
+          "/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/tools/check_intake_physics_v7.gd",
+          "--",
+          "--automated-input",
+          "--campaign-level=pale_ward_01",
+          "--report=/home/rikki/Projects/eyesore-build-two/eye-sore/build-two/verification/production-v8/integration/source-headless-01/v7-physics.json"
+        ],
+        "cwd": "/tmp",
+        "executable_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+        "exit_code": 0,
+        "wall_seconds": 1.5211362838745117,
+        "report_sha256": "79e9fe524af793bf5e7bb8bc0cfb26f4535557a3718cf7f02b74b60b2eb1b1ca",
+        "script_sha256": "3c91b4f778f5e9352958b2098c7ed89922d0722875ab68dcb6d9246d2eb4cbe4",
+        "native_errors": [],
+        "mode": "source project"
+      }
+    }
+  },
+  "runner_sha256": "706ed491151bc8056e7059bf3a26906d9bee5348da984ca403eca19ddcdb617c",
+  "limits": [
+    "Controlled native display/shot and static collider probes; not human visual, listening or pacing acceptance.",
+    "Source byte preservation is independent of export inclusion; exported runtime is checked only when --executable is supplied.",
+    "Full live nine-level finite-ammo route is not repeated by this bounded audit; route/resource/other-scene bytes are pinned to v7."
+  ]
+}

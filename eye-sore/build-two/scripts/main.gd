@@ -10,6 +10,7 @@ var status: Label
 var sensitivity: float = 0.002
 var field_of_view: float = 90.0
 var muted: bool = false
+var minimap_enabled: bool = true
 var started: bool = false
 var smoke: bool = false
 var automated_input: bool = false
@@ -18,7 +19,7 @@ var combat: Node3D
 var combat_audio: Node3D
 var menu_music: AudioStreamPlayer
 var weapon_image: TextureRect
-var hud: Label
+var hud: Control
 var menu_title: Label
 var menu_note: Label
 var resume_button: Button
@@ -27,6 +28,7 @@ var texture_cache: Dictionary = {}
 var music_started: bool = false
 var damage_flash: float = 0.0
 var muzzle_image: TextureRect
+var muzzle_image_secondary: TextureRect
 var muzzle_time: float = 0.0
 var art_data: Dictionary = {}
 var closing: bool = false
@@ -145,6 +147,12 @@ func _ready() -> void:
 	muzzle_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	muzzle_image.visible = false
 	weapon_layer.add_child(muzzle_image)
+	muzzle_image_secondary = TextureRect.new()
+	muzzle_image_secondary.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	muzzle_image_secondary.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	muzzle_image_secondary.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	muzzle_image_secondary.visible = false
+	weapon_layer.add_child(muzzle_image_secondary)
 	damage_overlay = ColorRect.new()
 	damage_overlay.color = Color(0.7, 0.07, 0.025, 0)
 	damage_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -157,16 +165,8 @@ func _ready() -> void:
 	status.position = Vector2(16, 12)
 	status.add_theme_font_size_override("font_size", 16)
 	add_child(status)
-	hud = Label.new()
-	hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	hud.add_theme_font_size_override("font_size", 18)
-	var hud_frame := StyleBoxFlat.new()
-	hud_frame.bg_color = Color(0.045, 0.065, 0.06, 0.93)
-	hud_frame.border_color = Color(0.34, 0.40, 0.30)
-	hud_frame.set_border_width_all(1)
-	hud_frame.content_margin_left = 14
-	hud_frame.content_margin_top = 8
-	hud.add_theme_stylebox_override("normal", hud_frame)
+	hud = preload("res://scripts/industrial_hud_v8.gd").new()
+	hud.set_minimap_enabled(minimap_enabled)
 	add_child(hud)
 	automap = preload("res://scripts/ward_automap.gd").new()
 	automap.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -292,16 +292,14 @@ func layout_view() -> void:
 	weapon_image.position = Vector2.ZERO
 	damage_overlay.size = world_image.size
 	damage_overlay.position = world_image.position
-	hud.position = world_image.position + Vector2(12, world_image.size.y - 68)
-	hud.size = Vector2(world_image.size.x - 24, 58)
-	# UI stays at native size in normal windows and scales down with a smaller
-	# letterboxed viewport so the two campaign lines never run off the frame.
-	hud.add_theme_font_size_override("font_size", clampi(int(floorf(world_image.size.x * 18.0 / 640.0)), 9, 18))
+	hud.set_world_rect(world_image.get_rect())
 	crosshair.size = Vector2(24, 24)
 	crosshair.position = world_image.position + world_image.size * 0.5 - crosshair.size * 0.5
 	if is_instance_valid(automap):
 		automap.position = world_image.position
 		automap.size = world_image.size
+	menu.custom_minimum_size = Vector2(minf(656, size.x - 24), minf(702, size.y - 24))
+	menu.size = menu.custom_minimum_size
 	menu.position = (size - menu.size) * 0.5
 
 func build_menu() -> void:
@@ -319,13 +317,19 @@ func build_menu() -> void:
 	add_child(menu)
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 12)
-	menu.add_child(column)
+	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.follow_focus = true
+	menu.add_child(scroll)
+	column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(column)
 	menu_title = Label.new()
 	menu_title.text = "EYESORE / THE PALE WARD"
 	menu_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(menu_title)
 	menu_note = Label.new()
 	menu_note.text = "WASD move · mouse look · left click fire · E use · Tab map\n1 pistol · 2 shotgun · 3 melee · 4 twin shotgun · 5 rivet cannon · 6 siege launcher\nFind the heavy weapons in each stage."
+	menu_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	menu_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(menu_note)
 	campaign_button = Button.new()
@@ -361,6 +365,11 @@ func build_menu() -> void:
 	column.add_child(credits_button)
 	add_slider(column, "Mouse sensitivity", 0.0005, 0.006, 0.0001, sensitivity, func(value: float): sensitivity = value; player.sensitivity = value; save_settings())
 	add_slider(column, "Horizontal field of view", 60, 110, 1, field_of_view, func(value: float): field_of_view = value; player.get_node("Camera3D").fov = value; save_settings())
+	var mini_map := CheckButton.new()
+	mini_map.text = "Visited-area mini-map"
+	mini_map.button_pressed = minimap_enabled
+	mini_map.toggled.connect(func(value: bool): minimap_enabled = value; hud.set_minimap_enabled(value); save_settings())
+	column.add_child(mini_map)
 	var mute := CheckButton.new()
 	mute.text = "Mute all audio"
 	mute.button_pressed = muted
@@ -615,30 +624,19 @@ func _process(delta: float) -> void:
 	if is_instance_valid(title_art): title_art.visible = not started
 	hud.visible = started
 	status.visible = started and not get_tree().paused
+	var level_state: Dictionary = {}
 	if world.has_method("get_level_state"):
-		var level_state: Dictionary = world.get_level_state()
+		level_state = world.get_level_state()
 		status.text = current_level_label() + "\n" + String(level_state.get("objective", "")) + "\n" + String(level_state.get("prompt", ""))
 		if not level_message.is_empty(): status.text += "\n" + level_message
 		if weapon_hint_time > 0.0: status.text += "\n" + weapon_hint
 		if automap.visible:
 			automap.update_map(level_state, player.global_position, player.rotation.y)
-	if campaign_mode:
-		var weapon_id: StringName = state.weapon_id
-		var ammo_kind: StringName = &""
-		var ammo_amount := 0
-		match weapon_id:
-			&"pistol": ammo_kind = &"pistol"; ammo_amount = int(state.ammo_pistol)
-			&"shotgun", &"twin_shotgun": ammo_kind = &"shells"; ammo_amount = int(state.ammo_shotgun)
-			&"rivet_cannon": ammo_kind = &"rivets"; ammo_amount = int(state.ammo_rivets)
-			&"siege_launcher": ammo_kind = &"rockets"; ammo_amount = int(state.ammo_rockets)
-		var weapon_label := String(weapon_id).replace("_", " ").to_upper()
-		var ammo_label := "READY" if ammo_kind == &"" else "AMMO %d/%d" % [ammo_amount, combat.ammo_capacity(ammo_kind)]
-		hud.text = "HEALTH %d    ARMOR %d    KILLS %d/%d\n%s    %s" % [state.health, state.armor, state.kills, state.total_enemies, weapon_label, ammo_label]
-	else:
-		var heavy_ammo := ""
-		if state.owned_weapons.has("rivet_cannon"): heavy_ammo += "    RIVETS %d" % state.ammo_rivets
-		if state.owned_weapons.has("siege_launcher"): heavy_ammo += "    ROCKETS %d" % state.ammo_rockets
-		hud.text = "HEALTH %d    ARMOR %d    PISTOL %d    SHELLS %d\n%s    KILLS %d/%d%s" % [state.health, state.armor, state.ammo_pistol, state.ammo_shotgun, String(state.weapon_id).replace("_", " ").to_upper(), state.kills, state.total_enemies, heavy_ammo]
+	var capacities := {}
+	for ammo_kind in [&"pistol", &"shells", &"rivets", &"rockets"]:
+		capacities[String(ammo_kind)] = combat.ammo_capacity(ammo_kind)
+	hud.set_display_state(state, level_state, capacities)
+	hud.update_map(level_state, player.global_position, player.rotation.y)
 	var path: String = state.get("weapon_visual_path", "")
 	var atlas_definition: Dictionary = art_data.get("weapon_atlases", {}).get(String(state.weapon_id), {})
 	if not path.is_empty():
@@ -671,7 +669,7 @@ func _process(delta: float) -> void:
 	if atlas_definition.has("placement"):
 		# Authored region/marker registration consumes the untouched generated atlas.
 		var pose: Dictionary = atlas_definition.placement[String(state.weapon_phase)]
-		projected_weapon_pose = preload("res://scripts/weapon_presentation.gd").pose(pose, weapon_image.texture.get_size(), float(atlas_definition.get("source_canvas_height", 768)), weapon_layer.size, combat.recoil_remaining)
+		projected_weapon_pose = preload("res://scripts/weapon_presentation.gd").pose(pose, weapon_image.texture.get_size(), float(atlas_definition.get("source_canvas_height", 768)), weapon_layer.size, combat.recoil_remaining, float(state.get("phase_progress", 0.0)))
 		weapon_image.size = projected_weapon_pose.size
 		weapon_image.position = projected_weapon_pose.position
 	if not get_tree().paused:
@@ -681,6 +679,7 @@ func _process(delta: float) -> void:
 		else: muzzle_time = maxf(0.0, muzzle_time - delta)
 	damage_overlay.color.a = damage_flash * 0.9
 	muzzle_image.visible = muzzle_time > 0 and started and not state.dead and state.weapon_id != &"melee"
+	muzzle_image_secondary.visible = false
 	if muzzle_image.visible and art_data.has("flash"):
 		var flash: Dictionary = art_data.flash
 		if muzzle_image.texture == null: muzzle_image.texture = load(flash.file)
@@ -690,7 +689,15 @@ func _process(delta: float) -> void:
 		muzzle_image.size = Vector2(64, 64) * scale_factor
 		if not atlas_definition.is_empty():
 			muzzle_image.size = Vector2.ONE * float(flash.get("world_size", 36)) * weapon_layer.size.y / 360.0
-		muzzle_image.position = projected_weapon_pose.muzzle - muzzle_image.size * 0.5 if projected_weapon_pose.has("muzzle") else weapon_image.position + Vector2(anchor[0], anchor[1]) * scale_factor - muzzle_image.size * 0.5
+		var projected_muzzles: Array = projected_weapon_pose.get("muzzles", [])
+		if projected_muzzles.size() == 2:
+			muzzle_image.position = projected_muzzles[0] - muzzle_image.size * 0.5
+			muzzle_image_secondary.texture = muzzle_image.texture
+			muzzle_image_secondary.size = muzzle_image.size
+			muzzle_image_secondary.position = projected_muzzles[1] - muzzle_image_secondary.size * 0.5
+			muzzle_image_secondary.visible = true
+		else:
+			muzzle_image.position = projected_weapon_pose.muzzle - muzzle_image.size * 0.5 if projected_weapon_pose.has("muzzle") else weapon_image.position + Vector2(anchor[0], anchor[1]) * scale_factor - muzzle_image.size * 0.5
 
 func add_slider(parent: VBoxContainer, title: String, minimum: float, maximum: float, step: float, value: float, changed: Callable) -> void:
 	var label := Label.new()
@@ -757,6 +764,7 @@ func load_settings() -> void:
 	if config.load(SETTINGS_PATH) == OK:
 		sensitivity = clampf(float(config.get_value("input", "sensitivity", sensitivity)), 0.0005, 0.006)
 		field_of_view = clampf(float(config.get_value("display", "fov", field_of_view)), 60, 110)
+		minimap_enabled = bool(config.get_value("display", "minimap", true))
 		muted = bool(config.get_value("audio", "muted", false))
 	AudioServer.set_bus_mute(0, muted)
 
@@ -765,6 +773,7 @@ func save_settings() -> void:
 	config.set_value("input", "sensitivity", sensitivity)
 	config.set_value("display", "fov", field_of_view)
 	config.set_value("display", "fov_axis", "horizontal")
+	config.set_value("display", "minimap", minimap_enabled)
 	config.set_value("audio", "muted", muted)
 	var error := config.save(SETTINGS_PATH)
 	if error != OK: push_warning("Could not save calibration settings: " + error_string(error))

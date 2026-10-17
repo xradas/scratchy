@@ -1,0 +1,976 @@
+{
+  "schema_version": 1,
+  "weapon": "twin_shotgun",
+  "status": "integrated; anatomical idle, continuous recoil, smooth switch and dual flash technically verified; human review pending",
+  "baseline_manifest_sha256": "dd6149007fc2426a33c9825d20d2a9f5903243a67bb588432eba36129b9052d9",
+  "source_path": "assets/weapons/arsenal-v2/twin_shotgun-atlas-r2.png",
+  "source_sha256": "dc785a6e3bdfd037e2820ef4e9b0cbc068808d14d7ecd4c69e74fe1bf6e41768",
+  "weapon_resource_sha256": "67c228c17fa823bd05c89b2c1000638710c19b6abb824134492ab8c9d9e84822",
+  "diagnosis": {
+    "primary": "Presentation scale clips the trigger hand/grip; original idle barrel perspective is coherent and does not require new bitmap yet.",
+    "source": "Source idle is near-symmetric, looking along a pair of receding side-by-side barrels. Circular discs near the receiver are breech/hammers, not front muzzle holes.",
+    "region": "[0,0,780,520] includes complete idle silhouette; changing it would risk neighbouring phase contamination.",
+    "pivot": "Original computational proxy used wooden receiver; corrected two painted barrel axes intersect at source [377.222,22.333]. This common vanishing point is now the idle marker at actual centered aim.",
+    "target": "Vanishing-point pivot targets exact center [.5,.5]; source tips fall native y211.195, complete source wrists approach bottom.",
+    "crop": "Anatomical .55 scale at shared vanishing point places frame y171.36..372.45, silhouette cut wrist edge y361. Source right grip y340 renders at303.",
+    "limitation": "Historical active illustrations cannot keep receivers continuous while both physical axes meet centered aim. Runtime now reuses accepted idle source with uniform continuous 0..2.2% recoil about fixed vanishing point; original phase source pixels and metadata preserved. Runtime dual flash binding belongs to coordinator."
+  },
+  "patch": {
+    "weapon_atlases": {
+      "twin_shotgun": {
+        "columns": 2,
+        "rows": 2,
+        "cells": {
+          "idle": 0,
+          "fire": 0,
+          "recover": 0,
+          "switch": 0
+        },
+        "regions": {
+          "idle": [
+            0,
+            0,
+            780,
+            520
+          ],
+          "fire": [
+            0,
+            0,
+            780,
+            520
+          ],
+          "recover": [
+            0,
+            0,
+            780,
+            520
+          ],
+          "switch": [
+            0,
+            0,
+            780,
+            520
+          ]
+        },
+        "placement": {
+          "idle": {
+            "marker": [
+              377.2222222222,
+              22.3333333333
+            ],
+            "target": [
+              0.5,
+              0.5
+            ],
+            "scale": 0.55,
+            "bore": {
+              "muzzle": [
+                381.5,
+                103
+              ],
+              "breech": [
+                388.5,
+                235
+              ]
+            },
+            "bores": [
+              {
+                "muzzle": [
+                  365,
+                  103
+                ],
+                "breech": [
+                  345,
+                  235
+                ]
+              },
+              {
+                "muzzle": [
+                  398,
+                  103
+                ],
+                "breech": [
+                  432,
+                  235
+                ]
+              }
+            ],
+            "recoil_mode": "vanishing_scale",
+            "recoil_scale_per_unit": 0.002,
+            "receiver": [
+              386,
+              300
+            ],
+            "align_bore": true
+          },
+          "fire": {
+            "marker": [
+              377.2222222222,
+              22.3333333333
+            ],
+            "target": [
+              0.5,
+              0.5
+            ],
+            "scale": 0.55,
+            "bore": {
+              "muzzle": [
+                381.5,
+                103
+              ],
+              "breech": [
+                388.5,
+                235
+              ]
+            },
+            "bores": [
+              {
+                "muzzle": [
+                  365,
+                  103
+                ],
+                "breech": [
+                  345,
+                  235
+                ]
+              },
+              {
+                "muzzle": [
+                  398,
+                  103
+                ],
+                "breech": [
+                  432,
+                  235
+                ]
+              }
+            ],
+            "recoil_mode": "vanishing_scale",
+            "recoil_scale_per_unit": 0.002,
+            "receiver": [
+              386,
+              300
+            ],
+            "align_bore": true
+          },
+          "recover": {
+            "marker": [
+              377.2222222222,
+              22.3333333333
+            ],
+            "target": [
+              0.5,
+              0.5
+            ],
+            "scale": 0.55,
+            "bore": {
+              "muzzle": [
+                381.5,
+                103
+              ],
+              "breech": [
+                388.5,
+                235
+              ]
+            },
+            "bores": [
+              {
+                "muzzle": [
+                  365,
+                  103
+                ],
+                "breech": [
+                  345,
+                  235
+                ]
+              },
+              {
+                "muzzle": [
+                  398,
+                  103
+                ],
+                "breech": [
+                  432,
+                  235
+                ]
+              }
+            ],
+            "recoil_mode": "vanishing_scale",
+            "recoil_scale_per_unit": 0.002,
+            "receiver": [
+              386,
+              300
+            ],
+            "align_bore": true
+          },
+          "switch": {
+            "marker": [
+              377.2222222222,
+              22.3333333333
+            ],
+            "target": [
+              0.5,
+              0.5
+            ],
+            "scale": 0.55,
+            "bore": {
+              "muzzle": [
+                381.5,
+                103
+              ],
+              "breech": [
+                388.5,
+                235
+              ]
+            },
+            "bores": [
+              {
+                "muzzle": [
+                  365,
+                  103
+                ],
+                "breech": [
+                  345,
+                  235
+                ]
+              },
+              {
+                "muzzle": [
+                  398,
+                  103
+                ],
+                "breech": [
+                  432,
+                  235
+                ]
+              }
+            ],
+            "recoil_mode": "vanishing_scale",
+            "recoil_scale_per_unit": 0.002,
+            "receiver": [
+              386,
+              300
+            ],
+            "align_bore": false,
+            "switch_from_target": [
+              0.5,
+              0.72
+            ]
+          }
+        },
+        "source_canvas_height": 512,
+        "sha256": "dc785a6e3bdfd037e2820ef4e9b0cbc068808d14d7ecd4c69e74fe1bf6e41768",
+        "source_dimensions": [
+          1536,
+          1024
+        ],
+        "presentation": "v8 coordinator accepted anatomical idle source reused for continuous procedural fire/recover/switch presentation. Same .55 authored size in all phases; 2.2% maximum continuous recoil zoom about the true painted dual-barrel vanishing point; lowered nonfiring switch. Atlas bytes and historical authored phase regions retained in baseline_twin and continuity_raw_candidate. Root native final review pending.",
+        "animation_mode": "registered_idle_source_procedural_recoil_and_lower"
+      }
+    },
+    "flash": {
+      "anchors": {
+        "twin_shotgun": {
+          "idle": [
+            156.5128205128205,
+            35.65384615384615
+          ],
+          "fire": [
+            156.5128205128205,
+            35.65384615384615
+          ],
+          "recover": [
+            156.5128205128205,
+            35.65384615384615
+          ],
+          "switch": [
+            156.5128205128205,
+            35.65384615384615
+          ]
+        }
+      }
+    }
+  },
+  "baseline_twin": {
+    "columns": 2,
+    "rows": 2,
+    "cells": {
+      "idle": 0,
+      "fire": 1,
+      "recover": 2,
+      "switch": 3
+    },
+    "regions": {
+      "idle": [
+        0,
+        0,
+        780,
+        520
+      ],
+      "fire": [
+        780,
+        0,
+        756,
+        520
+      ],
+      "recover": [
+        0,
+        520,
+        780,
+        504
+      ],
+      "switch": [
+        780,
+        520,
+        756,
+        504
+      ]
+    },
+    "placement": {
+      "idle": {
+        "marker": [
+          379,
+          104
+        ],
+        "target": [
+          0.5,
+          0.56
+        ],
+        "scale": 0.75,
+        "bore": {
+          "muzzle": [
+            379,
+            112
+          ],
+          "breech": [
+            386,
+            300
+          ]
+        }
+      },
+      "fire": {
+        "marker": [
+          243,
+          46
+        ],
+        "target": [
+          0.5,
+          0.54
+        ],
+        "scale": 0.75,
+        "bore": {
+          "muzzle": [
+            236,
+            44
+          ],
+          "breech": [
+            420,
+            275
+          ]
+        }
+      },
+      "recover": {
+        "marker": [
+          310,
+          33
+        ],
+        "target": [
+          0.5,
+          0.56
+        ],
+        "scale": 0.75,
+        "bore": {
+          "muzzle": [
+            320,
+            40
+          ],
+          "breech": [
+            470,
+            260
+          ]
+        }
+      },
+      "switch": {
+        "marker": [
+          206,
+          100
+        ],
+        "target": [
+          0.5,
+          0.72
+        ],
+        "scale": 0.75,
+        "bore": {
+          "muzzle": [
+            200,
+            108
+          ],
+          "breech": [
+            460,
+            305
+          ]
+        },
+        "align_bore": false
+      }
+    },
+    "source_canvas_height": 512,
+    "sha256": "dc785a6e3bdfd037e2820ef4e9b0cbc068808d14d7ecd4c69e74fe1bf6e41768",
+    "source_dimensions": [
+      1536,
+      1024
+    ],
+    "presentation": "Byte-original generated PNG; irregular native rectangles and authored visual forward-tip markers. Native framing and illustrated bore direction await review; no human style acceptance claim."
+  },
+  "acceptance": {
+    "idle": "Coordinator accepted anatomical idle firstpass basis; not end-user human approval.",
+    "wpn02": "Coordinator approved same accepted idle source for procedural recoil/recovery/lower; final integrated verification pending.",
+    "three_windows": [
+      [
+        1280,
+        720
+      ],
+      [
+        800,
+        600
+      ],
+      [
+        1560,
+        900
+      ]
+    ],
+    "combat_constants": {
+      "pellets": 16,
+      "ammo_cost": 2,
+      "cooldown_seconds": 1.2,
+      "damage": 18
+    }
+  },
+  "untouched": [
+    "source PNG bytes",
+    "camera ray",
+    "combat resources",
+    "world scenes",
+    "historical fire/recover/switch image source and baseline metadata"
+  ],
+  "framing_only_candidate": {
+    "columns": 2,
+    "rows": 2,
+    "cells": {
+      "idle": 0,
+      "fire": 1,
+      "recover": 2,
+      "switch": 3
+    },
+    "regions": {
+      "idle": [
+        0,
+        0,
+        780,
+        520
+      ],
+      "fire": [
+        780,
+        0,
+        756,
+        520
+      ],
+      "recover": [
+        0,
+        520,
+        780,
+        504
+      ],
+      "switch": [
+        780,
+        520,
+        756,
+        504
+      ]
+    },
+    "placement": {
+      "idle": {
+        "marker": [
+          379,
+          104
+        ],
+        "target": [
+          0.5,
+          0.56
+        ],
+        "scale": 0.62,
+        "bore": {
+          "muzzle": [
+            379,
+            112
+          ],
+          "breech": [
+            386,
+            300
+          ]
+        }
+      },
+      "fire": {
+        "marker": [
+          243,
+          46
+        ],
+        "target": [
+          0.5,
+          0.54
+        ],
+        "scale": 0.75,
+        "bore": {
+          "muzzle": [
+            236,
+            44
+          ],
+          "breech": [
+            420,
+            275
+          ]
+        }
+      },
+      "recover": {
+        "marker": [
+          310,
+          33
+        ],
+        "target": [
+          0.5,
+          0.56
+        ],
+        "scale": 0.75,
+        "bore": {
+          "muzzle": [
+            320,
+            40
+          ],
+          "breech": [
+            470,
+            260
+          ]
+        }
+      },
+      "switch": {
+        "marker": [
+          206,
+          100
+        ],
+        "target": [
+          0.5,
+          0.72
+        ],
+        "scale": 0.75,
+        "bore": {
+          "muzzle": [
+            200,
+            108
+          ],
+          "breech": [
+            460,
+            305
+          ]
+        },
+        "align_bore": false
+      }
+    },
+    "source_canvas_height": 512,
+    "sha256": "dc785a6e3bdfd037e2820ef4e9b0cbc068808d14d7ecd4c69e74fe1bf6e41768",
+    "source_dimensions": [
+      1536,
+      1024
+    ],
+    "presentation": "v8 proposed metadata-only idle correction: reduced scale exposes trigger grip and support wrist; untouched source pixels, native crop, centered bore and other phases retained. Coordinator visual acceptance pending."
+  },
+  "accepted_idle_firstpass": {
+    "columns": 2,
+    "rows": 2,
+    "cells": {
+      "idle": 0,
+      "fire": 1,
+      "recover": 2,
+      "switch": 3
+    },
+    "regions": {
+      "idle": [
+        0,
+        0,
+        780,
+        520
+      ],
+      "fire": [
+        780,
+        0,
+        756,
+        520
+      ],
+      "recover": [
+        0,
+        520,
+        780,
+        504
+      ],
+      "switch": [
+        780,
+        520,
+        756,
+        504
+      ]
+    },
+    "placement": {
+      "idle": {
+        "marker": [
+          377.2222222222,
+          22.3333333333
+        ],
+        "target": [
+          0.5,
+          0.5
+        ],
+        "scale": 0.55,
+        "bore": {
+          "muzzle": [
+            381.5,
+            103
+          ],
+          "breech": [
+            388.5,
+            235
+          ]
+        },
+        "bores": [
+          {
+            "muzzle": [
+              365,
+              103
+            ],
+            "breech": [
+              345,
+              235
+            ]
+          },
+          {
+            "muzzle": [
+              398,
+              103
+            ],
+            "breech": [
+              432,
+              235
+            ]
+          }
+        ]
+      },
+      "fire": {
+        "marker": [
+          243,
+          46
+        ],
+        "target": [
+          0.5,
+          0.54
+        ],
+        "scale": 0.75,
+        "bore": {
+          "muzzle": [
+            236,
+            44
+          ],
+          "breech": [
+            420,
+            275
+          ]
+        }
+      },
+      "recover": {
+        "marker": [
+          310,
+          33
+        ],
+        "target": [
+          0.5,
+          0.56
+        ],
+        "scale": 0.75,
+        "bore": {
+          "muzzle": [
+            320,
+            40
+          ],
+          "breech": [
+            470,
+            260
+          ]
+        }
+      },
+      "switch": {
+        "marker": [
+          206,
+          100
+        ],
+        "target": [
+          0.5,
+          0.72
+        ],
+        "scale": 0.75,
+        "bore": {
+          "muzzle": [
+            200,
+            108
+          ],
+          "breech": [
+            460,
+            305
+          ]
+        },
+        "align_bore": false
+      }
+    },
+    "source_canvas_height": 512,
+    "sha256": "dc785a6e3bdfd037e2820ef4e9b0cbc068808d14d7ecd4c69e74fe1bf6e41768",
+    "source_dimensions": [
+      1536,
+      1024
+    ],
+    "presentation": "v8 proposed anatomical idle: untouched source atlas, hand framing at scale .55, two barrel axes registered to common source vanishing point [377.222,22.333]. Pending coordinator native review; original fire/recover/switch retained until idle acceptance."
+  },
+  "continuity_candidate_unaccepted": false,
+  "continuity_raw_candidate": {
+    "columns": 2,
+    "rows": 2,
+    "cells": {
+      "idle": 0,
+      "fire": 1,
+      "recover": 2,
+      "switch": 3
+    },
+    "regions": {
+      "idle": [
+        0,
+        0,
+        780,
+        520
+      ],
+      "fire": [
+        780,
+        0,
+        756,
+        520
+      ],
+      "recover": [
+        0,
+        520,
+        780,
+        504
+      ],
+      "switch": [
+        780,
+        520,
+        756,
+        504
+      ]
+    },
+    "placement": {
+      "idle": {
+        "marker": [
+          377.22222222222223,
+          22.33333333333327
+        ],
+        "target": [
+          0.5,
+          0.5
+        ],
+        "scale": 0.55,
+        "bore": {
+          "muzzle": [
+            381.5,
+            103.0
+          ],
+          "breech": [
+            388.5,
+            235.0
+          ]
+        },
+        "bores": [
+          {
+            "muzzle": [
+              365,
+              103
+            ],
+            "breech": [
+              345,
+              235
+            ]
+          },
+          {
+            "muzzle": [
+              398,
+              103
+            ],
+            "breech": [
+              432,
+              235
+            ]
+          }
+        ],
+        "receiver": [
+          386,
+          300
+        ],
+        "align_bore": true
+      },
+      "fire": {
+        "marker": [
+          125.80188679245276,
+          -81.11792452830196
+        ],
+        "target": [
+          0.5,
+          0.5
+        ],
+        "scale": 0.55,
+        "bore": {
+          "muzzle": [
+            240.0,
+            45.0
+          ],
+          "breech": [
+            400.0,
+            221.0
+          ]
+        },
+        "bores": [
+          {
+            "muzzle": [
+              228,
+              47
+            ],
+            "breech": [
+              366,
+              220
+            ]
+          },
+          {
+            "muzzle": [
+              252,
+              43
+            ],
+            "breech": [
+              434,
+              222
+            ]
+          }
+        ],
+        "receiver": [
+          417,
+          285
+        ],
+        "align_bore": true
+      },
+      "recover": {
+        "marker": [
+          217.96853758011258,
+          -63.87298504563997
+        ],
+        "target": [
+          0.5,
+          0.5
+        ],
+        "scale": 0.55,
+        "bore": {
+          "muzzle": [
+            316.5,
+            29.5
+          ],
+          "breech": [
+            450.5,
+            156.0
+          ]
+        },
+        "bores": [
+          {
+            "muzzle": [
+              302,
+              30
+            ],
+            "breech": [
+              413,
+              154
+            ]
+          },
+          {
+            "muzzle": [
+              331,
+              29
+            ],
+            "breech": [
+              488,
+              158
+            ]
+          }
+        ],
+        "receiver": [
+          467,
+          250
+        ],
+        "align_bore": true
+      },
+      "switch": {
+        "marker": [
+          29.549363057325024,
+          -29.611464968152735
+        ],
+        "target": [
+          0.5,
+          0.66
+        ],
+        "scale": 0.55,
+        "bore": {
+          "muzzle": [
+            216.0,
+            98.0
+          ],
+          "breech": [
+            424.5,
+            240.0
+          ]
+        },
+        "align_bore": false,
+        "bores": [
+          {
+            "muzzle": [
+              203,
+              100
+            ],
+            "breech": [
+              385,
+              236
+            ]
+          },
+          {
+            "muzzle": [
+              229,
+              96
+            ],
+            "breech": [
+              464,
+              244
+            ]
+          }
+        ],
+        "receiver": [
+          465,
+          305
+        ]
+      }
+    },
+    "source_canvas_height": 512,
+    "sha256": "dc785a6e3bdfd037e2820ef4e9b0cbc068808d14d7ecd4c69e74fe1bf6e41768",
+    "source_dimensions": [
+      1536,
+      1024
+    ],
+    "presentation": "v8 proposed anatomical idle: untouched source atlas, hand framing at scale .55, two barrel axes registered to common source vanishing point [377.222,22.333]. Pending coordinator native review; original fire/recover/switch retained until idle acceptance."
+  },
+  "integration_status": "Integrated into actual Main and scoped Intake scene. Coordinator native visual inspection completed; human acceptance pending."
+}

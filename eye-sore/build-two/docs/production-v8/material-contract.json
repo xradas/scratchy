@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "task": "ART-01",
+  "module": "tools/room_materials_v8.py",
+  "shader": "shaders/room_surface_v8.gdshader",
+  "manifest": "resources/materials/v8/room-families.json",
+  "integration": [
+    "After room_program_v6.furnish and intake_presentation_v7.decorate, call register_materials(sc), then apply_room_materials(sc).",
+    "apply_room_materials automatically registers missing materials and accepts room_id to bind one of the six rooms independently.",
+    "Both calls accept manifest as a parsed dictionary or path; paths are resolved against the real project root, not a temporary generator staging root.",
+    "Pass routes explicitly or set sc.room_program_routes. No scene files are written by this module.",
+    "Persist the returned report at the coordinator-selected report path. It records every binding, source pixel region/hash and protected-data verification."
+  ],
+  "atlas_allocation": {
+    "layout": "3 columns by 2 rows; opaque original native PNG; no gutters or baked labels",
+    "row_0": [
+      "wall",
+      "floor",
+      "ceiling"
+    ],
+    "row_1": [
+      "trim",
+      "door",
+      "panel"
+    ],
+    "required_family_fields": [
+      "path",
+      "dimensions",
+      "sha256",
+      "regions"
+    ],
+    "regions_format": {
+      "wall": [
+        "native x",
+        "native y",
+        "native width",
+        "native height"
+      ]
+    },
+    "policy": "Coordinator supplies exact integer rectangles after viewing original output. All six regions must lie inside the unchanged PNG without overlap. Non-divisible image dimensions require explicit native boundaries; no resizing, recolouring, smoothing or assumed 512px cells."
+  },
+  "room_families": {
+    "entry": "triage",
+    "arena_one": "triage",
+    "key_wing": "surgery",
+    "key_console": "surgery",
+    "service": "utility",
+    "return_store": "utility"
+  },
+  "source_material_roles": {
+    "wall": "wall",
+    "pillar": "wall",
+    "damaged": "wall",
+    "floor": "floor",
+    "grate": "floor",
+    "stairs": "floor",
+    "ceiling": "ceiling",
+    "steel": "trim",
+    "trim": "trim",
+    "recess": "trim",
+    "door_skin": "door",
+    "panel": "panel"
+  },
+  "scope": {
+    "rooms": "Only named room geometry roots for the six rooms; Entry* architectural fixtures; IntakePresentation_<room> descendants.",
+    "corridors": "Link_<index> and Step_<index> roots, associated gate and trap leaf, use the portal FROM-room family. Cross-family transitions change at destination room boundary. Source rooms outside the six retain original material.",
+    "excluded": "Other eight maps, other Intake room roots, authored prop atlas materials, pickup visuals, enemies, signs, lens/emissive materials and old global material resource IDs.",
+    "mutation": "MeshInstance3D.material_override plus runtime-prism metadata/polygon_material only. Geometry, transforms, mesh resources, collision, hit_material and all other metadata remain byte-identical."
+  },
+  "sampling": {
+    "filter": "nearest, no mipmaps or cross-cell blend",
+    "density": "64 native source pixels per metre, configurable uniformly in manifest",
+    "projection": "World position projected by dominant face normal. Bypasses BoxMesh packed 3x2 UV cells; square texels on floors/walls regardless of mesh dimensions. Original atlas bound to shader with explicit native region; matching AtlasTexture also registered for inspection.",
+    "wrap": "fract inside native cell, floor to integer native pixel, sample exact half-pixel centre",
+    "limitations": "Dominant-plane seams can occur on diagonal or curved faces; no fabricated normal/relief map. Final density and repetition require ordinary gameplay-distance visual review."
+  },
+  "acceptance": "Programmatic integrity and sampling checks are evidence only. Coordinator must inspect actual triage, theatre and service views before accepting appearance or expanding rollout.",
+  "integration_status": "Integrated into actual Main and scoped Intake scene. Coordinator native visual inspection completed; human acceptance pending."
+}

@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    "HUD-01",
+    "HUD-02"
+  ],
+  "status": "integrated; 147 component and 135 actual Main checks passed",
+  "script": "res://scripts/industrial_hud_v8.gd",
+  "baseline": "14a6ec9b",
+  "design_reference": "concepts/visual-v2/corrupted-biotech/scene.png",
+  "api": {
+    "set_display_state(combat: Dictionary, stage: Dictionary, capacities: Dictionary)": "Snapshots actual combat.get_hud_state(), world.get_level_state(), capacity values; no gameplay writes. Update every Main display frame, including pause/retry/carry refresh.",
+    "set_world_rect(rect: Rect2)": "Pass Rect2(world_image.position, world_image.size) after native window layout. Component owns position/size. Wide98px; compact118px named/icon two-row rail only when it fits lowerletterbox; otherwise56px single-row micro rail with numeric1\u20136 slots and88pxmap. Native UI, no raster-scaled text.",
+    "update_map(stage: Dictionary, player_position: Vector3, player_heading: float)": "Use the same stage snapshot plus player.global_position and player.rotation.y. North-up X/Z, heading forward(-sin(yaw),-cos(yaw)), player-centred fixed2.4screenpx/metre.",
+    "minimap_enabled": "bool default true; root persists setting; disabling preserves other panel layout. set_minimap_enabled(bool) also provided.",
+    "text": "Read compatibility summary HEALTH/ARMOR/KILLS plus active weapon/ammo; assignment of MOVEMENT PREVIEW clears display snapshot. Other legacy assignments are accepted but cannot overwrite a supplied state."
+  },
+  "input_fields": {
+    "combat": [
+      "health",
+      "armor",
+      "kills",
+      "total_enemies",
+      "weapon_id",
+      "owned_weapons",
+      "ammo_pistol",
+      "ammo_shotgun",
+      "ammo_rivets",
+      "ammo_rockets"
+    ],
+    "stage": [
+      "brass_key (key fallback)",
+      "red_key",
+      "visited_rooms",
+      "map_rooms[{id,visited,rect:Rect2}]"
+    ],
+    "capacities": [
+      "pistol",
+      "shells",
+      "rivets",
+      "rockets"
+    ]
+  },
+  "integration": {
+    "main_gd_writer": "coordinator only",
+    "replace": "Label.new HUD with preload script.new; declare hud as Control/dynamic, call set_world_rect instead of Label font/size assignments; call set_display_state for both campaign and standalone; update_map even when full Tab automap closed. Existing Main visibility/title/pause ownership retained.",
+    "settings": "Coordinator adds persisted enabled/disabled bool under Settings, default enabled. HUD provides no input/action interception; full Tab automap remains independent.",
+    "legacy_capacity": "Negative standalone capacity is omitted visually; campaign capacity is rendered after slash. Summary getter retains numeric capacity for fixtures.",
+    "world_rectangle_clearance": "Wide1280x720:HUD y614\u2013712windowpx (world y307\u2013356). Compact1024x768:world y204\u2013564,HUD y568\u2013686. Compact800x600:world y120\u2013480,HUD y482\u2013600. Minimum640x360window:56pxmicroHUD y304\u2013360, preserving receiverandgripabove304; optional weaponicons/names/killlabel omitted only in microvariant, correct numberhotkeys/owned/selected and vitals/keys/mapretained."
+  },
+  "privacy": [
+    "Require positive visited:true AND identity in visited_rooms.",
+    "Draw only clipped room rectangles; ignore labels, flags, secrets, enemies and pickups.",
+    "No extent-based autozoom; discovery cannot expose distant map shape.",
+    "No input processing or gameplay item/key grants."
+  ],
+  "assets": [
+    {
+      "path": "assets/materials/pale-ward-approved-board.png",
+      "sha256": "c2c4e632c4752e664fa4f9940a332269bcbb11b1b6cd600682b005c8a0bd3d79",
+      "native_region": [
+        1362,
+        625,
+        111,
+        102
+      ],
+      "registration": "assets/materials/approved-material-regions.json steel",
+      "method": "Existing unchanged PNG with native UV tiles, nearest sampling and darkened tint; all frames/fasteners/recesses, seven-segment numerals and pixel key/weapon icons drawn as runtime geometry. No new raster artwork."
+    }
+  ],
+  "validation": {
+    "test": "tools/check_hud_v8.gd",
+    "report": "verification/production-v8/hud/checks.json",
+    "headless_command": "tools/godot.sh --headless --script res://tools/check_hud_v8.gd -- --automated-input",
+    "native_capture_command": "tools/godot.sh --no-focus --position 20000,20000 --script res://tools/check_hud_v8.gd -- --automated-input --capture-hud-v8",
+    "result": "147 checks passed headless and native NVIDIA GL Compatibility, Godot4.7.2",
+    "coverage": [
+      "Actual Main Intake get_hud_state/get_level_state and native layout",
+      "Weapon grant/select, distinct owned/selected slots, correct1\u20136 order, damage/armor, partial shell reserve and melee READY",
+      "Supplied key acquisition/clear and malicious unvisited map fixture filtering/clipping",
+      "Actual Main pause, next-level carry and Retry",
+      "Native1280x720,1024x768,1440x900,800x600,640x360 panels nonoverlap; lowerletterbox weaponclearance,56pxminimumwindowrail and map toggle stability"
+    ],
+    "captures": [
+      "verification/production-v8/hud/fixture-1280x720.png",
+      "verification/production-v8/hud/fixture-1024x768.png",
+      "verification/production-v8/hud/fixture-1440x900.png",
+      "verification/production-v8/hud/fixture-800x600.png",
+      "verification/production-v8/hud/fixture-640x360.png"
+    ],
+    "capture_fixture": "Actual frozen Intake source scene with controlled67HP42armor, granted allweapons, selectedTwin and synthetic both-key display flags. These captures are isolated consumer evidence, not final Main integration or gameplay acquisition screenshots.",
+    "approval": "Visual self-inspection completed, no claim of human visual acceptance. Final native integrated review by coordinator required."
+  },
+  "changed_files": [
+    "scripts/industrial_hud_v8.gd",
+    "tools/check_hud_v8.gd",
+    "docs/production-v8/hud-contract.json",
+    "verification/production-v8/hud/checks.json",
+    "verification/production-v8/hud/fixture-1280x720.png",
+    "verification/production-v8/hud/fixture-1024x768.png",
+    "verification/production-v8/hud/fixture-1440x900.png",
+    "verification/production-v8/hud/fixture-800x600.png",
+    "verification/production-v8/hud/fixture-640x360.png"
+  ],
+  "integration_status": "Integrated into actual Main and scoped Intake scene. Coordinator native visual inspection completed; human acceptance pending."
+}

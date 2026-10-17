@@ -1,0 +1,222 @@
+{
+  "status": "integrated_native_and_functional_verification_complete",
+  "native_scene_sha256": "cedb55dc41ed5e1ed65b0cfc9b7eb5ad725c41fb4b6c4baf3a19ec7db6131aa4",
+  "source_sha256": "dc785a6e3bdfd037e2820ef4e9b0cbc068808d14d7ecd4c69e74fe1bf6e41768",
+  "native_frames": 77,
+  "nonidle_byte_identity_against_current": [
+    {
+      "phase": "fire",
+      "window": [
+        1280,
+        720
+      ],
+      "png_identical": true
+    },
+    {
+      "phase": "recover",
+      "window": [
+        1280,
+        720
+      ],
+      "png_identical": true
+    },
+    {
+      "phase": "switch",
+      "window": [
+        1280,
+        720
+      ],
+      "png_identical": true
+    },
+    {
+      "phase": "fire",
+      "window": [
+        800,
+        600
+      ],
+      "png_identical": true
+    },
+    {
+      "phase": "recover",
+      "window": [
+        800,
+        600
+      ],
+      "png_identical": true
+    },
+    {
+      "phase": "switch",
+      "window": [
+        800,
+        600
+      ],
+      "png_identical": true
+    },
+    {
+      "phase": "fire",
+      "window": [
+        1560,
+        900
+      ],
+      "png_identical": true
+    },
+    {
+      "phase": "recover",
+      "window": [
+        1560,
+        900
+      ],
+      "png_identical": true
+    },
+    {
+      "phase": "switch",
+      "window": [
+        1560,
+        900
+      ],
+      "png_identical": true
+    }
+  ],
+  "candidate": "procedural (coordinator-approved accepted idle source reused across phases)",
+  "rejected_as_final": "candidate (.62 framing-only)",
+  "wpn02": "Integrated real Main: dual-flash origins + one audio cue/2 shells/16pellets per accepted shot, continuous recoil and live smooth switch verified.",
+  "diagnosis": "Original oversized placement hides right hand behind HUD. Original centerline uses wooden receiver, not the two physical barrel axes. Corrected idle uses two painted axes and their actual vanishing point, .55 scale, exposing both grips.",
+  "review": "review.svg embeds unchanged native PNGs; annotations are separate SVG overlay. Original screenshots retained byte-for-byte.",
+  "twin_checks": 169,
+  "twin_failures": [],
+  "all_weapons_regression_checks": 719,
+  "all_weapons_regression_accepted_shots": 15,
+  "integration": {
+    "pose_api": "pose(placement,frame_size,source_canvas_height,layer_size,recoil,phase_progress=0.0)",
+    "new_outputs": [
+      "muzzles:Array[Vector2]",
+      "bores:Array[Dictionary]"
+    ],
+    "new_optional_placement_fields": [
+      "bores",
+      "recoil_mode",
+      "recoil_scale_per_unit",
+      "switch_from_target"
+    ],
+    "main_binding": "Pass state.phase_progress as optional final pose arg. Show one flash sprite at each projected.muzzles origin driven by existing one-shot muzzle_time. Reset/hide second flash for other weapons.",
+    "apply": "python3 tools/apply_twin_v8.py --apply",
+    "native_capture": "tools/godot.sh --script verification/production-v8/twin/capture_twin.gd -- --force-offscreen-draw --variant=integrated",
+    "complete": true
+  },
+  "source_landmarks": {
+    "marker": [
+      377.2222222222,
+      22.3333333333
+    ],
+    "target": [
+      0.5,
+      0.5
+    ],
+    "scale": 0.55,
+    "bore": {
+      "muzzle": [
+        381.5,
+        103
+      ],
+      "breech": [
+        388.5,
+        235
+      ]
+    },
+    "bores": [
+      {
+        "muzzle": [
+          365,
+          103
+        ],
+        "breech": [
+          345,
+          235
+        ]
+      },
+      {
+        "muzzle": [
+          398,
+          103
+        ],
+        "breech": [
+          432,
+          235
+        ]
+      }
+    ],
+    "recoil_mode": "vanishing_scale",
+    "recoil_scale_per_unit": 0.002,
+    "receiver": [
+      386,
+      300
+    ],
+    "align_bore": true
+  },
+  "changed_files": {
+    "scripts/weapon_presentation.gd": "3f906ea69d266f34bf701385af2c89c9260f7021b053bf3e75405f6387e015e8",
+    "tools/apply_twin_v8.py": "e2dcaa1540496a9526e7f53faddf021e7d03df49ced383bd3fe71f88b08ce9ef",
+    "docs/production-v8/twin-presentation.json": "dfb2996a33d8ae146b78d5e5b684db4ef20a8c50355838e1dee196c5cfd82d1c"
+  },
+  "known_output_warnings": [
+    "Godot native minimized capture emits NO GRAB and anchor warnings; saved PNGs verified correctdimensions.",
+    "Headless Main fixture teardown emits existing ObjectDB/resource leak warnings; all assertions pass."
+  ],
+  "cadence_note": "Production fixed 60 Hz physics yields exact 1.2 s accepted interval; unchanged combat. Additional variable-physics fixture:30/60 Hz at0,1.2,2.4;120 Hz at0,1.20833,2.41667 from pre-existing float cooldown step quantization. No claim of sub-step cadence.",
+  "integrated_checks": 252,
+  "integrated_failures": [],
+  "integrated_native": {
+    "capture_report": "native/integrated-capture-state.json",
+    "captures": 12,
+    "windows": [
+      [
+        1280,
+        720
+      ],
+      [
+        800,
+        600
+      ],
+      [
+        1560,
+        900
+      ]
+    ],
+    "main_sha256": "16c79aedf9d829f51cab92726f7520bd7f7bf346a660516af11258cc9af52ce0",
+    "manifest_sha256": "e8517dea756e10a028ea4a84447e42fd811e36e852ba9658457f62c93a2179d4",
+    "presentation_sha256": "3f906ea69d266f34bf701385af2c89c9260f7021b053bf3e75405f6387e015e8",
+    "scene_sha256": "8063e98c44cad7953a2ebd76beabb9b9abaec6c1e745ffe3448143e630eb19a4",
+    "visual_inspection": "Actual source PNG unchanged. All three native idle windows inspected: coherent centered barrels, receiver/trigger glove visible above wide HUD; 4:3 lower-letterbox HUD preserves wrists. Actual fire at1280 shows both flash centers. No human user approval claimed."
+  },
+  "integrated_shot_audio_checks": {
+    "accepted_shots": 9,
+    "fire_cue_count": 9,
+    "shells_consumed": 18,
+    "duplicate_attempts": "Rejected without extra ammo/audio",
+    "flashes_per_accepted_shot": 2,
+    "flash_origins_native": [
+      [
+        315.169494628906,
+        211.881622314453
+      ],
+      [
+        328.211975097656,
+        211.881622314453
+      ]
+    ]
+  },
+  "integrated_fixture_note": "Initial switch fixture sampled14renders for.22s switch and compared before final idle render; retained failing fixture report names this sampling issue. Correct16render fixture passes252checks. No production fix needed.",
+  "all_weapons_integrated_checks": 734,
+  "all_weapons_integrated_failures": [],
+  "actual_switch_native": {
+    "report": "native-switch/switch.json",
+    "captures": 5,
+    "inspected": [
+      0,
+      7,
+      14
+    ],
+    "main_sha256": "5a5c591384194ea0da113d59bf06642454547f950faf198e2fc044ab96e1df21",
+    "result": "Start lowered below HUD; mid-raise coherent same geometry; end exactly accepted idle, same authored scale. Actualselection and existing.22s switch timeline."
+  }
+}
