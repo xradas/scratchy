@@ -1,0 +1,904 @@
+{
+  "version": 13,
+  "id": "occupied_line_03",
+  "title": "Occupation Engine",
+  "status": "design only; current playable scene unchanged",
+  "objective": "Disable the engine supports, destroy the exposed core and escape.",
+  "route_summary": "Engine access \u2192 turbine court \u2192 cooling gallery \u2192 induction works \u2192 upper reactor \u2192 exposed core \u2192 emergency egress.",
+  "objective_steps": [
+    "Isolate cooling, then disable induction to expose the core approach.",
+    "Destroy the exposed engine core under a sustained final encounter.",
+    "Use the newly opened emergency route; escape is untimed."
+  ],
+  "rooms": [
+    {
+      "id": "access",
+      "label": "Access",
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "access",
+      "function": "workshop",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "turbine_court",
+      "label": "Turbine Court",
+      "center": [
+        0,
+        0,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "turbine",
+      "function": "power_works",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "west_service",
+      "label": "West Service",
+      "center": [
+        -40,
+        0,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "turbine",
+      "function": "workshop",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "cooling",
+      "label": "Cooling",
+      "center": [
+        -80,
+        -2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "cooling",
+      "function": "reactor",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "coolant_control",
+      "label": "Coolant Control",
+      "center": [
+        -80,
+        -2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "cooling",
+      "function": "dispatch",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "cable_gallery",
+      "label": "Cable Gallery",
+      "center": [
+        -40,
+        2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "induction",
+      "function": "signal_works",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "induction",
+      "label": "Induction",
+      "center": [
+        0,
+        2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "induction",
+      "function": "power_works",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "upper_service",
+      "label": "Upper Service",
+      "center": [
+        40,
+        6,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "reactor",
+      "function": "workshop",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "reactor_overlook",
+      "label": "Reactor Overlook",
+      "center": [
+        80,
+        6,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "reactor",
+      "function": "reactor",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "core_access",
+      "label": "Core Access",
+      "center": [
+        80,
+        2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "reactor",
+      "function": "reactor",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "exposed_core",
+      "label": "Exposed Core",
+      "center": [
+        40,
+        2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "reactor",
+      "function": "reactor",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "emergency_exit",
+      "label": "Emergency Exit",
+      "center": [
+        40,
+        0,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "escape",
+      "function": "utility",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "egress",
+      "label": "Egress",
+      "center": [
+        80,
+        0,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "escape",
+      "function": "workshop",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "exit",
+      "label": "Exit",
+      "center": [
+        80,
+        0,
+        40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "escape",
+      "function": "station",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_1",
+      "label": "Supply room",
+      "center": [
+        -38,
+        0,
+        20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "access",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_2",
+      "label": "Staff quarters",
+      "center": [
+        -42,
+        -2,
+        -20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "cooling",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_3",
+      "label": "Observation room",
+      "center": [
+        -38,
+        2,
+        -60
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "induction",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_4",
+      "label": "Equipment store",
+      "center": [
+        118,
+        0,
+        20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "escape",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_1",
+      "label": "Hidden stores 1",
+      "center": [
+        -40,
+        0,
+        -2
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "turbine",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_2",
+      "label": "Hidden stores 2",
+      "center": [
+        40,
+        6,
+        -42
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "reactor",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "turbine",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "generator",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "cable_drum",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    }
+  ],
+  "portals": [
+    {
+      "id": "access__turbine_court",
+      "from": "access",
+      "to": "turbine_court",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "turbine_court__west_service",
+      "from": "turbine_court",
+      "to": "west_service",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "west_service__cooling",
+      "from": "west_service",
+      "to": "cooling",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "cooling__coolant_control",
+      "from": "cooling",
+      "to": "coolant_control",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "coolant_control__cable_gallery",
+      "from": "coolant_control",
+      "to": "cable_gallery",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "cable_gallery__induction",
+      "from": "cable_gallery",
+      "to": "induction",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "induction__upper_service",
+      "from": "induction",
+      "to": "upper_service",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "upper_service__reactor_overlook",
+      "from": "upper_service",
+      "to": "reactor_overlook",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "reactor_overlook__core_access",
+      "from": "reactor_overlook",
+      "to": "core_access",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "core_access__exposed_core",
+      "from": "core_access",
+      "to": "exposed_core",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "exposed_core__emergency_exit",
+      "from": "exposed_core",
+      "to": "emergency_exit",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "emergency_exit__egress",
+      "from": "emergency_exit",
+      "to": "egress",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "egress__exit",
+      "from": "egress",
+      "to": "exit",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "induction__turbine_court",
+      "from": "induction",
+      "to": "turbine_court",
+      "requires": [
+        "induction_off"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "core_access__emergency_exit",
+      "from": "core_access",
+      "to": "emergency_exit",
+      "requires": [
+        "core_destroyed"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "access__side_1",
+      "from": "access",
+      "to": "side_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "cooling__side_2",
+      "from": "cooling",
+      "to": "side_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "induction__side_3",
+      "from": "induction",
+      "to": "side_3",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "egress__side_4",
+      "from": "egress",
+      "to": "side_4",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "west_service__secret_1",
+      "from": "west_service",
+      "to": "secret_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    },
+    {
+      "id": "upper_service__secret_2",
+      "from": "upper_service",
+      "to": "secret_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    }
+  ],
+  "encounter_identity": "Finale uses existing chapter creatures and a destroyable machine, not an unplanned new boss family.",
+  "checkpoints": {
+    "count": 2,
+    "locations": [
+      "Safe landing after the first major objective",
+      "Safe landing after the penultimate objective"
+    ],
+    "policy": "same session-only exact-state contract as Ward"
+  },
+  "next_level": "Campaign completion",
+  "target_human_minutes": [
+    20,
+    25
+  ],
+  "construction_gate": "These later-level diagrams establish identity and adjacency; resolve exact portal polylines, per-instance furnishings, encounter/supply numbers and collision at their subsequent construction milestone. They are not current playable replacements."
+}

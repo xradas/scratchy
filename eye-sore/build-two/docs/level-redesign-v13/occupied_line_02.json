@@ -1,0 +1,904 @@
+{
+  "version": 13,
+  "id": "occupied_line_02",
+  "title": "Civic Lockdown",
+  "status": "design only; current playable scene unchanged",
+  "objective": "Reroute security power and release the district exit.",
+  "route_summary": "Reception atrium \u2192 public records \u2192 service network \u2192 security floor \u2192 changed atrium route \u2192 administration chamber \u2192 district exit.",
+  "objective_steps": [
+    "Find a service credential in public records.",
+    "Reroute distribution power: public shutters close while the security stair opens.",
+    "Override security, cross the newly accessible atrium mezzanine and release the district exit."
+  ],
+  "rooms": [
+    {
+      "id": "reception",
+      "label": "Reception",
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "public",
+      "function": "civic_lobby",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "atrium",
+      "label": "Atrium",
+      "center": [
+        0,
+        0,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "public",
+      "function": "civic_lobby",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "public_records",
+      "label": "Public Records",
+      "center": [
+        -40,
+        0,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "public",
+      "function": "records",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "label": "Archive",
+      "center": [
+        -80,
+        0,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "public",
+      "function": "records",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "service_access",
+      "label": "Service Access",
+      "center": [
+        -80,
+        -2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "service",
+      "function": "utility",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "label": "Distribution",
+      "center": [
+        -40,
+        -2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "service",
+      "function": "signal_works",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "security_stair",
+      "label": "Security Stair",
+      "center": [
+        0,
+        2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "security",
+      "function": "security",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "security_floor",
+      "label": "Security Floor",
+      "center": [
+        40,
+        2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "security",
+      "function": "security",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "security_control",
+      "label": "Security Control",
+      "center": [
+        80,
+        2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "security",
+      "function": "dispatch",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "atrium_mezzanine",
+      "label": "Atrium Mezzanine",
+      "center": [
+        40,
+        4,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "administration",
+      "function": "civic_lobby",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "admin_offices",
+      "label": "Admin Offices",
+      "center": [
+        80,
+        4,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "administration",
+      "function": "records",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "district_control",
+      "label": "District Control",
+      "center": [
+        80,
+        4,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "administration",
+      "function": "dispatch",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "released_exit",
+      "label": "Released Exit",
+      "center": [
+        40,
+        0,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "civic_lobby",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "exit",
+      "label": "Exit",
+      "center": [
+        40,
+        0,
+        40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "workshop",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_1",
+      "label": "Supply room",
+      "center": [
+        -38,
+        0,
+        20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "public",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_2",
+      "label": "Staff quarters",
+      "center": [
+        -42,
+        0,
+        -20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "public",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_3",
+      "label": "Observation room",
+      "center": [
+        -38,
+        2,
+        -60
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "security",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_4",
+      "label": "Equipment store",
+      "center": [
+        78,
+        0,
+        20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "departure",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_1",
+      "label": "Hidden stores 1",
+      "center": [
+        -40,
+        0,
+        -2
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "public",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_2",
+      "label": "Hidden stores 2",
+      "center": [
+        40,
+        2,
+        -42
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "security",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "office_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "file_cabinet",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "server_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    }
+  ],
+  "portals": [
+    {
+      "id": "reception__atrium",
+      "from": "reception",
+      "to": "atrium",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "atrium__public_records",
+      "from": "atrium",
+      "to": "public_records",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "public_records__archive",
+      "from": "public_records",
+      "to": "archive",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "archive__service_access",
+      "from": "archive",
+      "to": "service_access",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "service_access__distribution",
+      "from": "service_access",
+      "to": "distribution",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "distribution__security_stair",
+      "from": "distribution",
+      "to": "security_stair",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "security_stair__security_floor",
+      "from": "security_stair",
+      "to": "security_floor",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "security_floor__security_control",
+      "from": "security_floor",
+      "to": "security_control",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "security_control__atrium_mezzanine",
+      "from": "security_control",
+      "to": "atrium_mezzanine",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "atrium_mezzanine__admin_offices",
+      "from": "atrium_mezzanine",
+      "to": "admin_offices",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "admin_offices__district_control",
+      "from": "admin_offices",
+      "to": "district_control",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "district_control__released_exit",
+      "from": "district_control",
+      "to": "released_exit",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "released_exit__exit",
+      "from": "released_exit",
+      "to": "exit",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "distribution__atrium",
+      "from": "distribution",
+      "to": "atrium",
+      "requires": [
+        "service_power"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "security_control__atrium_mezzanine",
+      "from": "security_control",
+      "to": "atrium_mezzanine",
+      "requires": [
+        "security_override"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "reception__side_1",
+      "from": "reception",
+      "to": "side_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "archive__side_2",
+      "from": "archive",
+      "to": "side_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "security_stair__side_3",
+      "from": "security_stair",
+      "to": "side_3",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "released_exit__side_4",
+      "from": "released_exit",
+      "to": "side_4",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "public_records__secret_1",
+      "from": "public_records",
+      "to": "secret_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    },
+    {
+      "id": "security_floor__secret_2",
+      "from": "security_floor",
+      "to": "secret_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    }
+  ],
+  "encounter_identity": "Security rerouting changes traversal through a known landmark, with alternate service egress preventing a lock-in.",
+  "checkpoints": {
+    "count": 2,
+    "locations": [
+      "Safe landing after the first major objective",
+      "Safe landing after the penultimate objective"
+    ],
+    "policy": "same session-only exact-state contract as Ward"
+  },
+  "next_level": "Occupation Engine",
+  "target_human_minutes": [
+    20,
+    25
+  ],
+  "construction_gate": "These later-level diagrams establish identity and adjacency; resolve exact portal polylines, per-instance furnishings, encounter/supply numbers and collision at their subsequent construction milestone. They are not current playable replacements."
+}

@@ -1,0 +1,947 @@
+{
+  "version": 13,
+  "id": "ash_citadel_03",
+  "title": "Black Reliquary",
+  "status": "design only; current playable scene unchanged",
+  "objective": "Unseal the transit conduit beneath the reliquary.",
+  "route_summary": "Lower crypt \u2192 central vault \u2192 funerary counterweight \u2192 upper archive \u2192 ritual sightline galleries \u2192 vault floor \u2192 conduit.",
+  "objective_steps": [
+    "Raise the funerary counterweight to open the upper archive.",
+    "From three successive galleries, destroy the exposed vault seals.",
+    "Descend through the opened vault floor into the civic conduit."
+  ],
+  "rooms": [
+    {
+      "id": "crypt",
+      "label": "Crypt",
+      "center": [
+        0,
+        -2,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "crypt",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "ossuary",
+      "label": "Ossuary",
+      "center": [
+        -40,
+        -2,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "crypt",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "vault",
+      "label": "Vault",
+      "center": [
+        0,
+        2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "vault",
+      "function": "chapel",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "west_gallery",
+      "label": "West Gallery",
+      "center": [
+        -40,
+        2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "vault",
+      "function": "chapel",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "funerary_hall",
+      "label": "Funerary Hall",
+      "center": [
+        -80,
+        2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "counterweight",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "counterweight",
+      "label": "Counterweight",
+      "center": [
+        -80,
+        6,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "counterweight",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "archive_stair",
+      "label": "Archive Stair",
+      "center": [
+        -40,
+        6,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "archive",
+      "function": "archive",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "scribe_archive",
+      "label": "Scribe Archive",
+      "center": [
+        0,
+        6,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "archive",
+      "function": "archive",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "upper_vault",
+      "label": "Upper Vault",
+      "center": [
+        40,
+        10,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "archive",
+      "function": "chapel",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "seal_gallery_a",
+      "label": "Seal Gallery A",
+      "center": [
+        80,
+        10,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "seals",
+      "function": "chapel",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "seal_gallery_b",
+      "label": "Seal Gallery B",
+      "center": [
+        80,
+        6,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "seals",
+      "function": "chapel",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "seal_gallery_c",
+      "label": "Seal Gallery C",
+      "center": [
+        40,
+        2,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "seals",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "lower_vault",
+      "label": "Lower Vault",
+      "center": [
+        0,
+        -2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "conduit_entry",
+      "label": "Conduit Entry",
+      "center": [
+        0,
+        -2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "conduit",
+      "label": "Conduit",
+      "center": [
+        0,
+        -2,
+        -120
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_1",
+      "label": "Supply room",
+      "center": [
+        -38,
+        -2,
+        20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "crypt",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_2",
+      "label": "Staff quarters",
+      "center": [
+        -2,
+        2,
+        -20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "vault",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_3",
+      "label": "Observation room",
+      "center": [
+        -78,
+        6,
+        -60
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "archive",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_4",
+      "label": "Equipment store",
+      "center": [
+        38,
+        -2,
+        -60
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "departure",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_1",
+      "label": "Hidden stores 1",
+      "center": [
+        0,
+        2,
+        -2
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "vault",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_2",
+      "label": "Hidden stores 2",
+      "center": [
+        0,
+        6,
+        -42
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "archive",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "reliquary",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "sarcophagus",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "scribe_desk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    }
+  ],
+  "portals": [
+    {
+      "id": "crypt__ossuary",
+      "from": "crypt",
+      "to": "ossuary",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "ossuary__vault",
+      "from": "ossuary",
+      "to": "vault",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "vault__west_gallery",
+      "from": "vault",
+      "to": "west_gallery",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "west_gallery__funerary_hall",
+      "from": "west_gallery",
+      "to": "funerary_hall",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "funerary_hall__counterweight",
+      "from": "funerary_hall",
+      "to": "counterweight",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "counterweight__archive_stair",
+      "from": "counterweight",
+      "to": "archive_stair",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "archive_stair__scribe_archive",
+      "from": "archive_stair",
+      "to": "scribe_archive",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "scribe_archive__upper_vault",
+      "from": "scribe_archive",
+      "to": "upper_vault",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "upper_vault__seal_gallery_a",
+      "from": "upper_vault",
+      "to": "seal_gallery_a",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "seal_gallery_a__seal_gallery_b",
+      "from": "seal_gallery_a",
+      "to": "seal_gallery_b",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "seal_gallery_b__seal_gallery_c",
+      "from": "seal_gallery_b",
+      "to": "seal_gallery_c",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "seal_gallery_c__lower_vault",
+      "from": "seal_gallery_c",
+      "to": "lower_vault",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "lower_vault__conduit_entry",
+      "from": "lower_vault",
+      "to": "conduit_entry",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "conduit_entry__conduit",
+      "from": "conduit_entry",
+      "to": "conduit",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "archive_stair__vault",
+      "from": "archive_stair",
+      "to": "vault",
+      "requires": [
+        "counterweight_up"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "seal_gallery_c__crypt",
+      "from": "seal_gallery_c",
+      "to": "crypt",
+      "requires": [
+        "vault_unsealed"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "crypt__side_1",
+      "from": "crypt",
+      "to": "side_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "west_gallery__side_2",
+      "from": "west_gallery",
+      "to": "side_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "archive_stair__side_3",
+      "from": "archive_stair",
+      "to": "side_3",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "conduit_entry__side_4",
+      "from": "conduit_entry",
+      "to": "side_4",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "vault__secret_1",
+      "from": "vault",
+      "to": "secret_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    },
+    {
+      "id": "scribe_archive__secret_2",
+      "from": "scribe_archive",
+      "to": "secret_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    }
+  ],
+  "encounter_identity": "Repeated views of the same central vault from new heights; fight changes when lower vault opens.",
+  "checkpoints": {
+    "count": 2,
+    "locations": [
+      "Safe landing after the first major objective",
+      "Safe landing after the penultimate objective"
+    ],
+    "policy": "same session-only exact-state contract as Ward"
+  },
+  "next_level": "Dead Platform",
+  "target_human_minutes": [
+    20,
+    25
+  ],
+  "construction_gate": "These later-level diagrams establish identity and adjacency; resolve exact portal polylines, per-instance furnishings, encounter/supply numbers and collision at their subsequent construction milestone. They are not current playable replacements."
+}

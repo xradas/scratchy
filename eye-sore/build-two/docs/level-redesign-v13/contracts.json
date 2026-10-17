@@ -1,0 +1,90 @@
+{
+  "version": 13,
+  "baseline_commit": "5f68f5c5ee51eec0997113e977bd48e4277222bf",
+  "engine": "4.7.2",
+  "profile_class": "StageObjectiveProfile",
+  "profile_property": "objective_profile",
+  "resource_output": "resources/campaign/v13/{level_id}-objectives.tres",
+  "stable_ids": "metadata/stable_id on actors, pickups, mechanisms; checkpoint_id on markers; never get_instance_id in persisted snapshots",
+  "level_inputs": "docs/level-redesign-v13/levels.json",
+  "scene_output": "scenes/campaign/{level_id}.tscn",
+  "metadata": {
+    "root": {
+      "stage_id": "pale_ward",
+      "campaign_level_id": "level id",
+      "stage_title": "level title",
+      "design_version": 13
+    },
+    "room": [
+      "stage_room",
+      "stage_label",
+      "room_bounds",
+      "district"
+    ],
+    "button": [
+      "stage_button",
+      "requires",
+      "stable_id"
+    ],
+    "pickup": [
+      "stage_pickup",
+      "amount",
+      "stable_id"
+    ],
+    "checkpoint": [
+      "checkpoint_id",
+      "requires",
+      "radius"
+    ],
+    "anchor": [
+      "stable_id",
+      "completion_flag",
+      "requires",
+      "health"
+    ]
+  },
+  "runtime_api": [
+    "world.capture_checkpoint_state()",
+    "world.restore_checkpoint_state(data)",
+    "Main.has_checkpoint()",
+    "Main.continue_from_checkpoint()",
+    "Main.restart_level()"
+  ],
+  "checkpoint_policy": {
+    "persistence": "session only",
+    "latest_only": true,
+    "death_default": "continue latest else level entry",
+    "clear_on": [
+      "title",
+      "new_game",
+      "level_transition",
+      "restart_level"
+    ],
+    "transients": "clear projectiles/audio voices/gore particles; retain dead/corpse/gibbed logical state",
+    "capture": "atomic at grounded safe marker, no active local threat or projectiles, mechanisms stopped; never replay rewards or events"
+  },
+  "authoring_rules": [
+    "no copied/scaled chapter base graph",
+    "selected-level regeneration only",
+    "all platforms closed textured volumes",
+    "bridges require physical supports/guards; no jumping needed",
+    "portals with waypoints are polyline physical corridors, not teleport routes",
+    "critical supplies distributed before relevant encounters, \u2264ammo caps per pickup",
+    "first four enemy kinds are Ward-exclusive",
+    "normal room combat does not require all-clear except decon explicitly",
+    "two checkpoints per Ward, latest after either Containment branch is valid",
+    "first Containment isolation opens overhead bridge; second drains cosmetic liquid and lower route; no fluid simulation"
+  ],
+  "acceptance": {
+    "human_duration_target": [
+      20,
+      25
+    ],
+    "districts_per_ward": 4,
+    "minimum_usable_height_bands": 3,
+    "minimum_shortcuts": 2,
+    "minimum_optional_rooms": 4,
+    "minimum_secrets": 2
+  },
+  "protected": "All6nonWardscenes, allartPNG, audiofiles and63cue resources, weapondefinitions, AI/health, v12gore unchanged. Main/combat modifications onlynewmechanism/checkpoint contract."
+}

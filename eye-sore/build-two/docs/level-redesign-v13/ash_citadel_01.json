@@ -1,0 +1,904 @@
+{
+  "version": 13,
+  "id": "ash_citadel_01",
+  "title": "Ash Approach",
+  "status": "design only; current playable scene unchanged",
+  "objective": "Infiltrate the gatehouse and open the inner fortress gate.",
+  "route_summary": "Exterior approach \u2192 broken siege trench \u2192 flank tunnel \u2192 battlement \u2192 gatehouse winch \u2192 lowered inner bridge \u2192 furnace gate.",
+  "objective_steps": [
+    "Retrieve gatehouse credential in the crypt guard post.",
+    "Approach the gatehouse through the battlements and operate the bridge winch.",
+    "Cross the lowered bridge and enter Furnace Choir."
+  ],
+  "rooms": [
+    {
+      "id": "siege_approach",
+      "label": "Siege Approach",
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "siege",
+      "function": "rampart",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "trench",
+      "label": "Trench",
+      "center": [
+        -40,
+        -2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "siege",
+      "function": "barricade",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "breach_camp",
+      "label": "Breach Camp",
+      "center": [
+        -80,
+        -2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "siege",
+      "function": "guardhouse",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "flank_tunnel",
+      "label": "Flank Tunnel",
+      "center": [
+        -80,
+        -2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "infiltration",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "lower_crypt",
+      "label": "Lower Crypt",
+      "center": [
+        -40,
+        -2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "infiltration",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "stair_tower",
+      "label": "Stair Tower",
+      "center": [
+        0,
+        2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "infiltration",
+      "function": "guardhouse",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "battlement",
+      "label": "Battlement",
+      "center": [
+        40,
+        6,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "ramparts",
+      "function": "rampart",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "crosswall",
+      "label": "Crosswall",
+      "center": [
+        80,
+        6,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "ramparts",
+      "function": "rampart",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "gatehouse",
+      "label": "Gatehouse",
+      "center": [
+        80,
+        6,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "ramparts",
+      "function": "guardhouse",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "winch",
+      "label": "Winch",
+      "center": [
+        40,
+        6,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "ramparts",
+      "function": "forge",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "inner_bridge",
+      "label": "Inner Bridge",
+      "center": [
+        40,
+        2,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "inner",
+      "function": "rampart",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "cloister",
+      "label": "Cloister",
+      "center": [
+        80,
+        2,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "inner",
+      "function": "chapel",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "armory_hall",
+      "label": "Armory Hall",
+      "center": [
+        80,
+        2,
+        40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "inner",
+      "function": "guardhouse",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "furnace_gate",
+      "label": "Furnace Gate",
+      "center": [
+        40,
+        2,
+        40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "inner",
+      "function": "forge",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_1",
+      "label": "Supply room",
+      "center": [
+        -38,
+        0,
+        20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "siege",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_2",
+      "label": "Staff quarters",
+      "center": [
+        -42,
+        -2,
+        -60
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "infiltration",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_3",
+      "label": "Observation room",
+      "center": [
+        2,
+        6,
+        -60
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "ramparts",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_4",
+      "label": "Equipment store",
+      "center": [
+        118,
+        2,
+        60
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "inner",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_1",
+      "label": "Hidden stores 1",
+      "center": [
+        -80,
+        -2,
+        -2
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "siege",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_2",
+      "label": "Hidden stores 2",
+      "center": [
+        80,
+        6,
+        -42
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "ramparts",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "guard_table",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "weapon_rack",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "banner_standard",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    }
+  ],
+  "portals": [
+    {
+      "id": "siege_approach__trench",
+      "from": "siege_approach",
+      "to": "trench",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "trench__breach_camp",
+      "from": "trench",
+      "to": "breach_camp",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "breach_camp__flank_tunnel",
+      "from": "breach_camp",
+      "to": "flank_tunnel",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "flank_tunnel__lower_crypt",
+      "from": "flank_tunnel",
+      "to": "lower_crypt",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "lower_crypt__stair_tower",
+      "from": "lower_crypt",
+      "to": "stair_tower",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "stair_tower__battlement",
+      "from": "stair_tower",
+      "to": "battlement",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "battlement__crosswall",
+      "from": "battlement",
+      "to": "crosswall",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "crosswall__gatehouse",
+      "from": "crosswall",
+      "to": "gatehouse",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "gatehouse__winch",
+      "from": "gatehouse",
+      "to": "winch",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "winch__inner_bridge",
+      "from": "winch",
+      "to": "inner_bridge",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "inner_bridge__cloister",
+      "from": "inner_bridge",
+      "to": "cloister",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "cloister__armory_hall",
+      "from": "cloister",
+      "to": "armory_hall",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "armory_hall__furnace_gate",
+      "from": "armory_hall",
+      "to": "furnace_gate",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "stair_tower__siege_approach",
+      "from": "stair_tower",
+      "to": "siege_approach",
+      "requires": [
+        "tower_hatch"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "gatehouse__inner_bridge",
+      "from": "gatehouse",
+      "to": "inner_bridge",
+      "requires": [
+        "gate_winch"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "siege_approach__side_1",
+      "from": "siege_approach",
+      "to": "side_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "flank_tunnel__side_2",
+      "from": "flank_tunnel",
+      "to": "side_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "battlement__side_3",
+      "from": "battlement",
+      "to": "side_3",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "armory_hall__side_4",
+      "from": "armory_hall",
+      "to": "side_4",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "breach_camp__secret_1",
+      "from": "breach_camp",
+      "to": "secret_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    },
+    {
+      "id": "crosswall__secret_2",
+      "from": "crosswall",
+      "to": "secret_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    }
+  ],
+  "encounter_identity": "Open bridge exposes a crossfire courtyard; retreat remains possible. No kill-all gate.",
+  "checkpoints": {
+    "count": 2,
+    "locations": [
+      "Safe landing after the first major objective",
+      "Safe landing after the penultimate objective"
+    ],
+    "policy": "same session-only exact-state contract as Ward"
+  },
+  "next_level": "Furnace Choir",
+  "target_human_minutes": [
+    20,
+    25
+  ],
+  "construction_gate": "These later-level diagrams establish identity and adjacency; resolve exact portal polylines, per-instance furnishings, encounter/supply numbers and collision at their subsequent construction milestone. They are not current playable replacements."
+}

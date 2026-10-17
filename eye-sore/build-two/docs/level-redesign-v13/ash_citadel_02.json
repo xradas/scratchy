@@ -1,0 +1,990 @@
+{
+  "version": 13,
+  "id": "ash_citadel_02",
+  "title": "Furnace Choir",
+  "status": "design only; current playable scene unchanged",
+  "objective": "Extinguish the ritual furnaces and cross the cooled central channel.",
+  "route_summary": "Choir vestibule \u2192 central furnace overlook \u2192 west forge / east ashworks / upper choir \u2192 cooled channel \u2192 reliquary hoist.",
+  "objective_steps": [
+    "Close the west fuel supply and east draft supply in either order.",
+    "The two shutdowns unlock the upper choir; destroy its ritual feed.",
+    "Cross the visibly cooled channel to the reliquary hoist."
+  ],
+  "rooms": [
+    {
+      "id": "vestibule",
+      "label": "Vestibule",
+      "center": [
+        0,
+        4,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "arrival",
+      "function": "chapel",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "furnace_overlook",
+      "label": "Furnace Overlook",
+      "center": [
+        0,
+        4,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "arrival",
+      "function": "forge",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "west_walk",
+      "label": "West Walk",
+      "center": [
+        -40,
+        4,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "forge",
+      "function": "forge",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "bellows",
+      "label": "Bellows",
+      "center": [
+        -80,
+        2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "forge",
+      "function": "forge",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "coal_house",
+      "label": "Coal House",
+      "center": [
+        -80,
+        2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "forge",
+      "function": "guardhouse",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "west_shutoff",
+      "label": "West Shutoff",
+      "center": [
+        -40,
+        2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "forge",
+      "function": "forge",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "east_walk",
+      "label": "East Walk",
+      "center": [
+        40,
+        4,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "ashworks",
+      "function": "forge",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "ashworks",
+      "label": "Ashworks",
+      "center": [
+        80,
+        2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "ashworks",
+      "function": "forge",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "slag_house",
+      "label": "Slag House",
+      "center": [
+        80,
+        2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "ashworks",
+      "function": "forge",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "east_shutoff",
+      "label": "East Shutoff",
+      "center": [
+        40,
+        2,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "ashworks",
+      "function": "forge",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "choir_stair",
+      "label": "Choir Stair",
+      "center": [
+        0,
+        8,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "choir",
+      "function": "chapel",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "upper_choir",
+      "label": "Upper Choir",
+      "center": [
+        0,
+        8,
+        -120
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "choir",
+      "function": "chapel",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "ritual_feed",
+      "label": "Ritual Feed",
+      "center": [
+        40,
+        8,
+        -120
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "choir",
+      "function": "chapel",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "cooled_channel",
+      "label": "Cooled Channel",
+      "center": [
+        0,
+        0,
+        -160
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "forge",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "hoist_hall",
+      "label": "Hoist Hall",
+      "center": [
+        40,
+        0,
+        -160
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "exit",
+      "label": "Exit",
+      "center": [
+        80,
+        4,
+        -160
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "crypt",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_1",
+      "label": "Supply room",
+      "center": [
+        -38,
+        4,
+        20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "arrival",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_2",
+      "label": "Staff quarters",
+      "center": [
+        -42,
+        2,
+        -20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "forge",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_3",
+      "label": "Observation room",
+      "center": [
+        2,
+        4,
+        -20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "ashworks",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_4",
+      "label": "Equipment store",
+      "center": [
+        78,
+        0,
+        -140
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "departure",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_1",
+      "label": "Hidden stores 1",
+      "center": [
+        -40,
+        4,
+        -2
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "forge",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_2",
+      "label": "Hidden stores 2",
+      "center": [
+        80,
+        2,
+        -2
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "ashworks",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "forge_hearth",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "anvil",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "chain_winch",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    }
+  ],
+  "portals": [
+    {
+      "id": "vestibule__furnace_overlook",
+      "from": "vestibule",
+      "to": "furnace_overlook",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "furnace_overlook__west_walk",
+      "from": "furnace_overlook",
+      "to": "west_walk",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "west_walk__bellows",
+      "from": "west_walk",
+      "to": "bellows",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "bellows__coal_house",
+      "from": "bellows",
+      "to": "coal_house",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "coal_house__west_shutoff",
+      "from": "coal_house",
+      "to": "west_shutoff",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "furnace_overlook__east_walk",
+      "from": "furnace_overlook",
+      "to": "east_walk",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "east_walk__ashworks",
+      "from": "east_walk",
+      "to": "ashworks",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "ashworks__slag_house",
+      "from": "ashworks",
+      "to": "slag_house",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "slag_house__east_shutoff",
+      "from": "slag_house",
+      "to": "east_shutoff",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "furnace_overlook__choir_stair",
+      "from": "furnace_overlook",
+      "to": "choir_stair",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "choir_stair__upper_choir",
+      "from": "choir_stair",
+      "to": "upper_choir",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "upper_choir__ritual_feed",
+      "from": "upper_choir",
+      "to": "ritual_feed",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "ritual_feed__cooled_channel",
+      "from": "ritual_feed",
+      "to": "cooled_channel",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "cooled_channel__hoist_hall",
+      "from": "cooled_channel",
+      "to": "hoist_hall",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "hoist_hall__exit",
+      "from": "hoist_hall",
+      "to": "exit",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "west_shutoff__furnace_overlook",
+      "from": "west_shutoff",
+      "to": "furnace_overlook",
+      "requires": [
+        "west_off"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "east_shutoff__choir_stair",
+      "from": "east_shutoff",
+      "to": "choir_stair",
+      "requires": [
+        "east_off"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "vestibule__side_1",
+      "from": "vestibule",
+      "to": "side_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "bellows__side_2",
+      "from": "bellows",
+      "to": "side_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "east_walk__side_3",
+      "from": "east_walk",
+      "to": "side_3",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "hoist_hall__side_4",
+      "from": "hoist_hall",
+      "to": "side_4",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "west_walk__secret_1",
+      "from": "west_walk",
+      "to": "secret_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    },
+    {
+      "id": "ashworks__secret_2",
+      "from": "ashworks",
+      "to": "secret_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    }
+  ],
+  "encounter_identity": "Vertical crossing fight while machinery closes off a previous sightline; no instant damage floor required.",
+  "checkpoints": {
+    "count": 2,
+    "locations": [
+      "Safe landing after the first major objective",
+      "Safe landing after the penultimate objective"
+    ],
+    "policy": "same session-only exact-state contract as Ward"
+  },
+  "next_level": "Black Reliquary",
+  "target_human_minutes": [
+    20,
+    25
+  ],
+  "construction_gate": "These later-level diagrams establish identity and adjacency; resolve exact portal polylines, per-instance furnishings, encounter/supply numbers and collision at their subsequent construction milestone. They are not current playable replacements."
+}

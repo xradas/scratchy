@@ -1,0 +1,904 @@
+{
+  "version": 13,
+  "id": "occupied_line_01",
+  "title": "Dead Platform",
+  "status": "design only; current playable scene unchanged",
+  "objective": "Restore a physical passage across the blocked interchange.",
+  "route_summary": "Arrival platform \u2192 stalled train \u2192 signal house \u2192 maintenance bypass \u2192 opposite platform \u2192 track crossing \u2192 civic concourse.",
+  "objective_steps": [
+    "Restore the signal-house feed to unlock the maintenance overbridge.",
+    "Set the far track points to move a short obstacle platform clear of the crossing.",
+    "Reach the civic concourse."
+  ],
+  "rooms": [
+    {
+      "id": "arrival",
+      "label": "Arrival",
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "arrival",
+      "function": "station",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "platform_a",
+      "label": "Platform A",
+      "center": [
+        0,
+        0,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "platforms",
+      "function": "platform",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "stalled_train",
+      "label": "Stalled Train",
+      "center": [
+        -40,
+        0,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "platforms",
+      "function": "station",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "underpass",
+      "label": "Underpass",
+      "center": [
+        -40,
+        -3,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "maintenance",
+      "function": "utility",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "signal_house",
+      "label": "Signal House",
+      "center": [
+        0,
+        -3,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "maintenance",
+      "function": "dispatch",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "relay_stair",
+      "label": "Relay Stair",
+      "center": [
+        40,
+        1,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "maintenance",
+      "function": "signal_works",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "overbridge",
+      "label": "Overbridge",
+      "center": [
+        40,
+        5,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "crossing",
+      "function": "platform",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "platform_b",
+      "label": "Platform B",
+      "center": [
+        80,
+        0,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "crossing",
+      "function": "platform",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "maintenance_shed",
+      "label": "Maintenance Shed",
+      "center": [
+        80,
+        0,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "crossing",
+      "function": "workshop",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "track_switch",
+      "label": "Track Switch",
+      "center": [
+        120,
+        0,
+        -80
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "crossing",
+      "function": "signal_works",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "track_crossing",
+      "label": "Track Crossing",
+      "center": [
+        120,
+        -2,
+        -40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "platform",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "ticket_hall",
+      "label": "Ticket Hall",
+      "center": [
+        120,
+        0,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "station",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "concourse",
+      "label": "Concourse",
+      "center": [
+        80,
+        0,
+        0
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "civic_lobby",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "exit",
+      "label": "Exit",
+      "center": [
+        80,
+        0,
+        40
+      ],
+      "size": [
+        28,
+        8,
+        26
+      ],
+      "district": "departure",
+      "function": "civic_lobby",
+      "optional": false,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_1",
+      "label": "Supply room",
+      "center": [
+        -38,
+        0,
+        20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "arrival",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_2",
+      "label": "Staff quarters",
+      "center": [
+        -2,
+        -3,
+        -60
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "maintenance",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_3",
+      "label": "Observation room",
+      "center": [
+        2,
+        5,
+        -20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "crossing",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "side_4",
+      "label": "Equipment store",
+      "center": [
+        118,
+        0,
+        20
+      ],
+      "size": [
+        18,
+        6,
+        18
+      ],
+      "district": "departure",
+      "function": "stores",
+      "optional": true,
+      "secret": false,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_1",
+      "label": "Hidden stores 1",
+      "center": [
+        -40,
+        0,
+        -2
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "platforms",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    },
+    {
+      "id": "secret_2",
+      "label": "Hidden stores 2",
+      "center": [
+        80,
+        0,
+        -2
+      ],
+      "size": [
+        14,
+        5,
+        14
+      ],
+      "district": "crossing",
+      "function": "stores",
+      "optional": false,
+      "secret": true,
+      "objects": [
+        {
+          "type": "station_bench",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "ticket_kiosk",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        },
+        {
+          "type": "route_display",
+          "count": 1,
+          "placement": "Fitted to room function; keep main sightline and all portal approaches open."
+        }
+      ]
+    }
+  ],
+  "portals": [
+    {
+      "id": "arrival__platform_a",
+      "from": "arrival",
+      "to": "platform_a",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "platform_a__stalled_train",
+      "from": "platform_a",
+      "to": "stalled_train",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "stalled_train__underpass",
+      "from": "stalled_train",
+      "to": "underpass",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "underpass__signal_house",
+      "from": "underpass",
+      "to": "signal_house",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "signal_house__relay_stair",
+      "from": "signal_house",
+      "to": "relay_stair",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "relay_stair__overbridge",
+      "from": "relay_stair",
+      "to": "overbridge",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "overbridge__platform_b",
+      "from": "overbridge",
+      "to": "platform_b",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "platform_b__maintenance_shed",
+      "from": "platform_b",
+      "to": "maintenance_shed",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "maintenance_shed__track_switch",
+      "from": "maintenance_shed",
+      "to": "track_switch",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "track_switch__track_crossing",
+      "from": "track_switch",
+      "to": "track_crossing",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "track_crossing__ticket_hall",
+      "from": "track_crossing",
+      "to": "ticket_hall",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "ticket_hall__concourse",
+      "from": "ticket_hall",
+      "to": "concourse",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "concourse__exit",
+      "from": "concourse",
+      "to": "exit",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "signal_house__platform_a",
+      "from": "signal_house",
+      "to": "platform_a",
+      "requires": [
+        "maintenance_hatch"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "platform_b__concourse",
+      "from": "platform_b",
+      "to": "concourse",
+      "requires": [
+        "track_route_set"
+      ],
+      "shortcut": true,
+      "secret": false
+    },
+    {
+      "id": "arrival__side_1",
+      "from": "arrival",
+      "to": "side_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "underpass__side_2",
+      "from": "underpass",
+      "to": "side_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "overbridge__side_3",
+      "from": "overbridge",
+      "to": "side_3",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "concourse__side_4",
+      "from": "concourse",
+      "to": "side_4",
+      "requires": [],
+      "shortcut": false,
+      "secret": false
+    },
+    {
+      "id": "stalled_train__secret_1",
+      "from": "stalled_train",
+      "to": "secret_1",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    },
+    {
+      "id": "platform_b__secret_2",
+      "from": "platform_b",
+      "to": "secret_2",
+      "requires": [],
+      "shortcut": false,
+      "secret": true
+    }
+  ],
+  "encounter_identity": "Train cars create close-range flank routes; platform enemies attack across tracks. No moving-train ride or escort.",
+  "checkpoints": {
+    "count": 2,
+    "locations": [
+      "Safe landing after the first major objective",
+      "Safe landing after the penultimate objective"
+    ],
+    "policy": "same session-only exact-state contract as Ward"
+  },
+  "next_level": "Civic Lockdown",
+  "target_human_minutes": [
+    20,
+    25
+  ],
+  "construction_gate": "These later-level diagrams establish identity and adjacency; resolve exact portal polylines, per-instance furnishings, encounter/supply numbers and collision at their subsequent construction milestone. They are not current playable replacements."
+}
